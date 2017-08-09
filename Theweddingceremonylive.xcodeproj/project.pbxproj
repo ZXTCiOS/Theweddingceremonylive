@@ -57,6 +57,7 @@
 		53D02F5E1F3B1B5600CD504C /* TheweddingceremonyliveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheweddingceremonyliveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		53D02F621F3B1B5600CD504C /* TheweddingceremonyliveUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TheweddingceremonyliveUITests.m; sourceTree = "<group>"; };
 		53D02F641F3B1B5600CD504C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53D02F701F3B259400CD504C /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		8B526D6D9A8ECFE88B9376D9 /* Pods-Theweddingceremonylive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Theweddingceremonylive.release.xcconfig"; path = "Pods/Target Support Files/Pods-Theweddingceremonylive/Pods-Theweddingceremonylive.release.xcconfig"; sourceTree = "<group>"; };
 		9E8A5DCE680DDE19C3C09E4A /* libPods-Theweddingceremonylive.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Theweddingceremonylive.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B159648120D12B913EFB2C9D /* libPods-TheweddingceremonyliveTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TheweddingceremonyliveTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				53D02F3E1F3B1B5600CD504C /* main.m */,
+				53D02F701F3B259400CD504C /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -551,6 +553,8 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -598,6 +602,8 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -618,6 +624,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = GZJLNU22Y5;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Theweddingceremonylive/PrefixHeader.pch";
 				INFOPLIST_FILE = Theweddingceremonylive/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wangjungang.Theweddingceremonylive;
@@ -631,6 +640,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = GZJLNU22Y5;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Theweddingceremonylive/PrefixHeader.pch";
 				INFOPLIST_FILE = Theweddingceremonylive/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wangjungang.Theweddingceremonylive;
@@ -711,6 +723,7 @@
 				53D02F691F3B1B5600CD504C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		53D02F6A1F3B1B5600CD504C /* Build configuration list for PBXNativeTarget "TheweddingceremonyliveTests" */ = {
 			isa = XCConfigurationList;
@@ -719,6 +732,7 @@
 				53D02F6C1F3B1B5600CD504C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		53D02F6D1F3B1B5600CD504C /* Build configuration list for PBXNativeTarget "TheweddingceremonyliveUITests" */ = {
 			isa = XCConfigurationList;
@@ -727,6 +741,7 @@
 				53D02F6F1F3B1B5600CD504C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
