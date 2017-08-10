@@ -68,7 +68,6 @@
 //    self.window.rootViewController = navcon;
 //    [self.window makeKeyAndVisible];
     
-    
         MainVC * VC0 = [[MainVC alloc] init];
         VC0.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemMore tag:0];
         UINavigationController * nav0 = [[UINavigationController alloc] initWithRootViewController:VC0];
@@ -81,15 +80,15 @@
     
         MiddleVC *VC2 = [[MiddleVC alloc] init];
         UINavigationController * nav2 = [[UINavigationController alloc] initWithRootViewController:VC2];
-        VC2.title = @"vc2";
+        VC2.title = @"middle";
     
         BBSVC *VC3 = [[BBSVC alloc] init];
         UINavigationController * nav3 = [[UINavigationController alloc] initWithRootViewController:VC3];
-        VC3.title = @"vc3";
-    
+        VC3.title = @"BBS";
+        
         MineVC *VC4 = [[MineVC alloc] init];
         UINavigationController * nav4 = [[UINavigationController alloc] initWithRootViewController:VC4];
-        VC4.title = @"vc4";
+        VC4.title = @"mine";
         LCTabBarController * main = [[LCTabBarController alloc] init];
         main.viewControllers = @[nav0,nav1,nav2,nav3,nav4];
         self.window.rootViewController = main;
