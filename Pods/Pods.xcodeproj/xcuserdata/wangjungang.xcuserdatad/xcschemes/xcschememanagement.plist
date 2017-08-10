@@ -49,6 +49,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>TPKeyboardAvoiding.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -67,22 +72,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>07D0D23D57716E1FD3049A1ADD30875E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>0AC55E754182E1FCF070AC7F74379523</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3CB7C597B2210A15545A130FE246CCA4</key>
+		<key>15C64D092503908E7052B018616D026F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2B1A19046135744A913E78CE2E04EE18</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>586F2DFA9BDCC6675C2546793A69E5CC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>58EF1E2917F513E25E50C8C9517E9364</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -112,7 +122,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BCFC00745293368B6621A4A277505B53</key>
+		<key>DD68985770FAE2BA688021B326A8A559</key>
 		<dict>
 			<key>primary</key>
 			<true/>

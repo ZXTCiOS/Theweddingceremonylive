@@ -14,7 +14,7 @@ pod 'MBProgressHUD'
 pod 'TPKeyboardAvoiding'
 pod 'MLTransition'
 pod 'YYKit'
-
+pod 'SDWebImage'
   # Pods for Theweddingceremonylive
 
   target 'TheweddingceremonyliveTests' do

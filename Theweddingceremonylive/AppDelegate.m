@@ -7,7 +7,13 @@
 //
 
 #import "AppDelegate.h"
-
+#import "LCTabBarController.h"
+#import "LoginVC.h"
+#import "MainVC.h"
+#import "LiveVC.h"
+#import "MiddleVC.h"
+#import "BBSVC.h"
+#import "MineVC.h"
 @interface AppDelegate ()
 
 @end
@@ -17,6 +23,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [self confitroot];
+    
     return YES;
 }
 
@@ -47,5 +56,44 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+-(void)confitroot
+{
+    self.window = [[UIWindow alloc] init];
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+//    UINavigationController *navcon = [[UINavigationController alloc] init];
+//    LoginVC *vc = [[LoginVC alloc] init];
+//    vc.title = @"首页-登录";
+//    navcon.viewControllers = @[vc];
+//    self.window.rootViewController = navcon;
+//    [self.window makeKeyAndVisible];
+    
+    
+        MainVC * VC0 = [[MainVC alloc] init];
+        VC0.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemMore tag:0];
+        UINavigationController * nav0 = [[UINavigationController alloc] initWithRootViewController:VC0];
+        VC0.title = @"main";
+    
+        LiveVC * VC1 = [[LiveVC alloc] init];
+        VC1.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemMostViewed tag:1];
+        UINavigationController * nav1 = [[UINavigationController alloc] initWithRootViewController:VC1];
+        VC1.title = @"menu";
+    
+        MiddleVC *VC2 = [[MiddleVC alloc] init];
+        UINavigationController * nav2 = [[UINavigationController alloc] initWithRootViewController:VC2];
+        VC2.title = @"vc2";
+    
+        BBSVC *VC3 = [[BBSVC alloc] init];
+        UINavigationController * nav3 = [[UINavigationController alloc] initWithRootViewController:VC3];
+        VC3.title = @"vc3";
+    
+        MineVC *VC4 = [[MineVC alloc] init];
+        UINavigationController * nav4 = [[UINavigationController alloc] initWithRootViewController:VC4];
+        VC4.title = @"vc4";
+        LCTabBarController * main = [[LCTabBarController alloc] init];
+        main.viewControllers = @[nav0,nav1,nav2,nav3,nav4];
+        self.window.rootViewController = main;
+    
+}
 
 @end

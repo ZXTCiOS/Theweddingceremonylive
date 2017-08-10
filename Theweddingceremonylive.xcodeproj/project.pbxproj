@@ -15,6 +15,16 @@
 		53D02F4D1F3B1B5600CD504C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53D02F4B1F3B1B5600CD504C /* LaunchScreen.storyboard */; };
 		53D02F581F3B1B5600CD504C /* TheweddingceremonyliveTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F571F3B1B5600CD504C /* TheweddingceremonyliveTests.m */; };
 		53D02F631F3B1B5600CD504C /* TheweddingceremonyliveUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F621F3B1B5600CD504C /* TheweddingceremonyliveUITests.m */; };
+		53D02F7B1F3BF65600CD504C /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F7A1F3BF65600CD504C /* BaseViewController.m */; };
+		53D02F831F3BF68000CD504C /* LCTabbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F7E1F3BF68000CD504C /* LCTabbar.m */; };
+		53D02F841F3BF68000CD504C /* LCTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F801F3BF68000CD504C /* LCTabBarButton.m */; };
+		53D02F851F3BF68000CD504C /* LCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F821F3BF68000CD504C /* LCTabBarController.m */; };
+		53D02F8E1F3BF96900CD504C /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F8D1F3BF96900CD504C /* LoginVC.m */; };
+		53D02FA01F3BFA5900CD504C /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F9F1F3BFA5900CD504C /* MainVC.m */; };
+		53D02FA31F3BFB1900CD504C /* LiveVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02FA21F3BFB1900CD504C /* LiveVC.m */; };
+		53D02FA61F3BFB3000CD504C /* BBSVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02FA51F3BFB3000CD504C /* BBSVC.m */; };
+		53D02FA91F3BFB5E00CD504C /* MiddleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02FA81F3BFB5E00CD504C /* MiddleVC.m */; };
+		53D02FAC1F3BFB8800CD504C /* MineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02FAB1F3BFB8800CD504C /* MineVC.m */; };
 		6C46A5E82A0622B9729C4286 /* libPods-TheweddingceremonyliveUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B47EBC7A6AE74DF9FAD01AD9 /* libPods-TheweddingceremonyliveUITests.a */; };
 		AC08468B7F96FA8971F5766B /* libPods-TheweddingceremonyliveTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B159648120D12B913EFB2C9D /* libPods-TheweddingceremonyliveTests.a */; };
 		D6152237534C23F4F781B71E /* libPods-Theweddingceremonylive.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E8A5DCE680DDE19C3C09E4A /* libPods-Theweddingceremonylive.a */; };
@@ -58,6 +68,28 @@
 		53D02F621F3B1B5600CD504C /* TheweddingceremonyliveUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TheweddingceremonyliveUITests.m; sourceTree = "<group>"; };
 		53D02F641F3B1B5600CD504C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53D02F701F3B259400CD504C /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		53D02F791F3BF65600CD504C /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		53D02F7A1F3BF65600CD504C /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		53D02F7D1F3BF68000CD504C /* LCTabbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCTabbar.h; sourceTree = "<group>"; };
+		53D02F7E1F3BF68000CD504C /* LCTabbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCTabbar.m; sourceTree = "<group>"; };
+		53D02F7F1F3BF68000CD504C /* LCTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCTabBarButton.h; sourceTree = "<group>"; };
+		53D02F801F3BF68000CD504C /* LCTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCTabBarButton.m; sourceTree = "<group>"; };
+		53D02F811F3BF68000CD504C /* LCTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCTabBarController.h; sourceTree = "<group>"; };
+		53D02F821F3BF68000CD504C /* LCTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCTabBarController.m; sourceTree = "<group>"; };
+		53D02F8C1F3BF96900CD504C /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
+		53D02F8D1F3BF96900CD504C /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
+		53D02F9E1F3BFA5900CD504C /* MainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainVC.h; sourceTree = "<group>"; };
+		53D02F9F1F3BFA5900CD504C /* MainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainVC.m; sourceTree = "<group>"; };
+		53D02FA11F3BFB1900CD504C /* LiveVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveVC.h; sourceTree = "<group>"; };
+		53D02FA21F3BFB1900CD504C /* LiveVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveVC.m; sourceTree = "<group>"; };
+		53D02FA41F3BFB3000CD504C /* BBSVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSVC.h; sourceTree = "<group>"; };
+		53D02FA51F3BFB3000CD504C /* BBSVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSVC.m; sourceTree = "<group>"; };
+		53D02FA71F3BFB5E00CD504C /* MiddleVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiddleVC.h; sourceTree = "<group>"; };
+		53D02FA81F3BFB5E00CD504C /* MiddleVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MiddleVC.m; sourceTree = "<group>"; };
+		53D02FAA1F3BFB8800CD504C /* MineVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineVC.h; sourceTree = "<group>"; };
+		53D02FAB1F3BFB8800CD504C /* MineVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineVC.m; sourceTree = "<group>"; };
+		53D02FAD1F3BFCCE00CD504C /* wangHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wangHeader.h; sourceTree = "<group>"; };
+		53D02FAE1F3BFCDB00CD504C /* constHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constHeader.h; sourceTree = "<group>"; };
 		8B526D6D9A8ECFE88B9376D9 /* Pods-Theweddingceremonylive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Theweddingceremonylive.release.xcconfig"; path = "Pods/Target Support Files/Pods-Theweddingceremonylive/Pods-Theweddingceremonylive.release.xcconfig"; sourceTree = "<group>"; };
 		9E8A5DCE680DDE19C3C09E4A /* libPods-Theweddingceremonylive.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Theweddingceremonylive.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B159648120D12B913EFB2C9D /* libPods-TheweddingceremonyliveTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TheweddingceremonyliveTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,12 +166,22 @@
 			children = (
 				53D02F401F3B1B5600CD504C /* AppDelegate.h */,
 				53D02F411F3B1B5600CD504C /* AppDelegate.m */,
-				53D02F431F3B1B5600CD504C /* ViewController.h */,
-				53D02F441F3B1B5600CD504C /* ViewController.m */,
+				53D02F861F3BF95300CD504C /* 登录注册 */,
+				53D02F871F3BF95300CD504C /* 首页 */,
+				53D02F8B1F3BF95300CD504C /* 直播 */,
+				53D02F881F3BF95300CD504C /* 论坛 */,
+				53D02F891F3BF95300CD504C /* 开播 */,
+				53D02F8A1F3BF95300CD504C /* 我的 */,
+				53D02F721F3B2A4E00CD504C /* BASE */,
+				53D02F7C1F3BF68000CD504C /* tabbar */,
+				53D02F741F3BF5F800CD504C /* NetWorking */,
+				53D02F751F3BF5F800CD504C /* define */,
+				53D02F761F3BF5F800CD504C /* category */,
+				53D02F771F3BF5F800CD504C /* Tool */,
+				53D02F781F3BF5F800CD504C /* Vendor */,
+				53D02F711F3B2A4C00CD504C /* Sources */,
 				53D02F461F3B1B5600CD504C /* Main.storyboard */,
-				53D02F491F3B1B5600CD504C /* Assets.xcassets */,
 				53D02F4B1F3B1B5600CD504C /* LaunchScreen.storyboard */,
-				53D02F4E1F3B1B5600CD504C /* Info.plist */,
 				53D02F3D1F3B1B5600CD504C /* Supporting Files */,
 			);
 			path = Theweddingceremonylive;
@@ -148,6 +190,7 @@
 		53D02F3D1F3B1B5600CD504C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				53D02F4E1F3B1B5600CD504C /* Info.plist */,
 				53D02F3E1F3B1B5600CD504C /* main.m */,
 				53D02F701F3B259400CD504C /* PrefixHeader.pch */,
 			);
@@ -170,6 +213,249 @@
 				53D02F641F3B1B5600CD504C /* Info.plist */,
 			);
 			path = TheweddingceremonyliveUITests;
+			sourceTree = "<group>";
+		};
+		53D02F711F3B2A4C00CD504C /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				53D02F491F3B1B5600CD504C /* Assets.xcassets */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		53D02F721F3B2A4E00CD504C /* BASE */ = {
+			isa = PBXGroup;
+			children = (
+				53D02F431F3B1B5600CD504C /* ViewController.h */,
+				53D02F441F3B1B5600CD504C /* ViewController.m */,
+				53D02F791F3BF65600CD504C /* BaseViewController.h */,
+				53D02F7A1F3BF65600CD504C /* BaseViewController.m */,
+			);
+			name = BASE;
+			sourceTree = "<group>";
+		};
+		53D02F741F3BF5F800CD504C /* NetWorking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NetWorking;
+			sourceTree = "<group>";
+		};
+		53D02F751F3BF5F800CD504C /* define */ = {
+			isa = PBXGroup;
+			children = (
+				53D02FAE1F3BFCDB00CD504C /* constHeader.h */,
+				53D02FAD1F3BFCCE00CD504C /* wangHeader.h */,
+			);
+			path = define;
+			sourceTree = "<group>";
+		};
+		53D02F761F3BF5F800CD504C /* category */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = category;
+			sourceTree = "<group>";
+		};
+		53D02F771F3BF5F800CD504C /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		53D02F781F3BF5F800CD504C /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		53D02F7C1F3BF68000CD504C /* tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				53D02F7D1F3BF68000CD504C /* LCTabbar.h */,
+				53D02F7E1F3BF68000CD504C /* LCTabbar.m */,
+				53D02F7F1F3BF68000CD504C /* LCTabBarButton.h */,
+				53D02F801F3BF68000CD504C /* LCTabBarButton.m */,
+				53D02F811F3BF68000CD504C /* LCTabBarController.h */,
+				53D02F821F3BF68000CD504C /* LCTabBarController.m */,
+			);
+			path = tabbar;
+			sourceTree = "<group>";
+		};
+		53D02F861F3BF95300CD504C /* 登录注册 */ = {
+			isa = PBXGroup;
+			children = (
+				53D02F8C1F3BF96900CD504C /* LoginVC.h */,
+				53D02F8D1F3BF96900CD504C /* LoginVC.m */,
+			);
+			path = "登录注册";
+			sourceTree = "<group>";
+		};
+		53D02F871F3BF95300CD504C /* 首页 */ = {
+			isa = PBXGroup;
+			children = (
+				53D02F8F1F3BF99F00CD504C /* M */,
+				53D02F901F3BF99F00CD504C /* V */,
+				53D02F911F3BF99F00CD504C /* C */,
+			);
+			path = "首页";
+			sourceTree = "<group>";
+		};
+		53D02F881F3BF95300CD504C /* 论坛 */ = {
+			isa = PBXGroup;
+			children = (
+				53D02F931F3BF9C100CD504C /* M */,
+				53D02F941F3BF9C100CD504C /* V */,
+				53D02F921F3BF9C100CD504C /* C */,
+			);
+			path = "论坛";
+			sourceTree = "<group>";
+		};
+		53D02F891F3BF95300CD504C /* 开播 */ = {
+			isa = PBXGroup;
+			children = (
+				53D02F991F3BF9DD00CD504C /* M */,
+				53D02F9A1F3BF9DD00CD504C /* V */,
+				53D02F981F3BF9DD00CD504C /* C */,
+			);
+			path = "开播";
+			sourceTree = "<group>";
+		};
+		53D02F8A1F3BF95300CD504C /* 我的 */ = {
+			isa = PBXGroup;
+			children = (
+				53D02F961F3BF9CD00CD504C /* M */,
+				53D02F971F3BF9CD00CD504C /* V */,
+				53D02F951F3BF9CD00CD504C /* C */,
+			);
+			path = "我的";
+			sourceTree = "<group>";
+		};
+		53D02F8B1F3BF95300CD504C /* 直播 */ = {
+			isa = PBXGroup;
+			children = (
+				53D02F9C1F3BF9EC00CD504C /* M */,
+				53D02F9D1F3BF9EC00CD504C /* V */,
+				53D02F9B1F3BF9EC00CD504C /* C */,
+			);
+			path = "直播";
+			sourceTree = "<group>";
+		};
+		53D02F8F1F3BF99F00CD504C /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
+		53D02F901F3BF99F00CD504C /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		53D02F911F3BF99F00CD504C /* C */ = {
+			isa = PBXGroup;
+			children = (
+				53D02F9E1F3BFA5900CD504C /* MainVC.h */,
+				53D02F9F1F3BFA5900CD504C /* MainVC.m */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		53D02F921F3BF9C100CD504C /* C */ = {
+			isa = PBXGroup;
+			children = (
+				53D02FA41F3BFB3000CD504C /* BBSVC.h */,
+				53D02FA51F3BFB3000CD504C /* BBSVC.m */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		53D02F931F3BF9C100CD504C /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
+		53D02F941F3BF9C100CD504C /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		53D02F951F3BF9CD00CD504C /* C */ = {
+			isa = PBXGroup;
+			children = (
+				53D02FAA1F3BFB8800CD504C /* MineVC.h */,
+				53D02FAB1F3BFB8800CD504C /* MineVC.m */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		53D02F961F3BF9CD00CD504C /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
+		53D02F971F3BF9CD00CD504C /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		53D02F981F3BF9DD00CD504C /* C */ = {
+			isa = PBXGroup;
+			children = (
+				53D02FA71F3BFB5E00CD504C /* MiddleVC.h */,
+				53D02FA81F3BFB5E00CD504C /* MiddleVC.m */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		53D02F991F3BF9DD00CD504C /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
+		53D02F9A1F3BF9DD00CD504C /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		53D02F9B1F3BF9EC00CD504C /* C */ = {
+			isa = PBXGroup;
+			children = (
+				53D02FA11F3BFB1900CD504C /* LiveVC.h */,
+				53D02FA21F3BFB1900CD504C /* LiveVC.m */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		53D02F9C1F3BF9EC00CD504C /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
+		53D02F9D1F3BF9EC00CD504C /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = V;
 			sourceTree = "<group>";
 		};
 		DB49F4094154EE705C0CEC6F /* Frameworks */ = {
@@ -465,9 +751,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53D02F851F3BF68000CD504C /* LCTabBarController.m in Sources */,
 				53D02F451F3B1B5600CD504C /* ViewController.m in Sources */,
+				53D02F7B1F3BF65600CD504C /* BaseViewController.m in Sources */,
+				53D02FA01F3BFA5900CD504C /* MainVC.m in Sources */,
+				53D02F841F3BF68000CD504C /* LCTabBarButton.m in Sources */,
+				53D02F831F3BF68000CD504C /* LCTabbar.m in Sources */,
+				53D02FAC1F3BFB8800CD504C /* MineVC.m in Sources */,
 				53D02F421F3B1B5600CD504C /* AppDelegate.m in Sources */,
+				53D02F8E1F3BF96900CD504C /* LoginVC.m in Sources */,
+				53D02FA31F3BFB1900CD504C /* LiveVC.m in Sources */,
+				53D02FA91F3BFB5E00CD504C /* MiddleVC.m in Sources */,
 				53D02F3F1F3B1B5600CD504C /* main.m in Sources */,
+				53D02FA61F3BFB3000CD504C /* BBSVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -33,6 +33,9 @@ PODS:
   - MBProgressHUD (1.0.0)
   - MJRefresh (3.1.12)
   - MLTransition (2.1.3)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
   - TPKeyboardAvoiding (1.3.1)
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
@@ -45,6 +48,7 @@ DEPENDENCIES:
   - MBProgressHUD
   - MJRefresh
   - MLTransition
+  - SDWebImage
   - TPKeyboardAvoiding
   - YYKit
 
@@ -55,9 +59,10 @@ SPEC CHECKSUMS:
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   MLTransition: 8ebe393aedfb61507202085a5bb16c7b17363e43
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   TPKeyboardAvoiding: 0d6af20e95e2850f4c621841225b59ec7d8dd852
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 146bb921fb80f5835c64f2d5d709e2aa1da98ef0
+PODFILE CHECKSUM: fc6fd1dcaf5a74138e3e2be4b3a3dfc2e9d995e1
 
 COCOAPODS: 1.2.1
