@@ -7,7 +7,7 @@
 //
 
 #import "LiveVC.h"
-
+#import "ViewController.h"
 @interface LiveVC ()
 
 @end
@@ -17,17 +17,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    self.view.backgroundColor = [UIColor lightGrayColor];
 
+    self.view.backgroundColor = [UIColor lightGrayColor];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     self.tabBarController.tabBar.tintColor = [UIColor colorWithHexString:@"333333"];
-    self.tabBarController.tabBar.backgroundImage = [self imageWithColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:0]];
-    self.tabBarController.tabBar.shadowImage = [UIImage new];
+    self.tabBarController.tabBar.alpha = 0.1f;
+    //设置为透明
+    self.tabBarController.tabBar.translucent = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,20 +38,12 @@
 -(void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
-    self.tabBarController.tabBar.backgroundImage = [self imageWithColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:0]];
-    self.tabBarController.tabBar.shadowImage = [UIImage new];
+    self.tabBarController.tabBar.alpha = 1;
+    //设置为透明
+    self.tabBarController.tabBar.translucent = YES;
     self.tabBarController.tabBar.tintColor = [UIColor colorWithHexString:@"ed5e40"];
 }
 
-- (UIImage *)imageWithColor:(UIColor *)color {
-    CGRect rect = CGRectMake(0.0f,0.0f, 1.0f,1.0f);
-    UIGraphicsBeginImageContext(rect.size);
-    CGContextRef context =UIGraphicsGetCurrentContext();
-    CGContextSetFillColorWithColor(context, [color CGColor]);
-    CGContextFillRect(context, rect);
-    UIImage *image =UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return image;
-}
+
 
 @end

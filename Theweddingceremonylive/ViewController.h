@@ -10,6 +10,6 @@
 
 @interface ViewController : UITabBarController
 
-
+@property (nonatomic,strong) UIButton *midBtn;
 @end
 

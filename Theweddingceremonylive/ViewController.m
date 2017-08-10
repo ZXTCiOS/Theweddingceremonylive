@@ -15,7 +15,7 @@
 #import "BBSVC.h"
 #import "MineVC.h"
 
-@interface ViewController ()
+@interface ViewController ()<UITabBarControllerDelegate>
 {
     UIImageView *imageView;
 
@@ -28,39 +28,41 @@
     [super viewDidLoad];
     
 
+    self.delegate = self;
     
     LiveVC *first = [[LiveVC alloc] init];
     first.tabBarItem.image = [UIImage imageNamed:@"TabBar1"];
     [first.tabBarItem setSelectedImage:[UIImage imageNamed:@"TabBar1Sel"]];
+    first.tabBarItem.tag=1;
     
     MainVC *second = [[MainVC alloc] init];
     second.tabBarItem.image = [UIImage imageNamed:@"TabBar2"];
     [second.tabBarItem setSelectedImage:[UIImage imageNamed:@"TabBar2Sel"]];
-    
+    second.tabBarItem.tag=2;
     
     MiddleVC *middle = [[MiddleVC alloc] init];
-    [self addCenterButtonWithImage:[UIImage imageNamed:@"摄影机图标_点击后"] highlightImage:nil];
-    
+    [self addCenterButtonWithImage:[UIImage imageNamed:@"摄影机图标_点击前"] highlightImage:[UIImage imageNamed:@""] ];
     BBSVC *third = [[BBSVC alloc] init];
-
     third.tabBarItem.image = [UIImage imageNamed:@"TabBar4"];
     [third.tabBarItem setSelectedImage:[UIImage imageNamed:@"TabBar4Sel"]];
+    third.tabBarItem.tag = 3;
     
     MineVC *four = [[MineVC alloc] init];
     four.tabBarItem.image = [UIImage imageNamed:@"TabBar5"];
     [four.tabBarItem setSelectedImage:[UIImage imageNamed:@"TabBar5Sel"]];
+    four.tabBarItem.tag = 4;
     
     self.viewControllers = @[first,second,middle,third,four];
     
-    if (self.tabBar.selectedItem==0) {
-        self.tabBarController.tabBar.backgroundImage = [self imageWithColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:0]];
-        self.tabBarController.tabBar.shadowImage = [UIImage new];
-    }
-    else
-    {
-        self.tabBarController.tabBar.backgroundImage = [self imageWithColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:1]];
-        self.tabBarController.tabBar.shadowImage = [UIImage new];
-    }
+    
+    
+    self.selectedViewController = [self.viewControllers objectAtIndex:0];
+    
+    
+    
+
+    
+    
 }
 
 
@@ -76,28 +78,29 @@
 }
 
 
-
 //添加中间按钮
 - (void)addCenterButtonWithImage:(UIImage *)buttonImage highlightImage:(UIImage *)highlightImage
 {
-    UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin;
-    button.frame = CGRectMake(0.0, 0.0, buttonImage.size.width, buttonImage.size.height);
-    [button addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
-    [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
-    [button setBackgroundImage:highlightImage forState:UIControlStateHighlighted];
+    self.midBtn = [UIButton new];
+    self.midBtn.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin;
+    self.midBtn.frame = CGRectMake(0.0, 0.0, buttonImage.size.width, buttonImage.size.height);
+    [self.midBtn addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
+//    [self.midBtn setBackgroundImage:buttonImage forState:UIControlStateNormal];
+//    [self.midBtn setBackgroundImage:highlightImage forState:UIControlStateHighlighted];
+    
+    [self.midBtn setBackgroundImage:buttonImage forState:normal];
     
     CGFloat heightDifference = buttonImage.size.height - self.tabBar.frame.size.height;
     if (heightDifference < 0)
-        button.center = self.tabBar.center;
+        self.midBtn.center = self.tabBar.center;
     else
     {
         CGPoint center = self.tabBar.center;
         center.y = center.y - heightDifference/2.0;
-        button.center = center;
+        self.midBtn.center = center;
     }
     
-    [self.view addSubview:button];
+    [self.view addSubview:self.midBtn];
 }
 
 - (void)buttonClick
@@ -107,6 +110,21 @@
     [self.navigationController pushViewController:middle animated:YES];
     
 
+}
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
+    
+}
+
+-(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
+{
+    if (item.tag==1) {
+        [self.midBtn setBackgroundImage:[UIImage imageNamed:@"摄影机图标_点击前"] forState:normal];
+    }
+    else
+    {
+         [self.midBtn setBackgroundImage:[UIImage imageNamed:@"摄影机图标_点击后"] forState:normal];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
