@@ -7,10 +7,14 @@
 //
 
 #import "LiveVC.h"
+#import "ViewController.h"
 
 @interface LiveVC ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
+
+
+
 
 
 
@@ -27,12 +31,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
+    self.view.backgroundColor = [UIColor lightGrayColor];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.tabBarController.tabBar.tintColor = [UIColor colorWithHexString:@"333333"];
+    self.tabBarController.tabBar.alpha = 0.1f;
+    //设置为透明
+    self.tabBarController.tabBar.translucent = YES;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 #pragma mark UITableView Datasource
 
@@ -70,6 +86,16 @@
         _tableView.tableFooterView = [UIView new];
     }
     return _tableView;
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    self.tabBarController.tabBar.alpha = 1;
+    //设置为透明
+    self.tabBarController.tabBar.translucent = YES;
+    self.tabBarController.tabBar.tintColor = [UIColor colorWithHexString:@"ed5e40"];
+
 }
 
 

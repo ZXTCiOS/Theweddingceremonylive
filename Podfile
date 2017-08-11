@@ -15,6 +15,7 @@ pod 'TPKeyboardAvoiding'
 pod 'MLTransition'
 pod 'YYKit'
 pod 'SDWebImage'
+pod 'CYTabBar'
   # Pods for Theweddingceremonylive
 
   target 'TheweddingceremonyliveTests' do

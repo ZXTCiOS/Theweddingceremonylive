@@ -54,6 +54,7 @@
     _cameraView.center = CGPointMake(SCREEN_WIDTH*0.5, SCREEN_HEIGHT-(kCameraViewHeight*0.5));
     _cameraView.bounds = CGRectMake(0, 0, kCameraViewWidth, kCameraViewHeight);
     _cameraView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"tab_摄影机图标背景"]];
+    //_cameraView.alpha = 0.1f;
     _cameraBtn = [[UIButton alloc]init];
     [_cameraBtn setBackgroundImage:[UIImage imageNamed:@"摄影机图标_点击前"] forState:UIControlStateNormal];
     [_cameraBtn setBackgroundImage:[UIImage imageNamed:@"摄影机图标_点击后"] forState:UIControlStateHighlighted];

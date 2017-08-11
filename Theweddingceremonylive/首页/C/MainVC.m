@@ -9,13 +9,14 @@
 #import "MainVC.h"
 
 @interface MainVC ()
-
 @end
 
 @implementation MainVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.title = @"首页";
+    self.tabBarController.tabBar.tintColor = [UIColor colorWithHexString:@"ed5e40"];
     // Do any additional setup after loading the view.
 }
 
@@ -23,6 +24,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 @end

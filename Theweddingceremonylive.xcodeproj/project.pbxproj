@@ -182,8 +182,8 @@
 				53D02F401F3B1B5600CD504C /* AppDelegate.h */,
 				53D02F411F3B1B5600CD504C /* AppDelegate.m */,
 				53D02F861F3BF95300CD504C /* 登录注册 */,
+				53D02F8B1F3BF95300CD504C /* 视频 */,
 				53D02F871F3BF95300CD504C /* 首页 */,
-				53D02F8B1F3BF95300CD504C /* 直播 */,
 				53D02F881F3BF95300CD504C /* 论坛 */,
 				53D02F891F3BF95300CD504C /* 开播 */,
 				53D02F8A1F3BF95300CD504C /* 我的 */,
@@ -348,13 +348,14 @@
 			path = "我的";
 			sourceTree = "<group>";
 		};
-		53D02F8B1F3BF95300CD504C /* 直播 */ = {
+		53D02F8B1F3BF95300CD504C /* 视频 */ = {
 			isa = PBXGroup;
 			children = (
 				53D02F9C1F3BF9EC00CD504C /* M */,
 				1847DECE1F3C49F200C796A8 /* V */,
 				53D02F9B1F3BF9EC00CD504C /* C */,
 			);
+			name = "视频";
 			path = "直播";
 			sourceTree = "<group>";
 		};
