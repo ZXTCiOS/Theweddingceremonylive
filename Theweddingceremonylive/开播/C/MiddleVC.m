@@ -17,6 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor orangeColor];
+    
+    self.navigationItem.title = @"title";
+    
     // Do any additional setup after loading the view.
 }
 

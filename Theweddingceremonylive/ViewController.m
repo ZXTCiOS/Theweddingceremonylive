@@ -7,8 +7,6 @@
 //
 
 #import "ViewController.h"
-
-
 #import "LiveVC.h"
 #import "MainVC.h"
 #import "MiddleVC.h"
@@ -42,6 +40,8 @@
     
     MiddleVC *middle = [[MiddleVC alloc] init];
     [self addCenterButtonWithImage:[UIImage imageNamed:@"摄影机图标_点击前"] highlightImage:[UIImage imageNamed:@""] ];
+    middle.tabBarItem.tag = 10;
+    
     BBSVC *third = [[BBSVC alloc] init];
     third.tabBarItem.image = [UIImage imageNamed:@"TabBar4"];
     [third.tabBarItem setSelectedImage:[UIImage imageNamed:@"TabBar4Sel"]];
@@ -52,17 +52,10 @@
     [four.tabBarItem setSelectedImage:[UIImage imageNamed:@"TabBar5Sel"]];
     four.tabBarItem.tag = 4;
     
+    
     self.viewControllers = @[first,second,middle,third,four];
-    
-    
-    
     self.selectedViewController = [self.viewControllers objectAtIndex:0];
-    
-    
-    
 
-    
-    
 }
 
 
@@ -85,11 +78,7 @@
     self.midBtn.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin;
     self.midBtn.frame = CGRectMake(0.0, 0.0, buttonImage.size.width, buttonImage.size.height);
     [self.midBtn addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
-//    [self.midBtn setBackgroundImage:buttonImage forState:UIControlStateNormal];
-//    [self.midBtn setBackgroundImage:highlightImage forState:UIControlStateHighlighted];
-    
     [self.midBtn setBackgroundImage:buttonImage forState:normal];
-    
     CGFloat heightDifference = buttonImage.size.height - self.tabBar.frame.size.height;
     if (heightDifference < 0)
         self.midBtn.center = self.tabBar.center;
@@ -111,15 +100,14 @@
     
 
 }
-- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
-{
-    
-}
 
 -(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
 {
     if (item.tag==1) {
         [self.midBtn setBackgroundImage:[UIImage imageNamed:@"摄影机图标_点击前"] forState:normal];
+    }
+    if (item.tag==10) {
+        
     }
     else
     {

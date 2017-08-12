@@ -7,8 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "MainTabBarController.h"
 
-#import "ViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -63,11 +63,9 @@
 //    self.window.rootViewController = navcon;
 //    [self.window makeKeyAndVisible];
     
-    
-    ViewController *vc = [[ViewController alloc] init];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-    self.window.rootViewController = nav;
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
+    self.window.rootViewController = [[MainTabBarController alloc] init];
     [self.window makeKeyAndVisible];
 }
 

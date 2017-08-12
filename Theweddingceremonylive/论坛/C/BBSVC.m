@@ -18,7 +18,8 @@
     [super viewDidLoad];
     
     
-    // Do any additional setup after loading the view.
+     self.navigationController.navigationBar.topItem.title = @"BBS";
+    
 }
 
 - (void)didReceiveMemoryWarning {

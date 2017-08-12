@@ -33,6 +33,10 @@
 		53D02FA61F3BFB3000CD504C /* BBSVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02FA51F3BFB3000CD504C /* BBSVC.m */; };
 		53D02FA91F3BFB5E00CD504C /* MiddleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02FA81F3BFB5E00CD504C /* MiddleVC.m */; };
 		53D02FAC1F3BFB8800CD504C /* MineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02FAB1F3BFB8800CD504C /* MineVC.m */; };
+		53EEF2A31F3E9E1D0031D396 /* tabbar_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53EEF2A01F3E9E1D0031D396 /* tabbar_bg@2x.png */; };
+		53EEF2A41F3E9E1D0031D396 /* tabbar_bg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53EEF2A11F3E9E1D0031D396 /* tabbar_bg@3x.png */; };
+		53EEF2A91F3E9EE80031D396 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EEF2A61F3E9EE80031D396 /* MainTabBarController.m */; };
+		53EEF2AA1F3E9EE80031D396 /* UITabBarController+QFExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EEF2A81F3E9EE80031D396 /* UITabBarController+QFExtension.m */; };
 		6C46A5E82A0622B9729C4286 /* libPods-TheweddingceremonyliveUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B47EBC7A6AE74DF9FAD01AD9 /* libPods-TheweddingceremonyliveUITests.a */; };
 		AC08468B7F96FA8971F5766B /* libPods-TheweddingceremonyliveTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B159648120D12B913EFB2C9D /* libPods-TheweddingceremonyliveTests.a */; };
 		D6152237534C23F4F781B71E /* libPods-Theweddingceremonylive.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E8A5DCE680DDE19C3C09E4A /* libPods-Theweddingceremonylive.a */; };
@@ -113,6 +117,12 @@
 		53D02FAB1F3BFB8800CD504C /* MineVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineVC.m; sourceTree = "<group>"; };
 		53D02FAD1F3BFCCE00CD504C /* wangHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wangHeader.h; sourceTree = "<group>"; };
 		53D02FAE1F3BFCDB00CD504C /* constHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constHeader.h; sourceTree = "<group>"; };
+		53EEF2A01F3E9E1D0031D396 /* tabbar_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_bg@2x.png"; sourceTree = "<group>"; };
+		53EEF2A11F3E9E1D0031D396 /* tabbar_bg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_bg@3x.png"; sourceTree = "<group>"; };
+		53EEF2A51F3E9EE80031D396 /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
+		53EEF2A61F3E9EE80031D396 /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
+		53EEF2A71F3E9EE80031D396 /* UITabBarController+QFExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+QFExtension.h"; sourceTree = "<group>"; };
+		53EEF2A81F3E9EE80031D396 /* UITabBarController+QFExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+QFExtension.m"; sourceTree = "<group>"; };
 		8B526D6D9A8ECFE88B9376D9 /* Pods-Theweddingceremonylive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Theweddingceremonylive.release.xcconfig"; path = "Pods/Target Support Files/Pods-Theweddingceremonylive/Pods-Theweddingceremonylive.release.xcconfig"; sourceTree = "<group>"; };
 		9E8A5DCE680DDE19C3C09E4A /* libPods-Theweddingceremonylive.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Theweddingceremonylive.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B159648120D12B913EFB2C9D /* libPods-TheweddingceremonyliveTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TheweddingceremonyliveTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -223,6 +233,7 @@
 		53D02F3D1F3B1B5600CD504C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				53EEF29E1F3E9E1D0031D396 /* img */,
 				53D02F4E1F3B1B5600CD504C /* Info.plist */,
 				53D02F3E1F3B1B5600CD504C /* main.m */,
 				53D02F701F3B259400CD504C /* PrefixHeader.pch */,
@@ -317,6 +328,10 @@
 		53D02F7C1F3BF68000CD504C /* tabbar */ = {
 			isa = PBXGroup;
 			children = (
+				53EEF2A51F3E9EE80031D396 /* MainTabBarController.h */,
+				53EEF2A61F3E9EE80031D396 /* MainTabBarController.m */,
+				53EEF2A71F3E9EE80031D396 /* UITabBarController+QFExtension.h */,
+				53EEF2A81F3E9EE80031D396 /* UITabBarController+QFExtension.m */,
 				53D02F7D1F3BF68000CD504C /* LCTabbar.h */,
 				53D02F7E1F3BF68000CD504C /* LCTabbar.m */,
 				53D02F7F1F3BF68000CD504C /* LCTabBarButton.h */,
@@ -497,6 +512,25 @@
 			path = M;
 			sourceTree = "<group>";
 		};
+
+
+		53D02F9D1F3BF9EC00CD504C /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		53EEF29E1F3E9E1D0031D396 /* img */ = {
+			isa = PBXGroup;
+			children = (
+				53EEF2A01F3E9E1D0031D396 /* tabbar_bg@2x.png */,
+				53EEF2A11F3E9E1D0031D396 /* tabbar_bg@3x.png */,
+			);
+			path = img;
+			sourceTree = "<group>";
+		};
+
 		DB49F4094154EE705C0CEC6F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -628,6 +662,8 @@
 				53D02F4D1F3B1B5600CD504C /* LaunchScreen.storyboard in Resources */,
 				1847DED81F3C5A5F00C796A8 /* LiveVideoCell.xib in Resources */,
 				53D02F4A1F3B1B5600CD504C /* Assets.xcassets in Resources */,
+				53EEF2A31F3E9E1D0031D396 /* tabbar_bg@2x.png in Resources */,
+				53EEF2A41F3E9E1D0031D396 /* tabbar_bg@3x.png in Resources */,
 				53D02F481F3B1B5600CD504C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -801,9 +837,14 @@
 				53D02F831F3BF68000CD504C /* LCTabbar.m in Sources */,
 				1851F4201F3D843E00369326 /* UITextView+Placeholder.m in Sources */,
 				53D02FAC1F3BFB8800CD504C /* MineVC.m in Sources */,
+				53EEF2AA1F3E9EE80031D396 /* UITabBarController+QFExtension.m in Sources */,
 				53D02F421F3B1B5600CD504C /* AppDelegate.m in Sources */,
+
 				1851F41D1F3D843E00369326 /* NSObject+Parse.m in Sources */,
 				1851F4211F3D843E00369326 /* UIView+HUD.m in Sources */,
+
+				53EEF2A91F3E9EE80031D396 /* MainTabBarController.m in Sources */,
+
 				53D02F8E1F3BF96900CD504C /* LoginVC.m in Sources */,
 				53D02FA31F3BFB1900CD504C /* LiveVC.m in Sources */,
 				1851F41F1F3D843E00369326 /* UIScrollView+Refresh.m in Sources */,

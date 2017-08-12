@@ -9,6 +9,7 @@
 #import "MineVC.h"
 
 @interface MineVC ()
+@property (nonatomic,strong) UILabel *demolab;
 
 @end
 
@@ -16,8 +17,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tabBarController.navigationItem.title = @"我的";
     
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
