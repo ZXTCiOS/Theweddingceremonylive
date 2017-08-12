@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		1847DED71F3C5A5F00C796A8 /* LiveVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1847DED51F3C5A5F00C796A8 /* LiveVideoCell.m */; };
 		1847DED81F3C5A5F00C796A8 /* LiveVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1847DED61F3C5A5F00C796A8 /* LiveVideoCell.xib */; };
+		1851F4121F3D7DF600369326 /* LiveVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1851F4111F3D7DF600369326 /* LiveVideoModel.m */; };
+		1851F41D1F3D843E00369326 /* NSObject+Parse.m in Sources */ = {isa = PBXBuildFile; fileRef = 1851F4141F3D843E00369326 /* NSObject+Parse.m */; };
+		1851F41E1F3D843E00369326 /* NSString+myUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 1851F4161F3D843E00369326 /* NSString+myUrl.m */; };
+		1851F41F1F3D843E00369326 /* UIScrollView+Refresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 1851F4181F3D843E00369326 /* UIScrollView+Refresh.m */; };
+		1851F4201F3D843E00369326 /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1851F41A1F3D843E00369326 /* UITextView+Placeholder.m */; };
+		1851F4211F3D843E00369326 /* UIView+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 1851F41C1F3D843E00369326 /* UIView+HUD.m */; };
 		53D02F3F1F3B1B5600CD504C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F3E1F3B1B5600CD504C /* main.m */; };
 		53D02F421F3B1B5600CD504C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F411F3B1B5600CD504C /* AppDelegate.m */; };
 		53D02F451F3B1B5600CD504C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F441F3B1B5600CD504C /* ViewController.m */; };
@@ -54,6 +60,18 @@
 		1847DED41F3C5A5F00C796A8 /* LiveVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveVideoCell.h; sourceTree = "<group>"; };
 		1847DED51F3C5A5F00C796A8 /* LiveVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveVideoCell.m; sourceTree = "<group>"; };
 		1847DED61F3C5A5F00C796A8 /* LiveVideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LiveVideoCell.xib; sourceTree = "<group>"; };
+		1851F4101F3D7DF600369326 /* LiveVideoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveVideoModel.h; sourceTree = "<group>"; };
+		1851F4111F3D7DF600369326 /* LiveVideoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveVideoModel.m; sourceTree = "<group>"; };
+		1851F4131F3D843E00369326 /* NSObject+Parse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Parse.h"; sourceTree = "<group>"; };
+		1851F4141F3D843E00369326 /* NSObject+Parse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Parse.m"; sourceTree = "<group>"; };
+		1851F4151F3D843E00369326 /* NSString+myUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+myUrl.h"; sourceTree = "<group>"; };
+		1851F4161F3D843E00369326 /* NSString+myUrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+myUrl.m"; sourceTree = "<group>"; };
+		1851F4171F3D843E00369326 /* UIScrollView+Refresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Refresh.h"; sourceTree = "<group>"; };
+		1851F4181F3D843E00369326 /* UIScrollView+Refresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Refresh.m"; sourceTree = "<group>"; };
+		1851F4191F3D843E00369326 /* UITextView+Placeholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Placeholder.h"; sourceTree = "<group>"; };
+		1851F41A1F3D843E00369326 /* UITextView+Placeholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Placeholder.m"; sourceTree = "<group>"; };
+		1851F41B1F3D843E00369326 /* UIView+HUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HUD.h"; sourceTree = "<group>"; };
+		1851F41C1F3D843E00369326 /* UIView+HUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HUD.m"; sourceTree = "<group>"; };
 		18F40CBA8FE5D3181F0F3B4C /* Pods-TheweddingceremonyliveTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheweddingceremonyliveTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheweddingceremonyliveTests/Pods-TheweddingceremonyliveTests.debug.xcconfig"; sourceTree = "<group>"; };
 		519EF08031E9CFD464717C0C /* Pods-Theweddingceremonylive.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Theweddingceremonylive.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Theweddingceremonylive/Pods-Theweddingceremonylive.debug.xcconfig"; sourceTree = "<group>"; };
 		53D02F3A1F3B1B5600CD504C /* Theweddingceremonylive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Theweddingceremonylive.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -268,6 +286,16 @@
 		53D02F761F3BF5F800CD504C /* category */ = {
 			isa = PBXGroup;
 			children = (
+				1851F4131F3D843E00369326 /* NSObject+Parse.h */,
+				1851F4141F3D843E00369326 /* NSObject+Parse.m */,
+				1851F4151F3D843E00369326 /* NSString+myUrl.h */,
+				1851F4161F3D843E00369326 /* NSString+myUrl.m */,
+				1851F4171F3D843E00369326 /* UIScrollView+Refresh.h */,
+				1851F4181F3D843E00369326 /* UIScrollView+Refresh.m */,
+				1851F4191F3D843E00369326 /* UITextView+Placeholder.h */,
+				1851F41A1F3D843E00369326 /* UITextView+Placeholder.m */,
+				1851F41B1F3D843E00369326 /* UIView+HUD.h */,
+				1851F41C1F3D843E00369326 /* UIView+HUD.m */,
 			);
 			path = category;
 			sourceTree = "<group>";
@@ -463,6 +491,8 @@
 		53D02F9C1F3BF9EC00CD504C /* M */ = {
 			isa = PBXGroup;
 			children = (
+				1851F4101F3D7DF600369326 /* LiveVideoModel.h */,
+				1851F4111F3D7DF600369326 /* LiveVideoModel.m */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -767,11 +797,17 @@
 				53D02FA01F3BFA5900CD504C /* MainVC.m in Sources */,
 				53D02F841F3BF68000CD504C /* LCTabBarButton.m in Sources */,
 				1847DED71F3C5A5F00C796A8 /* LiveVideoCell.m in Sources */,
+				1851F41E1F3D843E00369326 /* NSString+myUrl.m in Sources */,
 				53D02F831F3BF68000CD504C /* LCTabbar.m in Sources */,
+				1851F4201F3D843E00369326 /* UITextView+Placeholder.m in Sources */,
 				53D02FAC1F3BFB8800CD504C /* MineVC.m in Sources */,
 				53D02F421F3B1B5600CD504C /* AppDelegate.m in Sources */,
+				1851F41D1F3D843E00369326 /* NSObject+Parse.m in Sources */,
+				1851F4211F3D843E00369326 /* UIView+HUD.m in Sources */,
 				53D02F8E1F3BF96900CD504C /* LoginVC.m in Sources */,
 				53D02FA31F3BFB1900CD504C /* LiveVC.m in Sources */,
+				1851F41F1F3D843E00369326 /* UIScrollView+Refresh.m in Sources */,
+				1851F4121F3D7DF600369326 /* LiveVideoModel.m in Sources */,
 				53D02FA91F3BFB5E00CD504C /* MiddleVC.m in Sources */,
 				53D02F3F1F3B1B5600CD504C /* main.m in Sources */,
 				53D02FA61F3BFB3000CD504C /* BBSVC.m in Sources */,
@@ -935,6 +971,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Theweddingceremonylive/PrefixHeader.pch";
 				INFOPLIST_FILE = Theweddingceremonylive/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wangjungang.Theweddingceremonylive;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -951,6 +988,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Theweddingceremonylive/PrefixHeader.pch";
 				INFOPLIST_FILE = Theweddingceremonylive/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wangjungang.Theweddingceremonylive;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -964,6 +1002,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = GZJLNU22Y5;
 				INFOPLIST_FILE = TheweddingceremonyliveTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wangjungang.TheweddingceremonyliveTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -978,6 +1017,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = GZJLNU22Y5;
 				INFOPLIST_FILE = TheweddingceremonyliveTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wangjungang.TheweddingceremonyliveTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -991,6 +1031,7 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = GZJLNU22Y5;
 				INFOPLIST_FILE = TheweddingceremonyliveUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wangjungang.TheweddingceremonyliveUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1004,6 +1045,7 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = GZJLNU22Y5;
 				INFOPLIST_FILE = TheweddingceremonyliveUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wangjungang.TheweddingceremonyliveUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

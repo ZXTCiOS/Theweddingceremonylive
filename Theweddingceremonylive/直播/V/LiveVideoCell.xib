@@ -33,21 +33,21 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BxO-7Q-rId">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BxO-7Q-rId">
                                 <rect key="frame" x="266" y="20" width="34" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="ajl-9a-bMw"/>
                                     <constraint firstAttribute="width" constant="34" id="tMv-uq-o86"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" image="xsp_list"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oeh-2p-B20">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oeh-2p-B20">
                                 <rect key="frame" x="212" y="20" width="34" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="S6P-ew-dRe"/>
                                     <constraint firstAttribute="width" constant="34" id="jyb-1L-2pF"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" image="xsp_share"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5a8-LK-5sl">
                                 <rect key="frame" x="20" y="108.5" width="37.5" height="18"/>
@@ -73,7 +73,7 @@
                             <constraint firstItem="5a8-LK-5sl" firstAttribute="top" secondItem="Doj-hG-JHa" secondAttribute="bottom" constant="20" id="weq-q9-MB0"/>
                         </constraints>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vuq-ZZ-4tP">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xsp_pl" translatesAutoresizingMaskIntoConstraints="NO" id="Vuq-ZZ-4tP">
                         <rect key="frame" x="143" y="248" width="35" height="35"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="35" id="X4m-Tf-Amz"/>
@@ -97,7 +97,12 @@
                 <outlet property="time" destination="Doj-hG-JHa" id="rau-nH-yBY"/>
                 <outlet property="title" destination="aPb-kg-kz3" id="OD4-xK-dwq"/>
             </connections>
-            <point key="canvasLocation" x="77" y="-16"/>
+            <point key="canvasLocation" x="-40" y="-18"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="xsp_list" width="34" height="34"/>
+        <image name="xsp_pl" width="32" height="36"/>
+        <image name="xsp_share" width="34" height="34"/>
+    </resources>
 </document>
