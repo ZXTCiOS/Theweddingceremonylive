@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5303E3D71F3ED2E800AB0AF2 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5303E3D61F3ED2E800AB0AF2 /* LoginVC.m */; };
+		5303E3DA1F3ED32B00AB0AF2 /* bottomlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5303E3D91F3ED32B00AB0AF2 /* bottomlineView.m */; };
+		5303E3E41F3EDF6800AB0AF2 /* CALayer+FSUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 5303E3E01F3EDF6800AB0AF2 /* CALayer+FSUI.m */; };
+		5303E3E51F3EDF6800AB0AF2 /* FSCustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5303E3E31F3EDF6800AB0AF2 /* FSCustomButton.m */; };
+		5303E3E81F3EE3C000AB0AF2 /* logupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5303E3E71F3EE3C000AB0AF2 /* logupViewController.m */; };
+		5303E3EC1F3EF5A800AB0AF2 /* QCCountdownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5303E3EB1F3EF5A800AB0AF2 /* QCCountdownButton.m */; };
+		5303E3EF1F3EFBBE00AB0AF2 /* forgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5303E3EE1F3EFBBE00AB0AF2 /* forgetViewController.m */; };
 		53D02F3F1F3B1B5600CD504C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F3E1F3B1B5600CD504C /* main.m */; };
 		53D02F421F3B1B5600CD504C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F411F3B1B5600CD504C /* AppDelegate.m */; };
 		53D02F451F3B1B5600CD504C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F441F3B1B5600CD504C /* ViewController.m */; };
@@ -19,7 +26,6 @@
 		53D02F831F3BF68000CD504C /* LCTabbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F7E1F3BF68000CD504C /* LCTabbar.m */; };
 		53D02F841F3BF68000CD504C /* LCTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F801F3BF68000CD504C /* LCTabBarButton.m */; };
 		53D02F851F3BF68000CD504C /* LCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F821F3BF68000CD504C /* LCTabBarController.m */; };
-		53D02F8E1F3BF96900CD504C /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F8D1F3BF96900CD504C /* LoginVC.m */; };
 		53D02FA01F3BFA5900CD504C /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F9F1F3BFA5900CD504C /* MainVC.m */; };
 		53D02FA31F3BFB1900CD504C /* LiveVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02FA21F3BFB1900CD504C /* LiveVC.m */; };
 		53D02FA61F3BFB3000CD504C /* BBSVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02FA51F3BFB3000CD504C /* BBSVC.m */; };
@@ -55,6 +61,21 @@
 		0A0D151F42A7F9C8F762F8E9 /* Pods-TheweddingceremonyliveUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheweddingceremonyliveUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheweddingceremonyliveUITests/Pods-TheweddingceremonyliveUITests.release.xcconfig"; sourceTree = "<group>"; };
 		18F40CBA8FE5D3181F0F3B4C /* Pods-TheweddingceremonyliveTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheweddingceremonyliveTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheweddingceremonyliveTests/Pods-TheweddingceremonyliveTests.debug.xcconfig"; sourceTree = "<group>"; };
 		519EF08031E9CFD464717C0C /* Pods-Theweddingceremonylive.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Theweddingceremonylive.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Theweddingceremonylive/Pods-Theweddingceremonylive.debug.xcconfig"; sourceTree = "<group>"; };
+		5303E3D51F3ED2E800AB0AF2 /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
+		5303E3D61F3ED2E800AB0AF2 /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
+		5303E3D81F3ED32B00AB0AF2 /* bottomlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bottomlineView.h; sourceTree = "<group>"; };
+		5303E3D91F3ED32B00AB0AF2 /* bottomlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bottomlineView.m; sourceTree = "<group>"; };
+		5303E3DF1F3EDF6800AB0AF2 /* CALayer+FSUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+FSUI.h"; sourceTree = "<group>"; };
+		5303E3E01F3EDF6800AB0AF2 /* CALayer+FSUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+FSUI.m"; sourceTree = "<group>"; };
+		5303E3E11F3EDF6800AB0AF2 /* FSCommenDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCommenDefine.h; sourceTree = "<group>"; };
+		5303E3E21F3EDF6800AB0AF2 /* FSCustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCustomButton.h; sourceTree = "<group>"; };
+		5303E3E31F3EDF6800AB0AF2 /* FSCustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCustomButton.m; sourceTree = "<group>"; };
+		5303E3E61F3EE3C000AB0AF2 /* logupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = logupViewController.h; sourceTree = "<group>"; };
+		5303E3E71F3EE3C000AB0AF2 /* logupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = logupViewController.m; sourceTree = "<group>"; };
+		5303E3EA1F3EF5A800AB0AF2 /* QCCountdownButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCCountdownButton.h; sourceTree = "<group>"; };
+		5303E3EB1F3EF5A800AB0AF2 /* QCCountdownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCCountdownButton.m; sourceTree = "<group>"; };
+		5303E3ED1F3EFBBE00AB0AF2 /* forgetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = forgetViewController.h; sourceTree = "<group>"; };
+		5303E3EE1F3EFBBE00AB0AF2 /* forgetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = forgetViewController.m; sourceTree = "<group>"; };
 		53D02F3A1F3B1B5600CD504C /* Theweddingceremonylive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Theweddingceremonylive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53D02F3E1F3B1B5600CD504C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		53D02F401F3B1B5600CD504C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -80,8 +101,6 @@
 		53D02F801F3BF68000CD504C /* LCTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCTabBarButton.m; sourceTree = "<group>"; };
 		53D02F811F3BF68000CD504C /* LCTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCTabBarController.h; sourceTree = "<group>"; };
 		53D02F821F3BF68000CD504C /* LCTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCTabBarController.m; sourceTree = "<group>"; };
-		53D02F8C1F3BF96900CD504C /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
-		53D02F8D1F3BF96900CD504C /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
 		53D02F9E1F3BFA5900CD504C /* MainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainVC.h; sourceTree = "<group>"; };
 		53D02F9F1F3BFA5900CD504C /* MainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainVC.m; sourceTree = "<group>"; };
 		53D02FA11F3BFB1900CD504C /* LiveVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveVC.h; sourceTree = "<group>"; };
@@ -147,6 +166,51 @@
 				0A0D151F42A7F9C8F762F8E9 /* Pods-TheweddingceremonyliveUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		5303E3D31F3ED2E800AB0AF2 /* V */ = {
+			isa = PBXGroup;
+			children = (
+				5303E3E91F3EF5A800AB0AF2 /* QCCountdownButton */,
+				5303E3DE1F3EDF6800AB0AF2 /* FSCustomBUtton */,
+				5303E3D81F3ED32B00AB0AF2 /* bottomlineView.h */,
+				5303E3D91F3ED32B00AB0AF2 /* bottomlineView.m */,
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		5303E3D41F3ED2E800AB0AF2 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				5303E3D51F3ED2E800AB0AF2 /* LoginVC.h */,
+				5303E3D61F3ED2E800AB0AF2 /* LoginVC.m */,
+				5303E3E61F3EE3C000AB0AF2 /* logupViewController.h */,
+				5303E3E71F3EE3C000AB0AF2 /* logupViewController.m */,
+				5303E3ED1F3EFBBE00AB0AF2 /* forgetViewController.h */,
+				5303E3EE1F3EFBBE00AB0AF2 /* forgetViewController.m */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		5303E3DE1F3EDF6800AB0AF2 /* FSCustomBUtton */ = {
+			isa = PBXGroup;
+			children = (
+				5303E3DF1F3EDF6800AB0AF2 /* CALayer+FSUI.h */,
+				5303E3E01F3EDF6800AB0AF2 /* CALayer+FSUI.m */,
+				5303E3E11F3EDF6800AB0AF2 /* FSCommenDefine.h */,
+				5303E3E21F3EDF6800AB0AF2 /* FSCustomButton.h */,
+				5303E3E31F3EDF6800AB0AF2 /* FSCustomButton.m */,
+			);
+			path = FSCustomBUtton;
+			sourceTree = "<group>";
+		};
+		5303E3E91F3EF5A800AB0AF2 /* QCCountdownButton */ = {
+			isa = PBXGroup;
+			children = (
+				5303E3EA1F3EF5A800AB0AF2 /* QCCountdownButton.h */,
+				5303E3EB1F3EF5A800AB0AF2 /* QCCountdownButton.m */,
+			);
+			path = QCCountdownButton;
 			sourceTree = "<group>";
 		};
 		53D02F311F3B1B5600CD504C = {
@@ -302,8 +366,8 @@
 		53D02F861F3BF95300CD504C /* 登录注册 */ = {
 			isa = PBXGroup;
 			children = (
-				53D02F8C1F3BF96900CD504C /* LoginVC.h */,
-				53D02F8D1F3BF96900CD504C /* LoginVC.m */,
+				5303E3D31F3ED2E800AB0AF2 /* V */,
+				5303E3D41F3ED2E800AB0AF2 /* C */,
 			);
 			path = "登录注册";
 			sourceTree = "<group>";
@@ -779,20 +843,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				53D02F851F3BF68000CD504C /* LCTabBarController.m in Sources */,
+				5303E3E51F3EDF6800AB0AF2 /* FSCustomButton.m in Sources */,
 				53D02F451F3B1B5600CD504C /* ViewController.m in Sources */,
+				5303E3D71F3ED2E800AB0AF2 /* LoginVC.m in Sources */,
+				5303E3DA1F3ED32B00AB0AF2 /* bottomlineView.m in Sources */,
 				53D02F7B1F3BF65600CD504C /* BaseViewController.m in Sources */,
 				53D02FA01F3BFA5900CD504C /* MainVC.m in Sources */,
+				5303E3E81F3EE3C000AB0AF2 /* logupViewController.m in Sources */,
 				53D02F841F3BF68000CD504C /* LCTabBarButton.m in Sources */,
 				53D02F831F3BF68000CD504C /* LCTabbar.m in Sources */,
 				53D02FAC1F3BFB8800CD504C /* MineVC.m in Sources */,
 				53EEF2AA1F3E9EE80031D396 /* UITabBarController+QFExtension.m in Sources */,
 				53D02F421F3B1B5600CD504C /* AppDelegate.m in Sources */,
+				5303E3E41F3EDF6800AB0AF2 /* CALayer+FSUI.m in Sources */,
 				53EEF2A91F3E9EE80031D396 /* MainTabBarController.m in Sources */,
-				53D02F8E1F3BF96900CD504C /* LoginVC.m in Sources */,
 				53D02FA31F3BFB1900CD504C /* LiveVC.m in Sources */,
+				5303E3EF1F3EFBBE00AB0AF2 /* forgetViewController.m in Sources */,
 				53D02FA91F3BFB5E00CD504C /* MiddleVC.m in Sources */,
 				53D02F3F1F3B1B5600CD504C /* main.m in Sources */,
 				53D02FA61F3BFB3000CD504C /* BBSVC.m in Sources */,
+				5303E3EC1F3EF5A800AB0AF2 /* QCCountdownButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

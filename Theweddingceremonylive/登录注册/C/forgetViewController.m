@@ -1,18 +1,18 @@
 //
-//  LoginVC.m
+//  forgetViewController.m
 //  Theweddingceremonylive
 //
-//  Created by 王俊钢 on 2017/8/10.
+//  Created by 王俊钢 on 2017/8/12.
 //  Copyright © 2017年 wangjungang. All rights reserved.
 //
 
-#import "LoginVC.h"
+#import "forgetViewController.h"
 
-@interface LoginVC ()
+@interface forgetViewController ()
 
 @end
 
-@implementation LoginVC
+@implementation forgetViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
