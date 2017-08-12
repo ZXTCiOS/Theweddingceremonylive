@@ -16,6 +16,9 @@ pod 'MLTransition'
 pod 'YYKit'
 pod 'SDWebImage'
 pod 'CYTabBar'
+pod 'IQKeyboardManager'
+pod 'SDAutoLayout'
+pod 'DZNEmptyDataSet'
   # Pods for Theweddingceremonylive
 
   target 'TheweddingceremonyliveTests' do

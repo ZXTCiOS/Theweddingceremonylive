@@ -19,6 +19,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>DZNEmptyDataSet.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>IQKeyboardManager.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -54,6 +64,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SDAutoLayout.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -82,6 +97,16 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>3C87EE307A22BD2AB7B2CB731CB7A007</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5437890023F30CA85DFCA260CA914D48</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>586F2DFA9BDCC6675C2546793A69E5CC</key>
 		<dict>
 			<key>primary</key>
@@ -92,12 +117,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>729EEF4C7A9EA691B4F4976D9F658812</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>78008CABA72FDF0D53FB3E0FDD5D35B3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>86A80AA580C470C25C1F38878A243A76</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>86D5AD08CF6661D691FF11280D1E21C9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>904F4F27FD314010A3812EB2A9306183</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -112,27 +152,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A625700BC25F2E1456A53EF1EBB36597</key>
+		<key>A3590F39B005BC9F15344E4AB0B207BA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ACD6659C87A3524CE161D6B0C6CFEC64</key>
+		<key>E6A6A26FD0AA9AD63987D29859B88F8C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>E7BEAC3516FE119A649929536F07FDE2</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FC5E533F9007CCCEE3B365DF31155537</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FEA8443E556FC4E6CB0542BB70D03E0F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
