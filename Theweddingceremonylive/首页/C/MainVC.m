@@ -15,9 +15,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.title = @"首页";
-    self.tabBarController.tabBar.tintColor = [UIColor colorWithHexString:@"ed5e40"];
-    // Do any additional setup after loading the view.
+    
+
+    self.navigationController.navigationBar.topItem.title = @"blabla";
+    
 }
 
 - (void)didReceiveMemoryWarning {
