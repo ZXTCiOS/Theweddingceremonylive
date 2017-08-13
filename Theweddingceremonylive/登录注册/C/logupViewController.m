@@ -29,7 +29,7 @@
 @property (nonatomic,strong) UIButton *submitBtn;
 
 @end
-#define KTime   20//设置重新发送的时间  自己可以改
+
 @implementation logupViewController
 
 - (void)viewDidLoad {

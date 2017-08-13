@@ -12,6 +12,8 @@
 #import "logupViewController.h"
 #import "AppDelegate.h"
 #import "MainTabBarController.h"
+#import "forgetViewController.h"
+#import "bindingViewController.h"
 
 @interface LoginVC ()<UITextFieldDelegate>
 @property (nonatomic,strong) UIImageView *logoimg;
@@ -312,7 +314,8 @@
 
 -(void)forgetbtnclick
 {
-    
+    forgetViewController *forgetvc = [[forgetViewController alloc] init];
+    [self.navigationController pushViewController:forgetvc animated:YES];
 }
 
 -(void)loginbtnclick
@@ -325,7 +328,8 @@
 
 -(void)qqbtnclick
 {
-    
+    bindingViewController *bindingvc = [[bindingViewController alloc] init];
+    [self.navigationController pushViewController:bindingvc animated:YES];
 }
 
 -(void)weixinbtnclick

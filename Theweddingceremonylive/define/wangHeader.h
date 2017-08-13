@@ -9,5 +9,5 @@
 #ifndef wangHeader_h
 #define wangHeader_h
 
-
+#define KTime   20//设置重新发送的时间  自己可以改
 #endif /* wangHeader_h */
