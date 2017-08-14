@@ -11,7 +11,7 @@
 #import "MainVC.h"
 #import "MiddleVC.h"
 #import "BBSVC.h"
-#import "MineVC.h"
+#import "MineTVC.h"
 
 @interface ViewController ()<UITabBarControllerDelegate>
 {
@@ -47,7 +47,7 @@
     [third.tabBarItem setSelectedImage:[UIImage imageNamed:@"TabBar4Sel"]];
     third.tabBarItem.tag = 3;
     
-    MineVC *four = [[MineVC alloc] init];
+    MineTVC *four = [[MineTVC alloc] init];
     four.tabBarItem.image = [UIImage imageNamed:@"TabBar5"];
     [four.tabBarItem setSelectedImage:[UIImage imageNamed:@"TabBar5Sel"]];
     four.tabBarItem.tag = 4;

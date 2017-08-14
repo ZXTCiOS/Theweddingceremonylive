@@ -10,7 +10,7 @@
 #import "MainVC.h"
 #import "MiddleVC.h"
 #import "BBSVC.h"
-#import "MineVC.h"
+#import "MineTVC.h"
 
 /** 颜色判断 */
 #define UIColorRGBA(_r, _g, _b, _a) [UIColor colorWithRed:_r/255.f green:_g/255.f blue:_b/255.f alpha:_a]
@@ -51,7 +51,7 @@
     [self addViewController:index title:@"" image:@"TabBar1" selectedImage:@"TabBar1Sel"];
     
     /** 首页 */
-    MineVC *profit = [[MineVC alloc] init];
+    MainVC *profit = [[MainVC alloc] init];
     
     [self addViewController:profit title:@"" image:@"TabBar2" selectedImage:@"TabBar2Sel"];
     
@@ -63,7 +63,8 @@
     [self addViewController:shop title:@"" image:@"TabBar4" selectedImage:@"TabBar4Sel"];
     
     /** 个人中心 */
-    MineVC *me = [[MineVC alloc] init];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
+    MineTVC *me = [sb instantiateInitialViewController];
     [self addViewController:me title:@"个人中心" image:@"TabBar5" selectedImage:@"TabBar5Sel"];
     
     /** 设置背景 */
