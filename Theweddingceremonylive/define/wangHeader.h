@@ -10,4 +10,9 @@
 #define wangHeader_h
 
 #define KTime   20//设置重新发送的时间  自己可以改
+
+#define BASE_URL @""
+
+#define post_logup @" http://192.168.31.167/zhibo2/interface.php/Home/Info/register"
+
 #endif /* wangHeader_h */
