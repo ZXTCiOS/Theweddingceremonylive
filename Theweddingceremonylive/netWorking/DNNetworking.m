@@ -16,7 +16,7 @@
 #define DNNetLog(...)
 #endif
 
-static NSString *privateNetworkBaseUrl = nil;
+static NSString *privateNetworkBaseUrl = BASE_URL;
 
 @implementation DNNetworking
 
@@ -95,7 +95,7 @@ static NSString *privateNetworkBaseUrl = nil;
     
     session.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", @"text/plain",nil];
     session.requestSerializer.timeoutInterval = 20;
-    [session GET:urlString parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [session GET:urlString parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
         progress(downloadProgress);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         success(responseObject);

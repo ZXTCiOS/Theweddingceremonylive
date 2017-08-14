@@ -351,8 +351,9 @@
     [self.navigationController.navigationBar setHidden:YES];
 }
 
--(void)viewDidDisappear:(BOOL)animated
+-(void)viewWillDisappear:(BOOL)animated
 {
+    [super viewWillDisappear:animated];
     [self.navigationController.navigationBar setHidden:NO];
 }
 @end

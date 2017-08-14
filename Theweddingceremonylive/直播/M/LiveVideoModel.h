@@ -11,12 +11,12 @@
 @interface LiveVideoModel : NSObject
 
 
-@property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy) NSString *desc;
-@property (nonatomic, copy) NSString *url;
-@property (nonatomic, copy) NSString *imgurl;
-@property (nonatomic, copy) NSString *time;
-
+@property (nonatomic, copy) NSString *video_title;
+@property (nonatomic, copy) NSString *video_desc;
+@property (nonatomic, copy) NSString *video_url;
+@property (nonatomic, copy) NSString *video_time;
+@property (nonatomic, copy) NSString *video_id;
+@property (nonatomic, copy) NSString *buess_id;
 // list
 
 

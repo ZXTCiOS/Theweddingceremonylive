@@ -8,26 +8,92 @@
 
 #import "LiveVideoCell.h"
 
+
+@interface LiveVideoCell ()<WMPlayerDelegate>
+
+@property (weak, nonatomic) IBOutlet UIView *bgview;
+@property (weak, nonatomic) IBOutlet UILabel *title;
+@property (weak, nonatomic) IBOutlet UILabel *time;
+@property (weak, nonatomic) IBOutlet UILabel *desc;
+@property (weak, nonatomic) IBOutlet UIButton *list;
+@property (weak, nonatomic) IBOutlet UIButton *share;
+@property (weak, nonatomic) IBOutlet UIImageView *pause;
+
+@end
+
 @implementation LiveVideoCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    [self player];
+    //[self player];
 }
 
 
 
-- (AVPlayer *)player{
-    if (!_player) {
-        AVPlayerItem *item = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:self.url]];
-        _player = [AVPlayer playerWithPlayerItem:item];
-        AVPlayerLayer *layer = [AVPlayerLayer playerLayerWithPlayer:self.player];
-        layer.frame = [UIScreen mainScreen].bounds;
-        [self.layer addSublayer:layer];
+- (void)setModel:(LiveVideoModel *)model{
+    _model = model;
+    
+    self.pause.hidden = YES;
+    self.title.text = self.model.video_title;
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"yyyy-MM-dd";
+    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:[self.model.video_time integerValue]];
+    NSString *time = [formatter stringFromDate:date];
+    self.time.text = time;
+    
+    self.desc.text = self.model.video_desc;
+    [self.share bk_addEventHandler:^(id sender) {
         
+        NSLog(@"share clicked");
+    } forControlEvents:UIControlEventTouchUpInside];
+    [self.list bk_addEventHandler:^(id sender) {
+        
+        NSLog(@"list clicked");
+    } forControlEvents:UIControlEventTouchUpInside];
+    _player = nil;
+    self.player.URLString = self.model.video_url;
+    [self.player play];
+}
+
+
+- (WMPlayer *)player{
+    if (!_player) {
+        _player = [[WMPlayer alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH)];
+        _player.topView.hidden = YES;
+        _player.bottomView.hidden = YES;
+        _player.delegate = self;
+        [self.contentView insertSubview:_player belowSubview:self.bgview];
     }
     return _player;
 }
+
+#pragma mark wmplayer delegate
+
+- (void)wmplayer:(WMPlayer *)wmplayer singleTaped:(UITapGestureRecognizer *)singleTap{
+    switch (wmplayer.state) {
+        case WMPlayerStatePlaying:
+            [wmplayer pause];
+            self.pause.hidden = NO;
+            break;
+        case WMPlayerStatePause:
+            [wmplayer play];
+            self.pause.hidden = YES;
+            break;
+        case WMPlayerStateStopped:
+            [wmplayer play];
+            self.pause.hidden = YES;
+            break;
+        default:
+            break;
+    }
+}
+
+- (void)wmplayerFinishedPlay:(WMPlayer *)wmplayer{
+    [wmplayer.player seekToTime:CMTimeMake(0, 1)];
+    [wmplayer.player play];
+}
+
 
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
