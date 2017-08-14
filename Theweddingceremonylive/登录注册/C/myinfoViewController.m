@@ -1,18 +1,18 @@
 //
-//  LoginVC.m
+//  myinfoViewController.m
 //  Theweddingceremonylive
 //
-//  Created by 王俊钢 on 2017/8/10.
+//  Created by 王俊钢 on 2017/8/12.
 //  Copyright © 2017年 wangjungang. All rights reserved.
 //
 
-#import "LoginVC.h"
+#import "myinfoViewController.h"
 
-@interface LoginVC ()
+@interface myinfoViewController ()
 
 @end
 
-@implementation LoginVC
+@implementation myinfoViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -23,7 +23,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 
 @end

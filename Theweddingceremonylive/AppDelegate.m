@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "MainTabBarController.h"
+#import "LoginVC.h"
 
 @interface AppDelegate ()
 
@@ -58,7 +59,6 @@
     
 //    UINavigationController *navcon = [[UINavigationController alloc] init];
 //    LoginVC *vc = [[LoginVC alloc] init];
-//    vc.title = @"首页-登录";
 //    navcon.viewControllers = @[vc];
 //    self.window.rootViewController = navcon;
 //    [self.window makeKeyAndVisible];
