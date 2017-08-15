@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MineTVC : UITableViewController
+@interface MineTVC : UIViewController
 
 @end

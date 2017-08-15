@@ -63,9 +63,9 @@
     [self addViewController:shop title:@"" image:@"TabBar4" selectedImage:@"TabBar4Sel"];
     
     /** 个人中心 */
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
-    MineTVC *me = [sb instantiateInitialViewController];
-    [self addViewController:me title:@"个人中心" image:@"TabBar5" selectedImage:@"TabBar5Sel"];
+    //UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
+    MineTVC *me = [[MineTVC alloc] init];
+    [self addViewController:me title:@"" image:@"TabBar5" selectedImage:@"TabBar5Sel"];
     
     /** 设置背景 */
     
