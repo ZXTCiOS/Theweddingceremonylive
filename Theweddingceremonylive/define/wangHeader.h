@@ -12,13 +12,15 @@
 #define KTime   20//设置重新发送的时间  自己可以改
 
 #define user_token  @"TOKEN"
+#define user_uid    @"UID"
 
-#define BASE_URL @"http://88.irapidtech.net"
+#define BASE_URL   @"http://88.irapidtech.net"
 //注册
 #define post_logup @""BASE_URL"/interface.php/Home/register/register"
 //登录验证
 #define post_login @""BASE_URL"/interface.php/Home/Login/login"
 //验证码
 #define post_value @""BASE_URL"/interface.php/Home/Login/getVerify"
-
+//完善个人信息
+#define post_edit  @""BASE_URL"/interface.php/Home/User/edit"
 #endif /* wangHeader_h */

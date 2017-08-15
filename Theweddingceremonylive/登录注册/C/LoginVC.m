@@ -321,37 +321,52 @@
 -(void)loginbtnclick
 {
     
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    MainTabBarController * main = [[MainTabBarController alloc] init];
-    appDelegate.window.rootViewController = main;
+    NSString *user_tel = @"";
+    NSString *user_pwd = @"";
+    if (self.nicknametext.text.length==0) {
+        user_tel = @"";
+    }
+    else
+    {
+        user_tel = self.nicknametext.text;
+    }
     
-//    if (![strisNull isNullToString:self.nicknametext.text]&&![strisNull isNullToString:self.passwordtext.text]) {
-//      
-//        
-//        
-//        
-//        NSString *user_tel = self.nicknametext.text;
-//        NSString *user_pwd = self.passwordtext.text;
-//        NSString *type = @"1";
-//        NSDictionary *para = @{@"user_tel":user_tel,@"user_pwd":user_pwd,@"type":type};
-//        [DNNetworking postWithURLString:post_login parameters:para success:^(id obj) {
-//            
-//            //切换根视图控制器
-//       
-//
-//        } failure:^(NSError *error) {
-//            [MBProgressHUD showSuccess:@"网络错误"];
-//        }];
-//        
-//
-//    }
-//    else
-//    {
-//        [MBProgressHUD showSuccess:@"请检查输入"];
-//        
-//        
-//    }
-  
+    if (self.passwordtext.text.length==0) {
+        user_pwd = @"";
+    }
+    else
+    {
+        user_pwd = self.passwordtext.text;
+    }
+    
+    
+    NSString *type = @"1";
+    NSDictionary *para = @{@"user_tel":user_tel,@"user_pwd":user_pwd,@"type":type};
+    [DNNetworking postWithURLString:post_login parameters:para success:^(id obj) {
+        
+        //切换根视图控制器
+        if ([[obj objectForKey:@"code"] intValue]==1000) {
+            NSDictionary *dic = [obj objectForKey:@"data"];
+            NSString *tokenstr = [dic objectForKey:@"token"];
+            NSString *uidstr = [dic objectForKey:@"uid"];
+            NSUserDefaults *defat = [NSUserDefaults standardUserDefaults];
+            [defat setObject:tokenstr forKey:user_token];
+            [defat setObject:uidstr forKey:user_uid];
+            [defat synchronize];
+            
+            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+            MainTabBarController * main = [[MainTabBarController alloc] init];
+            appDelegate.window.rootViewController = main;
+            
+        }
+        else
+        {
+            [MBProgressHUD showSuccess:@"密码错误"];
+        }
+    } failure:^(NSError *error) {
+        [MBProgressHUD showSuccess:@"网络错误"];
+    }];
+    
 }
 
 -(void)qqbtnclick

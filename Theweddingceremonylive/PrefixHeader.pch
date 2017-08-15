@@ -31,7 +31,7 @@
 #import "MiddleVC.h"
 #import "strisNull.h"
 #import "MBProgressHUD+XMG.h"
-
+#import "SDAutoLayout.h"
 
 
 

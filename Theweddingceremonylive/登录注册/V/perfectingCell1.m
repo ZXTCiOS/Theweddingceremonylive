@@ -7,12 +7,11 @@
 //
 
 #import "perfectingCell1.h"
-#import "selectBtn.h"
+
 
 @interface perfectingCell1()
 @property (nonatomic,strong) UILabel *lab;
-@property (nonatomic,strong) selectBtn *selbtn0;
-@property (nonatomic,strong) selectBtn *selbtn1;
+
 @end
 
 @implementation perfectingCell1
@@ -74,6 +73,7 @@
         _selbtn0 = [[selectBtn alloc] init];
         _selbtn0.setLab.text = @"男";
         _selbtn0.setImg.image = [UIImage imageNamed:@"yesimg"];
+        [_selbtn0 addTarget:self action:@selector(selbtn0click) forControlEvents:UIControlEventTouchUpInside];
     }
     return _selbtn0;
 }
@@ -86,10 +86,23 @@
         _selbtn1 = [[selectBtn alloc] init];
         _selbtn1.setLab.text = @"女";
         _selbtn1.setImg.image = [UIImage imageNamed:@"noimg"];
+        [_selbtn1 addTarget:self action:@selector(selbtn1click) forControlEvents:UIControlEventTouchUpInside];
     }
     return _selbtn1;
 }
 
+-(void)selbtn0click
+{
+    [self.delegate nanbtnClick:self];
+    _selbtn0.setImg.image = [UIImage imageNamed:@"yesimg"];
+    _selbtn1.setImg.image = [UIImage imageNamed:@"noimg"];
+}
 
+-(void)selbtn1click
+{
+    [self.delegate nvbtnClick:self];
+    _selbtn1.setImg.image = [UIImage imageNamed:@"yesimg"];
+    _selbtn0.setImg.image = [UIImage imageNamed:@"noimg"];
+}
 
 @end

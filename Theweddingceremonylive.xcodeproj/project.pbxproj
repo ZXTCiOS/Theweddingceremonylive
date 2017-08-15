@@ -30,8 +30,6 @@
 		188039031F3EAB9B00A2B4AE /* MyGiftTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 188038E61F3EAB9B00A2B4AE /* MyGiftTVC.m */; };
 		188039041F3EAB9B00A2B4AE /* WalletHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 188038EB1F3EAB9B00A2B4AE /* WalletHeadView.m */; };
 		188039051F3EAB9B00A2B4AE /* MyWalletTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 188038EE1F3EAB9B00A2B4AE /* MyWalletTVC.m */; };
-		188039061F3EAB9B00A2B4AE /* SystemMsgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 188038F31F3EAB9B00A2B4AE /* SystemMsgCell.m */; };
-		188039071F3EAB9B00A2B4AE /* SystemMsgCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188038F41F3EAB9B00A2B4AE /* SystemMsgCell.xib */; };
 		188039081F3EAB9B00A2B4AE /* SystemMessageTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 188038F71F3EAB9B00A2B4AE /* SystemMessageTVC.m */; };
 		188039091F3EAB9B00A2B4AE /* ModifyInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 188038FA1F3EAB9B00A2B4AE /* ModifyInfoVC.m */; };
 		1880390A1F3EAB9B00A2B4AE /* ModifyInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188038FB1F3EAB9B00A2B4AE /* ModifyInfoVC.xib */; };
@@ -39,6 +37,8 @@
 		188039121F3EAE2600A2B4AE /* XD_textField.m in Sources */ = {isa = PBXBuildFile; fileRef = 1880390E1F3EAE2600A2B4AE /* XD_textField.m */; };
 		188039131F3EAE2600A2B4AE /* XDFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 188039101F3EAE2600A2B4AE /* XDFactory.m */; };
 		188039161F3EAF9500A2B4AE /* DNNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 188039151F3EAF9500A2B4AE /* DNNetworking.m */; };
+		5302993D1F42C631004BC03A /* systenBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 5302993C1F42C631004BC03A /* systenBtn.m */; };
+		530299401F42F391004BC03A /* systemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5302993F1F42F391004BC03A /* systemCell.m */; };
 		5303E3D71F3ED2E800AB0AF2 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5303E3D61F3ED2E800AB0AF2 /* LoginVC.m */; };
 		5303E3DA1F3ED32B00AB0AF2 /* bottomlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5303E3D91F3ED32B00AB0AF2 /* bottomlineView.m */; };
 		5303E3E41F3EDF6800AB0AF2 /* CALayer+FSUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 5303E3E01F3EDF6800AB0AF2 /* CALayer+FSUI.m */; };
@@ -145,9 +145,6 @@
 		188038EB1F3EAB9B00A2B4AE /* WalletHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalletHeadView.m; sourceTree = "<group>"; };
 		188038ED1F3EAB9B00A2B4AE /* MyWalletTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWalletTVC.h; sourceTree = "<group>"; };
 		188038EE1F3EAB9B00A2B4AE /* MyWalletTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWalletTVC.m; sourceTree = "<group>"; };
-		188038F21F3EAB9B00A2B4AE /* SystemMsgCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemMsgCell.h; sourceTree = "<group>"; };
-		188038F31F3EAB9B00A2B4AE /* SystemMsgCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemMsgCell.m; sourceTree = "<group>"; };
-		188038F41F3EAB9B00A2B4AE /* SystemMsgCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SystemMsgCell.xib; sourceTree = "<group>"; };
 		188038F61F3EAB9B00A2B4AE /* SystemMessageTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemMessageTVC.h; sourceTree = "<group>"; };
 		188038F71F3EAB9B00A2B4AE /* SystemMessageTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemMessageTVC.m; sourceTree = "<group>"; };
 		188038F91F3EAB9B00A2B4AE /* ModifyInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyInfoVC.h; sourceTree = "<group>"; };
@@ -163,6 +160,10 @@
 		188039151F3EAF9500A2B4AE /* DNNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNNetworking.m; path = Theweddingceremonylive/netWorking/DNNetworking.m; sourceTree = SOURCE_ROOT; };
 		18F40CBA8FE5D3181F0F3B4C /* Pods-TheweddingceremonyliveTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheweddingceremonyliveTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheweddingceremonyliveTests/Pods-TheweddingceremonyliveTests.debug.xcconfig"; sourceTree = "<group>"; };
 		519EF08031E9CFD464717C0C /* Pods-Theweddingceremonylive.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Theweddingceremonylive.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Theweddingceremonylive/Pods-Theweddingceremonylive.debug.xcconfig"; sourceTree = "<group>"; };
+		5302993B1F42C631004BC03A /* systenBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = systenBtn.h; path = "Theweddingceremonylive/登录注册/V/systenBtn.h"; sourceTree = SOURCE_ROOT; };
+		5302993C1F42C631004BC03A /* systenBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = systenBtn.m; path = "Theweddingceremonylive/登录注册/V/systenBtn.m"; sourceTree = SOURCE_ROOT; };
+		5302993E1F42F391004BC03A /* systemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = systemCell.h; sourceTree = "<group>"; };
+		5302993F1F42F391004BC03A /* systemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = systemCell.m; sourceTree = "<group>"; };
 		5303E3D51F3ED2E800AB0AF2 /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
 		5303E3D61F3ED2E800AB0AF2 /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
 		5303E3D81F3ED32B00AB0AF2 /* bottomlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bottomlineView.h; sourceTree = "<group>"; };
@@ -429,6 +430,8 @@
 				53FCA4631F418C17001780F7 /* mineCell0.m */,
 				53FCA4651F418C26001780F7 /* mineCell1.h */,
 				53FCA4661F418C26001780F7 /* mineCell1.m */,
+				5302993B1F42C631004BC03A /* systenBtn.h */,
+				5302993C1F42C631004BC03A /* systenBtn.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -567,9 +570,8 @@
 		188038F11F3EAB9B00A2B4AE /* view */ = {
 			isa = PBXGroup;
 			children = (
-				188038F21F3EAB9B00A2B4AE /* SystemMsgCell.h */,
-				188038F31F3EAB9B00A2B4AE /* SystemMsgCell.m */,
-				188038F41F3EAB9B00A2B4AE /* SystemMsgCell.xib */,
+				5302993E1F42F391004BC03A /* systemCell.h */,
+				5302993F1F42F391004BC03A /* systemCell.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1132,7 +1134,6 @@
 				53D02F4A1F3B1B5600CD504C /* Assets.xcassets in Resources */,
 				53EEF2A31F3E9E1D0031D396 /* tabbar_bg@2x.png in Resources */,
 				53EEF2A41F3E9E1D0031D396 /* tabbar_bg@3x.png in Resources */,
-				188039071F3EAB9B00A2B4AE /* SystemMsgCell.xib in Resources */,
 				53D02F481F3B1B5600CD504C /* Main.storyboard in Resources */,
 				188039021F3EAB9B00A2B4AE /* MyGiftCell.xib in Resources */,
 				1880390A1F3EAB9B00A2B4AE /* ModifyInfoVC.xib in Resources */,
@@ -1317,7 +1318,6 @@
 				188039011F3EAB9B00A2B4AE /* MyGiftCell.m in Sources */,
 				188039041F3EAB9B00A2B4AE /* WalletHeadView.m in Sources */,
 				188039001F3EAB9B00A2B4AE /* MyShopTVC.m in Sources */,
-				188039061F3EAB9B00A2B4AE /* SystemMsgCell.m in Sources */,
 				53D02FA01F3BFA5900CD504C /* MainVC.m in Sources */,
 				188038FC1F3EAB9B00A2B4AE /* SaveCenterVC.m in Sources */,
 				53FCA44C1F41524C001780F7 /* UILabel+YBAttributeTextTapAction.m in Sources */,
@@ -1343,10 +1343,12 @@
 				5303E3E41F3EDF6800AB0AF2 /* CALayer+FSUI.m in Sources */,
 				53EEF2A91F3E9EE80031D396 /* MainTabBarController.m in Sources */,
 				53D02FA31F3BFB1900CD504C /* LiveVC.m in Sources */,
+				5302993D1F42C631004BC03A /* systenBtn.m in Sources */,
 				188039051F3EAB9B00A2B4AE /* MyWalletTVC.m in Sources */,
 				188039031F3EAB9B00A2B4AE /* MyGiftTVC.m in Sources */,
 				188038FF1F3EAB9B00A2B4AE /* MineTVC.m in Sources */,
 				53FCA46A1F418D6D001780F7 /* perfectingViewController.m in Sources */,
+				530299401F42F391004BC03A /* systemCell.m in Sources */,
 				1851F41F1F3D843E00369326 /* UIScrollView+Refresh.m in Sources */,
 				1851F4121F3D7DF600369326 /* LiveVideoModel.m in Sources */,
 				5303E3EF1F3EFBBE00AB0AF2 /* forgetViewController.m in Sources */,
@@ -1355,11 +1357,8 @@
 				53FCA4551F41758C001780F7 /* BDImagePicker.m in Sources */,
 				53D02FA61F3BFB3000CD504C /* BBSVC.m in Sources */,
 				5303E3EC1F3EF5A800AB0AF2 /* QCCountdownButton.m in Sources */,
-
 				53FCA4611F418BEE001780F7 /* mineheadView.m in Sources */,
-
 				182E81101F418C3200720AA4 /* FastForwardView.m in Sources */,
-
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
