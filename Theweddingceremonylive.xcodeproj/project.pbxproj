@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		182E81101F418C3200720AA4 /* FastForwardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182E81091F418C3200720AA4 /* FastForwardView.m */; };
+		182E81111F418C3200720AA4 /* FastForwardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182E810A1F418C3200720AA4 /* FastForwardView.xib */; };
+		182E81121F418C3200720AA4 /* WMLightView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182E810C1F418C3200720AA4 /* WMLightView.m */; };
+		182E81131F418C3200720AA4 /* WMPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 182E810D1F418C3200720AA4 /* WMPlayer.bundle */; };
+		182E81141F418C3200720AA4 /* WMPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 182E810F1F418C3200720AA4 /* WMPlayer.m */; };
 		1847DED71F3C5A5F00C796A8 /* LiveVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1847DED51F3C5A5F00C796A8 /* LiveVideoCell.m */; };
 		1847DED81F3C5A5F00C796A8 /* LiveVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1847DED61F3C5A5F00C796A8 /* LiveVideoCell.xib */; };
 		1851F4121F3D7DF600369326 /* LiveVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1851F4111F3D7DF600369326 /* LiveVideoModel.m */; };
@@ -99,6 +104,15 @@
 
 /* Begin PBXFileReference section */
 		0A0D151F42A7F9C8F762F8E9 /* Pods-TheweddingceremonyliveUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheweddingceremonyliveUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheweddingceremonyliveUITests/Pods-TheweddingceremonyliveUITests.release.xcconfig"; sourceTree = "<group>"; };
+		182E81081F418C3200720AA4 /* FastForwardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FastForwardView.h; sourceTree = "<group>"; };
+		182E81091F418C3200720AA4 /* FastForwardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FastForwardView.m; sourceTree = "<group>"; };
+		182E810A1F418C3200720AA4 /* FastForwardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FastForwardView.xib; sourceTree = "<group>"; };
+		182E810B1F418C3200720AA4 /* WMLightView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMLightView.h; sourceTree = "<group>"; };
+		182E810C1F418C3200720AA4 /* WMLightView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMLightView.m; sourceTree = "<group>"; };
+		182E810D1F418C3200720AA4 /* WMPlayer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WMPlayer.bundle; sourceTree = "<group>"; };
+		182E810E1F418C3200720AA4 /* WMPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPlayer.h; sourceTree = "<group>"; };
+		182E810F1F418C3200720AA4 /* WMPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMPlayer.m; sourceTree = "<group>"; };
+		182E81151F41940200720AA4 /* PathHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PathHeader.h; sourceTree = "<group>"; };
 		1847DED41F3C5A5F00C796A8 /* LiveVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveVideoCell.h; sourceTree = "<group>"; };
 		1847DED51F3C5A5F00C796A8 /* LiveVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveVideoCell.m; sourceTree = "<group>"; };
 		1847DED61F3C5A5F00C796A8 /* LiveVideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LiveVideoCell.xib; sourceTree = "<group>"; };
@@ -268,6 +282,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		182E81061F418C3200720AA4 /* WMPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				182E81071F418C3200720AA4 /* View */,
+				182E810D1F418C3200720AA4 /* WMPlayer.bundle */,
+				182E810E1F418C3200720AA4 /* WMPlayer.h */,
+				182E810F1F418C3200720AA4 /* WMPlayer.m */,
+			);
+			path = WMPlayer;
+			sourceTree = "<group>";
+		};
+		182E81071F418C3200720AA4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				182E81081F418C3200720AA4 /* FastForwardView.h */,
+				182E81091F418C3200720AA4 /* FastForwardView.m */,
+				182E810A1F418C3200720AA4 /* FastForwardView.xib */,
+				182E810B1F418C3200720AA4 /* WMLightView.h */,
+				182E810C1F418C3200720AA4 /* WMLightView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		1847DECE1F3C49F200C796A8 /* V */ = {
 			isa = PBXGroup;
 			children = (
@@ -740,6 +777,7 @@
 			children = (
 				53D02FAE1F3BFCDB00CD504C /* constHeader.h */,
 				53D02FAD1F3BFCCE00CD504C /* wangHeader.h */,
+				182E81151F41940200720AA4 /* PathHeader.h */,
 			);
 			path = define;
 			sourceTree = "<group>";
@@ -777,6 +815,7 @@
 		53D02F781F3BF5F800CD504C /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				182E81061F418C3200720AA4 /* WMPlayer */,
 			);
 			path = Vendor;
 			sourceTree = "<group>";
@@ -1054,7 +1093,7 @@
 					};
 					53D02F5D1F3B1B5600CD504C = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = GZJLNU22Y5;
+						DevelopmentTeam = 22Y9Y734K3;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 53D02F391F3B1B5600CD504C;
 					};
@@ -1087,7 +1126,9 @@
 			files = (
 				53D02F4D1F3B1B5600CD504C /* LaunchScreen.storyboard in Resources */,
 				188038FD1F3EAB9B00A2B4AE /* SaveCenterVC.xib in Resources */,
+				182E81111F418C3200720AA4 /* FastForwardView.xib in Resources */,
 				1847DED81F3C5A5F00C796A8 /* LiveVideoCell.xib in Resources */,
+				182E81131F418C3200720AA4 /* WMPlayer.bundle in Resources */,
 				53D02F4A1F3B1B5600CD504C /* Assets.xcassets in Resources */,
 				53EEF2A31F3E9E1D0031D396 /* tabbar_bg@2x.png in Resources */,
 				53EEF2A41F3E9E1D0031D396 /* tabbar_bg@3x.png in Resources */,
@@ -1259,6 +1300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				53AC97DD1F3F5495009EC343 /* bindingViewController.m in Sources */,
+				182E81121F418C3200720AA4 /* WMLightView.m in Sources */,
 				53D02F851F3BF68000CD504C /* LCTabBarController.m in Sources */,
 				188039121F3EAE2600A2B4AE /* XD_textField.m in Sources */,
 				53FCA4731F418EA5001780F7 /* perfectingCell2.m in Sources */,
@@ -1289,6 +1331,7 @@
 				188039091F3EAB9B00A2B4AE /* ModifyInfoVC.m in Sources */,
 				53D02F831F3BF68000CD504C /* LCTabbar.m in Sources */,
 				1851F4201F3D843E00369326 /* UITextView+Placeholder.m in Sources */,
+				182E81141F418C3200720AA4 /* WMPlayer.m in Sources */,
 				53EEF2AA1F3E9EE80031D396 /* UITabBarController+QFExtension.m in Sources */,
 				53FCA45E1F418689001780F7 /* strisNull.m in Sources */,
 				53FCA4671F418C26001780F7 /* mineCell1.m in Sources */,
@@ -1312,7 +1355,11 @@
 				53FCA4551F41758C001780F7 /* BDImagePicker.m in Sources */,
 				53D02FA61F3BFB3000CD504C /* BBSVC.m in Sources */,
 				5303E3EC1F3EF5A800AB0AF2 /* QCCountdownButton.m in Sources */,
+
 				53FCA4611F418BEE001780F7 /* mineheadView.m in Sources */,
+
+				182E81101F418C3200720AA4 /* FastForwardView.m in Sources */,
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1533,7 +1580,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F9C76CD6B624B22E51350699 /* Pods-TheweddingceremonyliveUITests.debug.xcconfig */;
 			buildSettings = {
-				DEVELOPMENT_TEAM = GZJLNU22Y5;
+				DEVELOPMENT_TEAM = 22Y9Y734K3;
 				INFOPLIST_FILE = TheweddingceremonyliveUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1547,7 +1594,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0A0D151F42A7F9C8F762F8E9 /* Pods-TheweddingceremonyliveUITests.release.xcconfig */;
 			buildSettings = {
-				DEVELOPMENT_TEAM = GZJLNU22Y5;
+				DEVELOPMENT_TEAM = 22Y9Y734K3;
 				INFOPLIST_FILE = TheweddingceremonyliveUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

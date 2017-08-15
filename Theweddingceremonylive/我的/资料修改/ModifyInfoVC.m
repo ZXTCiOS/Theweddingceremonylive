@@ -96,11 +96,25 @@
 - (IBAction)finishModifyInfo:(id)sender {
     
     if (!(self.MaleBtn.isSelected || self.FemaleBtn.isSelected)) {
-        [UIAlertView bk_showAlertViewWithTitle:@"错误" message:@"请选择性别" cancelButtonTitle:@"取消" otherButtonTitles:@[@"确定"] handler:nil];
+        //[UIAlertView bk_showAlertViewWithTitle:@"错误" message:@"请选择性别" cancelButtonTitle:@"取消" otherButtonTitles:@[@"确定"] handler:nil];
+        
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"错误" message:@"请选择性别" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *act = [UIAlertAction actionWithTitle:@"确定" style: UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        [alert addAction:act];
+        [self.navigationController presentViewController:alert animated:YES completion:nil];
+        
         return;
     }
     if (!self.nameTextLabel.text) {
-        [UIAlertView bk_showAlertViewWithTitle:@"错误" message:@"请输入昵称" cancelButtonTitle:@"取消" otherButtonTitles:@[@"确定"] handler:nil];
+        //[UIAlertView bk_showAlertViewWithTitle:@"错误" message:@"请输入昵称" cancelButtonTitle:@"取消" otherButtonTitles:@[@"确定"] handler:nil];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"错误" message:@"请输入昵称" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *act = [UIAlertAction actionWithTitle:@"确定" style: UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        [alert addAction:act];
+        [self.navigationController presentViewController:alert animated:YES completion:nil];
         return;
     }
     

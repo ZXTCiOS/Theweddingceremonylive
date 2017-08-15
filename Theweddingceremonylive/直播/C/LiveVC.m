@@ -10,7 +10,7 @@
 #import "ViewController.h"
 #import "LiveVideoCell.h"
 #import "LiveVideoModel.h"
-
+#import "WMPlayer.h"
 
 @interface LiveVC ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -19,6 +19,10 @@
 @property (nonatomic, strong) NSMutableArray<LiveVideoModel *> *datalist;
 
 @property (nonatomic, assign) NSInteger page;
+
+@property (nonatomic, strong) NSIndexPath *currentIndex;
+
+@property (nonatomic, strong) WMPlayer *player;
 
 @end
 
@@ -61,35 +65,40 @@
 
 - (void)headerRefresh{
     self.page = 0;
-    [DNNetworking getWithURLString:@"" success:^(id obj) {
-        NSString *code = [obj valueForKey:@"code"];
-        if ([code isEqualToString:@"200"]) {
+    [DNNetworking getWithURLString:get_video success:^(id obj) {
+        NSString *code = [NSString stringWithFormat:@"%@", [obj valueForKey:@"code"]];
+        if ([code isEqualToString:@"1000"]) {
             NSArray<LiveVideoModel *> *arr = [NSArray modelArrayWithClass:[LiveVideoModel class] json:[obj valueForKey:@"data"]];
             [self.datalist removeAllObjects];
             [self.datalist addObjectsFromArray:arr];
+            [self.tableView reloadData];
         }else{
-            
+            NSString *msg = [obj valueForKey:@"message"];
+            [self.view showWarning:msg];
         }
         [self.tableView endHeaderRefresh];
     } failure:^(NSError *error) {
-        
+        [self.view showWarning:@"网络错误"];
         [self.tableView endHeaderRefresh];
     }];
     
 }
 
 - (void)footerRefresh{
-    [DNNetworking getWithURLString:@"" parameters:@{@"page": @(self.page)} success:^(id obj) {
-        NSString *code = [obj valueForKey:@"code"];
+    NSString *page = [NSString stringWithFormat:@"%ld", (long)self.page];
+    [DNNetworking getWithURLString:get_video parameters:@{@"page": page} success:^(id obj) {
+        NSString *code = [NSString stringWithFormat:@"%@", [obj valueForKey:@"code"]];
         if ([code isEqualToString:@"200"]) {
             NSArray<LiveVideoModel *> *arr = [NSArray modelArrayWithClass:[LiveVideoModel class] json:[obj valueForKey:@"data"]];
             [self.datalist addObjectsFromArray:arr];
+            [self.tableView reloadData];
         }else{
-            
+            NSString *msg = [obj valueForKey:@"message"];
+            [self.view showWarning:msg];
         }
         [self.tableView endFooterRefresh];
     } failure:^(NSError *error) {
-        
+        [self.view showWarning:@"网络错误"];
         [self.tableView endFooterRefresh];
     }];
 }
@@ -98,18 +107,18 @@
 #pragma mark UITableView Datasource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
+    return self.datalist.count ? 1 : 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return self.datalist.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     LiveVideoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
+    cell.model = self.datalist[indexPath.row];
     return cell;
 }
 
@@ -125,28 +134,32 @@
 }
 #pragma mark UITableView Delegate
 
-/*
-    AVPlayerStatusUnknown,
-    AVPlayerStatusReadyToPlay,
-	AVPlayerStatusFailed
- */
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    //LiveVideoCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    //cell.player.status
+    
 }
 
-- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(LiveVideoCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
+    NSInteger page = (int)(scrollView.contentOffset.y / kScreenH + 0.5);        // 四舍五入取整
+    self.currentIndex = [NSIndexPath indexPathForRow:page inSection:0];
     
 }
 
 
 
-
 #pragma mark lazy load
+
+- (NSMutableArray<LiveVideoModel *> *)datalist{
+    if (!_datalist ) {
+        _datalist = [[NSMutableArray<LiveVideoModel *> alloc] init];
+    }
+    return _datalist;
+}
 
 - (UITableView *)tableView{
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+        CGRect frame = CGRectMake(0, 0, kScreenW, kScreenH);
+        _tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStyleGrouped];
         [self.view addSubview:_tableView];
         _tableView.delegate = self;
         _tableView.dataSource = self;

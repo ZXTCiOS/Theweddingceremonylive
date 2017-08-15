@@ -7,21 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <AVFoundation/AVFoundation.h>
+#import "WMPlayer.h"
+#import "LiveVideoModel.h"
 
 @interface LiveVideoCell : UITableViewCell
 
-@property (nonatomic, strong) AVPlayer *player;
-@property (nonatomic, copy) NSString *url;
+@property (nonatomic, strong) WMPlayer *player;
 
-@property (weak, nonatomic) IBOutlet UIImageView *pause;
-@property (weak, nonatomic) IBOutlet UILabel *title;
-@property (weak, nonatomic) IBOutlet UILabel *time;
-@property (weak, nonatomic) IBOutlet UILabel *desc;
-
-@property (weak, nonatomic) IBOutlet UIButton *list;
-@property (weak, nonatomic) IBOutlet UIButton *share;
-
-
+@property (nonatomic, strong) LiveVideoModel *model;
 
 @end

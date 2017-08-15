@@ -84,7 +84,7 @@ typedef void (^DNDownloadBlock)(NSURL *filePath, NSError *error);
  *
  *  @param urlString  请求链接
  *  @param parameters 请求参数
- *  @param data       图片image
+ *  @param image       图片image
  *  @param progress   请求进度
  *  @param success    请求结果
  *  @param failure    失败原因
