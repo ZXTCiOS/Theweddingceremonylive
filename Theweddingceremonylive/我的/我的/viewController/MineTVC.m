@@ -33,10 +33,10 @@ static NSString *mineidentfid2 = @"mineidentfid2";
     
     self.view.backgroundColor = [UIColor whiteColor];
     
-//    [self.view addSubview:self.table];
-//    [self.view addSubview:self.headView];
-//    self.table.tableFooterView = [UIView new];
-//    
+    [self.view addSubview:self.table];
+    [self.view addSubview:self.headView];
+    self.table.tableFooterView = [UIView new];
+
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -87,6 +87,9 @@ static NSString *mineidentfid2 = @"mineidentfid2";
 {
     if (indexPath.section==0) {
         mineCell0 *cell = [tableView dequeueReusableCellWithIdentifier:mineidentfid0];
+        if (!cell) {
+            cell = [[mineCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:mineidentfid0];
+        }
         
         return cell;
     }
