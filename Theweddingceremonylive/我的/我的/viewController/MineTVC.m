@@ -11,86 +11,107 @@
 #import "SystemMessageTVC.h"
 #import "MyGiftTVC.h"
 #import "MyWalletTVC.h"
+#import "mineCell0.h"
+#import "mineCell1.h"
 
-
-@interface MineTVC ()
-
-@property (weak, nonatomic) IBOutlet UIImageView *icon;
-
-@property (weak, nonatomic) IBOutlet UILabel *name;
-
-@property (weak, nonatomic) IBOutlet UILabel *gender_id;
-
-@property (weak, nonatomic) IBOutlet UIImageView *bgimageView;
-
+@interface MineTVC ()<UITableViewDataSource,UITableViewDelegate>
+@property (nonatomic,strong) UITableView *table;
+@property (nonatomic,strong) UIView *headView;
+@property (nonatomic,strong) UIImageView *userImg;
+@property (nonatomic,strong) UILabel *nameLab;
 
 @end
+static NSString *mineidentfid0 = @"mineidentfid0";
+static NSString *mineidentfid1 = @"mineidentfid1";
+static NSString *mineidentfid2 = @"mineidentfid2";
 
 @implementation MineTVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self contentInit];
+    //[self contentInit];
     
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLineEtched;
-    self.tableView.tableFooterView = [UIView new];
-    self.icon.image = [UIImage imageNamed:@"touxiang"];
-    self.bgimageView.image = [UIImage imageNamed:@"touxiang"];
+    self.view.backgroundColor = [UIColor whiteColor];
     
+    [self.view addSubview:self.table];
+    [self.view addSubview:self.headView];
+    self.table.tableFooterView = [UIView new];
+
 }
 
-- (void)contentInit{
-    self.icon.layer.cornerRadius = self.icon.frame.size.width / 2.0;
-    self.icon.layer.masksToBounds = YES;
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"name"]) {
-        NSString *name = [[NSUserDefaults standardUserDefaults] objectForKey:@"name"];
-        self.name.text = name;
-        
-    }
-    
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"icon"]) {
-        UIImage *img = [[NSUserDefaults standardUserDefaults] objectForKey:@"icon"];
-        self.icon.image = img;
-        self.bgimageView.image = img;
-    } else {
-        self.icon.image = [UIImage imageNamed:@"icon_default"];
-        self.bgimageView.image = nil;
-    }
-    
-    
-    
-    NSString *uid = [[NSUserDefaults standardUserDefaults] objectForKey:@"uid"];
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"gender"]) {
-     NSInteger gender = [[[NSUserDefaults standardUserDefaults] objectForKey:@"gender"] integerValue];
-     if (gender == 1) {
-         NSString *str = [NSString stringWithFormat:@"ID:%@   男", uid];
-         self.gender_id.text = str;
-     } else if (gender == 2){
-         NSString *str = [NSString stringWithFormat:@"ID:%@   女", uid];
-         self.gender_id.text = str;
-     }
-     } else {
-         NSString *str = [NSString stringWithFormat:@"ID:%@   未知", uid];
-         self.gender_id.text = str;
-     }
-    
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController.navigationBar setHidden:YES];
 }
 
-#pragma mark - Table view data source
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.navigationController.navigationBar setHidden:NO];
+}
+
+#pragma mark - getters
+
+-(UITableView *)table
+{
+    if(!_table)
+    {
+        _table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH)];
+        _table.dataSource = self;
+        _table.delegate = self;
+    }
+    return _table;
+}
+
+#pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return section ? 2 : 4;
+    if (section==0) {
+        return 5;
+    }
+    if (section==1) {
+        return 2;
+    }
+    if (section==2) {
+        return 1;
+    }
+    return 0;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section==0) {
+        mineCell0 *cell = [tableView dequeueReusableCellWithIdentifier:mineidentfid0];
+        if (!cell) {
+            cell = [[mineCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:mineidentfid0];
+        }
+        
+        return cell;
+    }
+    if (indexPath.section==1) {
+        
+    }
+    if (indexPath.section==2) {
+        
+    }
+    return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 20;
 }
 
-#pragma mark - tableview  delegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 50*HEIGHT_SCALE;
+}
+
+#pragma mark - UITableViewDelegate
 
 - (IBAction)systemMessage:(id)sender {
     SystemMessageTVC *vc = [[SystemMessageTVC alloc] init];
@@ -151,58 +172,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

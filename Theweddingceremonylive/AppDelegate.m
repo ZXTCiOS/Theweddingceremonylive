@@ -57,16 +57,16 @@
     self.window = [[UIWindow alloc] init];
     self.window.backgroundColor = [UIColor whiteColor];
     
-//    UINavigationController *navcon = [[UINavigationController alloc] init];
-//    LoginVC *vc = [[LoginVC alloc] init];
-//    navcon.viewControllers = @[vc];
-//    self.window.rootViewController = navcon;
-//    [self.window makeKeyAndVisible];
-    
-    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = [[MainTabBarController alloc] init];
+    UINavigationController *navcon = [[UINavigationController alloc] init];
+    LoginVC *vc = [[LoginVC alloc] init];
+    navcon.viewControllers = @[vc];
+    self.window.rootViewController = navcon;
     [self.window makeKeyAndVisible];
+    
+//    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+//    self.window.backgroundColor = [UIColor whiteColor];
+//    self.window.rootViewController = [[MainTabBarController alloc] init];
+//    [self.window makeKeyAndVisible];
 }
 
 @end

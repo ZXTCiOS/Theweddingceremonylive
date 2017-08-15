@@ -320,10 +320,38 @@
 
 -(void)loginbtnclick
 {
-    //切换根视图控制器
-//    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-//    MainTabBarController * main = [[MainTabBarController alloc] init];
-//    appDelegate.window.rootViewController = main;
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    MainTabBarController * main = [[MainTabBarController alloc] init];
+    appDelegate.window.rootViewController = main;
+    
+//    if (![strisNull isNullToString:self.nicknametext.text]&&![strisNull isNullToString:self.passwordtext.text]) {
+//      
+//        
+//        
+//        
+//        NSString *user_tel = self.nicknametext.text;
+//        NSString *user_pwd = self.passwordtext.text;
+//        NSString *type = @"1";
+//        NSDictionary *para = @{@"user_tel":user_tel,@"user_pwd":user_pwd,@"type":type};
+//        [DNNetworking postWithURLString:post_login parameters:para success:^(id obj) {
+//            
+//            //切换根视图控制器
+//       
+//
+//        } failure:^(NSError *error) {
+//            [MBProgressHUD showSuccess:@"网络错误"];
+//        }];
+//        
+//
+//    }
+//    else
+//    {
+//        [MBProgressHUD showSuccess:@"请检查输入"];
+//        
+//        
+//    }
+  
 }
 
 -(void)qqbtnclick

@@ -8,6 +8,8 @@
 
 #import "logupViewController.h"
 #import "QCCountdownButton.h"
+#import "perfectingViewController.h"
+
 @interface logupViewController ()<UITextFieldDelegate>
 
 @property (nonatomic,strong) UILabel *lab0;
@@ -55,6 +57,9 @@
     //进度b
     [self.sentCodeBtn processBlock:^(NSUInteger second) {
         self.sentCodeBtn.title = [NSString stringWithFormat:@"(%lis)后重新获取", second] ;
+        
+      
+        
     } onFinishedBlock:^{  // 倒计时完毕
         self.sentCodeBtn.title = @"重新获取验证码";
     }];
@@ -267,6 +272,7 @@
         _sentCodeBtn.totalSecond = KTime;
         _sentCodeBtn.layer.masksToBounds = YES;
         _sentCodeBtn.layer.cornerRadius = 20*HEIGHT_SCALE;
+        [_sentCodeBtn addTarget:self action:@selector(sendcodebtnclock) forControlEvents:UIControlEventTouchUpInside];
     }
     return _sentCodeBtn;
 }
@@ -338,10 +344,41 @@
     }
     return _lineview3;
 }
+
 #pragma mark - 实现方法
 
 -(void)submitbtnclick
 {
+    if (self.passtext.text!=self.newpasstext.text) {
+        [MBProgressHUD showSuccess:@"请检查密码输入"];
+    }
+    else
+    {
+        if (![strisNull isNullToString:self.phonetext.text]&&![strisNull isNullToString:self.passtext.text]) {
+            NSString *tel = self.phonetext.text;
+            NSString *pwd = self.passtext.text;
+            NSDictionary *para = @{@"tel":tel,@"pwd":pwd};
+            [DNNetworking postWithURLString:post_logup parameters:para success:^(id obj) {
+                NSString *msg = [obj objectForKey:@"msg"];
+                if ([[obj objectForKey:@"code"] intValue]==1000) {
+                    [MBProgressHUD showSuccess:msg];
+                    perfectingViewController *pervc = [[perfectingViewController alloc] init];
+                    [self.navigationController pushViewController:pervc animated:YES];
+                }
+                else
+                {
+                    [MBProgressHUD showSuccess:msg];
+                }
+            } failure:^(NSError *error) {
+                
+            }];
+        }
+    }
+}
+
+-(void)sendcodebtnclock
+{
+    //验证码
     
 }
 
