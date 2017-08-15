@@ -35,7 +35,7 @@
     [self networking];
     [self tableView];
     
-    
+    self.currentIndex = [NSIndexPath indexPathForRow:0 inSection:0];
     self.view.backgroundColor = [UIColor lightGrayColor];
 }
 
@@ -48,6 +48,27 @@
     self.tabBarController.tabBar.translucent = YES;
     [self.navigationController setNavigationBarHidden:YES];
 }
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    if (self.datalist.count) {
+        [self startPlayerAtIndexPath:self.currentIndex];
+    }
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    
+    self.tabBarController.tabBar.alpha = 1;
+    //设置为透明
+    self.tabBarController.tabBar.translucent = YES;
+    self.tabBarController.tabBar.tintColor = [UIColor colorWithHexString:@"ed5e40"];
+    
+    if (self.datalist.count) {
+        [self endPlayerAtIndexPath:self.currentIndex];
+    }
+}
+
 
 #pragma networking
 
@@ -119,6 +140,7 @@
     LiveVideoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.model = self.datalist[indexPath.row];
+    cell.tag = 100 + indexPath.row;
     return cell;
 }
 
@@ -132,19 +154,74 @@
     return
     [UIScreen mainScreen].bounds.size.height;
 }
-#pragma mark UITableView Delegate
 
+#pragma mark UITableView Delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
 }
 
-- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
-    NSInteger page = (int)(scrollView.contentOffset.y / kScreenH + 0.5);        // 四舍五入取整
-    self.currentIndex = [NSIndexPath indexPathForRow:page inSection:0];
-    
+
+
+- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(LiveVideoCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    [cell.player pause];
 }
 
+static float lastY = 0.0;
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    float y = scrollView.contentOffset.y;
+    if (y - lastY > 0) {        //  上划
+        
+    } else {                    //  下划
+        
+    }
+    lastY = y;
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    NSInteger page = (int)(scrollView.contentOffset.y / kScreenH + 0.5);        // 四舍五入取整
+    NSLog(@"******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************%ld", page);
+    self.currentIndex = [NSIndexPath indexPathForRow:page inSection:0];
+    [self startPlayerAtIndexPath:self.currentIndex];
+    if (page > 0) {
+        NSIndexPath *upIndex = [NSIndexPath indexPathForRow:page - 1 inSection:0];
+        [self endPlayerAtIndexPath:upIndex];
+    }
+    if (page < self.datalist.count - 1) {
+        NSIndexPath *downIndex = [NSIndexPath indexPathForRow:page + 1 inSection:0];
+        [self endPlayerAtIndexPath:downIndex];
+    }
+}
+
+
+/*      获取视频首帧图片
+ AVAssetImageGenerator  *imageGen = [[AVAssetImageGenerator alloc] initWithAsset:self.source];
+ if (imageGen) {
+ imageGen.appliesPreferredTrackTransform = YES;
+ CMTime actualTime;
+ CGImageRef cgImage = [imageGen copyCGImageAtTime:CMTimeMakeWithSeconds(0, 30) actualTime:&actualTime error:NULL];
+ if (cgImage) {
+ UIImage *image = [UIImage imageWithCGImage:cgImage];
+ CGImageRelease(cgImage);
+ return image;
+ }
+ }
+ */
+
+
+- (void)endPlayerAtIndexPath:(NSIndexPath *) indexpath{
+    LiveVideoCell *cell = [self.tableView cellForRowAtIndexPath:indexpath];
+    if (cell) {
+        [cell.player pause];
+    }
+}
+
+- (void)startPlayerAtIndexPath:(NSIndexPath *) indexpath{
+    LiveVideoCell *cell = [self.tableView cellForRowAtIndexPath:indexpath];
+    if (cell) {
+        [cell.player.player play];
+    }
+}
 
 
 #pragma mark lazy load
@@ -171,15 +248,6 @@
     return _tableView;
 }
 
--(void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-    self.tabBarController.tabBar.alpha = 1;
-    //设置为透明
-    self.tabBarController.tabBar.translucent = YES;
-    self.tabBarController.tabBar.tintColor = [UIColor colorWithHexString:@"ed5e40"];
-
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

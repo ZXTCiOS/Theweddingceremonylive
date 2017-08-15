@@ -51,9 +51,10 @@
         
         NSLog(@"list clicked");
     } forControlEvents:UIControlEventTouchUpInside];
-    _player = nil;
+    
     self.player.URLString = self.model.video_url;
     [self.player play];
+    [self.player pause];
 }
 
 
