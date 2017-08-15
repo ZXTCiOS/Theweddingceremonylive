@@ -736,7 +736,8 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
     CGContextSetFillColorWithColor(context, [color CGColor]);
     CGContextFillRect(context, rect);
     UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext(); return img;
+    UIGraphicsEndImageContext();
+    return img;
 }
 
 #pragma mark
@@ -1266,7 +1267,7 @@ NSString * calculateTimeWithTimeFormatter(long long timeSecond){
 //重置播放器
 -(void )resetWMPlayer{
     
-  
+    
     
     self.currentItem = nil;
     self.seekTime = 0;
