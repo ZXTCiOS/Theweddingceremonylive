@@ -18,12 +18,12 @@
 @import UIKit;
 // 播放器的几种状态
 typedef NS_ENUM(NSInteger, WMPlayerState) {
-    WMPlayerStateFailed,        // 播放失败
-    WMPlayerStateBuffering,     // 缓冲中
-    WMPlayerStatePlaying,       // 播放中
-    WMPlayerStateStopped,        //暂停播放
-    WMPlayerStateFinished,        //暂停播放
-    WMPlayerStatePause,       // 暂停播放
+    WMPlayerStateFailed,        // 播放失败     0
+    WMPlayerStateBuffering,     // 缓冲中       1
+    WMPlayerStatePlaying,       // 播放中       2
+    WMPlayerStateStopped,        //暂停播放     3
+    WMPlayerStateFinished,        //暂停播放    4
+    WMPlayerStatePause,       // 暂停播放       5
 };
 // 枚举值，包含播放器左上角的关闭按钮的类型
 typedef NS_ENUM(NSInteger, CloseBtnStyle){

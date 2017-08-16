@@ -11,6 +11,7 @@
 #import "LiveVideoCell.h"
 #import "LiveVideoModel.h"
 #import "WMPlayer.h"
+#import <MJRefresh.h>
 
 @interface LiveVC ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -34,7 +35,7 @@
     
     [self networking];
     [self tableView];
-    
+    self.view.frame = CGRectMake(0, -20, kScreenW, kScreenH);
     self.currentIndex = [NSIndexPath indexPathForRow:0 inSection:0];
     self.view.backgroundColor = [UIColor lightGrayColor];
 }
@@ -78,6 +79,7 @@
     [self.tableView addHeaderRefresh:^{
         [weakSelf headerRefresh];
     }];
+    
     [self.tableView addFooterRefresh:^{
         [weakSelf footerRefresh];
     }];
@@ -86,6 +88,7 @@
 
 - (void)headerRefresh{
     self.page = 0;
+    //[self.view showHUD];
     [DNNetworking getWithURLString:get_video success:^(id obj) {
         NSString *code = [NSString stringWithFormat:@"%@", [obj valueForKey:@"code"]];
         if ([code isEqualToString:@"1000"]) {
@@ -98,9 +101,11 @@
             [self.view showWarning:msg];
         }
         [self.tableView endHeaderRefresh];
+        [self.view hideHUD];
     } failure:^(NSError *error) {
         [self.view showWarning:@"网络错误"];
         [self.tableView endHeaderRefresh];
+        [self.view hideHUD];
     }];
     
 }
@@ -164,25 +169,46 @@
 
 
 - (void)tableView:(UITableView *)tableView didEndDisplayingCell:(LiveVideoCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-    [cell.player pause];
+    //[cell.player pause];
 }
 
-static float lastY = 0.0;
+static CGFloat lastY = 0.0;
+static NSInteger lastPage = 0;
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    float y = scrollView.contentOffset.y;
-    if (y - lastY > 0) {        //  上划
+    CGFloat y = scrollView.contentOffset.y;
+    NSInteger page = (int)(scrollView.contentOffset.y / kScreenH);
+    
+    if (y > lastY) {
+        //  上划
+        if (page > lastPage) {
+            
+            self.currentIndex = [NSIndexPath indexPathForRow:page inSection:0];
+            NSIndexPath *lastIndex = [NSIndexPath indexPathForRow:lastPage inSection:0];
+            [self startPlayerAtIndexPath:self.currentIndex];
+            [self endPlayerAtIndexPath:lastIndex];
+            lastPage = page;
+        }
         
-    } else {                    //  下划
-        
+    } else {
+        //  下划
+        if (page < lastPage) {
+            
+            self.currentIndex = [NSIndexPath indexPathForRow:page inSection:0];
+            NSIndexPath *lastIndex = [NSIndexPath indexPathForRow:lastPage inSection:0];
+            [self startPlayerAtIndexPath:self.currentIndex];
+            [self endPlayerAtIndexPath:lastIndex];
+            lastPage = page;
+        }
     }
-    lastY = y;
+    
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     NSInteger page = (int)(scrollView.contentOffset.y / kScreenH + 0.5);        // 四舍五入取整
-    NSLog(@"******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************%ld", page);
     self.currentIndex = [NSIndexPath indexPathForRow:page inSection:0];
     [self startPlayerAtIndexPath:self.currentIndex];
+    
+    
     if (page > 0) {
         NSIndexPath *upIndex = [NSIndexPath indexPathForRow:page - 1 inSection:0];
         [self endPlayerAtIndexPath:upIndex];
@@ -218,8 +244,11 @@ static float lastY = 0.0;
 
 - (void)startPlayerAtIndexPath:(NSIndexPath *) indexpath{
     LiveVideoCell *cell = [self.tableView cellForRowAtIndexPath:indexpath];
-    if (cell) {
+    if (!(cell.player.state == WMPlayerStatePlaying)) {
+        [cell.player.player seekToTime:CMTimeMake(0, 1)];
+        [cell.player play];
         [cell.player.player play];
+        cell.player.state = WMPlayerStatePlaying;
     }
 }
 
@@ -235,7 +264,7 @@ static float lastY = 0.0;
 
 - (UITableView *)tableView{
     if (!_tableView) {
-        CGRect frame = CGRectMake(0, 0, kScreenW, kScreenH);
+        CGRect frame = CGRectMake(0, -20, kScreenW, kScreenH + 60);
         _tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStyleGrouped];
         [self.view addSubview:_tableView];
         _tableView.delegate = self;

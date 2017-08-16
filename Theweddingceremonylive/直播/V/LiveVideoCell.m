@@ -25,7 +25,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    //[self player];
+    [self player];
 }
 
 
@@ -43,6 +43,8 @@
     self.time.text = time;
     
     self.desc.text = self.model.video_desc;
+    [self.share removeAllTargets];
+    [self.list removeAllTargets];
     [self.share bk_addEventHandler:^(id sender) {
         
         NSLog(@"share clicked");
@@ -51,11 +53,14 @@
         
         NSLog(@"list clicked");
     } forControlEvents:UIControlEventTouchUpInside];
-    
     self.player.URLString = self.model.video_url;
-    [self.player play];
-    [self.player pause];
+    AVPlayerItem *item = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:self.model.video_url]];
+    self.player.currentItem = item;
+    [_player play];
+    //[_player pause];
 }
+
+
 
 
 - (WMPlayer *)player{
@@ -92,10 +97,18 @@
 
 - (void)wmplayerFinishedPlay:(WMPlayer *)wmplayer{
     [wmplayer.player seekToTime:CMTimeMake(0, 1)];
+    [wmplayer play];
     [wmplayer.player play];
+    wmplayer.state = WMPlayerStatePlaying;
 }
 
+- (void)wmplayerReadyToPlay:(WMPlayer *)wmplayer WMPlayerStatus:(WMPlayerState)state{
+    [wmplayer play];
+}
 
+- (void)wmplayerFailedPlay:(WMPlayer *)wmplayer WMPlayerStatus:(WMPlayerState)state{
+    [wmplayer play];
+}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

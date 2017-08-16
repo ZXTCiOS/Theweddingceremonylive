@@ -544,13 +544,15 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
             self.playOrPauseBtn.selected = NO;
         }else if(self.state ==WMPlayerStateFinished){
             NSLog(@"fffff");
+            self.state = WMPlayerStatePlaying;
+            [self.player play];
         }
     }
 }
 ///暂停
 -(void)pause{
     if (self.state==WMPlayerStatePlaying) {
-        self.state = WMPlayerStateStopped;
+        self.state = WMPlayerStatePause;
     }
     [self.player pause];
     self.playOrPauseBtn.selected = YES;
@@ -712,9 +714,11 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
     // 控制菊花显示、隐藏
     if (state == WMPlayerStateBuffering) {
         [self.loadingView startAnimating];
+        
     }else if(state == WMPlayerStatePlaying){
         //here
         [self.loadingView stopAnimating];//
+        [self play];
     }else if(state == WMPlayerStatePause){
         //here
         [self.loadingView stopAnimating];//
@@ -908,7 +912,7 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
             // 当缓冲好的时候
             if (self.currentItem.playbackLikelyToKeepUp && self.state == WMPlayerStateBuffering){
                 NSLog(@"55555%s WMPlayerStatePlaying",__FUNCTION__);
-
+                
                 self.state = WMPlayerStatePlaying;
             }
             

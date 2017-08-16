@@ -83,7 +83,7 @@ static NSString *privateNetworkBaseUrl = BASE_URL;
 }
 
 + (void)getWithURLString:(NSString *)urlString parameters:(NSDictionary *)parameters progress:(DNProgressBlock)progress success:(DNSuccessBlock)success failure:(DNFailureBlock)failure {
-    DNNetLog(@"GET请求的链接--------------------->%@",urlString);
+    DNNetLog(@"GET请求的链接--------------------->%@%@", [self baseUrl], urlString);
     AFHTTPSessionManager *session = nil;
     if ([self baseUrl] != nil && ![urlString hasPrefix:@"http://"] && ![urlString hasPrefix:@"https://"]) {
         session = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:[self baseUrl]]];
@@ -102,6 +102,7 @@ static NSString *privateNetworkBaseUrl = BASE_URL;
 //        DNNetLog(@"GET请求到的数据===>%@",responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         failure(error);
+        
 //        DNNetLog(@"GET失败原因===>%@",error);
     }];
 }

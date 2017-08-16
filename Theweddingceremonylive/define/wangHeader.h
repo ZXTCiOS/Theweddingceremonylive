@@ -15,7 +15,7 @@
 #define user_token  @"TOKEN"
 
 
-#define BASE_URL @"http://88.irapidtech.net"
+#define BASE_URL    @"http://88.irapidtech.net"
 //注册
 #define post_logup @"/interface.php/Home/register/register"
 //登录验证
