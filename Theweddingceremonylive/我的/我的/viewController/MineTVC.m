@@ -14,7 +14,10 @@
 #import "mineCell0.h"
 #import "mineCell1.h"
 #import "mineheadView.h"
-
+#import "ModifyInfoVC.h"
+#import "SaveCenterVC.h"
+#import "MyShopTVC.h"
+#import "mineOrderVC.h"
 
 @interface MineTVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
@@ -44,6 +47,7 @@ static NSString *mineidentfid2 = @"mineidentfid2";
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+
     [self.navigationController.navigationBar setHidden:YES];
 }
 
@@ -51,6 +55,12 @@ static NSString *mineidentfid2 = @"mineidentfid2";
 {
     [super viewWillDisappear:animated];
     [self.navigationController.navigationBar setHidden:NO];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.tabBarController.tabBar setHidden:NO];
 }
 
 #pragma mark - getters
@@ -202,6 +212,7 @@ static NSString *mineidentfid2 = @"mineidentfid2";
             case 1:// 礼物
             {
                 MyGiftTVC *vc = [[MyGiftTVC alloc] init];
+                self.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:vc animated:YES];
             }
                 break;
@@ -212,7 +223,16 @@ static NSString *mineidentfid2 = @"mineidentfid2";
                 break;
             case 3:// 商家
             {
-                
+                MyShopTVC *vc = [[MyShopTVC alloc] init];
+                self.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+                break;
+            case 4:// 订单
+            {
+                mineOrderVC *vc = [[mineOrderVC alloc] init];
+                self.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:vc animated:YES];
             }
                 break;
             default:
@@ -250,11 +270,13 @@ static NSString *mineidentfid2 = @"mineidentfid2";
 
 -(void)btn1click
 {
-    
+    ModifyInfoVC *modvc = [[ModifyInfoVC alloc] init];
+    [self.navigationController pushViewController:modvc animated:YES];
 }
 
 -(void)btn2click
 {
-    
+    SaveCenterVC *safevc = [[SaveCenterVC alloc] init];
+    [self.navigationController pushViewController:safevc animated:YES];
 }
 @end

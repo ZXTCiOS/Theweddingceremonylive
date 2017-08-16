@@ -7,22 +7,22 @@
 //
 
 #import "MyShopTVC.h"
+#import "MyshopCell.h"
 
-@interface MyShopTVC ()
-
+@interface MyShopTVC ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,mysubmitVdelegate>
+@property (strong,nonatomic) UICollectionView *myCollectionV;
 @end
+
+static NSString *indentify =  @"indentify";
 
 @implementation MyShopTVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.tableFooterView = [UIView new];
-    self.navigationItem.title = @"我的商家";
+    self.title = @"我的商家";
     
-    
-    
-    
+    [self addTheCollectionView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,68 +30,84 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
+//创建视图
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+-(void)addTheCollectionView{
+    
+    //=======================1===========================
+    //创建一个块状表格布局对象
+    UICollectionViewFlowLayout *flowL = [[UICollectionViewFlowLayout alloc] init];
+    //格子的大小 (长，高)
+    flowL.itemSize = CGSizeMake(150*WIDTH_SCALE, 130*HEIGHT_SCALE);
+    //横向最小距离
+    flowL.minimumInteritemSpacing = 1.f;
+    //    flowL.minimumLineSpacing=60.f;//代表的是纵向的空间间隔
+    //设置，上／左／下／右 边距 空间间隔数是多少
+    flowL.sectionInset = UIEdgeInsetsMake(16*HEIGHT_SCALE, 24*WIDTH_SCALE, 24*HEIGHT_SCALE, 24*WIDTH_SCALE);
+    //创建一个UICollectionView
+    _myCollectionV = [[UICollectionView alloc]initWithFrame:CGRectMake(0, -8, kScreenW, kScreenH) collectionViewLayout:flowL];
+    //设置代理为当前控制器
+    _myCollectionV.backgroundColor = [UIColor whiteColor];
+    _myCollectionV.delegate = self;
+    _myCollectionV.dataSource = self;
+    
+    UITapGestureRecognizer *TapGestureTecognizer=[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardHide)];
+    TapGestureTecognizer.cancelsTouchesInView=NO;
+    [self.myCollectionV addGestureRecognizer:TapGestureTecognizer];
+    
+    [_myCollectionV registerClass:[MyshopCell class] forCellWithReuseIdentifier:indentify];
+    
+    //添加视图
+    [self.view addSubview:_myCollectionV];
+    
+}
+
+#pragma mark --UICollectionView dataSource
+//有多少个Section
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+//每个section有多少个元素
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return 12;
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+//每个单元格的数据
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    //初始化每个单元格
+    MyshopCell *cell = (MyshopCell *)[collectionView dequeueReusableCellWithReuseIdentifier:indentify forIndexPath:indexPath];
+    cell.delegate = self;
+    //给单元格上的元素赋值
+//    cell.backgroundColor = [UIColor redColor];
     return cell;
+    
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+//点击单元格
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"%ld",indexPath.row);
+
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+-(void)submitbtnClick:(UICollectionViewCell *)cell
+{
+    NSIndexPath *index = [self.myCollectionV indexPathForCell:cell];
+    NSLog(@"index------%ld",(long)index.item);
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+-(void)keyboardHide
+{
+    
 }
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.tabBarController.tabBar setHidden:YES];
 }
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

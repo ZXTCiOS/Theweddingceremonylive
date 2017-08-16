@@ -7,201 +7,34 @@
 //
 
 #import "ModifyInfoVC.h"
+#import "BDImagePicker.h"
+#import "perfectingCell0.h"
+#import "perfectingCell1.h"
+#import "modifyCell.h"
 
-
-
-@interface ModifyInfoVC ()<UIActionSheetDelegate>
-
-@property (weak, nonatomic) IBOutlet UIControl *iconControl;
-@property (weak, nonatomic) IBOutlet UIImageView *iconView;
-
-@property (weak, nonatomic) IBOutlet UITextField *nameTextLabel;
-
-@property (weak, nonatomic) IBOutlet UIButton *MaleBtn;
-
-@property (weak, nonatomic) IBOutlet UIButton *FemaleBtn;
-
-@property (weak, nonatomic) IBOutlet UIButton *finishBtn;
-
-@property (weak, nonatomic) IBOutlet UIView *nameView;
-
-@property (weak, nonatomic) IBOutlet UIView *genderView;
-
-
+@interface ModifyInfoVC ()<UITableViewDelegate,UITableViewDataSource,mycellVdelegate,mysubmitVdelegate>
+@property (nonatomic,strong) UITableView *table;
+@property (nonatomic,strong) UIView *headView;
+@property (nonatomic,strong) UIImageView *userImg;
 @end
+
+static NSString *modifyidentfid0 = @"modifyidentfid0";
+static NSString *modifyidentfid1 = @"modifyidentfid1";
+static NSString *modifyidentfid2 = @"modifyidentfid2";
+static NSString *modifyidentfid3 = @"modifyidentfid3";
+static NSString *modifyidentfid4 = @"modifyidentfid4";
+static NSString *modifyidentfid5 = @"modifyidentfid5";
 
 @implementation ModifyInfoVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"修改个人资料";
     
-    [self makeCornerRadius];
-    [self contentInit];
-    
+    [self.view addSubview:self.table];
+    self.table.tableFooterView = [UIView new];
+    self.table.tableHeaderView = self.headView;
 }
-
-- (void)makeCornerRadius{
-    self.iconControl.layer.cornerRadius = self.iconView.frame.size.width / 2.0;
-    self.iconControl.layer.masksToBounds = YES;
-    self.nameView.layer.cornerRadius = 5;
-    self.nameView.layer.masksToBounds = YES;
-    self.genderView.layer.cornerRadius = 5;
-    self.genderView.layer.masksToBounds = YES;
-    self.finishBtn.layer.cornerRadius = 5;
-    self.finishBtn.layer.masksToBounds = YES;
-//    self.iconView.layer.cornerRadius = self.iconView.frame.size.width / 2.0;
-//    self.iconView.layer.masksToBounds = YES;
-}
-
-- (void)contentInit{
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"name"]) {
-        NSString *name = [[NSUserDefaults standardUserDefaults] objectForKey:@"name"];
-        self.nameTextLabel.text = name;
-        
-    }
-    
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"icon"]) {
-        UIImage *img = [[NSUserDefaults standardUserDefaults] objectForKey:@"name"];
-        self.iconView.image = img;
-    } else {
-        self.iconView.image = [UIImage imageNamed:@"icon_default"];
-    }
-    
-    /*if ([[NSUserDefaults standardUserDefaults] objectForKey:@"gender"]) {
-     NSInteger gender = [[[NSUserDefaults standardUserDefaults] objectForKey:@"gender"] integerValue];
-     if (gender == 1) {
-     self.MaleBtn.selected = YES;
-     self.FemaleBtn.selected = NO;
-     self.MaleBtn.enabled = NO;
-     self.FemaleBtn.enabled = YES;
-     
-     } else if (gender == 2){
-     self.MaleBtn.selected = NO;
-     self.FemaleBtn.selected = YES;
-     self.MaleBtn.enabled = YES;
-     self.FemaleBtn.enabled = NO;
-     }
-     } else {
-     self.MaleBtn.selected = NO;
-     self.FemaleBtn.selected = NO;
-     self.MaleBtn.enabled = YES;
-     self.FemaleBtn.enabled = YES;
-     }*/
-    self.MaleBtn.selected = NO;
-    self.FemaleBtn.selected = NO;
-    self.MaleBtn.enabled = YES;
-    self.FemaleBtn.enabled = YES;
-}
-
-- (IBAction)finishModifyInfo:(id)sender {
-    
-    if (!(self.MaleBtn.isSelected || self.FemaleBtn.isSelected)) {
-        //[UIAlertView bk_showAlertViewWithTitle:@"错误" message:@"请选择性别" cancelButtonTitle:@"取消" otherButtonTitles:@[@"确定"] handler:nil];
-        
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"错误" message:@"请选择性别" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *act = [UIAlertAction actionWithTitle:@"确定" style: UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            
-        }];
-        [alert addAction:act];
-        [self.navigationController presentViewController:alert animated:YES completion:nil];
-        
-        return;
-    }
-    if (!self.nameTextLabel.text) {
-        //[UIAlertView bk_showAlertViewWithTitle:@"错误" message:@"请输入昵称" cancelButtonTitle:@"取消" otherButtonTitles:@[@"确定"] handler:nil];
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"错误" message:@"请输入昵称" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *act = [UIAlertAction actionWithTitle:@"确定" style: UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            
-        }];
-        [alert addAction:act];
-        [self.navigationController presentViewController:alert animated:YES completion:nil];
-        return;
-    }
-    
-    NSDictionary *dic = @{@"name": self.nameTextLabel.text, @"gender": self.MaleBtn.isSelected ? @"1" : @"0"};
-    [DNNetworking postWithURLString:@"wwwwwwwwwwwwwwwwwwww" parameters:dic image:self.iconView.image progress:^(NSProgress *progress) {
-        
-    } success:^(id obj) {
-        NSLog(@"sucess");
-        // 写入 NSUserDefault
-        
-        
-        
-    } failure:^(NSError *error) {
-        NSLog(@"fail");
-    }];
-    NSLog(@"finish btn clicked");
-}
-
-
-- (IBAction)male:(UIButton *)sender {
-    self.MaleBtn.selected = YES;
-    self.FemaleBtn.selected = NO;
-    self.MaleBtn.enabled = NO;
-    self.FemaleBtn.enabled = YES;
-    
-}
-
-- (IBAction)female:(UIButton *)sender {
-    self.MaleBtn.selected = NO;
-    self.FemaleBtn.selected = YES;
-    self.MaleBtn.enabled = YES;
-    self.FemaleBtn.enabled = NO;
-    
-}
-
-
-- (IBAction)changeIcon:(id)sender {
-    //  更换头像  相册、拍照
-    //UIActionSheet *sheet=[[UIActionSheet alloc] initWithTitle:@"请选取" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"拍摄" otherButtonTitles:@"相册", nil];
-    
-    //[sheet showInView:self.view];
-    
-    
-}
-/*
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    
-    CorePhotoPickerVCMangerType type=0;
-    
-    
-    if(buttonIndex==0) type=CorePhotoPickerVCMangerTypeCamera;
-    
-    if(buttonIndex==1) type=CorePhotoPickerVCMangerTypeSinglePhoto;
-    
-    if(buttonIndex==2) type=CorePhotoPickerVCMangerTypeMultiPhoto;
-    
-    CorePhotoPickerVCManager *manager=[CorePhotoPickerVCManager sharedCorePhotoPickerVCManager];
-    
-    //设置类型
-    manager.pickerVCManagerType = type;
-    
-    //最多可选3张
-    manager.maxSelectedPhotoNumber = 1;
-    
-    //错误处理
-    if(manager.unavailableType != CorePhotoPickerUnavailableTypeNone){
-        NSLog(@"设备不可用");
-        return;
-    }
-    
-    UIViewController *pickerVC = manager.imagePickerController;
-    
-    //选取结束
-    manager.finishPickingMedia = ^(NSArray *medias){
-        
-        [medias enumerateObjectsUsingBlock:^(CorePhoto *photo, NSUInteger idx, BOOL *stop) {
-            NSLog(@"%@",photo.editedImage);
-            self.iconView.image = photo.editedImage;
-        }];
-    };
-    
-    [self presentViewController:pickerVC animated:YES completion:nil];
-    
-    
-}
-
-*/
 
 
 - (void)didReceiveMemoryWarning {
@@ -209,5 +42,181 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - getters
+
+-(UITableView *)table
+{
+    if(!_table)
+    {
+        _table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH)];
+        _table.dataSource = self;
+        _table.delegate = self;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tabletap)];
+        [_table addGestureRecognizer:tap];
+    }
+    return _table;
+}
+
+-(UIView *)headView
+{
+    if(!_headView)
+    {
+        _headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 150*HEIGHT_SCALE)];
+        [_headView addSubview:self.userImg];
+    }
+    return _headView;
+}
+
+-(UIImageView *)userImg
+{
+    if(!_userImg)
+    {
+        _userImg = [[UIImageView alloc] init];
+        _userImg.frame = CGRectMake(kScreenW/2-40*WIDTH_SCALE, 25*HEIGHT_SCALE, 80*WIDTH_SCALE, 80*WIDTH_SCALE);
+        _userImg.layer.masksToBounds = YES;
+        _userImg.layer.cornerRadius = 40*WIDTH_SCALE;
+        _userImg.image = [UIImage imageNamed:@"userpic"];
+        _userImg.userInteractionEnabled = YES;
+        //给图片添加点击手势（也可以添加其他手势）
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(selectHeaderImage)];
+        [_userImg addGestureRecognizer:tap];
+
+    }
+    return _userImg;
+}
+
+
+
+#pragma mark - UITableViewDataSource&&UITableViewDelegate
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 6;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row==0) {
+        perfectingCell0 *cell = [tableView dequeueReusableCellWithIdentifier:modifyidentfid0];
+        if (!cell) {
+            cell = [[perfectingCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:modifyidentfid0];
+            cell.lab.text = @"昵称";
+            cell.text.placeholder = @"请输入昵称";
+            cell.text.tag = 201;
+        }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }
+    if (indexPath.row==1) {
+        perfectingCell1 *cell = [tableView dequeueReusableCellWithIdentifier:modifyidentfid1];
+        if (!cell) {
+            cell = [[perfectingCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:modifyidentfid1];
+        }
+        cell.delegate = self;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+
+    }
+    if (indexPath.row==2) {
+        perfectingCell0 *cell = [tableView dequeueReusableCellWithIdentifier:modifyidentfid2];
+        if (!cell) {
+            cell = [[perfectingCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:modifyidentfid2];
+            cell.lab.text = @"年龄";
+            cell.text.placeholder = @"请输入年龄";
+            cell.text.tag = 202;
+        }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }
+    if (indexPath.row==3) {
+        perfectingCell0 *cell = [tableView dequeueReusableCellWithIdentifier:modifyidentfid3];
+        if (!cell) {
+            cell = [[perfectingCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:modifyidentfid3];
+            cell.lab.text = @"地区";
+            cell.text.placeholder = @"请输入地区";
+            cell.text.tag = 203;
+        }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }
+    if (indexPath.row==4) {
+        perfectingCell0 *cell = [tableView dequeueReusableCellWithIdentifier:modifyidentfid4];
+        if (!cell) {
+            cell = [[perfectingCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:modifyidentfid4];
+            cell.lab.text = @"个性签名";
+            cell.text.placeholder = @"请输入个性签名";
+            cell.text.tag = 204;
+        }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }
+    if (indexPath.row==5) {
+        modifyCell *cell = [tableView dequeueReusableCellWithIdentifier:modifyidentfid5];
+        if (!cell) {
+            cell = [[modifyCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:modifyidentfid5];
+        }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.delegate = self;
+        return cell;
+    }
+    return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row==5) {
+        return 90*HEIGHT_SCALE;
+    }
+    else
+    {
+        return 75*HEIGHT_SCALE;
+    }
+}
+
+#pragma mark - 实现方法
+-(void)submitbtnClick:(UITableViewCell *)cell
+{
+    NSLog(@"完成");
+}
+-(void)nanbtnClick:(UITableViewCell *)cell
+{
+    
+}
+
+-(void)nvbtnClick:(UITableViewCell *)cell
+{
+    
+}
+
+-(void)setbtnclick
+{
+    NSLog(@"完成");
+}
+
+-(void)selectHeaderImage
+{
+    [BDImagePicker showImagePickerFromViewController:self allowsEditing:YES finishAction:^(UIImage *image) {
+        self.userImg.image = image;
+    }];
+}
+
+-(void)tabletap
+{
+    UITextField *text1 = [self.table viewWithTag:201];
+    UITextField *text2 = [self.table viewWithTag:202];
+    UITextField *text3 = [self.table viewWithTag:203];
+    UITextField *text4 = [self.table viewWithTag:204];
+    [text1 resignFirstResponder];
+    [text2 resignFirstResponder];
+    [text3 resignFirstResponder];
+    [text4 resignFirstResponder];
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.tabBarController.tabBar setHidden:YES];
+}
 
 @end

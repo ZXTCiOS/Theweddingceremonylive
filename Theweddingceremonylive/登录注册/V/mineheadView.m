@@ -170,6 +170,7 @@
         _btn1 = [[systenBtn alloc] init];
         _btn1.typeLab.text = @"修改资料";
         _btn1.typeImg.image = [UIImage imageNamed:@"my_zl"];
+        [_btn1.redImg setHidden:YES];
     }
     return _btn1;
 }
@@ -181,6 +182,7 @@
         _btn2 = [[systenBtn alloc] init];
         _btn2.typeImg.image = [UIImage imageNamed:@"my_safe"];
         _btn2.typeLab.text = @"安全中心";
+        [_btn2.redImg setHidden:YES];
     }
     return _btn2;
 }

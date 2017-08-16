@@ -54,7 +54,7 @@
     if (!_imgV) {
         _imgV = [[UIImageView alloc] init];
         [self addSubview:_imgV];
-        _imgV.image = [UIImage imageNamed:@"touxiang"];
+        _imgV.image = [UIImage imageNamed:@"my_walet_xq"];
         [_imgV mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.equalTo(0);
             make.top.equalTo(imgToTop);
@@ -82,16 +82,5 @@
     return _lab;
 }
 
-
-
-
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
 
 @end

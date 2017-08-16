@@ -21,8 +21,6 @@
 		1851F4201F3D843E00369326 /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1851F41A1F3D843E00369326 /* UITextView+Placeholder.m */; };
 		1851F4211F3D843E00369326 /* UIView+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 1851F41C1F3D843E00369326 /* UIView+HUD.m */; };
 		188038FC1F3EAB9B00A2B4AE /* SaveCenterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 188038CB1F3EAB9B00A2B4AE /* SaveCenterVC.m */; };
-		188038FD1F3EAB9B00A2B4AE /* SaveCenterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188038CC1F3EAB9B00A2B4AE /* SaveCenterVC.xib */; };
-		188038FE1F3EAB9B00A2B4AE /* Mine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 188038D51F3EAB9B00A2B4AE /* Mine.storyboard */; };
 		188038FF1F3EAB9B00A2B4AE /* MineTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 188038D71F3EAB9B00A2B4AE /* MineTVC.m */; };
 		188039001F3EAB9B00A2B4AE /* MyShopTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 188038DD1F3EAB9B00A2B4AE /* MyShopTVC.m */; };
 		188039011F3EAB9B00A2B4AE /* MyGiftCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 188038E21F3EAB9B00A2B4AE /* MyGiftCell.m */; };
@@ -32,13 +30,19 @@
 		188039051F3EAB9B00A2B4AE /* MyWalletTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 188038EE1F3EAB9B00A2B4AE /* MyWalletTVC.m */; };
 		188039081F3EAB9B00A2B4AE /* SystemMessageTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 188038F71F3EAB9B00A2B4AE /* SystemMessageTVC.m */; };
 		188039091F3EAB9B00A2B4AE /* ModifyInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 188038FA1F3EAB9B00A2B4AE /* ModifyInfoVC.m */; };
-		1880390A1F3EAB9B00A2B4AE /* ModifyInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188038FB1F3EAB9B00A2B4AE /* ModifyInfoVC.xib */; };
 		188039111F3EAE2600A2B4AE /* WKWedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1880390C1F3EAE2600A2B4AE /* WKWedViewController.m */; };
 		188039121F3EAE2600A2B4AE /* XD_textField.m in Sources */ = {isa = PBXBuildFile; fileRef = 1880390E1F3EAE2600A2B4AE /* XD_textField.m */; };
 		188039131F3EAE2600A2B4AE /* XDFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 188039101F3EAE2600A2B4AE /* XDFactory.m */; };
 		188039161F3EAF9500A2B4AE /* DNNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 188039151F3EAF9500A2B4AE /* DNNetworking.m */; };
 		5302993D1F42C631004BC03A /* systenBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 5302993C1F42C631004BC03A /* systenBtn.m */; };
 		530299401F42F391004BC03A /* systemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5302993F1F42F391004BC03A /* systemCell.m */; };
+		530299431F44054D004BC03A /* modifyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 530299421F44054D004BC03A /* modifyCell.m */; };
+		530299461F44109D004BC03A /* changephoneVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 530299451F44109D004BC03A /* changephoneVC.m */; };
+		530299491F4410B3004BC03A /* changepwdVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 530299481F4410B3004BC03A /* changepwdVC.m */; };
+		5302994C1F441171004BC03A /* changeCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 5302994B1F441171004BC03A /* changeCell0.m */; };
+		5302994F1F441185004BC03A /* changeCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 5302994E1F441185004BC03A /* changeCell1.m */; };
+		530299521F442E09004BC03A /* MyshopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 530299511F442E09004BC03A /* MyshopCell.m */; };
+		530299591F4434DF004BC03A /* mineOrderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 530299581F4434DF004BC03A /* mineOrderVC.m */; };
 		5303E3D71F3ED2E800AB0AF2 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5303E3D61F3ED2E800AB0AF2 /* LoginVC.m */; };
 		5303E3DA1F3ED32B00AB0AF2 /* bottomlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5303E3D91F3ED32B00AB0AF2 /* bottomlineView.m */; };
 		5303E3E41F3EDF6800AB0AF2 /* CALayer+FSUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 5303E3E01F3EDF6800AB0AF2 /* CALayer+FSUI.m */; };
@@ -130,8 +134,6 @@
 		1851F41C1F3D843E00369326 /* UIView+HUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HUD.m"; sourceTree = "<group>"; };
 		188038CA1F3EAB9B00A2B4AE /* SaveCenterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveCenterVC.h; sourceTree = "<group>"; };
 		188038CB1F3EAB9B00A2B4AE /* SaveCenterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveCenterVC.m; sourceTree = "<group>"; };
-		188038CC1F3EAB9B00A2B4AE /* SaveCenterVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SaveCenterVC.xib; sourceTree = "<group>"; };
-		188038D51F3EAB9B00A2B4AE /* Mine.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Mine.storyboard; sourceTree = "<group>"; };
 		188038D61F3EAB9B00A2B4AE /* MineTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MineTVC.h; sourceTree = "<group>"; };
 		188038D71F3EAB9B00A2B4AE /* MineTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MineTVC.m; sourceTree = "<group>"; };
 		188038DC1F3EAB9B00A2B4AE /* MyShopTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyShopTVC.h; sourceTree = "<group>"; };
@@ -149,7 +151,6 @@
 		188038F71F3EAB9B00A2B4AE /* SystemMessageTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemMessageTVC.m; sourceTree = "<group>"; };
 		188038F91F3EAB9B00A2B4AE /* ModifyInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyInfoVC.h; sourceTree = "<group>"; };
 		188038FA1F3EAB9B00A2B4AE /* ModifyInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyInfoVC.m; sourceTree = "<group>"; };
-		188038FB1F3EAB9B00A2B4AE /* ModifyInfoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModifyInfoVC.xib; sourceTree = "<group>"; };
 		1880390B1F3EAE2600A2B4AE /* WKWedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWedViewController.h; sourceTree = "<group>"; };
 		1880390C1F3EAE2600A2B4AE /* WKWedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWedViewController.m; sourceTree = "<group>"; };
 		1880390D1F3EAE2600A2B4AE /* XD_textField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XD_textField.h; sourceTree = "<group>"; };
@@ -164,6 +165,20 @@
 		5302993C1F42C631004BC03A /* systenBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = systenBtn.m; path = "Theweddingceremonylive/登录注册/V/systenBtn.m"; sourceTree = SOURCE_ROOT; };
 		5302993E1F42F391004BC03A /* systemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = systemCell.h; sourceTree = "<group>"; };
 		5302993F1F42F391004BC03A /* systemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = systemCell.m; sourceTree = "<group>"; };
+		530299411F44054D004BC03A /* modifyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = modifyCell.h; sourceTree = "<group>"; };
+		530299421F44054D004BC03A /* modifyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = modifyCell.m; sourceTree = "<group>"; };
+		530299441F44109D004BC03A /* changephoneVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = changephoneVC.h; sourceTree = "<group>"; };
+		530299451F44109D004BC03A /* changephoneVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = changephoneVC.m; sourceTree = "<group>"; };
+		530299471F4410B3004BC03A /* changepwdVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = changepwdVC.h; sourceTree = "<group>"; };
+		530299481F4410B3004BC03A /* changepwdVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = changepwdVC.m; sourceTree = "<group>"; };
+		5302994A1F441171004BC03A /* changeCell0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = changeCell0.h; sourceTree = "<group>"; };
+		5302994B1F441171004BC03A /* changeCell0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = changeCell0.m; sourceTree = "<group>"; };
+		5302994D1F441185004BC03A /* changeCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = changeCell1.h; sourceTree = "<group>"; };
+		5302994E1F441185004BC03A /* changeCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = changeCell1.m; sourceTree = "<group>"; };
+		530299501F442E09004BC03A /* MyshopCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyshopCell.h; path = "Theweddingceremonylive/我的/安全中心/MyshopCell.h"; sourceTree = SOURCE_ROOT; };
+		530299511F442E09004BC03A /* MyshopCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyshopCell.m; path = "Theweddingceremonylive/我的/安全中心/MyshopCell.m"; sourceTree = SOURCE_ROOT; };
+		530299571F4434DF004BC03A /* mineOrderVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mineOrderVC.h; sourceTree = "<group>"; };
+		530299581F4434DF004BC03A /* mineOrderVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mineOrderVC.m; sourceTree = "<group>"; };
 		5303E3D51F3ED2E800AB0AF2 /* LoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
 		5303E3D61F3ED2E800AB0AF2 /* LoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
 		5303E3D81F3ED32B00AB0AF2 /* bottomlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bottomlineView.h; sourceTree = "<group>"; };
@@ -320,6 +335,7 @@
 			isa = PBXGroup;
 			children = (
 				188038C51F3EAB9B00A2B4AE /* 关于我们 */,
+				530299531F4434C9004BC03A /* 我的订单 */,
 				188038C91F3EAB9B00A2B4AE /* 安全中心 */,
 				188038CD1F3EAB9B00A2B4AE /* 客服帮助 */,
 				188038D11F3EAB9B00A2B4AE /* 我的 */,
@@ -368,7 +384,14 @@
 			children = (
 				188038CA1F3EAB9B00A2B4AE /* SaveCenterVC.h */,
 				188038CB1F3EAB9B00A2B4AE /* SaveCenterVC.m */,
-				188038CC1F3EAB9B00A2B4AE /* SaveCenterVC.xib */,
+				530299441F44109D004BC03A /* changephoneVC.h */,
+				530299451F44109D004BC03A /* changephoneVC.m */,
+				530299471F4410B3004BC03A /* changepwdVC.h */,
+				530299481F4410B3004BC03A /* changepwdVC.m */,
+				5302994A1F441171004BC03A /* changeCell0.h */,
+				5302994B1F441171004BC03A /* changeCell0.m */,
+				5302994D1F441185004BC03A /* changeCell1.h */,
+				5302994E1F441185004BC03A /* changeCell1.m */,
 			);
 			path = "安全中心";
 			sourceTree = "<group>";
@@ -439,7 +462,6 @@
 		188038D41F3EAB9B00A2B4AE /* viewController */ = {
 			isa = PBXGroup;
 			children = (
-				188038D51F3EAB9B00A2B4AE /* Mine.storyboard */,
 				188038D61F3EAB9B00A2B4AE /* MineTVC.h */,
 				188038D71F3EAB9B00A2B4AE /* MineTVC.m */,
 			);
@@ -466,6 +488,8 @@
 		188038DA1F3EAB9B00A2B4AE /* view */ = {
 			isa = PBXGroup;
 			children = (
+				530299501F442E09004BC03A /* MyshopCell.h */,
+				530299511F442E09004BC03A /* MyshopCell.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -590,7 +614,8 @@
 			children = (
 				188038F91F3EAB9B00A2B4AE /* ModifyInfoVC.h */,
 				188038FA1F3EAB9B00A2B4AE /* ModifyInfoVC.m */,
-				188038FB1F3EAB9B00A2B4AE /* ModifyInfoVC.xib */,
+				530299411F44054D004BC03A /* modifyCell.h */,
+				530299421F44054D004BC03A /* modifyCell.m */,
 			);
 			path = "资料修改";
 			sourceTree = "<group>";
@@ -606,6 +631,39 @@
 				0A0D151F42A7F9C8F762F8E9 /* Pods-TheweddingceremonyliveUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		530299531F4434C9004BC03A /* 我的订单 */ = {
+			isa = PBXGroup;
+			children = (
+				530299541F4434C9004BC03A /* C */,
+				530299551F4434C9004BC03A /* M */,
+				530299561F4434C9004BC03A /* V */,
+			);
+			path = "我的订单";
+			sourceTree = "<group>";
+		};
+		530299541F4434C9004BC03A /* C */ = {
+			isa = PBXGroup;
+			children = (
+				530299571F4434DF004BC03A /* mineOrderVC.h */,
+				530299581F4434DF004BC03A /* mineOrderVC.m */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		530299551F4434C9004BC03A /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
+		530299561F4434C9004BC03A /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = V;
 			sourceTree = "<group>";
 		};
 		5303E3D31F3ED2E800AB0AF2 /* V */ = {
@@ -1127,7 +1185,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				53D02F4D1F3B1B5600CD504C /* LaunchScreen.storyboard in Resources */,
-				188038FD1F3EAB9B00A2B4AE /* SaveCenterVC.xib in Resources */,
 				182E81111F418C3200720AA4 /* FastForwardView.xib in Resources */,
 				1847DED81F3C5A5F00C796A8 /* LiveVideoCell.xib in Resources */,
 				182E81131F418C3200720AA4 /* WMPlayer.bundle in Resources */,
@@ -1136,8 +1193,6 @@
 				53EEF2A41F3E9E1D0031D396 /* tabbar_bg@3x.png in Resources */,
 				53D02F481F3B1B5600CD504C /* Main.storyboard in Resources */,
 				188039021F3EAB9B00A2B4AE /* MyGiftCell.xib in Resources */,
-				1880390A1F3EAB9B00A2B4AE /* ModifyInfoVC.xib in Resources */,
-				188038FE1F3EAB9B00A2B4AE /* Mine.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1307,6 +1362,7 @@
 				53FCA4731F418EA5001780F7 /* perfectingCell2.m in Sources */,
 				53FCA4491F415029001780F7 /* ViewController.m in Sources */,
 				188039081F3EAB9B00A2B4AE /* SystemMessageTVC.m in Sources */,
+				530299431F44054D004BC03A /* modifyCell.m in Sources */,
 				53FCA4761F419C70001780F7 /* selectBtn.m in Sources */,
 				188039131F3EAE2600A2B4AE /* XDFactory.m in Sources */,
 				188039161F3EAF9500A2B4AE /* DNNetworking.m in Sources */,
@@ -1318,6 +1374,7 @@
 				188039011F3EAB9B00A2B4AE /* MyGiftCell.m in Sources */,
 				188039041F3EAB9B00A2B4AE /* WalletHeadView.m in Sources */,
 				188039001F3EAB9B00A2B4AE /* MyShopTVC.m in Sources */,
+				5302994C1F441171004BC03A /* changeCell0.m in Sources */,
 				53D02FA01F3BFA5900CD504C /* MainVC.m in Sources */,
 				188038FC1F3EAB9B00A2B4AE /* SaveCenterVC.m in Sources */,
 				53FCA44C1F41524C001780F7 /* UILabel+YBAttributeTextTapAction.m in Sources */,
@@ -1330,6 +1387,7 @@
 				53FCA4641F418C17001780F7 /* mineCell0.m in Sources */,
 				188039091F3EAB9B00A2B4AE /* ModifyInfoVC.m in Sources */,
 				53D02F831F3BF68000CD504C /* LCTabbar.m in Sources */,
+				530299591F4434DF004BC03A /* mineOrderVC.m in Sources */,
 				1851F4201F3D843E00369326 /* UITextView+Placeholder.m in Sources */,
 				182E81141F418C3200720AA4 /* WMPlayer.m in Sources */,
 				53EEF2AA1F3E9EE80031D396 /* UITabBarController+QFExtension.m in Sources */,
@@ -1337,6 +1395,7 @@
 				53FCA4671F418C26001780F7 /* mineCell1.m in Sources */,
 				53FCA46D1F418E78001780F7 /* perfectingCell0.m in Sources */,
 				188039111F3EAE2600A2B4AE /* WKWedViewController.m in Sources */,
+				530299491F4410B3004BC03A /* changepwdVC.m in Sources */,
 				53D02F421F3B1B5600CD504C /* AppDelegate.m in Sources */,
 				1851F41D1F3D843E00369326 /* NSObject+Parse.m in Sources */,
 				1851F4211F3D843E00369326 /* UIView+HUD.m in Sources */,
@@ -1345,10 +1404,12 @@
 				53D02FA31F3BFB1900CD504C /* LiveVC.m in Sources */,
 				5302993D1F42C631004BC03A /* systenBtn.m in Sources */,
 				188039051F3EAB9B00A2B4AE /* MyWalletTVC.m in Sources */,
+				530299521F442E09004BC03A /* MyshopCell.m in Sources */,
 				188039031F3EAB9B00A2B4AE /* MyGiftTVC.m in Sources */,
 				188038FF1F3EAB9B00A2B4AE /* MineTVC.m in Sources */,
 				53FCA46A1F418D6D001780F7 /* perfectingViewController.m in Sources */,
 				530299401F42F391004BC03A /* systemCell.m in Sources */,
+				530299461F44109D004BC03A /* changephoneVC.m in Sources */,
 				1851F41F1F3D843E00369326 /* UIScrollView+Refresh.m in Sources */,
 				1851F4121F3D7DF600369326 /* LiveVideoModel.m in Sources */,
 				5303E3EF1F3EFBBE00AB0AF2 /* forgetViewController.m in Sources */,
@@ -1359,6 +1420,7 @@
 				5303E3EC1F3EF5A800AB0AF2 /* QCCountdownButton.m in Sources */,
 				53FCA4611F418BEE001780F7 /* mineheadView.m in Sources */,
 				182E81101F418C3200720AA4 /* FastForwardView.m in Sources */,
+				5302994F1F441185004BC03A /* changeCell1.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

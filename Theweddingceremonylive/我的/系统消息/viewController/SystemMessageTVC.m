@@ -13,6 +13,8 @@
 @property (nonatomic,strong) UITableView *table;
 @end
 
+static NSString *systemcellidentfid = @"systencellidentfid";
+
 @implementation SystemMessageTVC
 
 - (void)viewDidLoad {
@@ -20,6 +22,7 @@
     self.navigationItem.title = @"系统消息";
     
     [self.view addSubview:self.table];
+    self.table.tableFooterView = [UIView new];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -42,6 +45,7 @@
         _table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH)];
         _table.dataSource = self;
         _table.delegate = self;
+        _table.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     return _table;
 }
@@ -50,12 +54,22 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    return nil;
+    systemCell *cell = [tableView dequeueReusableCellWithIdentifier:systemcellidentfid];
+    cell = [[systemCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:systemcellidentfid];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return cell;
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [tableView cellHeightForIndexPath:indexPath
+                        cellContentViewWidth:[UIScreen mainScreen].bounds.size.width
+                                   tableView:tableView];
+}
+
 @end
