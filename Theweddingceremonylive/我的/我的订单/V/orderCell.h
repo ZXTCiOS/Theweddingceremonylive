@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface orderCell : UITableViewCell
+@protocol mysubmitVdelegate <NSObject>
+-(void)submitbtnClick:(UITableViewCell *)cell;
+@end
 
+@interface orderCell : UITableViewCell
+@property(assign,nonatomic)id<mysubmitVdelegate>delegate;
 @end

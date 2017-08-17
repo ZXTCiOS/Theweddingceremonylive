@@ -10,14 +10,4 @@
 
 @interface MyGiftCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *giftImage;
-
-@property (weak, nonatomic) IBOutlet UILabel *giftName;
-
-@property (weak, nonatomic) IBOutlet UILabel *giftNum;
-
-@property (weak, nonatomic) IBOutlet UILabel *giftSender;
-
-
-
 @end

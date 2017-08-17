@@ -1,22 +1,24 @@
 //
-//  orderCell.m
+//  orderCell2.m
 //  Theweddingceremonylive
 //
-//  Created by 王俊钢 on 2017/8/16.
+//  Created by 王俊钢 on 2017/8/17.
 //  Copyright © 2017年 wangjungang. All rights reserved.
 //
 
-#import "orderCell.h"
+#import "orderCell2.h"
 
-@interface orderCell()
+@interface orderCell2()
 @property (nonatomic,strong) UIImageView *leftimg;
 @property (nonatomic,strong) UILabel *namelab;
 @property (nonatomic,strong) UILabel *livetimelab;
 @property (nonatomic,strong) UILabel *ordertimelab;
-@property (nonatomic,strong) UIButton *setBtn;
+
 @end
 
-@implementation orderCell
+
+@implementation orderCell2
+
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -27,7 +29,6 @@
         [self.contentView addSubview:self.namelab];
         [self.contentView addSubview:self.livetimelab];
         [self.contentView addSubview:self.ordertimelab];
-        [self.contentView addSubview:self.setBtn];
         [self setuplayout];
     }
     return self;
@@ -59,12 +60,7 @@
         make.right.equalTo(weakSelf).with.offset(-14*WIDTH_SCALE);
         make.height.mas_offset(16*HEIGHT_SCALE);
     }];
-    [self.setBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(weakSelf).with.offset(-8*WIDTH_SCALE);
-        make.bottom.equalTo(weakSelf).with.offset(-11*HEIGHT_SCALE);
-        make.height.mas_offset(28*HEIGHT_SCALE);
-        make.width.mas_offset(60*WIDTH_SCALE);
-    }];
+
 }
 
 #pragma mark - getters
@@ -115,27 +111,6 @@
     }
     return _ordertimelab;
 }
-
--(UIButton *)setBtn
-{
-    if(!_setBtn)
-    {
-        _setBtn = [[UIButton alloc] init];
-        [_setBtn setTitle:@"升级" forState:normal];
-        _setBtn.layer.masksToBounds = YES;
-        _setBtn.layer.cornerRadius = 4;
-        _setBtn.titleLabel.font = [UIFont systemFontOfSize:13];
-        _setBtn.backgroundColor = [UIColor colorWithHexString:@"ed5e40"];
-        [_setBtn addTarget:self action:@selector(setbtnclick) forControlEvents:UIControlEventTouchUpInside];
-    }
-    return _setBtn;
-}
-
--(void)setbtnclick
-{
-    [self.delegate submitbtnClick:self];
-}
-
 
 
 @end
