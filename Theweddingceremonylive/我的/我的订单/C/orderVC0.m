@@ -9,7 +9,7 @@
 #import "orderVC0.h"
 #import "orderCell.h"
 
-@interface orderVC0 ()<UITableViewDataSource,UITableViewDelegate>
+@interface orderVC0 ()<UITableViewDataSource,UITableViewDelegate,mysubmitVdelegate>
 @property (nonatomic,strong) UITableView *table;
 @end
 
@@ -49,16 +49,25 @@ static NSString *orderidentfid0 = @"orderidentfid0";
 {
     return 2;
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     orderCell *cell = [tableView dequeueReusableCellWithIdentifier:orderidentfid0];
     cell = [[orderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:orderidentfid0];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.delegate = self;
     return cell;
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 100*HEIGHT_SCALE;
+    return 120*HEIGHT_SCALE;
+}
+
+-(void)submitbtnClick:(UITableViewCell *)cell
+{
+    NSIndexPath *index = [self.table indexPathForCell:cell];
+    NSLog(@"index------%ld",(long)index.row);
 }
 
 @end

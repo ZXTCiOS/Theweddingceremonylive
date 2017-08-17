@@ -8,6 +8,7 @@
 
 #import "MyGiftTVC.h"
 #import "MyGiftCell.h"
+#import "infoVC.h"
 
 @interface MyGiftTVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
@@ -19,17 +20,9 @@
     [super viewDidLoad];
     self.title = @"我的礼物";
     [self.view addSubview:self.table];
-//    [XDFactory addBackItemForVC:self];
-//    self.table.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     self.table.tableFooterView = [UIView new];
-    UINib *nib = [UINib nibWithNibName:@"MyGiftCell" bundle:nil];
-    [self.table registerNib:nib forCellReuseIdentifier:@"cell"];
-    MJWeakSelf
-    [self.table addHeaderRefresh:^{
-        [weakSelf.table endHeaderRefresh];
-    }];
-    
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -59,19 +52,15 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    MyGiftCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    
-    /*cell.giftImage.image =
-    cell.giftName.text = @"";
-    cell.giftNum.text = [NSString stringWithFormat:@"%d个", 100];
-    cell.giftSender.text = @"";*/
-    
-    
+
+    MyGiftCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    cell = [[MyGiftCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 96;
+    return 45*HEIGHT_SCALE;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -79,6 +68,12 @@
     [super viewWillAppear:animated];
     [self.tabBarController.tabBar setHidden:YES];
     self.hidesBottomBarWhenPushed = YES;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    infoVC *vc = [[infoVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 //-(void)viewDidDisappear:(BOOL)animated

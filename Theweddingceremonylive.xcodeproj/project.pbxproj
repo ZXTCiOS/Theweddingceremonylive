@@ -24,7 +24,6 @@
 		188038FF1F3EAB9B00A2B4AE /* MineTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 188038D71F3EAB9B00A2B4AE /* MineTVC.m */; };
 		188039001F3EAB9B00A2B4AE /* MyShopTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 188038DD1F3EAB9B00A2B4AE /* MyShopTVC.m */; };
 		188039011F3EAB9B00A2B4AE /* MyGiftCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 188038E21F3EAB9B00A2B4AE /* MyGiftCell.m */; };
-		188039021F3EAB9B00A2B4AE /* MyGiftCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188038E31F3EAB9B00A2B4AE /* MyGiftCell.xib */; };
 		188039031F3EAB9B00A2B4AE /* MyGiftTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 188038E61F3EAB9B00A2B4AE /* MyGiftTVC.m */; };
 		188039041F3EAB9B00A2B4AE /* WalletHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 188038EB1F3EAB9B00A2B4AE /* WalletHeadView.m */; };
 		188039051F3EAB9B00A2B4AE /* MyWalletTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 188038EE1F3EAB9B00A2B4AE /* MyWalletTVC.m */; };
@@ -54,6 +53,12 @@
 		5303E3E81F3EE3C000AB0AF2 /* logupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5303E3E71F3EE3C000AB0AF2 /* logupViewController.m */; };
 		5303E3EC1F3EF5A800AB0AF2 /* QCCountdownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5303E3EB1F3EF5A800AB0AF2 /* QCCountdownButton.m */; };
 		5303E3EF1F3EFBBE00AB0AF2 /* forgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5303E3EE1F3EFBBE00AB0AF2 /* forgetViewController.m */; };
+		532564E81F4539E500915E3B /* orderCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 532564E71F4539E500915E3B /* orderCell2.m */; };
+		532564EB1F45538200915E3B /* infoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 532564EA1F45538200915E3B /* infoVC.m */; };
+		532564EE1F455A7A00915E3B /* infoCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 532564ED1F455A7A00915E3B /* infoCell0.m */; };
+		532564F11F455F0100915E3B /* infoCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 532564F01F455F0100915E3B /* infoCell1.m */; };
+		532564F41F455F1200915E3B /* infoCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 532564F31F455F1200915E3B /* infoCell2.m */; };
+		532564F71F4578BD00915E3B /* infoCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = 532564F61F4578BD00915E3B /* infoCell3.m */; };
 		53AC97DD1F3F5495009EC343 /* bindingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AC97DC1F3F5495009EC343 /* bindingViewController.m */; };
 		53D02F3F1F3B1B5600CD504C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F3E1F3B1B5600CD504C /* main.m */; };
 		53D02F421F3B1B5600CD504C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F411F3B1B5600CD504C /* AppDelegate.m */; };
@@ -144,7 +149,6 @@
 		188038DD1F3EAB9B00A2B4AE /* MyShopTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyShopTVC.m; sourceTree = "<group>"; };
 		188038E11F3EAB9B00A2B4AE /* MyGiftCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyGiftCell.h; sourceTree = "<group>"; };
 		188038E21F3EAB9B00A2B4AE /* MyGiftCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyGiftCell.m; sourceTree = "<group>"; };
-		188038E31F3EAB9B00A2B4AE /* MyGiftCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyGiftCell.xib; sourceTree = "<group>"; };
 		188038E51F3EAB9B00A2B4AE /* MyGiftTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyGiftTVC.h; sourceTree = "<group>"; };
 		188038E61F3EAB9B00A2B4AE /* MyGiftTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyGiftTVC.m; sourceTree = "<group>"; };
 		188038EA1F3EAB9B00A2B4AE /* WalletHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalletHeadView.h; sourceTree = "<group>"; };
@@ -206,6 +210,18 @@
 		5303E3EB1F3EF5A800AB0AF2 /* QCCountdownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCCountdownButton.m; sourceTree = "<group>"; };
 		5303E3ED1F3EFBBE00AB0AF2 /* forgetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = forgetViewController.h; sourceTree = "<group>"; };
 		5303E3EE1F3EFBBE00AB0AF2 /* forgetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = forgetViewController.m; sourceTree = "<group>"; };
+		532564E61F4539E500915E3B /* orderCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = orderCell2.h; sourceTree = "<group>"; };
+		532564E71F4539E500915E3B /* orderCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = orderCell2.m; sourceTree = "<group>"; };
+		532564E91F45538200915E3B /* infoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = infoVC.h; sourceTree = "<group>"; };
+		532564EA1F45538200915E3B /* infoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = infoVC.m; sourceTree = "<group>"; };
+		532564EC1F455A7A00915E3B /* infoCell0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = infoCell0.h; sourceTree = "<group>"; };
+		532564ED1F455A7A00915E3B /* infoCell0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = infoCell0.m; sourceTree = "<group>"; };
+		532564EF1F455F0100915E3B /* infoCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = infoCell1.h; sourceTree = "<group>"; };
+		532564F01F455F0100915E3B /* infoCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = infoCell1.m; sourceTree = "<group>"; };
+		532564F21F455F1200915E3B /* infoCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = infoCell2.h; sourceTree = "<group>"; };
+		532564F31F455F1200915E3B /* infoCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = infoCell2.m; sourceTree = "<group>"; };
+		532564F51F4578BD00915E3B /* infoCell3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = infoCell3.h; sourceTree = "<group>"; };
+		532564F61F4578BD00915E3B /* infoCell3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = infoCell3.m; sourceTree = "<group>"; };
 		53AC97DB1F3F5495009EC343 /* bindingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bindingViewController.h; sourceTree = "<group>"; };
 		53AC97DC1F3F5495009EC343 /* bindingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bindingViewController.m; sourceTree = "<group>"; };
 		53D02F3A1F3B1B5600CD504C /* Theweddingceremonylive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Theweddingceremonylive.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -537,7 +553,14 @@
 			children = (
 				188038E11F3EAB9B00A2B4AE /* MyGiftCell.h */,
 				188038E21F3EAB9B00A2B4AE /* MyGiftCell.m */,
-				188038E31F3EAB9B00A2B4AE /* MyGiftCell.xib */,
+				532564EC1F455A7A00915E3B /* infoCell0.h */,
+				532564ED1F455A7A00915E3B /* infoCell0.m */,
+				532564EF1F455F0100915E3B /* infoCell1.h */,
+				532564F01F455F0100915E3B /* infoCell1.m */,
+				532564F21F455F1200915E3B /* infoCell2.h */,
+				532564F31F455F1200915E3B /* infoCell2.m */,
+				532564F51F4578BD00915E3B /* infoCell3.h */,
+				532564F61F4578BD00915E3B /* infoCell3.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -547,6 +570,8 @@
 			children = (
 				188038E51F3EAB9B00A2B4AE /* MyGiftTVC.h */,
 				188038E61F3EAB9B00A2B4AE /* MyGiftTVC.m */,
+				532564E91F45538200915E3B /* infoVC.h */,
+				532564EA1F45538200915E3B /* infoVC.m */,
 			);
 			path = viewController;
 			sourceTree = "<group>";
@@ -682,6 +707,8 @@
 			children = (
 				530299661F443EE1004BC03A /* orderCell.h */,
 				530299671F443EE1004BC03A /* orderCell.m */,
+				532564E61F4539E500915E3B /* orderCell2.h */,
+				532564E71F4539E500915E3B /* orderCell2.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -1212,7 +1239,6 @@
 				53EEF2A31F3E9E1D0031D396 /* tabbar_bg@2x.png in Resources */,
 				53EEF2A41F3E9E1D0031D396 /* tabbar_bg@3x.png in Resources */,
 				53D02F481F3B1B5600CD504C /* Main.storyboard in Resources */,
-				188039021F3EAB9B00A2B4AE /* MyGiftCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1384,6 +1410,9 @@
 				188039081F3EAB9B00A2B4AE /* SystemMessageTVC.m in Sources */,
 				5302995F1F443AB4004BC03A /* orderVC1.m in Sources */,
 				530299431F44054D004BC03A /* modifyCell.m in Sources */,
+				532564F41F455F1200915E3B /* infoCell2.m in Sources */,
+				532564F11F455F0100915E3B /* infoCell1.m in Sources */,
+				532564EE1F455A7A00915E3B /* infoCell0.m in Sources */,
 				53FCA4761F419C70001780F7 /* selectBtn.m in Sources */,
 				188039131F3EAE2600A2B4AE /* XDFactory.m in Sources */,
 				188039161F3EAF9500A2B4AE /* DNNetworking.m in Sources */,
@@ -1393,10 +1422,12 @@
 				53D02F7B1F3BF65600CD504C /* BaseViewController.m in Sources */,
 				53FCA45D1F418689001780F7 /* NullSafe.m in Sources */,
 				188039011F3EAB9B00A2B4AE /* MyGiftCell.m in Sources */,
+				532564F71F4578BD00915E3B /* infoCell3.m in Sources */,
 				188039041F3EAB9B00A2B4AE /* WalletHeadView.m in Sources */,
 				188039001F3EAB9B00A2B4AE /* MyShopTVC.m in Sources */,
 				5302994C1F441171004BC03A /* changeCell0.m in Sources */,
 				53D02FA01F3BFA5900CD504C /* MainVC.m in Sources */,
+				532564E81F4539E500915E3B /* orderCell2.m in Sources */,
 				188038FC1F3EAB9B00A2B4AE /* SaveCenterVC.m in Sources */,
 				53FCA44C1F41524C001780F7 /* UILabel+YBAttributeTextTapAction.m in Sources */,
 				5303E3E81F3EE3C000AB0AF2 /* logupViewController.m in Sources */,
@@ -1406,6 +1437,7 @@
 				1851F41E1F3D843E00369326 /* NSString+myUrl.m in Sources */,
 				53FCA4701F418E99001780F7 /* perfectingCell1.m in Sources */,
 				53FCA4641F418C17001780F7 /* mineCell0.m in Sources */,
+				532564EB1F45538200915E3B /* infoVC.m in Sources */,
 				188039091F3EAB9B00A2B4AE /* ModifyInfoVC.m in Sources */,
 				53D02F831F3BF68000CD504C /* LCTabbar.m in Sources */,
 				530299591F4434DF004BC03A /* mineOrderVC.m in Sources */,
