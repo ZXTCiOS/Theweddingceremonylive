@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ModifyInfoVC : UIViewController
+@interface ModifyInfoVC : BaseViewController
 
 @end

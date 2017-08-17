@@ -30,6 +30,7 @@
 @property (nonatomic,strong) QCCountdownButton *sentCodeBtn;
 @property (nonatomic,strong) UIButton *submitBtn;
 
+@property (nonatomic,strong) NSString *codestr;
 @end
 
 @implementation logupViewController
@@ -349,19 +350,40 @@
 
 -(void)submitbtnclick
 {
-    if (self.passtext.text!=self.newpasstext.text) {
-        [MBProgressHUD showSuccess:@"请检查密码输入"];
-    }
-    else
-    {
-        if (![strisNull isNullToString:self.phonetext.text]&&![strisNull isNullToString:self.passtext.text]) {
+    if ([self.codestr isEqualToString:self.codetext.text]) {
+        if (self.passtext.text!=self.newpasstext.text) {
+            [MBProgressHUD showSuccess:@"请检查密码输入"];
+        }
+        else
+        {
             NSString *tel = self.phonetext.text;
             NSString *pwd = self.passtext.text;
+            if (self.phonetext.text.length==0) {
+                tel = @"";
+            }
+            else
+            {
+                tel = self.phonetext.text;
+            }
+            if (self.passtext.text.length==0) {
+                pwd = @"";
+            }
+            else
+            {
+                pwd = self.passtext.text;
+            }
+            
             NSDictionary *para = @{@"tel":tel,@"pwd":pwd};
             [DNNetworking postWithURLString:post_logup parameters:para success:^(id obj) {
                 NSString *msg = [obj objectForKey:@"msg"];
                 if ([[obj objectForKey:@"code"] intValue]==1000) {
                     [MBProgressHUD showSuccess:msg];
+                    NSUserDefaults *defat = [NSUserDefaults standardUserDefaults];
+                    NSDictionary *dic = [obj objectForKey:@"data"];
+                    NSString *uid = [dic objectForKey:@"uid"];
+                    [defat setObject:uid forKey:user_uid];
+                    [defat synchronize];
+                    
                     perfectingViewController *pervc = [[perfectingViewController alloc] init];
                     [self.navigationController pushViewController:pervc animated:YES];
                 }
@@ -374,12 +396,25 @@
             }];
         }
     }
+    else
+    {
+        [MBProgressHUD showSuccess:@"请输入正确的验证码"];
+    }
 }
 
 -(void)sendcodebtnclock
 {
     //验证码
-    
+    NSDictionary *para = @{@"phone":self.phonetext.text};
+    [DNNetworking postWithURLString:post_value parameters:para success:^(id obj) {
+        if ([[obj objectForKey:@"code"]isEqualToString:@"code"]) {
+            NSDictionary *dic = [obj objectForKey:@"data"];
+            self.codestr = [dic objectForKey:@"code"];
+            [MBProgressHUD showSuccess:@"请求成功"];
+        }
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 #pragma mark - deletage

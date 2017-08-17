@@ -49,6 +49,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>NinaPagerView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Theweddingceremonylive.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -97,7 +102,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3C87EE307A22BD2AB7B2CB731CB7A007</key>
+		<key>4CB6D5CB6F548C9D79D19F1071FDEB64</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -117,17 +122,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>729EEF4C7A9EA691B4F4976D9F658812</key>
+		<key>5C3CD73C0970B3627ED1F6FA81B031B9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>666F8E99793DB3531F5F52B0F2B8A6F1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>78008CABA72FDF0D53FB3E0FDD5D35B3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>86A80AA580C470C25C1F38878A243A76</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -152,17 +157,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A3590F39B005BC9F15344E4AB0B207BA</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E6A6A26FD0AA9AD63987D29859B88F8C</key>
+		<key>E50BF3870EC7BBB9B4212659B2943A6A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>E7BEAC3516FE119A649929536F07FDE2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FBF473D1A1F97D651B8D91AB18719CDA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FE935F79851BC102E6B566D7D9EFFE4E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -67,11 +67,15 @@
         [_setBtn setTitleColor:[UIColor whiteColor] forState:normal];
         _setBtn.layer.masksToBounds = YES;
         _setBtn.layer.cornerRadius = 25*HEIGHT_SCALE;
+        [_setBtn addTarget:self action:@selector(setbtnclick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _setBtn;
 }
 
-
+-(void)setbtnclick
+{
+    [self.delegate finishbtnClick:self];
+}
 
 
 @end

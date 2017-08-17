@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@protocol myfinishdelegate <NSObject>
+-(void)finishbtnClick:(UITableViewCell *)cell;
+@end
 @interface perfectingCell2 : UITableViewCell
-
+@property(assign,nonatomic)id<myfinishdelegate>delegate;
 @end

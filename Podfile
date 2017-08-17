@@ -19,6 +19,7 @@ pod 'CYTabBar'
 pod 'IQKeyboardManager'
 pod 'SDAutoLayout'
 pod 'DZNEmptyDataSet'
+pod 'NinaPagerView'
   # Pods for Theweddingceremonylive
 
   target 'TheweddingceremonyliveTests' do

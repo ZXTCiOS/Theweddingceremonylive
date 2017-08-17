@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface mineCell0 : UITableViewCell
-
+@property (nonatomic,strong) UIImageView *leftImg;
+@property (nonatomic,strong) UILabel *typeLab;
 @end

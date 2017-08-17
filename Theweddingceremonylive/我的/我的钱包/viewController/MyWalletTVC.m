@@ -10,8 +10,8 @@
 #import "WalletHeadView.h"
 
 
-@interface MyWalletTVC ()
-
+@interface MyWalletTVC ()<UITableViewDataSource,UITableViewDelegate>
+@property (nonatomic,strong) UITableView *table;
 @end
 
 @implementation MyWalletTVC
@@ -22,27 +22,43 @@
     
     [XDFactory addBackItemForVC:self];
     self.navigationItem.title = @"我的钱包";
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
-    [btn setTitle:@"交易记录" forState:UIControlStateNormal];
     
+    [self.view addSubview:self.table];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor colorWithHexString:@"E95F46"];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"E95F46"]}];
     UIBarButtonItem *item1 = [[UIBarButtonItem alloc] bk_initWithTitle:@"交易记录" style:UIBarButtonItemStylePlain handler:^(id sender) {
         // 交易记录
         NSLog(@"交易记录");
     }];
-    item1.tintColor = [UIColor whiteColor];
+    item1.tintColor = [UIColor colorWithHexString:@"E95F46"];
     self.navigationItem.rightBarButtonItem = item1;
     
     WalletHeadView *walletV = [[WalletHeadView alloc] initWithFrame:CGRectZero];
     walletV.backgroundColor = [UIColor whiteColor];
     walletV.balanceL.text = [NSString stringWithFormat:@"%.2f" , 100.0f];
-    self.tableView.tableHeaderView = walletV;
-    self.tableView.tableFooterView = [UIView new];
-    self.tableView.backgroundColor = [UIColor colorWithHexString:@"f5f5f5"];
+    self.table.tableHeaderView = walletV;
+    self.table.tableFooterView = [UIView new];
+    self.table.backgroundColor = [UIColor colorWithHexString:@"f5f5f5"];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark - getters
+
+-(UITableView *)table
+{
+    if(!_table)
+    {
+        _table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH)];
+        _table.dataSource = self;
+        _table.delegate = self;
+    }
+    return _table;
 }
 
 #pragma mark - Table view data source
@@ -82,7 +98,6 @@
         NSLog(@"提现");
     }
     
-    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -97,48 +112,14 @@
     return 0.0001;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.tabBarController.tabBar setHidden:YES];
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+-(void)backAction
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

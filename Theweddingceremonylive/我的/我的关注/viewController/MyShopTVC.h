@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MyShopTVC : UITableViewController
+@interface MyShopTVC : BaseViewController
 
 @end

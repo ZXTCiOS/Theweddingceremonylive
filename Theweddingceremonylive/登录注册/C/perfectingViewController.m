@@ -10,11 +10,14 @@
 #import "perfectingCell0.h"
 #import "perfectingCell1.h"
 #import "perfectingCell2.h"
+#import "BDImagePicker.h"
 
-@interface perfectingViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface perfectingViewController ()<UITableViewDataSource,UITableViewDelegate,mycellVdelegate,myfinishdelegate>
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic,strong) UIView *headView;
 @property (nonatomic,strong) UIImageView *userImg;
+
+@property (nonatomic,strong) NSString *xinbiestr;
 @end
 
 static NSString *perfectidentfid0 = @"perfectidentfid0";
@@ -31,6 +34,7 @@ static NSString *perfectidentfid3 = @"perfectidentfid3";
     [self.view addSubview:self.table];
     self.table.tableHeaderView = self.headView;
     self.table.tableFooterView = [UIView new];
+    self.xinbiestr = @"0";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,6 +75,10 @@ static NSString *perfectidentfid3 = @"perfectidentfid3";
         _userImg.layer.masksToBounds = YES;
         _userImg.layer.cornerRadius = 40*WIDTH_SCALE;
         _userImg.image = [UIImage imageNamed:@"userpic"];
+        _userImg.userInteractionEnabled = YES;
+        //给图片添加点击手势（也可以添加其他手势）
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(selectHeaderImage)];
+        [_userImg addGestureRecognizer:tap];
     }
     return _userImg;
 }
@@ -90,6 +98,7 @@ static NSString *perfectidentfid3 = @"perfectidentfid3";
             cell = [[perfectingCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:perfectidentfid0];
             cell.lab.text = @"昵称";
             cell.text.placeholder = @"请输入昵称";
+            cell.text.tag = 201;
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
@@ -99,6 +108,7 @@ static NSString *perfectidentfid3 = @"perfectidentfid3";
         if (!cell) {
             cell = [[perfectingCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:perfectidentfid1];
         }
+        cell.delegate = self;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -107,6 +117,7 @@ static NSString *perfectidentfid3 = @"perfectidentfid3";
         if (!cell) {
             cell = [[perfectingCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:perfectidentfid2];
             cell.lab.text = @"真实姓名";
+            cell.tag = 202;
             cell.text.placeholder = @"请输入真实姓名";
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -117,6 +128,7 @@ static NSString *perfectidentfid3 = @"perfectidentfid3";
         if (!cell) {
             cell = [[perfectingCell2 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:perfectidentfid3];
         }
+        cell.delegate = self;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -131,5 +143,67 @@ static NSString *perfectidentfid3 = @"perfectidentfid3";
     {
         return 75*HEIGHT_SCALE;
     }
+}
+
+-(void)selectHeaderImage
+{
+    [BDImagePicker showImagePickerFromViewController:self allowsEditing:YES finishAction:^(UIImage *image) {
+        self.userImg.image = image;
+    }];
+}
+
+-(void)nanbtnClick:(UITableViewCell *)cell
+{
+    self.xinbiestr = @"0";
+}
+
+-(void)nvbtnClick:(UITableViewCell *)cell
+{
+    self.xinbiestr = @"1";
+}
+
+-(void)finishbtnClick:(UITableViewCell *)cell
+{
+    NSUserDefaults *defa = [NSUserDefaults standardUserDefaults];
+    NSString *uid = [defa objectForKey:user_uid];
+    UITextField *text0 = [self.table viewWithTag:201];
+    UITextField *text1 = [self.table viewWithTag:202];
+    NSString *suffix = @"png";
+    UIImage *img = self.userImg.image;
+    NSData *imageData = UIImageJPEGRepresentation(img, 1.0);
+    NSString *picture = [imageData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+    NSString *name = @"";
+    NSString *zname = @"";
+    if (text0.text.length == 0) {
+        name = @"";
+    }
+    else
+    {
+        name = text0.text;
+    }
+    
+    if (text0.text.length == 0) {
+        zname = @"";
+    }
+    else
+    {
+        zname = text1.text;
+    }
+    NSString *sex = self.xinbiestr;
+    NSDictionary *para = @{@"uid":uid,@"suffix":suffix,@"picture":picture,@"name":name,@"sex":sex,@"zname":zname};
+    [DNNetworking postWithURLString:post_edit parameters:para success:^(id obj) {
+        if ([[obj objectForKey:@"code"] intValue]==1000) {
+            [MBProgressHUD showSuccess:@"成功"];
+        }
+        else if ([[obj objectForKey:@"code"] intValue]==999)
+        {
+            [MBProgressHUD showSuccess:@"未进行任何更新或者未知错误"];
+        }else
+        {
+            [MBProgressHUD showSuccess:@"非法操作"];
+        }
+    } failure:^(NSError *error) {
+        [MBProgressHUD showSuccess:@"网络错误"];
+    }];
 }
 @end

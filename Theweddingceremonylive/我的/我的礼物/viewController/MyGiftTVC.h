@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MyGiftTVC : UITableViewController
+@interface MyGiftTVC : BaseViewController
 
 @end

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MyWalletTVC : UITableViewController
+@interface MyWalletTVC : BaseViewController
 
 @end

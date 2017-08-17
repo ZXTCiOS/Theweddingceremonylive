@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SaveCenterVC : UIViewController
+@interface SaveCenterVC : BaseViewController
 
 @end
