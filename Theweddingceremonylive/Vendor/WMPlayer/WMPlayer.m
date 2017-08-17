@@ -532,6 +532,8 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
 }
 ///播放
 -(void)play{
+    //self.state = WMPlayerStatePlaying;
+    [self.player play];
     if (self.isInitPlayer == NO) {
         self.isInitPlayer = YES;
         [self creatWMPlayerAndReadyToPlay];
@@ -554,6 +556,7 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
     if (self.state==WMPlayerStatePlaying) {
         self.state = WMPlayerStatePause;
     }
+    self.state = WMPlayerStatePause;
     [self.player pause];
     self.playOrPauseBtn.selected = YES;
 }
@@ -912,7 +915,7 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
             // 当缓冲好的时候
             if (self.currentItem.playbackLikelyToKeepUp && self.state == WMPlayerStateBuffering){
                 NSLog(@"55555%s WMPlayerStatePlaying",__FUNCTION__);
-                
+                [self play];
                 self.state = WMPlayerStatePlaying;
             }
             

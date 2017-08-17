@@ -15,8 +15,8 @@
 
 - (void)showWarning:(NSString *)msg;
 
-
-
+- (void)showActivityIndicatorView;
+- (void)hideActivityIndicatorView;
 
 @end
 

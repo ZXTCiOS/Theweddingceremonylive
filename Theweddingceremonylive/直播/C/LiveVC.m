@@ -35,7 +35,6 @@
     
     [self networking];
     [self tableView];
-    self.view.frame = CGRectMake(0, -20, kScreenW, kScreenH);
     self.currentIndex = [NSIndexPath indexPathForRow:0 inSection:0];
     self.view.backgroundColor = [UIColor lightGrayColor];
 }
@@ -88,7 +87,7 @@
 
 - (void)headerRefresh{
     self.page = 0;
-    //[self.view showHUD];
+    [self.view showActivityIndicatorView];
     [DNNetworking getWithURLString:get_video success:^(id obj) {
         NSString *code = [NSString stringWithFormat:@"%@", [obj valueForKey:@"code"]];
         if ([code isEqualToString:@"1000"]) {
@@ -101,6 +100,7 @@
             [self.view showWarning:msg];
         }
         [self.tableView endHeaderRefresh];
+        [self.tableView layoutSubviews];
         [self.view hideHUD];
     } failure:^(NSError *error) {
         [self.view showWarning:@"网络错误"];
@@ -169,12 +169,22 @@
 
 
 - (void)tableView:(UITableView *)tableView didEndDisplayingCell:(LiveVideoCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-    //[cell.player pause];
+    [cell.player pause];
 }
 
 static CGFloat lastY = 0.0;
 static NSInteger lastPage = 0;
+static BOOL isDragging;
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    isDragging = YES;
+}
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    isDragging = NO;
+}
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if (!isDragging) return;
     CGFloat y = scrollView.contentOffset.y;
     NSInteger page = (int)(scrollView.contentOffset.y / kScreenH);
     
@@ -211,10 +221,12 @@ static NSInteger lastPage = 0;
     
     if (page > 0) {
         NSIndexPath *upIndex = [NSIndexPath indexPathForRow:page - 1 inSection:0];
+        NSLog(@" -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 暂停 row %ld", upIndex.row);
         [self endPlayerAtIndexPath:upIndex];
     }
     if (page < self.datalist.count - 1) {
         NSIndexPath *downIndex = [NSIndexPath indexPathForRow:page + 1 inSection:0];
+        NSLog(@" -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 暂停 row %ld", downIndex.row);
         [self endPlayerAtIndexPath:downIndex];
     }
 }
@@ -238,18 +250,21 @@ static NSInteger lastPage = 0;
 - (void)endPlayerAtIndexPath:(NSIndexPath *) indexpath{
     LiveVideoCell *cell = [self.tableView cellForRowAtIndexPath:indexpath];
     if (cell) {
+        NSLog(@" -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 暂停 row %ld", indexpath.row);
         [cell.player pause];
     }
 }
 
 - (void)startPlayerAtIndexPath:(NSIndexPath *) indexpath{
     LiveVideoCell *cell = [self.tableView cellForRowAtIndexPath:indexpath];
-    if (!(cell.player.state == WMPlayerStatePlaying)) {
+    NSLog(@" -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 开始 state %ld", cell.player.state);
+    //if (!(cell.player.state == WMPlayerStatePlaying)) {
+        NSLog(@" -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- 开始 row %ld", indexpath.row);
         [cell.player.player seekToTime:CMTimeMake(0, 1)];
         [cell.player play];
         [cell.player.player play];
         cell.player.state = WMPlayerStatePlaying;
-    }
+    //}
 }
 
 
@@ -264,7 +279,7 @@ static NSInteger lastPage = 0;
 
 - (UITableView *)tableView{
     if (!_tableView) {
-        CGRect frame = CGRectMake(0, -20, kScreenW, kScreenH + 60);
+        CGRect frame = CGRectMake(0, -0, kScreenW, kScreenH );
         _tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStyleGrouped];
         [self.view addSubview:_tableView];
         _tableView.delegate = self;
