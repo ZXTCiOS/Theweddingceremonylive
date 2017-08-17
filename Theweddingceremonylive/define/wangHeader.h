@@ -16,6 +16,7 @@
 #define user_uid    @"UID"
 
 
+
 #define BASE_URL   @"http://88.irapidtech.net"
 
 //注册

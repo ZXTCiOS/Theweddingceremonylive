@@ -9,6 +9,18 @@
 #import "UIView+HUD.h"
 static NSArray *animateImages = nil;
 @implementation UIView (HUD)
+
+
+- (void)showActivityIndicatorView{
+    [self hideActivityIndicatorView];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self  animated:YES];
+    hud.mode = MBProgressHUDModeIndeterminate;
+    [hud hideAnimated:YES afterDelay:10];
+}
+- (void)hideActivityIndicatorView{
+    [MBProgressHUD hideHUDForView:self animated:YES];
+}
+
 - (void)showHUD{
     [self hideHUD]; //先隐藏其他的提示
     //再添加新的. 这样可以保证只有一个提示
