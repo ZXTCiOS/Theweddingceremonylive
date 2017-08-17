@@ -16,12 +16,9 @@
 #define user_uid    @"UID"
 
 
-<<<<<<< HEAD
-#define BASE_URL    @"http://88.irapidtech.net"
-=======
+
 #define BASE_URL   @"http://88.irapidtech.net"
 
->>>>>>> ef134c6b07425e33c427c13316fecc6006b1f8a8
 //注册
 #define post_logup @"/interface.php/Home/register/register"
 //登录验证
