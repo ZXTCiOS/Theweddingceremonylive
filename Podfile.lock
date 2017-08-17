@@ -32,6 +32,7 @@ PODS:
   - CYTabBar (1.1.1)
   - DZNEmptyDataSet (1.8.1)
   - IQKeyboardManager (4.0.10)
+  - LKSegmentBar (0.1.0)
   - Masonry (1.0.2)
   - MBProgressHUD (1.0.0)
   - MJRefresh (3.1.12)
@@ -52,6 +53,7 @@ DEPENDENCIES:
   - CYTabBar
   - DZNEmptyDataSet
   - IQKeyboardManager
+  - LKSegmentBar
   - Masonry
   - MBProgressHUD
   - MJRefresh
@@ -68,6 +70,7 @@ SPEC CHECKSUMS:
   CYTabBar: ad8400e0b4095d56c36775fd97c50beaddb37f5e
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   IQKeyboardManager: 593ee99b88381f4b9ccb22bd680f22606351bd41
+  LKSegmentBar: 4452975002c8ec3f8647a4bdc8665b4360b5c6cf
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
@@ -78,6 +81,6 @@ SPEC CHECKSUMS:
   TPKeyboardAvoiding: 0d6af20e95e2850f4c621841225b59ec7d8dd852
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: ad519de87d766d3778568ea032a649a10998c31a
+PODFILE CHECKSUM: 0daeef50e95b34de3ecb95ec98c70e5dd3452dba
 
 COCOAPODS: 1.2.1

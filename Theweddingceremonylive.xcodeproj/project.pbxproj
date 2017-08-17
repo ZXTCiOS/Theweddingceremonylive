@@ -60,6 +60,9 @@
 		532564F11F455F0100915E3B /* infoCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 532564F01F455F0100915E3B /* infoCell1.m */; };
 		532564F41F455F1200915E3B /* infoCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 532564F31F455F1200915E3B /* infoCell2.m */; };
 		532564F71F4578BD00915E3B /* infoCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = 532564F61F4578BD00915E3B /* infoCell3.m */; };
+		532564FA1F46498300915E3B /* hotVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 532564F91F46498300915E3B /* hotVC.m */; };
+		532564FD1F46499C00915E3B /* qualityVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 532564FC1F46499C00915E3B /* qualityVC.m */; };
+		532565001F4649B700915E3B /* localVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 532564FF1F4649B700915E3B /* localVC.m */; };
 		53AC97DD1F3F5495009EC343 /* bindingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AC97DC1F3F5495009EC343 /* bindingViewController.m */; };
 		53D02F3F1F3B1B5600CD504C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F3E1F3B1B5600CD504C /* main.m */; };
 		53D02F421F3B1B5600CD504C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F411F3B1B5600CD504C /* AppDelegate.m */; };
@@ -225,6 +228,12 @@
 		532564F31F455F1200915E3B /* infoCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = infoCell2.m; sourceTree = "<group>"; };
 		532564F51F4578BD00915E3B /* infoCell3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = infoCell3.h; sourceTree = "<group>"; };
 		532564F61F4578BD00915E3B /* infoCell3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = infoCell3.m; sourceTree = "<group>"; };
+		532564F81F46498300915E3B /* hotVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hotVC.h; sourceTree = "<group>"; };
+		532564F91F46498300915E3B /* hotVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = hotVC.m; sourceTree = "<group>"; };
+		532564FB1F46499C00915E3B /* qualityVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qualityVC.h; sourceTree = "<group>"; };
+		532564FC1F46499C00915E3B /* qualityVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = qualityVC.m; sourceTree = "<group>"; };
+		532564FE1F4649B700915E3B /* localVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = localVC.h; sourceTree = "<group>"; };
+		532564FF1F4649B700915E3B /* localVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = localVC.m; sourceTree = "<group>"; };
 		53AC97DB1F3F5495009EC343 /* bindingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bindingViewController.h; sourceTree = "<group>"; };
 		53AC97DC1F3F5495009EC343 /* bindingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bindingViewController.m; sourceTree = "<group>"; };
 		53D02F3A1F3B1B5600CD504C /* Theweddingceremonylive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Theweddingceremonylive.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1028,6 +1037,12 @@
 			children = (
 				53D02FA41F3BFB3000CD504C /* BBSVC.h */,
 				53D02FA51F3BFB3000CD504C /* BBSVC.m */,
+				532564F81F46498300915E3B /* hotVC.h */,
+				532564F91F46498300915E3B /* hotVC.m */,
+				532564FB1F46499C00915E3B /* qualityVC.h */,
+				532564FC1F46499C00915E3B /* qualityVC.m */,
+				532564FE1F4649B700915E3B /* localVC.h */,
+				532564FF1F4649B700915E3B /* localVC.m */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -1430,12 +1445,15 @@
 				532564F71F4578BD00915E3B /* infoCell3.m in Sources */,
 				188039041F3EAB9B00A2B4AE /* WalletHeadView.m in Sources */,
 				188039001F3EAB9B00A2B4AE /* MyShopTVC.m in Sources */,
+				532565001F4649B700915E3B /* localVC.m in Sources */,
 				5302994C1F441171004BC03A /* changeCell0.m in Sources */,
 				53D02FA01F3BFA5900CD504C /* MainVC.m in Sources */,
 				532564E81F4539E500915E3B /* orderCell2.m in Sources */,
+				532564FD1F46499C00915E3B /* qualityVC.m in Sources */,
 				188038FC1F3EAB9B00A2B4AE /* SaveCenterVC.m in Sources */,
 				53FCA44C1F41524C001780F7 /* UILabel+YBAttributeTextTapAction.m in Sources */,
 				5303E3E81F3EE3C000AB0AF2 /* logupViewController.m in Sources */,
+				532564FA1F46498300915E3B /* hotVC.m in Sources */,
 				53FCA45C1F418689001780F7 /* MBProgressHUD+XMG.m in Sources */,
 				53D02F841F3BF68000CD504C /* LCTabBarButton.m in Sources */,
 				1847DED71F3C5A5F00C796A8 /* LiveVideoCell.m in Sources */,
@@ -1457,11 +1475,8 @@
 				530299491F4410B3004BC03A /* changepwdVC.m in Sources */,
 				53D02F421F3B1B5600CD504C /* AppDelegate.m in Sources */,
 				1851F41D1F3D843E00369326 /* NSObject+Parse.m in Sources */,
-
 				1843D9CC1F4565200001C7C6 /* MainCell.m in Sources */,
-
 				5302995C1F443AA5004BC03A /* orderVC0.m in Sources */,
-
 				1851F4211F3D843E00369326 /* UIView+HUD.m in Sources */,
 				5303E3E41F3EDF6800AB0AF2 /* CALayer+FSUI.m in Sources */,
 				53EEF2A91F3E9EE80031D396 /* MainTabBarController.m in Sources */,
@@ -1484,10 +1499,8 @@
 				5303E3EC1F3EF5A800AB0AF2 /* QCCountdownButton.m in Sources */,
 				53FCA4611F418BEE001780F7 /* mineheadView.m in Sources */,
 				182E81101F418C3200720AA4 /* FastForwardView.m in Sources */,
-
 				530299681F443EE1004BC03A /* orderCell.m in Sources */,
 				5302994F1F441185004BC03A /* changeCell1.m in Sources */,
-
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

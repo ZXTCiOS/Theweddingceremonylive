@@ -29,6 +29,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>LKSegmentBar.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -102,12 +107,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4CB6D5CB6F548C9D79D19F1071FDEB64</key>
+		<key>36560E11F14506A96E423D795DA7B4FC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4E7866901CB6D2B2B30BBA29275C0B90</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>5437890023F30CA85DFCA260CA914D48</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>581CD808B17DE14A98BFEFF5B6CFC197</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -122,12 +137,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5C3CD73C0970B3627ED1F6FA81B031B9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>666F8E99793DB3531F5F52B0F2B8A6F1</key>
+		<key>68DE732F4857FA30A87E671B9E0AF5A4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -147,6 +157,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>997EA3C57CD154524336F53CD657976F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>9DC8D9E02903E93BD0B2FEC9D846EA20</key>
 		<dict>
 			<key>primary</key>
@@ -157,17 +172,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E50BF3870EC7BBB9B4212659B2943A6A</key>
+		<key>B640AB9C48FD2F47D73901DF5D1E8BC6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>E7BEAC3516FE119A649929536F07FDE2</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FBF473D1A1F97D651B8D91AB18719CDA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

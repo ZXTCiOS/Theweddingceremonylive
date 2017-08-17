@@ -20,6 +20,7 @@ pod 'IQKeyboardManager'
 pod 'SDAutoLayout'
 pod 'DZNEmptyDataSet'
 pod 'NinaPagerView'
+pod 'LKSegmentBar'
   # Pods for Theweddingceremonylive
 
   target 'TheweddingceremonyliveTests' do
