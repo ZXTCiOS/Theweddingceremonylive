@@ -12,82 +12,87 @@
 		<key>BlocksKit.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>2</integer>
 		</dict>
 		<key>CYTabBar.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>12</integer>
+			<integer>13</integer>
 		</dict>
 		<key>DZNEmptyDataSet.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>13</integer>
+			<integer>14</integer>
 		</dict>
 		<key>IQKeyboardManager.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>14</integer>
+			<integer>15</integer>
+		</dict>
+		<key>LKSegmentBar.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>18</integer>
 		</dict>
 		<key>MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>4</integer>
 		</dict>
 		<key>MJRefresh.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>5</integer>
 		</dict>
 		<key>MLTransition.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>5</integer>
+			<integer>6</integer>
 		</dict>
 		<key>Masonry.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 		<key>NinaPagerView.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>16</integer>
+			<integer>17</integer>
 		</dict>
 		<key>Pods-Theweddingceremonylive.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>6</integer>
+			<integer>7</integer>
 		</dict>
 		<key>Pods-TheweddingceremonyliveTests.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>7</integer>
+			<integer>8</integer>
 		</dict>
 		<key>Pods-TheweddingceremonyliveUITests.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>8</integer>
+			<integer>9</integer>
 		</dict>
 		<key>SDAutoLayout.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>15</integer>
+			<integer>16</integer>
 		</dict>
 		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>9</integer>
+			<integer>10</integer>
 		</dict>
 		<key>TPKeyboardAvoiding.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>10</integer>
+			<integer>11</integer>
 		</dict>
 		<key>YYKit.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>11</integer>
+			<integer>12</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -112,6 +117,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>36560E11F14506A96E423D795DA7B4FC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>3C87EE307A22BD2AB7B2CB731CB7A007</key>
 		<dict>
 			<key>primary</key>
@@ -122,7 +132,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>4E7866901CB6D2B2B30BBA29275C0B90</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>5437890023F30CA85DFCA260CA914D48</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>581CD808B17DE14A98BFEFF5B6CFC197</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -152,6 +172,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>68DE732F4857FA30A87E671B9E0AF5A4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>729EEF4C7A9EA691B4F4976D9F658812</key>
 		<dict>
 			<key>primary</key>
@@ -177,6 +202,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>997EA3C57CD154524336F53CD657976F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>9DC8D9E02903E93BD0B2FEC9D846EA20</key>
 		<dict>
 			<key>primary</key>
@@ -198,6 +228,11 @@
 			<true/>
 		</dict>
 		<key>ACD6659C87A3524CE161D6B0C6CFEC64</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B640AB9C48FD2F47D73901DF5D1E8BC6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
