@@ -411,7 +411,7 @@
     [DNNetworking postWithURLString:post_value parameters:para success:^(id obj) {
         if ([[obj objectForKey:@"code"]isEqualToString:@"code"]) {
             NSDictionary *dic = [obj objectForKey:@"data"];
-            self.codestr = [dic objectForKey:@"code"];
+            self.codestr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"code"]];   //[dic objectForKey:@"code"];
             [MBProgressHUD showSuccess:@"请求成功"];
         }
     } failure:^(NSError *error) {
