@@ -63,6 +63,7 @@
 		532564FA1F46498300915E3B /* hotVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 532564F91F46498300915E3B /* hotVC.m */; };
 		532564FD1F46499C00915E3B /* qualityVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 532564FC1F46499C00915E3B /* qualityVC.m */; };
 		532565001F4649B700915E3B /* localVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 532564FF1F4649B700915E3B /* localVC.m */; };
+		533ACC891F46B01200F66A78 /* GiftModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 533ACC881F46B01200F66A78 /* GiftModel.m */; };
 		53AC97DD1F3F5495009EC343 /* bindingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AC97DC1F3F5495009EC343 /* bindingViewController.m */; };
 		53D02F3F1F3B1B5600CD504C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F3E1F3B1B5600CD504C /* main.m */; };
 		53D02F421F3B1B5600CD504C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F411F3B1B5600CD504C /* AppDelegate.m */; };
@@ -234,6 +235,8 @@
 		532564FC1F46499C00915E3B /* qualityVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = qualityVC.m; sourceTree = "<group>"; };
 		532564FE1F4649B700915E3B /* localVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = localVC.h; sourceTree = "<group>"; };
 		532564FF1F4649B700915E3B /* localVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = localVC.m; sourceTree = "<group>"; };
+		533ACC871F46B01200F66A78 /* GiftModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GiftModel.h; path = "Theweddingceremonylive/论坛/C/GiftModel.h"; sourceTree = SOURCE_ROOT; };
+		533ACC881F46B01200F66A78 /* GiftModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GiftModel.m; path = "Theweddingceremonylive/论坛/C/GiftModel.m"; sourceTree = SOURCE_ROOT; };
 		53AC97DB1F3F5495009EC343 /* bindingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bindingViewController.h; sourceTree = "<group>"; };
 		53AC97DC1F3F5495009EC343 /* bindingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bindingViewController.m; sourceTree = "<group>"; };
 		53D02F3A1F3B1B5600CD504C /* Theweddingceremonylive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Theweddingceremonylive.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -556,6 +559,8 @@
 		188038DF1F3EAB9B00A2B4AE /* model */ = {
 			isa = PBXGroup;
 			children = (
+				533ACC871F46B01200F66A78 /* GiftModel.h */,
+				533ACC881F46B01200F66A78 /* GiftModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1469,6 +1474,7 @@
 				182E81141F418C3200720AA4 /* WMPlayer.m in Sources */,
 				53EEF2AA1F3E9EE80031D396 /* UITabBarController+QFExtension.m in Sources */,
 				53FCA45E1F418689001780F7 /* strisNull.m in Sources */,
+				533ACC891F46B01200F66A78 /* GiftModel.m in Sources */,
 				53FCA4671F418C26001780F7 /* mineCell1.m in Sources */,
 				53FCA46D1F418E78001780F7 /* perfectingCell0.m in Sources */,
 				188039111F3EAE2600A2B4AE /* WKWedViewController.m in Sources */,

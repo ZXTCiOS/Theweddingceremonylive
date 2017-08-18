@@ -124,8 +124,25 @@ static NSString *changephpneidentfid1 = @"changephpneidentfid1";
     
     if ([self.codestr isEqualToString:text.text])
     {
-        
-        
+        UITextField *text1 = [self.table viewWithTag:201];
+        NSString *tel = @"";
+        if (text1.text.length==0) {
+            tel = @"";
+        }
+        else
+        {
+            tel = text1.text;
+        }
+        NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
+        NSString *uid = [userdefat objectForKey:user_uid];
+        NSString *token = [userdefat objectForKey:user_token];
+        NSDictionary *para = @{@"uid":uid,@"token":token,@"tel":tel};
+        [DNNetworking postWithURLString:post_editphone parameters:para success:^(id obj) {
+            NSString *hud = [obj objectForKey:@"mes"];
+            [MBProgressHUD showSuccess:hud];
+        } failure:^(NSError *error) {
+            [MBProgressHUD showSuccess:@"没有网络"];
+        }];
     }else
     {
         [MBProgressHUD showSuccess:@"请输入正确的验证码"];

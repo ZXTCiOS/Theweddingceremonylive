@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class GiftModel;
 @interface MyGiftCell : UITableViewCell
-
+-(void)setdata:(GiftModel *)model;
 @end

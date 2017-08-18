@@ -11,7 +11,7 @@
 @interface infoCell2()
 @property (nonatomic,strong) UILabel *typelab;
 @property (nonatomic,strong) UILabel *leftlab;
-@property (nonatomic,strong) UILabel *contentlab;
+
 
 @end
 

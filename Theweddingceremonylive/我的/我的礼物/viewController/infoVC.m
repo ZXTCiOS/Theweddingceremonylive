@@ -16,6 +16,7 @@
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic,strong) UILabel *footlab;
 @property (nonatomic,strong) UIView *footview;
+@property (nonatomic,strong) NSDictionary *dataDic;
 @end
 
 static NSString *infocellidentfid0 = @"infoidentfid0";
@@ -32,14 +33,34 @@ static NSString *infocellidentfid6 = @"infoidentfid6";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"个人资料";
+    self.dataDic = [NSDictionary dictionary];
     [self.view addSubview:self.table];
     self.table.tableFooterView = self.footview;
-    
+    [self loaddata];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)loaddata
+{
+    NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
+    NSString *uid = [userdefat objectForKey:user_uid];
+    NSString *token = [userdefat objectForKey:user_token];
+    self.useruid = @"1";
+    NSDictionary *para = @{@"uid":uid,@"useruid":self.useruid,@"token":token};
+    [DNNetworking postWithURLString:post_finduserinfo parameters:para success:^(id obj) {
+        NSString *msg = [obj objectForKey:@"msg"];
+        [MBProgressHUD showSuccess:msg];
+        if ([[obj objectForKey:@"code"] intValue]==1000) {
+            self.dataDic = [obj objectForKey:@"data"];
+        }
+        [self.table reloadData];
+    } failure:^(NSError *error) {
+        [MBProgressHUD showSuccess:@"没有网络"];
+    }];
 }
 
 #pragma mark - getters
@@ -112,6 +133,8 @@ static NSString *infocellidentfid6 = @"infoidentfid6";
         if (!cell) {
             cell = [[infoCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:infocellidentfid0];
         }
+        cell.nameLab.text = [self.dataDic objectForKey:@"name"];
+        [cell.userImg sd_setImageWithURL:[NSURL URLWithString:[self.dataDic objectForKey:@"my_mrt"]] placeholderImage:[UIImage imageNamed:@"picture"]];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -129,6 +152,7 @@ static NSString *infocellidentfid6 = @"infoidentfid6";
             if (!cell) {
                 cell = [[infoCell2 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:infocellidentfid2];
             }
+            cell.contentlab.text = [self.dataDic objectForKey:@"name"];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
         }
@@ -138,7 +162,14 @@ static NSString *infocellidentfid6 = @"infoidentfid6";
                 cell = [[infoCell3 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:infocellidentfid3];
             }
             cell.leftlab.text = @"性别";
-            cell.contentlab.text = @"男";
+            NSString *sex = [self.dataDic objectForKey:@"sex"];
+            if ([sex isEqualToString:@"0"]) {
+                cell.contentlab.text = @"男";
+            }
+            if ([sex isEqualToString:@"1"])
+            {
+                cell.contentlab.text = @"女";
+            }
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
         }
@@ -148,7 +179,7 @@ static NSString *infocellidentfid6 = @"infoidentfid6";
                 cell = [[infoCell3 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:infocellidentfid4];
             }
             cell.leftlab.text = @"年龄";
-            cell.contentlab.text = @"23";
+            cell.contentlab.text = [NSString stringWithFormat:@"%@",[self.dataDic objectForKey:@"old"]];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
         }
@@ -158,7 +189,7 @@ static NSString *infocellidentfid6 = @"infoidentfid6";
                 cell = [[infoCell3 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:infocellidentfid5];
             }
             cell.leftlab.text = @"地区";
-            cell.contentlab.text = @"湖南长沙";
+            cell.contentlab.text = [self.dataDic objectForKey:@"addtess"];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
         }
@@ -171,11 +202,11 @@ static NSString *infocellidentfid6 = @"infoidentfid6";
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         if (indexPath.row==0) {
             cell.leftlab.text = @"手机号";
-            cell.contentlab.text = @"13800002002";
+            cell.contentlab.text = [self.dataDic objectForKey:@"username"];
         }
         if (indexPath.row==1) {
             cell.leftlab.text = @"真实姓名";
-            cell.contentlab.text = @"某某某";
+            cell.contentlab.text = [self.dataDic objectForKey:@"kname"];
         }
         return cell;
     }

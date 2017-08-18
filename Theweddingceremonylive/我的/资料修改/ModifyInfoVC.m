@@ -16,6 +16,8 @@
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic,strong) UIView *headView;
 @property (nonatomic,strong) UIImageView *userImg;
+@property (nonatomic,strong) NSString *sexstr;
+@property (nonatomic,strong) NSDictionary *dic;
 @end
 
 static NSString *modifyidentfid0 = @"modifyidentfid0";
@@ -32,15 +34,40 @@ static NSString *modifyidentfid5 = @"modifyidentfid5";
     self.title = @"修改个人资料";
     
     [self.view addSubview:self.table];
+    self.sexstr = @"0";
     self.table.tableFooterView = [UIView new];
     self.table.tableHeaderView = self.headView;
+    self.dic = [NSDictionary dictionary];
+    [self loaddata];
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)loaddata
+{
+    NSUserDefaults *defat = [NSUserDefaults standardUserDefaults];
+    NSString *uid = [defat objectForKey:user_uid];
+    NSString *token = [defat objectForKey:user_token];
+    NSDictionary *para = @{@"uid":uid,@"token":token};
+    [DNNetworking postWithURLString:post_getinfo parameters:para success:^(id obj) {
+        NSLog(@"obj------%@",obj);
+        if ([[obj objectForKey:@"code"] intValue]==1000) {
+            self.dic =  [obj objectForKey:@"data"];
+            [_userImg sd_setImageWithURL:[NSURL URLWithString:[self.dic objectForKey:@"picture"]] placeholderImage:[UIImage imageNamed:@"userpic"]];
+        }
+        else
+        {
+            [MBProgressHUD showSuccess:@"失败"];
+        }
+        [self.table reloadData];
+    } failure:^(NSError *error) {
+        [MBProgressHUD showSuccess:@"失败"];
+    }];
+}
+
 
 #pragma mark - getters
 
@@ -75,7 +102,6 @@ static NSString *modifyidentfid5 = @"modifyidentfid5";
         _userImg.frame = CGRectMake(kScreenW/2-40*WIDTH_SCALE, 25*HEIGHT_SCALE, 80*WIDTH_SCALE, 80*WIDTH_SCALE);
         _userImg.layer.masksToBounds = YES;
         _userImg.layer.cornerRadius = 40*WIDTH_SCALE;
-        _userImg.image = [UIImage imageNamed:@"userpic"];
         _userImg.userInteractionEnabled = YES;
         //给图片添加点击手势（也可以添加其他手势）
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(selectHeaderImage)];
@@ -104,6 +130,7 @@ static NSString *modifyidentfid5 = @"modifyidentfid5";
             cell.text.placeholder = @"请输入昵称";
             cell.text.tag = 201;
         }
+        cell.text.text = [self.dic objectForKey:@"name"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -125,6 +152,7 @@ static NSString *modifyidentfid5 = @"modifyidentfid5";
             cell.text.placeholder = @"请输入年龄";
             cell.text.tag = 202;
         }
+        cell.text.text = [self.dic objectForKey:@"old"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -136,6 +164,7 @@ static NSString *modifyidentfid5 = @"modifyidentfid5";
             cell.text.placeholder = @"请输入地区";
             cell.text.tag = 203;
         }
+        cell.text.text = [self.dic objectForKey:@"address"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -177,20 +206,71 @@ static NSString *modifyidentfid5 = @"modifyidentfid5";
 -(void)submitbtnClick:(UITableViewCell *)cell
 {
     NSLog(@"完成");
+    [self setbtnclick];
 }
+
 -(void)nanbtnClick:(UITableViewCell *)cell
 {
-    
+    self.sexstr = @"0";
 }
 
 -(void)nvbtnClick:(UITableViewCell *)cell
 {
-    
+    self.sexstr = @"1";
 }
 
 -(void)setbtnclick
 {
-    NSLog(@"完成");
+    
+    UITextField *text1 = [self.table viewWithTag:201];
+    UITextField *text2 = [self.table viewWithTag:202];
+    UITextField *text3 = [self.table viewWithTag:203];
+//    UITextField *text4 = [self.table viewWithTag:204];
+    
+    NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
+    NSString *uid = [userdefat objectForKey:user_uid];
+    NSString *suffix = @"png";
+    UIImage *img = self.userImg.image;
+    NSData *imageData = UIImageJPEGRepresentation(img, 1.0);
+    NSString *picture = [imageData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+    NSString *sex = self.sexstr;
+    NSString *name = @"";
+    if (text1.text.length==0) {
+        name = @"";
+    }
+    else
+    {
+        name = text1.text;
+    }
+    NSString *old = @"";
+    if (text2.text.length==0) {
+        old = @"";
+    }
+    else
+    {
+        old = text2.text;
+    }
+    NSString *token = [userdefat objectForKey:user_token];
+    NSString *address = @"";
+    if (text3.text.length==0) {
+        address = @"";
+    }
+    else
+    {
+        address = text3.text;
+    }
+    NSDictionary *para = @{@"uid":uid,@"token":token,@"suffix":suffix,@"picture":picture,@"sex":sex,@"name":name,@"old":old,@"address":address};
+    [DNNetworking postWithURLString:post_finish parameters:para success:^(id obj) {
+        if ([[obj objectForKey:@"code"] intValue]==1000) {
+            [MBProgressHUD showSuccess:@"成功"];
+        }
+        else
+        {
+            [MBProgressHUD showSuccess:@"网络繁忙"];
+        }
+    } failure:^(NSError *error) {
+        [MBProgressHUD showSuccess:@"没有网络"];
+    }];
 }
 
 -(void)selectHeaderImage

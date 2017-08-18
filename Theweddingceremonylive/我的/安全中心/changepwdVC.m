@@ -119,9 +119,33 @@ static NSString *changepwdidentfid1 = @"changepwdidentfid1";
 
 -(void)sentbtn
 {
-//    UITextField *text1 = [self.table viewWithTag:201];
-//    UITextField *text2 = [self.table viewWithTag:202];
+    UITextField *text1 = [self.table viewWithTag:201];
+    UITextField *text2 = [self.table viewWithTag:202];
     
+    if (text1.text.length==0||text2.text.length==0) {
+        [MBProgressHUD showSuccess:@"请输入密码"];
+    }
+    if (text1.text.length!=0&&text2.text.length!=0) {
+        
+        if ([text1.text isEqualToString:text2.text]) {
+            [MBProgressHUD showSuccess:@"输入正确"];
+            NSUserDefaults *defat = [NSUserDefaults standardUserDefaults];
+            NSString *uid = [defat objectForKey:user_uid];
+            NSString *token = [defat objectForKey:user_token];
+            NSString *pwd = text1.text;
+            NSDictionary *para = @{@"uid":uid,@"token":token,@"pwd":pwd};
+            [DNNetworking postWithURLString:post_editpwd parameters:para success:^(id obj) {
+                NSString *mes = [obj objectForKey:@"mes"];
+                [MBProgressHUD showSuccess:mes];
+            } failure:^(NSError *error) {
+                [MBProgressHUD showSuccess:@"没有网络"];
+            }];
+        }
+        else
+        {
+            [MBProgressHUD showSuccess:@"两次密码必须保持一致"];
+        }
+    }
 }
 
 -(void)tabletap

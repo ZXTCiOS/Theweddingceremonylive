@@ -27,7 +27,7 @@
 
 @property (nonatomic,strong) QCCountdownButton *sentCodeBtn;
 @property (nonatomic,strong) UIButton *submitBtn;
-
+@property (nonatomic,strong) NSString *codestr;
 @end
 
 @implementation forgetViewController
@@ -266,6 +266,7 @@
         _sentCodeBtn.totalSecond = KTime;
         _sentCodeBtn.layer.masksToBounds = YES;
         _sentCodeBtn.layer.cornerRadius = 20*HEIGHT_SCALE;
+        [_sentCodeBtn addTarget:self action:@selector(sendcodebtnclock) forControlEvents:UIControlEventTouchUpInside];
     }
     return _sentCodeBtn;
 }
@@ -338,10 +339,46 @@
     return _lineview3;
 }
 #pragma mark - 实现方法
+-(void)sendcodebtnclock
+{
+    //验证码
+    NSDictionary *para = @{@"phone":self.phonetext.text};
+    [DNNetworking postWithURLString:post_value parameters:para success:^(id obj) {
+        if ([[obj objectForKey:@"code"]isEqualToString:@"code"]) {
+            NSDictionary *dic = [obj objectForKey:@"data"];
+            self.codestr = [dic objectForKey:@"code"];
+            [MBProgressHUD showSuccess:@"请求成功"];
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+}
 
 -(void)submitbtnclick
 {
-    
+    if ([self.codestr isEqualToString:self.codetext.text]) {
+        if([self.passtext.text isEqualToString:self.newpasstext.text]){
+            NSString *tel = self.phonetext.text;
+            NSString *pwd = self.passtext.text;
+            NSDictionary *para = @{@"tel":tel,@"pwd":pwd};
+            [DNNetworking postWithURLString:post_getpwd parameters:para success:^(id obj) {
+                NSString *mes = [obj objectForKey:@"mes"];
+                [MBProgressHUD showSuccess:mes];
+                if ([[obj objectForKey:@"code"] intValue]==1000) {
+                    [self.navigationController popViewControllerAnimated:YES];
+                }
+            } failure:^(NSError *error) {
+                [MBProgressHUD showSuccess:@"没有网络"];
+            }];
+        }else
+        {
+            [MBProgressHUD showSuccess:@"请检查输入的密码"];
+        }
+    }
+    else
+    {
+        [MBProgressHUD showSuccess:@"请输入正确的验证码"];
+    }
 }
 
 #pragma mark - deletage

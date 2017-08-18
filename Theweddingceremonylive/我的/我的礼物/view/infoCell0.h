@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface infoCell0 : UITableViewCell
-
+@property (nonatomic,strong) UIImageView *userImg;
+@property (nonatomic,strong) UILabel *nameLab;
+@property (nonatomic,strong) UILabel *idLab;
 @end

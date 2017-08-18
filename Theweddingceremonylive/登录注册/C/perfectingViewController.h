@@ -9,5 +9,6 @@
 #import "BaseViewController.h"
 
 @interface perfectingViewController : BaseViewController
-
+@property (nonatomic,strong) NSString *tel;
+@property (nonatomic,strong) NSString *pwd;
 @end

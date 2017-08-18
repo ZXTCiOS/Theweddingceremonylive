@@ -9,9 +9,7 @@
 #import "infoCell0.h"
 
 @interface infoCell0()
-@property (nonatomic,strong) UIImageView *userImg;
-@property (nonatomic,strong) UILabel *nameLab;
-@property (nonatomic,strong) UILabel *idLab;
+
 @end
 
 @implementation infoCell0
@@ -23,7 +21,7 @@
     {
         [self.contentView addSubview:self.userImg];
         [self.contentView addSubview:self.nameLab];
-        [self.contentView addSubview:self.idLab];
+//        [self.contentView addSubview:self.idLab];
         [self setuplayout];
     }
     return self;
@@ -43,11 +41,11 @@
         make.right.equalTo(weakSelf).with.offset(-kScreenW/2+5*WIDTH_SCALE);
         make.height.mas_offset(16*HEIGHT_SCALE);
     }];
-    [self.idLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(weakSelf.nameLab);
-        make.left.equalTo(weakSelf).with.offset(kScreenW/2+5*WIDTH_SCALE);
-        make.height.mas_offset(14*HEIGHT_SCALE);
-    }];
+//    [self.idLab mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(weakSelf.nameLab);
+//        make.left.equalTo(weakSelf).with.offset(kScreenW/2+5*WIDTH_SCALE);
+//        make.height.mas_offset(14*HEIGHT_SCALE);
+//    }];
 }
 
 #pragma mark - getters
@@ -57,7 +55,6 @@
     if(!_userImg)
     {
         _userImg = [[UIImageView alloc] init];
-        [_userImg sd_setImageWithURL:[NSURL URLWithString:@"http://www.qqpk.cn/Article/UploadFiles/201110/20111020102349724.jpg"]];
         _userImg.layer.masksToBounds = YES;
         _userImg.layer.cornerRadius = 30*WIDTH_SCALE;
     }
