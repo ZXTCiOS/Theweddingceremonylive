@@ -23,9 +23,23 @@
     [super viewDidLoad];
     
     
-     self.navigationController.navigationBar.topItem.title = @"BBS";
+    self.navigationController.navigationBar.topItem.title = @"论坛";
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.navigationItem.hidesBackButton = YES;
+    
+    
+    UIBarButtonItem *item1 = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"forum_address"] style:UIBarButtonItemStylePlain target:self action:@selector(backAction2)];
+    UIBarButtonItem *item3 = [[UIBarButtonItem alloc] initWithTitle:@"北京" style:UIBarButtonItemStylePlain target:self action:nil];
+    item1.tintColor = [UIColor colorWithHexString:@"E95F46"];
+    item3.tintColor = [UIColor colorWithHexString:@"E95F46"];
+    [item3 setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont boldSystemFontOfSize:14],NSFontAttributeName, nil] forState:UIControlStateNormal];
+    self.navigationItem.leftBarButtonItems = [NSArray arrayWithObjects:item1,item3,nil];
+   
+    
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"forum_publish"] style:UIBarButtonItemStylePlain target:self action:@selector(addAction)];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithHexString:@"E95F46"];
+    
     
     
     LKSegmentController *segmentBarVc = [[LKSegmentController alloc] init];
@@ -62,6 +76,15 @@
 }
 
 
+-(void)backAction2
+{
+    NSLog(@"111");
+}
+
+-(void)addAction
+{
+    NSLog(@"add");
+}
 
 - (void)back{
     

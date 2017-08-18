@@ -263,7 +263,7 @@
 }
 
 
--(UIButton *)qqBtn
+-(FSCustomButton *)qqBtn
 {
     if(!_qqBtn)
     {
@@ -280,7 +280,7 @@
     return _qqBtn;
 }
 
--(UIButton *)weixinBtn
+-(FSCustomButton *)weixinBtn
 {
     if(!_weixinBtn)
     {
