@@ -57,4 +57,10 @@ static NSString *qualityidentfid = @"qualityidentfid";
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [tableView cellHeightForIndexPath:indexPath
+                        cellContentViewWidth:[UIScreen mainScreen].bounds.size.width
+                                   tableView:tableView];
+}
 @end

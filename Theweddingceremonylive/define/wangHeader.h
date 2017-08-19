@@ -45,6 +45,9 @@
 #define post_getgift        @"/interface.php/Home/User/getgift"
 //查送礼物人信息
 #define post_finduserinfo   @"/interface.php/Home/User/finduserinfo"
+//关注的商家
+#define post_guanzhu        @"/interface.php/Home/User/guanzhu" 
+//我的订单
 
 
 #endif /* wangHeader_h */
