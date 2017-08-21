@@ -8,9 +8,11 @@
 
 #import "MyShopTVC.h"
 #import "MyshopCell.h"
+#import "myshopModel.h"
 
 @interface MyShopTVC ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,mysubmitVdelegate>
 @property (strong,nonatomic) UICollectionView *myCollectionV;
+@property (nonatomic,strong) NSMutableArray *dataSource;
 @end
 
 static NSString *indentify =  @"indentify";
@@ -23,7 +25,7 @@ static NSString *indentify =  @"indentify";
     self.title = @"我的商家";
     
     [self addTheCollectionView];
-    
+    self.dataSource = [NSMutableArray array];
     [self loadtata];
 }
 
@@ -39,11 +41,29 @@ static NSString *indentify =  @"indentify";
     NSString *token = [userefat objectForKey:user_token];
     NSDictionary *para = @{@"uid":uid,@"token":token};
     [DNNetworking postWithURLString:post_guanzhu parameters:para success:^(id obj) {
+        if ([[obj objectForKey:@"code"] intValue]==1000) {
+            NSArray *data = [obj objectForKey:@"data"];
+            for (int i = 0; i<data.count; i++) {
+                NSDictionary *dic = [data objectAtIndex:i];
+                myshopModel *model = [[myshopModel alloc] init];
+                model.shopid = [dic objectForKey:@"id"];
+                model.name = [dic objectForKey:@"name"];
+                model.picurl = [dic objectForKey:@"picurl"];
+                [self.dataSource addObject:model];
+            }
+        }
+        else
+        {
+            NSString *msg = [obj objectForKey:@"msg"];
+            [MBProgressHUD showSuccess:msg];
+        }
         
+        [self.myCollectionV reloadData];
     } failure:^(NSError *error) {
         [MBProgressHUD showSuccess:@"没有网络"];
     }];
 }
+
 //创建视图
 
 -(void)addTheCollectionView{
@@ -86,7 +106,7 @@ static NSString *indentify =  @"indentify";
 //每个section有多少个元素
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 12;
+    return self.dataSource.count;
 }
 
 //每个单元格的数据
@@ -95,6 +115,7 @@ static NSString *indentify =  @"indentify";
     //初始化每个单元格
     MyshopCell *cell = (MyshopCell *)[collectionView dequeueReusableCellWithReuseIdentifier:indentify forIndexPath:indexPath];
     cell.delegate = self;
+    [cell setdata:self.dataSource[indexPath.item]];
     //给单元格上的元素赋值
 //    cell.backgroundColor = [UIColor redColor];
     return cell;

@@ -7,7 +7,9 @@
 //
 
 #import "BaseViewController.h"
+//创建block
+typedef void(^returnValueBlock)(NSString *content);
 
 @interface addressVC : BaseViewController
-
+@property(nonatomic,copy) returnValueBlock  returnvalueBlock;
 @end

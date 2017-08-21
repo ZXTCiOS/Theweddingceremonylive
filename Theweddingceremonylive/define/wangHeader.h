@@ -46,7 +46,7 @@
 //查送礼物人信息
 #define post_finduserinfo   @"/interface.php/Home/User/finduserinfo"
 //关注的商家
-#define post_guanzhu        @"/interface.php/Home/User/guanzhu" 
+#define post_guanzhu        @"/interface.php/Home/User/getguanzhu"
 //我的订单
 
 

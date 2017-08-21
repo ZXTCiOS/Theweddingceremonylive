@@ -7,11 +7,12 @@
 //
 
 #import "MyshopCell.h"
-
+#import "myshopModel.h"
 @interface MyshopCell()
 @property (nonatomic,strong) UIImageView *shopImg;
 @property (nonatomic,strong) UILabel *nameLab;
 @property (nonatomic,strong) UIButton *setBtn;
+@property (nonatomic,strong) myshopModel *smodel;
 @end
 
 @implementation MyshopCell
@@ -90,6 +91,12 @@
     [self.delegate submitbtnClick:self];
 }
 
+-(void)setdata:(myshopModel *)model
+{
+    self.smodel = model;
+    self.nameLab.text = model.name;
+    [self.shopImg sd_setImageWithURL:[NSURL URLWithString:model.picurl] placeholderImage:nil];
+}
 
 
 
