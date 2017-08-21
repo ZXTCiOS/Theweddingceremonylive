@@ -76,6 +76,9 @@
 		532564FA1F46498300915E3B /* hotVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 532564F91F46498300915E3B /* hotVC.m */; };
 		532564FD1F46499C00915E3B /* qualityVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 532564FC1F46499C00915E3B /* qualityVC.m */; };
 		532565001F4649B700915E3B /* localVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 532564FF1F4649B700915E3B /* localVC.m */; };
+		533ACC891F46B01200F66A78 /* GiftModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 533ACC881F46B01200F66A78 /* GiftModel.m */; };
+		533ACC8C1F46D66E00F66A78 /* addressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 533ACC8B1F46D66E00F66A78 /* addressVC.m */; };
+		533ACC8F1F46D96F00F66A78 /* bbsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 533ACC8E1F46D96F00F66A78 /* bbsCell.m */; };
 		53AC97DD1F3F5495009EC343 /* bindingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53AC97DC1F3F5495009EC343 /* bindingViewController.m */; };
 		53D02F3F1F3B1B5600CD504C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F3E1F3B1B5600CD504C /* main.m */; };
 		53D02F421F3B1B5600CD504C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F411F3B1B5600CD504C /* AppDelegate.m */; };
@@ -270,6 +273,12 @@
 		532564FC1F46499C00915E3B /* qualityVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = qualityVC.m; sourceTree = "<group>"; };
 		532564FE1F4649B700915E3B /* localVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = localVC.h; sourceTree = "<group>"; };
 		532564FF1F4649B700915E3B /* localVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = localVC.m; sourceTree = "<group>"; };
+		533ACC871F46B01200F66A78 /* GiftModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GiftModel.h; path = "Theweddingceremonylive/论坛/C/GiftModel.h"; sourceTree = SOURCE_ROOT; };
+		533ACC881F46B01200F66A78 /* GiftModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GiftModel.m; path = "Theweddingceremonylive/论坛/C/GiftModel.m"; sourceTree = SOURCE_ROOT; };
+		533ACC8A1F46D66E00F66A78 /* addressVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addressVC.h; sourceTree = "<group>"; };
+		533ACC8B1F46D66E00F66A78 /* addressVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addressVC.m; sourceTree = "<group>"; };
+		533ACC8D1F46D96F00F66A78 /* bbsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bbsCell.h; path = "Theweddingceremonylive/论坛/C/bbsCell.h"; sourceTree = SOURCE_ROOT; };
+		533ACC8E1F46D96F00F66A78 /* bbsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = bbsCell.m; path = "Theweddingceremonylive/论坛/C/bbsCell.m"; sourceTree = SOURCE_ROOT; };
 		53AC97DB1F3F5495009EC343 /* bindingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bindingViewController.h; sourceTree = "<group>"; };
 		53AC97DC1F3F5495009EC343 /* bindingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bindingViewController.m; sourceTree = "<group>"; };
 		53D02F3A1F3B1B5600CD504C /* Theweddingceremonylive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Theweddingceremonylive.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -601,6 +610,8 @@
 		188038DF1F3EAB9B00A2B4AE /* model */ = {
 			isa = PBXGroup;
 			children = (
+				533ACC871F46B01200F66A78 /* GiftModel.h */,
+				533ACC881F46B01200F66A78 /* GiftModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1238,6 +1249,8 @@
 				532564FC1F46499C00915E3B /* qualityVC.m */,
 				532564FE1F4649B700915E3B /* localVC.h */,
 				532564FF1F4649B700915E3B /* localVC.m */,
+				533ACC8A1F46D66E00F66A78 /* addressVC.h */,
+				533ACC8B1F46D66E00F66A78 /* addressVC.m */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -1252,6 +1265,8 @@
 		53D02F941F3BF9C100CD504C /* V */ = {
 			isa = PBXGroup;
 			children = (
+				533ACC8D1F46D96F00F66A78 /* bbsCell.h */,
+				533ACC8E1F46D96F00F66A78 /* bbsCell.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -1675,6 +1690,7 @@
 				53EEF2AA1F3E9EE80031D396 /* UITabBarController+QFExtension.m in Sources */,
 				1845AEA31F469E0B002EAD47 /* BannerView.m in Sources */,
 				53FCA45E1F418689001780F7 /* strisNull.m in Sources */,
+				533ACC891F46B01200F66A78 /* GiftModel.m in Sources */,
 				53FCA4671F418C26001780F7 /* mineCell1.m in Sources */,
 				53FCA46D1F418E78001780F7 /* perfectingCell0.m in Sources */,
 				188039111F3EAE2600A2B4AE /* WKWedViewController.m in Sources */,
@@ -1691,13 +1707,18 @@
 				188039051F3EAB9B00A2B4AE /* MyWalletTVC.m in Sources */,
 				530299521F442E09004BC03A /* MyshopCell.m in Sources */,
 				188039031F3EAB9B00A2B4AE /* MyGiftTVC.m in Sources */,
+
 				18FE5D911F4AD95300C5A3CF /* MainHeaderView.m in Sources */,
+
+				533ACC8C1F46D66E00F66A78 /* addressVC.m in Sources */,
+
 				188038FF1F3EAB9B00A2B4AE /* MineTVC.m in Sources */,
 				53FCA46A1F418D6D001780F7 /* perfectingViewController.m in Sources */,
 				530299401F42F391004BC03A /* systemCell.m in Sources */,
 				530299461F44109D004BC03A /* changephoneVC.m in Sources */,
 				1851F41F1F3D843E00369326 /* UIScrollView+Refresh.m in Sources */,
 				1851F4121F3D7DF600369326 /* LiveVideoModel.m in Sources */,
+				533ACC8F1F46D96F00F66A78 /* bbsCell.m in Sources */,
 				5303E3EF1F3EFBBE00AB0AF2 /* forgetViewController.m in Sources */,
 				53D02FA91F3BFB5E00CD504C /* MiddleVC.m in Sources */,
 				53D02F3F1F3B1B5600CD504C /* main.m in Sources */,

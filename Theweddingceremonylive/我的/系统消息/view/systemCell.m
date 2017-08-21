@@ -111,6 +111,7 @@
         _contentlab.text = @"北京地铁全线支持刷手机 苹果用户哭瞎北京地铁全线支持刷手机 苹果用户哭瞎北京地铁全线支持刷手机 苹果用户哭瞎北京地铁全线支持刷手机 苹果用户哭瞎北京地铁全线支持刷手机 苹果用户哭瞎北京地铁全线支持刷手机 苹果用户哭瞎";
         _contentlab.font = [UIFont systemFontOfSize:13];
         _contentlab.textColor = [UIColor colorWithHexString:@"333333"];
+        
     }
     return _contentlab;
 }

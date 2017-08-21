@@ -385,6 +385,8 @@
                     [defat synchronize];
                     
                     perfectingViewController *pervc = [[perfectingViewController alloc] init];
+                    pervc.tel = self.phonetext.text;
+                    pervc.pwd = self.passtext.text;
                     [self.navigationController pushViewController:pervc animated:YES];
                 }
                 else

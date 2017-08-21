@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface infoCell2 : UITableViewCell
-
+@property (nonatomic,strong) UILabel *contentlab;
 @end

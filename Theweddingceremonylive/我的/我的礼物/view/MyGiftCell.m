@@ -7,12 +7,14 @@
 //
 
 #import "MyGiftCell.h"
+#import "GiftModel.h"
 
 @interface MyGiftCell()
 @property (nonatomic,strong) UIImageView *leftImg;
 @property (nonatomic,strong) UILabel *nameLab;
 @property (nonatomic,strong) UILabel *numlab;
 @property (nonatomic,strong) UIImageView *rightImg;
+@property (nonatomic,strong) GiftModel *gmodel;
 @end
 
 
@@ -54,7 +56,7 @@
     }];
     [self.numlab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(weakSelf.rightImg);
-        make.right.equalTo(weakSelf.rightImg.mas_left).with.offset(18*WIDTH_SCALE);
+        make.right.equalTo(weakSelf.rightImg.mas_left).with.offset(-8*WIDTH_SCALE);
         make.height.mas_offset(17*WIDTH_SCALE);
     }];
 }
@@ -108,7 +110,14 @@
     return _rightImg;
 }
 
-
+-(void)setdata:(GiftModel *)model
+{
+    self.gmodel = model;
+    self.nameLab.text = model.name;
+    self.numlab.text = model.count;
+    [self.leftImg sd_setImageWithURL:[NSURL URLWithString:model.picture]];
+    [self.rightImg sd_setImageWithURL:[NSURL URLWithString:model.pigurl]];
+}
 
 
 

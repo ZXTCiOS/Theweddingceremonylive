@@ -11,6 +11,8 @@
 #import "perfectingCell1.h"
 #import "perfectingCell2.h"
 #import "BDImagePicker.h"
+#import "MainTabBarController.h"
+
 
 @interface perfectingViewController ()<UITableViewDataSource,UITableViewDelegate,mycellVdelegate,myfinishdelegate>
 @property (nonatomic,strong) UITableView *table;
@@ -205,5 +207,35 @@ static NSString *perfectidentfid3 = @"perfectidentfid3";
     } failure:^(NSError *error) {
         [MBProgressHUD showSuccess:@"网络错误"];
     }];
+    
+    
+    //登录
+    NSString *type = @"1";
+    NSDictionary *teldic = @{@"user_tel":self.tel,@"user_pwd":self.pwd,@"type":type};
+    [DNNetworking postWithURLString:post_login parameters:teldic success:^(id obj) {
+        
+        //切换根视图控制器
+        if ([[obj objectForKey:@"code"] intValue]==1000) {
+            NSDictionary *dic = [obj objectForKey:@"data"];
+            NSString *tokenstr = [dic objectForKey:@"token"];
+            NSString *uidstr = [dic objectForKey:@"uid"];
+            NSUserDefaults *defat = [NSUserDefaults standardUserDefaults];
+            [defat setObject:tokenstr forKey:user_token];
+            [defat setObject:uidstr forKey:user_uid];
+            [defat synchronize];
+            
+            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+            MainTabBarController * main = [[MainTabBarController alloc] init];
+            appDelegate.window.rootViewController = main;
+            
+        }
+        else
+        {
+            [MBProgressHUD showSuccess:@"密码错误"];
+        }
+    } failure:^(NSError *error) {
+        [MBProgressHUD showSuccess:@"网络错误"];
+    }];
+
 }
 @end

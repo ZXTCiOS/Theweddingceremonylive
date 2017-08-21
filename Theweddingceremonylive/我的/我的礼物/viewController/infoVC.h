@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface infoVC : BaseViewController
-
+@property (nonatomic,strong) NSString *useruid;
 @end

@@ -23,6 +23,8 @@ static NSString *indentify =  @"indentify";
     self.title = @"我的商家";
     
     [self addTheCollectionView];
+    
+    [self loadtata];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,6 +32,18 @@ static NSString *indentify =  @"indentify";
     // Dispose of any resources that can be recreated.
 }
 
+-(void)loadtata
+{
+    NSUserDefaults *userefat = [NSUserDefaults standardUserDefaults];
+    NSString *uid = [userefat objectForKey:user_uid];
+    NSString *token = [userefat objectForKey:user_token];
+    NSDictionary *para = @{@"uid":uid,@"token":token};
+    [DNNetworking postWithURLString:post_guanzhu parameters:para success:^(id obj) {
+        
+    } failure:^(NSError *error) {
+        [MBProgressHUD showSuccess:@"没有网络"];
+    }];
+}
 //创建视图
 
 -(void)addTheCollectionView{

@@ -70,6 +70,7 @@ static NSString *systemcellidentfid = @"systencellidentfid";
     return [tableView cellHeightForIndexPath:indexPath
                         cellContentViewWidth:[UIScreen mainScreen].bounds.size.width
                                    tableView:tableView];
+    
 }
 
 @end

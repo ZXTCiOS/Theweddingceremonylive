@@ -19,12 +19,15 @@
 #import "MyShopTVC.h"
 #import "mineOrderVC.h"
 
+#import "LoginVC.h"
+
+
 @interface MineTVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic,strong) mineheadView *headView;
 @property (nonatomic,strong) UIImageView *userImg;
 @property (nonatomic,strong) UILabel *nameLab;
-
+@property (nonatomic,strong) NSDictionary *dataDic;
 @end
 static NSString *mineidentfid0 = @"mineidentfid0";
 static NSString *mineidentfid1 = @"mineidentfid1";
@@ -41,7 +44,32 @@ static NSString *mineidentfid2 = @"mineidentfid2";
     [self.view addSubview:self.table];
     self.table.tableHeaderView = self.headView;
     self.table.tableFooterView = [UIView new];
+    [self loaddata];
+}
 
+
+-(void)loaddata
+{
+    NSUserDefaults *defat = [NSUserDefaults standardUserDefaults];
+    NSString *uid = [defat objectForKey:user_uid];
+    NSString *token = [defat objectForKey:user_token];
+    NSDictionary *para = @{@"uid":uid,@"token":token};
+    [DNNetworking postWithURLString:post_getinfo parameters:para success:^(id obj) {
+        NSLog(@"obj------%@",obj);
+        if ([[obj objectForKey:@"code"] intValue]==1000) {
+           self.dataDic =  [obj objectForKey:@"data"];
+            self.headView.nameLab.text = [self.dataDic objectForKey:@"name"];
+            self.headView.idLab.text = [self.dataDic objectForKey:@"uid"];
+            [self.headView.userImg sd_setImageWithURL:[NSURL URLWithString:[self.dataDic objectForKey:@"picture"]]];
+     
+        }
+        else
+        {
+            [MBProgressHUD showSuccess:@"失败"];
+        }
+    } failure:^(NSError *error) {
+        [MBProgressHUD showSuccess:@"失败"];
+    }];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -87,11 +115,20 @@ static NSString *mineidentfid2 = @"mineidentfid2";
         [_headView.btn0 addTarget:self action:@selector(btn0click) forControlEvents:UIControlEventTouchUpInside];
         [_headView.btn1 addTarget:self action:@selector(btn1click) forControlEvents:UIControlEventTouchUpInside];
         [_headView.btn2 addTarget:self action:@selector(btn2click) forControlEvents:UIControlEventTouchUpInside];
+        
     }
     return _headView;
 }
 
+-(NSDictionary *)dataDic
+{
+    if(!_dataDic)
+    {
+        _dataDic = [NSDictionary dictionary];
 
+    }
+    return _dataDic;
+}
 
 #pragma mark - UITableViewDataSource
 
@@ -251,6 +288,14 @@ static NSString *mineidentfid2 = @"mineidentfid2";
     }
     if (indexPath.section==2) {
         NSLog(@"退出登录");
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:user_token];
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:user_uid];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        UINavigationController *navcon = [[UINavigationController alloc] init];
+        LoginVC *vc = [[LoginVC alloc] init];
+        navcon.viewControllers = @[vc];
+        appDelegate.window.rootViewController = navcon;
     }
 }
 
