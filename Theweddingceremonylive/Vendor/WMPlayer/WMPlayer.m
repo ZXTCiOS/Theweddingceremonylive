@@ -915,8 +915,9 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
             // 当缓冲好的时候
             if (self.currentItem.playbackLikelyToKeepUp && self.state == WMPlayerStateBuffering){
                 NSLog(@"55555%s WMPlayerStatePlaying",__FUNCTION__);
-                [self play];
-                self.state = WMPlayerStatePlaying;
+                
+                //[self play];
+                //self.state = WMPlayerStatePlaying;
             }
             
         }

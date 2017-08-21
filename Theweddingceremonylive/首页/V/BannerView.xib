@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR" customClass="BannerView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="302"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HF6-XW-aB3" customClass="UIControl">
+                    <rect key="frame" x="0.0" y="272" width="320" height="30"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="婚礼视频" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Unh-EM-cyt">
+                            <rect key="frame" x="20" y="13" width="57.5" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="Unh-EM-cyt" firstAttribute="leading" secondItem="HF6-XW-aB3" secondAttribute="leading" constant="20" id="cRw-bp-pZ3"/>
+                        <constraint firstAttribute="bottom" secondItem="Unh-EM-cyt" secondAttribute="bottom" id="nph-zY-Q33"/>
+                        <constraint firstAttribute="height" constant="30" id="ztS-q4-D5K"/>
+                    </constraints>
+                    <connections>
+                        <action selector="more:" destination="U6b-Vx-4bR" eventType="touchUpInside" id="VWj-wq-ZCF"/>
+                    </connections>
+                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dsj-YA-R4R">
+                    <rect key="frame" x="0.0" y="182" width="320" height="90"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XIV-PQ-1aI" customClass="UIControl">
+                            <rect key="frame" x="0.0" y="0.0" width="80" height="90"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="婚礼视频" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8Z-Ro-ge7">
+                                    <rect key="frame" x="15.5" y="68" width="49.5" height="14.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sy_hlsp" translatesAutoresizingMaskIntoConstraints="NO" id="JTa-e5-n1b">
+                                    <rect key="frame" x="15" y="8" width="50" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="UcT-QT-obs"/>
+                                        <constraint firstAttribute="width" constant="50" id="vhN-xz-Wzh"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="J8Z-Ro-ge7" firstAttribute="centerX" secondItem="XIV-PQ-1aI" secondAttribute="centerX" id="BNh-Vn-rN6"/>
+                                <constraint firstAttribute="height" constant="90" id="Mbd-BR-dWe"/>
+                                <constraint firstItem="JTa-e5-n1b" firstAttribute="centerX" secondItem="XIV-PQ-1aI" secondAttribute="centerX" id="WrG-th-A6f"/>
+                                <constraint firstItem="J8Z-Ro-ge7" firstAttribute="top" secondItem="JTa-e5-n1b" secondAttribute="bottom" constant="10" id="mI6-aG-tg7"/>
+                                <constraint firstItem="JTa-e5-n1b" firstAttribute="top" secondItem="XIV-PQ-1aI" secondAttribute="top" constant="8" id="twt-7v-iMp"/>
+                            </constraints>
+                            <connections>
+                                <action selector="weddingVideo:" destination="U6b-Vx-4bR" eventType="touchUpInside" id="MZh-Ta-OrI"/>
+                            </connections>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ewg-k3-hVr" customClass="UIControl">
+                            <rect key="frame" x="80" y="0.0" width="80" height="90"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sy_hlzb" translatesAutoresizingMaskIntoConstraints="NO" id="C3y-5D-s5K">
+                                    <rect key="frame" x="15" y="8" width="50" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="50" id="XOI-4j-O71"/>
+                                        <constraint firstAttribute="height" constant="50" id="oU2-1M-Tai"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="婚礼直播" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X3V-MN-0iJ">
+                                    <rect key="frame" x="14.5" y="68" width="49.5" height="14.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="X3V-MN-0iJ" firstAttribute="top" secondItem="C3y-5D-s5K" secondAttribute="bottom" constant="10" id="67H-3X-wcP"/>
+                                <constraint firstItem="C3y-5D-s5K" firstAttribute="top" secondItem="Ewg-k3-hVr" secondAttribute="top" constant="8" id="jFy-QS-d4v"/>
+                                <constraint firstItem="X3V-MN-0iJ" firstAttribute="centerX" secondItem="Ewg-k3-hVr" secondAttribute="centerX" id="ncr-K8-79t"/>
+                                <constraint firstItem="C3y-5D-s5K" firstAttribute="centerX" secondItem="Ewg-k3-hVr" secondAttribute="centerX" id="oed-un-EdE"/>
+                                <constraint firstAttribute="height" constant="90" id="yTs-CH-bOj"/>
+                            </constraints>
+                            <connections>
+                                <action selector="weddingLive:" destination="U6b-Vx-4bR" eventType="touchUpInside" id="1rj-nr-oMm"/>
+                            </connections>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SC4-Ci-lF2" customClass="UIControl">
+                            <rect key="frame" x="160" y="0.0" width="80" height="90"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sy_nwpd" translatesAutoresizingMaskIntoConstraints="NO" id="qu1-qW-SId">
+                                    <rect key="frame" x="15" y="8" width="50" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="50" id="C5z-MX-taC"/>
+                                        <constraint firstAttribute="height" constant="50" id="WQA-bs-H6E"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="女娲频道" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbX-Ee-t0c">
+                                    <rect key="frame" x="15.5" y="68" width="49.5" height="14.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="90" id="2HM-gy-1Ji"/>
+                                <constraint firstItem="qu1-qW-SId" firstAttribute="top" secondItem="SC4-Ci-lF2" secondAttribute="top" constant="8" id="75n-YD-ZzR"/>
+                                <constraint firstItem="tbX-Ee-t0c" firstAttribute="centerX" secondItem="SC4-Ci-lF2" secondAttribute="centerX" id="XKr-FC-ohC"/>
+                                <constraint firstItem="tbX-Ee-t0c" firstAttribute="top" secondItem="qu1-qW-SId" secondAttribute="bottom" constant="10" id="dnO-Fa-je5"/>
+                                <constraint firstItem="qu1-qW-SId" firstAttribute="centerX" secondItem="SC4-Ci-lF2" secondAttribute="centerX" id="mzl-Ea-MvX"/>
+                            </constraints>
+                            <connections>
+                                <action selector="nvwa:" destination="U6b-Vx-4bR" eventType="touchUpInside" id="2t2-MC-9OR"/>
+                            </connections>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DGn-D7-e6M" customClass="UIControl">
+                            <rect key="frame" x="240" y="0.0" width="80" height="90"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sy_tjsj" translatesAutoresizingMaskIntoConstraints="NO" id="wgV-bV-EsS">
+                                    <rect key="frame" x="15" y="8" width="50" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="fq1-HB-Htd"/>
+                                        <constraint firstAttribute="width" constant="50" id="xKC-BL-G2Q"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="推荐商家" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qaM-jW-tNw">
+                                    <rect key="frame" x="14.5" y="68" width="49.5" height="14.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="qaM-jW-tNw" firstAttribute="centerX" secondItem="DGn-D7-e6M" secondAttribute="centerX" id="3un-mi-gUc"/>
+                                <constraint firstItem="wgV-bV-EsS" firstAttribute="centerX" secondItem="DGn-D7-e6M" secondAttribute="centerX" id="Cvy-WW-bL3"/>
+                                <constraint firstAttribute="height" constant="90" id="U0l-7v-i34"/>
+                                <constraint firstItem="qaM-jW-tNw" firstAttribute="top" secondItem="wgV-bV-EsS" secondAttribute="bottom" constant="10" id="hab-sk-PNt"/>
+                                <constraint firstItem="wgV-bV-EsS" firstAttribute="top" secondItem="DGn-D7-e6M" secondAttribute="top" constant="8" id="uod-Uy-Y0q"/>
+                            </constraints>
+                            <connections>
+                                <action selector="tuijian:" destination="U6b-Vx-4bR" eventType="touchUpInside" id="SDJ-BU-RRo"/>
+                            </connections>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="90" id="dvw-wG-Mc7"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="HF6-XW-aB3" secondAttribute="trailing" id="8ni-YS-hwI"/>
+                <constraint firstAttribute="bottom" secondItem="HF6-XW-aB3" secondAttribute="bottom" id="RfO-Uo-0el"/>
+                <constraint firstAttribute="trailing" secondItem="dsj-YA-R4R" secondAttribute="trailing" id="ZNz-WT-yTf"/>
+                <constraint firstItem="HF6-XW-aB3" firstAttribute="top" secondItem="dsj-YA-R4R" secondAttribute="bottom" id="eNE-5x-SxT"/>
+                <constraint firstItem="dsj-YA-R4R" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="fzD-8C-S25"/>
+                <constraint firstItem="HF6-XW-aB3" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="wlm-ST-lWA"/>
+            </constraints>
+            <point key="canvasLocation" x="149" y="-50"/>
+        </collectionReusableView>
+    </objects>
+    <resources>
+        <image name="sy_hlsp" width="50" height="50"/>
+        <image name="sy_hlzb" width="50" height="50"/>
+        <image name="sy_nwpd" width="50" height="50"/>
+        <image name="sy_tjsj" width="50" height="50"/>
+    </resources>
+</document>

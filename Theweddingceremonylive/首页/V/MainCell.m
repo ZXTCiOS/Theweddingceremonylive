@@ -19,6 +19,8 @@
         [_imgV mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.top.right.equalTo(0);
         }];
+        _imgV.layer.cornerRadius = 5;
+        _imgV.layer.masksToBounds = YES;
     }
     return _imgV;
 }
