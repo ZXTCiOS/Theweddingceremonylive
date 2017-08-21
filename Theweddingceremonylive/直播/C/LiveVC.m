@@ -32,7 +32,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    //self.edgesForExtendedLayout = UIRectEdgeTop | UIRectEdgeBottom;
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [self networking];
     [self tableView];
     self.currentIndex = [NSIndexPath indexPathForRow:0 inSection:0];
@@ -47,6 +48,8 @@
     //设置为透明
     self.tabBarController.tabBar.translucent = YES;
     [self.navigationController setNavigationBarHidden:YES];
+    
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated{

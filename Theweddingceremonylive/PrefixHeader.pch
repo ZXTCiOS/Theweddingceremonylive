@@ -41,5 +41,8 @@
 #import "DNNetworking.h"
 #import "PathHeader.h"
 #import "UIView+HUD.h"
+#import "NSObject+Parse.h"
+
+
 
 #endif /* PrefixHeader_pch */

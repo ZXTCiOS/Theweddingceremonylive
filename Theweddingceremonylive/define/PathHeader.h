@@ -13,7 +13,7 @@
 #define get_video @"/interface.php/Home/Shipin/shipin"              //视频首页
 
 
-#define get_Main @"/interface.php/Home/Index"                       //首页
+#define post_Main @"/interface.php/Home/Index"                       //首页
 
 
 
