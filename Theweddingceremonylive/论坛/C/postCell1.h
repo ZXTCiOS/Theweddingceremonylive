@@ -8,9 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "WJGtextView.h"
+#import "HXPhotoViewController.h"
+#import "HXPhotoView.h"
 @interface postCell1 : UITableViewCell
 @property (nonatomic,strong) WJGtextView *textView;
 @property (nonatomic,strong) UIButton *submitBtn;
-@property (nonatomic,strong) UIButton *imgBtn;
-@property (strong,nonatomic) UIView *imgView;
+
+
+@property (strong, nonatomic) HXPhotoManager *manager;
+@property (strong, nonatomic) HXPhotoView *photoView;
+
 @end

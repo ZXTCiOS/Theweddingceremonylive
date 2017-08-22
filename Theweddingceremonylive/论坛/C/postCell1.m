@@ -8,12 +8,10 @@
 
 #import "postCell1.h"
 
-#import "HXPhotoViewController.h"
-#import "HXPhotoView.h"
 
-@interface postCell1()<HXPhotoViewDelegate>
-@property (strong, nonatomic) HXPhotoManager *manager;
-@property (strong, nonatomic) HXPhotoView *photoView;
+
+@interface postCell1()
+
 @end
 
 @implementation postCell1
@@ -26,7 +24,6 @@
         [self.contentView addSubview:self.textView];
         HXPhotoView *photoView = [HXPhotoView photoManager:self.manager];
         photoView.frame = CGRectMake(12, 100*HEIGHT_SCALE, kScreenW - 24, 0);
-        photoView.delegate = self;
         photoView.backgroundColor = [UIColor whiteColor];
         [self.contentView addSubview:photoView];
         self.photoView = photoView;
@@ -98,14 +95,6 @@
     return _manager;
 }
 
-- (void)photoView:(HXPhotoView *)photoView changeComplete:(NSArray<HXPhotoModel *> *)allList photos:(NSArray<HXPhotoModel *> *)photos videos:(NSArray<HXPhotoModel *> *)videos original:(BOOL)isOriginal {
-    NSSLog(@"所有:%ld - 照片:%ld - 视频:%ld",allList.count,photos.count,videos.count);
-    
-    [HXPhotoTools getSelectedListResultModel:allList complete:^(NSArray<HXPhotoResultModel *> *alls, NSArray<HXPhotoResultModel *> *photos, NSArray<HXPhotoResultModel *> *videos) {
-        NSSLog(@"\n全部类型:%@\n照片:%@\n视频:%@",alls,photos,videos);
-    }];
-    
-}
 
 
 @end
