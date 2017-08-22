@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>HXWeiboPhotoPicker.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>IQKeyboardManager.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -107,12 +112,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>36560E11F14506A96E423D795DA7B4FC</key>
+		<key>1B531B53DAFA393815360F7A9133FDD5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4E7866901CB6D2B2B30BBA29275C0B90</key>
+		<key>49685A5F33ABF1AD8F35DD887323C84D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -137,11 +142,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>68DE732F4857FA30A87E671B9E0AF5A4</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>78008CABA72FDF0D53FB3E0FDD5D35B3</key>
 		<dict>
 			<key>primary</key>
@@ -157,11 +157,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>997EA3C57CD154524336F53CD657976F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>9DC8D9E02903E93BD0B2FEC9D846EA20</key>
 		<dict>
 			<key>primary</key>
@@ -172,12 +167,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B640AB9C48FD2F47D73901DF5D1E8BC6</key>
+		<key>C06611CE4BABE7B6236897F434A69373</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C94C9823580E887FE0E17439D249F698</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DB004EBF3309E1450E8E881C070B2503</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>E7BEAC3516FE119A649929536F07FDE2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EE0617F7B6B414F4A38C25D720D1D12E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

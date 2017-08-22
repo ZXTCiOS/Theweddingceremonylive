@@ -31,6 +31,8 @@ PODS:
     - BlocksKit/DynamicDelegate
   - CYTabBar (1.1.1)
   - DZNEmptyDataSet (1.8.1)
+  - HXWeiboPhotoPicker (2.0.3):
+    - SDWebImage (~> 4.0)
   - IQKeyboardManager (4.0.10)
   - LKSegmentBar (0.1.0)
   - Masonry (1.0.2)
@@ -52,6 +54,7 @@ DEPENDENCIES:
   - BlocksKit
   - CYTabBar
   - DZNEmptyDataSet
+  - HXWeiboPhotoPicker
   - IQKeyboardManager
   - LKSegmentBar
   - Masonry
@@ -69,6 +72,7 @@ SPEC CHECKSUMS:
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
   CYTabBar: ad8400e0b4095d56c36775fd97c50beaddb37f5e
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  HXWeiboPhotoPicker: f5d7e973282fd76bd388a16559a325c5a2d977fc
   IQKeyboardManager: 593ee99b88381f4b9ccb22bd680f22606351bd41
   LKSegmentBar: 4452975002c8ec3f8647a4bdc8665b4360b5c6cf
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
@@ -81,6 +85,6 @@ SPEC CHECKSUMS:
   TPKeyboardAvoiding: 0d6af20e95e2850f4c621841225b59ec7d8dd852
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 026e52fbf8c4af8f239a38833bb6a814980a72b9
+PODFILE CHECKSUM: 9c1f38d48b5a23ea4d6a6f28226cb7d600c6f9c2
 
 COCOAPODS: 1.2.1

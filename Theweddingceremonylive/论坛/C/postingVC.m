@@ -9,7 +9,7 @@
 #import "postingVC.h"
 #import "postCell0.h"
 #import "postCell1.h"
-#import "FCSmallImageViewController.h"
+
 
 @interface postingVC ()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,UITextViewDelegate>
 @property (nonatomic,strong) UITableView *table;
@@ -70,7 +70,7 @@ static NSString *postidentfid1 = @"postidentfid1";
         postCell1 *cell = [tableView dequeueReusableCellWithIdentifier:postidentfid1];
         if (!cell) {
             cell = [[postCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:postidentfid1];
-            [cell.imgBtn addTarget:self action:@selector(imgbtnclick) forControlEvents:UIControlEventTouchUpInside];
+
             cell.imgView.tag = 202;
             cell.imgBtn.tag = 201;
             cell.textView.tag = 203;
@@ -94,30 +94,6 @@ static NSString *postidentfid1 = @"postidentfid1";
 }
 
 #pragma mark - 实现方法
-
--(void)imgbtnclick
-{
-    NSLog(@"cellimgbtnclick");
-    UIView *cellimgview = [self.table viewWithTag:202];
-    UIButton *btn = [self.table viewWithTag:201];
-    FCSmallImageViewController *smallVC = [[FCSmallImageViewController alloc]init];
-    smallVC.maxSelect = 3;
-    smallVC.returnBlock = ^(NSArray *imageArr){
-        
-        [cellimgview.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            [obj removeFromSuperview];
-        }];
-        [imageArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            UIImageView *image = [[UIImageView alloc]initWithFrame:CGRectMake(10*(idx+1)+80*idx, 0, 50, 50)];
-            image.image = obj;
-            [cellimgview addSubview:image];
-            [btn setHidden:YES];
-            [self.table reloadData];
-        }];
-    };
-    [self.navigationController pushViewController:smallVC animated:YES];
-    
-}
 
 #pragma mark - delegate
 

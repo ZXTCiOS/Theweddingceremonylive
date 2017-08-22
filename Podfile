@@ -21,7 +21,7 @@ pod 'SDAutoLayout'
 pod 'DZNEmptyDataSet'
 pod 'NinaPagerView'
 pod 'LKSegmentBar'
-
+pod 'HXWeiboPhotoPicker'
   # Pods for Theweddingceremonylive
 
   target 'TheweddingceremonyliveTests' do

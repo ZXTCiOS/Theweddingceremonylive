@@ -86,14 +86,6 @@
 		533ACD001F4AAC8B00F66A78 /* postCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 533ACCFF1F4AAC8B00F66A78 /* postCell0.m */; };
 		533ACD031F4AAC9900F66A78 /* postCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 533ACD021F4AAC9900F66A78 /* postCell1.m */; };
 		533ACD061F4AB4BA00F66A78 /* WJGtextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 533ACD051F4AB4BA00F66A78 /* WJGtextView.m */; };
-		533ACE2D1F4ABDCB00F66A78 /* FCPhotoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 533ACE1F1F4ABDCB00F66A78 /* FCPhotoManager.m */; };
-		533ACE2E1F4ABDCB00F66A78 /* PhotoManagerResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 533ACE201F4ABDCB00F66A78 /* PhotoManagerResource.bundle */; };
-		533ACE2F1F4ABDCB00F66A78 /* BigPhotoImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 533ACE231F4ABDCB00F66A78 /* BigPhotoImageCell.m */; };
-		533ACE301F4ABDCB00F66A78 /* BigPhotoImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 533ACE241F4ABDCB00F66A78 /* BigPhotoImageCell.xib */; };
-		533ACE311F4ABDCB00F66A78 /* PhotoImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 533ACE261F4ABDCB00F66A78 /* PhotoImageCell.m */; };
-		533ACE321F4ABDCB00F66A78 /* PhotoImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 533ACE271F4ABDCB00F66A78 /* PhotoImageCell.xib */; };
-		533ACE331F4ABDCB00F66A78 /* FCBigImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533ACE2A1F4ABDCB00F66A78 /* FCBigImageViewController.m */; };
-		533ACE341F4ABDCB00F66A78 /* FCSmallImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533ACE2C1F4ABDCB00F66A78 /* FCSmallImageViewController.m */; };
 		533ACE3D1F4AD36D00F66A78 /* areas.json in Resources */ = {isa = PBXBuildFile; fileRef = 533ACE361F4AD36D00F66A78 /* areas.json */; };
 		533ACE3E1F4AD36D00F66A78 /* DQAreasModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 533ACE381F4AD36D00F66A78 /* DQAreasModel.m */; };
 		533ACE3F1F4AD36D00F66A78 /* DQAreasView.m in Sources */ = {isa = PBXBuildFile; fileRef = 533ACE3A1F4AD36D00F66A78 /* DQAreasView.m */; };
@@ -313,19 +305,6 @@
 		533ACD021F4AAC9900F66A78 /* postCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = postCell1.m; path = "Theweddingceremonylive/论坛/C/postCell1.m"; sourceTree = SOURCE_ROOT; };
 		533ACD041F4AB4BA00F66A78 /* WJGtextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WJGtextView.h; path = "Theweddingceremonylive/论坛/C/WJGtextView.h"; sourceTree = SOURCE_ROOT; };
 		533ACD051F4AB4BA00F66A78 /* WJGtextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WJGtextView.m; path = "Theweddingceremonylive/论坛/C/WJGtextView.m"; sourceTree = SOURCE_ROOT; };
-		533ACE1E1F4ABDCB00F66A78 /* FCPhotoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCPhotoManager.h; sourceTree = "<group>"; };
-		533ACE1F1F4ABDCB00F66A78 /* FCPhotoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCPhotoManager.m; sourceTree = "<group>"; };
-		533ACE201F4ABDCB00F66A78 /* PhotoManagerResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PhotoManagerResource.bundle; sourceTree = "<group>"; };
-		533ACE221F4ABDCB00F66A78 /* BigPhotoImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BigPhotoImageCell.h; sourceTree = "<group>"; };
-		533ACE231F4ABDCB00F66A78 /* BigPhotoImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BigPhotoImageCell.m; sourceTree = "<group>"; };
-		533ACE241F4ABDCB00F66A78 /* BigPhotoImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BigPhotoImageCell.xib; sourceTree = "<group>"; };
-		533ACE251F4ABDCB00F66A78 /* PhotoImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoImageCell.h; sourceTree = "<group>"; };
-		533ACE261F4ABDCB00F66A78 /* PhotoImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoImageCell.m; sourceTree = "<group>"; };
-		533ACE271F4ABDCB00F66A78 /* PhotoImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoImageCell.xib; sourceTree = "<group>"; };
-		533ACE291F4ABDCB00F66A78 /* FCBigImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCBigImageViewController.h; sourceTree = "<group>"; };
-		533ACE2A1F4ABDCB00F66A78 /* FCBigImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCBigImageViewController.m; sourceTree = "<group>"; };
-		533ACE2B1F4ABDCB00F66A78 /* FCSmallImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCSmallImageViewController.h; sourceTree = "<group>"; };
-		533ACE2C1F4ABDCB00F66A78 /* FCSmallImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCSmallImageViewController.m; sourceTree = "<group>"; };
 		533ACE361F4AD36D00F66A78 /* areas.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = areas.json; sourceTree = "<group>"; };
 		533ACE371F4AD36D00F66A78 /* DQAreasModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DQAreasModel.h; sourceTree = "<group>"; };
 		533ACE381F4AD36D00F66A78 /* DQAreasModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DQAreasModel.m; sourceTree = "<group>"; };
@@ -1036,51 +1015,6 @@
 			path = QCCountdownButton;
 			sourceTree = "<group>";
 		};
-		533ACE1C1F4ABDCB00F66A78 /* FCPhotoManager */ = {
-			isa = PBXGroup;
-			children = (
-				533ACE1D1F4ABDCB00F66A78 /* Model */,
-				533ACE201F4ABDCB00F66A78 /* PhotoManagerResource.bundle */,
-				533ACE211F4ABDCB00F66A78 /* View */,
-				533ACE281F4ABDCB00F66A78 /* ViewController */,
-			);
-			name = FCPhotoManager;
-			path = "Theweddingceremonylive/论坛/FCPhotoManager";
-			sourceTree = SOURCE_ROOT;
-		};
-		533ACE1D1F4ABDCB00F66A78 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				533ACE1E1F4ABDCB00F66A78 /* FCPhotoManager.h */,
-				533ACE1F1F4ABDCB00F66A78 /* FCPhotoManager.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		533ACE211F4ABDCB00F66A78 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				533ACE221F4ABDCB00F66A78 /* BigPhotoImageCell.h */,
-				533ACE231F4ABDCB00F66A78 /* BigPhotoImageCell.m */,
-				533ACE241F4ABDCB00F66A78 /* BigPhotoImageCell.xib */,
-				533ACE251F4ABDCB00F66A78 /* PhotoImageCell.h */,
-				533ACE261F4ABDCB00F66A78 /* PhotoImageCell.m */,
-				533ACE271F4ABDCB00F66A78 /* PhotoImageCell.xib */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		533ACE281F4ABDCB00F66A78 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				533ACE291F4ABDCB00F66A78 /* FCBigImageViewController.h */,
-				533ACE2A1F4ABDCB00F66A78 /* FCBigImageViewController.m */,
-				533ACE2B1F4ABDCB00F66A78 /* FCSmallImageViewController.h */,
-				533ACE2C1F4ABDCB00F66A78 /* FCSmallImageViewController.m */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
 		533ACE351F4AD36D00F66A78 /* addRess_areas */ = {
 			isa = PBXGroup;
 			children = (
@@ -1385,7 +1319,6 @@
 		53D02F941F3BF9C100CD504C /* V */ = {
 			isa = PBXGroup;
 			children = (
-				533ACE1C1F4ABDCB00F66A78 /* FCPhotoManager */,
 				533ACCF01F4A7BE500F66A78 /* LLQImageView.h */,
 				533ACCF11F4A7BE500F66A78 /* LLQImageView.m */,
 				533ACCF21F4A7BE500F66A78 /* LLQImageViewController.h */,
@@ -1602,21 +1535,15 @@
 				53D02F4D1F3B1B5600CD504C /* LaunchScreen.storyboard in Resources */,
 				182E81111F418C3200720AA4 /* FastForwardView.xib in Resources */,
 				1847DED81F3C5A5F00C796A8 /* LiveVideoCell.xib in Resources */,
-
-				533ACE321F4ABDCB00F66A78 /* PhotoImageCell.xib in Resources */,
-
 				1845AEA41F469E0B002EAD47 /* BannerView.xib in Resources */,
-
 				182E81131F418C3200720AA4 /* WMPlayer.bundle in Resources */,
 				53D02F4A1F3B1B5600CD504C /* Assets.xcassets in Resources */,
 				18FE5D851F4AA8ED00C5A3CF /* WeddingVideoCell.xib in Resources */,
 				18FE5D961F4AE3D800C5A3CF /* MainNaviBar.xib in Resources */,
 				53EEF2A31F3E9E1D0031D396 /* tabbar_bg@2x.png in Resources */,
 				53EEF2A41F3E9E1D0031D396 /* tabbar_bg@3x.png in Resources */,
-				533ACE301F4ABDCB00F66A78 /* BigPhotoImageCell.xib in Resources */,
 				53D02F481F3B1B5600CD504C /* Main.storyboard in Resources */,
 				533ACE3D1F4AD36D00F66A78 /* areas.json in Resources */,
-				533ACE2E1F4ABDCB00F66A78 /* PhotoManagerResource.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1844,7 +1771,6 @@
 				188039111F3EAE2600A2B4AE /* WKWedViewController.m in Sources */,
 				530299491F4410B3004BC03A /* changepwdVC.m in Sources */,
 				53D02F421F3B1B5600CD504C /* AppDelegate.m in Sources */,
-				533ACE331F4ABDCB00F66A78 /* FCBigImageViewController.m in Sources */,
 				1851F41D1F3D843E00369326 /* NSObject+Parse.m in Sources */,
 				533ACCF81F4A7BE500F66A78 /* UIView+ViewController.m in Sources */,
 				533ACE3E1F4AD36D00F66A78 /* DQAreasModel.m in Sources */,
@@ -1858,11 +1784,8 @@
 				188039051F3EAB9B00A2B4AE /* MyWalletTVC.m in Sources */,
 				530299521F442E09004BC03A /* MyshopCell.m in Sources */,
 				188039031F3EAB9B00A2B4AE /* MyGiftTVC.m in Sources */,
-
 				18FE5D911F4AD95300C5A3CF /* MainHeaderView.m in Sources */,
-
 				533ACC8C1F46D66E00F66A78 /* addressVC.m in Sources */,
-
 				188038FF1F3EAB9B00A2B4AE /* MineTVC.m in Sources */,
 				53FCA46A1F418D6D001780F7 /* perfectingViewController.m in Sources */,
 				530299401F42F391004BC03A /* systemCell.m in Sources */,
@@ -1875,20 +1798,16 @@
 				533ACD061F4AB4BA00F66A78 /* WJGtextView.m in Sources */,
 				53D02F3F1F3B1B5600CD504C /* main.m in Sources */,
 				533ACCF71F4A7BE500F66A78 /* LLQImageViewController.m in Sources */,
-				533ACE2F1F4ABDCB00F66A78 /* BigPhotoImageCell.m in Sources */,
 				53FCA4551F41758C001780F7 /* BDImagePicker.m in Sources */,
 				533ACE431F4AEB2600F66A78 /* myshopModel.m in Sources */,
 				53D02FA61F3BFB3000CD504C /* BBSVC.m in Sources */,
 				18031C721F4827CD0038FAC7 /* MainModel.m in Sources */,
 				5303E3EC1F3EF5A800AB0AF2 /* QCCountdownButton.m in Sources */,
-				533ACE311F4ABDCB00F66A78 /* PhotoImageCell.m in Sources */,
 				53FCA4611F418BEE001780F7 /* mineheadView.m in Sources */,
 				533ACCF61F4A7BE500F66A78 /* LLQImageView.m in Sources */,
-				533ACE341F4ABDCB00F66A78 /* FCSmallImageViewController.m in Sources */,
 				533ACD001F4AAC8B00F66A78 /* postCell0.m in Sources */,
 				533ACE3F1F4AD36D00F66A78 /* DQAreasView.m in Sources */,
 				182E81101F418C3200720AA4 /* FastForwardView.m in Sources */,
-				533ACE2D1F4ABDCB00F66A78 /* FCPhotoManager.m in Sources */,
 				530299681F443EE1004BC03A /* orderCell.m in Sources */,
 				5302994F1F441185004BC03A /* changeCell1.m in Sources */,
 			);

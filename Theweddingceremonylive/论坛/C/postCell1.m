@@ -7,12 +7,13 @@
 //
 
 #import "postCell1.h"
-#import "FCSmallImageViewController.h"
 
-@interface postCell1()
+#import "HXPhotoViewController.h"
+#import "HXPhotoView.h"
 
-
-
+@interface postCell1()<HXPhotoViewDelegate>
+@property (strong, nonatomic) HXPhotoManager *manager;
+@property (strong, nonatomic) HXPhotoView *photoView;
 @end
 
 @implementation postCell1
@@ -23,9 +24,13 @@
     if(self)
     {
         [self.contentView addSubview:self.textView];
+        HXPhotoView *photoView = [HXPhotoView photoManager:self.manager];
+        photoView.frame = CGRectMake(12, 100*HEIGHT_SCALE, kScreenW - 24, 0);
+        photoView.delegate = self;
+        photoView.backgroundColor = [UIColor whiteColor];
+        [self.contentView addSubview:photoView];
+        self.photoView = photoView;
         [self.contentView addSubview:self.submitBtn];
-        [self.contentView addSubview:self.imgView];
-        [self.contentView addSubview:self.imgBtn];
         [self setuplayout];
     }
     return self;
@@ -41,25 +46,11 @@
         make.height.mas_offset(100*HEIGHT_SCALE);
     }];
     
-    [self.imgBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(weakSelf.textView);
-        make.top.equalTo(weakSelf.textView.mas_bottom).with.offset(10*HEIGHT_SCALE);
-        make.width.mas_offset(50*WIDTH_SCALE);
-        make.height.mas_offset(50*WIDTH_SCALE);
-    }];
-    
     [self.submitBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(weakSelf).with.offset(-20*WIDTH_SCALE);
         make.top.equalTo(weakSelf.textView.mas_bottom).with.offset(20*HEIGHT_SCALE);
         make.width.mas_offset(80*WIDTH_SCALE);
         make.height.mas_offset(20*HEIGHT_SCALE);
-    }];
-    
-    [self.imgView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(weakSelf.imgBtn);
-        make.top.equalTo(weakSelf.imgBtn);
-        make.height.mas_offset(50*WIDTH_SCALE);
-        make.right.equalTo(weakSelf).with.offset(-120*WIDTH_SCALE);
     }];
 }
 
@@ -90,43 +81,31 @@
     return _submitBtn;
 }
 
--(UIButton *)imgBtn
-{
-    if(!_imgBtn)
-    {
-        _imgBtn = [[UIButton alloc] init];
-        [_imgBtn setImage:[UIImage imageNamed:@"forum_pic"] forState:normal];
-        [_imgBtn addTarget:self action:@selector(imgclick) forControlEvents:UIControlEventTouchUpInside];
+- (HXPhotoManager *)manager {
+    if (!_manager) {
+        _manager = [[HXPhotoManager alloc] initWithType:HXPhotoManagerSelectedTypePhoto];
+        _manager.openCamera = YES;
+        _manager.cacheAlbum = YES;
+        _manager.lookLivePhoto = YES;
+        //        _manager.outerCamera = YES;
+        _manager.open3DTouchPreview = YES;
+        _manager.cameraType = HXPhotoManagerCameraTypeSystem;
+        _manager.photoMaxNum = 3;
+        _manager.videoMaxNum = 3;
+        _manager.maxNum = 8;
+        _manager.saveSystemAblum = NO;
     }
-    return _imgBtn;
+    return _manager;
 }
 
--(UIView *)imgView
-{
-    if(!_imgView)
-    {
-        _imgView = [[UIView alloc] init];
-
-    }
-    return _imgView;
-}
-
--(void)imgclick
-{
+- (void)photoView:(HXPhotoView *)photoView changeComplete:(NSArray<HXPhotoModel *> *)allList photos:(NSArray<HXPhotoModel *> *)photos videos:(NSArray<HXPhotoModel *> *)videos original:(BOOL)isOriginal {
+    NSSLog(@"所有:%ld - 照片:%ld - 视频:%ld",allList.count,photos.count,videos.count);
     
-    FCSmallImageViewController *smallVC = [[FCSmallImageViewController alloc]init];
-    smallVC.maxSelect = 3;
-    smallVC.returnBlock = ^(NSArray *imageArr){
-        
-        [_imgView.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-             [obj removeFromSuperview];
-        }];
-        [imageArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            UIImageView *image = [[UIImageView alloc]initWithFrame:CGRectMake(10*(idx+1)+80*idx, 0, 80, 80)];
-            image.image = obj;
-            [_imgView addSubview:image];
-        }];
-    };
-//     [self.navigationController pushViewController:smallVC animated:YES];
+    [HXPhotoTools getSelectedListResultModel:allList complete:^(NSArray<HXPhotoResultModel *> *alls, NSArray<HXPhotoResultModel *> *photos, NSArray<HXPhotoResultModel *> *videos) {
+        NSSLog(@"\n全部类型:%@\n照片:%@\n视频:%@",alls,photos,videos);
+    }];
+    
 }
+
+
 @end
