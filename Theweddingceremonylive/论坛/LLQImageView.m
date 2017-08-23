@@ -40,7 +40,8 @@
         item.originFrame = item.frame;
         item.tag = i+1;
         
-        [item setImageWithURL:[NSURL URLWithString:_data[i]]];
+        //[item setImageWithURL:[NSURL URLWithString:_data[i]]];
+        [item setImageWithURL:[NSURL URLWithString:_data[i]] placeholder:[UIImage imageNamed:@"qidong"]];
         [self addSubview:item];
         
     }

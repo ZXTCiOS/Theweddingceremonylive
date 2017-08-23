@@ -8,9 +8,14 @@
 
 #import "qualityVC.h"
 #import "bbsCell.h"
+#import "bbsModel.h"
 
-@interface qualityVC ()<UITableViewDataSource,UITableViewDelegate>
+@interface qualityVC ()<UITableViewDataSource,UITableViewDelegate,mybbsVdelegate>
+{
+    int pn;
+}
 @property (nonatomic,strong) UITableView *table;
+@property (nonatomic,strong) NSMutableArray *dataSource;
 @end
 
 static NSString *qualityidentfid = @"qualityidentfid";
@@ -20,15 +25,126 @@ static NSString *qualityidentfid = @"qualityidentfid";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    pn = 1;
+    self.dataSource = [NSMutableArray array];
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.table];
     self.table.tableFooterView = [UIView new];
+    [self addHeader];
+    [self addFooter];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - 刷新控件
+
+- (void)addHeader
+{
+    // 头部刷新控件
+    self.table.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshAction)];
+    [self.table.mj_header beginRefreshing];
+}
+- (void)addFooter
+{
+    self.table.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(refreshLoadMore)];
+}
+
+- (void)refreshAction {
+    [self headerRefreshEndAction];
+}
+
+-(void)refreshLoadMore
+{
+    [self footerRefreshEndAction];
+}
+
+-(void)headerRefreshEndAction
+{
+    [self.dataSource removeAllObjects];
+    pn = 1;
+    NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
+    NSString *uid = [userdefat objectForKey:user_uid];
+    NSString *token = [userdefat objectForKey:user_token];
+    NSString *type = @"2";
+    NSString *page = [NSString stringWithFormat:@"%d",pn];
+    NSDictionary *para = @{@"uid":uid,@"token":token,@"page":page,@"type":type};
+    [DNNetworking postWithURLString:post_bbsgetinfo parameters:para success:^(id obj) {
+        if ([[obj objectForKey:@"code"] intValue]==1000) {
+            NSArray *data = [obj objectForKey:@"data"];
+            for (int i = 0; i<data.count; i++) {
+                NSDictionary *dic = [data objectAtIndex:i];
+                bbsModel *model = [[bbsModel alloc] init];
+                model.name = [dic objectForKey:@"name"];
+                model.picture = [dic objectForKey:@"picture"];
+                model.bbs_addtime = [dic objectForKey:@"bbs_addtime"];
+                model.bbs_address = [dic objectForKey:@"bbs_address"];
+                model.bbs_id = [dic objectForKey:@"bbs_id"];
+                model.bbs_picture1 = [dic objectForKey:@"bbs_picture1"];
+                model.bbs_picture2 = [dic objectForKey:@"bbs_picture2"];
+                model.bbs_picture3 = [dic objectForKey:@"bbs_picture3"];
+                model.bbs_thumbs = [dic objectForKey:@"bbs_thumbs"];
+                model.bbs_title = [dic objectForKey:@"bbs_title"];
+                model.bbs_userid = [dic objectForKey:@"bbs_userid"];
+                model.is_point = [NSString stringWithFormat:@"%@",[dic objectForKey:@"is_point"]];
+                [self.dataSource addObject:model];
+            }
+            
+            [self.table reloadData];
+        }
+        NSString *msg = [obj objectForKey:@"msg"];
+        [MBProgressHUD showSuccess:msg];
+        [self.table endHeaderRefresh];
+    } failure:^(NSError *error) {
+        [self.table endHeaderRefresh];
+        [MBProgressHUD showSuccess:@"没有网络"];
+    }];
+}
+
+-(void)footerRefreshEndAction
+{
+    pn ++;
+    NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
+    NSString *uid = [userdefat objectForKey:user_uid];
+    NSString *token = [userdefat objectForKey:user_token];
+    NSString *type = @"2";
+    NSString *page = [NSString stringWithFormat:@"%d",pn];
+    
+    NSDictionary *para = @{@"uid":uid,@"token":token,@"page":page,@"type":type};
+    [DNNetworking postWithURLString:post_bbsgetinfo parameters:para success:^(id obj) {
+        if ([[obj objectForKey:@"code"] intValue]==1000) {
+            NSArray *data = [obj objectForKey:@"data"];
+            for (int i = 0; i<data.count; i++) {
+                NSDictionary *dic = [data objectAtIndex:i];
+                bbsModel *model = [[bbsModel alloc] init];
+                model.name = [dic objectForKey:@"name"];
+                model.picture = [dic objectForKey:@"picture"];
+                model.bbs_addtime = [dic objectForKey:@"bbs_addtime"];
+                model.bbs_address = [dic objectForKey:@"bbs_address"];
+                model.bbs_id = [dic objectForKey:@"bbs_id"];
+                model.bbs_picture1 = [dic objectForKey:@"bbs_picture1"];
+                model.bbs_picture2 = [dic objectForKey:@"bbs_picture2"];
+                model.bbs_picture3 = [dic objectForKey:@"bbs_picture3"];
+                model.bbs_thumbs = [dic objectForKey:@"bbs_thumbs"];
+                model.bbs_title = [dic objectForKey:@"bbs_title"];
+                model.bbs_userid = [dic objectForKey:@"bbs_userid"];
+                model.is_point = [NSString stringWithFormat:@"%@",[dic objectForKey:@"is_point"]];
+                [self.dataSource addObject:model];
+            }
+            
+            [self.table reloadData];
+        }
+        NSString *msg = [obj objectForKey:@"msg"];
+        [MBProgressHUD showSuccess:msg];
+        [self.table endFooterRefresh];
+    } failure:^(NSError *error) {
+        [self.table endFooterRefresh];
+        [MBProgressHUD showSuccess:@"没有网络"];
+    }];
+}
+
 
 #pragma mark - getters
 
@@ -47,7 +163,7 @@ static NSString *qualityidentfid = @"qualityidentfid";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return self.dataSource.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -55,6 +171,8 @@ static NSString *qualityidentfid = @"qualityidentfid";
     bbsCell *cell = [tableView dequeueReusableCellWithIdentifier:qualityidentfid];
     cell = [[bbsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:qualityidentfid];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    [cell setdata:self.dataSource[indexPath.row]];
+    cell.delegate = self;
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -62,5 +180,10 @@ static NSString *qualityidentfid = @"qualityidentfid";
     return [tableView cellHeightForIndexPath:indexPath
                         cellContentViewWidth:[UIScreen mainScreen].bounds.size.width
                                    tableView:tableView];
+}
+
+-(void)bbspointbtnClick:(UITableViewCell *)cell
+{
+    
 }
 @end

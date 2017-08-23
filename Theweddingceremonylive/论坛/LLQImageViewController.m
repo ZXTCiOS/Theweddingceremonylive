@@ -67,11 +67,12 @@
     for (int i = 0; i < _data.count; i ++) {
         
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake((self.view.bounds.size.width+10)*i, 0, self.view.bounds.size.width+10, self.view.bounds.size.height)];
-
+        
         UIImageView *imageV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
         //图片水平自适应
         imageV.contentMode = UIViewContentModeScaleAspectFit;
-        [imageV setImageWithURL:[NSURL URLWithString:_data[i]]];
+       // [imageV setImageWithURL:[NSURL URLWithString:_data[i]]];
+        [imageV setImageWithURL:[NSURL URLWithString:_data[i]] placeholder:[UIImage imageNamed:@"qidong"]];
         //允许用户点击事件
         imageV.userInteractionEnabled = YES;
         
@@ -111,9 +112,6 @@
        }];
         
     }];
-    
-    
-    
     
 }
 

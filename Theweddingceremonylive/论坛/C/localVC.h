@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface localVC : UIViewController
-
+@property (nonatomic,strong) NSString *address;
 @end

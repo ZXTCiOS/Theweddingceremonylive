@@ -9,22 +9,18 @@
 #import "postingVC.h"
 #import "postCell0.h"
 #import "postCell1.h"
+#import <CoreLocation/CoreLocation.h>
 
-
-@interface postingVC ()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,UITextViewDelegate,HXPhotoViewDelegate>
+@interface postingVC ()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,UITextViewDelegate,HXPhotoViewDelegate,CLLocationManagerDelegate>
 {
-    __block NSString *str0;
-    __block NSString *str1;
-    __block NSString *str2;
+    CLLocationManager * locationManager;
+    NSString * currentCity; //当前城市
 }
 @property (nonatomic,strong) UITableView *table;
-@property (nonatomic,strong) UIImageView *demoimg;
-
 @property (nonatomic,copy) NSString *imgstr0;
 @property (nonatomic,copy) NSString *imgstr1;
 @property (nonatomic,copy) NSString *imgstr2;
 @end
-
 
 static NSString *postidentfid0 = @"postidentfid0";
 static NSString *postidentfid1 = @"postidentfid1";
@@ -35,11 +31,9 @@ static NSString *postidentfid1 = @"postidentfid1";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"发帖";
-
+    [self locate];
     [self.view addSubview:self.table];
     self.table.tableFooterView = [UIView new];
-    
-    [self.view addSubview:self.demoimg];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,23 +51,11 @@ static NSString *postidentfid1 = @"postidentfid1";
         _table.dataSource = self;
         _table.delegate = self;
         _table.backgroundColor = [UIColor colorWithHexString:@"f1f1f1"];
+//        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tabletap)];
+//        [_table addGestureRecognizer:tap];
     }
     return _table;
 }
-
-
--(UIImageView *)demoimg
-{
-    if(!_demoimg)
-    {
-        _demoimg = [[UIImageView alloc] init];
-        _demoimg.frame = CGRectMake(40, 340, 100, 100);
-//        _demoimg.backgroundColor = [UIColor orangeColor];
-    }
-    return _demoimg;
-}
-
-
 
 #pragma mark - UITableViewDataSource&&UITableViewDelegate
 
@@ -88,6 +70,7 @@ static NSString *postidentfid1 = @"postidentfid1";
         postCell0 *cell = [tableView dequeueReusableCellWithIdentifier:postidentfid0];
         if (!cell) {
             cell = [[postCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:postidentfid0];
+            cell.titletext.tag = 202;
         }
         cell.titletext.delegate = self;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -97,10 +80,8 @@ static NSString *postidentfid1 = @"postidentfid1";
         postCell1 *cell = [tableView dequeueReusableCellWithIdentifier:postidentfid1];
         if (!cell) {
             cell = [[postCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:postidentfid1];
-
             cell.photoView.delegate = self;
             cell.textView.tag = 203;
-           
         }
         cell.textView.delegate = self;
         [cell.submitBtn addTarget:self action:@selector(sendbtnclick) forControlEvents:UIControlEventTouchUpInside];
@@ -116,7 +97,7 @@ static NSString *postidentfid1 = @"postidentfid1";
         return 40*HEIGHT_SCALE;
     }
     if (indexPath.row==1) {
-        return 200*HEIGHT_SCALE;
+        return 220*HEIGHT_SCALE;
     }
     return 0.01f;
 }
@@ -124,6 +105,84 @@ static NSString *postidentfid1 = @"postidentfid1";
 -(void)sendbtnclick
 {
     NSLog(@"str-----%@%@%@",self.imgstr0,self.imgstr1,self.imgstr2);
+    
+    
+    
+    
+    NSUserDefaults *userdefault = [NSUserDefaults standardUserDefaults];
+    NSString *uid = [userdefault objectForKey:user_uid];
+    NSString *token = [userdefault objectForKey:user_token];
+    
+    NSString *picture1 = @"";
+    NSString *picture2 = @"";
+    NSString *picture3 = @"";
+    
+    if ([strisNull isNullToString:self.imgstr0]) {
+        picture1 = @"";
+    }
+    else
+    {
+        picture1 = self.imgstr0;
+    }
+    if ([strisNull isNullToString:self.imgstr1]) {
+        picture2 = @"";
+    }
+    else
+    {
+        picture2 = self.imgstr1;
+    }
+    if ([strisNull isNullToString:self.imgstr2]) {
+        picture3 = @"";
+    }
+    else
+    {
+        picture3 = self.imgstr2;
+    }
+    NSString *suffix1 = @"png";
+    NSString *suffix2 = @"png";
+    NSString *suffix3 = @"png";
+    
+    UITextField *text1 = [self.table viewWithTag:202];
+    UITextView *text2 = [self.table viewWithTag:203];
+    
+    NSString *title = @"";
+    NSString *content = @"";
+    
+    if (text1.text.length==0) {
+        title = @"";
+    }
+    else
+    {
+        title = text1.text;
+    }
+    if (text2.text.length==0) {
+        content = @"";
+    }
+    else
+    {
+        content = text2.text;
+    }
+    NSString *address = @"";
+    
+    if ([strisNull isNullToString:currentCity]) {
+        currentCity = @"";
+    }
+    else
+    {
+        address= [currentCity substringToIndex:2];
+//        address = currentCity;
+        
+    }
+    NSDictionary *para = @{@"uid":uid,@"token":token,@"picture1":picture1,@"picture2":picture2,@"picture3":picture3,@"suffix1":suffix1,@"suffix2":suffix2,@"suffix3":suffix3,@"title":title,@"content":content,@"address":address};
+    [DNNetworking postWithURLString:post_fatie parameters:para success:^(id obj) {
+        NSString *msg = [obj objectForKey:@"msg"];
+        if ([[obj objectForKey:@"code"] intValue]==1000) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        [MBProgressHUD showSuccess:msg];
+    } failure:^(NSError *error) {
+        [MBProgressHUD showSuccess:@"发帖失败"];
+    }];
 }
 
 #pragma mark - 实现方法
@@ -188,6 +247,68 @@ static NSString *postidentfid1 = @"postidentfid1";
     
 }
 
+
+- (void)locate {
+    //判断定位功能是否打开
+    if ([CLLocationManager locationServicesEnabled]) {
+        locationManager = [[CLLocationManager alloc] init];
+        locationManager.delegate = self;
+        [locationManager requestAlwaysAuthorization];
+        currentCity = [[NSString alloc] init];
+        [locationManager startUpdatingLocation];
+    }
+    
+}
+
+#pragma mark CoreLocation delegate
+
+//定位失败则执行此代理方法
+//定位失败弹出提示框,点击"打开定位"按钮,会打开系统的设置,提示打开定位服务
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    UIAlertController * alertVC = [UIAlertController alertControllerWithTitle:@"允许\"定位\"提示" message:@"请在设置中打开定位" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction * ok = [UIAlertAction actionWithTitle:@"打开定位" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //打开定位设置
+        NSURL *settingsURL = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+        [[UIApplication sharedApplication] openURL:settingsURL];
+    }];
+    UIAlertAction * cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    [alertVC addAction:cancel];
+    [alertVC addAction:ok];
+    [self presentViewController:alertVC animated:YES completion:nil];
+    
+}
+//定位成功
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
+    [locationManager stopUpdatingLocation];
+    CLLocation *currentLocation = [locations lastObject];
+    CLGeocoder * geoCoder = [[CLGeocoder alloc] init];
+    
+    //反编码
+    [geoCoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        if (placemarks.count > 0) {
+            CLPlacemark *placeMark = placemarks[0];
+            currentCity = placeMark.administrativeArea;
+            
+//            currentCity = placeMark.locality;
+            if (!currentCity) {
+                currentCity = @"无法定位当前城市";
+            }
+            NSLog(@"%@",currentCity); //这就是当前的城市
+            
+        }
+        else if (error == nil && placemarks.count == 0) {
+            NSLog(@"No location and error return");
+        }
+        else if (error) {
+            NSLog(@"location error: %@ ",error);
+        }
+        
+    }];
+}
+
+
 #pragma mark - delegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -207,4 +328,11 @@ static NSString *postidentfid1 = @"postidentfid1";
     [self.tabBarController.tabBar setHidden:NO];
 }
 
+-(void)tabletap
+{
+    UITextField *text1 = [self.table viewWithTag:202];
+    UITextView *text2 = [self.table viewWithTag:203];
+    [text1 resignFirstResponder];
+    [text2 resignFirstResponder];
+}
 @end
