@@ -88,27 +88,27 @@
 }
 
 - (IBAction)weddingVideo:(id)sender {
-    
+    !_shipin ?: _shipin();
     NSLog(@"婚礼视频");
 }
 
 - (IBAction)weddingLive:(id)sender {
-    
+    !_zhibo ?: _zhibo();
     NSLog(@"婚礼直播");
 }
 
 - (IBAction)nvwa:(id)sender {
-    
+    !_nvwa ?: _nvwa();
     NSLog(@"女娲");
 }
 
 - (IBAction)tuijian:(id)sender {
-    
+    !_tuijian ?: _tuijian();
     NSLog(@"推荐");
 }
 
 - (IBAction)more:(id)sender {
-    
+    !_shipin ?: _shipin();
     NSLog(@"更多");
 }
 

@@ -13,6 +13,13 @@
 		182E81121F418C3200720AA4 /* WMLightView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182E810C1F418C3200720AA4 /* WMLightView.m */; };
 		182E81131F418C3200720AA4 /* WMPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 182E810D1F418C3200720AA4 /* WMPlayer.bundle */; };
 		182E81141F418C3200720AA4 /* WMPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 182E810F1F418C3200720AA4 /* WMPlayer.m */; };
+		1831DBCA1F4D268D00155691 /* BaseCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1831DBC31F4D268D00155691 /* BaseCollectionViewController.m */; };
+		1831DBCB1F4D268D00155691 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1831DBC51F4D268D00155691 /* BaseTableViewController.m */; };
+		1831DBCC1F4D268D00155691 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1831DBC71F4D268D00155691 /* BaseViewController.m */; };
+		1831DBCD1F4D268D00155691 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1831DBC91F4D268D00155691 /* ViewController.m */; };
+		1831DBD01F4D280600155691 /* NvWaPinDaoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1831DBCF1F4D280600155691 /* NvWaPinDaoVC.m */; };
+		1831DBD41F4D281B00155691 /* NvWaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1831DBD21F4D281B00155691 /* NvWaCell.m */; };
+		1831DBD51F4D281B00155691 /* NvWaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1831DBD31F4D281B00155691 /* NvWaCell.xib */; };
 		1843D9CC1F4565200001C7C6 /* MainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1843D9CB1F4565200001C7C6 /* MainCell.m */; };
 		1845AEA31F469E0B002EAD47 /* BannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1845AEA11F469E0B002EAD47 /* BannerView.m */; };
 		1845AEA41F469E0B002EAD47 /* BannerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1845AEA21F469E0B002EAD47 /* BannerView.xib */; };
@@ -106,7 +113,6 @@
 		53D02F4D1F3B1B5600CD504C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53D02F4B1F3B1B5600CD504C /* LaunchScreen.storyboard */; };
 		53D02F581F3B1B5600CD504C /* TheweddingceremonyliveTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F571F3B1B5600CD504C /* TheweddingceremonyliveTests.m */; };
 		53D02F631F3B1B5600CD504C /* TheweddingceremonyliveUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F621F3B1B5600CD504C /* TheweddingceremonyliveUITests.m */; };
-		53D02F7B1F3BF65600CD504C /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F7A1F3BF65600CD504C /* BaseViewController.m */; };
 		53D02F831F3BF68000CD504C /* LCTabbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F7E1F3BF68000CD504C /* LCTabbar.m */; };
 		53D02F841F3BF68000CD504C /* LCTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F801F3BF68000CD504C /* LCTabBarButton.m */; };
 		53D02F851F3BF68000CD504C /* LCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F821F3BF68000CD504C /* LCTabBarController.m */; };
@@ -118,7 +124,6 @@
 		53EEF2A41F3E9E1D0031D396 /* tabbar_bg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53EEF2A11F3E9E1D0031D396 /* tabbar_bg@3x.png */; };
 		53EEF2A91F3E9EE80031D396 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EEF2A61F3E9EE80031D396 /* MainTabBarController.m */; };
 		53EEF2AA1F3E9EE80031D396 /* UITabBarController+QFExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EEF2A81F3E9EE80031D396 /* UITabBarController+QFExtension.m */; };
-		53FCA4491F415029001780F7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F441F3B1B5600CD504C /* ViewController.m */; };
 		53FCA44C1F41524C001780F7 /* UILabel+YBAttributeTextTapAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FCA44B1F41524C001780F7 /* UILabel+YBAttributeTextTapAction.m */; };
 		53FCA4551F41758C001780F7 /* BDImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FCA4541F41758C001780F7 /* BDImagePicker.m */; };
 		53FCA45C1F418689001780F7 /* MBProgressHUD+XMG.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FCA4581F418689001780F7 /* MBProgressHUD+XMG.m */; };
@@ -167,6 +172,19 @@
 		182E810E1F418C3200720AA4 /* WMPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPlayer.h; sourceTree = "<group>"; };
 		182E810F1F418C3200720AA4 /* WMPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMPlayer.m; sourceTree = "<group>"; };
 		182E81151F41940200720AA4 /* PathHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PathHeader.h; sourceTree = "<group>"; };
+		1831DBC21F4D268D00155691 /* BaseCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCollectionViewController.h; sourceTree = "<group>"; };
+		1831DBC31F4D268D00155691 /* BaseCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCollectionViewController.m; sourceTree = "<group>"; };
+		1831DBC41F4D268D00155691 /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
+		1831DBC51F4D268D00155691 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
+		1831DBC61F4D268D00155691 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		1831DBC71F4D268D00155691 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		1831DBC81F4D268D00155691 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		1831DBC91F4D268D00155691 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		1831DBCE1F4D280600155691 /* NvWaPinDaoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvWaPinDaoVC.h; sourceTree = "<group>"; };
+		1831DBCF1F4D280600155691 /* NvWaPinDaoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NvWaPinDaoVC.m; sourceTree = "<group>"; };
+		1831DBD11F4D281B00155691 /* NvWaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvWaCell.h; sourceTree = "<group>"; };
+		1831DBD21F4D281B00155691 /* NvWaCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NvWaCell.m; sourceTree = "<group>"; };
+		1831DBD31F4D281B00155691 /* NvWaCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NvWaCell.xib; sourceTree = "<group>"; };
 		1843D9CA1F4565200001C7C6 /* MainCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainCell.h; sourceTree = "<group>"; };
 		1843D9CB1F4565200001C7C6 /* MainCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainCell.m; sourceTree = "<group>"; };
 		1845AEA01F469E0B002EAD47 /* BannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerView.h; sourceTree = "<group>"; };
@@ -341,8 +359,6 @@
 		53D02F3E1F3B1B5600CD504C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		53D02F401F3B1B5600CD504C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		53D02F411F3B1B5600CD504C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		53D02F431F3B1B5600CD504C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		53D02F441F3B1B5600CD504C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		53D02F471F3B1B5600CD504C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		53D02F491F3B1B5600CD504C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53D02F4C1F3B1B5600CD504C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -354,8 +370,6 @@
 		53D02F621F3B1B5600CD504C /* TheweddingceremonyliveUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TheweddingceremonyliveUITests.m; sourceTree = "<group>"; };
 		53D02F641F3B1B5600CD504C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53D02F701F3B259400CD504C /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		53D02F791F3BF65600CD504C /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
-		53D02F7A1F3BF65600CD504C /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		53D02F7D1F3BF68000CD504C /* LCTabbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCTabbar.h; sourceTree = "<group>"; };
 		53D02F7E1F3BF68000CD504C /* LCTabbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCTabbar.m; sourceTree = "<group>"; };
 		53D02F7F1F3BF68000CD504C /* LCTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCTabBarButton.h; sourceTree = "<group>"; };
@@ -460,6 +474,21 @@
 				182E810C1F418C3200720AA4 /* WMLightView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		1831DBC11F4D268D00155691 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				1831DBC21F4D268D00155691 /* BaseCollectionViewController.h */,
+				1831DBC31F4D268D00155691 /* BaseCollectionViewController.m */,
+				1831DBC41F4D268D00155691 /* BaseTableViewController.h */,
+				1831DBC51F4D268D00155691 /* BaseTableViewController.m */,
+				1831DBC61F4D268D00155691 /* BaseViewController.h */,
+				1831DBC71F4D268D00155691 /* BaseViewController.m */,
+				1831DBC81F4D268D00155691 /* ViewController.h */,
+				1831DBC91F4D268D00155691 /* ViewController.m */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		1845AEA51F46B5CE002EAD47 /* iCarousel */ = {
@@ -797,6 +826,8 @@
 		18FE5D6F1F4AA73200C5A3CF /* C */ = {
 			isa = PBXGroup;
 			children = (
+				1831DBCE1F4D280600155691 /* NvWaPinDaoVC.h */,
+				1831DBCF1F4D280600155691 /* NvWaPinDaoVC.m */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -813,6 +844,9 @@
 		18FE5D711F4AA73200C5A3CF /* V */ = {
 			isa = PBXGroup;
 			children = (
+				1831DBD11F4D281B00155691 /* NvWaCell.h */,
+				1831DBD21F4D281B00155691 /* NvWaCell.m */,
+				1831DBD31F4D281B00155691 /* NvWaCell.xib */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -1124,7 +1158,7 @@
 				53D02F881F3BF95300CD504C /* 论坛 */,
 				53D02F891F3BF95300CD504C /* 开播 */,
 				188038C41F3EAB9B00A2B4AE /* 我的 */,
-				53D02F721F3B2A4E00CD504C /* BASE */,
+				1831DBC11F4D268D00155691 /* Base */,
 				53D02F7C1F3BF68000CD504C /* tabbar */,
 				53D02F741F3BF5F800CD504C /* NetWorking */,
 				53D02F751F3BF5F800CD504C /* define */,
@@ -1174,17 +1208,6 @@
 				53D02F491F3B1B5600CD504C /* Assets.xcassets */,
 			);
 			name = Sources;
-			sourceTree = "<group>";
-		};
-		53D02F721F3B2A4E00CD504C /* BASE */ = {
-			isa = PBXGroup;
-			children = (
-				53D02F431F3B1B5600CD504C /* ViewController.h */,
-				53D02F441F3B1B5600CD504C /* ViewController.m */,
-				53D02F791F3BF65600CD504C /* BaseViewController.h */,
-				53D02F7A1F3BF65600CD504C /* BaseViewController.m */,
-			);
-			name = BASE;
 			sourceTree = "<group>";
 		};
 		53D02F741F3BF5F800CD504C /* NetWorking */ = {
@@ -1601,6 +1624,7 @@
 			files = (
 				53D02F4D1F3B1B5600CD504C /* LaunchScreen.storyboard in Resources */,
 				182E81111F418C3200720AA4 /* FastForwardView.xib in Resources */,
+				1831DBD51F4D281B00155691 /* NvWaCell.xib in Resources */,
 				1847DED81F3C5A5F00C796A8 /* LiveVideoCell.xib in Resources */,
 				1845AEA41F469E0B002EAD47 /* BannerView.xib in Resources */,
 				182E81131F418C3200720AA4 /* WMPlayer.bundle in Resources */,
@@ -1779,12 +1803,12 @@
 				53AC97DD1F3F5495009EC343 /* bindingViewController.m in Sources */,
 				18FE5D801F4AA8AC00C5A3CF /* WeddingVideoVC.m in Sources */,
 				182E81121F418C3200720AA4 /* WMLightView.m in Sources */,
+				1831DBD01F4D280600155691 /* NvWaPinDaoVC.m in Sources */,
 				53D02F851F3BF68000CD504C /* LCTabBarController.m in Sources */,
 				188039121F3EAE2600A2B4AE /* XD_textField.m in Sources */,
 				53FCA4731F418EA5001780F7 /* perfectingCell2.m in Sources */,
 				533A8A431F4C262A0087E699 /* DemoCommentView.m in Sources */,
 				533ACCFD1F4AABB600F66A78 /* postingVC.m in Sources */,
-				53FCA4491F415029001780F7 /* ViewController.m in Sources */,
 				188039081F3EAB9B00A2B4AE /* SystemMessageTVC.m in Sources */,
 				5302995F1F443AB4004BC03A /* orderVC1.m in Sources */,
 				530299431F44054D004BC03A /* modifyCell.m in Sources */,
@@ -1800,7 +1824,6 @@
 				5303E3DA1F3ED32B00AB0AF2 /* bottomlineView.m in Sources */,
 				18FE5D841F4AA8ED00C5A3CF /* WeddingVideoCell.m in Sources */,
 				18FE5D8E1F4ABD1400C5A3CF /* TuiJianModel.m in Sources */,
-				53D02F7B1F3BF65600CD504C /* BaseViewController.m in Sources */,
 				53FCA45D1F418689001780F7 /* NullSafe.m in Sources */,
 				188039011F3EAB9B00A2B4AE /* MyGiftCell.m in Sources */,
 				532564F71F4578BD00915E3B /* infoCell3.m in Sources */,
@@ -1818,6 +1841,7 @@
 				532564FA1F46498300915E3B /* hotVC.m in Sources */,
 				53FCA45C1F418689001780F7 /* MBProgressHUD+XMG.m in Sources */,
 				53D02F841F3BF68000CD504C /* LCTabBarButton.m in Sources */,
+				1831DBD41F4D281B00155691 /* NvWaCell.m in Sources */,
 				1845AEA81F46B5CE002EAD47 /* iCarousel.m in Sources */,
 				1847DED71F3C5A5F00C796A8 /* LiveVideoCell.m in Sources */,
 				533ACE401F4AD36D00F66A78 /* DQCanCerEnsureView.m in Sources */,
@@ -1834,11 +1858,13 @@
 				182E81141F418C3200720AA4 /* WMPlayer.m in Sources */,
 				53EEF2AA1F3E9EE80031D396 /* UITabBarController+QFExtension.m in Sources */,
 				1845AEA31F469E0B002EAD47 /* BannerView.m in Sources */,
+				1831DBCD1F4D268D00155691 /* ViewController.m in Sources */,
 				53FCA45E1F418689001780F7 /* strisNull.m in Sources */,
 				533ACC891F46B01200F66A78 /* GiftModel.m in Sources */,
 				53FCA4671F418C26001780F7 /* mineCell1.m in Sources */,
 				53FCA46D1F418E78001780F7 /* perfectingCell0.m in Sources */,
 				188039111F3EAE2600A2B4AE /* WKWedViewController.m in Sources */,
+				1831DBCC1F4D268D00155691 /* BaseViewController.m in Sources */,
 				530299491F4410B3004BC03A /* changepwdVC.m in Sources */,
 				53D02F421F3B1B5600CD504C /* AppDelegate.m in Sources */,
 				1851F41D1F3D843E00369326 /* NSObject+Parse.m in Sources */,
@@ -1861,8 +1887,10 @@
 				530299401F42F391004BC03A /* systemCell.m in Sources */,
 				530299461F44109D004BC03A /* changephoneVC.m in Sources */,
 				1851F41F1F3D843E00369326 /* UIScrollView+Refresh.m in Sources */,
+				1831DBCA1F4D268D00155691 /* BaseCollectionViewController.m in Sources */,
 				1851F4121F3D7DF600369326 /* LiveVideoModel.m in Sources */,
 				533ACC8F1F46D96F00F66A78 /* bbsCell.m in Sources */,
+				1831DBCB1F4D268D00155691 /* BaseTableViewController.m in Sources */,
 				5303E3EF1F3EFBBE00AB0AF2 /* forgetViewController.m in Sources */,
 				53D02FA91F3BFB5E00CD504C /* MiddleVC.m in Sources */,
 				533A8A441F4C262A0087E699 /* DemoTableViewCell.m in Sources */,
