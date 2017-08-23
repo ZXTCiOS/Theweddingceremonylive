@@ -24,14 +24,16 @@
 
 @end
 
-
+typedef void(^block)();
 @interface BannerView : UICollectionReusableView<iCarouselDelegate, iCarouselDataSource>
 
 
 @property (nonatomic, strong) iCarousel *ic;
 
-
-
+@property (nonatomic, copy) block nvwa;
+@property (nonatomic, copy) block zhibo;
+@property (nonatomic, copy) block shipin;
+@property (nonatomic, copy) block tuijian;
 
 
 

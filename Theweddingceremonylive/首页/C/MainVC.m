@@ -17,6 +17,10 @@
 #import <UIScrollView+EmptyDataSet.h>
 #import "MainNaviBar.h"
 
+#import "NvWaPinDaoVC.h"
+
+
+
 
 @interface MainVC ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, BannerViewDelegate, BannerViewDataSource, DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
@@ -160,6 +164,14 @@
             view.frame = CGRectMake(0, 0, kScreenW, 120 +  kScreenW * 4 / 7 + 40);
             view.delegate = self;
             view.datasource = self;
+            MJWeakSelf
+            //view.shipin =
+            //view.zhibo
+            //view.tuijian
+            view.nvwa = ^(){
+                NvWaPinDaoVC *VC = [[NvWaPinDaoVC alloc] init];
+                [weakSelf.navigationController pushViewController:VC animated:YES];
+            };
             [view reloadData];
             return view;
         } else {
