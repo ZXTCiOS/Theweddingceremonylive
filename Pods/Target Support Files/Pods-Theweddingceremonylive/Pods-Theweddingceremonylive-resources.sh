@@ -84,12 +84,14 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "HXWeiboPhotoPicker/微博照片选择/HXWeiboPhotoPicker/HXWeiboPhotoPicker.bundle"
   install_resource "IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle"
   install_resource "MJRefresh/MJRefresh/MJRefresh.bundle"
+  install_resource "YJBannerView/YJBannerView/Resource/YJBannerView.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "CYTabBar/CYTabBar/CYTabBar.bundle"
   install_resource "HXWeiboPhotoPicker/微博照片选择/HXWeiboPhotoPicker/HXWeiboPhotoPicker.bundle"
   install_resource "IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle"
   install_resource "MJRefresh/MJRefresh/MJRefresh.bundle"
+  install_resource "YJBannerView/YJBannerView/Resource/YJBannerView.bundle"
 fi
 
 mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="294"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="294"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="293"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017-09-11 10:22" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lSd-Pf-GRX">
@@ -27,7 +27,7 @@
                         <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AWL-Qk-KfS">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera_camera_background.png" translatesAutoresizingMaskIntoConstraints="NO" id="AWL-Qk-KfS">
                         <rect key="frame" x="15" y="44.5" width="290" height="163"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="AWL-Qk-KfS" secondAttribute="height" multiplier="16:9" id="I7S-60-tiw"/>
@@ -70,6 +70,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="camera_camera_background.png" width="81" height="81"/>
         <image name="xuxian" width="1" height="1"/>
     </resources>
 </document>
