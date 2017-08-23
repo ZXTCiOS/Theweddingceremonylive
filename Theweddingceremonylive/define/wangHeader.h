@@ -49,5 +49,11 @@
 #define post_guanzhu        @"/interface.php/Home/User/getguanzhu"
 //我的订单
 
+//论坛首页
+#define post_bbsgetinfo     @"/interface.php/Home/Bbs/getinfo"
+//发帖
+#define post_fatie          @"/interface.php/Home/Bbs/post"
 
+//点赞
+#define post_point          @"/interface.php/Home/Bbs/point"
 #endif /* wangHeader_h */

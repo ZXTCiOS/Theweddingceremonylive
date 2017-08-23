@@ -8,8 +8,6 @@
 
 #import "postCell1.h"
 
-
-
 @interface postCell1()
 
 @end

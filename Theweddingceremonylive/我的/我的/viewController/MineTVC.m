@@ -97,14 +97,12 @@ static NSString *mineidentfid2 = @"mineidentfid2";
 {
     if(!_table)
     {
-        _table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH)];
+        _table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH-50)];
         _table.dataSource = self;
         _table.delegate = self;
-
     }
     return _table;
 }
-
 
 -(mineheadView *)headView
 {

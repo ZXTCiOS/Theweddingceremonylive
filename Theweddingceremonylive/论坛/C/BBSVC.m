@@ -19,9 +19,11 @@
 {
     CLLocationManager * locationManager;
     NSString * currentCity; //当前城市
+    UIBarButtonItem *item3;
+    
 }
 @property (nonatomic,strong) LKSegmentController *segmentBarVC;
-
+@property (nonatomic,strong) NSString *addressstr;
 @end
 
 @implementation BBSVC
@@ -34,9 +36,10 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.navigationItem.hidesBackButton = YES;
     
+    self.addressstr = @"北京";
     
     UIBarButtonItem *item1 = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"forum_address"] style:UIBarButtonItemStylePlain target:self action:@selector(backAction2)];
-    UIBarButtonItem *item3 = [[UIBarButtonItem alloc] initWithTitle:@"北京" style:UIBarButtonItemStylePlain target:self action:nil];
+    item3 = [[UIBarButtonItem alloc] initWithTitle:_addressstr style:UIBarButtonItemStylePlain target:self action:nil];
     item1.tintColor = [UIColor colorWithHexString:@"E95F46"];
     item3.tintColor = [UIColor colorWithHexString:@"E95F46"];
     [item3 setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont boldSystemFontOfSize:14],NSFontAttributeName, nil] forState:UIControlStateNormal];
@@ -57,6 +60,7 @@
     hotVC *vc1 = [[hotVC alloc] init];
     qualityVC *vc2 = [[qualityVC alloc] init];
     localVC *vc3 = [[localVC alloc] init];
+    vc3.address = self.addressstr;
     [self.segmentBarVC setUpWithItems:@[@"热点", @"精品", @"本地"] childViewControllers:@[vc1, vc2, vc3]];
     [self.segmentBarVC.segmentBar segmentBarStyle:^(LKSegmentBarStyle *barStyle) {
         barStyle.backgroundColor = [UIColor clearColor];
@@ -144,13 +148,15 @@
     [geoCoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
         if (placemarks.count > 0) {
             CLPlacemark *placeMark = placemarks[0];
-            currentCity = placeMark.locality;
+            currentCity = placeMark.administrativeArea;
             if (!currentCity) {
                 currentCity = @"无法定位当前城市";
             }
             NSLog(@"%@",currentCity); //这就是当前的城市
             NSLog(@"%@",placeMark.name);//具体地址:  xx市xx区xx街道
-            
+            self.addressstr = currentCity;
+
+            item3.title = self.addressstr;
         }
         else if (error == nil && placemarks.count == 0) {
             NSLog(@"No location and error return");
