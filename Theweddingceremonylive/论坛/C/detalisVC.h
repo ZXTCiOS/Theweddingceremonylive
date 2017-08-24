@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface detalisVC : BaseViewController
-
+@property (nonatomic,strong) NSString *bbs_id;
 @end

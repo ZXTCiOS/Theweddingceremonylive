@@ -35,7 +35,10 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    RealVC *vc = [[RealVC alloc] init];
+//    RealVC *vc = [[RealVC alloc] init];
+//    [self.navigationController pushViewController:vc animated:NO];
+    
+    midVC *vc = [[midVC alloc] init];
     [self.navigationController pushViewController:vc animated:NO];
 }
 

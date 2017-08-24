@@ -186,6 +186,8 @@ static NSString *qualityidentfid = @"qualityidentfid";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DemoTableViewController *vc = [[DemoTableViewController alloc] init];
+    bbsModel *model = self.dataSource[indexPath.row];
+    vc.bbs_id = model.bbs_id;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

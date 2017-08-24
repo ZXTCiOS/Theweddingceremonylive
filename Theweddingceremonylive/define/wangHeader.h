@@ -56,4 +56,7 @@
 
 //点赞
 #define post_point          @"/interface.php/Home/Bbs/point"
+
+//帖子详情
+#define post_getallinfo     @"/interface.php/Home/Bbs/getallinfo"
 #endif /* wangHeader_h */

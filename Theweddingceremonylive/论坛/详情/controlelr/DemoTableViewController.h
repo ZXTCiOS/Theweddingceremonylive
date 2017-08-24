@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface DemoTableViewController : BaseViewController
-
+@property (nonatomic,strong) NSString *bbs_id;
 @end

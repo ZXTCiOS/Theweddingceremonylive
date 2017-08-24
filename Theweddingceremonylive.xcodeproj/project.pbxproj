@@ -112,6 +112,17 @@
 		53B68E411F4D54EF00674A2B /* bbsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B68E401F4D54EF00674A2B /* bbsModel.m */; };
 		53B68E441F4D8D0000674A2B /* midVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B68E431F4D8D0000674A2B /* midVC.m */; };
 		53B68E471F4D93DA00674A2B /* RealVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B68E461F4D93DA00674A2B /* RealVC.m */; };
+		53B68E4A1F4E6F4A00674A2B /* realCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B68E491F4E6F4A00674A2B /* realCell.m */; };
+		53B68E4D1F4E76EA00674A2B /* readheadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B68E4C1F4E76EA00674A2B /* readheadView.m */; };
+		53B68E501F4E770000674A2B /* realfootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B68E4F1F4E770000674A2B /* realfootView.m */; };
+		53B68E531F4E7EDD00674A2B /* cardimgView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B68E521F4E7EDD00674A2B /* cardimgView.m */; };
+		53B68E561F4E9B5500674A2B /* livetypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B68E551F4E9B5500674A2B /* livetypeCell.m */; };
+		53B68E591F4EBFCA00674A2B /* predeterminedVC0.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B68E581F4EBFCA00674A2B /* predeterminedVC0.m */; };
+		53B68E5C1F4EBFD800674A2B /* predeterminedVC1.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B68E5B1F4EBFD800674A2B /* predeterminedVC1.m */; };
+		53B68E5F1F4ECC9300674A2B /* detalisCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B68E5E1F4ECC9300674A2B /* detalisCell0.m */; };
+		53B68E621F4ECC9E00674A2B /* detalisCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B68E611F4ECC9E00674A2B /* detalisCell1.m */; };
+		53B68E651F4EDD1F00674A2B /* detalisModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B68E641F4EDD1F00674A2B /* detalisModel.m */; };
+		53B68E681F4EEC5F00674A2B /* NullSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B68E671F4EEC5F00674A2B /* NullSafe.m */; };
 		53D02F3F1F3B1B5600CD504C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F3E1F3B1B5600CD504C /* main.m */; };
 		53D02F421F3B1B5600CD504C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F411F3B1B5600CD504C /* AppDelegate.m */; };
 		53D02F481F3B1B5600CD504C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53D02F461F3B1B5600CD504C /* Main.storyboard */; };
@@ -372,6 +383,27 @@
 		53B68E431F4D8D0000674A2B /* midVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = midVC.m; sourceTree = "<group>"; };
 		53B68E451F4D93DA00674A2B /* RealVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealVC.h; sourceTree = "<group>"; };
 		53B68E461F4D93DA00674A2B /* RealVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealVC.m; sourceTree = "<group>"; };
+		53B68E481F4E6F4A00674A2B /* realCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = realCell.h; path = "Theweddingceremonylive/开播/C/realCell.h"; sourceTree = SOURCE_ROOT; };
+		53B68E491F4E6F4A00674A2B /* realCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = realCell.m; path = "Theweddingceremonylive/开播/C/realCell.m"; sourceTree = SOURCE_ROOT; };
+		53B68E4B1F4E76EA00674A2B /* readheadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = readheadView.h; path = "Theweddingceremonylive/开播/C/readheadView.h"; sourceTree = SOURCE_ROOT; };
+		53B68E4C1F4E76EA00674A2B /* readheadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = readheadView.m; path = "Theweddingceremonylive/开播/C/readheadView.m"; sourceTree = SOURCE_ROOT; };
+		53B68E4E1F4E770000674A2B /* realfootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = realfootView.h; path = "Theweddingceremonylive/开播/C/realfootView.h"; sourceTree = SOURCE_ROOT; };
+		53B68E4F1F4E770000674A2B /* realfootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = realfootView.m; path = "Theweddingceremonylive/开播/C/realfootView.m"; sourceTree = SOURCE_ROOT; };
+		53B68E511F4E7EDD00674A2B /* cardimgView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cardimgView.h; path = "Theweddingceremonylive/开播/C/cardimgView.h"; sourceTree = SOURCE_ROOT; };
+		53B68E521F4E7EDD00674A2B /* cardimgView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = cardimgView.m; path = "Theweddingceremonylive/开播/C/cardimgView.m"; sourceTree = SOURCE_ROOT; };
+		53B68E541F4E9B5500674A2B /* livetypeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = livetypeCell.h; path = "Theweddingceremonylive/开播/C/livetypeCell.h"; sourceTree = SOURCE_ROOT; };
+		53B68E551F4E9B5500674A2B /* livetypeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = livetypeCell.m; path = "Theweddingceremonylive/开播/C/livetypeCell.m"; sourceTree = SOURCE_ROOT; };
+		53B68E571F4EBFCA00674A2B /* predeterminedVC0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = predeterminedVC0.h; sourceTree = "<group>"; };
+		53B68E581F4EBFCA00674A2B /* predeterminedVC0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = predeterminedVC0.m; sourceTree = "<group>"; };
+		53B68E5A1F4EBFD800674A2B /* predeterminedVC1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = predeterminedVC1.h; sourceTree = "<group>"; };
+		53B68E5B1F4EBFD800674A2B /* predeterminedVC1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = predeterminedVC1.m; sourceTree = "<group>"; };
+		53B68E5D1F4ECC9300674A2B /* detalisCell0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = detalisCell0.h; path = "Theweddingceremonylive/开播/C/detalisCell0.h"; sourceTree = SOURCE_ROOT; };
+		53B68E5E1F4ECC9300674A2B /* detalisCell0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = detalisCell0.m; path = "Theweddingceremonylive/开播/C/detalisCell0.m"; sourceTree = SOURCE_ROOT; };
+		53B68E601F4ECC9E00674A2B /* detalisCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = detalisCell1.h; path = "Theweddingceremonylive/开播/C/detalisCell1.h"; sourceTree = SOURCE_ROOT; };
+		53B68E611F4ECC9E00674A2B /* detalisCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = detalisCell1.m; path = "Theweddingceremonylive/开播/C/detalisCell1.m"; sourceTree = SOURCE_ROOT; };
+		53B68E631F4EDD1F00674A2B /* detalisModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = detalisModel.h; path = "Theweddingceremonylive/开播/C/detalisModel.h"; sourceTree = SOURCE_ROOT; };
+		53B68E641F4EDD1F00674A2B /* detalisModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = detalisModel.m; path = "Theweddingceremonylive/开播/C/detalisModel.m"; sourceTree = SOURCE_ROOT; };
+		53B68E671F4EEC5F00674A2B /* NullSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullSafe.m; sourceTree = "<group>"; };
 		53D02F3A1F3B1B5600CD504C /* Theweddingceremonylive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Theweddingceremonylive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53D02F3E1F3B1B5600CD504C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		53D02F401F3B1B5600CD504C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1149,6 +1181,14 @@
 			path = addRess_areas;
 			sourceTree = "<group>";
 		};
+		53B68E661F4EEC5F00674A2B /* NullSafe */ = {
+			isa = PBXGroup;
+			children = (
+				53B68E671F4EEC5F00674A2B /* NullSafe.m */,
+			);
+			path = NullSafe;
+			sourceTree = "<group>";
+		};
 		53D02F311F3B1B5600CD504C = {
 			isa = PBXGroup;
 			children = (
@@ -1256,6 +1296,7 @@
 		53D02F761F3BF5F800CD504C /* category */ = {
 			isa = PBXGroup;
 			children = (
+				53B68E661F4EEC5F00674A2B /* NullSafe */,
 				1851F4131F3D843E00369326 /* NSObject+Parse.h */,
 				1851F4141F3D843E00369326 /* NSObject+Parse.m */,
 				1851F4151F3D843E00369326 /* NSString+myUrl.h */,
@@ -1426,6 +1467,8 @@
 			children = (
 				53B68E3F1F4D54EF00674A2B /* bbsModel.h */,
 				53B68E401F4D54EF00674A2B /* bbsModel.m */,
+				53B68E631F4EDD1F00674A2B /* detalisModel.h */,
+				53B68E641F4EDD1F00674A2B /* detalisModel.m */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -1447,6 +1490,10 @@
 				533ACD021F4AAC9900F66A78 /* postCell1.m */,
 				533ACD041F4AB4BA00F66A78 /* WJGtextView.h */,
 				533ACD051F4AB4BA00F66A78 /* WJGtextView.m */,
+				53B68E5D1F4ECC9300674A2B /* detalisCell0.h */,
+				53B68E5E1F4ECC9300674A2B /* detalisCell0.m */,
+				53B68E601F4ECC9E00674A2B /* detalisCell1.h */,
+				53B68E611F4ECC9E00674A2B /* detalisCell1.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -1460,6 +1507,10 @@
 				53B68E431F4D8D0000674A2B /* midVC.m */,
 				53B68E451F4D93DA00674A2B /* RealVC.h */,
 				53B68E461F4D93DA00674A2B /* RealVC.m */,
+				53B68E571F4EBFCA00674A2B /* predeterminedVC0.h */,
+				53B68E581F4EBFCA00674A2B /* predeterminedVC0.m */,
+				53B68E5A1F4EBFD800674A2B /* predeterminedVC1.h */,
+				53B68E5B1F4EBFD800674A2B /* predeterminedVC1.m */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -1474,6 +1525,16 @@
 		53D02F9A1F3BF9DD00CD504C /* V */ = {
 			isa = PBXGroup;
 			children = (
+				53B68E481F4E6F4A00674A2B /* realCell.h */,
+				53B68E491F4E6F4A00674A2B /* realCell.m */,
+				53B68E4B1F4E76EA00674A2B /* readheadView.h */,
+				53B68E4C1F4E76EA00674A2B /* readheadView.m */,
+				53B68E4E1F4E770000674A2B /* realfootView.h */,
+				53B68E4F1F4E770000674A2B /* realfootView.m */,
+				53B68E511F4E7EDD00674A2B /* cardimgView.h */,
+				53B68E521F4E7EDD00674A2B /* cardimgView.m */,
+				53B68E541F4E9B5500674A2B /* livetypeCell.h */,
+				53B68E551F4E9B5500674A2B /* livetypeCell.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -1830,8 +1891,10 @@
 				18FE5D881F4AB33200C5A3CF /* WeddingVideoModel.m in Sources */,
 				533A8A421F4C262A0087E699 /* DemoCommentModel.m in Sources */,
 				53AC97DD1F3F5495009EC343 /* bindingViewController.m in Sources */,
+				53B68E681F4EEC5F00674A2B /* NullSafe.m in Sources */,
 				18FE5D801F4AA8AC00C5A3CF /* WeddingVideoVC.m in Sources */,
 				182E81121F418C3200720AA4 /* WMLightView.m in Sources */,
+				53B68E531F4E7EDD00674A2B /* cardimgView.m in Sources */,
 				1831DBD01F4D280600155691 /* NvWaPinDaoVC.m in Sources */,
 				53D02F851F3BF68000CD504C /* LCTabBarController.m in Sources */,
 				188039121F3EAE2600A2B4AE /* XD_textField.m in Sources */,
@@ -1858,7 +1921,9 @@
 				532564F71F4578BD00915E3B /* infoCell3.m in Sources */,
 				188039041F3EAB9B00A2B4AE /* WalletHeadView.m in Sources */,
 				188039001F3EAB9B00A2B4AE /* MyShopTVC.m in Sources */,
+				53B68E561F4E9B5500674A2B /* livetypeCell.m in Sources */,
 				532565001F4649B700915E3B /* localVC.m in Sources */,
+				53B68E5C1F4EBFD800674A2B /* predeterminedVC1.m in Sources */,
 				18FE5D941F4AE3C800C5A3CF /* MainNaviBar.m in Sources */,
 				5302994C1F441171004BC03A /* changeCell0.m in Sources */,
 				53D02FA01F3BFA5900CD504C /* MainVC.m in Sources */,
@@ -1877,6 +1942,7 @@
 				533ACE401F4AD36D00F66A78 /* DQCanCerEnsureView.m in Sources */,
 				1851F41E1F3D843E00369326 /* NSString+myUrl.m in Sources */,
 				53FCA4701F418E99001780F7 /* perfectingCell1.m in Sources */,
+				53B68E501F4E770000674A2B /* realfootView.m in Sources */,
 				53FCA4641F418C17001780F7 /* mineCell0.m in Sources */,
 				532564EB1F45538200915E3B /* infoVC.m in Sources */,
 				188039091F3EAB9B00A2B4AE /* ModifyInfoVC.m in Sources */,
@@ -1885,6 +1951,8 @@
 				1851F4201F3D843E00369326 /* UITextView+Placeholder.m in Sources */,
 				53B68E471F4D93DA00674A2B /* RealVC.m in Sources */,
 				533ACD031F4AAC9900F66A78 /* postCell1.m in Sources */,
+				53B68E5F1F4ECC9300674A2B /* detalisCell0.m in Sources */,
+				53B68E591F4EBFCA00674A2B /* predeterminedVC0.m in Sources */,
 				530299621F443ABF004BC03A /* orderVC2.m in Sources */,
 				182E81141F418C3200720AA4 /* WMPlayer.m in Sources */,
 				53EEF2AA1F3E9EE80031D396 /* UITabBarController+QFExtension.m in Sources */,
@@ -1926,16 +1994,19 @@
 				533ACC8F1F46D96F00F66A78 /* bbsCell.m in Sources */,
 				1831DBCB1F4D268D00155691 /* BaseTableViewController.m in Sources */,
 				5303E3EF1F3EFBBE00AB0AF2 /* forgetViewController.m in Sources */,
+				53B68E4D1F4E76EA00674A2B /* readheadView.m in Sources */,
 				53D02FA91F3BFB5E00CD504C /* MiddleVC.m in Sources */,
 				533A8A441F4C262A0087E699 /* DemoTableViewCell.m in Sources */,
 				533ACD061F4AB4BA00F66A78 /* WJGtextView.m in Sources */,
 				53D02F3F1F3B1B5600CD504C /* main.m in Sources */,
 				533ACCF71F4A7BE500F66A78 /* LLQImageViewController.m in Sources */,
+				53B68E4A1F4E6F4A00674A2B /* realCell.m in Sources */,
 				53FCA4551F41758C001780F7 /* BDImagePicker.m in Sources */,
 				533ACE431F4AEB2600F66A78 /* myshopModel.m in Sources */,
 				53D02FA61F3BFB3000CD504C /* BBSVC.m in Sources */,
 				18031C721F4827CD0038FAC7 /* MainModel.m in Sources */,
 				533A8A311F4C06450087E699 /* detalisVC.m in Sources */,
+				53B68E621F4ECC9E00674A2B /* detalisCell1.m in Sources */,
 				5303E3EC1F3EF5A800AB0AF2 /* QCCountdownButton.m in Sources */,
 				53FCA4611F418BEE001780F7 /* mineheadView.m in Sources */,
 				533ACCF61F4A7BE500F66A78 /* LLQImageView.m in Sources */,
@@ -1943,6 +2014,7 @@
 				533ACE3F1F4AD36D00F66A78 /* DQAreasView.m in Sources */,
 				182E81101F418C3200720AA4 /* FastForwardView.m in Sources */,
 				533A8A411F4C262A0087E699 /* DemoCellModel.m in Sources */,
+				53B68E651F4EDD1F00674A2B /* detalisModel.m in Sources */,
 				530299681F443EE1004BC03A /* orderCell.m in Sources */,
 				5302994F1F441185004BC03A /* changeCell1.m in Sources */,
 				53B68E411F4D54EF00674A2B /* bbsModel.m in Sources */,
