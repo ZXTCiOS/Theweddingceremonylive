@@ -11,10 +11,16 @@
 #import "NvWaTuiJianCell.h"
 #import <UITableView+FDTemplateLayoutCell.h>
 #import "LiebiaoCell.h"
+#import "NvwaModel.h"
+#import "NvwaHeaderView.h"
 
 
 @interface NvWaPinDaoVC ()
 
+@property (nonatomic, strong) NSMutableArray<NvwaYugaoModel *> *datalist;
+@property (nonatomic, strong) NSArray<LieBiaoModel *> *liebiao;
+@property (nonatomic, strong) NvwaHeaderModel *header;
+@property (nonatomic, strong) NvwaHeaderView *headerView;
 @end
 
 @implementation NvWaPinDaoVC
@@ -32,7 +38,30 @@
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([NvWaCell class]) bundle:nil] forCellReuseIdentifier:@"cell"];
     [self.tableView registerClass:[NvWaTuiJianCell class] forCellReuseIdentifier:@"tuijian"];
     [self netWorking];
+    [self configHeaderView];
+    [self configHeaderView];
 }
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+}
+
+- (void)configHeaderView{
+    if (self.header) {
+        [self.headerView.imgV sd_setImageWithURL:[NSURL URLWithString:self.header.nvwa_img] placeholderImage:[UIImage imageNamed:@""]];
+        self.headerView.title.text = self.header.nvwa_title;
+        NSString *zhibo = self.header.nvwa_is_zb ? @"直播中" : @"未直播";
+        self.headerView.isZhibo.text = zhibo;
+    }
+}
+
+
 
 - (void)netWorking{
     
@@ -45,7 +74,7 @@
     }];
     [self headerRefresh];
 }
-
+static NSInteger page = 1;
 - (void)headerRefresh{
     NSString *uid = [userDefault objectForKey:user_uid];
     NSString *token = [userDefault objectForKey:user_token];
@@ -55,8 +84,17 @@
         NSString *code = [NSString stringWithFormat:@"%@", [obj objectForKey:@"code"]];
         if ([code isEqualToString:@"1000"]) {
             NSDictionary *data = [obj objectForKey:@"data"];
+            NvwaModel *model = [NvwaModel parse:data];
             
+            [self.datalist removeAllObjects];
+            [self.datalist addObjectsFromArray:model.yugao];
+            self.liebiao = model.jmb;
+            self.header = model.nvwa;
+            page = 1;
+            NvWaTuiJianCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+            [cell.tableV reloadData];
             [self.tableView reloadData];
+            [self configHeaderView];
         } else {
             //NSString *msg = [NSString stringWithFormat:@"%@", [obj objectForKey:@"mes"]];
             [self.view showWarning:@"error"];
@@ -64,16 +102,35 @@
         
         [self.tableView endHeaderRefresh];
     } failure:^(NSError *error) {
-        
         [self.view showWarning:@"网络错误"];
         [self.tableView endHeaderRefresh];
     }];
-    
-    
 }
 
 - (void)footerRefresh{
-    
+    NSString *uid = [userDefault objectForKey:user_uid];
+    NSString *token = [userDefault objectForKey:user_token];
+    page++;
+    [DNNetworking postWithURLString:post_nvwapindao parameters:@{@"uid": uid, @"token": token, @"page": @(page)} success:^(id obj) {
+        
+        NSString *code = [NSString stringWithFormat:@"%@", [obj objectForKey:@"code"]];
+        if ([code isEqualToString:@"1000"]) {
+            NSDictionary *data = [obj objectForKey:@"data"];
+            NvwaModel *model = [NvwaModel parse:data];
+            [self.datalist addObjectsFromArray:model.yugao];
+            [self.tableView reloadData];
+        } else {
+            //NSString *msg = [NSString stringWithFormat:@"%@", [obj objectForKey:@"mes"]];
+            [self.view showWarning:@"error"];
+            page--;
+        }
+        
+        [self.tableView endFooterRefresh];
+    } failure:^(NSError *error) {
+        page--;
+        [self.view showWarning:@"网络错误"];
+        [self.tableView endFooterRefresh];
+    }];
 }
 
 
@@ -89,9 +146,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (tableView.tag == 100) {
-        return 10;
+        return self.liebiao.count;
     } else {
-    return section ? 6 : 1;
+    return section ? self.datalist.count : 1;
     }
 }
 
@@ -99,8 +156,9 @@
     
     if (tableView.tag == 100) {
         LiebiaoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"liebiao" forIndexPath:indexPath];
-        cell.time.text = @"10:22";
-        cell.desc.text = @"这个世界已经疯了";
+        NSString *time = [NSString stringWithFormat:@"%@", self.liebiao[indexPath.row].nvwa_post_time];
+        cell.time.text = time;
+        cell.desc.text = self.liebiao[indexPath.row].nvwa_post_title;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     } else {
@@ -120,10 +178,11 @@
             break;
         case 1:{
             NvWaCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-            
-            cell.time.text = @"123456789";
-            //
-            cell.desc.text = @"description";
+            NSString *time = [NSString stringWithFormat:@"%@", self.datalist[indexPath.row].nvwa_yugao_addtime];
+            NSLog(@"%@", time);
+            cell.time.text = time;
+            [cell.img sd_setImageWithURL:[NSURL URLWithString:self.datalist[indexPath.row].nvwa_yugao_img] placeholderImage:[UIImage imageNamed:@""]];
+            cell.desc.text = self.datalist[indexPath.row].nvwa_yugao_title;
             
             return cell;
         }
@@ -134,6 +193,34 @@
     }
     return nil;
 }
+
+#pragma mark   头部视图
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if (tableView.tag == 100) {
+        return 0.001;
+    }
+    return 40;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    if (tableView.tag == 100) return nil;
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 40)];
+    UIView *grayV = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 5)];
+    grayV.backgroundColor = krgb(242, 242, 242, 1);
+    [view addSubview:grayV];
+    UIImageView *img = [[UIImageView alloc] initWithFrame:CGRectMake(15, 20, 15, 15)];
+    img.image = [UIImage imageNamed:section ?@"nwpd_jqjmyg" :@"nwpd_jcyg" ];
+    [view addSubview:img];
+    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(30, 20, 100, 15)];
+    title.textColor = krgb(51, 51, 51, 1);
+    title.text = !section ? @"精彩预告" : @"女娲频道";
+    title.font = [UIFont systemFontOfSize:14];
+    [view addSubview:title];
+    view.backgroundColor = [UIColor whiteColor];
+    return view;
+}
+
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return UITableViewAutomaticDimension;
@@ -160,14 +247,19 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (NSMutableArray<NvwaYugaoModel *> *)datalist{
+    if (!_datalist) {
+        _datalist = [NSMutableArray<NvwaYugaoModel *> array];
+    }
+    return _datalist;
 }
-*/
+
+- (NvwaHeaderView *)headerView{
+    if (!_headerView) {
+        _headerView = [[NvwaHeaderView alloc] init];
+        self.tableView.tableHeaderView = _headerView;
+    }
+    return _headerView;
+}
 
 @end

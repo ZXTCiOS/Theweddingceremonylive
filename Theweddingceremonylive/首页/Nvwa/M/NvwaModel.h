@@ -7,18 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LieBiaoModel.h"
+#import "NvwaHeaderModel.h"
+#import "NvwaYugaoModel.h"
+
+
 
 @interface NvwaModel : NSObject
 
 
 
-@property (nonatomic, assign) NSInteger nvwa_id;
+@property (nonatomic, strong) NSMutableArray<NvwaYugaoModel *> *yugao;
 
-@property (nonatomic, copy) NSString *nvwa_name;
+@property (nonatomic, strong) NvwaHeaderModel *nvwa;
 
-@property (nonatomic, copy) NSString *nvwa_title;
+@property (nonatomic, strong) NSArray< LieBiaoModel *> *jmb;
 
-@property (nonatomic, copy) NSString *nvwa_img;
+
 
 
 

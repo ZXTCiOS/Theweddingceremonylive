@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		18031C721F4827CD0038FAC7 /* MainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18031C711F4827CD0038FAC7 /* MainModel.m */; };
+		1804ED8A1F4ED56A0004DAAE /* TuijianDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1804ED891F4ED56A0004DAAE /* TuijianDataModel.m */; };
 		182E81101F418C3200720AA4 /* FastForwardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182E81091F418C3200720AA4 /* FastForwardView.m */; };
 		182E81111F418C3200720AA4 /* FastForwardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182E810A1F418C3200720AA4 /* FastForwardView.xib */; };
 		182E81121F418C3200720AA4 /* WMLightView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182E810C1F418C3200720AA4 /* WMLightView.m */; };
@@ -49,6 +50,16 @@
 		188039131F3EAE2600A2B4AE /* XDFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 188039101F3EAE2600A2B4AE /* XDFactory.m */; };
 		188039161F3EAF9500A2B4AE /* DNNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 188039151F3EAF9500A2B4AE /* DNNetworking.m */; };
 		18F6FEC91F4D83D80076A4F2 /* LieBiaoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F6FEC81F4D83D80076A4F2 /* LieBiaoModel.m */; };
+		18FE231C1F4E72DC0088D3BF /* NvwaYugaoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FE231B1F4E72DC0088D3BF /* NvwaYugaoModel.m */; };
+		18FE231F1F4E749F0088D3BF /* NvwaHeaderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FE231E1F4E749F0088D3BF /* NvwaHeaderModel.m */; };
+		18FE23221F4E7AB90088D3BF /* MainNvwaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FE23211F4E7AB90088D3BF /* MainNvwaModel.m */; };
+		18FE23251F4E9B520088D3BF /* NvwaHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FE23241F4E9B520088D3BF /* NvwaHeaderView.m */; };
+		18FE232A1F4EBF6D0088D3BF /* TuiJianVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FE23291F4EBF6D0088D3BF /* TuiJianVC.m */; };
+		18FE232D1F4EC0AD0088D3BF /* tuijianRuseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FE232C1F4EC0AD0088D3BF /* tuijianRuseView.m */; };
+		18FE23371F4EC42C0088D3BF /* HYBLoadImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FE23301F4EC42C0088D3BF /* HYBLoadImageView.m */; };
+		18FE23381F4EC42C0088D3BF /* HYBLoopScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FE23321F4EC42C0088D3BF /* HYBLoopScrollView.m */; };
+		18FE23391F4EC42C0088D3BF /* HYBPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FE23341F4EC42C0088D3BF /* HYBPageControl.m */; };
+		18FE233A1F4EC42C0088D3BF /* UIView+HYBUIViewCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FE23361F4EC42C0088D3BF /* UIView+HYBUIViewCommon.m */; };
 		18FE5D801F4AA8AC00C5A3CF /* WeddingVideoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FE5D7F1F4AA8AC00C5A3CF /* WeddingVideoVC.m */; };
 		18FE5D841F4AA8ED00C5A3CF /* WeddingVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FE5D821F4AA8ED00C5A3CF /* WeddingVideoCell.m */; };
 		18FE5D851F4AA8ED00C5A3CF /* WeddingVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18FE5D831F4AA8ED00C5A3CF /* WeddingVideoCell.xib */; };
@@ -167,6 +178,8 @@
 		0A0D151F42A7F9C8F762F8E9 /* Pods-TheweddingceremonyliveUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheweddingceremonyliveUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheweddingceremonyliveUITests/Pods-TheweddingceremonyliveUITests.release.xcconfig"; sourceTree = "<group>"; };
 		18031C701F4827CD0038FAC7 /* MainModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainModel.h; sourceTree = "<group>"; };
 		18031C711F4827CD0038FAC7 /* MainModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainModel.m; sourceTree = "<group>"; };
+		1804ED881F4ED56A0004DAAE /* TuijianDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuijianDataModel.h; sourceTree = "<group>"; };
+		1804ED891F4ED56A0004DAAE /* TuijianDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuijianDataModel.m; sourceTree = "<group>"; };
 		182E81081F418C3200720AA4 /* FastForwardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FastForwardView.h; sourceTree = "<group>"; };
 		182E81091F418C3200720AA4 /* FastForwardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FastForwardView.m; sourceTree = "<group>"; };
 		182E810A1F418C3200720AA4 /* FastForwardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FastForwardView.xib; sourceTree = "<group>"; };
@@ -245,6 +258,26 @@
 		18F40CBA8FE5D3181F0F3B4C /* Pods-TheweddingceremonyliveTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheweddingceremonyliveTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheweddingceremonyliveTests/Pods-TheweddingceremonyliveTests.debug.xcconfig"; sourceTree = "<group>"; };
 		18F6FEC71F4D83D80076A4F2 /* LieBiaoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LieBiaoModel.h; sourceTree = "<group>"; };
 		18F6FEC81F4D83D80076A4F2 /* LieBiaoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LieBiaoModel.m; sourceTree = "<group>"; };
+		18FE231A1F4E72DC0088D3BF /* NvwaYugaoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvwaYugaoModel.h; sourceTree = "<group>"; };
+		18FE231B1F4E72DC0088D3BF /* NvwaYugaoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NvwaYugaoModel.m; sourceTree = "<group>"; };
+		18FE231D1F4E749F0088D3BF /* NvwaHeaderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvwaHeaderModel.h; sourceTree = "<group>"; };
+		18FE231E1F4E749F0088D3BF /* NvwaHeaderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NvwaHeaderModel.m; sourceTree = "<group>"; };
+		18FE23201F4E7AB90088D3BF /* MainNvwaModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNvwaModel.h; sourceTree = "<group>"; };
+		18FE23211F4E7AB90088D3BF /* MainNvwaModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNvwaModel.m; sourceTree = "<group>"; };
+		18FE23231F4E9B520088D3BF /* NvwaHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvwaHeaderView.h; sourceTree = "<group>"; };
+		18FE23241F4E9B520088D3BF /* NvwaHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NvwaHeaderView.m; sourceTree = "<group>"; };
+		18FE23281F4EBF6D0088D3BF /* TuiJianVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuiJianVC.h; sourceTree = "<group>"; };
+		18FE23291F4EBF6D0088D3BF /* TuiJianVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuiJianVC.m; sourceTree = "<group>"; };
+		18FE232B1F4EC0AD0088D3BF /* tuijianRuseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tuijianRuseView.h; sourceTree = "<group>"; };
+		18FE232C1F4EC0AD0088D3BF /* tuijianRuseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tuijianRuseView.m; sourceTree = "<group>"; };
+		18FE232F1F4EC42C0088D3BF /* HYBLoadImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYBLoadImageView.h; sourceTree = "<group>"; };
+		18FE23301F4EC42C0088D3BF /* HYBLoadImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYBLoadImageView.m; sourceTree = "<group>"; };
+		18FE23311F4EC42C0088D3BF /* HYBLoopScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYBLoopScrollView.h; sourceTree = "<group>"; };
+		18FE23321F4EC42C0088D3BF /* HYBLoopScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYBLoopScrollView.m; sourceTree = "<group>"; };
+		18FE23331F4EC42C0088D3BF /* HYBPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYBPageControl.h; sourceTree = "<group>"; };
+		18FE23341F4EC42C0088D3BF /* HYBPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYBPageControl.m; sourceTree = "<group>"; };
+		18FE23351F4EC42C0088D3BF /* UIView+HYBUIViewCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HYBUIViewCommon.h"; sourceTree = "<group>"; };
+		18FE23361F4EC42C0088D3BF /* UIView+HYBUIViewCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HYBUIViewCommon.m"; sourceTree = "<group>"; };
 		18FE5D7E1F4AA8AC00C5A3CF /* WeddingVideoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeddingVideoVC.h; sourceTree = "<group>"; };
 		18FE5D7F1F4AA8AC00C5A3CF /* WeddingVideoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeddingVideoVC.m; sourceTree = "<group>"; };
 		18FE5D811F4AA8ED00C5A3CF /* WeddingVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeddingVideoCell.h; sourceTree = "<group>"; };
@@ -824,6 +857,21 @@
 			path = "资料修改";
 			sourceTree = "<group>";
 		};
+		18FE232E1F4EC42C0088D3BF /* HYBLoopScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				18FE232F1F4EC42C0088D3BF /* HYBLoadImageView.h */,
+				18FE23301F4EC42C0088D3BF /* HYBLoadImageView.m */,
+				18FE23311F4EC42C0088D3BF /* HYBLoopScrollView.h */,
+				18FE23321F4EC42C0088D3BF /* HYBLoopScrollView.m */,
+				18FE23331F4EC42C0088D3BF /* HYBPageControl.h */,
+				18FE23341F4EC42C0088D3BF /* HYBPageControl.m */,
+				18FE23351F4EC42C0088D3BF /* UIView+HYBUIViewCommon.h */,
+				18FE23361F4EC42C0088D3BF /* UIView+HYBUIViewCommon.m */,
+			);
+			path = HYBLoopScrollView;
+			sourceTree = "<group>";
+		};
 		18FE5D6E1F4AA73200C5A3CF /* Nvwa */ = {
 			isa = PBXGroup;
 			children = (
@@ -850,6 +898,12 @@
 				18FE5D8A1F4ABC4100C5A3CF /* NvwaModel.m */,
 				18F6FEC71F4D83D80076A4F2 /* LieBiaoModel.h */,
 				18F6FEC81F4D83D80076A4F2 /* LieBiaoModel.m */,
+				18FE231A1F4E72DC0088D3BF /* NvwaYugaoModel.h */,
+				18FE231B1F4E72DC0088D3BF /* NvwaYugaoModel.m */,
+				18FE231D1F4E749F0088D3BF /* NvwaHeaderModel.h */,
+				18FE231E1F4E749F0088D3BF /* NvwaHeaderModel.m */,
+				18FE23201F4E7AB90088D3BF /* MainNvwaModel.h */,
+				18FE23211F4E7AB90088D3BF /* MainNvwaModel.m */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -865,6 +919,8 @@
 				1831DBDE1F4D514200155691 /* LiebiaoCell.h */,
 				1831DBDF1F4D514200155691 /* LiebiaoCell.m */,
 				1831DBE01F4D514200155691 /* LiebiaoCell.xib */,
+				18FE23231F4E9B520088D3BF /* NvwaHeaderView.h */,
+				18FE23241F4E9B520088D3BF /* NvwaHeaderView.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -882,6 +938,8 @@
 		18FE5D731F4AA73200C5A3CF /* C */ = {
 			isa = PBXGroup;
 			children = (
+				18FE23281F4EBF6D0088D3BF /* TuiJianVC.h */,
+				18FE23291F4EBF6D0088D3BF /* TuiJianVC.m */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -891,6 +949,8 @@
 			children = (
 				18FE5D8C1F4ABD1400C5A3CF /* TuiJianModel.h */,
 				18FE5D8D1F4ABD1400C5A3CF /* TuiJianModel.m */,
+				1804ED881F4ED56A0004DAAE /* TuijianDataModel.h */,
+				1804ED891F4ED56A0004DAAE /* TuijianDataModel.m */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -898,6 +958,8 @@
 		18FE5D751F4AA73200C5A3CF /* V */ = {
 			isa = PBXGroup;
 			children = (
+				18FE232B1F4EC0AD0088D3BF /* tuijianRuseView.h */,
+				18FE232C1F4EC0AD0088D3BF /* tuijianRuseView.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -1280,6 +1342,7 @@
 		53D02F781F3BF5F800CD504C /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				18FE232E1F4EC42C0088D3BF /* HYBLoopScrollView */,
 				1845AEA51F46B5CE002EAD47 /* iCarousel */,
 				182E81061F418C3200720AA4 /* WMPlayer */,
 			);
@@ -1825,11 +1888,14 @@
 				1831DBD01F4D280600155691 /* NvWaPinDaoVC.m in Sources */,
 				53D02F851F3BF68000CD504C /* LCTabBarController.m in Sources */,
 				188039121F3EAE2600A2B4AE /* XD_textField.m in Sources */,
+				18FE23371F4EC42C0088D3BF /* HYBLoadImageView.m in Sources */,
 				53FCA4731F418EA5001780F7 /* perfectingCell2.m in Sources */,
 				533A8A431F4C262A0087E699 /* DemoCommentView.m in Sources */,
 				533ACCFD1F4AABB600F66A78 /* postingVC.m in Sources */,
 				188039081F3EAB9B00A2B4AE /* SystemMessageTVC.m in Sources */,
+				18FE23391F4EC42C0088D3BF /* HYBPageControl.m in Sources */,
 				5302995F1F443AB4004BC03A /* orderVC1.m in Sources */,
+				18FE232D1F4EC0AD0088D3BF /* tuijianRuseView.m in Sources */,
 				530299431F44054D004BC03A /* modifyCell.m in Sources */,
 				532564F41F455F1200915E3B /* infoCell2.m in Sources */,
 				532564F11F455F0100915E3B /* infoCell1.m in Sources */,
@@ -1841,6 +1907,7 @@
 				5303E3E51F3EDF6800AB0AF2 /* FSCustomButton.m in Sources */,
 				5303E3D71F3ED2E800AB0AF2 /* LoginVC.m in Sources */,
 				5303E3DA1F3ED32B00AB0AF2 /* bottomlineView.m in Sources */,
+				18FE233A1F4EC42C0088D3BF /* UIView+HYBUIViewCommon.m in Sources */,
 				18FE5D841F4AA8ED00C5A3CF /* WeddingVideoCell.m in Sources */,
 				18FE5D8E1F4ABD1400C5A3CF /* TuiJianModel.m in Sources */,
 				53FCA45D1F418689001780F7 /* NullSafe.m in Sources */,
@@ -1858,16 +1925,20 @@
 				53FCA44C1F41524C001780F7 /* UILabel+YBAttributeTextTapAction.m in Sources */,
 				5303E3E81F3EE3C000AB0AF2 /* logupViewController.m in Sources */,
 				532564FA1F46498300915E3B /* hotVC.m in Sources */,
+				18FE231F1F4E749F0088D3BF /* NvwaHeaderModel.m in Sources */,
 				53FCA45C1F418689001780F7 /* MBProgressHUD+XMG.m in Sources */,
 				53D02F841F3BF68000CD504C /* LCTabBarButton.m in Sources */,
+				18FE23381F4EC42C0088D3BF /* HYBLoopScrollView.m in Sources */,
 				1831DBD41F4D281B00155691 /* NvWaCell.m in Sources */,
 				1845AEA81F46B5CE002EAD47 /* iCarousel.m in Sources */,
+				18FE23251F4E9B520088D3BF /* NvwaHeaderView.m in Sources */,
 				1847DED71F3C5A5F00C796A8 /* LiveVideoCell.m in Sources */,
 				533ACE401F4AD36D00F66A78 /* DQCanCerEnsureView.m in Sources */,
 				1851F41E1F3D843E00369326 /* NSString+myUrl.m in Sources */,
 				53FCA4701F418E99001780F7 /* perfectingCell1.m in Sources */,
 				53FCA4641F418C17001780F7 /* mineCell0.m in Sources */,
 				532564EB1F45538200915E3B /* infoVC.m in Sources */,
+				18FE23221F4E7AB90088D3BF /* MainNvwaModel.m in Sources */,
 				188039091F3EAB9B00A2B4AE /* ModifyInfoVC.m in Sources */,
 				53D02F831F3BF68000CD504C /* LCTabbar.m in Sources */,
 				530299591F4434DF004BC03A /* mineOrderVC.m in Sources */,
@@ -1879,7 +1950,9 @@
 				1845AEA31F469E0B002EAD47 /* BannerView.m in Sources */,
 				1831DBCD1F4D268D00155691 /* ViewController.m in Sources */,
 				18F6FEC91F4D83D80076A4F2 /* LieBiaoModel.m in Sources */,
+				1804ED8A1F4ED56A0004DAAE /* TuijianDataModel.m in Sources */,
 				53FCA45E1F418689001780F7 /* strisNull.m in Sources */,
+				18FE231C1F4E72DC0088D3BF /* NvwaYugaoModel.m in Sources */,
 				533ACC891F46B01200F66A78 /* GiftModel.m in Sources */,
 				53FCA4671F418C26001780F7 /* mineCell1.m in Sources */,
 				53FCA46D1F418E78001780F7 /* perfectingCell0.m in Sources */,
@@ -1914,6 +1987,7 @@
 				533ACC8F1F46D96F00F66A78 /* bbsCell.m in Sources */,
 				1831DBCB1F4D268D00155691 /* BaseTableViewController.m in Sources */,
 				5303E3EF1F3EFBBE00AB0AF2 /* forgetViewController.m in Sources */,
+				18FE232A1F4EBF6D0088D3BF /* TuiJianVC.m in Sources */,
 				53D02FA91F3BFB5E00CD504C /* MiddleVC.m in Sources */,
 				533A8A441F4C262A0087E699 /* DemoTableViewCell.m in Sources */,
 				533ACD061F4AB4BA00F66A78 /* WJGtextView.m in Sources */,

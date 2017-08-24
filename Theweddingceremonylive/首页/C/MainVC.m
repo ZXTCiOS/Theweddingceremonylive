@@ -12,13 +12,13 @@
 #import "MainHeaderView.h"
 #import "MainModel.h"
 #import "WeddingVideoModel.h"
-#import "NvwaModel.h"
+#import "MainNvwaModel.h"
 #import "TuiJianModel.h"
 #import <UIScrollView+EmptyDataSet.h>
 #import "MainNaviBar.h"
 
 #import "NvWaPinDaoVC.h"
-
+#import "TuiJianVC.h"
 
 
 
@@ -29,7 +29,7 @@
 @property (nonatomic, strong) NSMutableArray<TuiJianModel *> *business;
 @property (nonatomic, strong) NSMutableArray<MainModel *> *lunbo;
 @property (nonatomic, strong) NSMutableArray<WeddingVideoModel *> *shipin;
-@property (nonatomic, strong) NvwaModel *nvwamodel;
+@property (nonatomic, strong) MainNvwaModel *nvwamodel;
 
 @end
 
@@ -47,6 +47,7 @@
     }];
     [self HeaderRefresh];
     [self configNaviBar];
+    
 }
 
 - (void)configNaviBar{
@@ -59,6 +60,11 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
@@ -85,7 +91,7 @@
                 [self.shipin removeAllObjects];
                 NSArray *shipin = [WeddingVideoModel parse:[data objectForKey:@"shipin"]];
                 [self.shipin addObjectsFromArray:shipin];
-                self.nvwamodel = [NvwaModel parse:[data objectForKey:@"nvwa"]];
+                self.nvwamodel = [MainNvwaModel parse:[data objectForKey:@"nvwa"]];
                 [self.collectionView reloadData];
             } else {
                 //NSString *msg = [NSString stringWithFormat:@"%@", [obj objectForKey:@"mes"]];
@@ -162,9 +168,16 @@
             view.delegate = self;
             view.datasource = self;
             MJWeakSelf
-            //view.shipin =
-            //view.zhibo
-            //view.tuijian
+            view.shipin = ^(){
+                
+            };
+            view.zhibo = ^(){
+                
+            };
+            view.tuijian = ^(){
+                TuiJianVC *vc = [[TuiJianVC alloc] initWithCollectionViewLayout:[UICollectionViewFlowLayout new]];
+                [self.navigationController pushViewController:vc animated:YES];
+            };
             view.nvwa = ^(){
                 NvWaPinDaoVC *VC = [[NvWaPinDaoVC alloc] init];
                 [weakSelf.navigationController pushViewController:VC animated:YES];
@@ -184,7 +197,8 @@
                 view.title.text = @"推荐商家";
                 [view.mask bk_addEventHandler:^(id sender) {
                     NSLog(@"推荐商家");
-                    
+                    TuiJianVC *vc = [[TuiJianVC alloc] initWithCollectionViewLayout:[UICollectionViewFlowLayout new]];
+                    [self.navigationController pushViewController:vc animated:YES];
                 } forControlEvents:UIControlEventTouchUpInside];
             }
             return view;

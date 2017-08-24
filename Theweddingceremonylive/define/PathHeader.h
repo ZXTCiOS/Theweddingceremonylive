@@ -10,12 +10,18 @@
 #define PathHeader_h
 
 
-#define get_video @"/interface.php/Home/Shipin/shipin"              //视频首页
+#define get_video @"/interface.php/Home/Shipin/shipin"                              //视频首页
 
 
-#define post_Main @"/interface.php/Home/Index"                       //首页
+#define post_Main @"/interface.php/Home/Index"                                      //首页
 
-#define post_nvwapindao @"/interface.php/Home/Index/nvwa"           // 女娲频道
+#define post_nvwapindao @"/interface.php/Home/Index/nvwa"                           // 女娲频道
+
+#define post_tuijianshangjia @"/interface.php/Home/Index/getallbusiness"            // 推荐商家
+
+
+
+
 
 
 
