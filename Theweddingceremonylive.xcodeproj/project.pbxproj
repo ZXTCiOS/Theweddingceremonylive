@@ -20,6 +20,9 @@
 		1831DBD01F4D280600155691 /* NvWaPinDaoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1831DBCF1F4D280600155691 /* NvWaPinDaoVC.m */; };
 		1831DBD41F4D281B00155691 /* NvWaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1831DBD21F4D281B00155691 /* NvWaCell.m */; };
 		1831DBD51F4D281B00155691 /* NvWaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1831DBD31F4D281B00155691 /* NvWaCell.xib */; };
+		1831DBDD1F4D4F6E00155691 /* NvWaTuiJianCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1831DBDC1F4D4F6E00155691 /* NvWaTuiJianCell.m */; };
+		1831DBE11F4D514200155691 /* LiebiaoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1831DBDF1F4D514200155691 /* LiebiaoCell.m */; };
+		1831DBE21F4D514200155691 /* LiebiaoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1831DBE01F4D514200155691 /* LiebiaoCell.xib */; };
 		1843D9CC1F4565200001C7C6 /* MainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1843D9CB1F4565200001C7C6 /* MainCell.m */; };
 		1845AEA31F469E0B002EAD47 /* BannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1845AEA11F469E0B002EAD47 /* BannerView.m */; };
 		1845AEA41F469E0B002EAD47 /* BannerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1845AEA21F469E0B002EAD47 /* BannerView.xib */; };
@@ -45,6 +48,7 @@
 		188039121F3EAE2600A2B4AE /* XD_textField.m in Sources */ = {isa = PBXBuildFile; fileRef = 1880390E1F3EAE2600A2B4AE /* XD_textField.m */; };
 		188039131F3EAE2600A2B4AE /* XDFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 188039101F3EAE2600A2B4AE /* XDFactory.m */; };
 		188039161F3EAF9500A2B4AE /* DNNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 188039151F3EAF9500A2B4AE /* DNNetworking.m */; };
+		18F6FEC91F4D83D80076A4F2 /* LieBiaoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F6FEC81F4D83D80076A4F2 /* LieBiaoModel.m */; };
 		18FE5D801F4AA8AC00C5A3CF /* WeddingVideoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FE5D7F1F4AA8AC00C5A3CF /* WeddingVideoVC.m */; };
 		18FE5D841F4AA8ED00C5A3CF /* WeddingVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FE5D821F4AA8ED00C5A3CF /* WeddingVideoCell.m */; };
 		18FE5D851F4AA8ED00C5A3CF /* WeddingVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18FE5D831F4AA8ED00C5A3CF /* WeddingVideoCell.xib */; };
@@ -187,6 +191,11 @@
 		1831DBD11F4D281B00155691 /* NvWaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvWaCell.h; sourceTree = "<group>"; };
 		1831DBD21F4D281B00155691 /* NvWaCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NvWaCell.m; sourceTree = "<group>"; };
 		1831DBD31F4D281B00155691 /* NvWaCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NvWaCell.xib; sourceTree = "<group>"; };
+		1831DBDB1F4D4F6E00155691 /* NvWaTuiJianCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvWaTuiJianCell.h; sourceTree = "<group>"; };
+		1831DBDC1F4D4F6E00155691 /* NvWaTuiJianCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NvWaTuiJianCell.m; sourceTree = "<group>"; };
+		1831DBDE1F4D514200155691 /* LiebiaoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiebiaoCell.h; sourceTree = "<group>"; };
+		1831DBDF1F4D514200155691 /* LiebiaoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiebiaoCell.m; sourceTree = "<group>"; };
+		1831DBE01F4D514200155691 /* LiebiaoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LiebiaoCell.xib; sourceTree = "<group>"; };
 		1843D9CA1F4565200001C7C6 /* MainCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainCell.h; sourceTree = "<group>"; };
 		1843D9CB1F4565200001C7C6 /* MainCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainCell.m; sourceTree = "<group>"; };
 		1845AEA01F469E0B002EAD47 /* BannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerView.h; sourceTree = "<group>"; };
@@ -236,6 +245,8 @@
 		188039141F3EAF9500A2B4AE /* DNNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DNNetworking.h; path = Theweddingceremonylive/netWorking/DNNetworking.h; sourceTree = SOURCE_ROOT; };
 		188039151F3EAF9500A2B4AE /* DNNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNNetworking.m; path = Theweddingceremonylive/netWorking/DNNetworking.m; sourceTree = SOURCE_ROOT; };
 		18F40CBA8FE5D3181F0F3B4C /* Pods-TheweddingceremonyliveTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheweddingceremonyliveTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheweddingceremonyliveTests/Pods-TheweddingceremonyliveTests.debug.xcconfig"; sourceTree = "<group>"; };
+		18F6FEC71F4D83D80076A4F2 /* LieBiaoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LieBiaoModel.h; sourceTree = "<group>"; };
+		18F6FEC81F4D83D80076A4F2 /* LieBiaoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LieBiaoModel.m; sourceTree = "<group>"; };
 		18FE5D7E1F4AA8AC00C5A3CF /* WeddingVideoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeddingVideoVC.h; sourceTree = "<group>"; };
 		18FE5D7F1F4AA8AC00C5A3CF /* WeddingVideoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeddingVideoVC.m; sourceTree = "<group>"; };
 		18FE5D811F4AA8ED00C5A3CF /* WeddingVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeddingVideoCell.h; sourceTree = "<group>"; };
@@ -843,6 +854,8 @@
 			children = (
 				18FE5D891F4ABC4100C5A3CF /* NvwaModel.h */,
 				18FE5D8A1F4ABC4100C5A3CF /* NvwaModel.m */,
+				18F6FEC71F4D83D80076A4F2 /* LieBiaoModel.h */,
+				18F6FEC81F4D83D80076A4F2 /* LieBiaoModel.m */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -853,6 +866,11 @@
 				1831DBD11F4D281B00155691 /* NvWaCell.h */,
 				1831DBD21F4D281B00155691 /* NvWaCell.m */,
 				1831DBD31F4D281B00155691 /* NvWaCell.xib */,
+				1831DBDB1F4D4F6E00155691 /* NvWaTuiJianCell.h */,
+				1831DBDC1F4D4F6E00155691 /* NvWaTuiJianCell.m */,
+				1831DBDE1F4D514200155691 /* LiebiaoCell.h */,
+				1831DBDF1F4D514200155691 /* LiebiaoCell.m */,
+				1831DBE01F4D514200155691 /* LiebiaoCell.xib */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -1633,6 +1651,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				53D02F4D1F3B1B5600CD504C /* LaunchScreen.storyboard in Resources */,
+				1831DBE21F4D514200155691 /* LiebiaoCell.xib in Resources */,
 				182E81111F418C3200720AA4 /* FastForwardView.xib in Resources */,
 				1831DBD51F4D281B00155691 /* NvWaCell.xib in Resources */,
 				1847DED81F3C5A5F00C796A8 /* LiveVideoCell.xib in Resources */,
@@ -1871,6 +1890,7 @@
 				53EEF2AA1F3E9EE80031D396 /* UITabBarController+QFExtension.m in Sources */,
 				1845AEA31F469E0B002EAD47 /* BannerView.m in Sources */,
 				1831DBCD1F4D268D00155691 /* ViewController.m in Sources */,
+				18F6FEC91F4D83D80076A4F2 /* LieBiaoModel.m in Sources */,
 				53FCA45E1F418689001780F7 /* strisNull.m in Sources */,
 				533ACC891F46B01200F66A78 /* GiftModel.m in Sources */,
 				53FCA4671F418C26001780F7 /* mineCell1.m in Sources */,
@@ -1879,6 +1899,7 @@
 				1831DBCC1F4D268D00155691 /* BaseViewController.m in Sources */,
 				530299491F4410B3004BC03A /* changepwdVC.m in Sources */,
 				53D02F421F3B1B5600CD504C /* AppDelegate.m in Sources */,
+				1831DBE11F4D514200155691 /* LiebiaoCell.m in Sources */,
 				1851F41D1F3D843E00369326 /* NSObject+Parse.m in Sources */,
 				533ACCF81F4A7BE500F66A78 /* UIView+ViewController.m in Sources */,
 				533ACE3E1F4AD36D00F66A78 /* DQAreasModel.m in Sources */,
@@ -1887,6 +1908,7 @@
 				1851F4211F3D843E00369326 /* UIView+HUD.m in Sources */,
 				5303E3E41F3EDF6800AB0AF2 /* CALayer+FSUI.m in Sources */,
 				53EEF2A91F3E9EE80031D396 /* MainTabBarController.m in Sources */,
+				1831DBDD1F4D4F6E00155691 /* NvWaTuiJianCell.m in Sources */,
 				53D02FA31F3BFB1900CD504C /* LiveVC.m in Sources */,
 				5302993D1F42C631004BC03A /* systenBtn.m in Sources */,
 				188039051F3EAB9B00A2B4AE /* MyWalletTVC.m in Sources */,

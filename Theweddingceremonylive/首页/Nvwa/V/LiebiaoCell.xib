@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="32" id="KGk-i7-Jjw" customClass="LiebiaoCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="32"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="32"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="09:40" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Asj-O5-Jb2">
+                        <rect key="frame" x="37" y="8" width="37" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yuhao" translatesAutoresizingMaskIntoConstraints="NO" id="OV8-yj-Fdn">
+                        <rect key="frame" x="17" y="11" width="10" height="10"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="5DX-PQ-eeA"/>
+                            <constraint firstAttribute="width" constant="10" id="j9U-1I-jBp"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="这世界已经疯了" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cC-Hq-A6b">
+                        <rect key="frame" x="86" y="8" width="93" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="1cC-Hq-A6b" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="160-au-YGW"/>
+                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="1cC-Hq-A6b" secondAttribute="trailing" constant="6" id="6X0-9o-9rs"/>
+                    <constraint firstItem="OV8-yj-Fdn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="17" id="JAf-1x-7dM"/>
+                    <constraint firstItem="Asj-O5-Jb2" firstAttribute="leading" secondItem="OV8-yj-Fdn" secondAttribute="trailing" constant="10" id="Yow-B6-oTP"/>
+                    <constraint firstItem="1cC-Hq-A6b" firstAttribute="top" secondItem="Asj-O5-Jb2" secondAttribute="top" id="eIc-R1-NYu"/>
+                    <constraint firstAttribute="bottom" secondItem="1cC-Hq-A6b" secondAttribute="bottom" constant="8" id="mWx-kE-EZ5"/>
+                    <constraint firstItem="1cC-Hq-A6b" firstAttribute="leading" secondItem="Asj-O5-Jb2" secondAttribute="trailing" constant="12" id="n2o-lA-o7L"/>
+                    <constraint firstItem="Asj-O5-Jb2" firstAttribute="centerY" secondItem="OV8-yj-Fdn" secondAttribute="centerY" id="owm-tJ-xkS"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="desc" destination="1cC-Hq-A6b" id="rpG-MO-RRR"/>
+                <outlet property="time" destination="Asj-O5-Jb2" id="8xC-XT-iPK"/>
+            </connections>
+            <point key="canvasLocation" x="25" y="46"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="yuhao" width="8" height="8"/>
+    </resources>
+</document>

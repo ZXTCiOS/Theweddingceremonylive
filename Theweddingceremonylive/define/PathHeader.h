@@ -15,7 +15,7 @@
 
 #define post_Main @"/interface.php/Home/Index"                       //首页
 
-
+#define post_nvwapindao @"/interface.php/Home/Index/nvwa"           // 女娲频道
 
 
 

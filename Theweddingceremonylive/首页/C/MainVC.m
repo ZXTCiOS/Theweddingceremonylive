@@ -53,10 +53,7 @@
     MainNaviBar *navi = [[NSBundle mainBundle] loadNibNamed:@"MainNaviBar" owner:self options:nil].firstObject;
     navi.frame = CGRectMake(0, 0, kScreenW, 64);
     [self.view addSubview:navi];
-    //self.navigationItem.leftBarButtonItem = nil;
-    //self.navigationController.navigationItem.titleView = navi;
-    //self.navigationController.navigationBar.topItem.titleView = navi;
-    //self.navigationItem.titleView = navi;
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated{
