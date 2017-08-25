@@ -9,6 +9,7 @@
 #import "detalisVC.h"
 #import "detalisCell0.h"
 #import "detalisCell1.h"
+#import "detalisCell2.h"
 #import "detalisModel.h"
 #import "keyboardView.h"
 #import "IQKeyboardManager.h" 
@@ -27,6 +28,7 @@
 
 static NSString *detalisidentfid0 = @"detalisidentfid0";
 static NSString *detalisidentfid1 = @"detalisidentfid1";
+static NSString *detalisidentfid2 = @"detalisidentfid2";
 
 @implementation detalisVC
 
@@ -117,10 +119,14 @@ static NSString *detalisidentfid1 = @"detalisidentfid1";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    
     if (section==0) {
         return 1;
     }
     if (section==1) {
+        return 1;
+    }
+    if (section==2) {
         return self.dataSource.count;
     }
     return 0;
@@ -129,13 +135,20 @@ static NSString *detalisidentfid1 = @"detalisidentfid1";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section==0) {
+        detalisCell2 *cell = [tableView dequeueReusableCellWithIdentifier:detalisidentfid2];
+        cell = [[detalisCell2 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:detalisidentfid2];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.contentlab.text = [self.headdic objectForKey:@"bbs_title"];
+        return cell;
+    }
+    if (indexPath.section==1) {
         detalisCell0 *cell = [tableView dequeueReusableCellWithIdentifier:detalisidentfid0];
         cell = [[detalisCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:detalisidentfid0];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         [cell setdata:self.headdic];
         return cell;
     }
-    if (indexPath.section==1) {
+    if (indexPath.section==2) {
         detalisCell1 *cell = [tableView dequeueReusableCellWithIdentifier:detalisidentfid1];
         cell = [[detalisCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:detalisidentfid1];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -148,7 +161,7 @@ static NSString *detalisidentfid1 = @"detalisidentfid1";
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 3;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -160,9 +173,11 @@ static NSString *detalisidentfid1 = @"detalisidentfid1";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.keyView.textview becomeFirstResponder];
-    self.keyView.indexstr = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
-    self.fromkeyboard = @"pinlun1";
+    if (indexPath.section==2) {
+        [self.keyView.textview becomeFirstResponder];
+        self.keyView.indexstr = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
+        self.fromkeyboard = @"pinlun1";
+    }
 }
 
 -(void)setkeyborard
@@ -185,6 +200,9 @@ static NSString *detalisidentfid1 = @"detalisidentfid1";
     _keyView.backgroundColor = [UIColor whiteColor];
     _keyView.textview.backgroundColor = [UIColor whiteColor];
     _keyView.textview.customPlaceholder = @"写评论";
+    _keyView.textview.layer.masksToBounds = YES;
+    _keyView.textview.layer.borderWidth = 1;
+    _keyView.textview.layer.borderColor = [UIColor colorWithHexString:@"999999"].CGColor;
     _keyView.textview.customPlaceholderColor = [UIColor colorWithHexString:@"C7C7CD"];
     _keyView.frame = CGRectMake(0, kScreenH-64, kScreenW, 64);
     _wasKeyboardManagerEnabled = [[IQKeyboardManager sharedManager] isEnabled];
@@ -223,7 +241,7 @@ static NSString *detalisidentfid1 = @"detalisidentfid1";
         self.bgview.alpha = 1;
     } completion:^(BOOL finished) {
         self.keyView.textview.text=@"";
-        _keyView.textview.customPlaceholder = @"写评论";
+        _keyView.textview.customPlaceholder = @"回帖";
         self.fromkeyboard = @"pinlun0";
     }];
 }
