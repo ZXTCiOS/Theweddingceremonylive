@@ -53,10 +53,13 @@
 #define post_bbsgetinfo     @"/interface.php/Home/Bbs/getinfo"
 //发帖
 #define post_fatie          @"/interface.php/Home/Bbs/post"
-
 //点赞
 #define post_point          @"/interface.php/Home/Bbs/point"
-
 //帖子详情
 #define post_getallinfo     @"/interface.php/Home/Bbs/getallinfo"
+//回帖1
+#define post_sendmes        @"/interface.php/Home/Bbs/sendmes"
+//回帖2
+#define post_sendmestouser  @"/interface.php/Home/Bbs/sendmestouser"
+
 #endif /* wangHeader_h */

@@ -12,4 +12,6 @@
 @interface keyboardView : UIView
 @property (nonatomic,strong) UIButton *sendbtn;
 @property (nonatomic,strong) WJGtextView *textview;
+
+@property (nonatomic,strong) NSString *indexstr;
 @end

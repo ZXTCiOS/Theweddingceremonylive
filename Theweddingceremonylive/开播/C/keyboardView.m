@@ -23,7 +23,7 @@
 {
     [super layoutSubviews];
     self.textview.frame = CGRectMake(5, 16, kScreenW-65, 30);
-    self.sendbtn.frame = CGRectMake(kScreenW-14-40, 10, 40, 40);
+    self.sendbtn.frame = CGRectMake(kScreenW-14-40, 20, 40, 25);
 }
 
 #pragma mark - getters
@@ -45,6 +45,8 @@
         _sendbtn = [[UIButton alloc] init];
         [_sendbtn setTitle:@"回复" forState:normal];
         _sendbtn.titleLabel.font = [UIFont systemFontOfSize:12];
+        _sendbtn.layer.masksToBounds = YES;
+        _sendbtn.layer.cornerRadius = 2;
         _sendbtn.backgroundColor = [UIColor colorWithHexString:@"ed5e40"];
     }
     return _sendbtn;
