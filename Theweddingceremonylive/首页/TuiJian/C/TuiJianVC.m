@@ -10,9 +10,9 @@
 #import "MainCell.h"
 #import "tuijianRuseView.h"
 #import "TuijianDataModel.h"
+#import "SearchViewController.h"
 
-
-@interface TuiJianVC ()
+@interface TuiJianVC ()<UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) NSMutableArray<TuiJianModel *> *datalist;
 
@@ -25,12 +25,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    
+    self.title = @"全部商家";
+     [XDFactory addSearchItemForVC:self clickedHandler:^{
+         SearchViewController *vc = [[SearchViewController alloc] init];
+         [self.navigationController pushViewController:vc animated:YES];
+     }];
     [self.collectionView registerClass:[MainCell class] forCellWithReuseIdentifier:@"cell"];
     [self.collectionView registerClass:[tuijianRuseView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"head"];
     [self netWorking];
 }
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
+}
+
 
 - (void)netWorking{
     
@@ -79,9 +88,8 @@ static NSInteger page = 1;
         
         NSString *code = [NSString stringWithFormat:@"%@", [obj objectForKey:@"code"]];
         if ([code isEqualToString:@"1000"]) {
-            //NSDictionary *data = [obj objectForKey:@"data"];
+            
             TuijianDataModel *model = [TuijianDataModel parse:obj];
-            [self.datalist removeAllObjects];
             [self.datalist addObjectsFromArray:model.data.data];
             [self.collectionView reloadData];
             
@@ -137,30 +145,16 @@ static NSInteger page = 1;
     return view;
 }
 
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
+    return CGSizeMake(kScreenW, kScreenW * 220 / 760.0);
+}
+
+
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
     
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 - (NSMutableArray<TuiJianModel *> *)datalist{

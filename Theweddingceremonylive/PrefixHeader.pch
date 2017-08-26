@@ -42,7 +42,7 @@
 #import "PathHeader.h"
 #import "UIView+HUD.h"
 #import "NSObject+Parse.h"
-
+#import "NSString+myUrl.h"
 
 
 #endif /* PrefixHeader_pch */

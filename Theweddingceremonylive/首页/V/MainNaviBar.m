@@ -8,6 +8,8 @@
 
 #import "MainNaviBar.h"
 
+
+
 @interface MainNaviBar()
 
 @property (weak, nonatomic) IBOutlet UIControl *mask;
@@ -25,11 +27,13 @@
 }
 
 - (IBAction)search:(id)sender {
+    !_search ?: _search();
 }
 
 
 
 - (IBAction)saoma:(id)sender {
+    !_saoma ?: _saoma();
 }
 
 
