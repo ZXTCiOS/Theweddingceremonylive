@@ -23,6 +23,7 @@
 @implementation DemoTableViewController
 
 #pragma mark 懒加载
+
 -(NSMutableArray *)dataArray{
     if (!_dataArray){
         _dataArray = [NSMutableArray new];
@@ -37,7 +38,23 @@
     [self.view addSubview:self.table];
     self.table.tableFooterView = [UIView new];
     
-//    [self.table registerClass:[DemoTableViewCell class] forCellReuseIdentifier:CellKey];
+    [self loaddata];
+}
+
+-(void)loaddata
+{
+    NSUserDefaults *defat = [NSUserDefaults standardUserDefaults];
+    NSString *uid = [defat objectForKey:user_uid];
+    NSString *token = [defat objectForKey:user_token];
+    self.bbs_id = @"22";
+    NSDictionary *para = @{@"uid":uid,@"token":token,@"bbs_id":self.bbs_id};
+    
+    [DNNetworking postWithURLString:post_getallinfo parameters:para success:^(id obj) {
+        NSLog(@"obj-----%@",obj);
+        
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 //创建随机数组

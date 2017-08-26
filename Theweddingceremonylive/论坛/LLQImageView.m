@@ -68,11 +68,11 @@
 - (CGRect)frameAtIndex:(NSInteger)index{
     
     //宽度
-    CGFloat itemWith = (self.frame.size.width - 4*kItemSpace)/3;
+    CGFloat itemWith = (self.frame.size.width - 4*kItemSpace)/3*WIDTH_SCALE;
     //x
-    CGFloat x = (index%3) * itemWith + ((index%3)+1) * kItemSpace;
+    CGFloat x = (index%3) * itemWith + ((index%3)+1) * kItemSpace*WIDTH_SCALE;
     //y
-    CGFloat y = (index/3) * itemWith + ((index/3)+1) * kItemSpace;
+    CGFloat y = (index/3) * itemWith + ((index/3)+1) * kItemSpace*HEIGHT_SCALE;
     
     return CGRectMake(x, y, itemWith, itemWith);
     

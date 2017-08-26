@@ -7,6 +7,8 @@
 //
 
 #import "MiddleVC.h"
+#import "midVC.h"
+#import "RealVC.h"
 
 @interface MiddleVC ()
 
@@ -16,11 +18,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor orangeColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     
-    self.navigationItem.title = @"title";
+    self.navigationItem.title = @"";
     
     // Do any additional setup after loading the view.
+    
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -28,5 +32,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+//    RealVC *vc = [[RealVC alloc] init];
+//    [self.navigationController pushViewController:vc animated:NO];
+    
+    midVC *vc = [[midVC alloc] init];
+    [self.navigationController pushViewController:vc animated:NO];
+}
 
 @end

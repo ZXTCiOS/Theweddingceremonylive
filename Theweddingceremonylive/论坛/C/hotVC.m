@@ -188,11 +188,40 @@ static NSString *hotidentfid = @"hotidentfid";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DemoTableViewController *vc = [[DemoTableViewController alloc] init];
+    bbsModel *model = self.dataSource[indexPath.row];
+    vc.bbs_id = model.bbs_id;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void)bbspointbtnClick:(UITableViewCell *)cell
 {
+    NSIndexPath *index = [self.table indexPathForCell:cell];
+    NSLog(@"index------%ld",(long)index.row);
+    bbsModel *model = self.dataSource[index.row];
+    NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
+    NSString *uid = [userdefat objectForKey:user_uid];
+    NSString *token = [userdefat objectForKey:user_token];
+    NSString *bbs_id = model.bbs_id;
     
+    NSString *type = @"";
+    
+    if ([model.is_point isEqualToString:@"0"]) {
+        type = @"1";
+    }
+    else
+    {
+        type = @"2";
+    }
+    
+    NSDictionary *para = @{@"uid":uid,@"token":token,@"bbs_id":bbs_id,@"type":type};
+    [DNNetworking postWithURLString:post_point parameters:para success:^(id obj) {
+        NSString *msg = [obj objectForKey:@"msg"];
+        [MBProgressHUD showSuccess:msg];
+        if ([[obj objectForKey:@"code"] intValue]==1000) {
+            [self headerRefreshEndAction];
+        }
+    } failure:^(NSError *error) {
+        [MBProgressHUD showSuccess:@"没有网络"];
+    }];
 }
 @end

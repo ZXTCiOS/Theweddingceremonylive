@@ -9,6 +9,8 @@
 #import "localVC.h"
 #import "bbsCell.h"
 #import "bbsModel.h"
+#import "DemoTableViewController.h"
+#import "detalisVC.h"
 
 @interface localVC ()<UITableViewDataSource,UITableViewDelegate,mybbsVdelegate>
 {
@@ -181,6 +183,13 @@ static NSString *localidentfid = @"localidentfid";
                                    tableView:tableView];
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    detalisVC *vc = [[detalisVC alloc] init];
+    bbsModel *model = self.dataSource[indexPath.row];
+    vc.bbs_id = model.bbs_id;
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 -(void)bbspointbtnClick:(UITableViewCell *)cell
 {
