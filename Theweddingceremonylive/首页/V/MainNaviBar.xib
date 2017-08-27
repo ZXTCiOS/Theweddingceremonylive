@@ -28,7 +28,7 @@
                         <constraint firstAttribute="height" constant="30" id="t2A-JC-TRx"/>
                     </constraints>
                     <connections>
-                        <action selector="search:" destination="iN0-l3-epB" eventType="valueChanged" id="O9h-Jh-akC"/>
+                        <action selector="search:" destination="iN0-l3-epB" eventType="touchUpInside" id="keP-eF-7y8"/>
                     </connections>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="关键词搜索" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h09-Bi-ee5">
@@ -85,7 +85,7 @@
             <connections>
                 <outlet property="mask" destination="DS2-hl-ySm" id="vz3-Ty-eHx"/>
             </connections>
-            <point key="canvasLocation" x="-271.5" y="78"/>
+            <point key="canvasLocation" x="-266" y="10"/>
         </view>
     </objects>
     <resources>

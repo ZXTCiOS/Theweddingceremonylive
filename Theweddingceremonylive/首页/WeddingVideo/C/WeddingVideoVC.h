@@ -2,12 +2,12 @@
 //  WeddingVideoVC.h
 //  Theweddingceremonylive
 //
-//  Created by apple on 17/8/21.
+//  Created by apple on 17/8/24.
 //  Copyright © 2017年 wangjungang. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseTableViewController.h"
 
-@interface WeddingVideoVC : UITableViewController
+@interface WeddingVideoVC : BaseTableViewController
 
 @end

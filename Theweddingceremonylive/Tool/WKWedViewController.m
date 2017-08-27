@@ -47,9 +47,15 @@
 
 
 
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
 
-
-
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
+}
 
 - (instancetype)initWithTitle:(NSString *)title Url:(NSURL *)url{
     self = [super init];

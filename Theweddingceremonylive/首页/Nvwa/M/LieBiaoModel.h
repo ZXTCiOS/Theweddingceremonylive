@@ -10,8 +10,8 @@
 
 @interface LieBiaoModel : NSObject
 
-@property (nonatomic, copy) NSString *time;
+@property (nonatomic, copy) NSString *nvwa_post_time;
 
-@property (nonatomic, copy) NSString *desc;
+@property (nonatomic, copy) NSString *nvwa_post_title;
 
 @end

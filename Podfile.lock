@@ -29,11 +29,11 @@ PODS:
   - BlocksKit/UIKit (2.2.5):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
-  - CYTabBar (1.1.1)
+  - CYTabBar (1.2.0)
   - DZNEmptyDataSet (1.8.1)
-  - HXWeiboPhotoPicker (2.0.3):
+  - HXWeiboPhotoPicker (2.0.5):
     - SDWebImage (~> 4.0)
-  - IQKeyboardManager (4.0.10)
+  - IQKeyboardManager (4.0.13)
   - LKSegmentBar (0.1.0)
   - Masonry (1.0.2)
   - MBProgressHUD (1.0.0)
@@ -41,9 +41,9 @@ PODS:
   - MLTransition (2.1.3)
   - NinaPagerView (1.6.0)
   - SDAutoLayout (2.2.0)
-  - SDWebImage (4.0.0):
-    - SDWebImage/Core (= 4.0.0)
-  - SDWebImage/Core (4.0.0)
+  - SDWebImage (4.1.0):
+    - SDWebImage/Core (= 4.1.0)
+  - SDWebImage/Core (4.1.0)
   - TPKeyboardAvoiding (1.3.1)
   - UITableView+FDTemplateLayoutCell (1.6)
   - YJBannerView (2.2.1)
@@ -74,10 +74,10 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
-  CYTabBar: ad8400e0b4095d56c36775fd97c50beaddb37f5e
+  CYTabBar: 48d415fb61d9d24fef9342e1941c1627be5d81d2
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  HXWeiboPhotoPicker: f5d7e973282fd76bd388a16559a325c5a2d977fc
-  IQKeyboardManager: 593ee99b88381f4b9ccb22bd680f22606351bd41
+  HXWeiboPhotoPicker: 72a153db2a3fb7b812dd9da09aa6d462c88bdf60
+  IQKeyboardManager: 8eab4d8111418414619d1df8e4779ce5d0f8d7e2
   LKSegmentBar: 4452975002c8ec3f8647a4bdc8665b4360b5c6cf
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
@@ -85,7 +85,7 @@ SPEC CHECKSUMS:
   MLTransition: 8ebe393aedfb61507202085a5bb16c7b17363e43
   NinaPagerView: 5346d0725c12530adddb438cc35adc352fb45325
   SDAutoLayout: c5509e77ae75735d9a39f7bc83dba6d3f75d49d8
-  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  SDWebImage: 0e435c14e402a6730315a0fb79f95e68654d55a4
   TPKeyboardAvoiding: 0d6af20e95e2850f4c621841225b59ec7d8dd852
   UITableView+FDTemplateLayoutCell: 5c949b4a5059c404b442926c0e80f81d10a2d66f
   YJBannerView: 941917badacfe43f3c2a0a6934e7bc7350e584e9

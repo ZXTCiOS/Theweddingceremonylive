@@ -49,7 +49,7 @@ static NSString *infocellidentfid6 = @"infoidentfid6";
     NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
     NSString *uid = [userdefat objectForKey:user_uid];
     NSString *token = [userdefat objectForKey:user_token];
-    self.useruid = @"1";
+    
     NSDictionary *para = @{@"uid":uid,@"useruid":self.useruid,@"token":token};
     [DNNetworking postWithURLString:post_finduserinfo parameters:para success:^(id obj) {
         NSString *msg = [obj objectForKey:@"msg"];

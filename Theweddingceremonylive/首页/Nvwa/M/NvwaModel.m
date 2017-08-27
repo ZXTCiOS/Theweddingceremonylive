@@ -11,7 +11,12 @@
 @implementation NvwaModel
 
 
-
++ (NSDictionary<NSString *,id> *)modelContainerPropertyGenericClass{
+    return @{
+             @"yugao": [NvwaYugaoModel class],
+             @"jmb": [LieBiaoModel class]
+             };
+}
 
 
 

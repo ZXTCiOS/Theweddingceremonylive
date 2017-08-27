@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+
+typedef void(^block)();
 @interface MainNaviBar : UIView
+
+@property (nonatomic, retain) block saoma;
+
+@property (nonatomic, retain) block search;
+
+
 
 @end

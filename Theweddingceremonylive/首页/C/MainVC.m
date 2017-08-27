@@ -12,13 +12,15 @@
 #import "MainHeaderView.h"
 #import "MainModel.h"
 #import "WeddingVideoModel.h"
-#import "NvwaModel.h"
+#import "MainNvwaModel.h"
 #import "TuiJianModel.h"
 #import <UIScrollView+EmptyDataSet.h>
 #import "MainNaviBar.h"
-
+#import "WKWedViewController.h"
 #import "NvWaPinDaoVC.h"
-
+#import "TuiJianVC.h"
+#import "WeddingVideoVC.h"
+#import "SearchViewController.h"
 
 
 
@@ -29,7 +31,7 @@
 @property (nonatomic, strong) NSMutableArray<TuiJianModel *> *business;
 @property (nonatomic, strong) NSMutableArray<MainModel *> *lunbo;
 @property (nonatomic, strong) NSMutableArray<WeddingVideoModel *> *shipin;
-@property (nonatomic, strong) NvwaModel *nvwamodel;
+@property (nonatomic, strong) MainNvwaModel *nvwamodel;
 
 @end
 
@@ -47,11 +49,19 @@
     }];
     [self HeaderRefresh];
     [self configNaviBar];
+    
 }
 
 - (void)configNaviBar{
     MainNaviBar *navi = [[NSBundle mainBundle] loadNibNamed:@"MainNaviBar" owner:self options:nil].firstObject;
     navi.frame = CGRectMake(0, 0, kScreenW, 64);
+    navi.search = ^(){
+        SearchViewController *vc = [[SearchViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    };
+    navi.saoma = ^(){
+        
+    };
     [self.view addSubview:navi];
     
 }
@@ -61,9 +71,14 @@
     [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+}
+
 - (void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:NO];
+    //[self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 
 
@@ -85,7 +100,7 @@
                 [self.shipin removeAllObjects];
                 NSArray *shipin = [WeddingVideoModel parse:[data objectForKey:@"shipin"]];
                 [self.shipin addObjectsFromArray:shipin];
-                self.nvwamodel = [NvwaModel parse:[data objectForKey:@"nvwa"]];
+                self.nvwamodel = [MainNvwaModel parse:[data objectForKey:@"nvwa"]];
                 [self.collectionView reloadData];
             } else {
                 //NSString *msg = [NSString stringWithFormat:@"%@", [obj objectForKey:@"mes"]];
@@ -146,6 +161,9 @@
 
 - (void)iCarousel:(iCarousel *)ic didSelectedAtIndex:(NSInteger)index{
     //self.lunbo[index].linkurl
+    
+    WKWedViewController *web = [[WKWedViewController alloc] initWithTitle:@"" Url:self.lunbo[index].linkurl.xd_URL];
+    [self.navigationController pushViewController:web animated:YES];
     NSLog(@"点击 index %ld", index);
 }
 
@@ -162,9 +180,17 @@
             view.delegate = self;
             view.datasource = self;
             MJWeakSelf
-            //view.shipin =
-            //view.zhibo
-            //view.tuijian
+            view.shipin = ^(){
+                WeddingVideoVC *vc = [[WeddingVideoVC alloc] init];
+                [self.navigationController pushViewController:vc animated:YES];
+            };
+            view.zhibo = ^(){
+                
+            };
+            view.tuijian = ^(){
+                TuiJianVC *vc = [[TuiJianVC alloc] initWithCollectionViewLayout:[UICollectionViewFlowLayout new]];
+                [self.navigationController pushViewController:vc animated:YES];
+            };
             view.nvwa = ^(){
                 NvWaPinDaoVC *VC = [[NvWaPinDaoVC alloc] init];
                 [weakSelf.navigationController pushViewController:VC animated:YES];
@@ -177,14 +203,17 @@
                 view.title.text = @"女娲频道";
                 [view.mask removeAllTargets];
                 [view.mask bk_addEventHandler:^(id sender) {
-                    
+                    NvWaPinDaoVC *VC = [[NvWaPinDaoVC alloc] init];
+                    [self.navigationController pushViewController:VC animated:YES];
                     NSLog(@"女娲频道");
                 } forControlEvents:UIControlEventTouchUpInside];
             } else {
                 view.title.text = @"推荐商家";
+                [view.mask removeAllTargets];
                 [view.mask bk_addEventHandler:^(id sender) {
                     NSLog(@"推荐商家");
-                    
+                    TuiJianVC *vc = [[TuiJianVC alloc] initWithCollectionViewLayout:[UICollectionViewFlowLayout new]];
+                    [self.navigationController pushViewController:vc animated:YES];
                 } forControlEvents:UIControlEventTouchUpInside];
             }
             return view;
@@ -195,6 +224,28 @@
 
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    switch (indexPath.section) {
+        case 0:{
+            
+        }
+            break;
+        case 1:{
+            NvWaPinDaoVC *VC = [[NvWaPinDaoVC alloc] init];
+            [self.navigationController pushViewController:VC animated:YES];
+        }
+            break;
+        case 2:{
+            TuiJianModel *model = self.business[indexPath.row];
+            WKWedViewController *web = [[WKWedViewController alloc] initWithTitle:model.name Url:[NSURL URLWithString:model.busin_url]];
+            [self.navigationController pushViewController:web animated:YES];
+        }
+            break;
+        default:
+            break;
+    }
+    
     
     
     NSLog(@"%ld, %ld", indexPath.section, indexPath.row);

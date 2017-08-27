@@ -17,5 +17,6 @@
 
 @property (nonatomic, assign) NSInteger ident;
 
+@property (nonatomic, strong) NSString *busin_url;
 
 @end
