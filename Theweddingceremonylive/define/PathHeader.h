@@ -21,6 +21,7 @@
 
 #define post_weddingvideo @"/interface.php/Home/Index/Wedding"                      // 婚礼视频
 
+#define post_weddinglive  @""                                                       // 婚礼直播
 
 #define post_search  @"/interface.php/Home/Index/search"                            // 搜索
 

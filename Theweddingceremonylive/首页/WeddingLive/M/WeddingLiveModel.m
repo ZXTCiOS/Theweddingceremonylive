@@ -10,4 +10,42 @@
 
 @implementation WeddingLiveModel
 
++ (NSDictionary<NSString *,id> *)modelContainerPropertyGenericClass{
+    return @{
+             @"data": [WeddingLiveDataModel class]
+             };
+}
+
+
 @end
+
+@implementation WeddingLiveDataModel
+
++ (NSDictionary<NSString *,id> *)modelContainerPropertyGenericClass{
+    return @{
+             @"room_public": [WeddingLiveDataLivingModel class],
+             @"room_private": [WeddingLiveDataLivingModel class],
+             @"room_future": [WeddingLiveDataLivingModel class]
+             };
+}
+
+@end
+
+@implementation WeddingLiveDataLivingModel
+
++ (NSDictionary<NSString *,id> *)modelContainerPropertyGenericClass{
+    return @{
+             @"data": [WeddingLiveDataLiveDataModel class]
+             };
+}
+
+@end
+
+@implementation WeddingLiveDataLiveDataModel
+
+
+
+@end
+
+
+

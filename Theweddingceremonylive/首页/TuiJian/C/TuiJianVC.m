@@ -37,7 +37,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:NO];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 
@@ -126,7 +126,7 @@ static NSInteger page = 1;
     
     MainCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     cell.titleL.text = self.datalist[indexPath.row].name;
-    [cell.imgV sd_setImageWithURL:[NSURL URLWithString:self.datalist[indexPath.row].picurl] placeholderImage:[UIImage imageNamed:@""]];
+    [cell.imgV sd_setImageWithURL:[NSURL URLWithString:self.datalist[indexPath.row].picurl] placeholderImage:[UIImage imageNamed:@"16bi9"]];
     
     return cell;
 }

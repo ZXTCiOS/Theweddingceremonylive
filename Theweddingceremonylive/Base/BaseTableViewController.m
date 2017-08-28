@@ -36,9 +36,17 @@
     
 }
 
+#pragma mark 空数据视图 DataSource && delegate
 
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
+    return [UIImage imageNamed:@"emptyImg"];        // 空数据图片
+}
 
-
+- (void)emptyDataSet:(UIScrollView *)scrollView didTapView:(UIView *)view{
+    
+    [scrollView beginHeaderRefresh];
+    NSLog(@"empty image tapped");
+}
 
 
 

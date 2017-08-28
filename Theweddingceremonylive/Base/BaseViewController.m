@@ -27,6 +27,8 @@
     self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     
+    
+    
 }
 
 -(void)backAction

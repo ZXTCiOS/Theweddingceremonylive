@@ -124,7 +124,7 @@ static NSInteger page = 1;
         model.video_point = @"999+";
     }
     cell.numberL.text = model.video_point;
-    [cell.imgV sd_setImageWithURL:[NSURL URLWithString:model.video_img] placeholderImage:[UIImage imageNamed:@""]];
+    [cell.imgV sd_setImageWithURL:[NSURL URLWithString:model.video_img] placeholderImage:[UIImage imageNamed:@"16bi9"]];
     NSString *islike = model.is_point ? @"hlsp_zan_s": @"hlsp_zan";
     [cell.btn_like setImage:[UIImage imageNamed:islike] forState:UIControlStateNormal];
     [cell.btn_like removeAllTargets];

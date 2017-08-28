@@ -54,7 +54,7 @@
 
 - (void)configHeaderView{
     if (self.header) {
-        [self.headerView.imgV sd_setImageWithURL:[NSURL URLWithString:self.header.nvwa_img] placeholderImage:[UIImage imageNamed:@""]];
+        [self.headerView.imgV sd_setImageWithURL:[NSURL URLWithString:self.header.nvwa_img] placeholderImage:[UIImage imageNamed:@"16bi9"]];
         self.headerView.title.text = self.header.nvwa_title;
         NSString *zhibo = self.header.nvwa_is_zb ? @"直播中" : @"未直播";
         self.headerView.isZhibo.text = zhibo;
@@ -181,7 +181,7 @@ static NSInteger page = 1;
             NSString *time = [NSString stringWithFormat:@"%@", self.datalist[indexPath.row].nvwa_yugao_addtime];
             NSLog(@"%@", time);
             cell.time.text = time;
-            [cell.img sd_setImageWithURL:[NSURL URLWithString:self.datalist[indexPath.row].nvwa_yugao_img] placeholderImage:[UIImage imageNamed:@""]];
+            [cell.img sd_setImageWithURL:[NSURL URLWithString:self.datalist[indexPath.row].nvwa_yugao_img] placeholderImage:[UIImage imageNamed:@"16bi9"]];
             cell.desc.text = self.datalist[indexPath.row].nvwa_yugao_title;
             
             return cell;
