@@ -10,6 +10,8 @@
 
 @interface weddingPayVC ()
 @property (nonatomic,strong) UIView *bgview;
+@property (nonatomic,strong) UILabel *typelab;
+
 @end
 
 @implementation weddingPayVC
