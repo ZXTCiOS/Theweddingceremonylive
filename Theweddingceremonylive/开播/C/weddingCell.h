@@ -1,0 +1,15 @@
+//
+//  weddingCell.h
+//  Theweddingceremonylive
+//
+//  Created by 王俊钢 on 2017/8/26.
+//  Copyright © 2017年 wangjungang. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface weddingCell : UITableViewCell
+@property (nonatomic,strong) UILabel *typelab;
+@property (nonatomic,strong) UILabel *pricelab;
+@property (nonatomic,strong) UILabel *contentlab;
+@end
