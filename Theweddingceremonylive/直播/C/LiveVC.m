@@ -11,7 +11,8 @@
 #import "LiveVideoCell.h"
 #import "LiveVideoModel.h"
 #import "WMPlayer.h"
-#import <MJRefresh.h>
+
+
 
 @interface LiveVC ()<UITableViewDelegate, UITableViewDataSource>
 

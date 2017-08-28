@@ -39,6 +39,7 @@
 		184A78851F53FB5600EACCE1 /* WeddingLiveFutureCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184A78831F53FB5600EACCE1 /* WeddingLiveFutureCell.xib */; };
 		184A78891F53FB9D00EACCE1 /* WeddingLiveTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 184A78871F53FB9D00EACCE1 /* WeddingLiveTableCell.m */; };
 		184A788A1F53FB9D00EACCE1 /* WeddingLiveTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184A78881F53FB9D00EACCE1 /* WeddingLiveTableCell.xib */; };
+		184A788D1F54181800EACCE1 /* WMPlayerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 184A788C1F54181800EACCE1 /* WMPlayerVC.m */; };
 		1851F4121F3D7DF600369326 /* LiveVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1851F4111F3D7DF600369326 /* LiveVideoModel.m */; };
 		1851F41D1F3D843E00369326 /* NSObject+Parse.m in Sources */ = {isa = PBXBuildFile; fileRef = 1851F4141F3D843E00369326 /* NSObject+Parse.m */; };
 		1851F41E1F3D843E00369326 /* NSString+myUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 1851F4161F3D843E00369326 /* NSString+myUrl.m */; };
@@ -270,6 +271,8 @@
 		184A78861F53FB9D00EACCE1 /* WeddingLiveTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeddingLiveTableCell.h; sourceTree = "<group>"; };
 		184A78871F53FB9D00EACCE1 /* WeddingLiveTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeddingLiveTableCell.m; sourceTree = "<group>"; };
 		184A78881F53FB9D00EACCE1 /* WeddingLiveTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeddingLiveTableCell.xib; sourceTree = "<group>"; };
+		184A788B1F54181800EACCE1 /* WMPlayerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPlayerVC.h; sourceTree = "<group>"; };
+		184A788C1F54181800EACCE1 /* WMPlayerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMPlayerVC.m; sourceTree = "<group>"; };
 		1851F4101F3D7DF600369326 /* LiveVideoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveVideoModel.h; sourceTree = "<group>"; };
 		1851F4111F3D7DF600369326 /* LiveVideoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveVideoModel.m; sourceTree = "<group>"; };
 		1851F4131F3D843E00369326 /* NSObject+Parse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Parse.h"; sourceTree = "<group>"; };
@@ -1134,6 +1137,8 @@
 			children = (
 				1804ED8B1F4EEC2A0004DAAE /* WeddingVideoVC.h */,
 				1804ED8C1F4EEC2A0004DAAE /* WeddingVideoVC.m */,
+				184A788B1F54181800EACCE1 /* WMPlayerVC.h */,
+				184A788C1F54181800EACCE1 /* WMPlayerVC.m */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -2090,6 +2095,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				533A8A401F4C262A0087E699 /* DemoTableViewController.m in Sources */,
+				184A788D1F54181800EACCE1 /* WMPlayerVC.m in Sources */,
 				18FE5D881F4AB33200C5A3CF /* WeddingVideoModel.m in Sources */,
 				533A8A421F4C262A0087E699 /* DemoCommentModel.m in Sources */,
 				53AC97DD1F3F5495009EC343 /* bindingViewController.m in Sources */,

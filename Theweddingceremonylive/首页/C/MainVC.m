@@ -7,22 +7,26 @@
 //
 
 #import "MainVC.h"
-#import "MainCell.h"
-#import "BannerView.h"
-#import "MainHeaderView.h"
-#import "MainModel.h"
+// model
 #import "WeddingVideoModel.h"
 #import "MainNvwaModel.h"
 #import "TuiJianModel.h"
+#import "MainModel.h"
 
+// view / cell
+#import "MainCell.h"
+#import "BannerView.h"
+#import "MainHeaderView.h"
 #import "MainNaviBar.h"
+
+// vc
 #import "WKWedViewController.h"
 #import "NvWaPinDaoVC.h"
 #import "TuiJianVC.h"
 #import "WeddingVideoVC.h"
 #import "SearchViewController.h"
 #import "WeddingLiveVC.h"
-
+#import "WMPlayerVC.h"
 
 @interface MainVC ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, BannerViewDelegate, BannerViewDataSource>
 
@@ -229,8 +233,9 @@
     
     switch (indexPath.section) {
         case 0:{
-            // TODO 婚礼直播点击进入观看直播页面
-            
+            WMPlayerVC *vc = [[WMPlayerVC alloc] initWithUrl:self.shipin[indexPath.row].video_url];
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
         }
             break;
         case 1:{

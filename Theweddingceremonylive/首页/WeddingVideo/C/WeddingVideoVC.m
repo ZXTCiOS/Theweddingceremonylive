@@ -10,7 +10,7 @@
 #import "WeddingVideoCell.h"
 #import "WeddingVideoModel.h"
 #import "SearchViewController.h"
-
+#import "WMPlayerVC.h"
 
 @interface WeddingVideoVC ()
 
@@ -37,6 +37,7 @@
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
+
 
 
 - (void)netWorking{
@@ -142,6 +143,8 @@ static NSInteger page = 1;
     return cell;
 }
 
+
+
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 300;
 }
@@ -152,26 +155,11 @@ static NSInteger page = 1;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSLog(@"%ld", indexPath.row);
+    WMPlayerVC *vc = [[WMPlayerVC alloc] initWithUrl:self.datalist[indexPath.row].video_url];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
