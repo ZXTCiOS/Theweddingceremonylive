@@ -30,7 +30,7 @@
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     
-    /*
+    
     self.searchController.searchBar.showsCancelButton = YES;
     for(id sousuo in [self.searchController.searchBar subviews])
     {
@@ -38,12 +38,12 @@
         {
             if([zz isKindOfClass:[UIButton class]]){
                 UIButton *btn = (UIButton *)zz;
-                [btn setTitle:@"搜索" forState:UIControlStateNormal];
+                [btn setTitle:@"取消" forState:UIControlStateNormal];
                 [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
                 self.searchController.searchBar.showsCancelButton = YES;
             }
         }
-    }*/
+    }
     
     
     
@@ -105,6 +105,7 @@
         }
             break;
         default:{
+            [tableView deselectRowAtIndexPath:indexPath animated:YES];
             SearchResultVC *vc = [[SearchResultVC alloc] initWithSearchType:indexPath.row + 1 text:self.searchController.searchBar.text];
             [self.navigationController pushViewController:vc animated:YES];
         }
@@ -115,6 +116,11 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
     self.searchController.searchBar.hidden = NO;
     [self.searchController.searchBar endEditing:YES];
 }

@@ -212,7 +212,7 @@ static NSInteger page = 1;
     UIImageView *img = [[UIImageView alloc] initWithFrame:CGRectMake(15, 20, 15, 15)];
     img.image = [UIImage imageNamed:section ?@"nwpd_jqjmyg" :@"nwpd_jcyg" ];
     [view addSubview:img];
-    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(30, 20, 100, 15)];
+    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(38, 20, 100, 15)];
     title.textColor = krgb(51, 51, 51, 1);
     title.text = !section ? @"精彩预告" : @"女娲频道";
     title.font = [UIFont systemFontOfSize:14];
