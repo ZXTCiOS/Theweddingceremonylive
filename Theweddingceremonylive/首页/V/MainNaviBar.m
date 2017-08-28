@@ -23,7 +23,7 @@
     [super awakeFromNib];
     self.mask.layer.cornerRadius = 15;
     self.mask.layer.masksToBounds = YES;
-    self.mask.backgroundColor = [UIColor whiteColor];
+    
 }
 
 - (IBAction)search:(id)sender {

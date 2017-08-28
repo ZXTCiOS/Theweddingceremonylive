@@ -14,7 +14,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sy_yunhunli" translatesAutoresizingMaskIntoConstraints="NO" id="xg6-ZY-TWW">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="xg6-ZY-TWW">
                     <rect key="frame" x="20" y="32" width="70" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="ijb-Z5-ia7"/>
@@ -89,8 +89,8 @@
         </view>
     </objects>
     <resources>
+        <image name="logo" width="70" height="20"/>
         <image name="sy_ewm" width="22" height="22"/>
         <image name="sy_search" width="16" height="16"/>
-        <image name="sy_yunhunli" width="71" height="25"/>
     </resources>
 </document>

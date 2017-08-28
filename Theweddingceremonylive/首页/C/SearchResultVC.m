@@ -29,7 +29,7 @@
     [super viewDidLoad];
     
     self.title = @"搜索结果";
-    
+    self.collectionView.backgroundColor = [UIColor whiteColor];
     [self.collectionView registerClass:[MainCell class] forCellWithReuseIdentifier:@"cell"];
     [self netWorking];
 }
@@ -59,9 +59,6 @@ static NSInteger page = 1;
         NSString *code = [NSString stringWithFormat:@"%@", [obj objectForKey:@"code"]];
         if ([code isEqualToString:@"1000"]) {
             NSDictionary *data = [obj objectForKey:@"data"];
-            TuijianDataModel *model = [TuijianDataModel parse:obj];
-            [self.datalist removeAllObjects];
-            [self.datalist addObjectsFromArray:model.data.data];
             
             switch (self.type) {
                 
@@ -156,12 +153,12 @@ static NSInteger page = 1;
         }
             break;
         case SearchTypeVideo:{
-            WeddingVideoModel *model = self.datalist[indexPath.row];
+            //WeddingVideoModel *model = self.datalist[indexPath.row];
             
         }
             break;
         case SearchTypeShop:{
-            TuiJianModel *model = self.datalist[indexPath.row];
+            //TuiJianModel *model = self.datalist[indexPath.row];
             
             
         }
@@ -172,7 +169,12 @@ static NSInteger page = 1;
     }
 }
 
-
+- (NSMutableArray *)datalist{
+    if (!_datalist) {
+        _datalist = [NSMutableArray array];
+    }
+    return _datalist;
+}
 
 - (instancetype)initWithSearchType:(SearchType)type text:(NSString *)text{
     UICollectionViewFlowLayout *l = [UICollectionViewFlowLayout new];
@@ -184,9 +186,11 @@ static NSInteger page = 1;
     
     self = [super initWithCollectionViewLayout:l];
     if (self) {
-        self.collectionView.backgroundColor = [UIColor whiteColor];
+        
         self.type = type;
         self.text = text;
+        
+        
     }
     return  self;
 }
