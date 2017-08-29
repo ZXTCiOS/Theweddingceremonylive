@@ -8,10 +8,11 @@
 
 #import "MyWalletTVC.h"
 #import "WalletHeadView.h"
-
+#import "walletrecordVC.h"
 
 @interface MyWalletTVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
+
 @end
 
 @implementation MyWalletTVC
@@ -24,12 +25,15 @@
     self.navigationItem.title = @"我的钱包";
     
     [self.view addSubview:self.table];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
-    self.navigationItem.leftBarButtonItem.tintColor = [UIColor colorWithHexString:@"E95F46"];
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"E95F46"]}];
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
+//    self.navigationItem.leftBarButtonItem.tintColor = [UIColor colorWithHexString:@"E95F46"];
+//    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"E95F46"]}];
+    
     UIBarButtonItem *item1 = [[UIBarButtonItem alloc] bk_initWithTitle:@"交易记录" style:UIBarButtonItemStylePlain handler:^(id sender) {
         // 交易记录
         NSLog(@"交易记录");
+        walletrecordVC *vc = [[walletrecordVC alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     }];
     item1.tintColor = [UIColor colorWithHexString:@"E95F46"];
     self.navigationItem.rightBarButtonItem = item1;
