@@ -7,8 +7,9 @@
 //
 
 #import "BaseCollectionViewController.h"
+#import <UIScrollView+EmptyDataSet.h>
 
-@interface BaseCollectionViewController ()
+@interface BaseCollectionViewController ()<DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
 
 @end
 
@@ -27,7 +28,24 @@ static NSString * const reuseIdentifier = @"Cell";
     
     //[XDFactory addBackItemForVC:self];
     
+    // 空
+    self.collectionView.emptyDataSetSource = self;
+    self.collectionView.emptyDataSetDelegate = self;
+    
 }
+
+#pragma mark 空数据视图 DataSource && delegate
+
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
+    return [UIImage imageNamed:@"emptyImg"];        // 空数据图片
+}
+
+- (void)emptyDataSet:(UIScrollView *)scrollView didTapView:(UIView *)view{
+    
+    [scrollView beginHeaderRefresh];
+    NSLog(@"empty image tapped");
+}
+
 
 
 -(void)backAction

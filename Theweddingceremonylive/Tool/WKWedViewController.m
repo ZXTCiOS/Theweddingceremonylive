@@ -37,7 +37,7 @@
         [weakSelf.webV reload];
         [weakSelf.webV.scrollView endHeaderRefresh];
     }];
-    [XDFactory addBackItemForVC:self];
+    
     
 }
 

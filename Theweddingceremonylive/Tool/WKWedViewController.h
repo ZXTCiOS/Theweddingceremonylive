@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WKWedViewController : UIViewController
+@interface WKWedViewController : BaseViewController
 
 
 @property (nonatomic, copy) NSString *titl;
