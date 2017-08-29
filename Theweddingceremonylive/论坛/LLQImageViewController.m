@@ -72,7 +72,7 @@
         //图片水平自适应
         imageV.contentMode = UIViewContentModeScaleAspectFit;
        // [imageV setImageWithURL:[NSURL URLWithString:_data[i]]];
-        [imageV setImageWithURL:[NSURL URLWithString:_data[i]] placeholder:[UIImage imageNamed:@"qidong"]];
+        [imageV setImageWithURL:[NSURL URLWithString:_data[i]] placeholder:[UIImage imageNamed:@"cpone"]];
         //允许用户点击事件
         imageV.userInteractionEnabled = YES;
         

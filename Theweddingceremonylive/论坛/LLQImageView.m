@@ -41,11 +41,10 @@
         item.tag = i+1;
         
         //[item setImageWithURL:[NSURL URLWithString:_data[i]]];
-        [item setImageWithURL:[NSURL URLWithString:_data[i]] placeholder:[UIImage imageNamed:@"qidong"]];
+        [item setImageWithURL:[NSURL URLWithString:_data[i]] placeholder:[UIImage imageNamed:@"cpone"]];
         [self addSubview:item];
         
     }
-    
 }
 
 //点击事件
