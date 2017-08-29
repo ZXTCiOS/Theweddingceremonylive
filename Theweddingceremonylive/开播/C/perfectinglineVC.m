@@ -64,15 +64,12 @@ static NSString *wanshanidentfid9 = @"wanshanidentfid9";
         case 101:
         {
             NSLog(@"Click ok");
-//            UIAlertController  *alert = [UIAlertController alertControllerWithTitle:@"您输入的密码" message:[NSString stringWithFormat:@"%@",self.oyrAlertView.pzxView.vertificationCode] preferredStyle:UIAlertControllerStyleAlert];
-//            UIAlertAction *ok = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//                
-//            }];
-//            
-//            [alert addAction:ok];
-//            [self presentViewController:alert animated:YES completion:nil];
-            
-            NSLog(@"%@",self.oyrAlertView.pzxView.textFieldArray);
+            NSMutableArray *dataarr = self.oyrAlertView.pzxView.textFieldArray;
+            NSString *str = [NSString string];
+            for (int i = 0; i<dataarr.count; i++) {
+                str = [str stringByAppendingString:[NSString stringWithFormat:@"%@",(UITextField *)[dataarr[i] text]]];
+            }
+            NSLog(@"str---------%@",str);
         }
             break;
         case 100:
