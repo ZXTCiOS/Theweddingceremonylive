@@ -9,6 +9,8 @@
 #import "MyWalletTVC.h"
 #import "WalletHeadView.h"
 #import "walletrecordVC.h"
+#import "rechargeVC.h"
+#import "reflectVC.h"
 
 @interface MyWalletTVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
@@ -80,10 +82,11 @@
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     
     if (!indexPath.section) {
-        cell.imageView.image = [UIImage imageNamed:@"touxiang"];
+        cell.imageView.image = [UIImage imageNamed:@"my_walet_rech"];
+        
         cell.textLabel.text = @"充值";
     } else {
-        cell.imageView.image = [UIImage imageNamed:@"touxiang"];
+        cell.imageView.image = [UIImage imageNamed:@"my_walet_wdr"];
         cell.textLabel.text = @"提现";
     }
     cell.textLabel.font = kFont(18);
@@ -95,11 +98,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (!indexPath.section) {
-        
         NSLog(@"充值");
+        rechargeVC *vc = [[rechargeVC alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     } else {
-        
         NSLog(@"提现");
+        reflectVC *vc = [[reflectVC alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     }
     
 }
