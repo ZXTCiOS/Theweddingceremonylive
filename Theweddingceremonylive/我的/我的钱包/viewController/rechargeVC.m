@@ -42,6 +42,8 @@ static NSString *rechargeidentfid0 = @"rechargeidentfid0";
         _table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH) style:UITableViewStyleGrouped];
         _table.dataSource = self;
         _table.delegate = self;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tabletap)];
+        [_table addGestureRecognizer:tap];
     }
     return _table;
 }
@@ -70,6 +72,7 @@ static NSString *rechargeidentfid0 = @"rechargeidentfid0";
 {
     rechargrCell0 *cell = [tableView dequeueReusableCellWithIdentifier:rechargeidentfid0];
     cell = [[rechargrCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:rechargeidentfid0];
+
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -89,6 +92,15 @@ static NSString *rechargeidentfid0 = @"rechargeidentfid0";
     return 8*HEIGHT_SCALE;
 }
 
+-(void)tabletap
+{
+    [self.fview.moneytext resignFirstResponder];
+}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
 #pragma mark - 实现方法
 
 -(void)zhifubaoclick

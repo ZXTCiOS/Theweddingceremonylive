@@ -10,7 +10,7 @@
 #import "rechargrCell0.h"
 #import "reflectCell.h"
 
-@interface reflectVC ()<UITableViewDataSource,UITableViewDelegate>
+@interface reflectVC ()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic,strong) UIView *footView;
 @property (nonatomic,strong) UIButton *selectBtn;
@@ -44,6 +44,8 @@ static NSString *reflectidentfid1 = @"reflectidentfid1";
         _table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH) style:UITableViewStyleGrouped];
         _table.dataSource = self;
         _table.delegate = self;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tabletap)];
+        [_table addGestureRecognizer:tap];
     }
     return _table;
 }
@@ -110,19 +112,26 @@ static NSString *reflectidentfid1 = @"reflectidentfid1";
         if (indexPath.row==0) {
             cell.leftlab.text = @"金额";
             cell.reflectext.placeholder = @"请输入提现金额";
-            
+            cell.reflectext.tag = 201;
+            cell.reflectext.delegate = self;
         }
         if (indexPath.row==1) {
             cell.leftlab.text = @"持卡人";
             cell.reflectext.placeholder = @"请输入持卡人姓名";
+            cell.reflectext.tag = 202;
+            cell.reflectext.delegate = self;
         }
         if (indexPath.row==2) {
             cell.leftlab.text = @"身份证号";
             cell.reflectext.placeholder = @"请输入身份证号";
+            cell.reflectext.tag = 203;
+            cell.reflectext.delegate = self;
         }
         if (indexPath.row==3) {
             cell.leftlab.text = @"银行卡号";
             cell.reflectext.placeholder = @"请输入银行卡号";
+            cell.reflectext.tag = 204;
+            cell.reflectext.delegate = self;
         }
         return cell;
     }
@@ -149,6 +158,23 @@ static NSString *reflectidentfid1 = @"reflectidentfid1";
     return 0.01f;
 }
 
+-(void)tabletap
+{
+    UITextField *text0 = [self.table viewWithTag:201];
+    UITextField *text1 = [self.table viewWithTag:202];
+    UITextField *text2 = [self.table viewWithTag:203];
+    UITextField *text3 = [self.table viewWithTag:204];
+    [text0 resignFirstResponder];
+    [text1 resignFirstResponder];
+    [text2 resignFirstResponder];
+    [text3 resignFirstResponder];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
 #pragma mark - 实现方法
 
 -(void)selectbtnclick
