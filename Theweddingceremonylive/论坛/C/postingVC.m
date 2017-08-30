@@ -166,12 +166,16 @@ static NSString *postidentfid1 = @"postidentfid1";
     
     if ([strisNull isNullToString:currentCity]) {
         currentCity = @"";
+        address = @"北京";
+    }
+    else if ([currentCity isEqualToString:@"黑龙江省"]||[currentCity isEqualToString:@"内蒙古自治区"])
+    {
+        address= [currentCity substringToIndex:2];
     }
     else
     {
-        address= [currentCity substringToIndex:2];
+        address= [currentCity substringToIndex:3];
 //        address = currentCity;
-        
     }
     NSDictionary *para = @{@"uid":uid,@"token":token,@"picture1":picture1,@"picture2":picture2,@"picture3":picture3,@"suffix1":suffix1,@"suffix2":suffix2,@"suffix3":suffix3,@"title":title,@"content":content,@"address":address};
     [DNNetworking postWithURLString:post_fatie parameters:para success:^(id obj) {
@@ -291,7 +295,7 @@ static NSString *postidentfid1 = @"postidentfid1";
             CLPlacemark *placeMark = placemarks[0];
             currentCity = placeMark.administrativeArea;
             
-//            currentCity = placeMark.locality;
+
             if (!currentCity) {
                 currentCity = @"无法定位当前城市";
             }

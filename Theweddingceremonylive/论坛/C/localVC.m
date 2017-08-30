@@ -69,7 +69,7 @@ static NSString *localidentfid = @"localidentfid";
     NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
     NSString *uid = [userdefat objectForKey:user_uid];
     NSString *token = [userdefat objectForKey:user_token];
-//    NSString *address = @"北京";
+
     NSString *page = [NSString stringWithFormat:@"%d",pn];
     NSDictionary *para = @{@"uid":uid,@"token":token,@"page":page,@"address":self.address};
     [DNNetworking postWithURLString:post_bbsgetinfo parameters:para success:^(id obj) {
@@ -110,7 +110,7 @@ static NSString *localidentfid = @"localidentfid";
     NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
     NSString *uid = [userdefat objectForKey:user_uid];
     NSString *token = [userdefat objectForKey:user_token];
-//    NSString *address = @"北京";
+
     NSString *page = [NSString stringWithFormat:@"%d",pn];
     
     NSDictionary *para = @{@"uid":uid,@"token":token,@"page":page,@"address":self.address};

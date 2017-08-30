@@ -12,4 +12,5 @@ typedef void(^returnValueBlock)(NSString *content);
 
 @interface addressVC : BaseViewController
 @property(nonatomic,copy) returnValueBlock  returnvalueBlock;
+@property(nonatomic,copy)void(^returnString)(NSString * str);
 @end

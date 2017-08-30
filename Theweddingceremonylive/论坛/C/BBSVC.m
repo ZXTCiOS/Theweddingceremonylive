@@ -75,6 +75,8 @@
     UITapGestureRecognizer *tag = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(back)];
     tag.numberOfTapsRequired = 2;
     [self.view addGestureRecognizer:tag];
+    
+
 
 }
 
@@ -86,12 +88,16 @@
 -(void)backAction2
 {
     addressVC *addvc = [[addressVC alloc] init];
+    addvc.returnString = ^(NSString * str){
+        NSLog(@"%@",str);
+        self.addressstr = str;
+        item3.title = self.addressstr;
+    };
     [self.navigationController pushViewController:addvc animated:YES];
 }
 
 -(void)addAction
 {
-    NSLog(@"add");
     postingVC *vc = [[postingVC alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -154,8 +160,17 @@
             }
             NSLog(@"%@",currentCity); //这就是当前的城市
             NSLog(@"%@",placeMark.name);//具体地址:  xx市xx区xx街道
-            self.addressstr = currentCity;
+            
+            if ([currentCity isEqualToString:@"黑龙江省"]||[currentCity isEqualToString:@"内蒙古自治区"]) {
+                self.addressstr= [currentCity substringToIndex:2];
+            }
+            else
+            {
+                self.addressstr= [currentCity substringToIndex:2];
+            }
 
+           // self.addressstr = currentCity;
+            
             item3.title = self.addressstr;
         }
         else if (error == nil && placemarks.count == 0) {

@@ -24,6 +24,7 @@
 @property (nonatomic,strong) keyboardView *keyView;
 @property (nonatomic,strong) UIView *bgview;
 @property (nonatomic,strong) NSString *fromkeyboard;
+@property (nonatomic,assign) UIEdgeInsets insets;
 @end
 
 static NSString *detalisidentfid0 = @"detalisidentfid0";
@@ -44,6 +45,7 @@ static NSString *detalisidentfid2 = @"detalisidentfid2";
     [self loaddata];
     [self setkeyborard];
     [self bgviewadd];
+    self.insets = UIEdgeInsetsMake(0, 14*WIDTH_SCALE, 0, 14*WIDTH_SCALE);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -202,7 +204,10 @@ static NSString *detalisidentfid2 = @"detalisidentfid2";
     _keyView.textview.customPlaceholder = @"写评论";
     _keyView.textview.layer.masksToBounds = YES;
     _keyView.textview.layer.borderWidth = 1;
-    _keyView.textview.layer.borderColor = [UIColor colorWithHexString:@"999999"].CGColor;
+    _keyView.layer.masksToBounds = YES;
+    _keyView.layer.borderWidth = 0.6;
+    _keyView.layer.borderColor = [UIColor colorWithHexString:@"C7C7CD"].CGColor;
+    _keyView.textview.layer.borderColor = [UIColor colorWithHexString:@"C7C7CD"].CGColor;
     _keyView.textview.customPlaceholderColor = [UIColor colorWithHexString:@"C7C7CD"];
     _keyView.frame = CGRectMake(0, kScreenH-64, kScreenW, 64);
     _wasKeyboardManagerEnabled = [[IQKeyboardManager sharedManager] isEnabled];
@@ -363,4 +368,23 @@ static NSString *detalisidentfid2 = @"detalisidentfid2";
     [self.tabBarController.tabBar setHidden:NO];
 }
 
+#pragma mark 用于将cell分割线补全
+
+-(void)viewDidLayoutSubviews {
+    if ([self.table respondsToSelector:@selector(setSeparatorInset:)]) {
+        [self.table setSeparatorInset:self.insets];
+    }
+    if ([self.table respondsToSelector:@selector(setLayoutMargins:)])  {
+        [self.table setLayoutMargins:self.insets];
+    }
+}
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath*)indexPath{
+        if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+            [cell setLayoutMargins:self.insets];
+        }
+        if ([cell respondsToSelector:@selector(setSeparatorInset:)]){
+            [cell setSeparatorInset:self.insets];
+        }
+}
 @end

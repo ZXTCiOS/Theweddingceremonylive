@@ -75,6 +75,10 @@ static NSString *addressidentfid = @"addressidentfid";
         NSString *address = self.addressarray[indexPath.row];
         self.returnvalueBlock(address);
     }
+    
+    if (self.returnString) {
+        self.returnString(self.addressarray[indexPath.row]);
+    }
     [self.navigationController popViewControllerAnimated:YES];
 }
 
