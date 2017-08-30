@@ -53,6 +53,8 @@ static NSString *rechargeidentfid0 = @"rechargeidentfid0";
         _fview = [[chongzhifootView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 500)];
         _fview.backgroundColor = [UIColor whiteColor];
         _fview.moneytext.delegate = self;
+        [_fview.btn0 addTarget:self action:@selector(zhifubaoclick) forControlEvents:UIControlEventTouchUpInside];
+        [_fview.btn1 addTarget:self action:@selector(weixinclick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _fview;
 }
@@ -88,5 +90,22 @@ static NSString *rechargeidentfid0 = @"rechargeidentfid0";
 }
 
 #pragma mark - 实现方法
+
+-(void)zhifubaoclick
+{
+    self.fview.btn0.layer.borderColor = [UIColor colorWithHexString:@"ed5e40"].CGColor;
+    self.fview.btn1.layer.borderColor = [UIColor colorWithHexString:@"dcdcdc"].CGColor;
+    [self.fview.btn0.rightimg setHidden:NO];
+    [self.fview.btn1.rightimg setHidden:YES];
+    
+}
+
+-(void)weixinclick
+{
+    self.fview.btn1.layer.borderColor = [UIColor colorWithHexString:@"ed5e40"].CGColor;
+    self.fview.btn0.layer.borderColor = [UIColor colorWithHexString:@"dcdcdc"].CGColor;
+    [self.fview.btn1.rightimg setHidden:NO];
+    [self.fview.btn0.rightimg setHidden:YES];
+}
 
 @end

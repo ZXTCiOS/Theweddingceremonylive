@@ -12,4 +12,5 @@
 @property (nonatomic,strong) UITextField *moneytext;
 @property (nonatomic,strong) zhifuBtn *btn0;
 @property (nonatomic,strong) zhifuBtn *btn1;
+@property (nonatomic,strong) UIButton *sendBtn;
 @end

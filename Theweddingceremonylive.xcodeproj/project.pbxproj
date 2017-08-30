@@ -175,6 +175,7 @@
 		53CC98E91F568D910077CCF6 /* rechargrCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 53CC98DD1F566D300077CCF6 /* rechargrCell0.m */; };
 		53CC98F51F568E930077CCF6 /* chongzhifootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53CC98F41F568E930077CCF6 /* chongzhifootView.m */; };
 		53CC98F81F5690230077CCF6 /* zhifuBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 53CC98F71F5690230077CCF6 /* zhifuBtn.m */; };
+		53CC98FB1F569E770077CCF6 /* reflectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 53CC98FA1F569E770077CCF6 /* reflectCell.m */; };
 		53D02F3F1F3B1B5600CD504C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F3E1F3B1B5600CD504C /* main.m */; };
 		53D02F421F3B1B5600CD504C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F411F3B1B5600CD504C /* AppDelegate.m */; };
 		53D02F481F3B1B5600CD504C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53D02F461F3B1B5600CD504C /* Main.storyboard */; };
@@ -559,6 +560,8 @@
 		53CC98F41F568E930077CCF6 /* chongzhifootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = chongzhifootView.m; sourceTree = "<group>"; };
 		53CC98F61F5690230077CCF6 /* zhifuBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zhifuBtn.h; sourceTree = "<group>"; };
 		53CC98F71F5690230077CCF6 /* zhifuBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zhifuBtn.m; sourceTree = "<group>"; };
+		53CC98F91F569E770077CCF6 /* reflectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reflectCell.h; sourceTree = "<group>"; };
+		53CC98FA1F569E770077CCF6 /* reflectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = reflectCell.m; sourceTree = "<group>"; };
 		53D02F3A1F3B1B5600CD504C /* Theweddingceremonylive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Theweddingceremonylive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53D02F3E1F3B1B5600CD504C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		53D02F401F3B1B5600CD504C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -980,6 +983,8 @@
 				53CC98F41F568E930077CCF6 /* chongzhifootView.m */,
 				53CC98F61F5690230077CCF6 /* zhifuBtn.h */,
 				53CC98F71F5690230077CCF6 /* zhifuBtn.m */,
+				53CC98F91F569E770077CCF6 /* reflectCell.h */,
+				53CC98FA1F569E770077CCF6 /* reflectCell.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -2312,6 +2317,7 @@
 				530299591F4434DF004BC03A /* mineOrderVC.m in Sources */,
 				53D85CE91F5164B800EF0555 /* DLAlertView.m in Sources */,
 				1851F4201F3D843E00369326 /* UITextView+Placeholder.m in Sources */,
+				53CC98FB1F569E770077CCF6 /* reflectCell.m in Sources */,
 				53B68E471F4D93DA00674A2B /* RealVC.m in Sources */,
 				533ACD031F4AAC9900F66A78 /* postCell1.m in Sources */,
 				53B68E5F1F4ECC9300674A2B /* detalisCell0.m in Sources */,

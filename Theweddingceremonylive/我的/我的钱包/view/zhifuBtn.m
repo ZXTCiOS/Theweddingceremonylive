@@ -17,8 +17,33 @@
         [self addSubview:self.textlab];
         [self addSubview:self.xuanzeimg];
         [self addSubview:self.rightimg];
+        [self setuplayout];
+        
     }
     return self;
+}
+
+
+-(void)setuplayout
+{
+    __weak typeof (self) weakSelf = self;
+    [weakSelf.xuanzeimg mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf).with.offset(14*WIDTH_SCALE);
+        make.top.equalTo(weakSelf).with.offset(10*HEIGHT_SCALE);
+        make.width.mas_offset(20*HEIGHT_SCALE);
+        make.height.mas_offset(20*HEIGHT_SCALE);
+    }];
+    
+    [weakSelf.textlab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf.xuanzeimg.mas_right).with.offset(4*WIDTH_SCALE);
+        make.top.equalTo(weakSelf).with.offset(10*HEIGHT_SCALE);
+        
+    }];
+    
+    [weakSelf.rightimg mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(weakSelf).with.offset(-1);
+        make.top.equalTo(weakSelf).with.offset(1);
+    }];
 }
 
 #pragma mark - getters

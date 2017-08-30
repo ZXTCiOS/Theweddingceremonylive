@@ -25,6 +25,7 @@
         [self addSubview:self.typelab];
         [self addSubview:self.btn0];
         [self addSubview:self.btn1];
+        [self addSubview:self.sendBtn];
         [self setuplayout];
     }
     return self;
@@ -49,6 +50,28 @@
         make.left.equalTo(weakSelf.leftlab);
         make.top.equalTo(weakSelf.leftlab.mas_bottom).with.offset(30*HEIGHT_SCALE);
     }];
+    
+    [weakSelf.btn0 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf).with.offset(15*WIDTH_SCALE);
+        make.top.equalTo(weakSelf.typelab.mas_bottom).with.offset(30*HEIGHT_SCALE);
+        make.width.mas_offset(105*WIDTH_SCALE);
+        make.height.mas_offset(40*HEIGHT_SCALE);
+    }];
+    
+    [weakSelf.btn1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf.btn0.mas_right).with.offset(15*WIDTH_SCALE);
+        make.top.equalTo(weakSelf.typelab.mas_bottom).with.offset(30*HEIGHT_SCALE);
+        make.width.mas_offset(105*WIDTH_SCALE);
+        make.height.mas_offset(40*HEIGHT_SCALE);
+    }];
+    
+    [weakSelf.sendBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf).with.offset(20*WIDTH_SCALE);
+        make.right.equalTo(weakSelf).with.offset(-20*WIDTH_SCALE);
+        make.top.equalTo(weakSelf.btn1.mas_bottom).with.offset(50*HEIGHT_SCALE);
+        make.height.mas_offset(48*HEIGHT_SCALE);
+    }];
+    
 }
 
 #pragma mark - getters
@@ -93,7 +116,12 @@
     if(!_btn0)
     {
         _btn0 = [[zhifuBtn alloc] init];
-        
+        _btn0.textlab.text = @"支付宝";
+        _btn0.xuanzeimg.image = [UIImage imageNamed:@"my_walet_zfb"];
+        _btn0.layer.masksToBounds = YES;
+        _btn0.layer.borderWidth = 1;
+        _btn0.layer.borderColor = [UIColor colorWithHexString:@"ed5e40"].CGColor;
+        _btn0.layer.cornerRadius = 6;
     }
     return _btn0;
 }
@@ -103,9 +131,30 @@
     if(!_btn1)
     {
         _btn1 = [[zhifuBtn alloc] init];
-        
+        _btn1.textlab.text = @"微信";
+        _btn1.xuanzeimg.image = [UIImage imageNamed:@"my_walet_wx"];
+        _btn1.layer.masksToBounds = YES;
+        _btn1.layer.borderWidth = 1;
+        _btn1.layer.borderColor = [UIColor colorWithHexString:@"dcdcdc"].CGColor;
+        _btn1.layer.cornerRadius = 6;
+        [_btn1.rightimg setHidden:YES];
     }
     return _btn1;
+}
+
+-(UIButton *)sendBtn
+{
+    if(!_sendBtn)
+    {
+        _sendBtn = [[UIButton alloc] init];
+        [_sendBtn setTitle:@"支付" forState:normal];
+        _sendBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+        [_sendBtn setTitleColor:[UIColor colorWithHexString:@"ffffff"] forState:normal];
+        _sendBtn.backgroundColor = [UIColor colorWithHexString:@"ed5e40"];
+        _sendBtn.layer.masksToBounds = YES;
+        _sendBtn.layer.cornerRadius = 24*HEIGHT_SCALE;
+    }
+    return _sendBtn;
 }
 
 
