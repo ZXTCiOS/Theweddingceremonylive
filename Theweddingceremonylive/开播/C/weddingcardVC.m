@@ -71,7 +71,7 @@
     {
         _scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH)];
         _scroll.delegate = self;
-        _scroll.contentSize = CGSizeMake(kScreenW, 1000*HEIGHT_SCALE);
+        _scroll.contentSize = CGSizeMake(kScreenW, 1050*HEIGHT_SCALE);
         _scroll.backgroundColor = [UIColor whiteColor];
         [_scroll addSubview:self.bgImage];
     }
@@ -270,6 +270,45 @@
 -(void)rightAction
 {
     NSLog(@"rightAction");
+    
+//    [self screenShot:self.scroll];
+}
+
+#pragma mark - 截屏
+- (void)screenShot:(UIScrollView *)basetable{
+    UIImage* image = nil;
+    UIGraphicsBeginImageContext(basetable.contentSize);
+    {
+        CGPoint savedContentOffset = basetable.contentOffset;
+        CGRect savedFrame = basetable.frame;
+        basetable.contentOffset = CGPointZero;
+        
+        basetable.frame = CGRectMake(0, 0, basetable.contentSize.width, basetable.contentSize.height);
+        [basetable.layer renderInContext: UIGraphicsGetCurrentContext()];
+        
+        image = UIGraphicsGetImageFromCurrentImageContext();
+        
+        basetable.contentOffset = savedContentOffset;
+        basetable.frame = savedFrame;
+    }
+    UIGraphicsEndImageContext();
+    if (image != nil) {
+        NSLog(@"截图成功!");
+        UIImageWriteToSavedPhotosAlbum(image,self,@selector(image:didFinishSavingWithError:contextInfo:),NULL);
+        
+    }
+}
+
+
+#pragma mark - 保存到相册
+-(void)image:(UIImage *)image didFinishSavingWithError:(NSError*)error contextInfo:(void*)contextInfo
+{
+    if(!error){
+        NSLog(@"存到相册");
+    }else{
+        NSLog(@"存储失败");
+        
+    }
 }
 
 #pragma mark - tabbar
