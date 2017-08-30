@@ -10,6 +10,8 @@
 #import "MainTabBarController.h"
 #import "LoginVC.h"
 
+#import <NIMSDK/NIMSDK.h>
+
 @interface AppDelegate ()
 
 @end
