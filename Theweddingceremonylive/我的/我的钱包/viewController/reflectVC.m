@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"体现";
+    self.title = @"提现";
 }
 
 - (void)didReceiveMemoryWarning {

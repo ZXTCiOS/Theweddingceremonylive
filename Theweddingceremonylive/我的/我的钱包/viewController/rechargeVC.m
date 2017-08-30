@@ -8,11 +8,11 @@
 
 #import "rechargeVC.h"
 #import "rechargrCell0.h"
-//#import "footView.h"
+#import "chongzhifootView.h"
 
 @interface rechargeVC ()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
 @property (nonatomic,strong) UITableView *table;
-//@property (nonatomic,strong) footView *fview;
+@property (nonatomic,strong) chongzhifootView *fview;
 @end
 
 static NSString *rechargeidentfid0 = @"rechargeidentfid0";
@@ -25,7 +25,7 @@ static NSString *rechargeidentfid0 = @"rechargeidentfid0";
     self.title = @"充值";
     
     [self.view addSubview:self.table];
-//    self.table.tableFooterView = self.fview;
+    self.table.tableFooterView = self.fview;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,18 +45,18 @@ static NSString *rechargeidentfid0 = @"rechargeidentfid0";
     }
     return _table;
 }
-//
-//-(footView *)fview
-//{
-//    if(!_fview)
-//    {
-//        _fview = [[footView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 500)];
-//        _fview.backgroundColor = [UIColor whiteColor];
-//        _fview.moneytext.delegate = self;
-//    }
-//    return _fview;
-//}
-//
+
+-(chongzhifootView *)fview
+{
+    if(!_fview)
+    {
+        _fview = [[chongzhifootView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 500)];
+        _fview.backgroundColor = [UIColor whiteColor];
+        _fview.moneytext.delegate = self;
+    }
+    return _fview;
+}
+
 #pragma mark -UITableViewDataSource&&UITableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
