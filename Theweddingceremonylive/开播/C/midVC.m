@@ -11,6 +11,8 @@
 #import "predeterminedVC0.h"
 #import "predeterminedVC1.h"
 
+#import "RealVC.h"
+
 @interface midVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
 @end
@@ -31,6 +33,14 @@ static NSString *livecellidentfid = @"livecellidentfid";
     
     [self.view addSubview:self.table];
     self.table.tableFooterView = [UIView new];
+    
+//    [self realpush];
+}
+
+-(void)realpush
+{
+    RealVC *vc = [[RealVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

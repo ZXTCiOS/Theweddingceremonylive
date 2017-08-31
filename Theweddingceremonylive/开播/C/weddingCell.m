@@ -7,14 +7,13 @@
 //
 
 #import "weddingCell.h"
+#import "weddinglistModel.h"
 
 @interface weddingCell()
 @property (nonatomic,strong) UIImageView *leftimg;
 @property (nonatomic,strong) UIView *bgview;
-
-
 @property (nonatomic,strong) UIButton *setBtn;
-
+@property (nonatomic,strong) weddinglistModel *wmodel;
 @end
 
 @implementation weddingCell
@@ -143,8 +142,14 @@
     return _setBtn;
 }
 
-
-
+-(void)setdata:(weddinglistModel *)model
+{
+    self.wmodel = model;
+    [self.leftimg sd_setImageWithURL:[NSURL URLWithString:model.goods_info_img] placeholderImage:[UIImage imageNamed:@"tanchaung"]];
+    self.typelab.text = model.name;
+    self.pricelab.text = model.money;
+    self.contentlab.text = model.goods_jianjie;
+}
 
 
 

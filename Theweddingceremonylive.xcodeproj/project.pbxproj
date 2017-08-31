@@ -229,6 +229,7 @@
 		53CC9AA91F57F74C0077CCF6 /* feedbackVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53CC9AA81F57F74C0077CCF6 /* feedbackVC.m */; };
 		53CC9AAC1F57F76F0077CCF6 /* userprotocolVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53CC9AAB1F57F76F0077CCF6 /* userprotocolVC.m */; };
 		53CC9AAF1F57F78B0077CCF6 /* guanyuusVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53CC9AAE1F57F78B0077CCF6 /* guanyuusVC.m */; };
+		53CC9AB21F580AD60077CCF6 /* weddinglistModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 53CC9AB11F580AD60077CCF6 /* weddinglistModel.m */; };
 		53D02F3F1F3B1B5600CD504C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F3E1F3B1B5600CD504C /* main.m */; };
 		53D02F421F3B1B5600CD504C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F411F3B1B5600CD504C /* AppDelegate.m */; };
 		53D02F481F3B1B5600CD504C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53D02F461F3B1B5600CD504C /* Main.storyboard */; };
@@ -680,6 +681,8 @@
 		53CC9AAB1F57F76F0077CCF6 /* userprotocolVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = userprotocolVC.m; sourceTree = "<group>"; };
 		53CC9AAD1F57F78B0077CCF6 /* guanyuusVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guanyuusVC.h; sourceTree = "<group>"; };
 		53CC9AAE1F57F78B0077CCF6 /* guanyuusVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = guanyuusVC.m; sourceTree = "<group>"; };
+		53CC9AB01F580AD60077CCF6 /* weddinglistModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = weddinglistModel.h; path = "Theweddingceremonylive/我的/关于我们/controller/weddinglistModel.h"; sourceTree = SOURCE_ROOT; };
+		53CC9AB11F580AD60077CCF6 /* weddinglistModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = weddinglistModel.m; path = "Theweddingceremonylive/我的/关于我们/controller/weddinglistModel.m"; sourceTree = SOURCE_ROOT; };
 		53D02F3A1F3B1B5600CD504C /* Theweddingceremonylive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Theweddingceremonylive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53D02F3E1F3B1B5600CD504C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		53D02F401F3B1B5600CD504C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -2129,6 +2132,8 @@
 		53D02F991F3BF9DD00CD504C /* M */ = {
 			isa = PBXGroup;
 			children = (
+				53CC9AB01F580AD60077CCF6 /* weddinglistModel.h */,
+				53CC9AB11F580AD60077CCF6 /* weddinglistModel.m */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -2388,12 +2393,7 @@
 				1831DBE21F4D514200155691 /* LiebiaoCell.xib in Resources */,
 				1853D94F1F5040D400980936 /* infoCell.xib in Resources */,
 				182E81111F418C3200720AA4 /* FastForwardView.xib in Resources */,
-
 				18F9374F1F57FBFE00B267C0 /* PortraitFullMaskView.xib in Resources */,
-				53CC9A491F57E4FA0077CCF6 /* LSSwitchModuleVideoCameraPositionBlock.html in Resources */,
-				53CC9A591F57E4FA0077CCF6 /* hierarchy.html in Resources */,
-
-
 				1831DBD51F4D281B00155691 /* NvWaCell.xib in Resources */,
 				1847DED81F3C5A5F00C796A8 /* LiveVideoCell.xib in Resources */,
 				1845AEA41F469E0B002EAD47 /* BannerView.xib in Resources */,
@@ -2691,6 +2691,7 @@
 				53D02F421F3B1B5600CD504C /* AppDelegate.m in Sources */,
 				53D85CBD1F514AEC00EF0555 /* weddingCell.m in Sources */,
 				1831DBE11F4D514200155691 /* LiebiaoCell.m in Sources */,
+				53CC9AB21F580AD60077CCF6 /* weddinglistModel.m in Sources */,
 				53CC998F1F57C0220077CCF6 /* CustomerserviceVC.m in Sources */,
 				53CC98CF1F5420000077CCF6 /* PZXVerificationTextField.m in Sources */,
 				1851F41D1F3D843E00369326 /* NSObject+Parse.m in Sources */,

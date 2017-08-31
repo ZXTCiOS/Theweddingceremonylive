@@ -23,6 +23,7 @@
 @property (nonatomic,strong) UILabel *pricelab;
 @property (nonatomic,strong) UIButton *submitBtn;
 
+
 @end
 
 @implementation weddingPayVC

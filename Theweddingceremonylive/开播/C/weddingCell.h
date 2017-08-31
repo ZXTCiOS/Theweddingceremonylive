@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+@class weddinglistModel;
 
 @interface weddingCell : UITableViewCell
 @property (nonatomic,strong) UILabel *typelab;
 @property (nonatomic,strong) UILabel *pricelab;
 @property (nonatomic,strong) UILabel *contentlab;
+
+-(void)setdata:(weddinglistModel *)model;
 @end

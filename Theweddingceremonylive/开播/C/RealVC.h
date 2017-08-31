@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RealVC : UIViewController
+@interface RealVC : BaseViewController
 
 @end

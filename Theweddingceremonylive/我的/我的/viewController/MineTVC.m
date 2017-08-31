@@ -290,14 +290,28 @@ static NSString *mineidentfid2 = @"mineidentfid2";
     }
     if (indexPath.section==2) {
         NSLog(@"退出登录");
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:user_token];
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:user_uid];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        UINavigationController *navcon = [[UINavigationController alloc] init];
-        LoginVC *vc = [[LoginVC alloc] init];
-        navcon.viewControllers = @[vc];
-        appDelegate.window.rootViewController = navcon;
+        
+        UIAlertController *control = [UIAlertController alertControllerWithTitle:@"提示" message:@"确定要退出登录吗" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *action0 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"缺点" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:user_token];
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:user_uid];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+            UINavigationController *navcon = [[UINavigationController alloc] init];
+            LoginVC *vc = [[LoginVC alloc] init];
+            navcon.viewControllers = @[vc];
+            appDelegate.window.rootViewController = navcon;
+            
+        }];
+        
+        [control addAction:action0];
+        [control addAction:action1];
+        [self presentViewController:control animated:YES completion:nil];
+    
     }
 }
 

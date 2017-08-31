@@ -63,6 +63,10 @@
 #define post_sendmestouser  @"/interface.php/Home/Bbs/sendmestouser"
 
 
-//用户留言
-#define post_yijian         @"/zhibo2/interface.php/Home/yijian/yijian"
+//预约房间
+#define post_orderup        @"/interface.php/Home/orderup/index"
+//下单商品列表
+#define post_goodslist      @"/interface.php/Home/orderup/goodslist"
+//获得商品信息
+#define post_getgoodsinfo   @"/interface.php/Home/orderup/getgoodsinfo"
 #endif /* wangHeader_h */
