@@ -203,42 +203,22 @@
 		53CC9A101F57E0C50077CCF6 /* libNELivePlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53CC9A0C1F57E0C50077CCF6 /* libNELivePlayer.a */; };
 		53CC9A111F57E0C50077CCF6 /* libNMCBasicModule.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53CC9A0D1F57E0C50077CCF6 /* libNMCBasicModule.a */; };
 		53CC9A121F57E0C50077CCF6 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53CC9A0E1F57E0C50077CCF6 /* libssl.a */; };
-		53CC9A481F57E4FA0077CCF6 /* LSFrameCaptureCompletionBlock.html in Resources */ = {isa = PBXBuildFile; fileRef = 53CC9A161F57E4FA0077CCF6 /* LSFrameCaptureCompletionBlock.html */; };
-		53CC9A491F57E4FA0077CCF6 /* LSSwitchModuleVideoCameraPositionBlock.html in Resources */ = {isa = PBXBuildFile; fileRef = 53CC9A171F57E4FA0077CCF6 /* LSSwitchModuleVideoCameraPositionBlock.html */; };
-		53CC9A4A1F57E4FA0077CCF6 /* LSVideoStreamingQualityBlock.html in Resources */ = {isa = PBXBuildFile; fileRef = 53CC9A181F57E4FA0077CCF6 /* LSVideoStreamingQualityBlock.html */; };
-		53CC9A4B1F57E4FA0077CCF6 /* LSAudioParaCtxConfiguration.html in Resources */ = {isa = PBXBuildFile; fileRef = 53CC9A1A1F57E4FA0077CCF6 /* LSAudioParaCtxConfiguration.html */; };
-		53CC9A4C1F57E4FA0077CCF6 /* LSLiveStreamingParaCtxConfiguration.html in Resources */ = {isa = PBXBuildFile; fileRef = 53CC9A1B1F57E4FA0077CCF6 /* LSLiveStreamingParaCtxConfiguration.html */; };
-		53CC9A4D1F57E4FA0077CCF6 /* LSMediaCapture.html in Resources */ = {isa = PBXBuildFile; fileRef = 53CC9A1C1F57E4FA0077CCF6 /* LSMediaCapture.html */; };
-		53CC9A4E1F57E4FA0077CCF6 /* LSVideoParaCtxConfiguration.html in Resources */ = {isa = PBXBuildFile; fileRef = 53CC9A1D1F57E4FA0077CCF6 /* LSVideoParaCtxConfiguration.html */; };
-		53CC9A4F1F57E4FA0077CCF6 /* LSVideoParamQuality.html in Resources */ = {isa = PBXBuildFile; fileRef = 53CC9A1F1F57E4FA0077CCF6 /* LSVideoParamQuality.html */; };
-		53CC9A501F57E4FA0077CCF6 /* _index.scss in Resources */ = {isa = PBXBuildFile; fileRef = 53CC9A221F57E4FA0077CCF6 /* _index.scss */; };
-		53CC9A511F57E4FA0077CCF6 /* _layout.scss in Resources */ = {isa = PBXBuildFile; fileRef = 53CC9A231F57E4FA0077CCF6 /* _layout.scss */; };
-		53CC9A521F57E4FA0077CCF6 /* _normalize.scss in Resources */ = {isa = PBXBuildFile; fileRef = 53CC9A241F57E4FA0077CCF6 /* _normalize.scss */; };
-		53CC9A531F57E4FA0077CCF6 /* _object.scss in Resources */ = {isa = PBXBuildFile; fileRef = 53CC9A251F57E4FA0077CCF6 /* _object.scss */; };
-		53CC9A541F57E4FA0077CCF6 /* _print.scss in Resources */ = {isa = PBXBuildFile; fileRef = 53CC9A261F57E4FA0077CCF6 /* _print.scss */; };
-		53CC9A551F57E4FA0077CCF6 /* _variables.scss in Resources */ = {isa = PBXBuildFile; fileRef = 53CC9A271F57E4FA0077CCF6 /* _variables.scss */; };
-		53CC9A561F57E4FA0077CCF6 /* _xcode.scss in Resources */ = {isa = PBXBuildFile; fileRef = 53CC9A281F57E4FA0077CCF6 /* _xcode.scss */; };
-		53CC9A571F57E4FA0077CCF6 /* style.scss in Resources */ = {isa = PBXBuildFile; fileRef = 53CC9A291F57E4FA0077CCF6 /* style.scss */; };
-		53CC9A581F57E4FA0077CCF6 /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 53CC9A2A1F57E4FA0077CCF6 /* style.css */; };
-		53CC9A591F57E4FA0077CCF6 /* hierarchy.html in Resources */ = {isa = PBXBuildFile; fileRef = 53CC9A2B1F57E4FA0077CCF6 /* hierarchy.html */; };
-		53CC9A5A1F57E4FA0077CCF6 /* button_bar_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 53CC9A2D1F57E4FA0077CCF6 /* button_bar_background.png */; };
-		53CC9A5B1F57E4FA0077CCF6 /* disclosure.png in Resources */ = {isa = PBXBuildFile; fileRef = 53CC9A2E1F57E4FA0077CCF6 /* disclosure.png */; };
-		53CC9A5C1F57E4FB0077CCF6 /* disclosure_open.png in Resources */ = {isa = PBXBuildFile; fileRef = 53CC9A2F1F57E4FA0077CCF6 /* disclosure_open.png */; };
-		53CC9A5D1F57E4FB0077CCF6 /* library_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 53CC9A301F57E4FA0077CCF6 /* library_background.png */; };
-		53CC9A5E1F57E4FB0077CCF6 /* title_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 53CC9A311F57E4FA0077CCF6 /* title_background.png */; };
-		53CC9A5F1F57E4FB0077CCF6 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 53CC9A321F57E4FA0077CCF6 /* index.html */; };
-		53CC9A601F57E4FB0077CCF6 /* script.js in Resources */ = {isa = PBXBuildFile; fileRef = 53CC9A341F57E4FA0077CCF6 /* script.js */; };
-		53CC9A611F57E4FB0077CCF6 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53CC9A3D1F57E4FA0077CCF6 /* libcrypto.a */; };
-		53CC9A621F57E4FB0077CCF6 /* libfdk-aac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53CC9A3E1F57E4FA0077CCF6 /* libfdk-aac.a */; };
-		53CC9A631F57E4FB0077CCF6 /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53CC9A3F1F57E4FA0077CCF6 /* libGPUImage.a */; };
-		53CC9A641F57E4FB0077CCF6 /* libLSMediaCapture.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53CC9A401F57E4FA0077CCF6 /* libLSMediaCapture.a */; };
-		53CC9A651F57E4FB0077CCF6 /* libNMCBasicModule.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53CC9A411F57E4FA0077CCF6 /* libNMCBasicModule.a */; };
-		53CC9A661F57E4FB0077CCF6 /* libNMCVideoModule.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53CC9A421F57E4FA0077CCF6 /* libNMCVideoModule.a */; };
-		53CC9A671F57E4FB0077CCF6 /* libopenh264.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53CC9A431F57E4FA0077CCF6 /* libopenh264.a */; };
-		53CC9A681F57E4FB0077CCF6 /* librtmp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53CC9A441F57E4FA0077CCF6 /* librtmp.a */; };
-		53CC9A691F57E4FB0077CCF6 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53CC9A451F57E4FA0077CCF6 /* libssl.a */; };
-		53CC9A6A1F57E4FB0077CCF6 /* libyuv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53CC9A461F57E4FA0077CCF6 /* libyuv.a */; };
-		53CC9A6B1F57E4FB0077CCF6 /* NMCVideoFilter.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 53CC9A471F57E4FA0077CCF6 /* NMCVideoFilter.bundle */; };
+		53CC9A801F57F0520077CCF6 /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53CC9A6F1F57F0520077CCF6 /* libGPUImage.a */; };
+		53CC9A811F57F0520077CCF6 /* libnio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53CC9A701F57F0520077CCF6 /* libnio.a */; };
+		53CC9A821F57F0520077CCF6 /* libNMCVideoModule.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53CC9A711F57F0520077CCF6 /* libNMCVideoModule.a */; };
+		53CC9A831F57F0520077CCF6 /* libnts.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53CC9A721F57F0520077CCF6 /* libnts.a */; };
+		53CC9A841F57F0520077CCF6 /* libnvs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53CC9A731F57F0520077CCF6 /* libnvs.a */; };
+		53CC9A851F57F0520077CCF6 /* libopenh264.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53CC9A741F57F0520077CCF6 /* libopenh264.a */; };
+		53CC9A861F57F0520077CCF6 /* libopus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53CC9A751F57F0520077CCF6 /* libopus.a */; };
+		53CC9A871F57F0520077CCF6 /* NIMAVChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53CC9A761F57F0520077CCF6 /* NIMAVChat.framework */; };
+		53CC9A881F57F0520077CCF6 /* NMCVideoFilter.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 53CC9A781F57F0520077CCF6 /* NMCVideoFilter.bundle */; };
+		53CC9A891F57F0520077CCF6 /* libaacplus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53CC9A7B1F57F0520077CCF6 /* libaacplus.a */; };
+		53CC9A8A1F57F0520077CCF6 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53CC9A7C1F57F0520077CCF6 /* libcrypto.a */; };
+		53CC9A8B1F57F0520077CCF6 /* libevent.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53CC9A7D1F57F0520077CCF6 /* libevent.a */; };
+		53CC9A8C1F57F0520077CCF6 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53CC9A7E1F57F0520077CCF6 /* libssl.a */; };
+		53CC9A8D1F57F0520077CCF6 /* NIMSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53CC9A7F1F57F0520077CCF6 /* NIMSDK.framework */; };
+		53CC9A8F1F57F12F0077CCF6 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53CC9A8E1F57F12F0077CCF6 /* MobileCoreServices.framework */; };
+		53CC9A911F57F1620077CCF6 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 53CC9A901F57F1620077CCF6 /* libsqlite3.0.tbd */; };
 		53D02F3F1F3B1B5600CD504C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F3E1F3B1B5600CD504C /* main.m */; };
 		53D02F421F3B1B5600CD504C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F411F3B1B5600CD504C /* AppDelegate.m */; };
 		53D02F481F3B1B5600CD504C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53D02F461F3B1B5600CD504C /* Main.storyboard */; };
@@ -655,48 +635,22 @@
 		53CC9A0C1F57E0C50077CCF6 /* libNELivePlayer.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNELivePlayer.a; sourceTree = "<group>"; };
 		53CC9A0D1F57E0C50077CCF6 /* libNMCBasicModule.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNMCBasicModule.a; sourceTree = "<group>"; };
 		53CC9A0E1F57E0C50077CCF6 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
-		53CC9A161F57E4FA0077CCF6 /* LSFrameCaptureCompletionBlock.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = LSFrameCaptureCompletionBlock.html; sourceTree = "<group>"; };
-		53CC9A171F57E4FA0077CCF6 /* LSSwitchModuleVideoCameraPositionBlock.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = LSSwitchModuleVideoCameraPositionBlock.html; sourceTree = "<group>"; };
-		53CC9A181F57E4FA0077CCF6 /* LSVideoStreamingQualityBlock.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = LSVideoStreamingQualityBlock.html; sourceTree = "<group>"; };
-		53CC9A1A1F57E4FA0077CCF6 /* LSAudioParaCtxConfiguration.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = LSAudioParaCtxConfiguration.html; sourceTree = "<group>"; };
-		53CC9A1B1F57E4FA0077CCF6 /* LSLiveStreamingParaCtxConfiguration.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = LSLiveStreamingParaCtxConfiguration.html; sourceTree = "<group>"; };
-		53CC9A1C1F57E4FA0077CCF6 /* LSMediaCapture.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = LSMediaCapture.html; sourceTree = "<group>"; };
-		53CC9A1D1F57E4FA0077CCF6 /* LSVideoParaCtxConfiguration.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = LSVideoParaCtxConfiguration.html; sourceTree = "<group>"; };
-		53CC9A1F1F57E4FA0077CCF6 /* LSVideoParamQuality.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = LSVideoParamQuality.html; sourceTree = "<group>"; };
-		53CC9A221F57E4FA0077CCF6 /* _index.scss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = _index.scss; sourceTree = "<group>"; };
-		53CC9A231F57E4FA0077CCF6 /* _layout.scss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = _layout.scss; sourceTree = "<group>"; };
-		53CC9A241F57E4FA0077CCF6 /* _normalize.scss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = _normalize.scss; sourceTree = "<group>"; };
-		53CC9A251F57E4FA0077CCF6 /* _object.scss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = _object.scss; sourceTree = "<group>"; };
-		53CC9A261F57E4FA0077CCF6 /* _print.scss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = _print.scss; sourceTree = "<group>"; };
-		53CC9A271F57E4FA0077CCF6 /* _variables.scss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = _variables.scss; sourceTree = "<group>"; };
-		53CC9A281F57E4FA0077CCF6 /* _xcode.scss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = _xcode.scss; sourceTree = "<group>"; };
-		53CC9A291F57E4FA0077CCF6 /* style.scss */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = style.scss; sourceTree = "<group>"; };
-		53CC9A2A1F57E4FA0077CCF6 /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
-		53CC9A2B1F57E4FA0077CCF6 /* hierarchy.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = hierarchy.html; sourceTree = "<group>"; };
-		53CC9A2D1F57E4FA0077CCF6 /* button_bar_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_bar_background.png; sourceTree = "<group>"; };
-		53CC9A2E1F57E4FA0077CCF6 /* disclosure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = disclosure.png; sourceTree = "<group>"; };
-		53CC9A2F1F57E4FA0077CCF6 /* disclosure_open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = disclosure_open.png; sourceTree = "<group>"; };
-		53CC9A301F57E4FA0077CCF6 /* library_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = library_background.png; sourceTree = "<group>"; };
-		53CC9A311F57E4FA0077CCF6 /* title_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = title_background.png; sourceTree = "<group>"; };
-		53CC9A321F57E4FA0077CCF6 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
-		53CC9A341F57E4FA0077CCF6 /* script.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = script.js; sourceTree = "<group>"; };
-		53CC9A361F57E4FA0077CCF6 /* LiveStreaming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveStreaming.h; sourceTree = "<group>"; };
-		53CC9A371F57E4FA0077CCF6 /* LSAudioParaCtxConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSAudioParaCtxConfiguration.h; sourceTree = "<group>"; };
-		53CC9A381F57E4FA0077CCF6 /* LSLiveStreamingParaCtxConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSLiveStreamingParaCtxConfiguration.h; sourceTree = "<group>"; };
-		53CC9A391F57E4FA0077CCF6 /* LSMediaCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSMediaCapture.h; sourceTree = "<group>"; };
-		53CC9A3A1F57E4FA0077CCF6 /* LSVideoParaCtxConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSVideoParaCtxConfiguration.h; sourceTree = "<group>"; };
-		53CC9A3B1F57E4FA0077CCF6 /* nMediaLiveStreamingDefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nMediaLiveStreamingDefs.h; sourceTree = "<group>"; };
-		53CC9A3D1F57E4FA0077CCF6 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
-		53CC9A3E1F57E4FA0077CCF6 /* libfdk-aac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libfdk-aac.a"; sourceTree = "<group>"; };
-		53CC9A3F1F57E4FA0077CCF6 /* libGPUImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGPUImage.a; sourceTree = "<group>"; };
-		53CC9A401F57E4FA0077CCF6 /* libLSMediaCapture.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libLSMediaCapture.a; sourceTree = "<group>"; };
-		53CC9A411F57E4FA0077CCF6 /* libNMCBasicModule.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNMCBasicModule.a; sourceTree = "<group>"; };
-		53CC9A421F57E4FA0077CCF6 /* libNMCVideoModule.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNMCVideoModule.a; sourceTree = "<group>"; };
-		53CC9A431F57E4FA0077CCF6 /* libopenh264.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libopenh264.a; sourceTree = "<group>"; };
-		53CC9A441F57E4FA0077CCF6 /* librtmp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = librtmp.a; sourceTree = "<group>"; };
-		53CC9A451F57E4FA0077CCF6 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
-		53CC9A461F57E4FA0077CCF6 /* libyuv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libyuv.a; sourceTree = "<group>"; };
-		53CC9A471F57E4FA0077CCF6 /* NMCVideoFilter.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = NMCVideoFilter.bundle; sourceTree = "<group>"; };
+		53CC9A6F1F57F0520077CCF6 /* libGPUImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGPUImage.a; sourceTree = "<group>"; };
+		53CC9A701F57F0520077CCF6 /* libnio.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libnio.a; sourceTree = "<group>"; };
+		53CC9A711F57F0520077CCF6 /* libNMCVideoModule.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNMCVideoModule.a; sourceTree = "<group>"; };
+		53CC9A721F57F0520077CCF6 /* libnts.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libnts.a; sourceTree = "<group>"; };
+		53CC9A731F57F0520077CCF6 /* libnvs.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libnvs.a; sourceTree = "<group>"; };
+		53CC9A741F57F0520077CCF6 /* libopenh264.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libopenh264.a; sourceTree = "<group>"; };
+		53CC9A751F57F0520077CCF6 /* libopus.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libopus.a; sourceTree = "<group>"; };
+		53CC9A761F57F0520077CCF6 /* NIMAVChat.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NIMAVChat.framework; sourceTree = "<group>"; };
+		53CC9A781F57F0520077CCF6 /* NMCVideoFilter.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = NMCVideoFilter.bundle; sourceTree = "<group>"; };
+		53CC9A7B1F57F0520077CCF6 /* libaacplus.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libaacplus.a; sourceTree = "<group>"; };
+		53CC9A7C1F57F0520077CCF6 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
+		53CC9A7D1F57F0520077CCF6 /* libevent.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libevent.a; sourceTree = "<group>"; };
+		53CC9A7E1F57F0520077CCF6 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
+		53CC9A7F1F57F0520077CCF6 /* NIMSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NIMSDK.framework; sourceTree = "<group>"; };
+		53CC9A8E1F57F12F0077CCF6 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		53CC9A901F57F1620077CCF6 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		53D02F3A1F3B1B5600CD504C /* Theweddingceremonylive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Theweddingceremonylive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53D02F3E1F3B1B5600CD504C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		53D02F401F3B1B5600CD504C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -784,43 +738,48 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53CC9A911F57F1620077CCF6 /* libsqlite3.0.tbd in Frameworks */,
+				53CC995D1F56C4E60077CCF6 /* libc++.tbd in Frameworks */,
+				53CC996E1F56C6AB0077CCF6 /* CoreTelephony.framework in Frameworks */,
+				53CC99881F56C72D0077CCF6 /* AVFoundation.framework in Frameworks */,
+				53CC996C1F56C6960077CCF6 /* SystemConfiguration.framework in Frameworks */,
+				53CC9A8F1F57F12F0077CCF6 /* MobileCoreServices.framework in Frameworks */,
 				53CC995F1F56C4EF0077CCF6 /* libresolv.tbd in Frameworks */,
+				53CC9A831F57F0520077CCF6 /* libnts.a in Frameworks */,
 				53CC998C1F56C7430077CCF6 /* UIKit.framework in Frameworks */,
+				53CC9A821F57F0520077CCF6 /* libNMCVideoModule.a in Frameworks */,
+				53CC9A811F57F0520077CCF6 /* libnio.a in Frameworks */,
+				53CC9A841F57F0520077CCF6 /* libnvs.a in Frameworks */,
 				53CC998A1F56C73C0077CCF6 /* AudioToolbox.framework in Frameworks */,
 				53CC99571F56C4C50077CCF6 /* VideoToolbox.framework in Frameworks */,
-				53CC99881F56C72D0077CCF6 /* AVFoundation.framework in Frameworks */,
-				53CC9A681F57E4FB0077CCF6 /* librtmp.a in Frameworks */,
 				53CC99861F56C7240077CCF6 /* CoreMedia.framework in Frameworks */,
-				53CC9A611F57E4FB0077CCF6 /* libcrypto.a in Frameworks */,
 				53CC99841F56C71D0077CCF6 /* CoreGraphics.framework in Frameworks */,
+				53CC9A8C1F57F0520077CCF6 /* libssl.a in Frameworks */,
 				53CC99821F56C7150077CCF6 /* CoreVideo.framework in Frameworks */,
 				53CC99801F56C70E0077CCF6 /* CoreAudio.framework in Frameworks */,
 				53CC997E1F56C7050077CCF6 /* QuartzCore.framework in Frameworks */,
+				53CC9A801F57F0520077CCF6 /* libGPUImage.a in Frameworks */,
 				53CC997C1F56C6FD0077CCF6 /* OpenGLES.framework in Frameworks */,
-				53CC9A641F57E4FB0077CCF6 /* libLSMediaCapture.a in Frameworks */,
 				53CC997A1F56C6F30077CCF6 /* Foundation.framework in Frameworks */,
+				53CC9A8D1F57F0520077CCF6 /* NIMSDK.framework in Frameworks */,
 				53CC99781F56C6EA0077CCF6 /* libiconv.tbd in Frameworks */,
 				53CC99761F56C6E00077CCF6 /* libstdc++.tbd in Frameworks */,
+				53CC9A891F57F0520077CCF6 /* libaacplus.a in Frameworks */,
 				53CC99741F56C6D30077CCF6 /* libbz2.tbd in Frameworks */,
+				53CC9A861F57F0520077CCF6 /* libopus.a in Frameworks */,
+				53CC9A8B1F57F0520077CCF6 /* libevent.a in Frameworks */,
 				53CC99721F56C6C40077CCF6 /* libz.tbd in Frameworks */,
 				53CC995B1F56C4D80077CCF6 /* libsqlite3.tbd in Frameworks */,
-				53CC9A691F57E4FB0077CCF6 /* libssl.a in Frameworks */,
-				53CC9A621F57E4FB0077CCF6 /* libfdk-aac.a in Frameworks */,
+				53CC9A8A1F57F0520077CCF6 /* libcrypto.a in Frameworks */,
 				53CC99701F56C6B30077CCF6 /* CFNetwork.framework in Frameworks */,
-				53CC9A6A1F57E4FB0077CCF6 /* libyuv.a in Frameworks */,
-				53CC9A671F57E4FB0077CCF6 /* libopenh264.a in Frameworks */,
-				53CC996E1F56C6AB0077CCF6 /* CoreTelephony.framework in Frameworks */,
-				53CC996C1F56C6960077CCF6 /* SystemConfiguration.framework in Frameworks */,
+				53CC9A871F57F0520077CCF6 /* NIMAVChat.framework in Frameworks */,
 				53CC9A0F1F57E0C50077CCF6 /* libcrypto.a in Frameworks */,
 				53CC9A101F57E0C50077CCF6 /* libNELivePlayer.a in Frameworks */,
-				53CC995D1F56C4E60077CCF6 /* libc++.tbd in Frameworks */,
 				53CC99591F56C4CF0077CCF6 /* libz.1.tbd in Frameworks */,
 				53CC9A121F57E0C50077CCF6 /* libssl.a in Frameworks */,
 				53CC9A111F57E0C50077CCF6 /* libNMCBasicModule.a in Frameworks */,
-				53CC9A661F57E4FB0077CCF6 /* libNMCVideoModule.a in Frameworks */,
-				53CC9A631F57E4FB0077CCF6 /* libGPUImage.a in Frameworks */,
 				D6152237534C23F4F781B71E /* libPods-Theweddingceremonylive.a in Frameworks */,
-				53CC9A651F57E4FB0077CCF6 /* libNMCBasicModule.a in Frameworks */,
+				53CC9A851F57F0520077CCF6 /* libopenh264.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1642,7 +1601,7 @@
 		53CC98FC1F56C4930077CCF6 /* 直播sdk */ = {
 			isa = PBXGroup;
 			children = (
-				53CC9A131F57E4FA0077CCF6 /* LiveStreaming_iOS_SDK_V2.1.0 */,
+				53CC9A6C1F57F0520077CCF6 /* NIM_iOS_SDK_v4 */,
 				53CC9A061F57E0C50077CCF6 /* LivePlayer_iOS_SDK_v1.3.0 */,
 			);
 			path = "直播sdk";
@@ -1677,133 +1636,65 @@
 			path = libs;
 			sourceTree = "<group>";
 		};
-		53CC9A131F57E4FA0077CCF6 /* LiveStreaming_iOS_SDK_V2.1.0 */ = {
+		53CC9A6C1F57F0520077CCF6 /* NIM_iOS_SDK_v4 */ = {
 			isa = PBXGroup;
 			children = (
-				53CC9A141F57E4FA0077CCF6 /* docs */,
-				53CC9A351F57E4FA0077CCF6 /* include */,
-				53CC9A3C1F57E4FA0077CCF6 /* libs */,
+				53CC9A6D1F57F0520077CCF6 /* NIMAVChat */,
+				53CC9A791F57F0520077CCF6 /* NIMSDK */,
 			);
-			path = LiveStreaming_iOS_SDK_V2.1.0;
+			path = NIM_iOS_SDK_v4;
 			sourceTree = "<group>";
 		};
-		53CC9A141F57E4FA0077CCF6 /* docs */ = {
+		53CC9A6D1F57F0520077CCF6 /* NIMAVChat */ = {
 			isa = PBXGroup;
 			children = (
-				53CC9A151F57E4FA0077CCF6 /* Blocks */,
-				53CC9A191F57E4FA0077CCF6 /* Classes */,
-				53CC9A1E1F57E4FA0077CCF6 /* Constants */,
-				53CC9A201F57E4FA0077CCF6 /* css */,
-				53CC9A2B1F57E4FA0077CCF6 /* hierarchy.html */,
-				53CC9A2C1F57E4FA0077CCF6 /* img */,
-				53CC9A321F57E4FA0077CCF6 /* index.html */,
-				53CC9A331F57E4FA0077CCF6 /* js */,
+				53CC9A6E1F57F0520077CCF6 /* Libs */,
+				53CC9A761F57F0520077CCF6 /* NIMAVChat.framework */,
+				53CC9A771F57F0520077CCF6 /* Resources */,
 			);
-			path = docs;
+			path = NIMAVChat;
 			sourceTree = "<group>";
 		};
-		53CC9A151F57E4FA0077CCF6 /* Blocks */ = {
+		53CC9A6E1F57F0520077CCF6 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
-				53CC9A161F57E4FA0077CCF6 /* LSFrameCaptureCompletionBlock.html */,
-				53CC9A171F57E4FA0077CCF6 /* LSSwitchModuleVideoCameraPositionBlock.html */,
-				53CC9A181F57E4FA0077CCF6 /* LSVideoStreamingQualityBlock.html */,
+				53CC9A6F1F57F0520077CCF6 /* libGPUImage.a */,
+				53CC9A701F57F0520077CCF6 /* libnio.a */,
+				53CC9A711F57F0520077CCF6 /* libNMCVideoModule.a */,
+				53CC9A721F57F0520077CCF6 /* libnts.a */,
+				53CC9A731F57F0520077CCF6 /* libnvs.a */,
+				53CC9A741F57F0520077CCF6 /* libopenh264.a */,
+				53CC9A751F57F0520077CCF6 /* libopus.a */,
 			);
-			path = Blocks;
+			path = Libs;
 			sourceTree = "<group>";
 		};
-		53CC9A191F57E4FA0077CCF6 /* Classes */ = {
+		53CC9A771F57F0520077CCF6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				53CC9A1A1F57E4FA0077CCF6 /* LSAudioParaCtxConfiguration.html */,
-				53CC9A1B1F57E4FA0077CCF6 /* LSLiveStreamingParaCtxConfiguration.html */,
-				53CC9A1C1F57E4FA0077CCF6 /* LSMediaCapture.html */,
-				53CC9A1D1F57E4FA0077CCF6 /* LSVideoParaCtxConfiguration.html */,
+				53CC9A781F57F0520077CCF6 /* NMCVideoFilter.bundle */,
 			);
-			path = Classes;
+			path = Resources;
 			sourceTree = "<group>";
 		};
-		53CC9A1E1F57E4FA0077CCF6 /* Constants */ = {
+		53CC9A791F57F0520077CCF6 /* NIMSDK */ = {
 			isa = PBXGroup;
 			children = (
-				53CC9A1F1F57E4FA0077CCF6 /* LSVideoParamQuality.html */,
+				53CC9A7A1F57F0520077CCF6 /* Libs */,
+				53CC9A7F1F57F0520077CCF6 /* NIMSDK.framework */,
 			);
-			path = Constants;
+			path = NIMSDK;
 			sourceTree = "<group>";
 		};
-		53CC9A201F57E4FA0077CCF6 /* css */ = {
+		53CC9A7A1F57F0520077CCF6 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
-				53CC9A211F57E4FA0077CCF6 /* scss */,
-				53CC9A2A1F57E4FA0077CCF6 /* style.css */,
+				53CC9A7B1F57F0520077CCF6 /* libaacplus.a */,
+				53CC9A7C1F57F0520077CCF6 /* libcrypto.a */,
+				53CC9A7D1F57F0520077CCF6 /* libevent.a */,
+				53CC9A7E1F57F0520077CCF6 /* libssl.a */,
 			);
-			path = css;
-			sourceTree = "<group>";
-		};
-		53CC9A211F57E4FA0077CCF6 /* scss */ = {
-			isa = PBXGroup;
-			children = (
-				53CC9A221F57E4FA0077CCF6 /* _index.scss */,
-				53CC9A231F57E4FA0077CCF6 /* _layout.scss */,
-				53CC9A241F57E4FA0077CCF6 /* _normalize.scss */,
-				53CC9A251F57E4FA0077CCF6 /* _object.scss */,
-				53CC9A261F57E4FA0077CCF6 /* _print.scss */,
-				53CC9A271F57E4FA0077CCF6 /* _variables.scss */,
-				53CC9A281F57E4FA0077CCF6 /* _xcode.scss */,
-				53CC9A291F57E4FA0077CCF6 /* style.scss */,
-			);
-			path = scss;
-			sourceTree = "<group>";
-		};
-		53CC9A2C1F57E4FA0077CCF6 /* img */ = {
-			isa = PBXGroup;
-			children = (
-				53CC9A2D1F57E4FA0077CCF6 /* button_bar_background.png */,
-				53CC9A2E1F57E4FA0077CCF6 /* disclosure.png */,
-				53CC9A2F1F57E4FA0077CCF6 /* disclosure_open.png */,
-				53CC9A301F57E4FA0077CCF6 /* library_background.png */,
-				53CC9A311F57E4FA0077CCF6 /* title_background.png */,
-			);
-			path = img;
-			sourceTree = "<group>";
-		};
-		53CC9A331F57E4FA0077CCF6 /* js */ = {
-			isa = PBXGroup;
-			children = (
-				53CC9A341F57E4FA0077CCF6 /* script.js */,
-			);
-			path = js;
-			sourceTree = "<group>";
-		};
-		53CC9A351F57E4FA0077CCF6 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				53CC9A361F57E4FA0077CCF6 /* LiveStreaming.h */,
-				53CC9A371F57E4FA0077CCF6 /* LSAudioParaCtxConfiguration.h */,
-				53CC9A381F57E4FA0077CCF6 /* LSLiveStreamingParaCtxConfiguration.h */,
-				53CC9A391F57E4FA0077CCF6 /* LSMediaCapture.h */,
-				53CC9A3A1F57E4FA0077CCF6 /* LSVideoParaCtxConfiguration.h */,
-				53CC9A3B1F57E4FA0077CCF6 /* nMediaLiveStreamingDefs.h */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		53CC9A3C1F57E4FA0077CCF6 /* libs */ = {
-			isa = PBXGroup;
-			children = (
-				53CC9A3D1F57E4FA0077CCF6 /* libcrypto.a */,
-				53CC9A3E1F57E4FA0077CCF6 /* libfdk-aac.a */,
-				53CC9A3F1F57E4FA0077CCF6 /* libGPUImage.a */,
-				53CC9A401F57E4FA0077CCF6 /* libLSMediaCapture.a */,
-				53CC9A411F57E4FA0077CCF6 /* libNMCBasicModule.a */,
-				53CC9A421F57E4FA0077CCF6 /* libNMCVideoModule.a */,
-				53CC9A431F57E4FA0077CCF6 /* libopenh264.a */,
-				53CC9A441F57E4FA0077CCF6 /* librtmp.a */,
-				53CC9A451F57E4FA0077CCF6 /* libssl.a */,
-				53CC9A461F57E4FA0077CCF6 /* libyuv.a */,
-				53CC9A471F57E4FA0077CCF6 /* NMCVideoFilter.bundle */,
-			);
-			path = libs;
+			path = Libs;
 			sourceTree = "<group>";
 		};
 		53D02F311F3B1B5600CD504C = {
@@ -2256,6 +2147,8 @@
 		DB49F4094154EE705C0CEC6F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				53CC9A901F57F1620077CCF6 /* libsqlite3.0.tbd */,
+				53CC9A8E1F57F12F0077CCF6 /* MobileCoreServices.framework */,
 				53CC998B1F56C7430077CCF6 /* UIKit.framework */,
 				53CC99891F56C73C0077CCF6 /* AudioToolbox.framework */,
 				53CC99871F56C72D0077CCF6 /* AVFoundation.framework */,
@@ -2410,50 +2303,25 @@
 			files = (
 				53D02F4D1F3B1B5600CD504C /* LaunchScreen.storyboard in Resources */,
 				184A787A1F53B96300EACCE1 /* WeddingLivingCell.xib in Resources */,
+				53CC9A881F57F0520077CCF6 /* NMCVideoFilter.bundle in Resources */,
 				53CC98C01F5411380077CCF6 /* shi.json in Resources */,
-				53CC9A5A1F57E4FA0077CCF6 /* button_bar_background.png in Resources */,
 				1831DBE21F4D514200155691 /* LiebiaoCell.xib in Resources */,
-				53CC9A5D1F57E4FB0077CCF6 /* library_background.png in Resources */,
 				1853D94F1F5040D400980936 /* infoCell.xib in Resources */,
 				182E81111F418C3200720AA4 /* FastForwardView.xib in Resources */,
-				53CC9A491F57E4FA0077CCF6 /* LSSwitchModuleVideoCameraPositionBlock.html in Resources */,
-				53CC9A591F57E4FA0077CCF6 /* hierarchy.html in Resources */,
 				1831DBD51F4D281B00155691 /* NvWaCell.xib in Resources */,
 				1847DED81F3C5A5F00C796A8 /* LiveVideoCell.xib in Resources */,
-				53CC9A521F57E4FA0077CCF6 /* _normalize.scss in Resources */,
-				53CC9A601F57E4FB0077CCF6 /* script.js in Resources */,
-				53CC9A571F57E4FA0077CCF6 /* style.scss in Resources */,
-				53CC9A481F57E4FA0077CCF6 /* LSFrameCaptureCompletionBlock.html in Resources */,
 				1845AEA41F469E0B002EAD47 /* BannerView.xib in Resources */,
-				53CC9A4C1F57E4FA0077CCF6 /* LSLiveStreamingParaCtxConfiguration.html in Resources */,
-				53CC9A531F57E4FA0077CCF6 /* _object.scss in Resources */,
-				53CC9A501F57E4FA0077CCF6 /* _index.scss in Resources */,
-				53CC9A4F1F57E4FA0077CCF6 /* LSVideoParamQuality.html in Resources */,
 				182E81131F418C3200720AA4 /* WMPlayer.bundle in Resources */,
 				184A78851F53FB5600EACCE1 /* WeddingLiveFutureCell.xib in Resources */,
 				53D02F4A1F3B1B5600CD504C /* Assets.xcassets in Resources */,
-				53CC9A561F57E4FA0077CCF6 /* _xcode.scss in Resources */,
 				18FE5D851F4AA8ED00C5A3CF /* WeddingVideoCell.xib in Resources */,
-				53CC9A6B1F57E4FB0077CCF6 /* NMCVideoFilter.bundle in Resources */,
-				53CC9A4E1F57E4FA0077CCF6 /* LSVideoParaCtxConfiguration.html in Resources */,
-				53CC9A541F57E4FA0077CCF6 /* _print.scss in Resources */,
-				53CC9A5B1F57E4FA0077CCF6 /* disclosure.png in Resources */,
 				53CC98C11F5411380077CCF6 /* xian.json in Resources */,
-				53CC9A581F57E4FA0077CCF6 /* style.css in Resources */,
-				53CC9A5F1F57E4FB0077CCF6 /* index.html in Resources */,
-				53CC9A551F57E4FA0077CCF6 /* _variables.scss in Resources */,
-				53CC9A4A1F57E4FA0077CCF6 /* LSVideoStreamingQualityBlock.html in Resources */,
 				53CC98BF1F5411380077CCF6 /* sheng.json in Resources */,
-				53CC9A4B1F57E4FA0077CCF6 /* LSAudioParaCtxConfiguration.html in Resources */,
-				53CC9A511F57E4FA0077CCF6 /* _layout.scss in Resources */,
 				18FE5D961F4AE3D800C5A3CF /* MainNaviBar.xib in Resources */,
-				53CC9A5E1F57E4FB0077CCF6 /* title_background.png in Resources */,
 				53EEF2A31F3E9E1D0031D396 /* tabbar_bg@2x.png in Resources */,
-				53CC9A4D1F57E4FA0077CCF6 /* LSMediaCapture.html in Resources */,
 				53EEF2A41F3E9E1D0031D396 /* tabbar_bg@3x.png in Resources */,
 				184A788A1F53FB9D00EACCE1 /* WeddingLiveTableCell.xib in Resources */,
 				53D02F481F3B1B5600CD504C /* Main.storyboard in Resources */,
-				53CC9A5C1F57E4FB0077CCF6 /* disclosure_open.png in Resources */,
 				533ACE3D1F4AD36D00F66A78 /* areas.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2957,6 +2825,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 22Y9Y734K3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Theweddingceremonylive/直播sdk/NIM_iOS_SDK_v4/NIMAVChat",
+					"$(PROJECT_DIR)/Theweddingceremonylive/直播sdk/NIM_iOS_SDK_v4/NIMSDK",
+				);
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Theweddingceremonylive/PrefixHeader.pch";
@@ -2967,6 +2840,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Theweddingceremonylive/直播sdk/LiveStreaming_iOS_SDK_V2.1.0/libs",
 					"$(PROJECT_DIR)/Theweddingceremonylive/直播sdk/LivePlayer_iOS_SDK_v1.3.0/libs",
+					"$(PROJECT_DIR)/Theweddingceremonylive/直播sdk/NIM_iOS_SDK_v4/NIMAVChat/Libs",
+					"$(PROJECT_DIR)/Theweddingceremonylive/直播sdk/NIM_iOS_SDK_v4/NIMSDK/Libs",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wangjungang.Theweddingceremonylive;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2981,6 +2856,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 22Y9Y734K3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Theweddingceremonylive/直播sdk/NIM_iOS_SDK_v4/NIMAVChat",
+					"$(PROJECT_DIR)/Theweddingceremonylive/直播sdk/NIM_iOS_SDK_v4/NIMSDK",
+				);
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Theweddingceremonylive/PrefixHeader.pch";
@@ -2991,6 +2871,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Theweddingceremonylive/直播sdk/LiveStreaming_iOS_SDK_V2.1.0/libs",
 					"$(PROJECT_DIR)/Theweddingceremonylive/直播sdk/LivePlayer_iOS_SDK_v1.3.0/libs",
+					"$(PROJECT_DIR)/Theweddingceremonylive/直播sdk/NIM_iOS_SDK_v4/NIMAVChat/Libs",
+					"$(PROJECT_DIR)/Theweddingceremonylive/直播sdk/NIM_iOS_SDK_v4/NIMSDK/Libs",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wangjungang.Theweddingceremonylive;
 				PRODUCT_NAME = "$(TARGET_NAME)";

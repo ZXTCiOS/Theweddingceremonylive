@@ -8,12 +8,9 @@
 
 #import "CustomerserviceVC.h"
 
-#import "NELivePlayer.h"
-#import "NELivePlayerController.h"
-
 @interface CustomerserviceVC ()
-@property(nonatomic, strong) id<NELivePlayer> player;
-@property (nonatomic,strong) NSURL *url;
+
+
 
 @end
 
@@ -24,11 +21,7 @@
     self.title = @"测试";
     // Do any additional setup after loading the view.
     
-    self.player = [[NELivePlayerController alloc] initWithContentURL:[NSURL URLWithString:@"http://hdl.9158.com/live/39c979ddc595d701b626acbc605e0d41.flv"]];
-    //self.player.view.frame = self.view.frame;
-    self.player.shouldAutoplay = YES;
-    [self.player prepareToPlay];
-    [self.view addSubview:self.player.view];
+
     
 }
 
