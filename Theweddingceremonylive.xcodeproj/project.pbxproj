@@ -66,6 +66,12 @@
 		188039131F3EAE2600A2B4AE /* XDFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 188039101F3EAE2600A2B4AE /* XDFactory.m */; };
 		188039161F3EAF9500A2B4AE /* DNNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 188039151F3EAF9500A2B4AE /* DNNetworking.m */; };
 		18F6FEC91F4D83D80076A4F2 /* LieBiaoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F6FEC81F4D83D80076A4F2 /* LieBiaoModel.m */; };
+		18F9374C1F57FBFE00B267C0 /* PortraitAudienceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F937411F57FBFE00B267C0 /* PortraitAudienceView.m */; };
+		18F9374D1F57FBFE00B267C0 /* PortraitChatView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F937431F57FBFE00B267C0 /* PortraitChatView.m */; };
+		18F9374E1F57FBFE00B267C0 /* PortraitFullMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F937451F57FBFE00B267C0 /* PortraitFullMaskView.m */; };
+		18F9374F1F57FBFE00B267C0 /* PortraitFullMaskView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F937461F57FBFE00B267C0 /* PortraitFullMaskView.xib */; };
+		18F937501F57FBFE00B267C0 /* PortraitTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F937481F57FBFE00B267C0 /* PortraitTextView.m */; };
+		18F937511F57FBFE00B267C0 /* PortraitFullViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F9374B1F57FBFE00B267C0 /* PortraitFullViewController.m */; };
 		18FE231C1F4E72DC0088D3BF /* NvwaYugaoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FE231B1F4E72DC0088D3BF /* NvwaYugaoModel.m */; };
 		18FE231F1F4E749F0088D3BF /* NvwaHeaderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FE231E1F4E749F0088D3BF /* NvwaHeaderModel.m */; };
 		18FE23221F4E7AB90088D3BF /* MainNvwaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FE23211F4E7AB90088D3BF /* MainNvwaModel.m */; };
@@ -394,6 +400,17 @@
 		18F40CBA8FE5D3181F0F3B4C /* Pods-TheweddingceremonyliveTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheweddingceremonyliveTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheweddingceremonyliveTests/Pods-TheweddingceremonyliveTests.debug.xcconfig"; sourceTree = "<group>"; };
 		18F6FEC71F4D83D80076A4F2 /* LieBiaoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LieBiaoModel.h; sourceTree = "<group>"; };
 		18F6FEC81F4D83D80076A4F2 /* LieBiaoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LieBiaoModel.m; sourceTree = "<group>"; };
+		18F937401F57FBFE00B267C0 /* PortraitAudienceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortraitAudienceView.h; sourceTree = "<group>"; };
+		18F937411F57FBFE00B267C0 /* PortraitAudienceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortraitAudienceView.m; sourceTree = "<group>"; };
+		18F937421F57FBFE00B267C0 /* PortraitChatView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortraitChatView.h; sourceTree = "<group>"; };
+		18F937431F57FBFE00B267C0 /* PortraitChatView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortraitChatView.m; sourceTree = "<group>"; };
+		18F937441F57FBFE00B267C0 /* PortraitFullMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortraitFullMaskView.h; sourceTree = "<group>"; };
+		18F937451F57FBFE00B267C0 /* PortraitFullMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortraitFullMaskView.m; sourceTree = "<group>"; };
+		18F937461F57FBFE00B267C0 /* PortraitFullMaskView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PortraitFullMaskView.xib; sourceTree = "<group>"; };
+		18F937471F57FBFE00B267C0 /* PortraitTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortraitTextView.h; sourceTree = "<group>"; };
+		18F937481F57FBFE00B267C0 /* PortraitTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortraitTextView.m; sourceTree = "<group>"; };
+		18F9374A1F57FBFE00B267C0 /* PortraitFullViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortraitFullViewController.h; sourceTree = "<group>"; };
+		18F9374B1F57FBFE00B267C0 /* PortraitFullViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortraitFullViewController.m; sourceTree = "<group>"; };
 		18FE231A1F4E72DC0088D3BF /* NvwaYugaoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvwaYugaoModel.h; sourceTree = "<group>"; };
 		18FE231B1F4E72DC0088D3BF /* NvwaYugaoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NvwaYugaoModel.m; sourceTree = "<group>"; };
 		18FE231D1F4E749F0088D3BF /* NvwaHeaderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvwaHeaderModel.h; sourceTree = "<group>"; };
@@ -1173,6 +1190,48 @@
 			path = "资料修改";
 			sourceTree = "<group>";
 		};
+		18F9373D1F57FBFE00B267C0 /* 竖屏直播 */ = {
+			isa = PBXGroup;
+			children = (
+				18F9373E1F57FBFE00B267C0 /* model */,
+				18F9373F1F57FBFE00B267C0 /* view */,
+				18F937491F57FBFE00B267C0 /* viewcontroller */,
+			);
+			path = "竖屏直播";
+			sourceTree = "<group>";
+		};
+		18F9373E1F57FBFE00B267C0 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		18F9373F1F57FBFE00B267C0 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				18F937401F57FBFE00B267C0 /* PortraitAudienceView.h */,
+				18F937411F57FBFE00B267C0 /* PortraitAudienceView.m */,
+				18F937421F57FBFE00B267C0 /* PortraitChatView.h */,
+				18F937431F57FBFE00B267C0 /* PortraitChatView.m */,
+				18F937441F57FBFE00B267C0 /* PortraitFullMaskView.h */,
+				18F937451F57FBFE00B267C0 /* PortraitFullMaskView.m */,
+				18F937461F57FBFE00B267C0 /* PortraitFullMaskView.xib */,
+				18F937471F57FBFE00B267C0 /* PortraitTextView.h */,
+				18F937481F57FBFE00B267C0 /* PortraitTextView.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		18F937491F57FBFE00B267C0 /* viewcontroller */ = {
+			isa = PBXGroup;
+			children = (
+				18F9374A1F57FBFE00B267C0 /* PortraitFullViewController.h */,
+				18F9374B1F57FBFE00B267C0 /* PortraitFullViewController.m */,
+			);
+			path = viewcontroller;
+			sourceTree = "<group>";
+		};
 		18FE232E1F4EC42C0088D3BF /* HYBLoopScrollView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1918,6 +1977,7 @@
 		53D02F891F3BF95300CD504C /* 开播 */ = {
 			isa = PBXGroup;
 			children = (
+				18F9373D1F57FBFE00B267C0 /* 竖屏直播 */,
 				53D02F991F3BF9DD00CD504C /* M */,
 				53D02F9A1F3BF9DD00CD504C /* V */,
 				53D02F981F3BF9DD00CD504C /* C */,
@@ -2328,6 +2388,12 @@
 				1831DBE21F4D514200155691 /* LiebiaoCell.xib in Resources */,
 				1853D94F1F5040D400980936 /* infoCell.xib in Resources */,
 				182E81111F418C3200720AA4 /* FastForwardView.xib in Resources */,
+
+				18F9374F1F57FBFE00B267C0 /* PortraitFullMaskView.xib in Resources */,
+				53CC9A491F57E4FA0077CCF6 /* LSSwitchModuleVideoCameraPositionBlock.html in Resources */,
+				53CC9A591F57E4FA0077CCF6 /* hierarchy.html in Resources */,
+
+
 				1831DBD51F4D281B00155691 /* NvWaCell.xib in Resources */,
 				1847DED81F3C5A5F00C796A8 /* LiveVideoCell.xib in Resources */,
 				1845AEA41F469E0B002EAD47 /* BannerView.xib in Resources */,
@@ -2523,6 +2589,7 @@
 				18FE23371F4EC42C0088D3BF /* HYBLoadImageView.m in Sources */,
 				53FCA4731F418EA5001780F7 /* perfectingCell2.m in Sources */,
 				53CC98B71F5410E80077CCF6 /* wanshanCell3.m in Sources */,
+				18F937501F57FBFE00B267C0 /* PortraitTextView.m in Sources */,
 				533A8A431F4C262A0087E699 /* DemoCommentView.m in Sources */,
 				533ACCFD1F4AABB600F66A78 /* postingVC.m in Sources */,
 				188039081F3EAB9B00A2B4AE /* SystemMessageTVC.m in Sources */,
@@ -2551,6 +2618,7 @@
 				53CC9AA91F57F74C0077CCF6 /* feedbackVC.m in Sources */,
 				18FE5D8E1F4ABD1400C5A3CF /* TuiJianModel.m in Sources */,
 				53FCA45D1F418689001780F7 /* NullSafe.m in Sources */,
+				18F9374E1F57FBFE00B267C0 /* PortraitFullMaskView.m in Sources */,
 				188039011F3EAB9B00A2B4AE /* MyGiftCell.m in Sources */,
 				532564F71F4578BD00915E3B /* infoCell3.m in Sources */,
 				188039041F3EAB9B00A2B4AE /* WalletHeadView.m in Sources */,
@@ -2589,6 +2657,7 @@
 				53FCA4701F418E99001780F7 /* perfectingCell1.m in Sources */,
 				53B68E501F4E770000674A2B /* realfootView.m in Sources */,
 				53FCA4641F418C17001780F7 /* mineCell0.m in Sources */,
+				18F9374C1F57FBFE00B267C0 /* PortraitAudienceView.m in Sources */,
 				532564EB1F45538200915E3B /* infoVC.m in Sources */,
 				18FE23221F4E7AB90088D3BF /* MainNvwaModel.m in Sources */,
 				188039091F3EAB9B00A2B4AE /* ModifyInfoVC.m in Sources */,
@@ -2605,6 +2674,7 @@
 				182E81141F418C3200720AA4 /* WMPlayer.m in Sources */,
 				53EEF2AA1F3E9EE80031D396 /* UITabBarController+QFExtension.m in Sources */,
 				1845AEA31F469E0B002EAD47 /* BannerView.m in Sources */,
+				18F9374D1F57FBFE00B267C0 /* PortraitChatView.m in Sources */,
 				1831DBCD1F4D268D00155691 /* ViewController.m in Sources */,
 				18F6FEC91F4D83D80076A4F2 /* LieBiaoModel.m in Sources */,
 				1804ED8A1F4ED56A0004DAAE /* TuijianDataModel.m in Sources */,
@@ -2631,6 +2701,7 @@
 				53CC98C51F541C990077CCF6 /* weddingcardVC.m in Sources */,
 				5302995C1F443AA5004BC03A /* orderVC0.m in Sources */,
 				1851F4211F3D843E00369326 /* UIView+HUD.m in Sources */,
+				18F937511F57FBFE00B267C0 /* PortraitFullViewController.m in Sources */,
 				5303E3E41F3EDF6800AB0AF2 /* CALayer+FSUI.m in Sources */,
 				53EEF2A91F3E9EE80031D396 /* MainTabBarController.m in Sources */,
 				1853D94A1F503D2400980936 /* infoModel.m in Sources */,
