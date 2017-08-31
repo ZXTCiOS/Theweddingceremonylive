@@ -16,7 +16,7 @@
 #import "WeddingLiveFutureCell.h"
 #import "WeddingLiveTableCell.h"
 // viewcontroller
-
+#import "PortraitFullViewController.h"
 
 
 
@@ -102,7 +102,7 @@
 #pragma mark - tableview Delegate && datasource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return self.publiclist.count ? 3 : 0;
+    return 1;//self.publiclist.count ? 3 : 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -132,6 +132,7 @@
         model = self.publiclist.data[indexPath.row];
     }
     WeddingLivingCell *cell = [tableView dequeueReusableCellWithIdentifier:@"living" forIndexPath:indexPath];
+    return cell;
     [cell.imgV sd_setImageWithURL:model.imgurl.xd_URL placeholderImage:[UIImage imageNamed:@"hlzbfive"]];
     cell.titleL.text = model.title;
     cell.countL.text = model.count;
@@ -198,6 +199,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    // todo: 区别横竖屏   传参
+    PortraitFullViewController *vc = [[PortraitFullViewController alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
     NSLog(@"section %ld, row %ld", indexPath.section, indexPath.row);
 }
 
