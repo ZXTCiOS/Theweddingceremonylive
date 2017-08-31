@@ -21,6 +21,7 @@
 
 #import "LoginVC.h"
 
+#import "CustomerserviceVC.h"
 
 @interface MineTVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
@@ -276,9 +277,10 @@ static NSString *mineidentfid2 = @"mineidentfid2";
 
     }
     if (indexPath.section==1) {
-        if (indexPath.row) {
+        if (indexPath.row==0) {
             // 客服帮助
-            
+            CustomerserviceVC *vc = [[CustomerserviceVC alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
         } else {
             // 关于我们
             
