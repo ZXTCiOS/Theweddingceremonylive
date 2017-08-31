@@ -62,4 +62,7 @@
 //回帖2
 #define post_sendmestouser  @"/interface.php/Home/Bbs/sendmestouser"
 
+
+//用户留言
+#define post_yijian         @"/zhibo2/interface.php/Home/yijian/yijian"
 #endif /* wangHeader_h */
