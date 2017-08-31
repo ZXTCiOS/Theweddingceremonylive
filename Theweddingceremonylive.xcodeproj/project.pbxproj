@@ -219,6 +219,10 @@
 		53CC9A8D1F57F0520077CCF6 /* NIMSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53CC9A7F1F57F0520077CCF6 /* NIMSDK.framework */; };
 		53CC9A8F1F57F12F0077CCF6 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53CC9A8E1F57F12F0077CCF6 /* MobileCoreServices.framework */; };
 		53CC9A911F57F1620077CCF6 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 53CC9A901F57F1620077CCF6 /* libsqlite3.0.tbd */; };
+		53CC9A9A1F57F4C30077CCF6 /* aboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53CC9A991F57F4C30077CCF6 /* aboutVC.m */; };
+		53CC9AA91F57F74C0077CCF6 /* feedbackVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53CC9AA81F57F74C0077CCF6 /* feedbackVC.m */; };
+		53CC9AAC1F57F76F0077CCF6 /* userprotocolVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53CC9AAB1F57F76F0077CCF6 /* userprotocolVC.m */; };
+		53CC9AAF1F57F78B0077CCF6 /* guanyuusVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 53CC9AAE1F57F78B0077CCF6 /* guanyuusVC.m */; };
 		53D02F3F1F3B1B5600CD504C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F3E1F3B1B5600CD504C /* main.m */; };
 		53D02F421F3B1B5600CD504C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D02F411F3B1B5600CD504C /* AppDelegate.m */; };
 		53D02F481F3B1B5600CD504C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53D02F461F3B1B5600CD504C /* Main.storyboard */; };
@@ -651,6 +655,14 @@
 		53CC9A7F1F57F0520077CCF6 /* NIMSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NIMSDK.framework; sourceTree = "<group>"; };
 		53CC9A8E1F57F12F0077CCF6 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		53CC9A901F57F1620077CCF6 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		53CC9A981F57F4C30077CCF6 /* aboutVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aboutVC.h; sourceTree = "<group>"; };
+		53CC9A991F57F4C30077CCF6 /* aboutVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = aboutVC.m; sourceTree = "<group>"; };
+		53CC9AA71F57F74C0077CCF6 /* feedbackVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = feedbackVC.h; sourceTree = "<group>"; };
+		53CC9AA81F57F74C0077CCF6 /* feedbackVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = feedbackVC.m; sourceTree = "<group>"; };
+		53CC9AAA1F57F76F0077CCF6 /* userprotocolVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = userprotocolVC.h; sourceTree = "<group>"; };
+		53CC9AAB1F57F76F0077CCF6 /* userprotocolVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = userprotocolVC.m; sourceTree = "<group>"; };
+		53CC9AAD1F57F78B0077CCF6 /* guanyuusVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guanyuusVC.h; sourceTree = "<group>"; };
+		53CC9AAE1F57F78B0077CCF6 /* guanyuusVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = guanyuusVC.m; sourceTree = "<group>"; };
 		53D02F3A1F3B1B5600CD504C /* Theweddingceremonylive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Theweddingceremonylive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53D02F3E1F3B1B5600CD504C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		53D02F401F3B1B5600CD504C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -879,32 +891,11 @@
 		188038C51F3EAB9B00A2B4AE /* 关于我们 */ = {
 			isa = PBXGroup;
 			children = (
-				188038C61F3EAB9B00A2B4AE /* model */,
-				188038C71F3EAB9B00A2B4AE /* view */,
-				188038C81F3EAB9B00A2B4AE /* viewController */,
+				53CC9A951F57F4B70077CCF6 /* controller */,
+				53CC9A961F57F4B70077CCF6 /* view */,
+				53CC9A971F57F4B70077CCF6 /* model */,
 			);
 			path = "关于我们";
-			sourceTree = "<group>";
-		};
-		188038C61F3EAB9B00A2B4AE /* model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = model;
-			sourceTree = "<group>";
-		};
-		188038C71F3EAB9B00A2B4AE /* view */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = view;
-			sourceTree = "<group>";
-		};
-		188038C81F3EAB9B00A2B4AE /* viewController */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = viewController;
 			sourceTree = "<group>";
 		};
 		188038C91F3EAB9B00A2B4AE /* 安全中心 */ = {
@@ -1695,6 +1686,35 @@
 				53CC9A7E1F57F0520077CCF6 /* libssl.a */,
 			);
 			path = Libs;
+			sourceTree = "<group>";
+		};
+		53CC9A951F57F4B70077CCF6 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				53CC9A981F57F4C30077CCF6 /* aboutVC.h */,
+				53CC9A991F57F4C30077CCF6 /* aboutVC.m */,
+				53CC9AA71F57F74C0077CCF6 /* feedbackVC.h */,
+				53CC9AA81F57F74C0077CCF6 /* feedbackVC.m */,
+				53CC9AAA1F57F76F0077CCF6 /* userprotocolVC.h */,
+				53CC9AAB1F57F76F0077CCF6 /* userprotocolVC.m */,
+				53CC9AAD1F57F78B0077CCF6 /* guanyuusVC.h */,
+				53CC9AAE1F57F78B0077CCF6 /* guanyuusVC.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		53CC9A961F57F4B70077CCF6 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		53CC9A971F57F4B70077CCF6 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 		53D02F311F3B1B5600CD504C = {
@@ -2528,6 +2548,7 @@
 				53CC98B61F5410E80077CCF6 /* wanshanCell2.m in Sources */,
 				1853D94E1F5040D400980936 /* infoCell.m in Sources */,
 				536D54D61F500B0600A54749 /* predetermindCell.m in Sources */,
+				53CC9AA91F57F74C0077CCF6 /* feedbackVC.m in Sources */,
 				18FE5D8E1F4ABD1400C5A3CF /* TuiJianModel.m in Sources */,
 				53FCA45D1F418689001780F7 /* NullSafe.m in Sources */,
 				188039011F3EAB9B00A2B4AE /* MyGiftCell.m in Sources */,
@@ -2557,6 +2578,7 @@
 				18FE231F1F4E749F0088D3BF /* NvwaHeaderModel.m in Sources */,
 				53FCA45C1F418689001780F7 /* MBProgressHUD+XMG.m in Sources */,
 				53D02F841F3BF68000CD504C /* LCTabBarButton.m in Sources */,
+				53CC9AAF1F57F78B0077CCF6 /* guanyuusVC.m in Sources */,
 				18FE23381F4EC42C0088D3BF /* HYBLoopScrollView.m in Sources */,
 				1831DBD41F4D281B00155691 /* NvWaCell.m in Sources */,
 				1845AEA81F46B5CE002EAD47 /* iCarousel.m in Sources */,
@@ -2612,6 +2634,7 @@
 				5303E3E41F3EDF6800AB0AF2 /* CALayer+FSUI.m in Sources */,
 				53EEF2A91F3E9EE80031D396 /* MainTabBarController.m in Sources */,
 				1853D94A1F503D2400980936 /* infoModel.m in Sources */,
+				53CC9AAC1F57F76F0077CCF6 /* userprotocolVC.m in Sources */,
 				1831DBDD1F4D4F6E00155691 /* NvWaTuiJianCell.m in Sources */,
 				53D02FA31F3BFB1900CD504C /* LiveVC.m in Sources */,
 				1853D9411F5008B700980936 /* SearchViewController.m in Sources */,
@@ -2659,6 +2682,7 @@
 				53FCA4611F418BEE001780F7 /* mineheadView.m in Sources */,
 				533ACCF61F4A7BE500F66A78 /* LLQImageView.m in Sources */,
 				533ACD001F4AAC8B00F66A78 /* postCell0.m in Sources */,
+				53CC9A9A1F57F4C30077CCF6 /* aboutVC.m in Sources */,
 				533ACE3F1F4AD36D00F66A78 /* DQAreasView.m in Sources */,
 				182E81101F418C3200720AA4 /* FastForwardView.m in Sources */,
 				53CC98F51F568E930077CCF6 /* chongzhifootView.m in Sources */,
