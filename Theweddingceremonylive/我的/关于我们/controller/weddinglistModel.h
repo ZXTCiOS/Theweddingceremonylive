@@ -18,4 +18,7 @@
 @property (nonatomic,strong) NSString *money;
 @property (nonatomic,strong) NSString *name;
 @property (nonatomic,strong) NSString *type;
+
+@property (nonatomic,assign) BOOL ischoose;
+
 @end

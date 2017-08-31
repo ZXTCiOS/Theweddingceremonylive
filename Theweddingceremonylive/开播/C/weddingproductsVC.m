@@ -12,7 +12,7 @@
 #import "weddingPayVC.h"
 #import "weddinglistModel.h"
 
-@interface weddingproductsVC ()<UITableViewDataSource,UITableViewDelegate>
+@interface weddingproductsVC ()<UITableViewDataSource,UITableViewDelegate,myweddingVdelegate>
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic,strong) NSMutableArray *datasource0;
 @property (nonatomic,strong) NSMutableArray *datasource1;
@@ -108,10 +108,38 @@ static NSString *weddingidentfid = @"weddingidentfid";
 }
 
 #pragma mark - UITableViewDataSource&&UITableViewDelegate
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 2;
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 40*HEIGHT_SCALE;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 0.01f;
+}
+
+- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 40*HEIGHT_SCALE)];
+    UILabel *namelab = [[UILabel alloc] initWithFrame:CGRectMake(14*WIDTH_SCALE, 0, 100, 40*HEIGHT_SCALE)];
+    namelab.textColor = [UIColor colorWithHexString:@"333333"];
+    namelab.font = [UIFont systemFontOfSize:15];
+    if (section==0) {
+        namelab.text = @"一生珍藏";
+    }
+    if (section==1) {
+        namelab.text = @"推荐之选";
+    }
+    [view addSubview:namelab];
+    return view;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section==0) {
@@ -137,6 +165,7 @@ static NSString *weddingidentfid = @"weddingidentfid";
         [cell setdata:self.datasource1[indexPath.row]];
 
     }
+    cell.delegate = self;
     return cell;
 }
 
@@ -175,6 +204,21 @@ static NSString *weddingidentfid = @"weddingidentfid";
     }
 }
 
+-(void)choosebtnClick:(UITableViewCell *)cell
+{
+    NSIndexPath *index = [self.table indexPathForCell:cell];
+    NSLog(@"index------%ld",(long)index.row);
+    if (index.section==0) {
+        weddinglistModel *model = self.datasource0[index.row];
+        model.ischoose = !model.ischoose;
+        [self.table reloadData];
+    }
+    if (index.section==1) {
+        weddinglistModel *model = self.datasource1[index.row];
+        model.ischoose = !model.ischoose;
+        [self.table reloadData];
+    }
+}
 -(void)rightAction
 {
     weddingPayVC *vc = [[weddingPayVC alloc] init];
