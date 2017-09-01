@@ -155,15 +155,13 @@
     }
     [self.leftimg sd_setImageWithURL:[NSURL URLWithString:model.goods_info_img] placeholderImage:[UIImage imageNamed:@"tanchaung"]];
     self.typelab.text = model.name;
-    self.pricelab.text = model.money;
+    self.pricelab.text = [NSString stringWithFormat:@"%@%@",@"¥:",model.money];
     self.contentlab.text = model.goods_jianjie;
 }
-
 
 -(void)setBtnclick
 {
     [self.delegate choosebtnClick:self];
 }
-
 
 @end

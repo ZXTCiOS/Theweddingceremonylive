@@ -13,6 +13,8 @@
 
 #import "RealVC.h"
 
+#import "CustomerserviceVC.h"
+
 @interface midVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
 @end
@@ -114,7 +116,9 @@ static NSString *livecellidentfid = @"livecellidentfid";
         [self.navigationController pushViewController:vc animated:YES];
     }
     if (indexPath.row==3) {
-        [MBProgressHUD showSuccess:@"请联系客服"];
+       // [MBProgressHUD showSuccess:@"请联系客服"];
+        CustomerserviceVC *vc = [[CustomerserviceVC alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 

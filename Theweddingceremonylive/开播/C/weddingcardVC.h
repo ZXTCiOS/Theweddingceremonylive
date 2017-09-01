@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface weddingcardVC : BaseViewController
+@interface weddingcardVC : UIViewController
 
 @end
