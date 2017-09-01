@@ -7,14 +7,13 @@
 //
 
 #import "weddingCell.h"
+#import "weddinglistModel.h"
 
 @interface weddingCell()
 @property (nonatomic,strong) UIImageView *leftimg;
 @property (nonatomic,strong) UIView *bgview;
-
-
 @property (nonatomic,strong) UIButton *setBtn;
-
+@property (nonatomic,strong) weddinglistModel *wmodel;
 @end
 
 @implementation weddingCell
@@ -138,16 +137,31 @@
     if(!_setBtn)
     {
         _setBtn = [[UIButton alloc] init];
-        [_setBtn setImage:[UIImage imageNamed:@"zb_hllx_ns"] forState:normal];
+
+        [_setBtn addTarget:self action:@selector(setBtnclick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _setBtn;
 }
 
+-(void)setdata:(weddinglistModel *)model
+{
+    self.wmodel = model;
+    if (model.ischoose) {
+        [_setBtn setImage:[UIImage imageNamed:@"zb_hllx_s"] forState:normal];
+    }
+    else
+    {
+        [_setBtn setImage:[UIImage imageNamed:@"zb_hllx_ns"] forState:normal];
+    }
+    [self.leftimg sd_setImageWithURL:[NSURL URLWithString:model.goods_info_img] placeholderImage:[UIImage imageNamed:@"tanchaung"]];
+    self.typelab.text = model.name;
+    self.pricelab.text = [NSString stringWithFormat:@"%@%@",@"¥:",model.money];
+    self.contentlab.text = model.goods_jianjie;
+}
 
-
-
-
-
-
+-(void)setBtnclick
+{
+    [self.delegate choosebtnClick:self];
+}
 
 @end

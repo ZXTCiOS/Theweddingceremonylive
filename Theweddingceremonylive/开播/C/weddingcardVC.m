@@ -7,6 +7,8 @@
 //
 
 #import "weddingcardVC.h"
+#import "ActionSheetView.h"
+#import "pilotliveVC.h"
 
 @interface weddingcardVC ()<UIScrollViewDelegate>
 @property (nonatomic,strong) UIScrollView *scroll;
@@ -34,9 +36,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"xitie_share"] style:UIBarButtonItemStylePlain target:self action:@selector(rightAction)];
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithHexString:@"E95F46"];
+
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor colorWithHexString:@"E95F46"];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"E95F46"]}];
+    self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
+    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    
+    UIBarButtonItem *rightbtn0 = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"xitie_share"] style:UIBarButtonItemStylePlain target:self action:@selector    (rightbtn0click)];
+    [rightbtn0 setTintColor:[UIColor colorWithHexString:@"E95F46"]];
+    UIBarButtonItem *rightbtn1 = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"shibo"] style:UIBarButtonItemStylePlain target:self action:@selector(rightbtn1click)];
+     [rightbtn1 setTintColor:[UIColor colorWithHexString:@"E95F46"]];
+     [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects: rightbtn0,rightbtn1,nil]];
+    
+    
     self.title = @"喜帖";
     
     [self.view addSubview:self.scroll];
@@ -309,6 +323,31 @@
         NSLog(@"存储失败");
         
     }
+}
+
+
+-(void)rightbtn0click
+{
+    NSArray *titlearr = @[@"微信朋友圈",@"微信好友",@"QQ"];
+    NSArray *imageArr = @[@"wechatquan",@"wechat",@"tcentQQ"];
+    
+    ActionSheetView *actionsheet = [[ActionSheetView alloc] initWithShareHeadOprationWith:titlearr andImageArry:imageArr andProTitle:@"测试" and:ShowTypeIsShareStyle];
+    [actionsheet setBtnClick:^(NSInteger btnTag) {
+        NSLog(@"\n点击第几个====%ld\n当前选中的按钮title====%@",btnTag,titlearr[btnTag]);
+    }];
+    [[UIApplication sharedApplication].keyWindow addSubview:actionsheet];
+}
+
+-(void)rightbtn1click
+{
+    pilotliveVC *vc = [[pilotliveVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+-(void)backAction
+{
+//    [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count - 2];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 #pragma mark - tabbar

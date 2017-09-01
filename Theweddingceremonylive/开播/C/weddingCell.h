@@ -7,9 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+@class weddinglistModel;
+
+@protocol myweddingVdelegate <NSObject>
+-(void)choosebtnClick:(UITableViewCell *)cell;
+@end
+
 
 @interface weddingCell : UITableViewCell
 @property (nonatomic,strong) UILabel *typelab;
 @property (nonatomic,strong) UILabel *pricelab;
 @property (nonatomic,strong) UILabel *contentlab;
+@property(assign,nonatomic)id<myweddingVdelegate>delegate;
+-(void)setdata:(weddinglistModel *)model;
 @end

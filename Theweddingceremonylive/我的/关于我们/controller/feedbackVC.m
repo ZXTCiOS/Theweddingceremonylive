@@ -35,6 +35,7 @@
         _contentText = [[WJGtextView alloc] init];
         _contentText.frame = CGRectMake(0, 0, kScreenW, 200*HEIGHT_SCALE);
         _contentText.customPlaceholder = @"请留下宝贵的建议吧!";
+        _contentText.backgroundColor = [UIColor whiteColor];
     }
     return _contentText;
 }
@@ -45,14 +46,22 @@
     if(!_sendBtn)
     {
         _sendBtn = [[UIButton alloc] init];
+        _sendBtn.frame = CGRectMake(kScreenW-80*WIDTH_SCALE, 150*HEIGHT_SCALE, 60*WIDTH_SCALE, 30*HEIGHT_SCALE);
         [_sendBtn setTitle:@"提交" forState:normal];
+        _sendBtn.backgroundColor = [UIColor colorWithHexString:@"ed5e40"];
         [_sendBtn setTitleColor:[UIColor colorWithHexString:@"ffffff"] forState:normal];
-        
+        _sendBtn.layer.masksToBounds = YES;
+        _sendBtn.layer.cornerRadius = 4;
+        [_sendBtn addTarget:self action:@selector(sendbtnclick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _sendBtn;
 }
 
 
+-(void)sendbtnclick
+{
+
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

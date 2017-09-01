@@ -10,10 +10,12 @@
 #import "weddingCell.h"
 #import "DLAlertView.h"
 #import "weddingPayVC.h"
+#import "weddinglistModel.h"
 
-@interface weddingproductsVC ()<UITableViewDataSource,UITableViewDelegate>
+@interface weddingproductsVC ()<UITableViewDataSource,UITableViewDelegate,myweddingVdelegate>
 @property (nonatomic,strong) UITableView *table;
-
+@property (nonatomic,strong) NSMutableArray *datasource0;
+@property (nonatomic,strong) NSMutableArray *datasource1;
 @end
 
 static NSString *weddingidentfid = @"weddingidentfid";
@@ -27,11 +29,68 @@ static NSString *weddingidentfid = @"weddingidentfid";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"下一步" style:UIBarButtonItemStylePlain target:self action:@selector(rightAction)];
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithHexString:@"E95F46"];
     [self.view addSubview:self.table];
+    self.datasource0 = [NSMutableArray array];
+    self.datasource1 = [NSMutableArray array];
+    [self loaddata];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)loaddata
+{
+    [self.datasource0 removeAllObjects];
+    [self.datasource1 removeAllObjects];
+    NSUserDefaults *detat = [NSUserDefaults standardUserDefaults];
+    NSString *uid = [detat objectForKey:user_uid];
+    NSString *token = [detat objectForKey:user_token];
+    NSDictionary *para = @{@"uid":uid,@"token":token};
+    [DNNetworking postWithURLString:post_goodslist parameters:para success:^(id obj) {
+        
+        NSString *msg = [obj objectForKey:@"msg"];
+        [MBProgressHUD showSuccess:msg];
+        if ([[obj objectForKey:@"code"] intValue]==1000) {
+            
+            NSDictionary *datadic = [obj objectForKey:@"data"];
+            NSArray *moren = [datadic objectForKey:@"moren"];
+            
+            for (int i = 0; i<moren.count; i++) {
+                NSDictionary *dic = [moren objectAtIndex:i];
+                weddinglistModel *model = [[weddinglistModel alloc] init];
+                model.goods_info_img = [dic objectForKey:@"goods_info_img"];
+                model.goods_jianjie = [dic objectForKey:@"goods_jianjie"];
+                model.goods_list_img = [dic objectForKey:@"goods_list_img"];
+                model.idstr = [dic objectForKey:@"id"];
+                model.info = [dic objectForKey:@"info"];
+                model.money = [dic objectForKey:@"money"];
+                model.name = [dic objectForKey:@"name"];
+                model.type = [dic objectForKey:@"type"];
+                [self.datasource0 addObject:model];
+            }
+            
+            NSArray *tuijian = [datadic objectForKey:@"tuijian"];
+            for (int i = 0; i<tuijian.count; i++) {
+                NSDictionary *dic = [tuijian objectAtIndex:i];
+                weddinglistModel *model = [[weddinglistModel alloc] init];
+                model.goods_info_img = [dic objectForKey:@"goods_info_img"];
+                model.goods_jianjie = [dic objectForKey:@"goods_jianjie"];
+                model.goods_list_img = [dic objectForKey:@"goods_list_img"];
+                model.idstr = [dic objectForKey:@"id"];
+                model.info = [dic objectForKey:@"info"];
+                model.money = [dic objectForKey:@"money"];
+                model.name = [dic objectForKey:@"name"];
+                model.type = [dic objectForKey:@"type"];
+                [self.datasource1 addObject:model];
+            }
+            
+            [self.table reloadData];
+        }
+        
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 #pragma mark - getteres
@@ -49,17 +108,45 @@ static NSString *weddingidentfid = @"weddingidentfid";
 }
 
 #pragma mark - UITableViewDataSource&&UITableViewDelegate
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 2;
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 40*HEIGHT_SCALE;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 0.01f;
+}
+
+- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 40*HEIGHT_SCALE)];
+    UILabel *namelab = [[UILabel alloc] initWithFrame:CGRectMake(14*WIDTH_SCALE, 0, 100, 40*HEIGHT_SCALE)];
+    namelab.textColor = [UIColor colorWithHexString:@"333333"];
+    namelab.font = [UIFont systemFontOfSize:15];
+    if (section==0) {
+        namelab.text = @"一生珍藏";
+    }
+    if (section==1) {
+        namelab.text = @"推荐之选";
+    }
+    [view addSubview:namelab];
+    return view;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section==0) {
-        return 3;
+        return self.datasource0.count;
     }
     if (section==1) {
-        return 2;
+        return self.datasource1.count;
     }
     return 0;
 }
@@ -70,34 +157,15 @@ static NSString *weddingidentfid = @"weddingidentfid";
     cell = [[weddingCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:weddingidentfid];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     if (indexPath.section==0) {
-        if (indexPath.row==0) {
-            cell.typelab.text = @"高清版";
-            cell.contentlab.text = @"未剪辑，网盘下载";
-            cell.pricelab.text = @"¥59";
-        }
-        if (indexPath.row==1) {
-            cell.typelab.text = @"高清 无弹幕 无水印";
-            cell.contentlab.text = @"未剪辑，网盘下载，多个版本";
-            cell.pricelab.text = @"¥99";
-        }
-        if (indexPath.row==2) {
-            cell.typelab.text = @"礼盒装";
-            cell.contentlab.text = @"剪辑版，快递发货";
-            cell.pricelab.text = @"¥520";
-        }
+
+        [cell setdata:self.datasource0[indexPath.row]];
     }
     if (indexPath.section==1) {
-        if (indexPath.row==0) {
-            cell.typelab.text = @"礼盒装";
-            cell.contentlab.text = @"剪辑版，快递发货";
-            cell.pricelab.text = @"¥520";
-        }
-        if (indexPath.row==1) {
-            cell.typelab.text = @"礼盒装";
-            cell.contentlab.text = @"剪辑版，快递发货";
-            cell.pricelab.text = @"¥520";
-        }
+
+        [cell setdata:self.datasource1[indexPath.row]];
+
     }
+    cell.delegate = self;
     return cell;
 }
 
@@ -108,14 +176,49 @@ static NSString *weddingidentfid = @"weddingidentfid";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DLAlertView *alert = [[DLAlertView alloc] initWithWithImage:@"http://img1.gtimg.com/ent/pics/hv1/213/155/1650/107330988.jpg" initWithWithContent:@"定义一个字符串a， 截取a 的某一个项目组，复制给b， b必须是int型定义一个字符串a， 截取a 的某一个项目组，复制给b， b必须是int型定义一个字符串a， 截取a 的某一个项目组，复制给b， b必须是int型定义一个字符串a， 截取a 的某一个项目组，复制给b， b必须是int型定义一个字符串a， 截取a 的某一个项目组，复制给b， b必须是int型定义一个字符串a， 截取a 的某一个项目组，复制给b， b必须是int型定义一个字符串a， 截取a 的某一个项目组，复制给b， b必须是int型串a， 截取a 的某一个项目组，复制给b， b必须是int型定义一个字符串a， 截取a 的某一个项目组，复制给b， b必须是int型定义一个字符串a， 截取a 的某一个项目组，复制给b， b必须是int型定义一个字符串a， 截取a 的某一个项目组，复制给b， b必须是int型" clickCallBack:^{
+    
+    if (indexPath.section==0) {
+        weddinglistModel *model = self.datasource0[indexPath.row];
+        NSString *imgstr = model.goods_list_img;
+        NSString *infostr = model.info;
         
-    } andCloseCallBack:^{
+        DLAlertView *alert = [[DLAlertView alloc] initWithWithImage:imgstr initWithWithContent:infostr clickCallBack:^{
+            
+        } andCloseCallBack:^{
+            
+        }];
+        [alert show];
         
-    }];
-    [alert show];
+    }
+    if (indexPath.section==1) {
+        weddinglistModel *model = self.datasource1[indexPath.row];
+        NSString *imgstr = model.goods_list_img;
+        NSString *infostr = model.info;
+        
+        DLAlertView *alert = [[DLAlertView alloc] initWithWithImage:imgstr initWithWithContent:infostr clickCallBack:^{
+            
+        } andCloseCallBack:^{
+            
+        }];
+        [alert show];
+    }
 }
 
+-(void)choosebtnClick:(UITableViewCell *)cell
+{
+    NSIndexPath *index = [self.table indexPathForCell:cell];
+    NSLog(@"index------%ld",(long)index.row);
+    if (index.section==0) {
+        weddinglistModel *model = self.datasource0[index.row];
+        model.ischoose = !model.ischoose;
+        [self.table reloadData];
+    }
+    if (index.section==1) {
+        weddinglistModel *model = self.datasource1[index.row];
+        model.ischoose = !model.ischoose;
+        [self.table reloadData];
+    }
+}
 -(void)rightAction
 {
     weddingPayVC *vc = [[weddingPayVC alloc] init];
