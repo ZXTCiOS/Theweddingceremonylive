@@ -21,6 +21,11 @@
 #import "NELivePlayer.h"// 网易云播放器协议
 
 
+
+
+#define flv @"http://hdl.9158.com/live/d8596cea32bc05a774aaa43a73b38adc.flv"
+
+
 @interface PortraitFullViewController ()<UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
 
 
@@ -49,7 +54,7 @@
 - (NSString *)getURL{
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
      __block NSString *url;
-    [manager GET:@"http://hdl.9158.com/live/c0c4fc8c63a12769008d18cf5309093f.flv" parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manager GET:@"" parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
          NSArray *arr = [[responseObject objectForKey:@"data"] objectForKey:@"list"];
@@ -64,7 +69,7 @@
 /*
 #pragma configPlayer
 - (void)configPlayer{
-    self.player = [[IJKFFMoviePlayerController alloc] initWithContentURLString:@"http://hdl.9158.com/live/788687910fe9c61a38d7821773c0bb56.flv" withOptions:[IJKFFOptions optionsByDefault]];
+    self.player = [[IJKFFMoviePlayerController alloc] initWithContentURLString:@"" withOptions:[IJKFFOptions optionsByDefault]];
     [self.view addSubview:self.player.view];
     self.player.shouldAutoplay = YES;
     self.player.scalingMode = IJKMPMovieScalingModeAspectFit;
@@ -82,7 +87,7 @@
     [self.player prepareToPlay];*/
     
     self.liveplayer = [[NELivePlayerController alloc]
-                       initWithContentURL:@"http://hdl.9158.com/live/c0c4fc8c63a12769008d18cf5309093f.flv".xd_URL];
+                       initWithContentURL:flv.xd_URL];
     if (self.liveplayer == nil) {
         NSLog(@"failed to initialize!");
     }
@@ -229,6 +234,7 @@
         _maskview.pagingEnabled = YES;
         _maskview.showsVerticalScrollIndicator = NO;
         _maskview.showsHorizontalScrollIndicator = NO;
+        _maskview.bounces = NO;
         [self.view addSubview:_maskview];
     }
     return _maskview;

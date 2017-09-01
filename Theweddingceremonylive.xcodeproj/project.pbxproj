@@ -72,6 +72,7 @@
 		18F9374F1F57FBFE00B267C0 /* PortraitFullMaskView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F937461F57FBFE00B267C0 /* PortraitFullMaskView.xib */; };
 		18F937501F57FBFE00B267C0 /* PortraitTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F937481F57FBFE00B267C0 /* PortraitTextView.m */; };
 		18F937511F57FBFE00B267C0 /* PortraitFullViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F9374B1F57FBFE00B267C0 /* PortraitFullViewController.m */; };
+		18F937601F58076500B267C0 /* HorizontalPushVCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F9375F1F58076500B267C0 /* HorizontalPushVCViewController.m */; };
 		18FE231C1F4E72DC0088D3BF /* NvwaYugaoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FE231B1F4E72DC0088D3BF /* NvwaYugaoModel.m */; };
 		18FE231F1F4E749F0088D3BF /* NvwaHeaderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FE231E1F4E749F0088D3BF /* NvwaHeaderModel.m */; };
 		18FE23221F4E7AB90088D3BF /* MainNvwaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FE23211F4E7AB90088D3BF /* MainNvwaModel.m */; };
@@ -411,6 +412,8 @@
 		18F937481F57FBFE00B267C0 /* PortraitTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortraitTextView.m; sourceTree = "<group>"; };
 		18F9374A1F57FBFE00B267C0 /* PortraitFullViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortraitFullViewController.h; sourceTree = "<group>"; };
 		18F9374B1F57FBFE00B267C0 /* PortraitFullViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortraitFullViewController.m; sourceTree = "<group>"; };
+		18F9375E1F58076500B267C0 /* HorizontalPushVCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizontalPushVCViewController.h; sourceTree = "<group>"; };
+		18F9375F1F58076500B267C0 /* HorizontalPushVCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalPushVCViewController.m; sourceTree = "<group>"; };
 		18FE231A1F4E72DC0088D3BF /* NvwaYugaoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvwaYugaoModel.h; sourceTree = "<group>"; };
 		18FE231B1F4E72DC0088D3BF /* NvwaYugaoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NvwaYugaoModel.m; sourceTree = "<group>"; };
 		18FE231D1F4E749F0088D3BF /* NvwaHeaderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvwaHeaderModel.h; sourceTree = "<group>"; };
@@ -1232,6 +1235,101 @@
 			path = viewcontroller;
 			sourceTree = "<group>";
 		};
+		18F937521F58058100B267C0 /* 横屏观看 */ = {
+			isa = PBXGroup;
+			children = (
+				18F937531F58058100B267C0 /* Model */,
+				18F937541F58058100B267C0 /* View */,
+				18F937551F58058100B267C0 /* ViewController */,
+			);
+			path = "横屏观看";
+			sourceTree = "<group>";
+		};
+		18F937531F58058100B267C0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		18F937541F58058100B267C0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		18F937551F58058100B267C0 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		18F937561F58058100B267C0 /* 横屏开播 */ = {
+			isa = PBXGroup;
+			children = (
+				18F937571F58058100B267C0 /* Model */,
+				18F937581F58058100B267C0 /* View */,
+				18F937591F58058100B267C0 /* ViewController */,
+			);
+			path = "横屏开播";
+			sourceTree = "<group>";
+		};
+		18F937571F58058100B267C0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		18F937581F58058100B267C0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		18F937591F58058100B267C0 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		18F9375A1F58058100B267C0 /* 竖屏开播 */ = {
+			isa = PBXGroup;
+			children = (
+				18F9375B1F58058100B267C0 /* Model */,
+				18F9375C1F58058100B267C0 /* View */,
+				18F9375D1F58058100B267C0 /* ViewController */,
+			);
+			path = "竖屏开播";
+			sourceTree = "<group>";
+		};
+		18F9375B1F58058100B267C0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		18F9375C1F58058100B267C0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		18F9375D1F58058100B267C0 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				18F9375E1F58076500B267C0 /* HorizontalPushVCViewController.h */,
+				18F9375F1F58076500B267C0 /* HorizontalPushVCViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		18FE232E1F4EC42C0088D3BF /* HYBLoopScrollView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1977,6 +2075,9 @@
 		53D02F891F3BF95300CD504C /* 开播 */ = {
 			isa = PBXGroup;
 			children = (
+				18F937521F58058100B267C0 /* 横屏观看 */,
+				18F937561F58058100B267C0 /* 横屏开播 */,
+				18F9375A1F58058100B267C0 /* 竖屏开播 */,
 				18F9373D1F57FBFE00B267C0 /* 竖屏直播 */,
 				53D02F991F3BF9DD00CD504C /* M */,
 				53D02F9A1F3BF9DD00CD504C /* V */,
@@ -2388,12 +2489,7 @@
 				1831DBE21F4D514200155691 /* LiebiaoCell.xib in Resources */,
 				1853D94F1F5040D400980936 /* infoCell.xib in Resources */,
 				182E81111F418C3200720AA4 /* FastForwardView.xib in Resources */,
-
 				18F9374F1F57FBFE00B267C0 /* PortraitFullMaskView.xib in Resources */,
-				53CC9A491F57E4FA0077CCF6 /* LSSwitchModuleVideoCameraPositionBlock.html in Resources */,
-				53CC9A591F57E4FA0077CCF6 /* hierarchy.html in Resources */,
-
-
 				1831DBD51F4D281B00155691 /* NvWaCell.xib in Resources */,
 				1847DED81F3C5A5F00C796A8 /* LiveVideoCell.xib in Resources */,
 				1845AEA41F469E0B002EAD47 /* BannerView.xib in Resources */,
@@ -2713,6 +2809,7 @@
 				188039051F3EAB9B00A2B4AE /* MyWalletTVC.m in Sources */,
 				53CC98B51F5410E80077CCF6 /* wanshanCell1.m in Sources */,
 				530299521F442E09004BC03A /* MyshopCell.m in Sources */,
+				18F937601F58076500B267C0 /* HorizontalPushVCViewController.m in Sources */,
 				188039031F3EAB9B00A2B4AE /* MyGiftTVC.m in Sources */,
 				18FE5D911F4AD95300C5A3CF /* MainHeaderView.m in Sources */,
 				533ACC8C1F46D66E00F66A78 /* addressVC.m in Sources */,
