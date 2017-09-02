@@ -11,7 +11,7 @@
 
 
 
-@interface pilotliveVC ()
+@interface pilotliveVC ()<UITextViewDelegate>
 
 
 
@@ -38,9 +38,22 @@
     [self.view addSubview:self.submitBtn];
     [self setuplayout];
     
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChange) name:UITextViewTextDidChangeNotification object:nil];
+
 }
 
+- (void)didChange{
+    NSLog(@"noti -- didChange");
+    if (self.titletext.text.length==0) {
+        [_submitBtn setTitle:@"开始直播" forState:normal];
+        _submitBtn.backgroundColor = [UIColor colorWithHexString:@"dddddd"];
+    }
+    else
+    {
+        [_submitBtn setTitle:@"我要体验" forState:normal];
+        _submitBtn.backgroundColor = [UIColor colorWithHexString:@"de5e40"];
+    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -135,7 +148,9 @@
     {
         _submitBtn = [[UIButton alloc] init];
         [_submitBtn setTitle:@"开始直播" forState:normal];
-        _submitBtn.backgroundColor = [UIColor colorWithHexString:@"333333"];
+        _submitBtn.backgroundColor = [UIColor colorWithHexString:@"dddddd"];
+        _submitBtn.layer.masksToBounds = YES;
+        _submitBtn.layer.cornerRadius = 25*HEIGHT_SCALE;
     }
     return _submitBtn;
 }
@@ -147,13 +162,14 @@
     {
         _titletext = [[WJGtextView alloc] init];
         _titletext.customPlaceholder = @"请输入标题";
-        
+        _titletext.delegate = self;
+        _titletext.layer.masksToBounds = YES;
+        _titletext.layer.borderWidth = 1;
+        _titletext.layer.borderColor = [UIColor colorWithHexString:@"dddddd"].CGColor;
+        _titletext.layer.cornerRadius = 4;
     }
     return _titletext;
 }
-
-
-
 
 
 #pragma mark - 实现方法
