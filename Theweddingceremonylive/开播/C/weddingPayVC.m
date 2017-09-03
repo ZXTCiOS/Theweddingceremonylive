@@ -286,8 +286,8 @@
         [MBProgressHUD showSuccess:@"没有网络"];
     }];
     
-    
-
+    perfectinglineVC *vc = [[perfectinglineVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

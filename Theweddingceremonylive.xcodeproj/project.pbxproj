@@ -111,6 +111,8 @@
 		5303E3E81F3EE3C000AB0AF2 /* logupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5303E3E71F3EE3C000AB0AF2 /* logupViewController.m */; };
 		5303E3EC1F3EF5A800AB0AF2 /* QCCountdownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5303E3EB1F3EF5A800AB0AF2 /* QCCountdownButton.m */; };
 		5303E3EF1F3EFBBE00AB0AF2 /* forgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5303E3EE1F3EFBBE00AB0AF2 /* forgetViewController.m */; };
+		531C05561F5C23DD00C235FA /* libUMessage_Sdk_1.5.0a.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 531C05541F5C23DD00C235FA /* libUMessage_Sdk_1.5.0a.a */; };
+		531C05581F5C240800C235FA /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 531C05571F5C240700C235FA /* UserNotifications.framework */; };
 		53204BF91F593BD100A211BD /* AppDelegate+ZTVendorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 53204BD01F593BD100A211BD /* AppDelegate+ZTVendorHelper.m */; };
 		53204BFA1F593BD100A211BD /* ZTVendorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 53204BD21F593BD100A211BD /* ZTVendorManager.m */; };
 		53204BFB1F593BD100A211BD /* ZTVendorPayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 53204BD41F593BD100A211BD /* ZTVendorPayManager.m */; };
@@ -528,6 +530,10 @@
 		5303E3EB1F3EF5A800AB0AF2 /* QCCountdownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCCountdownButton.m; sourceTree = "<group>"; };
 		5303E3ED1F3EFBBE00AB0AF2 /* forgetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = forgetViewController.h; sourceTree = "<group>"; };
 		5303E3EE1F3EFBBE00AB0AF2 /* forgetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = forgetViewController.m; sourceTree = "<group>"; };
+		531C05541F5C23DD00C235FA /* libUMessage_Sdk_1.5.0a.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMessage_Sdk_1.5.0a.a; sourceTree = "<group>"; };
+		531C05551F5C23DD00C235FA /* UMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMessage.h; sourceTree = "<group>"; };
+		531C05571F5C240700C235FA /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		531C05591F5C273300C235FA /* Theweddingceremonylive.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Theweddingceremonylive.entitlements; sourceTree = "<group>"; };
 		53204BCF1F593BD100A211BD /* AppDelegate+ZTVendorHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+ZTVendorHelper.h"; sourceTree = "<group>"; };
 		53204BD01F593BD100A211BD /* AppDelegate+ZTVendorHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+ZTVendorHelper.m"; sourceTree = "<group>"; };
 		53204BD11F593BD100A211BD /* ZTVendorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTVendorManager.h; sourceTree = "<group>"; };
@@ -865,6 +871,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				531C05581F5C240800C235FA /* UserNotifications.framework in Frameworks */,
 				53CC996E1F56C6AB0077CCF6 /* CoreTelephony.framework in Frameworks */,
 				53CC995B1F56C4D80077CCF6 /* libsqlite3.tbd in Frameworks */,
 				53CC995D1F56C4E60077CCF6 /* libc++.tbd in Frameworks */,
@@ -880,6 +887,7 @@
 				53204C011F593BD100A211BD /* AlipaySDK.framework in Frameworks */,
 				53CC9A831F57F0520077CCF6 /* libnts.a in Frameworks */,
 				53CC998C1F56C7430077CCF6 /* UIKit.framework in Frameworks */,
+				531C05561F5C23DD00C235FA /* libUMessage_Sdk_1.5.0a.a in Frameworks */,
 				53CC9A821F57F0520077CCF6 /* libNMCVideoModule.a in Frameworks */,
 				53CC9A811F57F0520077CCF6 /* libnio.a in Frameworks */,
 				53CC9A841F57F0520077CCF6 /* libnvs.a in Frameworks */,
@@ -1742,6 +1750,23 @@
 			path = QCCountdownButton;
 			sourceTree = "<group>";
 		};
+		531C05521F5C23DD00C235FA /* 推送 */ = {
+			isa = PBXGroup;
+			children = (
+				531C05531F5C23DD00C235FA /* UMessage_Sdk_1.5.0a */,
+			);
+			path = "推送";
+			sourceTree = "<group>";
+		};
+		531C05531F5C23DD00C235FA /* UMessage_Sdk_1.5.0a */ = {
+			isa = PBXGroup;
+			children = (
+				531C05541F5C23DD00C235FA /* libUMessage_Sdk_1.5.0a.a */,
+				531C05551F5C23DD00C235FA /* UMessage.h */,
+			);
+			path = UMessage_Sdk_1.5.0a;
+			sourceTree = "<group>";
+		};
 		53204BCD1F593BD100A211BD /* ZTVendorManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -2164,6 +2189,7 @@
 		53D02F3C1F3B1B5600CD504C /* Theweddingceremonylive */ = {
 			isa = PBXGroup;
 			children = (
+				531C05591F5C273300C235FA /* Theweddingceremonylive.entitlements */,
 				53D02F401F3B1B5600CD504C /* AppDelegate.h */,
 				53D02F411F3B1B5600CD504C /* AppDelegate.m */,
 				53D02F861F3BF95300CD504C /* 登录注册 */,
@@ -2181,6 +2207,7 @@
 				53D02F781F3BF5F800CD504C /* Vendor */,
 				53D02F711F3B2A4C00CD504C /* Sources */,
 				53CC98FC1F56C4930077CCF6 /* 直播sdk */,
+				531C05521F5C23DD00C235FA /* 推送 */,
 				53D02F461F3B1B5600CD504C /* Main.storyboard */,
 				53D02F4B1F3B1B5600CD504C /* LaunchScreen.storyboard */,
 				53D02F3D1F3B1B5600CD504C /* Supporting Files */,
@@ -2600,6 +2627,7 @@
 		DB49F4094154EE705C0CEC6F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				531C05571F5C240700C235FA /* UserNotifications.framework */,
 				53204C0B1F593BE700A211BD /* CoreMotion.framework */,
 				53CC9A901F57F1620077CCF6 /* libsqlite3.0.tbd */,
 				53CC9A8E1F57F12F0077CCF6 /* MobileCoreServices.framework */,
@@ -2713,6 +2741,9 @@
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 1;
 							};
 						};
 					};
@@ -3318,6 +3349,7 @@
 			baseConfigurationReference = 519EF08031E9CFD464717C0C /* Pods-Theweddingceremonylive.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Theweddingceremonylive/Theweddingceremonylive.entitlements;
 				DEVELOPMENT_TEAM = 22Y9Y734K3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3343,6 +3375,7 @@
 					"$(PROJECT_DIR)/Theweddingceremonylive/Vendor/ZTVendorManager/VendorSDK/UMSocial/UMSocialSDKPlugin",
 					"$(PROJECT_DIR)/Theweddingceremonylive/Vendor/ZTVendorManager/VendorSDK/WeChat",
 					"$(PROJECT_DIR)/Theweddingceremonylive/Vendor/ZTVendorManager/VendorSDK/WeChat/WechatSDK",
+					"$(PROJECT_DIR)/Theweddingceremonylive/推送/UMessage_Sdk_1.5.0a",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wangjungang.Theweddingceremonylive;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3356,6 +3389,7 @@
 			baseConfigurationReference = 8B526D6D9A8ECFE88B9376D9 /* Pods-Theweddingceremonylive.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Theweddingceremonylive/Theweddingceremonylive.entitlements;
 				DEVELOPMENT_TEAM = 22Y9Y734K3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3381,6 +3415,7 @@
 					"$(PROJECT_DIR)/Theweddingceremonylive/Vendor/ZTVendorManager/VendorSDK/UMSocial/UMSocialSDKPlugin",
 					"$(PROJECT_DIR)/Theweddingceremonylive/Vendor/ZTVendorManager/VendorSDK/WeChat",
 					"$(PROJECT_DIR)/Theweddingceremonylive/Vendor/ZTVendorManager/VendorSDK/WeChat/WechatSDK",
+					"$(PROJECT_DIR)/Theweddingceremonylive/推送/UMessage_Sdk_1.5.0a",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wangjungang.Theweddingceremonylive;
 				PRODUCT_NAME = "$(TARGET_NAME)";
