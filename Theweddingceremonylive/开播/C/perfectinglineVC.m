@@ -24,6 +24,8 @@
 @property (strong, nonatomic) ZmjPickView *zmjPickView;
 
 @property (nonatomic,strong) OYRAlertView * oyrAlertView;
+
+@property (nonatomic,strong) NSString *room_yangshi;
 @end
 
 static NSString *wanshanidentfid0 = @"wanshanidentfid0";
@@ -46,6 +48,7 @@ static NSString *wanshanidentfid9 = @"wanshanidentfid9";
     // Do any additional setup after loading the view.
     self.title = @"完善信息";
     [self click];
+    self.room_yangshi = @"3";
     [self.view addSubview:self.table];
     self.table.tableFooterView = self.footView;
 }
@@ -304,6 +307,7 @@ static NSString *wanshanidentfid9 = @"wanshanidentfid9";
 
 -(void)submitbtnclick
 {
+    
     weddingcardVC *vc = [[weddingcardVC alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -311,16 +315,19 @@ static NSString *wanshanidentfid9 = @"wanshanidentfid9";
 -(void)typebtn0click
 {
     [MBProgressHUD showSuccess:@"111111"];
+    self.room_yangshi = @"1";
 }
 
 -(void)typebtn1click
 {
     [MBProgressHUD showSuccess:@"222222"];
+    self.room_yangshi = @"2";
 }
 
 -(void)typebtn2click
 {
     [MBProgressHUD showSuccess:@"333333"];
+    self.room_yangshi = @"3";
 }
 
 
