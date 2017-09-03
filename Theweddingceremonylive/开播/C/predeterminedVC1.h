@@ -10,4 +10,6 @@
 
 @interface predeterminedVC1 : BaseViewController
 
+@property (nonatomic,strong) NSString *typenamestr;
+
 @end

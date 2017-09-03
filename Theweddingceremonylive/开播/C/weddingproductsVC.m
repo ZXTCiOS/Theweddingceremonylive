@@ -16,6 +16,19 @@
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic,strong) NSMutableArray *datasource0;
 @property (nonatomic,strong) NSMutableArray *datasource1;
+
+@property (nonatomic,strong) NSString *order_goodsstr;
+@property (nonatomic,strong) NSString *order_goods_tuijian;
+
+@property (nonatomic,strong) NSString *zhencangname;
+@property (nonatomic,strong) NSString *zhencangprice;
+
+@property (nonatomic,strong) NSString *tuijianname;
+@property (nonatomic,strong) NSString *tuijianprice;
+
+@property (nonatomic,strong) NSString *price0;
+@property (nonatomic,strong) NSString *price1;
+
 @end
 
 static NSString *weddingidentfid = @"weddingidentfid";
@@ -26,6 +39,8 @@ static NSString *weddingidentfid = @"weddingidentfid";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"婚礼产品";
+
+    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"下一步" style:UIBarButtonItemStylePlain target:self action:@selector(rightAction)];
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithHexString:@"E95F46"];
     [self.view addSubview:self.table];
@@ -209,20 +224,111 @@ static NSString *weddingidentfid = @"weddingidentfid";
     NSIndexPath *index = [self.table indexPathForCell:cell];
     NSLog(@"index------%ld",(long)index.row);
     if (index.section==0) {
-        weddinglistModel *model = self.datasource0[index.row];
-        model.ischoose = !model.ischoose;
+
+        
+        if (index.row==0) {
+            weddinglistModel *model0 = [self.datasource0 objectAtIndex:0];
+            weddinglistModel *model1 = [self.datasource0 objectAtIndex:1];
+            weddinglistModel *model2 = [self.datasource0 objectAtIndex:2];
+            model0.ischoose = YES;
+            model1.ischoose = NO;
+            model2.ischoose = NO;
+            self.order_goodsstr = model0.idstr;
+            self.zhencangname = model0.name;
+            self.zhencangprice = model0.money;
+            
+            self.price0 = model0.money;
+        }
+        if (index.row==1) {
+            weddinglistModel *model0 = [self.datasource0 objectAtIndex:0];
+            weddinglistModel *model1 = [self.datasource0 objectAtIndex:1];
+            weddinglistModel *model2 = [self.datasource0 objectAtIndex:2];
+            model0.ischoose = NO;
+            model1.ischoose = YES;
+            model2.ischoose = NO;
+            self.order_goodsstr = model1.idstr;
+            self.zhencangname = model1.name;
+            self.zhencangprice = model1.money;
+            
+            self.price0 = model1.money;
+        }
+        if (index.row==2) {
+            weddinglistModel *model0 = [self.datasource0 objectAtIndex:0];
+            weddinglistModel *model1 = [self.datasource0 objectAtIndex:1];
+            weddinglistModel *model2 = [self.datasource0 objectAtIndex:2];
+            model0.ischoose = NO;
+            model1.ischoose = NO;
+            model2.ischoose = YES;
+            self.order_goodsstr = model2.idstr;
+            self.zhencangname = model2.name;
+            self.zhencangprice = model2.money;
+            
+            self.price0 = model2.money;
+        }
+        
         [self.table reloadData];
     }
     if (index.section==1) {
         weddinglistModel *model = self.datasource1[index.row];
         model.ischoose = !model.ischoose;
         [self.table reloadData];
+        
+        
+        NSMutableArray *selecarr = [NSMutableArray array];
+        NSMutableArray *namearr = [NSMutableArray array];
+        NSMutableArray *moneyarr = [NSMutableArray array];
+        
+        
+        for (int i=0; i<self.datasource1.count; i++) {
+            weddinglistModel *model2 = self.datasource1[i];;
+            NSString *str = [NSString stringWithFormat:@"%d",model2.ischoose];
+            [selecarr addObject:str];
+        }
+        if ([selecarr containsObject:@"1"])
+        {
+            NSMutableArray *pidarr = [NSMutableArray array];
+            for (int t=0; t<self.datasource1.count; t++) {
+                if ([selecarr[t] isEqualToString:@"1"]) {
+                     weddinglistModel *model3 = [self.datasource1 objectAtIndex:t];
+                    [pidarr addObject:model3.idstr];
+                    [namearr addObject:model3.name];
+                    [moneyarr addObject:model3.money];
+                }
+            }
+            NSString *idstrnum = [pidarr componentsJoinedByString:@","];
+            NSLog(@"numberstr ------- %@",idstrnum);
+            self.tuijianname = [namearr componentsJoinedByString:@","];
+            self.tuijianprice = [moneyarr componentsJoinedByString:@","];
+            self.order_goods_tuijian = idstrnum;
+            NSNumber *sum = [moneyarr valueForKeyPath:@"@sum.floatValue"];
+            self.price1 = [NSString stringWithFormat:@"%@",sum];
+            
+        }
     }
 }
+
 -(void)rightAction
 {
     weddingPayVC *vc = [[weddingPayVC alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
+    vc.name0 = [NSString stringWithFormat:@"%@%@%@",self.typenamestr,@" ",self.pricestr];
+    vc.name1 = [NSString stringWithFormat:@"%@%@%@",self.zhencangname,@" ",self.zhencangprice];
+    vc.name2 = [NSString stringWithFormat:@"%@%@%@",self.tuijianname,@" ",self.tuijianprice];
+    
+    if ([strisNull isNullToString:self.order_goodsstr]) {
+        [MBProgressHUD showSuccess:@"请选择商品"];
+    }
+    else
+    {
+        vc.order_goods = self.order_goodsstr;
+        vc.order_goods_tuijian = self.order_goods_tuijian;
+        NSInteger price = [self.price0 floatValue]+[self.price1 floatValue];
+        vc.order_price = [NSString stringWithFormat:@"%.2ld",(long)price];
+        vc.room_count = self.room_count;
+        vc.order_pattern = self.order_pattern;
+        vc.create_time = self.create_time;
+        vc.tuijian = self.tuijian;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated

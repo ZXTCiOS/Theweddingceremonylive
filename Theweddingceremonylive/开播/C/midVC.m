@@ -105,10 +105,14 @@ static NSString *livecellidentfid = @"livecellidentfid";
 {
     if (indexPath.row==0) {
         predeterminedVC0 *vc = [[predeterminedVC0 alloc] init];
+        vc.typestr = @"1";
+        vc.typenamestr = @"免费亲友内部直播";
         [self.navigationController pushViewController:vc animated:YES];
     }
     if (indexPath.row==1) {
         predeterminedVC0 *vc = [[predeterminedVC0 alloc] init];
+        vc.typestr = @"2";
+        vc.typenamestr = @"旗舰款";
         [self.navigationController pushViewController:vc animated:YES];
     }
     if (indexPath.row==2) {
