@@ -24,6 +24,10 @@
 #import "CustomerserviceVC.h"
 #import "aboutVC.h"
 
+#import <NIMSDK/NIMSDK.h>
+#import <NIMAVChat/NIMAVChat.h>
+
+
 @interface MineTVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic,strong) mineheadView *headView;
@@ -295,11 +299,16 @@ static NSString *mineidentfid2 = @"mineidentfid2";
         UIAlertAction *action0 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
             
         }];
-        UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"缺点" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:user_token];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:user_uid];
             [[NSUserDefaults standardUserDefaults] synchronize];
+            //NIM logout
+            [[NIMSDK sharedSDK].loginManager logout:^(NSError * _Nullable error) {
+                
+            }];
+            
             AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
             UINavigationController *navcon = [[UINavigationController alloc] init];
             LoginVC *vc = [[LoginVC alloc] init];
@@ -312,6 +321,8 @@ static NSString *mineidentfid2 = @"mineidentfid2";
         [control addAction:action1];
         [self presentViewController:control animated:YES completion:nil];
     
+        
+        
     }
 }
 
