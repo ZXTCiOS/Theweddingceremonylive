@@ -17,7 +17,7 @@
 #import "WeddingLiveTableCell.h"
 // viewcontroller
 #import "PortraitFullViewController.h"
-
+#import "HorizontalPushVCViewController.h"
 
 
 @interface WeddingLiveVC ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
@@ -198,6 +198,15 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (indexPath.row) {
+        HorizontalPushVCViewController *vc = [[HorizontalPushVCViewController alloc] init];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+        return;
+    }
+    
+    
     
     // todo: 区别横竖屏   传参
     PortraitFullViewController *vc = [[PortraitFullViewController alloc] init];

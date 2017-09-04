@@ -14,6 +14,8 @@
 #import "MainTabBarController.h"
 #import "forgetViewController.h"
 #import "bindingViewController.h"
+#import <NIMSDK/NIMSDK.h>
+#import <NIMAVChat/NIMAVChat.h>
 
 @interface LoginVC ()<UITextFieldDelegate>
 @property (nonatomic,strong) UIImageView *logoimg;
@@ -353,7 +355,8 @@
             [defat setObject:tokenstr forKey:user_token];
             [defat setObject:uidstr forKey:user_uid];
             [defat synchronize];
-            
+            //todo: account...
+            [self loginNIMWithaccount:@"123" token:@"31467a682ad31187cc6aded85ed242e7"];
             AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
             MainTabBarController * main = [[MainTabBarController alloc] init];
             appDelegate.window.rootViewController = main;
@@ -368,6 +371,13 @@
     }];
     
 }
+
+- (void)loginNIMWithaccount:(NSString *)account token:(NSString *)token{
+    [[NIMSDK sharedSDK].loginManager login:account token:token completion:^(NSError * _Nullable error) {
+        if (!error) NSLog(@"NIM login sucess");
+    }];
+}
+
 
 -(void)qqbtnclick
 {

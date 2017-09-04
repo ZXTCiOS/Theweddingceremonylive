@@ -10,8 +10,11 @@
 #import "MainTabBarController.h"
 #import "LoginVC.h"
 
+// 网易云信 SDK
+#import <NIMSDK/NIMSDK.h>
+#import <NIMAVChat/NIMAVChat.h>
 
-@interface AppDelegate ()
+@interface AppDelegate ()<NIMLoginManagerDelegate>
 
 @end
 
@@ -22,6 +25,11 @@
     // Override point for customization after application launch.
     
     [self confitroot];
+    [self configNimSDK];
+    [self autoLogin];
+    
+    
+    
     
     return YES;
 }
@@ -52,6 +60,38 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+
+
+- (void)configNimSDK{
+    NSString *appKey        = @"55c573ae6c0fb6d673a401954b3d5c5b";
+    NIMSDKOption *option    = [NIMSDKOption optionWithAppKey:appKey];
+    //TODO: 添加 apns
+    option.apnsCername      = @"your APNs cer name";
+    option.pkCername        = @"your pushkit cer name";
+    [[NIMSDK sharedSDK] registerWithOption:option];
+}
+
+- (void)autoLogin{
+    
+    NIMAutoLoginData *data = [[NIMAutoLoginData alloc] init];
+    data.account = @"123";
+    data.token = @"31467a682ad31187cc6aded85ed242e7";
+    data.forcedMode = NO;
+    [[NIMSDK sharedSDK].loginManager autoLogin:data];
+}
+
+#pragma mark - 自动登录回调
+
+- (void)onLogin:(NIMLoginStep)step{
+    
+}
+
+- (void)onAutoLoginFailed:(NSError *)error{
+    NSLog(@"自动登录失败%@", error);
+}
+
+
 
 -(void)confitroot
 {
