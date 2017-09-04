@@ -20,6 +20,8 @@
 
 @property (nonatomic,strong) NSString *pricestr;
 
+@property (nonatomic,strong) NSString *numstr;
+@property (nonatomic,strong) NSString *timestr;
 @property (nonatomic,assign) BOOL istuijian;
 @end
 
@@ -35,7 +37,8 @@ static NSString *predeterminedidentfid0 = @"predeterminedidentfid0";
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"E95F46"]}];
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     self.title = @"预定房间";
-    self.pricestr = @"¥520";
+    self.pricestr = @"¥399";
+    self.numstr = @"300";
     self.istuijian = NO;
     [self.view addSubview:self.table];
     self.table.tableHeaderView = self.headView;
@@ -124,6 +127,7 @@ static NSString *predeterminedidentfid0 = @"predeterminedidentfid0";
     cell = [[predetermindCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:predeterminedidentfid0];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.predetext.placeholder = @"输入推荐码";
+    cell.predetext.tag = 301;
     cell.backgroundColor = [UIColor colorWithHexString:@"e8e8e8"];
     return cell;
 }
@@ -153,12 +157,13 @@ static NSString *predeterminedidentfid0 = @"predeterminedidentfid0";
     self.headView.btn2.numlab.textColor = [UIColor colorWithHexString:@"333333"];
     self.headView.btn3.selimg.image = [UIImage imageNamed:@"zb_oroom_pf"];
     self.headView.btn3.numlab.textColor = [UIColor colorWithHexString:@"333333"];
-    self.pricestr = @"¥520";
+    self.pricestr = @"¥399";
     NSString *netstr = [NSString stringWithFormat:@"%@%@",@"价格:",_pricestr];
     NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:netstr];
     [str addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"333333"] range:NSMakeRange(0,3)];
     [str addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"ed5e40"] range:NSMakeRange(3,_pricestr.length)];
     [_setBtn setAttributedTitle:str forState:UIControlStateNormal];
+    self.numstr = @"300";
 }
 
 -(void)numselbtnclick1
@@ -171,12 +176,13 @@ static NSString *predeterminedidentfid0 = @"predeterminedidentfid0";
     self.headView.btn2.numlab.textColor = [UIColor colorWithHexString:@"333333"];
     self.headView.btn3.selimg.image = [UIImage imageNamed:@"zb_oroom_pf"];
     self.headView.btn3.numlab.textColor = [UIColor colorWithHexString:@"333333"];
-    self.pricestr = @"¥1000";
+    self.pricestr = @"¥520";
     NSString *netstr = [NSString stringWithFormat:@"%@%@",@"价格:",_pricestr];
     NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:netstr];
     [str addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"333333"] range:NSMakeRange(0,3)];
     [str addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"ed5e40"] range:NSMakeRange(3,_pricestr.length)];
     [_setBtn setAttributedTitle:str forState:UIControlStateNormal];
+    self.numstr = @"500";
 }
 
 -(void)numselbtnclick2
@@ -189,12 +195,13 @@ static NSString *predeterminedidentfid0 = @"predeterminedidentfid0";
     self.headView.btn2.numlab.textColor = [UIColor colorWithHexString:@"ed5e40"];
     self.headView.btn3.selimg.image = [UIImage imageNamed:@"zb_oroom_pf"];
     self.headView.btn3.numlab.textColor = [UIColor colorWithHexString:@"333333"];
-    self.pricestr = @"¥1200";
+    self.pricestr = @"¥999";
     NSString *netstr = [NSString stringWithFormat:@"%@%@",@"价格:",_pricestr];
     NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:netstr];
     [str addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"333333"] range:NSMakeRange(0,3)];
     [str addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"ed5e40"] range:NSMakeRange(3,_pricestr.length)];
     [_setBtn setAttributedTitle:str forState:UIControlStateNormal];
+    self.numstr = @"1000";
 }
 
 -(void)numselbtnclick3
@@ -207,12 +214,13 @@ static NSString *predeterminedidentfid0 = @"predeterminedidentfid0";
     self.headView.btn2.numlab.textColor = [UIColor colorWithHexString:@"333333"];
     self.headView.btn3.selimg.image = [UIImage imageNamed:@"zb_oroom_pf_s"];
     self.headView.btn3.numlab.textColor = [UIColor colorWithHexString:@"ed5e40"];
-    self.pricestr = @"¥1500";
+    self.pricestr = @"¥1314";
     NSString *netstr = [NSString stringWithFormat:@"%@%@",@"价格:",_pricestr];
     NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:netstr];
     [str addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"333333"] range:NSMakeRange(0,3)];
     [str addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"ed5e40"] range:NSMakeRange(3,_pricestr.length)];
     [_setBtn setAttributedTitle:str forState:UIControlStateNormal];
+    self.numstr = @"1500";
 }
 
 
@@ -240,7 +248,7 @@ static NSString *predeterminedidentfid0 = @"predeterminedidentfid0";
         self.headView.numlab0.text = yearstr;
         self.headView.numlab1.text = monthstr;
         self.headView.numlab2.text = daystr;
-        
+        self.timestr = [NSString stringWithFormat:@"%@%@%@%@%@%@",yearstr,@"年",monthstr,@"月",daystr,@"日"];
     }];
     [datePicker show];
 }
@@ -249,8 +257,16 @@ static NSString *predeterminedidentfid0 = @"predeterminedidentfid0";
 -(void)rightAction
 {
     weddingproductsVC *vc = [[weddingproductsVC alloc] init];
+    vc.order_pattern = self.typestr;
+    UITextField *text1 = [self.table viewWithTag:301];
+    vc.tuijian = text1.text;
+    vc.create_time = self.timestr;
+    vc.room_count = self.numstr;
+    vc.pricestr = self.pricestr;
+    vc.typenamestr = self.typenamestr;
     [self.navigationController pushViewController:vc animated:YES];
 }
+
 //推荐码选择
 -(void)tuijianchoost
 {
@@ -284,7 +300,8 @@ static NSString *predeterminedidentfid0 = @"predeterminedidentfid0";
     self.headView.numlab0.text = yearstr;
     self.headView.numlab1.text = monthstr;
     self.headView.numlab2.text = daystr;
-    
+    self.timestr = [NSString stringWithFormat:@"%@%@%@%@%@%@",yearstr,@"年",monthstr,@"月",daystr,@"日"];
+
 }
 
 -(void)viewWillAppear:(BOOL)animated

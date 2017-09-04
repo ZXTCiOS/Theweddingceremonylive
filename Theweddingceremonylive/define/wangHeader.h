@@ -69,4 +69,10 @@
 #define post_goodslist      @"/interface.php/Home/orderup/goodslist"
 //获得商品信息
 #define post_getgoodsinfo   @"/interface.php/Home/orderup/getgoodsinfo"
+
+//完善房间信息
+#define post_finish_order_info  @"/interface.php/Home/orderup/finish_order_info"
+
+
+
 #endif /* wangHeader_h */

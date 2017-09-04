@@ -174,7 +174,8 @@
         _labname0 = [[UILabel alloc] init];
         _labname0.textColor = [UIColor colorWithHexString:@"999999"];
         _labname0.font = [UIFont systemFontOfSize:14];
-        _labname0.text = @"公众人物（500人）¥600";
+        //_labname0.text = @"公众人物（500人）¥600";
+        _labname0.text = self.name0;
     }
     return _labname0;
 }
@@ -186,6 +187,7 @@
         _labname1 = [[UILabel alloc] init];
         _labname1.textColor = [UIColor colorWithHexString:@"999999"];
         _labname1.text = @"高清版:(¥59)";
+        _labname1.text = self.name1;
         _labname1.font = [UIFont systemFontOfSize:14];
     }
     return _labname1;
@@ -199,6 +201,7 @@
         _labname2.font = [UIFont systemFontOfSize:14];
         _labname2.textColor = [UIColor colorWithHexString:@"999999"];
         _labname2.text = @"宣传片:¥5000";
+        _labname2.text = self.name2;
     }
     return _labname2;
 }
@@ -234,7 +237,7 @@
         _pricelab.textColor = [UIColor colorWithHexString:@"ed5e40"];
         _pricelab.font = [UIFont systemFontOfSize:16];
         _pricelab.textAlignment = NSTextAlignmentCenter;
-        _pricelab.text = @"¥43030";
+        _pricelab.text = self.order_price;
     }
     return _pricelab;
 }
@@ -255,9 +258,34 @@
     return _submitBtn;
 }
 
-
 -(void)submitbtnclick
 {
+    NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
+    NSString *uid = [userdefat objectForKey:user_uid];
+    NSString *token = [userdefat objectForKey:user_token];
+    
+    NSDictionary *para = [NSDictionary dictionary];
+    
+    if ([strisNull isNullToString:self.tuijian]) {
+        para = @{@"uid":uid,@"token":token,@"order_pattern":self.order_pattern,@"order_goods":self.order_goods,@"order_goods_tuijian":self.order_goods_tuijian,@"order_price":self.order_price,@"create_time":self.create_time,@"room_count":self.room_count};
+    }
+    else
+    {
+        para = @{@"uid":uid,@"token":token,@"order_pattern":self.order_pattern,@"order_goods":self.order_goods,@"order_goods_tuijian":self.order_goods_tuijian,@"order_price":self.order_price,@"tuijian":self.tuijian,@"create_time":self.create_time,@"room_count":self.room_count};
+    }
+    
+    [DNNetworking postWithURLString:post_orderup parameters:para success:^(id obj) {
+        NSString *mes = [obj objectForKey:@"mes"];
+        [MBProgressHUD showSuccess:mes];
+        if ([[obj objectForKey:@"code"] intValue]==1000) {
+            perfectinglineVC *vc = [[perfectinglineVC alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        
+    } failure:^(NSError *error) {
+        [MBProgressHUD showSuccess:@"没有网络"];
+    }];
+    
     perfectinglineVC *vc = [[perfectinglineVC alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }

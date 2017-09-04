@@ -9,5 +9,7 @@
 #import "BaseViewController.h"
 
 @interface predeterminedVC0 : BaseViewController
+@property (nonatomic,strong) NSString *typestr;
+@property (nonatomic,strong) NSString *typenamestr;
 
 @end

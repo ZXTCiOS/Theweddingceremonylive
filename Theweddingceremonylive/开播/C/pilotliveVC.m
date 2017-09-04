@@ -8,14 +8,10 @@
 
 #import "pilotliveVC.h"
 #import "WJGtextView.h"
-#import <AVFoundation/AVFoundation.h>
-
-#import <NIMSDK/NIMSDK.h>
-#import <NIMAVChat/NIMAVChat.h>
 
 
 
-@interface pilotliveVC ()<NIMNetCallManager>
+@interface pilotliveVC ()<UITextViewDelegate>
 
 
 
@@ -24,8 +20,7 @@
 @property (nonatomic,strong) UIButton *btn1;
 @property (nonatomic,strong) UIButton *btn2;
 @property (nonatomic,strong) WJGtextView *titletext;
-
-
+@property (nonatomic,strong) UIButton *submitBtn;
 
 @end
 
@@ -35,23 +30,30 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    
-    
     [self.view addSubview:self.bgimg];
-    
-    
-    
-
-
     [self.view addSubview:self.btn0];
     [self.view addSubview:self.btn1];
     [self.view addSubview:self.btn2];
-    
+    [self.view addSubview:self.titletext];
+    [self.view addSubview:self.submitBtn];
     [self setuplayout];
     
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChange) name:UITextViewTextDidChangeNotification object:nil];
+
 }
 
+- (void)didChange{
+    NSLog(@"noti -- didChange");
+    if (self.titletext.text.length==0) {
+        [_submitBtn setTitle:@"开始直播" forState:normal];
+        _submitBtn.backgroundColor = [UIColor colorWithHexString:@"dddddd"];
+    }
+    else
+    {
+        [_submitBtn setTitle:@"我要体验" forState:normal];
+        _submitBtn.backgroundColor = [UIColor colorWithHexString:@"de5e40"];
+    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -77,6 +79,20 @@
         make.right.equalTo(weakSelf.btn1.mas_left).with.offset(-20*WIDTH_SCALE);
         make.width.mas_offset(40*WIDTH_SCALE);
         make.height.mas_offset(40*WIDTH_SCALE);
+    }];
+    
+    [weakSelf.titletext mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(weakSelf.view).with.offset(200*HEIGHT_SCALE);
+        make.left.equalTo(weakSelf.view).with.offset(15*WIDTH_SCALE);
+        make.right.equalTo(weakSelf.view).with.offset(-15*WIDTH_SCALE);
+        make.height.mas_offset(100*HEIGHT_SCALE);
+    }];
+    
+    [weakSelf.submitBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf.view).with.offset(kScreenW/2-110*WIDTH_SCALE);
+        make.width.mas_offset(220*WIDTH_SCALE);
+        make.height.mas_offset(50*HEIGHT_SCALE);
+        make.top.equalTo(weakSelf.titletext.mas_bottom).with.offset(40*HEIGHT_SCALE);
     }];
 }
 
@@ -124,6 +140,37 @@
     }
     return _btn2;
 }
+
+
+-(UIButton *)submitBtn
+{
+    if(!_submitBtn)
+    {
+        _submitBtn = [[UIButton alloc] init];
+        [_submitBtn setTitle:@"开始直播" forState:normal];
+        _submitBtn.backgroundColor = [UIColor colorWithHexString:@"dddddd"];
+        _submitBtn.layer.masksToBounds = YES;
+        _submitBtn.layer.cornerRadius = 25*HEIGHT_SCALE;
+    }
+    return _submitBtn;
+}
+
+
+-(WJGtextView *)titletext
+{
+    if(!_titletext)
+    {
+        _titletext = [[WJGtextView alloc] init];
+        _titletext.customPlaceholder = @"请输入标题";
+        _titletext.delegate = self;
+        _titletext.layer.masksToBounds = YES;
+        _titletext.layer.borderWidth = 1;
+        _titletext.layer.borderColor = [UIColor colorWithHexString:@"dddddd"].CGColor;
+        _titletext.layer.cornerRadius = 4;
+    }
+    return _titletext;
+}
+
 
 #pragma mark - 实现方法
 
