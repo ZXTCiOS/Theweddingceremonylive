@@ -73,6 +73,9 @@
 //完善房间信息
 #define post_finish_order_info  @"/interface.php/Home/orderup/finish_order_info"
 
-
+//是否认证
+#define post_is_renzheng    @"/interface.php/Home/User/is_renzheng"
+//是否预约
+#define post_isyuyue        @"/interface.php/Home/User/is_yuyue"
 
 #endif /* wangHeader_h */

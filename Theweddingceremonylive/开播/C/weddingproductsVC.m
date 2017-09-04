@@ -321,7 +321,7 @@ static NSString *weddingidentfid = @"weddingidentfid";
     {
         vc.order_goods = self.order_goodsstr;
         vc.order_goods_tuijian = self.order_goods_tuijian;
-        NSInteger price = [self.price0 floatValue]+[self.price1 floatValue];
+        NSInteger price = [self.price0 floatValue]+[self.price1 floatValue]+[self.pricestr floatValue];
         vc.order_price = [NSString stringWithFormat:@"%.2ld",(long)price];
         vc.room_count = self.room_count;
         vc.order_pattern = self.order_pattern;

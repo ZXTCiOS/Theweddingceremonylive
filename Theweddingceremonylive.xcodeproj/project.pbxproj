@@ -113,6 +113,7 @@
 		5303E3EF1F3EFBBE00AB0AF2 /* forgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5303E3EE1F3EFBBE00AB0AF2 /* forgetViewController.m */; };
 		531C05561F5C23DD00C235FA /* libUMessage_Sdk_1.5.0a.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 531C05541F5C23DD00C235FA /* libUMessage_Sdk_1.5.0a.a */; };
 		531C05581F5C240800C235FA /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 531C05571F5C240700C235FA /* UserNotifications.framework */; };
+		531C055C1F5D486200C235FA /* zhifuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 531C055B1F5D486200C235FA /* zhifuView.m */; };
 		53204BF91F593BD100A211BD /* AppDelegate+ZTVendorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 53204BD01F593BD100A211BD /* AppDelegate+ZTVendorHelper.m */; };
 		53204BFA1F593BD100A211BD /* ZTVendorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 53204BD21F593BD100A211BD /* ZTVendorManager.m */; };
 		53204BFB1F593BD100A211BD /* ZTVendorPayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 53204BD41F593BD100A211BD /* ZTVendorPayManager.m */; };
@@ -534,6 +535,8 @@
 		531C05551F5C23DD00C235FA /* UMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMessage.h; sourceTree = "<group>"; };
 		531C05571F5C240700C235FA /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		531C05591F5C273300C235FA /* Theweddingceremonylive.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Theweddingceremonylive.entitlements; sourceTree = "<group>"; };
+		531C055A1F5D486200C235FA /* zhifuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = zhifuView.h; path = "Theweddingceremonylive/开播/C/zhifuView.h"; sourceTree = SOURCE_ROOT; };
+		531C055B1F5D486200C235FA /* zhifuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = zhifuView.m; path = "Theweddingceremonylive/开播/C/zhifuView.m"; sourceTree = SOURCE_ROOT; };
 		53204BCF1F593BD100A211BD /* AppDelegate+ZTVendorHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+ZTVendorHelper.h"; sourceTree = "<group>"; };
 		53204BD01F593BD100A211BD /* AppDelegate+ZTVendorHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+ZTVendorHelper.m"; sourceTree = "<group>"; };
 		53204BD11F593BD100A211BD /* ZTVendorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTVendorManager.h; sourceTree = "<group>"; };
@@ -2559,6 +2562,8 @@
 				536D54DB1F501FEB00A54749 /* selectnumBtn.m */,
 				53D85CBB1F514AEC00EF0555 /* weddingCell.h */,
 				53D85CBC1F514AEC00EF0555 /* weddingCell.m */,
+				531C055A1F5D486200C235FA /* zhifuView.h */,
+				531C055B1F5D486200C235FA /* zhifuView.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -3155,6 +3160,7 @@
 				1851F4121F3D7DF600369326 /* LiveVideoModel.m in Sources */,
 				53D85CB71F51252500EF0555 /* YUDatePicker.m in Sources */,
 				533ACC8F1F46D96F00F66A78 /* bbsCell.m in Sources */,
+				531C055C1F5D486200C235FA /* zhifuView.m in Sources */,
 				1831DBCB1F4D268D00155691 /* BaseTableViewController.m in Sources */,
 				5303E3EF1F3EFBBE00AB0AF2 /* forgetViewController.m in Sources */,
 				184A78791F53B96300EACCE1 /* WeddingLivingCell.m in Sources */,

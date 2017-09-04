@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface perfectinglineVC : BaseViewController
-
+@property (nonatomic,strong) NSString *order_id;
 @end

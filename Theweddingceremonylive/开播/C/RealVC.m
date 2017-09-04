@@ -27,8 +27,15 @@ static NSString *realidentfid = @"realidentfid";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"实名认证";
 
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor colorWithHexString:@"E95F46"];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"E95F46"]}];
+
+    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    
     
     [self.view addSubview:self.table];
     self.table.tableHeaderView = self.headView;
@@ -154,6 +161,11 @@ static NSString *realidentfid = @"realidentfid";
 {
     [super viewWillDisappear:animated];
     [self.tabBarController.tabBar setHidden:NO];
+
 }
 
+-(void)backAction
+{
+     self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:1];
+}
 @end

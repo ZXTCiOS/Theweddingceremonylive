@@ -26,6 +26,17 @@
 @property (nonatomic,strong) OYRAlertView * oyrAlertView;
 
 @property (nonatomic,strong) NSString *room_yangshi;
+@property (nonatomic,strong) NSString *room_name;
+@property (nonatomic,strong) NSString *room_img;
+@property (nonatomic,strong) NSString *xitie_img;
+
+@property (nonatomic,strong) NSString *room_address;
+@property (nonatomic,strong) NSString *room_boy;
+@property (nonatomic,strong) NSString *room_girl;
+@property (nonatomic,strong) NSString *Delivery_address;
+@property (nonatomic,strong) NSString *room_tel;
+@property (nonatomic,strong) NSString *qinyouyaoqingma;
+
 @end
 
 static NSString *wanshanidentfid0 = @"wanshanidentfid0";
@@ -51,6 +62,7 @@ static NSString *wanshanidentfid9 = @"wanshanidentfid9";
     self.room_yangshi = @"3";
     [self.view addSubview:self.table];
     self.table.tableFooterView = self.footView;
+    self.qinyouyaoqingma = @"";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -59,7 +71,6 @@ static NSString *wanshanidentfid9 = @"wanshanidentfid9";
 }
 -(void)click{
     [self loadAlertView:@"初始邀请码" contentStr:nil btnNum:2 btnStrArr:[NSArray arrayWithObjects:@"取消",@"确认", nil] type:11];
-    
 }
 
 -(void)didClickButtonAtIndex:(NSUInteger)index password:(NSString *)password{
@@ -73,6 +84,8 @@ static NSString *wanshanidentfid9 = @"wanshanidentfid9";
                 str = [str stringByAppendingString:[NSString stringWithFormat:@"%@",(UITextField *)[dataarr[i] text]]];
             }
             NSLog(@"str---------%@",str);
+            self.qinyouyaoqingma = str;
+            
         }
             break;
         case 100:
@@ -157,8 +170,10 @@ static NSString *wanshanidentfid9 = @"wanshanidentfid9";
 {
     if (indexPath.row==0) {
         wanshanCell0 *cell = [tableView dequeueReusableCellWithIdentifier:wanshanidentfid0];
-        cell = [[wanshanCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:wanshanidentfid0];
-        cell.wanshantext.tag = 201;
+        if (!cell) {
+            cell = [[wanshanCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:wanshanidentfid0];
+            cell.wanshantext.tag = 201;
+        }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -205,12 +220,17 @@ static NSString *wanshanidentfid9 = @"wanshanidentfid9";
     }
     if (indexPath.row==4) {
         wanshanCell4 *cell = [tableView dequeueReusableCellWithIdentifier:wanshanidentfid4];
-        cell = [[wanshanCell4 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:wanshanidentfid4];
+//        if (!cell) {
+            cell = [[wanshanCell4 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:wanshanidentfid4];
+//            cell.wanshantext.tag = 202;
+//        }
+        cell.wanshantext.text = self.room_address;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.typelab.text = @"婚礼地址";
         cell.wanshantext.enabled = NO;
         cell.wanshantext.placeholder = @"请输入所在省份和城市";
         cell.wanshantext.delegate = self;
+  
         return cell;
     }
     if (indexPath.row==5) {
@@ -289,6 +309,9 @@ static NSString *wanshanidentfid9 = @"wanshanidentfid9";
             __strong typeof(weakSelf)strongSelf = weakSelf;
             [strongSelf ShengId:shengId ShiId:shiId XianId:xianId];
             [strongSelf ShengName:shengName ShiName:shiName XianName:xianName];
+            
+            weakSelf.room_address = [NSString stringWithFormat:@"%@%@%@",shengName,shiName,xianName];
+            [weakSelf.table reloadData];
         };
     }
 }
@@ -307,26 +330,92 @@ static NSString *wanshanidentfid9 = @"wanshanidentfid9";
 
 -(void)submitbtnclick
 {
+    NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
+    NSString *uid = [userdefat objectForKey:user_uid];
+    NSString *token = [userdefat objectForKey:user_token];
     
-    weddingcardVC *vc = [[weddingcardVC alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
+    UITextField *textname = [self.table viewWithTag:201];
+    NSString *room_name;
+    if (textname.text.length==0) {
+        room_name = @"";
+    }
+    else
+    {
+        room_name = textname.text;
+    }
+    NSString *suffix1 = @"png";
+    NSString *suffix2 = @"png";
+    
+    UITextField *boytext = [self.table viewWithTag:203];
+    UITextField *girltext = [self.table viewWithTag:204];
+    
+    NSString *room_boy = [[NSString alloc] init];
+    NSString *room_girl = [[NSString alloc] init];
+    
+    if (boytext.text.length==0) {
+        room_boy = @"";
+    }
+    else
+    {
+        room_boy = boytext.text;
+    }
+    if (girltext.text.length==0) {
+        room_girl = @"";
+    }
+    else
+    {
+        room_girl = girltext.text;
+    }
+    
+    UITextField *Delivery_addresstext = [self.table viewWithTag:205];
+    NSString *Delivery_address = [[NSString alloc] init];
+    if (Delivery_addresstext.text.length==0) {
+        Delivery_address = @"";
+    }
+    else
+    {
+        Delivery_address = Delivery_addresstext.text;
+    }
+    
+    UITextField *teltext = [self.table viewWithTag:206];
+    NSString *room_tel = [[NSString alloc] init];
+    if (teltext.text.length==0) {
+        room_tel = @"";
+    }
+    else
+    {
+        room_tel =teltext.text;
+    }
+    NSDictionary *para = @{@"uid":uid,@"token":token,@"ordernb":self.order_id,@"room_name":room_name,@"room_img":self.room_img,@"suffix1":suffix1,@"xitie_img":self.xitie_img,@"suffix2":suffix2,@"room_yangshi":self.room_yangshi,@"room_address":self.room_address,@"room_boy":room_boy,@"room_girl":room_girl,@"Delivery_address":Delivery_address,@"room_tel":room_tel,@"p_assword":self.qinyouyaoqingma};
+    
+    [DNNetworking postWithURLString:post_finish_order_info parameters:para success:^(id obj) {
+        NSString *msg = [obj objectForKey:@"msg"];
+        [MBProgressHUD showSuccess:msg];
+        if ([[obj objectForKey:@"code"] intValue]==1000) {
+            weddingcardVC *vc = [[weddingcardVC alloc] init];
+            vc.order_id = self.order_id;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+    } failure:^(NSError *error) {
+        [MBProgressHUD showSuccess:@"没有网络"];
+    }];
 }
 
 -(void)typebtn0click
 {
-    [MBProgressHUD showSuccess:@"111111"];
+
     self.room_yangshi = @"1";
 }
 
 -(void)typebtn1click
 {
-    [MBProgressHUD showSuccess:@"222222"];
+
     self.room_yangshi = @"2";
 }
 
 -(void)typebtn2click
 {
-    [MBProgressHUD showSuccess:@"333333"];
+
     self.room_yangshi = @"3";
 }
 
@@ -336,6 +425,11 @@ static NSString *wanshanidentfid9 = @"wanshanidentfid9";
     [BDImagePicker showImagePickerFromViewController:self allowsEditing:YES finishAction:^(UIImage *image) {
         UIImageView *leftimg = [self.table viewWithTag:301];
         leftimg.image = image;
+        
+        UIImage *img = leftimg.image;
+        NSData *imageData = UIImageJPEGRepresentation(img, 1.0);
+        self.room_img = [imageData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+        
         [self.table reloadData];
     }];
 }
@@ -345,6 +439,11 @@ static NSString *wanshanidentfid9 = @"wanshanidentfid9";
     [BDImagePicker showImagePickerFromViewController:self allowsEditing:YES finishAction:^(UIImage *image) {
         UIImageView *leftimg = [self.table viewWithTag:302];
         leftimg.image = image;
+        
+        UIImage *img = leftimg.image;
+        NSData *imageData = UIImageJPEGRepresentation(img, 1.0);
+        self.xitie_img = [imageData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+        
         [self.table reloadData];
     }];
 }

@@ -41,7 +41,7 @@ static NSString *predeterminedidentfid01 = @"predeterminedidentfid01";
     
 
     self.numstr = @"5000";
-    self.pricestr = @"¥1520";
+    self.pricestr = @"2999";
     
     self.istuijian = NO;
     [self.view addSubview:self.table];
@@ -162,7 +162,7 @@ static NSString *predeterminedidentfid01 = @"predeterminedidentfid01";
     self.headView.btn2.numlab.textColor = [UIColor colorWithHexString:@"333333"];
     self.headView.btn3.selimg.image = [UIImage imageNamed:@"zb_oroom_pf"];
     self.headView.btn3.numlab.textColor = [UIColor colorWithHexString:@"333333"];
-    self.pricestr = @"¥2999";
+    self.pricestr = @"2999";
     NSString *netstr = [NSString stringWithFormat:@"%@%@",@"价格:",_pricestr];
     NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:netstr];
     [str addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"333333"] range:NSMakeRange(0,3)];
@@ -180,7 +180,7 @@ static NSString *predeterminedidentfid01 = @"predeterminedidentfid01";
     self.headView.btn2.numlab.textColor = [UIColor colorWithHexString:@"333333"];
     self.headView.btn3.selimg.image = [UIImage imageNamed:@"zb_oroom_pf"];
     self.headView.btn3.numlab.textColor = [UIColor colorWithHexString:@"333333"];
-    self.pricestr = @"¥3999";
+    self.pricestr = @"3999";
     NSString *netstr = [NSString stringWithFormat:@"%@%@",@"价格:",_pricestr];
     NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:netstr];
     [str addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"333333"] range:NSMakeRange(0,3)];
@@ -208,13 +208,25 @@ static NSString *predeterminedidentfid01 = @"predeterminedidentfid01";
     [datePicker yu_datePickerHandleClick:^(NSString *dateStr, NSInteger buttonIndex) {
         NSLog(@"date=%@,buttonIndex=%ld", dateStr, (long)buttonIndex);
         
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateStyle:NSDateFormatterFullStyle];// 修改下面提到的北京时间的日期格式
+        [formatter setTimeStyle:NSDateFormatterFullStyle];// 修改下面提到的北京时间的时间格式
+        [formatter setDateFormat:@"YYYY-MM-dd"];// 此行代码与上面两行作用一样，故上面两行代码失效
+        NSDate *date = [formatter dateFromString:dateStr];
+        NSLog(@"%@", date);// 这个时间是格林尼治时间
+        NSString *dateStrddd = [NSString stringWithFormat:@"%ld", (long)[date timeIntervalSince1970]];
+        NSLog(@"%@", dateStrddd);// 这个时间是北京时间戳
+        self.timestr = dateStrddd;
+
+        
         NSString *yearstr = [dateStr substringWithRange:NSMakeRange(2, 2)];
         NSString *monthstr = [dateStr substringWithRange:NSMakeRange(5, 2)];
         NSString *daystr =[dateStr substringWithRange:NSMakeRange(8, 2)];
         self.headView.numlab0.text = yearstr;
         self.headView.numlab1.text = monthstr;
         self.headView.numlab2.text = daystr;
-        self.timestr = [NSString stringWithFormat:@"%@%@%@%@%@%@",yearstr,@"年",monthstr,@"月",daystr,@"日"];
+        //self.timestr = [NSString stringWithFormat:@"%@%@%@%@%@%@",yearstr,@"年",monthstr,@"月",daystr,@"日"];
 
     }];
     [datePicker show];
@@ -260,15 +272,18 @@ static NSString *predeterminedidentfid01 = @"predeterminedidentfid01";
     [formatter setTimeStyle:NSDateFormatterShortStyle];
     [formatter setDateFormat:@"YYYY/MM/dd"];
     NSString *DateTime = [formatter stringFromDate:date];
-    
     NSString *yearstr = [DateTime substringWithRange:NSMakeRange(2, 2)];
     NSString *monthstr = [DateTime substringWithRange:NSMakeRange(5, 2)];
     NSString *daystr =[DateTime substringWithRange:NSMakeRange(8, 2)];
     self.headView.numlab0.text = yearstr;
     self.headView.numlab1.text = monthstr;
     self.headView.numlab2.text = daystr;
-    self.timestr = [NSString stringWithFormat:@"%@%@%@%@%@%@",yearstr,@"年",monthstr,@"月",daystr,@"日"];
-
+    [formatter setDateFormat:@"YYYY-MM-dd"];// 此行代码与上面两行作用一样，故上面两行代码失效
+    NSDate *date2 = [formatter dateFromString:DateTime];
+    NSLog(@"%@", date2);// 这个时间是格林尼治时间
+    NSString *dateStrddd = [NSString stringWithFormat:@"%ld", (long)[date timeIntervalSince1970]];
+    NSLog(@"%@", dateStrddd);// 这个时间是北京时间戳
+    self.timestr = dateStrddd;
 }
 
 
