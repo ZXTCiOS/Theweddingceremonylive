@@ -114,6 +114,7 @@
 		531C05561F5C23DD00C235FA /* libUMessage_Sdk_1.5.0a.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 531C05541F5C23DD00C235FA /* libUMessage_Sdk_1.5.0a.a */; };
 		531C05581F5C240800C235FA /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 531C05571F5C240700C235FA /* UserNotifications.framework */; };
 		531C055C1F5D486200C235FA /* zhifuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 531C055B1F5D486200C235FA /* zhifuView.m */; };
+		531C055F1F5E63B200C235FA /* orderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 531C055E1F5E63B200C235FA /* orderModel.m */; };
 		53204BF91F593BD100A211BD /* AppDelegate+ZTVendorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 53204BD01F593BD100A211BD /* AppDelegate+ZTVendorHelper.m */; };
 		53204BFA1F593BD100A211BD /* ZTVendorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 53204BD21F593BD100A211BD /* ZTVendorManager.m */; };
 		53204BFB1F593BD100A211BD /* ZTVendorPayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 53204BD41F593BD100A211BD /* ZTVendorPayManager.m */; };
@@ -537,6 +538,8 @@
 		531C05591F5C273300C235FA /* Theweddingceremonylive.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Theweddingceremonylive.entitlements; sourceTree = "<group>"; };
 		531C055A1F5D486200C235FA /* zhifuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = zhifuView.h; path = "Theweddingceremonylive/开播/C/zhifuView.h"; sourceTree = SOURCE_ROOT; };
 		531C055B1F5D486200C235FA /* zhifuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = zhifuView.m; path = "Theweddingceremonylive/开播/C/zhifuView.m"; sourceTree = SOURCE_ROOT; };
+		531C055D1F5E63B200C235FA /* orderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = orderModel.h; path = "Theweddingceremonylive/开播/C/orderModel.h"; sourceTree = SOURCE_ROOT; };
+		531C055E1F5E63B200C235FA /* orderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = orderModel.m; path = "Theweddingceremonylive/开播/C/orderModel.m"; sourceTree = SOURCE_ROOT; };
 		53204BCF1F593BD100A211BD /* AppDelegate+ZTVendorHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+ZTVendorHelper.h"; sourceTree = "<group>"; };
 		53204BD01F593BD100A211BD /* AppDelegate+ZTVendorHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+ZTVendorHelper.m"; sourceTree = "<group>"; };
 		53204BD11F593BD100A211BD /* ZTVendorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTVendorManager.h; sourceTree = "<group>"; };
@@ -1677,6 +1680,8 @@
 		530299551F4434C9004BC03A /* M */ = {
 			isa = PBXGroup;
 			children = (
+				531C055D1F5E63B200C235FA /* orderModel.h */,
+				531C055E1F5E63B200C235FA /* orderModel.m */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -2741,7 +2746,7 @@
 				TargetAttributes = {
 					53D02F391F3B1B5600CD504C = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 22Y9Y734K3;
+						DevelopmentTeam = NNWJGVKRJE;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
@@ -3077,6 +3082,7 @@
 				1845AEA81F46B5CE002EAD47 /* iCarousel.m in Sources */,
 				18FE23251F4E9B520088D3BF /* NvwaHeaderView.m in Sources */,
 				1847DED71F3C5A5F00C796A8 /* LiveVideoCell.m in Sources */,
+				531C055F1F5E63B200C235FA /* orderModel.m in Sources */,
 				533ACE401F4AD36D00F66A78 /* DQCanCerEnsureView.m in Sources */,
 				1851F41E1F3D843E00369326 /* NSString+myUrl.m in Sources */,
 				53FCA4701F418E99001780F7 /* perfectingCell1.m in Sources */,
@@ -3356,7 +3362,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Theweddingceremonylive/Theweddingceremonylive.entitlements;
-				DEVELOPMENT_TEAM = 22Y9Y734K3;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = NNWJGVKRJE;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Theweddingceremonylive/直播sdk/NIM_iOS_SDK_v4/NIMAVChat",
@@ -3383,8 +3390,9 @@
 					"$(PROJECT_DIR)/Theweddingceremonylive/Vendor/ZTVendorManager/VendorSDK/WeChat/WechatSDK",
 					"$(PROJECT_DIR)/Theweddingceremonylive/推送/UMessage_Sdk_1.5.0a",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.wangjungang.Theweddingceremonylive;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nvwayunzhobo.Theweddingceremonylive;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 armv7";
 			};
@@ -3396,7 +3404,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Theweddingceremonylive/Theweddingceremonylive.entitlements;
-				DEVELOPMENT_TEAM = 22Y9Y734K3;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = NNWJGVKRJE;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Theweddingceremonylive/直播sdk/NIM_iOS_SDK_v4/NIMAVChat",
@@ -3423,8 +3432,9 @@
 					"$(PROJECT_DIR)/Theweddingceremonylive/Vendor/ZTVendorManager/VendorSDK/WeChat/WechatSDK",
 					"$(PROJECT_DIR)/Theweddingceremonylive/推送/UMessage_Sdk_1.5.0a",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.wangjungang.Theweddingceremonylive;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nvwayunzhobo.Theweddingceremonylive;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 armv7";
 			};

@@ -7,6 +7,7 @@
 //
 
 #import "orderCell.h"
+#import "orderModel.h"
 
 @interface orderCell()
 @property (nonatomic,strong) UIImageView *leftimg;
@@ -14,6 +15,7 @@
 @property (nonatomic,strong) UILabel *livetimelab;
 @property (nonatomic,strong) UILabel *ordertimelab;
 @property (nonatomic,strong) UIButton *setBtn;
+@property (nonatomic,strong) orderModel *omodel;
 @end
 
 @implementation orderCell
@@ -74,7 +76,7 @@
     if(!_leftimg)
     {
         _leftimg = [[UIImageView alloc] init];
-        _leftimg.backgroundColor = [UIColor orangeColor];
+
     }
     return _leftimg;
 }
@@ -98,7 +100,7 @@
         _livetimelab = [[UILabel alloc] init];
         _livetimelab.textColor = [UIColor colorWithHexString:@"999999"];
         _livetimelab.font = [UIFont systemFontOfSize:11];
-        _livetimelab.text = @"直播时间 2017-08-17 10:25:20";
+
     }
     return _livetimelab;
 }
@@ -110,7 +112,7 @@
         _ordertimelab = [[UILabel alloc] init];
         _ordertimelab.textColor = [UIColor colorWithHexString:@"999999"];
         _ordertimelab.font = [UIFont systemFontOfSize:11];
-        _ordertimelab.text = @"2017-08-17 10:25:20";
+
         _ordertimelab.textAlignment = NSTextAlignmentRight;
     }
     return _ordertimelab;
@@ -136,6 +138,33 @@
     [self.delegate submitbtnClick:self];
 }
 
+-(void)setdata:(orderModel *)model
+{
+    self.omodel = model;
+    [self.leftimg sd_setImageWithURL:[NSURL URLWithString:model.room_img] placeholderImage:[UIImage imageNamed:@"16bi9"]];
+    self.namelab.text = model.room_name;
+    NSInteger ordertimeinteger = [model.ordertime integerValue];
+    self.ordertimelab.text = [self timestampSwitchTime:ordertimeinteger andFormatter:@"YYYY-MM-dd hh:mm:ss"];
+    NSInteger livetimeinteger = [model.create_time integerValue];
+    NSString *livestr = [self timestampSwitchTime:livetimeinteger andFormatter:@"YYYY-MM-dd hh:mm:ss"];
+    self.livetimelab.text = [NSString stringWithFormat:@"%@%@",@"直播时间:",livestr];
+    
+    
+}
 
+#pragma mark - 将某个时间戳转化成 时间
+
+-(NSString *)timestampSwitchTime:(NSInteger)timestamp andFormatter:(NSString *)format{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateStyle:NSDateFormatterMediumStyle];
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    //format = @"YYYY-MM-dd hh:mm:ss";
+    [formatter setDateFormat:format]; // （@"YYYY-MM-dd hh:mm:ss"）----------设置你想要的格式,hh与HH的区别:分别表示12小时制,24小时制
+    NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"Asia/Beijing"];
+    [formatter setTimeZone:timeZone];
+    NSDate *confromTimesp = [NSDate dateWithTimeIntervalSince1970:timestamp];
+    NSString *confromTimespStr = [formatter stringFromDate:confromTimesp];
+    return confromTimespStr;
+}
 
 @end

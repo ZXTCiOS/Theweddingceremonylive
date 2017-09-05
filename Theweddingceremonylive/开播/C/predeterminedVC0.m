@@ -315,6 +315,8 @@ static NSString *predeterminedidentfid0 = @"predeterminedidentfid0";
     [formatter setDateFormat:@"YYYY/MM/dd"];
     NSString *DateTime = [formatter stringFromDate:date];
     
+    //NSString *timestr222 = [NSString stringWithFormat:@"%@%@",DateTime,@"0:0:0"];
+    
     NSString *yearstr = [DateTime substringWithRange:NSMakeRange(2, 2)];
     NSString *monthstr = [DateTime substringWithRange:NSMakeRange(5, 2)];
     NSString *daystr =[DateTime substringWithRange:NSMakeRange(8, 2)];
@@ -322,14 +324,15 @@ static NSString *predeterminedidentfid0 = @"predeterminedidentfid0";
     self.headView.numlab1.text = monthstr;
     self.headView.numlab2.text = daystr;
     
-
+    [formatter setDateStyle:NSDateFormatterFullStyle];// 修改下面提到的北京时间的日期格式
+    [formatter setTimeStyle:NSDateFormatterFullStyle];// 修改下面提到的北京时间的时间格式
     [formatter setDateFormat:@"YYYY-MM-dd"];// 此行代码与上面两行作用一样，故上面两行代码失效
     NSDate *date2 = [formatter dateFromString:DateTime];
     NSLog(@"%@", date2);// 这个时间是格林尼治时间
-    NSString *dateStrddd = [NSString stringWithFormat:@"%ld", (long)[date timeIntervalSince1970]];
+    NSString *dateStrddd = [NSString stringWithFormat:@"%ld", (long)[date2 timeIntervalSince1970]];
     NSLog(@"%@", dateStrddd);// 这个时间是北京时间戳
-    
     self.timestr = dateStrddd;
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated

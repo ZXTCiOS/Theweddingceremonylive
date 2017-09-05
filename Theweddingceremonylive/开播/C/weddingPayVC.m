@@ -330,6 +330,7 @@
         self.zhiView.transform = CGAffineTransformIdentity;
         
     }];
+    [self zhifujiekou];
 }
 
 -(void)zhifubaoclick

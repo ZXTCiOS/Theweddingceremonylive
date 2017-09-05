@@ -14,7 +14,8 @@
 
 @interface MyWalletTVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
-
+@property (nonatomic,strong) NSString *user_wallet;
+@property (nonatomic,strong) WalletHeadView *walletV;
 @end
 
 @implementation MyWalletTVC
@@ -40,12 +41,14 @@
     item1.tintColor = [UIColor colorWithHexString:@"E95F46"];
     self.navigationItem.rightBarButtonItem = item1;
     
-    WalletHeadView *walletV = [[WalletHeadView alloc] initWithFrame:CGRectZero];
-    walletV.backgroundColor = [UIColor whiteColor];
-    walletV.balanceL.text = [NSString stringWithFormat:@"%.2f" , 100.0f];
-    self.table.tableHeaderView = walletV;
+    self.walletV = [[WalletHeadView alloc] initWithFrame:CGRectZero];
+    self.walletV.backgroundColor = [UIColor whiteColor];
+
+    self.walletV.balanceL.text = self.user_wallet;
+    self.table.tableHeaderView = self.walletV;
     self.table.tableFooterView = [UIView new];
     self.table.backgroundColor = [UIColor colorWithHexString:@"f5f5f5"];
+    [self loaddata];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,6 +56,27 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)loaddata
+{
+    NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
+    NSString *uid = [userdefat objectForKey:user_uid];
+    NSString *token = [userdefat objectForKey:user_token];
+    NSDictionary *para = @{@"uid":uid,@"token":token};
+    [DNNetworking postWithURLString:post_wallet parameters:para success:^(id obj) {
+        NSString *msg = [obj objectForKey:@"msg"];
+        [MBProgressHUD showSuccess:msg];
+        if ([[obj objectForKey:@"code"] intValue]==1000) {
+            NSDictionary *dic = [obj objectForKey:@"data"];
+            self.user_wallet = [dic objectForKey:@"user_wallet"];
+            self.walletV.balanceL.text = self.user_wallet;
+
+        }
+        
+    } failure:^(NSError *error) {
+        [MBProgressHUD showSuccess:@"网络错误"];
+    }];
+    
+}
 
 #pragma mark - getters
 

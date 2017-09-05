@@ -78,4 +78,10 @@
 //是否预约
 #define post_isyuyue        @"/interface.php/Home/User/is_yuyue"
 
+
+//我的订单
+#define post_ordering       @"/interface.php/Home/User/ordering"
+
+//我的钱包
+#define post_wallet         @"/interface.php/Home/User/wallet"
 #endif /* wangHeader_h */

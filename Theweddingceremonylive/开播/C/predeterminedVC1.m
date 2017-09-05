@@ -281,7 +281,7 @@ static NSString *predeterminedidentfid01 = @"predeterminedidentfid01";
     [formatter setDateFormat:@"YYYY-MM-dd"];// 此行代码与上面两行作用一样，故上面两行代码失效
     NSDate *date2 = [formatter dateFromString:DateTime];
     NSLog(@"%@", date2);// 这个时间是格林尼治时间
-    NSString *dateStrddd = [NSString stringWithFormat:@"%ld", (long)[date timeIntervalSince1970]];
+    NSString *dateStrddd = [NSString stringWithFormat:@"%ld", (long)[date2 timeIntervalSince1970]];
     NSLog(@"%@", dateStrddd);// 这个时间是北京时间戳
     self.timestr = dateStrddd;
 }
