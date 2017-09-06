@@ -264,7 +264,11 @@
     return [UIImage imageNamed:@"emptyImg"];        // 空数据图片
 }
 
-
+- (void)emptyDataSet:(UIScrollView *)scrollView didTapView:(UIView *)view{
+    
+    [self.collectionView beginHeaderRefresh];
+    NSLog(@"empty image tapped");
+}
 #pragma mark layout
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{

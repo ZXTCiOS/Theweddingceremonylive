@@ -356,12 +356,17 @@
             NSDictionary *dic = [obj objectForKey:@"data"];
             NSString *tokenstr = [dic objectForKey:@"token"];
             NSString *uidstr = [dic objectForKey:@"uid"];
+            NSString *imtoken = [dic objectForKey:@"imtoken"];
+            NSString *acount = [dic objectForKey:@"tel"];
             NSUserDefaults *defat = [NSUserDefaults standardUserDefaults];
             [defat setObject:tokenstr forKey:user_token];
             [defat setObject:uidstr forKey:user_uid];
+            [defat setObject:acount forKey:user_phone];
+            [defat setObject:imtoken forKey:user_imtoken];
             [defat synchronize];
             //todo: account...
-            [self loginNIMWithaccount:@"123" token:@"31467a682ad31187cc6aded85ed242e7"];
+            
+            [self loginNIMWithaccount:acount token:imtoken];
             AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
             MainTabBarController * main = [[MainTabBarController alloc] init];
             appDelegate.window.rootViewController = main;
@@ -379,6 +384,7 @@
 
 - (void)loginNIMWithaccount:(NSString *)account token:(NSString *)token{
     [[NIMSDK sharedSDK].loginManager login:account token:token completion:^(NSError * _Nullable error) {
+        NSLog(@"account: %@, token  :%@, login error %@", account, token, error);
         if (!error) NSLog(@"NIM login sucess");
     }];
 }

@@ -9,6 +9,8 @@
 #import "logupViewController.h"
 #import "QCCountdownButton.h"
 #import "perfectingViewController.h"
+#import <NIMSDK/NIMSDK.h>
+#import <NIMAVChat/NIMAVChat.h>
 
 @interface logupViewController ()<UITextFieldDelegate>
 
@@ -382,6 +384,13 @@
                     NSDictionary *dic = [obj objectForKey:@"data"];
                     NSString *uid = [dic objectForKey:@"uid"];
                     [defat setObject:uid forKey:user_uid];
+                    
+                    NSString *imtoken = [dic objectForKey:@"imtoken"];
+                    NSString *acount = [dic objectForKey:@"tel"];
+                    [defat setObject:acount forKey:user_phone];
+                    [defat setObject:imtoken forKey:user_imtoken];
+                    [self loginNIMWithaccount:acount token:imtoken];
+                    
                     [defat synchronize];
                     
                     perfectingViewController *pervc = [[perfectingViewController alloc] init];
@@ -404,6 +413,13 @@
     }
 }
 
+- (void)loginNIMWithaccount:(NSString *)account token:(NSString *)token{
+    [[NIMSDK sharedSDK].loginManager login:account token:token completion:^(NSError * _Nullable error) {
+        NSLog(@" login error %@", error);
+        if (!error) NSLog(@"NIM login sucess");
+    }];
+}
+
 -(void)sendcodebtnclock
 {
     //验证码
@@ -415,7 +431,9 @@
             [MBProgressHUD showSuccess:@"请求成功"];
         }
     } failure:^(NSError *error) {
-        
+        if (error) {
+            NSLog(@"验证码发送失败: %@", error);
+        }
     }];
 }
 
