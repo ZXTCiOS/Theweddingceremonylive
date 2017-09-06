@@ -51,6 +51,7 @@
     
 //    [self.view addSubview:self.zhiView];
     [self setuplayout];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -325,7 +326,7 @@
 
 -(void)weixinclick
 {
-      [_bgView removeFromSuperview];
+    [_bgView removeFromSuperview];
     [UIView animateWithDuration:0.3 animations:^{
         self.zhiView.transform = CGAffineTransformIdentity;
         
@@ -369,6 +370,7 @@
         if ([[obj objectForKey:@"code"] intValue]==1000) {
             perfectinglineVC *vc = [[perfectinglineVC alloc] init];
             vc.order_id = [obj objectForKey:@"data"];
+            vc.typestr = self.order_pattern;
             [self.navigationController pushViewController:vc animated:YES];
         }
         

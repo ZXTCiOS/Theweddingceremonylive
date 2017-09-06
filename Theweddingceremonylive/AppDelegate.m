@@ -9,12 +9,21 @@
 #import "AppDelegate.h"
 #import "MainTabBarController.h"
 #import "LoginVC.h"
-
+#import "ZTVendorManager.h"
 // 网易云信 SDK
 #import <NIMSDK/NIMSDK.h>
 #import <NIMAVChat/NIMAVChat.h>
 
-@interface AppDelegate ()<NIMLoginManagerDelegate>
+
+// 引入JPush功能所需头文件
+#import "JPUSHService.h"
+// iOS10注册APNs所需头文件
+#ifdef NSFoundationVersionNumber_iOS_9_x_Max
+#import <UserNotifications/UserNotifications.h>
+#endif
+
+
+@interface AppDelegate ()<NIMLoginManagerDelegate,JPUSHRegisterDelegate>
 
 @end
 
@@ -23,16 +32,42 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
+    [ZTVendorManager registerVendorSDK];
     [self confitroot];
     [self configNimSDK];
     [self autoLogin];
     
-    
-    
-    
+    [self configJPushoptions:launchOptions];
+
     return YES;
 }
+
+#pragma mark 极光推送
+
+- (void)configJPushoptions:(NSDictionary *)launchOptions{
+    JPUSHRegisterEntity * entity = [[JPUSHRegisterEntity alloc] init];
+    entity.types = JPAuthorizationOptionAlert|JPAuthorizationOptionBadge|JPAuthorizationOptionSound;
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+        // 可以添加自定义categories
+        // NSSet<UNNotificationCategory *> *categories for iOS10 or later
+        // NSSet<UIUserNotificationCategory *> *categories for iOS8 and iOS9
+    }
+    [JPUSHService registerForRemoteNotificationConfig:entity delegate:self];
+    
+    [JPUSHService setupWithOption:launchOptions appKey:@"48a4889e047c006938c2b298"
+                          channel:nil
+                 apsForProduction:NO
+            advertisingIdentifier:nil];
+    
+}
+
+- (void)application:(UIApplication *)application
+didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    
+    /// Required - 注册 DeviceToken
+    [JPUSHService registerDeviceToken:deviceToken];
+}
+
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -60,7 +95,6 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-
 
 
 - (void)configNimSDK{
@@ -120,5 +154,9 @@
 
     
 }
+
+
+
+
 
 @end

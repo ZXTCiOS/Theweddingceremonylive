@@ -16,6 +16,7 @@
 #import "bindingViewController.h"
 #import <NIMSDK/NIMSDK.h>
 #import <NIMAVChat/NIMAVChat.h>
+#import "ZTVendorManager.h"
 
 @interface LoginVC ()<UITextFieldDelegate>
 @property (nonatomic,strong) UIImageView *logoimg;
@@ -32,6 +33,8 @@
 
 @property (nonatomic,strong) FSCustomButton *qqBtn;
 @property (nonatomic,strong) FSCustomButton *weixinBtn;
+
+@property (nonatomic, strong) ZTVendorPayManager *payManager;
 @end
 
 @implementation LoginVC
@@ -51,6 +54,8 @@
     [self.view addSubview:self.lineV];
     [self.view addSubview:self.qqBtn];
     [self.view addSubview:self.weixinBtn];
+    
+    self.payManager = [[ZTVendorPayManager alloc]init];
     [self setuplayout];
 }
 
@@ -381,13 +386,24 @@
 
 -(void)qqbtnclick
 {
-    bindingViewController *bindingvc = [[bindingViewController alloc] init];
-    [self.navigationController pushViewController:bindingvc animated:YES];
+    
+    [ZTVendorManager loginWith:ZTVendorPlatformTypeQQ completionHandler:^(ZTVendorAccountModel *model, NSError *error) {
+        NSLog(@"nickname:%@",model.nickname);
+    }];
+//    bindingViewController *bindingvc = [[bindingViewController alloc] init];
+//    [self.navigationController pushViewController:bindingvc animated:YES];
 }
 
 -(void)weixinbtnclick
 {
+    [ZTVendorManager loginWith:ZTVendorPlatformTypeWechat completionHandler:^(ZTVendorAccountModel *model, NSError *error) {
+        NSLog(@"nickname:%@",model.nickname);
+    }];
     
+//    ZTVendorShareModel *model = [[ZTVendorShareModel alloc]init];
+//    [ZTVendorManager shareWith:ZTVendorPlatformTypeWechat shareModel:model completionHandler:^(BOOL success, NSError * error) {
+//        
+//    }];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

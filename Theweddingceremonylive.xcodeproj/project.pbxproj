@@ -115,6 +115,8 @@
 		531C05581F5C240800C235FA /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 531C05571F5C240700C235FA /* UserNotifications.framework */; };
 		531C055C1F5D486200C235FA /* zhifuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 531C055B1F5D486200C235FA /* zhifuView.m */; };
 		531C055F1F5E63B200C235FA /* orderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 531C055E1F5E63B200C235FA /* orderModel.m */; };
+		531C05621F5E85B100C235FA /* orderdetalisVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 531C05611F5E85B100C235FA /* orderdetalisVC.m */; };
+		531C05651F5E899700C235FA /* orderdetalisCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 531C05641F5E899700C235FA /* orderdetalisCell.m */; };
 		53204BF91F593BD100A211BD /* AppDelegate+ZTVendorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 53204BD01F593BD100A211BD /* AppDelegate+ZTVendorHelper.m */; };
 		53204BFA1F593BD100A211BD /* ZTVendorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 53204BD21F593BD100A211BD /* ZTVendorManager.m */; };
 		53204BFB1F593BD100A211BD /* ZTVendorPayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 53204BD41F593BD100A211BD /* ZTVendorPayManager.m */; };
@@ -540,6 +542,10 @@
 		531C055B1F5D486200C235FA /* zhifuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = zhifuView.m; path = "Theweddingceremonylive/开播/C/zhifuView.m"; sourceTree = SOURCE_ROOT; };
 		531C055D1F5E63B200C235FA /* orderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = orderModel.h; path = "Theweddingceremonylive/开播/C/orderModel.h"; sourceTree = SOURCE_ROOT; };
 		531C055E1F5E63B200C235FA /* orderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = orderModel.m; path = "Theweddingceremonylive/开播/C/orderModel.m"; sourceTree = SOURCE_ROOT; };
+		531C05601F5E85B000C235FA /* orderdetalisVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = orderdetalisVC.h; sourceTree = "<group>"; };
+		531C05611F5E85B100C235FA /* orderdetalisVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = orderdetalisVC.m; sourceTree = "<group>"; };
+		531C05631F5E899700C235FA /* orderdetalisCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = orderdetalisCell.h; sourceTree = "<group>"; };
+		531C05641F5E899700C235FA /* orderdetalisCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = orderdetalisCell.m; sourceTree = "<group>"; };
 		53204BCF1F593BD100A211BD /* AppDelegate+ZTVendorHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+ZTVendorHelper.h"; sourceTree = "<group>"; };
 		53204BD01F593BD100A211BD /* AppDelegate+ZTVendorHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+ZTVendorHelper.m"; sourceTree = "<group>"; };
 		53204BD11F593BD100A211BD /* ZTVendorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTVendorManager.h; sourceTree = "<group>"; };
@@ -877,13 +883,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				531C05581F5C240800C235FA /* UserNotifications.framework in Frameworks */,
-				53CC996E1F56C6AB0077CCF6 /* CoreTelephony.framework in Frameworks */,
-				53CC995B1F56C4D80077CCF6 /* libsqlite3.tbd in Frameworks */,
 				53CC995D1F56C4E60077CCF6 /* libc++.tbd in Frameworks */,
+				53CC995B1F56C4D80077CCF6 /* libsqlite3.tbd in Frameworks */,
 				53CC99721F56C6C40077CCF6 /* libz.tbd in Frameworks */,
+				53CC996E1F56C6AB0077CCF6 /* CoreTelephony.framework in Frameworks */,
 				53CC996C1F56C6960077CCF6 /* SystemConfiguration.framework in Frameworks */,
 				53204C0C1F593BE700A211BD /* CoreMotion.framework in Frameworks */,
+				531C05581F5C240800C235FA /* UserNotifications.framework in Frameworks */,
 				53CC9A911F57F1620077CCF6 /* libsqlite3.0.tbd in Frameworks */,
 				53204C051F593BD100A211BD /* UMSocialNetwork.framework in Frameworks */,
 				53204C031F593BD100A211BD /* libSocialSina.a in Frameworks */,
@@ -1673,6 +1679,8 @@
 				5302995E1F443AB4004BC03A /* orderVC1.m */,
 				530299601F443ABF004BC03A /* orderVC2.h */,
 				530299611F443ABF004BC03A /* orderVC2.m */,
+				531C05601F5E85B000C235FA /* orderdetalisVC.h */,
+				531C05611F5E85B100C235FA /* orderdetalisVC.m */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -1693,6 +1701,8 @@
 				530299671F443EE1004BC03A /* orderCell.m */,
 				532564E61F4539E500915E3B /* orderCell2.h */,
 				532564E71F4539E500915E3B /* orderCell2.m */,
+				531C05631F5E899700C235FA /* orderdetalisCell.h */,
+				531C05641F5E899700C235FA /* orderdetalisCell.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -2749,6 +2759,9 @@
 						DevelopmentTeam = NNWJGVKRJE;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Maps.iOS = {
 								enabled = 0;
 							};
@@ -3020,6 +3033,7 @@
 				18F937501F57FBFE00B267C0 /* PortraitTextView.m in Sources */,
 				533A8A431F4C262A0087E699 /* DemoCommentView.m in Sources */,
 				533ACCFD1F4AABB600F66A78 /* postingVC.m in Sources */,
+				531C05621F5E85B100C235FA /* orderdetalisVC.m in Sources */,
 				188039081F3EAB9B00A2B4AE /* SystemMessageTVC.m in Sources */,
 				18FE23391F4EC42C0088D3BF /* HYBPageControl.m in Sources */,
 				53204BFB1F593BD100A211BD /* ZTVendorPayManager.m in Sources */,
@@ -3078,6 +3092,7 @@
 				53D02F841F3BF68000CD504C /* LCTabBarButton.m in Sources */,
 				53CC9AAF1F57F78B0077CCF6 /* guanyuusVC.m in Sources */,
 				18FE23381F4EC42C0088D3BF /* HYBLoopScrollView.m in Sources */,
+				531C05651F5E899700C235FA /* orderdetalisCell.m in Sources */,
 				1831DBD41F4D281B00155691 /* NvWaCell.m in Sources */,
 				1845AEA81F46B5CE002EAD47 /* iCarousel.m in Sources */,
 				18FE23251F4E9B520088D3BF /* NvwaHeaderView.m in Sources */,
@@ -3362,6 +3377,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Theweddingceremonylive/Theweddingceremonylive.entitlements;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = NNWJGVKRJE;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3404,6 +3420,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Theweddingceremonylive/Theweddingceremonylive.entitlements;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = NNWJGVKRJE;
 				FRAMEWORK_SEARCH_PATHS = (

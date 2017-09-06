@@ -69,6 +69,8 @@
     [self.scroll addSubview:self.lab3];
     [self.scroll addSubview:self.lab4];
     [self.scroll addSubview:self.lab5];
+    
+    [self loaddata];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -76,6 +78,23 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)loaddata
+{
+    NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
+    NSString *uid = [userdefat objectForKey:user_uid];
+    NSString *token = [userdefat objectForKey:user_token];
+    NSDictionary *para = @{@"uid":uid,@"token":token,@"order_id":self.order_id};
+    
+    [DNNetworking postWithURLString:post_getxitie parameters:para success:^(id obj) {
+        NSString *msg = [obj objectForKey:@"msg"];
+        [MBProgressHUD showSuccess:msg];
+        if ([[obj objectForKey:@"code"] intValue]==1000) {
+            
+        }
+    } failure:^(NSError *error) {
+        [MBProgressHUD showSuccess:@"网络错误"];
+    }];
+}
 
 #pragma mark - getters
 

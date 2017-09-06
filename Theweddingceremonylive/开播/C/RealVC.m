@@ -103,11 +103,13 @@ static NSString *realidentfid = @"realidentfid";
         cell.leftLab.text = @"真实姓名";
         cell.realText.placeholder = @"请输入真实姓名";
         cell.realText.delegate = self;
+        cell.realText.tag = 201;
     }
     if (indexPath.row==1) {
         cell.leftLab.text = @"身份证号";
         cell.realText.placeholder = @"请输入身份证号";
         cell.realText.delegate = self;
+        cell.realText.tag = 202;
     }
     return cell;
 }
@@ -131,6 +133,60 @@ static NSString *realidentfid = @"realidentfid";
 -(void)submitbtnclick
 {
     NSLog(@"submit");
+    NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
+    NSString *uid = [userdefat objectForKey:user_uid];
+    NSString *token = [userdefat objectForKey:user_token];
+    UITextField *text1 = [self.table viewWithTag:201];
+    UITextField *text2 = [self.table viewWithTag:202];
+    NSString *name = [NSString new];
+    NSString *idcard = [NSString new];
+    if (text1.text.length==0) {
+        name = @"";
+    }
+    else
+    {
+        name = text1.text;
+    }
+    if (text2.text.length==0) {
+        idcard = @"";
+    }
+    else
+    {
+        idcard = text2.text;
+    }
+    NSString *pic1 = [NSString new];
+    NSString *pic2 = [NSString new];
+    
+    UIImage *imgleft = self.footView.leftimg.image;
+    NSData *imageData = UIImageJPEGRepresentation(imgleft, 1.0);
+    pic1 = [imageData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+    
+    UIImage *imgright = self.footView.rightimg.image;
+    NSData *imageData2 = UIImageJPEGRepresentation(imgright, 1.0);
+    pic2 = [imageData2 base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+    NSString *suffix1 = @"png";
+    NSString *suffix2 = @"png";
+    
+    if (pic1.length!=0&&pic2.length!=0) {
+        NSDictionary *para = @{@"uid":uid,@"token":token,@"name":name,@"idcard":idcard,@"pic1":pic1,@"pic2":pic2,@"suffix1":suffix1,@"suffix2":suffix2};
+        [DNNetworking postWithURLString:post_renzheng parameters:para success:^(id obj) {
+            NSString *msg = [obj objectForKey:@"msg"];
+            [MBProgressHUD showSuccess:msg];
+            if ([[obj objectForKey:@"code"] intValue]==1000) {
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+        } failure:^(NSError *error) {
+            [MBProgressHUD showSuccess:@"网络错误"];
+        }];
+    }
+    else
+    {
+        [MBProgressHUD showSuccess:@"请选择图片"];
+   
+    }
+
+    
+    
 }
 
 -(void)leftaddimgclick

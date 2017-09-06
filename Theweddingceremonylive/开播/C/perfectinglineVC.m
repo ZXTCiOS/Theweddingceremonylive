@@ -58,7 +58,15 @@ static NSString *wanshanidentfid9 = @"wanshanidentfid9";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"完善信息";
-    [self click];
+    
+    if ([self.typestr isEqualToString:@"3"]) {
+        
+    }
+    else
+    {
+        [self click];
+    }
+
     self.room_yangshi = @"3";
     [self.view addSubview:self.table];
     self.table.tableFooterView = self.footView;

@@ -56,7 +56,7 @@
             
         }
     } failure:^(NSError *error) {
-        
+        [MBProgressHUD showSuccess:@"没有网络"];
     }];
     
 }
@@ -96,9 +96,9 @@
 //    RealVC *vc = [[RealVC alloc] init];
 //    [self.navigationController pushViewController:vc animated:NO];
     
-//    [self isyuyue];
+    [self isyuyue];
     
-    [self isrenzheng];
+//    [self isrenzheng];
     
 
 }

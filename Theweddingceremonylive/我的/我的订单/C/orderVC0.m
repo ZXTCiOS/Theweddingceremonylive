@@ -9,6 +9,7 @@
 #import "orderVC0.h"
 #import "orderCell.h"
 #import "orderModel.h"
+#import "orderdetalisVC.h"
 
 @interface orderVC0 ()<UITableViewDataSource,UITableViewDelegate,mysubmitVdelegate>
 @property (nonatomic,strong) UITableView *table;
@@ -102,6 +103,11 @@ static NSString *orderidentfid0 = @"orderidentfid0";
     return 120*HEIGHT_SCALE;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    orderdetalisVC *vc = [[orderdetalisVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 -(void)submitbtnClick:(UITableViewCell *)cell
 {
     NSIndexPath *index = [self.table indexPathForCell:cell];

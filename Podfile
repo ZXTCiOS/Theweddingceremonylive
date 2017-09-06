@@ -24,7 +24,7 @@ pod 'DZNEmptyDataSet'
 pod 'NinaPagerView'
 pod 'LKSegmentBar'
 pod 'HXWeiboPhotoPicker'
-
+pod 'JPush'
   # Pods for Theweddingceremonylive
 
   target 'TheweddingceremonyliveTests' do
