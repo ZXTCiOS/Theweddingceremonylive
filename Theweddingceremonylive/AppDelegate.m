@@ -22,6 +22,8 @@
 #import <UserNotifications/UserNotifications.h>
 #endif
 
+#import "SystemMessageTVC.h"
+
 
 @interface AppDelegate ()<NIMLoginManagerDelegate,JPUSHRegisterDelegate>
 
@@ -68,12 +70,76 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     [JPUSHService registerDeviceToken:deviceToken];
 }
 
+#pragma mark- JPUSHRegisterDelegate
+
+// iOS 10 Support
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(NSInteger))completionHandler {
+    // Required
+    NSDictionary * userInfo = notification.request.content.userInfo;
+    if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        [JPUSHService handleRemoteNotification:userInfo];
+    }
+    completionHandler(UNNotificationPresentationOptionAlert); // 需要执行这个方法，选择是否提醒用户，有Badge、Sound、Alert三种类型可以选择设置
+}
+
+// iOS 10 Support
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler {
+    // Required
+    NSDictionary * userInfo = response.notification.request.content.userInfo;
+    if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+        [JPUSHService handleRemoteNotification:userInfo];
+        
+        
+    }
+    completionHandler();  // 系统要求执行这个方法
+    NSLog(@"尼玛的推送消息呢===%@",userInfo);
+   
+    [self goToMssageViewControllerWith:userInfo];
+    
+}
+
+
+- (void)goToMssageViewControllerWith:(NSDictionary*)msgDic{
+    //将字段存入本地，因为要在你要跳转的页面用它来判断,这里我只介绍跳转一个页面，
+    SystemMessageTVC * VC = [[SystemMessageTVC alloc]init];
+    VC.typestr = @"1";
+    UINavigationController * Nav = [[UINavigationController alloc]initWithRootViewController:VC];//这里加导航栏是因为我跳转的页面带导航栏，如果跳转的页面不带导航，那这句话请省去。
+    [self.window.rootViewController presentViewController:Nav animated:YES completion:nil];
+ 
+}
+
+
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    
+    // Required, iOS 7 Support
+    [JPUSHService handleRemoteNotification:userInfo];
+    completionHandler(UIBackgroundFetchResultNewData);
+    
+    NSLog(@"尼玛的推送消息呢===%@",userInfo);
+    application.applicationIconBadgeNumber = 0;
+     [self goToMssageViewControllerWith:userInfo];
+    
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    
+    // Required,For systems with less than or equal to iOS6
+    [JPUSHService handleRemoteNotification:userInfo];
+    NSLog(@"尼玛的推送消息呢===%@",userInfo);
+    application.applicationIconBadgeNumber = 0;
+    [self goToMssageViewControllerWith:userInfo];
+}
+
+
+
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
 }
+
 
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
@@ -84,6 +150,9 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+    
+    [application setApplicationIconBadgeNumber:0];   //清除角标
+    [application cancelAllLocalNotifications];
 }
 
 

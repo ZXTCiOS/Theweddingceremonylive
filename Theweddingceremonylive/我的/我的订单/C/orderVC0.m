@@ -106,6 +106,8 @@ static NSString *orderidentfid0 = @"orderidentfid0";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     orderdetalisVC *vc = [[orderdetalisVC alloc] init];
+    orderModel *model = self.dataSource[indexPath.row];
+    vc.ordersn = model.ordernb;
     [self.navigationController pushViewController:vc animated:YES];
 }
 -(void)submitbtnClick:(UITableViewCell *)cell

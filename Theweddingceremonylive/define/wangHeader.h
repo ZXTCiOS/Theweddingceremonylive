@@ -90,4 +90,7 @@
 //喜帖
 #define post_getxitie       @"/interface.php/Home/orderup/getxitie"
 
+//订单详情
+#define post_orderdetalis   @"/interface.php/Home/User/orderinfo"
+
 #endif /* wangHeader_h */

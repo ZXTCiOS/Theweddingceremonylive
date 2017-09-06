@@ -34,10 +34,16 @@
 
 -(void)loaddata
 {
-//    NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
-//    NSString *uid = [userdefat objectForKey:user_uid];
-//    NSString *token = [userdefat objectForKey:user_token];
-//    
+    NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
+    NSString *uid = [userdefat objectForKey:user_uid];
+    NSString *token = [userdefat objectForKey:user_token];
+    NSDictionary *para = @{@"uid":uid,@"token":token,@"ordersn":self.ordersn};
+    [DNNetworking postWithURLString:post_orderdetalis parameters:para success:^(id obj) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
+    
 }
 
 #pragma mark - getters

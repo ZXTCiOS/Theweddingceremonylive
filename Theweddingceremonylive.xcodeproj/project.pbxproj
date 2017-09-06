@@ -111,7 +111,6 @@
 		5303E3E81F3EE3C000AB0AF2 /* logupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5303E3E71F3EE3C000AB0AF2 /* logupViewController.m */; };
 		5303E3EC1F3EF5A800AB0AF2 /* QCCountdownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5303E3EB1F3EF5A800AB0AF2 /* QCCountdownButton.m */; };
 		5303E3EF1F3EFBBE00AB0AF2 /* forgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5303E3EE1F3EFBBE00AB0AF2 /* forgetViewController.m */; };
-		531C05561F5C23DD00C235FA /* libUMessage_Sdk_1.5.0a.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 531C05541F5C23DD00C235FA /* libUMessage_Sdk_1.5.0a.a */; };
 		531C05581F5C240800C235FA /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 531C05571F5C240700C235FA /* UserNotifications.framework */; };
 		531C055C1F5D486200C235FA /* zhifuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 531C055B1F5D486200C235FA /* zhifuView.m */; };
 		531C055F1F5E63B200C235FA /* orderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 531C055E1F5E63B200C235FA /* orderModel.m */; };
@@ -534,8 +533,6 @@
 		5303E3EB1F3EF5A800AB0AF2 /* QCCountdownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCCountdownButton.m; sourceTree = "<group>"; };
 		5303E3ED1F3EFBBE00AB0AF2 /* forgetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = forgetViewController.h; sourceTree = "<group>"; };
 		5303E3EE1F3EFBBE00AB0AF2 /* forgetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = forgetViewController.m; sourceTree = "<group>"; };
-		531C05541F5C23DD00C235FA /* libUMessage_Sdk_1.5.0a.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMessage_Sdk_1.5.0a.a; sourceTree = "<group>"; };
-		531C05551F5C23DD00C235FA /* UMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMessage.h; sourceTree = "<group>"; };
 		531C05571F5C240700C235FA /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		531C05591F5C273300C235FA /* Theweddingceremonylive.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Theweddingceremonylive.entitlements; sourceTree = "<group>"; };
 		531C055A1F5D486200C235FA /* zhifuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = zhifuView.h; path = "Theweddingceremonylive/开播/C/zhifuView.h"; sourceTree = SOURCE_ROOT; };
@@ -899,7 +896,6 @@
 				53204C011F593BD100A211BD /* AlipaySDK.framework in Frameworks */,
 				53CC9A831F57F0520077CCF6 /* libnts.a in Frameworks */,
 				53CC998C1F56C7430077CCF6 /* UIKit.framework in Frameworks */,
-				531C05561F5C23DD00C235FA /* libUMessage_Sdk_1.5.0a.a in Frameworks */,
 				53CC9A821F57F0520077CCF6 /* libNMCVideoModule.a in Frameworks */,
 				53CC9A811F57F0520077CCF6 /* libnio.a in Frameworks */,
 				53CC9A841F57F0520077CCF6 /* libnvs.a in Frameworks */,
@@ -1768,23 +1764,6 @@
 			path = QCCountdownButton;
 			sourceTree = "<group>";
 		};
-		531C05521F5C23DD00C235FA /* 推送 */ = {
-			isa = PBXGroup;
-			children = (
-				531C05531F5C23DD00C235FA /* UMessage_Sdk_1.5.0a */,
-			);
-			path = "推送";
-			sourceTree = "<group>";
-		};
-		531C05531F5C23DD00C235FA /* UMessage_Sdk_1.5.0a */ = {
-			isa = PBXGroup;
-			children = (
-				531C05541F5C23DD00C235FA /* libUMessage_Sdk_1.5.0a.a */,
-				531C05551F5C23DD00C235FA /* UMessage.h */,
-			);
-			path = UMessage_Sdk_1.5.0a;
-			sourceTree = "<group>";
-		};
 		53204BCD1F593BD100A211BD /* ZTVendorManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -2225,7 +2204,6 @@
 				53D02F781F3BF5F800CD504C /* Vendor */,
 				53D02F711F3B2A4C00CD504C /* Sources */,
 				53CC98FC1F56C4930077CCF6 /* 直播sdk */,
-				531C05521F5C23DD00C235FA /* 推送 */,
 				53D02F461F3B1B5600CD504C /* Main.storyboard */,
 				53D02F4B1F3B1B5600CD504C /* LaunchScreen.storyboard */,
 				53D02F3D1F3B1B5600CD504C /* Supporting Files */,
