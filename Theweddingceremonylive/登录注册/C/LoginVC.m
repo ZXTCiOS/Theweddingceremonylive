@@ -18,6 +18,10 @@
 #import <NIMAVChat/NIMAVChat.h>
 #import "ZTVendorManager.h"
 
+#import "WXApi.h"
+#import "UMSocialQQHandler.h"
+#import <TencentOpenAPI/QQApiInterface.h>
+
 @interface LoginVC ()<UITextFieldDelegate>
 @property (nonatomic,strong) UIImageView *logoimg;
 @property (nonatomic,strong) UITextField *nicknametext;
@@ -57,6 +61,7 @@
     
     self.payManager = [[ZTVendorPayManager alloc]init];
     [self setuplayout];
+    [self weixinLogin];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -418,6 +423,24 @@
     return YES;
 }
 
+-(void)weixinLogin{
+    if([WXApi isWXAppInstalled]){
+        
+        [self.weixinBtn setHidden:NO];
+        
+    }else{
+        [self.weixinBtn setHidden:YES];
+    }
+    if ([QQApiInterface isQQInstalled]) {
+        [self.qqBtn setHidden:NO];
+    }
+    else
+    {
+        [self.qqBtn setHidden:YES];
+    }
+    
+    
+}
 #pragma mark - nav
 
 -(void)viewWillAppear:(BOOL)animated

@@ -10,6 +10,8 @@
 #import "midVC.h"
 #import "RealVC.h"
 
+#import "weddingcardVC.h"
+
 @interface MiddleVC ()
 
 @end
@@ -96,11 +98,14 @@
 //    RealVC *vc = [[RealVC alloc] init];
 //    [self.navigationController pushViewController:vc animated:NO];
     
+    // 预约
     [self isyuyue];
     
-//    [self isrenzheng];
-    
-
+    //认证
+////    [self isrenzheng];
+//    weddingcardVC *vc = [[weddingcardVC alloc] init];
+//    vc.order_id = @"1";
+//    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

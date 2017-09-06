@@ -74,9 +74,13 @@ completionHandler:(ZTVendorShareBlock)handler {
     
     NSInteger type = platform;
     UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
-    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:model.title descr:model.descr thumImage:model.thumbURL];
-    shareObject.webpageUrl = model.webURL;
+//    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:model.title descr:model.descr thumImage:model.shareimage];
+//    shareObject.webpageUrl = model.webURL;
+    
+    UMShareImageObject *shareObject = [UMShareImageObject shareObjectWithTitle:model.title descr:model.descr thumImage:model.shareimage];
     messageObject.shareObject = shareObject;
+    shareObject.shareImage = model.shareimage;
+    
     
     //调用分享接口
     [[UMSocialManager defaultManager] shareToPlatform:type messageObject:messageObject currentViewController:[self getCurrentVC] completion:^(id data, NSError *error) {

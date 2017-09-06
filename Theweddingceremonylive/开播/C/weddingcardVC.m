@@ -9,6 +9,7 @@
 #import "weddingcardVC.h"
 #import "ActionSheetView.h"
 #import "pilotliveVC.h"
+#import "ZTVendorManager.h"
 
 @interface weddingcardVC ()<UIScrollViewDelegate>
 @property (nonatomic,strong) UIScrollView *scroll;
@@ -29,6 +30,10 @@
 @property (nonatomic,strong) UILabel *lab3;
 @property (nonatomic,strong) UILabel *lab4;
 @property (nonatomic,strong) UILabel *lab5;
+@property (nonatomic,strong) UILabel *lab6;
+@property (nonatomic,strong) UILabel *lab7;
+
+@property (nonatomic, strong) ZTVendorPayManager *payManager;
 @end
 
 @implementation weddingcardVC
@@ -69,8 +74,12 @@
     [self.scroll addSubview:self.lab3];
     [self.scroll addSubview:self.lab4];
     [self.scroll addSubview:self.lab5];
+    [self.scroll addSubview:self.lab6];
+    [self.scroll addSubview:self.lab7];
     
     [self loaddata];
+    self.payManager = [[ZTVendorPayManager alloc]init];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -221,7 +230,7 @@
         _lab0.frame = CGRectMake(kScreenW/2-100*WIDTH_SCALE, 600*HEIGHT_SCALE, 220*WIDTH_SCALE, 20*HEIGHT_SCALE);
         _lab0.font = [UIFont systemFontOfSize:17];
         _lab0.textAlignment = NSTextAlignmentCenter;
-        _lab0.text = @"在最美的年华遇到最好的你";
+        _lab0.text = @"爱情因神的眷佑而永恒";
         _lab0.textColor = [UIColor whiteColor];
     }
     return _lab0;
@@ -236,7 +245,7 @@
         _lab1.frame = CGRectMake(kScreenW/2-100*WIDTH_SCALE, 630*HEIGHT_SCALE, 220*WIDTH_SCALE, 20*HEIGHT_SCALE);
         _lab1.font = [UIFont systemFontOfSize:17];
         _lab1.textAlignment = NSTextAlignmentCenter;
-        _lab1.text = @"沉浸于幸福中我们将于2018";
+        _lab1.text = @"爱情因神的眷佑而永恒";
         _lab1.textColor = [UIColor whiteColor];
     }
     return _lab1;
@@ -250,7 +259,7 @@
         _lab2.frame = CGRectMake(kScreenW/2-100*WIDTH_SCALE, 660*HEIGHT_SCALE, 220*WIDTH_SCALE, 20*HEIGHT_SCALE);
         _lab2.font = [UIFont systemFontOfSize:17];
         _lab2.textAlignment = NSTextAlignmentCenter;
-        _lab2.text = @"时间";
+        _lab2.text = @"2018  年  10 月  30 日";
         _lab2.textColor = [UIColor whiteColor];
     }
     return _lab2;
@@ -264,7 +273,7 @@
         _lab3.font = [UIFont systemFontOfSize:17];
         _lab3.frame = CGRectMake(kScreenW/2-100*WIDTH_SCALE, 690*HEIGHT_SCALE, 220*WIDTH_SCALE, 20*HEIGHT_SCALE);
         _lab3.textAlignment = NSTextAlignmentCenter;
-        _lab3.text = @"亲友邀请码";
+        _lab3.text = @"诚邀您见证我们的婚礼";
         _lab3.textColor = [UIColor whiteColor];
     }
     return _lab3;
@@ -275,8 +284,11 @@
     if(!_lab4)
     {
         _lab4 = [[UILabel alloc] init];
+        _lab4.frame = CGRectMake(kScreenW/2-100*WIDTH_SCALE, 720*HEIGHT_SCALE, 220*WIDTH_SCALE, 20*HEIGHT_SCALE);
         _lab4.font = [UIFont systemFontOfSize:17];
         _lab4.textAlignment = NSTextAlignmentCenter;
+        _lab4.text = @"爱情   亲情   友情";
+        _lab4.textColor = [UIColor whiteColor];
     }
     return _lab4;
 }
@@ -287,11 +299,42 @@
     {
         _lab5 = [[UILabel alloc] init];
         _lab5.font = [UIFont systemFontOfSize:17];
+        _lab5.frame = CGRectMake(kScreenW/2-100*WIDTH_SCALE, 750*HEIGHT_SCALE, 220*WIDTH_SCALE, 20*HEIGHT_SCALE);
         _lab5.textAlignment = NSTextAlignmentCenter;
+        _lab5.text = @"幸福   欢乐   感动";
+        _lab5.textColor = [UIColor whiteColor];
     }
     return _lab5;
 }
 
+
+-(UILabel *)lab6
+{
+    if(!_lab6)
+    {
+        _lab6 = [[UILabel alloc] init];
+        _lab6.font = [UIFont systemFontOfSize:17];
+        _lab6.frame = CGRectMake(kScreenW/2-100*WIDTH_SCALE, 780*HEIGHT_SCALE, 220*WIDTH_SCALE, 20*HEIGHT_SCALE);
+        _lab6.textAlignment = NSTextAlignmentCenter;
+        _lab6.text = @"女娲云婚礼   全程直播";
+        _lab6.textColor = [UIColor whiteColor];
+    }
+    return _lab6;
+}
+
+-(UILabel *)lab7
+{
+    if(!_lab7)
+    {
+        _lab7 = [[UILabel alloc] init];
+        _lab7.font = [UIFont systemFontOfSize:17];
+        _lab7.frame = CGRectMake(kScreenW/2-100*WIDTH_SCALE, 810*HEIGHT_SCALE, 220*WIDTH_SCALE, 20*HEIGHT_SCALE);
+        _lab7.textAlignment = NSTextAlignmentCenter;
+        _lab7.text = @"亲友邀请码：  123678";
+        _lab7.textColor = [UIColor whiteColor];
+    }
+    return _lab7;
+}
 
 
 
@@ -327,7 +370,38 @@
     UIGraphicsEndImageContext();
     if (image != nil) {
         NSLog(@"截图成功!");
-        UIImageWriteToSavedPhotosAlbum(image,self,@selector(image:didFinishSavingWithError:contextInfo:),NULL);
+//        UIImageWriteToSavedPhotosAlbum(image,self,@selector(image:didFinishSavingWithError:contextInfo:),NULL);
+        
+        NSArray *titlearr = @[@"微信朋友圈",@"微信好友",@"QQ"];
+        NSArray *imageArr = @[@"wechatquan",@"wechat",@"tcentQQ"];
+        ActionSheetView *actionsheet = [[ActionSheetView alloc] initWithShareHeadOprationWith:titlearr andImageArry:imageArr andProTitle:@"分享" and:ShowTypeIsShareStyle];
+        [actionsheet setBtnClick:^(NSInteger btnTag) {
+            NSLog(@"\n点击第几个====%ld\n当前选中的按钮title====%@",btnTag,titlearr[btnTag]);
+            if (btnTag==0) {
+                ZTVendorShareModel *model = [[ZTVendorShareModel alloc]init];
+                model.shareimage = image;
+                [ZTVendorManager shareWith:ZTVendorPlatformTypeWechatFriends shareModel:model completionHandler:^(BOOL success, NSError * error) {
+                    
+                }];
+            }
+            if (btnTag==1) {
+                
+                ZTVendorShareModel *model = [[ZTVendorShareModel alloc]init];
+                 model.shareimage = image;
+                [ZTVendorManager shareWith:ZTVendorPlatformTypeWechat shareModel:model completionHandler:^(BOOL success, NSError * error) {
+                    
+                }];
+                
+            }
+            if (btnTag==2) {
+                ZTVendorShareModel *model = [[ZTVendorShareModel alloc]init];
+                 model.shareimage = image;
+                [ZTVendorManager shareWith:ZTVendorPlatformTypeQQ shareModel:model completionHandler:^(BOOL success, NSError * error) {
+                    
+                }];
+            }
+        }];
+        [[UIApplication sharedApplication].keyWindow addSubview:actionsheet];
         
     }
 }
@@ -347,12 +421,25 @@
 
 -(void)rightbtn0click
 {
+    [self screenShot:self.scroll];
+}
+
+-(void)fenxiang
+{
     NSArray *titlearr = @[@"微信朋友圈",@"微信好友",@"QQ"];
     NSArray *imageArr = @[@"wechatquan",@"wechat",@"tcentQQ"];
-    
     ActionSheetView *actionsheet = [[ActionSheetView alloc] initWithShareHeadOprationWith:titlearr andImageArry:imageArr andProTitle:@"测试" and:ShowTypeIsShareStyle];
     [actionsheet setBtnClick:^(NSInteger btnTag) {
         NSLog(@"\n点击第几个====%ld\n当前选中的按钮title====%@",btnTag,titlearr[btnTag]);
+        if (btnTag==1) {
+            
+        }
+        if (btnTag==2) {
+            
+        }
+        if (btnTag==3) {
+            
+        }
     }];
     [[UIApplication sharedApplication].keyWindow addSubview:actionsheet];
 }
@@ -382,4 +469,6 @@
     [super viewWillDisappear:animated];
     [self.tabBarController.tabBar setHidden:NO];
 }
+
+
 @end

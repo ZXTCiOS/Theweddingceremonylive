@@ -17,6 +17,8 @@
 #define user_imtoken @"IMTOKEN"
 #define user_phone    @"TEL"
 
+#define JIGUANG     @"48a4889e047c006938c2b298"
+
 #define BASE_URL   @"http://88.irapidtech.net/"
 
 //注册
@@ -91,6 +93,6 @@
 #define post_getxitie       @"/interface.php/Home/orderup/getxitie"
 
 //订单详情
-#define post_orderdetalis   @"/interface.php/Home/User/orderinfo"
+#define post_orderdetalis   @"/interface.php/Home/Orderup/orderinfo"
 
 #endif /* wangHeader_h */

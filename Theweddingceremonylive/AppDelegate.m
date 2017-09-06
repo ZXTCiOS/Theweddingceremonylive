@@ -56,7 +56,7 @@
     }
     [JPUSHService registerForRemoteNotificationConfig:entity delegate:self];
     
-    [JPUSHService setupWithOption:launchOptions appKey:@"48a4889e047c006938c2b298"
+    [JPUSHService setupWithOption:launchOptions appKey:JIGUANG
                           channel:nil
                  apsForProduction:NO
             advertisingIdentifier:nil];
