@@ -75,8 +75,8 @@
 - (void)autoLogin{
     
     NIMAutoLoginData *data = [[NIMAutoLoginData alloc] init];
-    data.account = @"123";
-    data.token = @"31467a682ad31187cc6aded85ed242e7";
+    data.account = [userDefault objectForKey:user_phone];
+    data.token = [userDefault objectForKey:user_imtoken];
     data.forcedMode = NO;
     [[NIMSDK sharedSDK].loginManager autoLogin:data];
 }
@@ -84,11 +84,11 @@
 #pragma mark - 自动登录回调
 
 - (void)onLogin:(NIMLoginStep)step{
-    
+    NSLog(@"自动登录   %ld", step);
 }
 
 - (void)onAutoLoginFailed:(NSError *)error{
-    NSLog(@"自动登录失败%@", error);
+    NSLog(@"---------------自动登录失败----------%@", error);
 }
 
 

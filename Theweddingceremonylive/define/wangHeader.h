@@ -14,8 +14,8 @@
 
 #define user_token  @"TOKEN"
 #define user_uid    @"UID"
-
-
+#define user_imtoken @"IMTOKEN"
+#define user_phone    @"TEL"
 
 #define BASE_URL   @"http://88.irapidtech.net/"
 
