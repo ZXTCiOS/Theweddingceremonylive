@@ -128,6 +128,14 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 
+## JCore
+
+Copyright jpush.cn
+
+## JPush
+
+Copyright jpush.cn
+
 ## LKSegmentBar
 
 Copyright (c) 2017 hlrwlbz123@sina.com <136533638@qq.com>

@@ -14,6 +14,7 @@
 #import "RealVC.h"
 
 #import "CustomerserviceVC.h"
+#import "weddingproductsVC.h"
 
 @interface midVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
@@ -104,7 +105,7 @@ static NSString *livecellidentfid = @"livecellidentfid";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row==0) {
-        predeterminedVC0 *vc = [[predeterminedVC0 alloc] init];
+        weddingproductsVC *vc = [[weddingproductsVC alloc] init];
         vc.typestr = @"1";
         vc.typenamestr = @"免费亲友内部直播";
         [self.navigationController pushViewController:vc animated:YES];

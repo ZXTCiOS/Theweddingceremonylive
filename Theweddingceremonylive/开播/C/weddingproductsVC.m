@@ -47,6 +47,11 @@ static NSString *weddingidentfid = @"weddingidentfid";
     self.datasource0 = [NSMutableArray array];
     self.datasource1 = [NSMutableArray array];
     [self loaddata];
+    if ([self.typestr isEqualToString:@"1"]) {
+        self.order_pattern = @"1";
+        self.room_count = @"100";
+        self.create_time = @"";
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -309,8 +314,16 @@ static NSString *weddingidentfid = @"weddingidentfid";
 
 -(void)rightAction
 {
+    
     weddingPayVC *vc = [[weddingPayVC alloc] init];
-    vc.name0 = [NSString stringWithFormat:@"%@%@%@",self.typenamestr,@" ",self.pricestr];
+    if ([self.typestr isEqualToString:@"1"]) {
+        vc.name0 = self.typenamestr;
+    }
+    else
+    {
+        vc.name0 = [NSString stringWithFormat:@"%@%@%@",self.typenamestr,@" ",self.pricestr];
+    }
+    
     vc.name1 = [NSString stringWithFormat:@"%@%@%@",self.zhencangname,@" ",self.zhencangprice];
     vc.name2 = [NSString stringWithFormat:@"%@%@%@",self.tuijianname,@" ",self.tuijianprice];
     
@@ -321,9 +334,10 @@ static NSString *weddingidentfid = @"weddingidentfid";
     {
         vc.order_goods = self.order_goodsstr;
         vc.order_goods_tuijian = self.order_goods_tuijian;
-        NSInteger price = [self.price0 floatValue]+[self.price1 floatValue];
+        NSInteger price = [self.price0 floatValue]+[self.price1 floatValue]+[self.pricestr floatValue];
         vc.order_price = [NSString stringWithFormat:@"%.2ld",(long)price];
         vc.room_count = self.room_count;
+       
         vc.order_pattern = self.order_pattern;
         vc.create_time = self.create_time;
         vc.tuijian = self.tuijian;

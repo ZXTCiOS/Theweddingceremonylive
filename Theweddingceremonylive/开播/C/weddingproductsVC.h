@@ -18,4 +18,5 @@
 
 @property (nonatomic,strong) NSString *typenamestr;
 
+@property (nonatomic,strong) NSString *typestr;
 @end

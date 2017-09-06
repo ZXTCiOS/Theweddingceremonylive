@@ -8,6 +8,8 @@
 
 #import "weddingPayVC.h"
 #import "perfectinglineVC.h"
+#import "zhifuView.h"
+#import "AppDelegate.h"
 
 @interface weddingPayVC ()
 @property (nonatomic,strong) UIView *bgview;
@@ -18,10 +20,12 @@
 @property (nonatomic,strong) UILabel *lab2;
 @property (nonatomic,strong) UILabel *labname2;
 @property (nonatomic,strong) UIView *lineview;
-
+@property (strong, nonatomic)UIView *bgView;//半透明背景
 @property (nonatomic,strong) UILabel *lab3;
 @property (nonatomic,strong) UILabel *pricelab;
 @property (nonatomic,strong) UIButton *submitBtn;
+
+@property (nonatomic,strong) zhifuView *zhiView;
 
 
 @end
@@ -44,7 +48,10 @@
     [self.view addSubview:self.lineview];
     [self.view addSubview:self.pricelab];
     [self.view addSubview:self.submitBtn];
+    
+//    [self.view addSubview:self.zhiView];
     [self setuplayout];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -237,7 +244,8 @@
         _pricelab.textColor = [UIColor colorWithHexString:@"ed5e40"];
         _pricelab.font = [UIFont systemFontOfSize:16];
         _pricelab.textAlignment = NSTextAlignmentCenter;
-        _pricelab.text = self.order_price;
+        _pricelab.text = [NSString stringWithFormat:@"%@%@%@",@"¥",@" ",self.order_price];
+//        _pricelab.text = self.order_price;
     }
     return _pricelab;
 }
@@ -258,11 +266,93 @@
     return _submitBtn;
 }
 
+-(zhifuView *)zhiView
+{
+    if(!_zhiView)
+    {
+        _zhiView = [[zhifuView alloc] init];
+//        _zhiView.layer.masksToBounds = YES;
+//        _zhiView.layer.borderWidth = 1;
+        _zhiView.backgroundColor = [UIColor whiteColor];
+        _zhiView.frame = CGRectMake(20, -300, kScreenW-40, 150*HEIGHT_SCALE);
+        [_zhiView.rightbtn addTarget:self action:@selector(guanbiclick) forControlEvents:UIControlEventTouchUpInside];
+        [_zhiView.btn0 addTarget:self action:@selector(weixinclick) forControlEvents:UIControlEventTouchUpInside];
+        [_zhiView.btn1 addTarget:self action:@selector(zhifubaoclick) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _zhiView;
+}
+
 -(void)submitbtnclick
+{
+    
+    UIWindow * window = [[UIApplication sharedApplication] keyWindow];
+    
+    _bgView = [[UIView alloc]init];
+    _bgView.frame = window.bounds;
+    //3. 背景颜色可以用多种方法
+    _bgView.backgroundColor = [[UIColor blackColor]colorWithAlphaComponent:0.4];
+    //    _bgView.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.6];
+    [window addSubview:_bgView];
+
+    //6.给背景添加一个手势，后续方便移除视图
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hideAlertView)];
+    [_bgView addGestureRecognizer:tap];
+    
+    [window addSubview:self.zhiView];
+    [UIView animateWithDuration:0.3 animations:^{
+        self.zhiView.transform = CGAffineTransformMakeTranslation(0, 500*HEIGHT_SCALE);
+        
+    }];
+    
+}
+
+-(void)hideAlertView
+{
+    [_bgView removeFromSuperview];
+    [UIView animateWithDuration:0.3 animations:^{
+        self.zhiView.transform = CGAffineTransformIdentity;
+        
+    }];
+}
+
+-(void)guanbiclick
+{
+      [_bgView removeFromSuperview];
+    [UIView animateWithDuration:0.3 animations:^{
+        self.zhiView.transform = CGAffineTransformIdentity;
+        
+    }];
+}
+
+-(void)weixinclick
+{
+    [_bgView removeFromSuperview];
+    [UIView animateWithDuration:0.3 animations:^{
+        self.zhiView.transform = CGAffineTransformIdentity;
+        
+    }];
+    [self zhifujiekou];
+}
+
+-(void)zhifubaoclick
+{
+      [_bgView removeFromSuperview];
+    [UIView animateWithDuration:0.3 animations:^{
+        self.zhiView.transform = CGAffineTransformIdentity;
+        
+    }];
+}
+//支付接口
+
+-(void)zhifujiekou
 {
     NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
     NSString *uid = [userdefat objectForKey:user_uid];
     NSString *token = [userdefat objectForKey:user_token];
+    
+    if ([strisNull isNullToString:self.order_goods_tuijian]) {
+        self.order_goods_tuijian = @"";
+    }
     
     NSDictionary *para = [NSDictionary dictionary];
     
@@ -275,10 +365,12 @@
     }
     
     [DNNetworking postWithURLString:post_orderup parameters:para success:^(id obj) {
-        NSString *mes = [obj objectForKey:@"mes"];
+        NSString *mes = [obj objectForKey:@"msg"];
         [MBProgressHUD showSuccess:mes];
         if ([[obj objectForKey:@"code"] intValue]==1000) {
             perfectinglineVC *vc = [[perfectinglineVC alloc] init];
+            vc.order_id = [obj objectForKey:@"data"];
+            vc.typestr = self.order_pattern;
             [self.navigationController pushViewController:vc animated:YES];
         }
         
@@ -286,16 +378,19 @@
         [MBProgressHUD showSuccess:@"没有网络"];
     }];
     
-    perfectinglineVC *vc = [[perfectinglineVC alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
-}
 
+}
 
 #pragma mark - tabbar
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    if ([strisNull isNullToString:self.order_goods_tuijian]) {
+        [self.lab3 setHidden:YES];
+        [self.labname2 setHidden:YES];
+    }
+    
     [self.tabBarController.tabBar setHidden:YES];
 }
 

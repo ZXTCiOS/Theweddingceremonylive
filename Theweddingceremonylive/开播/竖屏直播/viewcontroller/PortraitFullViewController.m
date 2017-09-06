@@ -23,7 +23,7 @@
 
 
 
-#define flv @"http://hdl.9158.com/live/d8596cea32bc05a774aaa43a73b38adc.flv"
+#define flv @"rtmp://ve266c7be.live.126.net/live/5f581cb50c724380bd08788abe7b0f9d"
 
 
 @interface PortraitFullViewController ()<UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>

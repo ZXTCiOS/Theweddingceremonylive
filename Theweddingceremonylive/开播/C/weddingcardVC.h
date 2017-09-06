@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface weddingcardVC : UIViewController
-
+@property (nonatomic,strong) NSString *order_id;
 @end
