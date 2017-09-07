@@ -33,6 +33,12 @@
 @property (nonatomic,strong) UILabel *lab6;
 @property (nonatomic,strong) UILabel *lab7;
 
+
+@property (nonatomic,strong) NSString *imgstr;
+@property (nonatomic,strong) NSString *namestr;
+@property (nonatomic,strong) NSString *timestr;
+@property (nonatomic,strong) NSString *yaoqingmastr;
+
 @property (nonatomic, strong) ZTVendorPayManager *payManager;
 @end
 
@@ -92,13 +98,28 @@
     NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
     NSString *uid = [userdefat objectForKey:user_uid];
     NSString *token = [userdefat objectForKey:user_token];
-    NSDictionary *para = @{@"uid":uid,@"token":token,@"order_id":self.order_id};
+    NSDictionary *para = @{@"uid":uid,@"token":token,@"ordernb":self.order_id};
     
     [DNNetworking postWithURLString:post_getxitie parameters:para success:^(id obj) {
         NSString *msg = [obj objectForKey:@"msg"];
         [MBProgressHUD showSuccess:msg];
         if ([[obj objectForKey:@"code"] intValue]==1000) {
+            NSDictionary *datadic = [obj objectForKey:@"data"];
+            NSString *room_boy = [datadic objectForKey:@"room_boy"];
+            NSString *room_girl = [datadic objectForKey:@"room_girl"];
+            self.namestr = [NSString stringWithFormat:@"%@%@%@",room_boy,@"&",room_girl];
+            self.imgstr = [datadic objectForKey:@"room_info_img"];
+            self.timestr = [datadic objectForKey:@"create_time"];
+            NSString *password = [datadic objectForKey:@"password"];
+            self.yaoqingmastr = [NSString stringWithFormat:@"%@%@",@"亲友邀请码:",password];
+            [_headimg sd_setImageWithURL:[NSURL URLWithString:self.imgstr]];
+            _nameLab.text = self.namestr;
+            _lab7.text = self.yaoqingmastr;
             
+            NSString *str = self.timestr;
+            NSInteger inter = [str intValue];
+            _lab2.text = [self timestampSwitchTime:inter andFormatter:@"YYYY-MM-dd hh:mm:ss"];
+
         }
     } failure:^(NSError *error) {
         [MBProgressHUD showSuccess:@"网络错误"];
@@ -113,7 +134,7 @@
     {
         _scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH)];
         _scroll.delegate = self;
-        _scroll.contentSize = CGSizeMake(kScreenW, 1050*HEIGHT_SCALE);
+        _scroll.contentSize = CGSizeMake(kScreenW, 1050*HEIGHT_SCALE+50);
         _scroll.backgroundColor = [UIColor whiteColor];
         [_scroll addSubview:self.bgImage];
     }
@@ -151,7 +172,8 @@
         _headimg.layer.masksToBounds = YES;
        // _headimg.backgroundColor = [UIColor orangeColor];
         _headimg.layer.cornerRadius = 110*WIDTH_SCALE;
-        [_headimg sd_setImageWithURL:[NSURL URLWithString:@"http://img.duote.com/qqTxImg/2011/07/25/13115669302341.jpg"]];
+
+ 
     }
     return _headimg;
 }
@@ -163,7 +185,6 @@
         _nameLab = [[UILabel alloc] init];
         _nameLab.frame = CGRectMake(100*WIDTH_SCALE, 380*HEIGHT_SCALE, 200*WIDTH_SCALE, 50);
         _nameLab.font = [UIFont systemFontOfSize:18];
-        _nameLab.text = @"东东&西西";
         _nameLab.textAlignment = NSTextAlignmentCenter;
         _nameLab.backgroundColor = [UIColor clearColor];
         _nameLab.textColor = [UIColor colorWithHexString:@"ffffff"];
@@ -259,7 +280,6 @@
         _lab2.frame = CGRectMake(kScreenW/2-100*WIDTH_SCALE, 660*HEIGHT_SCALE, 220*WIDTH_SCALE, 20*HEIGHT_SCALE);
         _lab2.font = [UIFont systemFontOfSize:17];
         _lab2.textAlignment = NSTextAlignmentCenter;
-        _lab2.text = @"2018  年  10 月  30 日";
         _lab2.textColor = [UIColor whiteColor];
     }
     return _lab2;
@@ -330,7 +350,7 @@
         _lab7.font = [UIFont systemFontOfSize:17];
         _lab7.frame = CGRectMake(kScreenW/2-100*WIDTH_SCALE, 810*HEIGHT_SCALE, 220*WIDTH_SCALE, 20*HEIGHT_SCALE);
         _lab7.textAlignment = NSTextAlignmentCenter;
-        _lab7.text = @"亲友邀请码：  123678";
+
         _lab7.textColor = [UIColor whiteColor];
     }
     return _lab7;
@@ -468,6 +488,20 @@
 {
     [super viewWillDisappear:animated];
     [self.tabBarController.tabBar setHidden:NO];
+}
+#pragma mark - 将某个时间戳转化成 时间
+
+-(NSString *)timestampSwitchTime:(NSInteger)timestamp andFormatter:(NSString *)format{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateStyle:NSDateFormatterMediumStyle];
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    //format = @"YYYY-MM-dd hh:mm:ss";
+    [formatter setDateFormat:format]; // （@"YYYY-MM-dd hh:mm:ss"）----------设置你想要的格式,hh与HH的区别:分别表示12小时制,24小时制
+    NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"Asia/Beijing"];
+    [formatter setTimeZone:timeZone];
+    NSDate *confromTimesp = [NSDate dateWithTimeIntervalSince1970:timestamp];
+    NSString *confromTimespStr = [formatter stringFromDate:confromTimesp];
+    return confromTimespStr;
 }
 
 

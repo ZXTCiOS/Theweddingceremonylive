@@ -95,4 +95,6 @@
 //订单详情
 #define post_orderdetalis   @"/interface.php/Home/Orderup/orderinfo"
 
+//升级订单
+#define post_shenjiorderup  @"/interface.php/Home/Orderup/orderup1"
 #endif /* wangHeader_h */

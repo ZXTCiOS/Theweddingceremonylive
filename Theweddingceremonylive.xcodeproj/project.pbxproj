@@ -165,6 +165,8 @@
 		533854571F5FEAC500538CE4 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 533854551F5FEAC500538CE4 /* TencentOpenAPI.framework */; };
 		533854581F5FEAC500538CE4 /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 533854561F5FEAC500538CE4 /* TencentOpenApi_IOS_Bundle.bundle */; };
 		5338545B1F60478800538CE4 /* orderdetalisCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 5338545A1F60478800538CE4 /* orderdetalisCell2.m */; };
+		533854641F60E90A00538CE4 /* orderdetalisCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = 533854631F60E90A00538CE4 /* orderdetalisCell3.m */; };
+		533854671F60FBEB00538CE4 /* wanshanorderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 533854661F60FBEB00538CE4 /* wanshanorderVC.m */; };
 		533A8A311F4C06450087E699 /* detalisVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 533A8A301F4C06450087E699 /* detalisVC.m */; };
 		533A8A401F4C262A0087E699 /* DemoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533A8A351F4C262A0087E699 /* DemoTableViewController.m */; };
 		533A8A411F4C262A0087E699 /* DemoCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 533A8A381F4C262A0087E699 /* DemoCellModel.m */; };
@@ -623,6 +625,10 @@
 		533854561F5FEAC500538CE4 /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
 		533854591F60478800538CE4 /* orderdetalisCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = orderdetalisCell2.h; sourceTree = "<group>"; };
 		5338545A1F60478800538CE4 /* orderdetalisCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = orderdetalisCell2.m; sourceTree = "<group>"; };
+		533854621F60E90A00538CE4 /* orderdetalisCell3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = orderdetalisCell3.h; sourceTree = "<group>"; };
+		533854631F60E90A00538CE4 /* orderdetalisCell3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = orderdetalisCell3.m; sourceTree = "<group>"; };
+		533854651F60FBEB00538CE4 /* wanshanorderVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wanshanorderVC.h; sourceTree = "<group>"; };
+		533854661F60FBEB00538CE4 /* wanshanorderVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = wanshanorderVC.m; sourceTree = "<group>"; };
 		533A8A2F1F4C06450087E699 /* detalisVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = detalisVC.h; sourceTree = "<group>"; };
 		533A8A301F4C06450087E699 /* detalisVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = detalisVC.m; sourceTree = "<group>"; };
 		533A8A341F4C262A0087E699 /* DemoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoTableViewController.h; sourceTree = "<group>"; };
@@ -1685,6 +1691,8 @@
 				530299611F443ABF004BC03A /* orderVC2.m */,
 				531C05601F5E85B000C235FA /* orderdetalisVC.h */,
 				531C05611F5E85B100C235FA /* orderdetalisVC.m */,
+				533854651F60FBEB00538CE4 /* wanshanorderVC.h */,
+				533854661F60FBEB00538CE4 /* wanshanorderVC.m */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -1709,6 +1717,8 @@
 				531C05641F5E899700C235FA /* orderdetalisCell.m */,
 				533854591F60478800538CE4 /* orderdetalisCell2.h */,
 				5338545A1F60478800538CE4 /* orderdetalisCell2.m */,
+				533854621F60E90A00538CE4 /* orderdetalisCell3.h */,
+				533854631F60E90A00538CE4 /* orderdetalisCell3.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -3069,6 +3079,7 @@
 				53B68E561F4E9B5500674A2B /* livetypeCell.m in Sources */,
 				536D54D91F50177500A54749 /* predeterheadView0.m in Sources */,
 				53CC98DB1F566C590077CCF6 /* reflectVC.m in Sources */,
+				533854671F60FBEB00538CE4 /* wanshanorderVC.m in Sources */,
 				532565001F4649B700915E3B /* localVC.m in Sources */,
 				53B68E5C1F4EBFD800674A2B /* predeterminedVC1.m in Sources */,
 				184A78891F53FB9D00EACCE1 /* WeddingLiveTableCell.m in Sources */,
@@ -3177,6 +3188,7 @@
 				1851F41F1F3D843E00369326 /* UIScrollView+Refresh.m in Sources */,
 				536D54D31F4FFFC000A54749 /* detalisCell2.m in Sources */,
 				1831DBCA1F4D268D00155691 /* BaseCollectionViewController.m in Sources */,
+				533854641F60E90A00538CE4 /* orderdetalisCell3.m in Sources */,
 				1851F4121F3D7DF600369326 /* LiveVideoModel.m in Sources */,
 				53D85CB71F51252500EF0555 /* YUDatePicker.m in Sources */,
 				533ACC8F1F46D96F00F66A78 /* bbsCell.m in Sources */,

@@ -9,6 +9,7 @@
 #import "orderVC2.h"
 #import "orderCell2.h"
 #import "orderModel.h"
+#import "orderdetalisVC.h"
 
 @interface orderVC2 ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
@@ -102,5 +103,12 @@ static NSString *orderidentfid3 = @"orderidentfid3";
     return 100*HEIGHT_SCALE;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    orderdetalisVC *vc = [[orderdetalisVC alloc] init];
+    orderModel *model = self.dataSource[indexPath.row];
+    vc.ordersn = model.ordernb;
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 @end

@@ -1,12 +1,12 @@
 //
-//  perfectinglineVC.m
+//  wanshanorderVC.m
 //  Theweddingceremonylive
 //
-//  Created by 王俊钢 on 2017/8/28.
+//  Created by 王俊钢 on 2017/9/7.
 //  Copyright © 2017年 wangjungang. All rights reserved.
 //
 
-#import "perfectinglineVC.h"
+#import "wanshanorderVC.h"
 #import "wanshanCell0.h"
 #import "wanshanCell1.h"
 #import "wanshanCell2.h"
@@ -17,7 +17,8 @@
 #import "weddingcardVC.h"
 #import "OYRAlertView.h"
 
-@interface perfectinglineVC ()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,OYRAlertViewDelegate>
+@interface wanshanorderVC ()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,OYRAlertViewDelegate>
+
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic,strong) UIView *footView;
 @property (nonatomic,strong) UIButton *submitBtn;
@@ -36,29 +37,27 @@
 @property (nonatomic,strong) NSString *Delivery_address;
 @property (nonatomic,strong) NSString *room_tel;
 @property (nonatomic,strong) NSString *qinyouyaoqingma;
-
 @end
 
-static NSString *wanshanidentfid0 = @"wanshanidentfid0";
-static NSString *wanshanidentfid1 = @"wanshanidentfid1";
-static NSString *wanshanidentfid2 = @"wanshanidentfid2";
-static NSString *wanshanidentfid3 = @"wanshanidentfid3";
+static NSString *wanshanorderidentfid0 = @"wanshanorderidentfid0";
+static NSString *wanshanorderidentfid1 = @"wanshanorderidentfid1";
+static NSString *wanshanorderidentfid2 = @"wanshanorderidentfid2";
+static NSString *wanshanorderidentfid3 = @"wanshanorderidentfid3";
 
-static NSString *wanshanidentfid4 = @"wanshanidentfid4";
-static NSString *wanshanidentfid5 = @"wanshanidentfid5";
-static NSString *wanshanidentfid6 = @"wanshanidentfid6";
-static NSString *wanshanidentfid7 = @"wanshanidentfid7";
-static NSString *wanshanidentfid8 = @"wanshanidentfid8";
-static NSString *wanshanidentfid9 = @"wanshanidentfid9";
+static NSString *wanshanorderidentfid4 = @"wanshanorderidentfid4";
+static NSString *wanshanorderidentfid5 = @"wanshanorderidentfid5";
+static NSString *wanshanorderidentfid6 = @"wanshanorderidentfid6";
+static NSString *wanshanorderidentfid7 = @"wanshanorderidentfid7";
+static NSString *wanshanorderidentfid8 = @"wanshanorderidentfid8";
+static NSString *wanshanorderidentfid9 = @"wanshanorderidentfid9";
 
 
-@implementation perfectinglineVC
+@implementation wanshanorderVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"完善信息";
-    
+    self.title = @"完善订单";
     if ([self.typestr isEqualToString:@"3"]) {
         
     }
@@ -66,11 +65,11 @@ static NSString *wanshanidentfid9 = @"wanshanidentfid9";
     {
         [self click];
     }
-
-    self.room_yangshi = @"3";
+    
+    self.room_yangshi = [self.orderdic objectForKey:@"room_yangshi"];
     [self.view addSubview:self.table];
     self.table.tableFooterView = self.footView;
-    self.qinyouyaoqingma = @"";
+    self.qinyouyaoqingma = [self.orderdic objectForKey:@"password"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -78,7 +77,7 @@ static NSString *wanshanidentfid9 = @"wanshanidentfid9";
     // Dispose of any resources that can be recreated.
 }
 -(void)click{
-    [self loadAlertView:@"初始邀请码" contentStr:nil btnNum:2 btnStrArr:[NSArray arrayWithObjects:@"取消",@"确认", nil] type:11];
+    [self loadAlertView:self.yaoqingma contentStr:nil btnNum:2 btnStrArr:[NSArray arrayWithObjects:@"取消",@"修改", nil] type:11];
 }
 
 -(void)didClickButtonAtIndex:(NSUInteger)index password:(NSString *)password{
@@ -127,9 +126,9 @@ static NSString *wanshanidentfid9 = @"wanshanidentfid9";
         _table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH)];
         _table.dataSource = self;
         _table.delegate = self;
-//        _table.userInteractionEnabled = YES;
-//        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tabletap)];
-//        [_table addGestureRecognizer:tap];
+        //        _table.userInteractionEnabled = YES;
+        //        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tabletap)];
+        //        [_table addGestureRecognizer:tap];
     }
     return _table;
 }
@@ -177,62 +176,74 @@ static NSString *wanshanidentfid9 = @"wanshanidentfid9";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row==0) {
-        wanshanCell0 *cell = [tableView dequeueReusableCellWithIdentifier:wanshanidentfid0];
+        wanshanCell0 *cell = [tableView dequeueReusableCellWithIdentifier:wanshanorderidentfid0];
         if (!cell) {
-            cell = [[wanshanCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:wanshanidentfid0];
+            cell = [[wanshanCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:wanshanorderidentfid0];
             cell.wanshantext.tag = 201;
         }
         cell.wanshantext.textAlignment = NSTextAlignmentRight;
+        cell.wanshantext.text = [self.orderdic objectForKey:@"room_name"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
     if (indexPath.row==1) {
-        wanshanCell1 *cell = [tableView dequeueReusableCellWithIdentifier:wanshanidentfid1];
+        wanshanCell1 *cell = [tableView dequeueReusableCellWithIdentifier:wanshanorderidentfid1];
         if (!cell) {
-            cell = [[wanshanCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:wanshanidentfid1];
+            cell = [[wanshanCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:wanshanorderidentfid1];
             cell.leftImg.tag = 301;
         }
-      
-        
+        [cell.leftImg sd_setImageWithURL:[NSURL URLWithString:[self.orderdic objectForKey:@"room_img"]] placeholderImage:[UIImage imageNamed:@"16bi9"]];
         cell.leftImg.userInteractionEnabled = YES;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(leftimg0click)];
         [cell.leftImg addGestureRecognizer:tap];
         
+      
+        
+        UIImage *img = cell.leftImg.image;
+        NSData *imageData = UIImageJPEGRepresentation(img, 1.0);
+        self.room_img = [imageData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
 
+        
+        
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
     if (indexPath.row==2) {
-        wanshanCell2 *cell = [tableView dequeueReusableCellWithIdentifier:wanshanidentfid2];
+        wanshanCell2 *cell = [tableView dequeueReusableCellWithIdentifier:wanshanorderidentfid2];
         if (!cell) {
-            cell = [[wanshanCell2 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:wanshanidentfid2];
+            cell = [[wanshanCell2 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:wanshanorderidentfid2];
             cell.leftImg.tag = 302;
         }
-
+        [cell.leftImg sd_setImageWithURL:[NSURL URLWithString:[self.orderdic objectForKey:@"room_info_img"]] placeholderImage:[UIImage imageNamed:@"16bi9"]];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.leftImg.userInteractionEnabled = YES;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(leftimg1click)];
         [cell.leftImg addGestureRecognizer:tap];
         
+
+        NSData *imageData = UIImageJPEGRepresentation(cell.leftImg.image, 1.0);
+        self.xitie_img = [imageData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+        
         return cell;
     }
     if (indexPath.row==3) {
-        wanshanCell3 *cell = [tableView dequeueReusableCellWithIdentifier:wanshanidentfid3];
-        cell = [[wanshanCell3 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:wanshanidentfid3];
+        wanshanCell3 *cell = [tableView dequeueReusableCellWithIdentifier:wanshanorderidentfid3];
+        cell = [[wanshanCell3 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:wanshanorderidentfid3];
         
         [cell.btn0 addTarget:self action:@selector(typebtn0click) forControlEvents:UIControlEventTouchUpInside];
         [cell.btn1 addTarget:self action:@selector(typebtn1click) forControlEvents:UIControlEventTouchUpInside];
         [cell.btn2 addTarget:self action:@selector(typebtn2click) forControlEvents:UIControlEventTouchUpInside];
-        
+        [cell setdatabtn:[self.orderdic objectForKey:@"room_yangshi"]];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
     if (indexPath.row==4) {
-        wanshanCell4 *cell = [tableView dequeueReusableCellWithIdentifier:wanshanidentfid4];
-//        if (!cell) {
-            cell = [[wanshanCell4 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:wanshanidentfid4];
-//            cell.wanshantext.tag = 202;
-//        }
+        wanshanCell4 *cell = [tableView dequeueReusableCellWithIdentifier:wanshanorderidentfid4];
+        //        if (!cell) {
+        cell = [[wanshanCell4 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:wanshanorderidentfid4];
+        //            cell.wanshantext.tag = 202;
+        //        }
+        self.room_address = [self.orderdic objectForKey:@"room_address"];
         cell.wanshantext.text = self.room_address;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.typelab.text = @"婚礼地址";
@@ -243,44 +254,48 @@ static NSString *wanshanidentfid9 = @"wanshanidentfid9";
         return cell;
     }
     if (indexPath.row==5) {
-        wanshanCell4 *cell = [tableView dequeueReusableCellWithIdentifier:wanshanidentfid5];
-        cell = [[wanshanCell4 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:wanshanidentfid5];
+        wanshanCell4 *cell = [tableView dequeueReusableCellWithIdentifier:wanshanorderidentfid5];
+        cell = [[wanshanCell4 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:wanshanorderidentfid5];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.typelab.text = @"新郎姓名";
         cell.wanshantext.placeholder = @"请输入新郎姓名";
+        cell.wanshantext.text = [self.orderdic objectForKey:@"room_boy"];
         cell.wanshantext.delegate = self;
         cell.wanshantext.tag = 203;
         cell.wanshantext.textAlignment = NSTextAlignmentRight;
         return cell;
     }
     if (indexPath.row==6) {
-        wanshanCell4 *cell = [tableView dequeueReusableCellWithIdentifier:wanshanidentfid6];
-        cell = [[wanshanCell4 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:wanshanidentfid6];
+        wanshanCell4 *cell = [tableView dequeueReusableCellWithIdentifier:wanshanorderidentfid6];
+        cell = [[wanshanCell4 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:wanshanorderidentfid6];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.typelab.text = @"新娘姓名";
         cell.wanshantext.placeholder = @"请输入新娘姓名";
+        cell.wanshantext.text = [self.orderdic objectForKey:@"room_girl"];
         cell.wanshantext.delegate = self;
         cell.wanshantext.tag = 204;
         cell.wanshantext.textAlignment = NSTextAlignmentRight;
         return cell;
     }
     if (indexPath.row==7) {
-        wanshanCell4 *cell = [tableView dequeueReusableCellWithIdentifier:wanshanidentfid7];
-        cell = [[wanshanCell4 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:wanshanidentfid7];
+        wanshanCell4 *cell = [tableView dequeueReusableCellWithIdentifier:wanshanorderidentfid7];
+        cell = [[wanshanCell4 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:wanshanorderidentfid7];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.typelab.text = @"收货地址";
         cell.wanshantext.placeholder = @"请输入详细地址";
+        cell.wanshantext.text = [self.orderdic objectForKey:@"delivery_address"];
         cell.wanshantext.delegate = self;
         cell.wanshantext.tag = 205;
         cell.wanshantext.textAlignment = NSTextAlignmentRight;
         return cell;
     }
     if (indexPath.row==8) {
-        wanshanCell4 *cell = [tableView dequeueReusableCellWithIdentifier:wanshanidentfid8];
-        cell = [[wanshanCell4 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:wanshanidentfid8];
+        wanshanCell4 *cell = [tableView dequeueReusableCellWithIdentifier:wanshanorderidentfid8];
+        cell = [[wanshanCell4 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:wanshanorderidentfid8];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.typelab.text = @"手机号码";
         cell.wanshantext.placeholder = @"请输入手机号码";
+        cell.wanshantext.text = [self.orderdic objectForKey:@"room_tel"];
         cell.wanshantext.delegate = self;
         cell.wanshantext.tag = 206;
         cell.wanshantext.textAlignment = NSTextAlignmentRight;
@@ -399,14 +414,17 @@ static NSString *wanshanidentfid9 = @"wanshanidentfid9";
     {
         room_tel =teltext.text;
     }
-    NSDictionary *para = @{@"uid":uid,@"token":token,@"ordernb":self.order_id,@"room_name":room_name,@"room_img":self.room_img,@"suffix1":suffix1,@"xitie_img":self.xitie_img,@"suffix2":suffix2,@"room_yangshi":self.room_yangshi,@"room_address":self.room_address,@"room_boy":room_boy,@"room_girl":room_girl,@"Delivery_address":Delivery_address,@"room_tel":room_tel,@"p_assword":self.qinyouyaoqingma};
     
+    NSString *order_id = [self.orderdic objectForKey:@"ordernb"];
+    
+    NSDictionary *para = @{@"uid":uid,@"token":token,@"ordernb":order_id,@"room_name":room_name,@"room_img":self.room_img,@"suffix1":suffix1,@"xitie_img":self.xitie_img,@"suffix2":suffix2,@"room_yangshi":self.room_yangshi,@"room_address":self.room_address,@"room_boy":room_boy,@"room_girl":room_girl,@"Delivery_address":Delivery_address,@"room_tel":room_tel,@"p_assword":self.qinyouyaoqingma};
+
     [DNNetworking postWithURLString:post_finish_order_info parameters:para success:^(id obj) {
         NSString *msg = [obj objectForKey:@"msg"];
         [MBProgressHUD showSuccess:msg];
         if ([[obj objectForKey:@"code"] intValue]==1000) {
             weddingcardVC *vc = [[weddingcardVC alloc] init];
-            vc.order_id = self.order_id;
+            vc.order_id = order_id;
             [self.navigationController pushViewController:vc animated:YES];
         }
     } failure:^(NSError *error) {
@@ -416,19 +434,19 @@ static NSString *wanshanidentfid9 = @"wanshanidentfid9";
 
 -(void)typebtn0click
 {
-
+    
     self.room_yangshi = @"1";
 }
 
 -(void)typebtn1click
 {
-
+    
     self.room_yangshi = @"2";
 }
 
 -(void)typebtn2click
 {
-
+    
     self.room_yangshi = @"3";
 }
 
@@ -470,7 +488,7 @@ static NSString *wanshanidentfid9 = @"wanshanidentfid9";
     UITextField *text4 = [self.table viewWithTag:205];
     UITextField *text5 = [self.table viewWithTag:206];
     [text0 resignFirstResponder];
-//    [text1 resignFirstResponder];
+    //    [text1 resignFirstResponder];
     [text2 resignFirstResponder];
     [text3 resignFirstResponder];
     [text4 resignFirstResponder];
@@ -491,4 +509,6 @@ static NSString *wanshanidentfid9 = @"wanshanidentfid9";
     [super viewWillDisappear:animated];
     [self.tabBarController.tabBar setHidden:NO];
 }
+
+
 @end

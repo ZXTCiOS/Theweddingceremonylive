@@ -21,6 +21,8 @@
 #import "WXApi.h"
 #import "UMSocialQQHandler.h"
 #import <TencentOpenAPI/QQApiInterface.h>
+//
+//#import "MBProgressHUD+Tools_cc.h"
 
 @interface LoginVC ()<UITextFieldDelegate>
 @property (nonatomic,strong) UIImageView *logoimg;
@@ -351,6 +353,7 @@
         user_pwd = self.passwordtext.text;
     }
     
+    [MBProgressHUD showMessage:@"正在登录"];
     
     NSString *type = @"1";
     NSDictionary *para = @{@"user_tel":user_tel,@"user_pwd":user_pwd,@"type":type};
@@ -381,8 +384,10 @@
         {
             [MBProgressHUD showSuccess:@"密码错误"];
         }
+        [MBProgressHUD hideHUD];
     } failure:^(NSError *error) {
         [MBProgressHUD showSuccess:@"网络错误"];
+        [MBProgressHUD hideHUD];
     }];
     
 }

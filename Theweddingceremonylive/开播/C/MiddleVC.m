@@ -99,13 +99,14 @@
 //    [self.navigationController pushViewController:vc animated:NO];
     
     // 预约
-    [self isyuyue];
+   // [self isyuyue];
     
     //认证
 ////    [self isrenzheng];
-//    weddingcardVC *vc = [[weddingcardVC alloc] init];
-//    vc.order_id = @"1";
-//    [self.navigationController pushViewController:vc animated:YES];
+
+    midVC *vc = [[midVC alloc] init];
+    [self.navigationController pushViewController:vc animated:NO];
+
 }
 
 @end
