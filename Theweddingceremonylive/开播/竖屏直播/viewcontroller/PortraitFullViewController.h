@@ -10,4 +10,10 @@
 
 @interface PortraitFullViewController : UIViewController
 
+
+
+
+- (instancetype)initWithUrl:(NSString *) url;
+
+
 @end

@@ -41,7 +41,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "383"
             endingLineNumber = "383"
-            landmarkName = "-loginNIMWithaccount:token:"
+            landmarkName = "-loginbtnclick"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
