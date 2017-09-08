@@ -423,17 +423,46 @@
         //NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
         NSString *type = @"2";
         
-        NSDictionary *para = @{@"type":type,@"unionid":unionid,@"nickname":nickname,@"headimgurl":headimgurl,@"city":city,@"sex":sex};
+        if ([strisNull isNullToString:unionid]) {
+            
+        }
+        else
+        {
+            NSDictionary *para = @{@"type":type,@"unionid":unionid,@"nickname":nickname,@"headimgurl":headimgurl,@"city":city,@"sex":sex};
+            
+            [DNNetworking postWithURLString:post_login parameters:para success:^(id obj) {
+                NSString *msg = [obj objectForKey:@"msg"];
+                [MBProgressHUD showSuccess:msg];
+                
+                if ([[obj objectForKey:@"code"] intValue]==1000) {
+                    NSDictionary *dic = [obj objectForKey:@"data"];
+                    NSString *tokenstr = [dic objectForKey:@"token"];
+                    NSString *uidstr = [dic objectForKey:@"uid"];
+                    NSString *imtoken = [dic objectForKey:@"imtoken"];
+                    NSString *acount = [dic objectForKey:@"tel"];
+                    NSUserDefaults *defat = [NSUserDefaults standardUserDefaults];
+                    [defat setObject:tokenstr forKey:user_token];
+                    [defat setObject:uidstr forKey:user_uid];
+                    [defat setObject:acount forKey:user_phone];
+                    [defat setObject:imtoken forKey:user_imtoken];
+                    [defat synchronize];
+                    //todo: account...
+                    
+                    [self loginNIMWithaccount:acount token:imtoken];
+                    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+                    MainTabBarController * main = [[MainTabBarController alloc] init];
+                    appDelegate.window.rootViewController = main;
+                }
+                
+                
+            } failure:^(NSError *error) {
+                
+                
+                [MBProgressHUD showSuccess:@"登录失败"];
+            }];
+        }
         
-        [DNNetworking postWithURLString:post_login parameters:para success:^(id obj) {
-            
-            
-            
-        } failure:^(NSError *error) {
-            
-            
-            
-        }];
+
         
     }];
     
