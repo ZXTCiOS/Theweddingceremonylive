@@ -267,6 +267,7 @@ static NSString *predeterminedidentfid0 = @"predeterminedidentfid0";
 
 -(void)rightAction
 {
+    
     weddingproductsVC *vc = [[weddingproductsVC alloc] init];
     vc.order_pattern = self.typestr;
     UITextField *text1 = [self.table viewWithTag:301];

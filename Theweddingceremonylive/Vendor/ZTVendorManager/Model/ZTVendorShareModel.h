@@ -30,4 +30,5 @@
  */
 @property(nonatomic, copy)NSString *webURL;
 
+@property (nonatomic,copy) UIImage *shareimage;
 @end

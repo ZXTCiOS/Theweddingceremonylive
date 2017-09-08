@@ -12,4 +12,6 @@
 @property (nonatomic,strong) UIButton *btn0;
 @property (nonatomic,strong) UIButton *btn1;
 @property (nonatomic,strong) UIButton *btn2;
+
+-(void)setdatabtn:(NSString *)btnstr;
 @end

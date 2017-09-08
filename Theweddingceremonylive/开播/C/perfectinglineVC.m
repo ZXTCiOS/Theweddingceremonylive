@@ -182,6 +182,7 @@ static NSString *wanshanidentfid9 = @"wanshanidentfid9";
             cell = [[wanshanCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:wanshanidentfid0];
             cell.wanshantext.tag = 201;
         }
+        cell.wanshantext.textAlignment = NSTextAlignmentRight;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -238,7 +239,7 @@ static NSString *wanshanidentfid9 = @"wanshanidentfid9";
         cell.wanshantext.enabled = NO;
         cell.wanshantext.placeholder = @"请输入所在省份和城市";
         cell.wanshantext.delegate = self;
-  
+        cell.wanshantext.textAlignment = NSTextAlignmentRight;
         return cell;
     }
     if (indexPath.row==5) {
@@ -249,6 +250,7 @@ static NSString *wanshanidentfid9 = @"wanshanidentfid9";
         cell.wanshantext.placeholder = @"请输入新郎姓名";
         cell.wanshantext.delegate = self;
         cell.wanshantext.tag = 203;
+        cell.wanshantext.textAlignment = NSTextAlignmentRight;
         return cell;
     }
     if (indexPath.row==6) {
@@ -259,6 +261,7 @@ static NSString *wanshanidentfid9 = @"wanshanidentfid9";
         cell.wanshantext.placeholder = @"请输入新娘姓名";
         cell.wanshantext.delegate = self;
         cell.wanshantext.tag = 204;
+        cell.wanshantext.textAlignment = NSTextAlignmentRight;
         return cell;
     }
     if (indexPath.row==7) {
@@ -269,6 +272,7 @@ static NSString *wanshanidentfid9 = @"wanshanidentfid9";
         cell.wanshantext.placeholder = @"请输入详细地址";
         cell.wanshantext.delegate = self;
         cell.wanshantext.tag = 205;
+        cell.wanshantext.textAlignment = NSTextAlignmentRight;
         return cell;
     }
     if (indexPath.row==8) {
@@ -279,6 +283,7 @@ static NSString *wanshanidentfid9 = @"wanshanidentfid9";
         cell.wanshantext.placeholder = @"请输入手机号码";
         cell.wanshantext.delegate = self;
         cell.wanshantext.tag = 206;
+        cell.wanshantext.textAlignment = NSTextAlignmentRight;
         return cell;
     }
     return nil;

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface SystemMessageTVC : BaseViewController
-
+@property (nonatomic,strong) NSString *typestr;
 @end

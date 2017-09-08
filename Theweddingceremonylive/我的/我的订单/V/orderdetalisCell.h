@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface orderdetalisCell : UITableViewCell
-
+-(void)setData:(NSDictionary *)dic;
 @end

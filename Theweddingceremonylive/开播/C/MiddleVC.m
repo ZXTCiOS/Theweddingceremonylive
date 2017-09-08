@@ -10,6 +10,8 @@
 #import "midVC.h"
 #import "RealVC.h"
 
+#import "weddingcardVC.h"
+
 @interface MiddleVC ()
 
 @end
@@ -24,7 +26,7 @@
     
     // Do any additional setup after loading the view.
     
-
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -96,11 +98,17 @@
 //    RealVC *vc = [[RealVC alloc] init];
 //    [self.navigationController pushViewController:vc animated:NO];
     
-    [self isyuyue];
+    // 预约
+   // [self isyuyue];
     
-//    [self isrenzheng];
-    
+    //认证
+////    [self isrenzheng];
+
+    midVC *vc = [[midVC alloc] init];
+    [self.navigationController pushViewController:vc animated:NO];
 
 }
+
+
 
 @end

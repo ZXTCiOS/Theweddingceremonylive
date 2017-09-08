@@ -175,4 +175,17 @@
     [_btn1 setTitleColor:[UIColor colorWithHexString:@"999999"] forState:normal];
 }
 
+-(void)setdatabtn:(NSString *)btnstr
+{
+    if ([btnstr isEqualToString:@"1"]) {
+        [self btn0click];
+    }
+    if ([btnstr isEqualToString:@"2"]) {
+        [self btn1click];
+    }
+    if ([btnstr isEqualToString:@"3"]) {
+        [self btn2click];
+    }
+}
+
 @end

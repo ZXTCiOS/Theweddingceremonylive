@@ -115,7 +115,6 @@
 		5303E3E81F3EE3C000AB0AF2 /* logupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5303E3E71F3EE3C000AB0AF2 /* logupViewController.m */; };
 		5303E3EC1F3EF5A800AB0AF2 /* QCCountdownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5303E3EB1F3EF5A800AB0AF2 /* QCCountdownButton.m */; };
 		5303E3EF1F3EFBBE00AB0AF2 /* forgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5303E3EE1F3EFBBE00AB0AF2 /* forgetViewController.m */; };
-		531C05561F5C23DD00C235FA /* libUMessage_Sdk_1.5.0a.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 531C05541F5C23DD00C235FA /* libUMessage_Sdk_1.5.0a.a */; };
 		531C05581F5C240800C235FA /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 531C05571F5C240700C235FA /* UserNotifications.framework */; };
 		531C055C1F5D486200C235FA /* zhifuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 531C055B1F5D486200C235FA /* zhifuView.m */; };
 		531C055F1F5E63B200C235FA /* orderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 531C055E1F5E63B200C235FA /* orderModel.m */; };
@@ -167,6 +166,16 @@
 		532564FA1F46498300915E3B /* hotVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 532564F91F46498300915E3B /* hotVC.m */; };
 		532564FD1F46499C00915E3B /* qualityVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 532564FC1F46499C00915E3B /* qualityVC.m */; };
 		532565001F4649B700915E3B /* localVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 532564FF1F4649B700915E3B /* localVC.m */; };
+		533854571F5FEAC500538CE4 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 533854551F5FEAC500538CE4 /* TencentOpenAPI.framework */; };
+		533854581F5FEAC500538CE4 /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 533854561F5FEAC500538CE4 /* TencentOpenApi_IOS_Bundle.bundle */; };
+		5338545B1F60478800538CE4 /* orderdetalisCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 5338545A1F60478800538CE4 /* orderdetalisCell2.m */; };
+		533854641F60E90A00538CE4 /* orderdetalisCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = 533854631F60E90A00538CE4 /* orderdetalisCell3.m */; };
+		533854671F60FBEB00538CE4 /* wanshanorderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 533854661F60FBEB00538CE4 /* wanshanorderVC.m */; };
+		533854E41F6145E400538CE4 /* shenjitypeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 533854E31F6145E400538CE4 /* shenjitypeVC.m */; };
+		533854E71F61475A00538CE4 /* orderchanpingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 533854E61F61475A00538CE4 /* orderchanpingVC.m */; };
+		533854EA1F61494800538CE4 /* orderxuanzeVC0.m in Sources */ = {isa = PBXBuildFile; fileRef = 533854E91F61494800538CE4 /* orderxuanzeVC0.m */; };
+		533854ED1F61495800538CE4 /* orderxuanzeVC1.m in Sources */ = {isa = PBXBuildFile; fileRef = 533854EC1F61495800538CE4 /* orderxuanzeVC1.m */; };
+		533854F01F61496900538CE4 /* orderPayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 533854EF1F61496900538CE4 /* orderPayVC.m */; };
 		533A8A311F4C06450087E699 /* detalisVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 533A8A301F4C06450087E699 /* detalisVC.m */; };
 		533A8A401F4C262A0087E699 /* DemoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533A8A351F4C262A0087E699 /* DemoTableViewController.m */; };
 		533A8A411F4C262A0087E699 /* DemoCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 533A8A381F4C262A0087E699 /* DemoCellModel.m */; };
@@ -545,10 +554,7 @@
 		5303E3EB1F3EF5A800AB0AF2 /* QCCountdownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCCountdownButton.m; sourceTree = "<group>"; };
 		5303E3ED1F3EFBBE00AB0AF2 /* forgetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = forgetViewController.h; sourceTree = "<group>"; };
 		5303E3EE1F3EFBBE00AB0AF2 /* forgetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = forgetViewController.m; sourceTree = "<group>"; };
-		531C05541F5C23DD00C235FA /* libUMessage_Sdk_1.5.0a.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMessage_Sdk_1.5.0a.a; sourceTree = "<group>"; };
-		531C05551F5C23DD00C235FA /* UMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMessage.h; sourceTree = "<group>"; };
 		531C05571F5C240700C235FA /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
-		531C05591F5C273300C235FA /* Theweddingceremonylive.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Theweddingceremonylive.entitlements; sourceTree = "<group>"; };
 		531C055A1F5D486200C235FA /* zhifuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = zhifuView.h; path = "Theweddingceremonylive/开播/C/zhifuView.h"; sourceTree = SOURCE_ROOT; };
 		531C055B1F5D486200C235FA /* zhifuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = zhifuView.m; path = "Theweddingceremonylive/开播/C/zhifuView.m"; sourceTree = SOURCE_ROOT; };
 		531C055D1F5E63B200C235FA /* orderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = orderModel.h; path = "Theweddingceremonylive/开播/C/orderModel.h"; sourceTree = SOURCE_ROOT; };
@@ -630,6 +636,25 @@
 		532564FC1F46499C00915E3B /* qualityVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = qualityVC.m; sourceTree = "<group>"; };
 		532564FE1F4649B700915E3B /* localVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = localVC.h; sourceTree = "<group>"; };
 		532564FF1F4649B700915E3B /* localVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = localVC.m; sourceTree = "<group>"; };
+		533854531F5FE38900538CE4 /* Theweddingceremonylive.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; name = Theweddingceremonylive.entitlements; path = ../Theweddingceremonylive.entitlements; sourceTree = "<group>"; };
+		533854551F5FEAC500538CE4 /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
+		533854561F5FEAC500538CE4 /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
+		533854591F60478800538CE4 /* orderdetalisCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = orderdetalisCell2.h; sourceTree = "<group>"; };
+		5338545A1F60478800538CE4 /* orderdetalisCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = orderdetalisCell2.m; sourceTree = "<group>"; };
+		533854621F60E90A00538CE4 /* orderdetalisCell3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = orderdetalisCell3.h; sourceTree = "<group>"; };
+		533854631F60E90A00538CE4 /* orderdetalisCell3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = orderdetalisCell3.m; sourceTree = "<group>"; };
+		533854651F60FBEB00538CE4 /* wanshanorderVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wanshanorderVC.h; sourceTree = "<group>"; };
+		533854661F60FBEB00538CE4 /* wanshanorderVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = wanshanorderVC.m; sourceTree = "<group>"; };
+		533854E21F6145E400538CE4 /* shenjitypeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shenjitypeVC.h; sourceTree = "<group>"; };
+		533854E31F6145E400538CE4 /* shenjitypeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shenjitypeVC.m; sourceTree = "<group>"; };
+		533854E51F61475A00538CE4 /* orderchanpingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = orderchanpingVC.h; sourceTree = "<group>"; };
+		533854E61F61475A00538CE4 /* orderchanpingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = orderchanpingVC.m; sourceTree = "<group>"; };
+		533854E81F61494800538CE4 /* orderxuanzeVC0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = orderxuanzeVC0.h; sourceTree = "<group>"; };
+		533854E91F61494800538CE4 /* orderxuanzeVC0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = orderxuanzeVC0.m; sourceTree = "<group>"; };
+		533854EB1F61495800538CE4 /* orderxuanzeVC1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = orderxuanzeVC1.h; sourceTree = "<group>"; };
+		533854EC1F61495800538CE4 /* orderxuanzeVC1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = orderxuanzeVC1.m; sourceTree = "<group>"; };
+		533854EE1F61496900538CE4 /* orderPayVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = orderPayVC.h; sourceTree = "<group>"; };
+		533854EF1F61496900538CE4 /* orderPayVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = orderPayVC.m; sourceTree = "<group>"; };
 		533A8A2F1F4C06450087E699 /* detalisVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = detalisVC.h; sourceTree = "<group>"; };
 		533A8A301F4C06450087E699 /* detalisVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = detalisVC.m; sourceTree = "<group>"; };
 		533A8A341F4C262A0087E699 /* DemoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoTableViewController.h; sourceTree = "<group>"; };
@@ -903,6 +928,7 @@
 				531C05581F5C240800C235FA /* UserNotifications.framework in Frameworks */,
 				53CC9A911F57F1620077CCF6 /* libsqlite3.0.tbd in Frameworks */,
 				53204C051F593BD100A211BD /* UMSocialNetwork.framework in Frameworks */,
+				533854571F5FEAC500538CE4 /* TencentOpenAPI.framework in Frameworks */,
 				53204C031F593BD100A211BD /* libSocialSina.a in Frameworks */,
 				53CC99881F56C72D0077CCF6 /* AVFoundation.framework in Frameworks */,
 				53CC9A8F1F57F12F0077CCF6 /* MobileCoreServices.framework in Frameworks */,
@@ -910,7 +936,6 @@
 				53204C011F593BD100A211BD /* AlipaySDK.framework in Frameworks */,
 				53CC9A831F57F0520077CCF6 /* libnts.a in Frameworks */,
 				53CC998C1F56C7430077CCF6 /* UIKit.framework in Frameworks */,
-				531C05561F5C23DD00C235FA /* libUMessage_Sdk_1.5.0a.a in Frameworks */,
 				53CC9A821F57F0520077CCF6 /* libNMCVideoModule.a in Frameworks */,
 				53CC9A811F57F0520077CCF6 /* libnio.a in Frameworks */,
 				53CC9A841F57F0520077CCF6 /* libnvs.a in Frameworks */,
@@ -1699,6 +1724,18 @@
 				530299611F443ABF004BC03A /* orderVC2.m */,
 				531C05601F5E85B000C235FA /* orderdetalisVC.h */,
 				531C05611F5E85B100C235FA /* orderdetalisVC.m */,
+				533854651F60FBEB00538CE4 /* wanshanorderVC.h */,
+				533854661F60FBEB00538CE4 /* wanshanorderVC.m */,
+				533854E21F6145E400538CE4 /* shenjitypeVC.h */,
+				533854E31F6145E400538CE4 /* shenjitypeVC.m */,
+				533854E51F61475A00538CE4 /* orderchanpingVC.h */,
+				533854E61F61475A00538CE4 /* orderchanpingVC.m */,
+				533854E81F61494800538CE4 /* orderxuanzeVC0.h */,
+				533854E91F61494800538CE4 /* orderxuanzeVC0.m */,
+				533854EB1F61495800538CE4 /* orderxuanzeVC1.h */,
+				533854EC1F61495800538CE4 /* orderxuanzeVC1.m */,
+				533854EE1F61496900538CE4 /* orderPayVC.h */,
+				533854EF1F61496900538CE4 /* orderPayVC.m */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -1721,6 +1758,10 @@
 				532564E71F4539E500915E3B /* orderCell2.m */,
 				531C05631F5E899700C235FA /* orderdetalisCell.h */,
 				531C05641F5E899700C235FA /* orderdetalisCell.m */,
+				533854591F60478800538CE4 /* orderdetalisCell2.h */,
+				5338545A1F60478800538CE4 /* orderdetalisCell2.m */,
+				533854621F60E90A00538CE4 /* orderdetalisCell3.h */,
+				533854631F60E90A00538CE4 /* orderdetalisCell3.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -1784,23 +1825,6 @@
 				5303E3EB1F3EF5A800AB0AF2 /* QCCountdownButton.m */,
 			);
 			path = QCCountdownButton;
-			sourceTree = "<group>";
-		};
-		531C05521F5C23DD00C235FA /* 推送 */ = {
-			isa = PBXGroup;
-			children = (
-				531C05531F5C23DD00C235FA /* UMessage_Sdk_1.5.0a */,
-			);
-			path = "推送";
-			sourceTree = "<group>";
-		};
-		531C05531F5C23DD00C235FA /* UMessage_Sdk_1.5.0a */ = {
-			isa = PBXGroup;
-			children = (
-				531C05541F5C23DD00C235FA /* libUMessage_Sdk_1.5.0a.a */,
-				531C05551F5C23DD00C235FA /* UMessage.h */,
-			);
-			path = UMessage_Sdk_1.5.0a;
 			sourceTree = "<group>";
 		};
 		53204BCD1F593BD100A211BD /* ZTVendorManager */ = {
@@ -1962,6 +1986,15 @@
 				53204C221F593D2A00A211BD /* VerButton.m */,
 			);
 			path = ZPActionsheet;
+			sourceTree = "<group>";
+		};
+		533854541F5FEAC500538CE4 /* Tencent */ = {
+			isa = PBXGroup;
+			children = (
+				533854551F5FEAC500538CE4 /* TencentOpenAPI.framework */,
+				533854561F5FEAC500538CE4 /* TencentOpenApi_IOS_Bundle.bundle */,
+			);
+			path = Tencent;
 			sourceTree = "<group>";
 		};
 		533A8A321F4C262A0087E699 /* 详情 */ = {
@@ -2225,7 +2258,6 @@
 		53D02F3C1F3B1B5600CD504C /* Theweddingceremonylive */ = {
 			isa = PBXGroup;
 			children = (
-				531C05591F5C273300C235FA /* Theweddingceremonylive.entitlements */,
 				53D02F401F3B1B5600CD504C /* AppDelegate.h */,
 				53D02F411F3B1B5600CD504C /* AppDelegate.m */,
 				53D02F861F3BF95300CD504C /* 登录注册 */,
@@ -2243,7 +2275,6 @@
 				53D02F781F3BF5F800CD504C /* Vendor */,
 				53D02F711F3B2A4C00CD504C /* Sources */,
 				53CC98FC1F56C4930077CCF6 /* 直播sdk */,
-				531C05521F5C23DD00C235FA /* 推送 */,
 				53D02F461F3B1B5600CD504C /* Main.storyboard */,
 				53D02F4B1F3B1B5600CD504C /* LaunchScreen.storyboard */,
 				53D02F3D1F3B1B5600CD504C /* Supporting Files */,
@@ -2328,6 +2359,7 @@
 		53D02F771F3BF5F800CD504C /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				533854541F5FEAC500538CE4 /* Tencent */,
 				1880390B1F3EAE2600A2B4AE /* WKWedViewController.h */,
 				1880390C1F3EAE2600A2B4AE /* WKWedViewController.m */,
 				1880390D1F3EAE2600A2B4AE /* XD_textField.h */,
@@ -2341,6 +2373,7 @@
 		53D02F781F3BF5F800CD504C /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				533854531F5FE38900538CE4 /* Theweddingceremonylive.entitlements */,
 				53204C0D1F593D2A00A211BD /* image */,
 				53204C1C1F593D2A00A211BD /* ZPActionsheet */,
 				53204BCD1F593BD100A211BD /* ZTVendorManager */,
@@ -2866,6 +2899,7 @@
 				53204C291F593D2A00A211BD /* tcentQQ@2x.png in Resources */,
 				53EEF2A41F3E9E1D0031D396 /* tabbar_bg@3x.png in Resources */,
 				184A788A1F53FB9D00EACCE1 /* WeddingLiveTableCell.xib in Resources */,
+				533854581F5FEAC500538CE4 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				53D02F481F3B1B5600CD504C /* Main.storyboard in Resources */,
 				533ACE3D1F4AD36D00F66A78 /* areas.json in Resources */,
 			);
@@ -3033,6 +3067,7 @@
 				53CC98E91F568D910077CCF6 /* rechargrCell0.m in Sources */,
 				533A8A401F4C262A0087E699 /* DemoTableViewController.m in Sources */,
 				184A788D1F54181800EACCE1 /* WMPlayerVC.m in Sources */,
+				533854ED1F61495800538CE4 /* orderxuanzeVC1.m in Sources */,
 				18FE5D881F4AB33200C5A3CF /* WeddingVideoModel.m in Sources */,
 				533A8A421F4C262A0087E699 /* DemoCommentModel.m in Sources */,
 				53AC97DD1F3F5495009EC343 /* bindingViewController.m in Sources */,
@@ -3073,6 +3108,7 @@
 				5303E3E51F3EDF6800AB0AF2 /* FSCustomButton.m in Sources */,
 				5303E3D71F3ED2E800AB0AF2 /* LoginVC.m in Sources */,
 				5303E3DA1F3ED32B00AB0AF2 /* bottomlineView.m in Sources */,
+				533854E41F6145E400538CE4 /* shenjitypeVC.m in Sources */,
 				18FE233A1F4EC42C0088D3BF /* UIView+HYBUIViewCommon.m in Sources */,
 				18FE5D841F4AA8ED00C5A3CF /* WeddingVideoCell.m in Sources */,
 				53CC98B61F5410E80077CCF6 /* wanshanCell2.m in Sources */,
@@ -3089,6 +3125,7 @@
 				53B68E561F4E9B5500674A2B /* livetypeCell.m in Sources */,
 				536D54D91F50177500A54749 /* predeterheadView0.m in Sources */,
 				53CC98DB1F566C590077CCF6 /* reflectVC.m in Sources */,
+				533854671F60FBEB00538CE4 /* wanshanorderVC.m in Sources */,
 				532565001F4649B700915E3B /* localVC.m in Sources */,
 				53B68E5C1F4EBFD800674A2B /* predeterminedVC1.m in Sources */,
 				184A78891F53FB9D00EACCE1 /* WeddingLiveTableCell.m in Sources */,
@@ -3104,6 +3141,7 @@
 				188038FC1F3EAB9B00A2B4AE /* SaveCenterVC.m in Sources */,
 				18F7355F1F6275140054524B /* ShuPingKaiboMaskView.m in Sources */,
 				53FCA44C1F41524C001780F7 /* UILabel+YBAttributeTextTapAction.m in Sources */,
+				533854F01F61496900538CE4 /* orderPayVC.m in Sources */,
 				5303E3E81F3EE3C000AB0AF2 /* logupViewController.m in Sources */,
 				53D85CC01F51581E00EF0555 /* weddingPayVC.m in Sources */,
 				532564FA1F46498300915E3B /* hotVC.m in Sources */,
@@ -3121,6 +3159,7 @@
 				533ACE401F4AD36D00F66A78 /* DQCanCerEnsureView.m in Sources */,
 				1851F41E1F3D843E00369326 /* NSString+myUrl.m in Sources */,
 				53FCA4701F418E99001780F7 /* perfectingCell1.m in Sources */,
+				533854E71F61475A00538CE4 /* orderchanpingVC.m in Sources */,
 				53B68E501F4E770000674A2B /* realfootView.m in Sources */,
 				53FCA4641F418C17001780F7 /* mineCell0.m in Sources */,
 				18F9374C1F57FBFE00B267C0 /* PortraitAudienceView.m in Sources */,
@@ -3159,6 +3198,7 @@
 				530299491F4410B3004BC03A /* changepwdVC.m in Sources */,
 				53D02F421F3B1B5600CD504C /* AppDelegate.m in Sources */,
 				53D85CBD1F514AEC00EF0555 /* weddingCell.m in Sources */,
+				533854EA1F61494800538CE4 /* orderxuanzeVC0.m in Sources */,
 				1831DBE11F4D514200155691 /* LiebiaoCell.m in Sources */,
 				53CC9AB21F580AD60077CCF6 /* weddinglistModel.m in Sources */,
 				53CC998F1F57C0220077CCF6 /* CustomerserviceVC.m in Sources */,
@@ -3198,6 +3238,7 @@
 				1851F41F1F3D843E00369326 /* UIScrollView+Refresh.m in Sources */,
 				536D54D31F4FFFC000A54749 /* detalisCell2.m in Sources */,
 				1831DBCA1F4D268D00155691 /* BaseCollectionViewController.m in Sources */,
+				533854641F60E90A00538CE4 /* orderdetalisCell3.m in Sources */,
 				1851F4121F3D7DF600369326 /* LiveVideoModel.m in Sources */,
 				53D85CB71F51252500EF0555 /* YUDatePicker.m in Sources */,
 				533ACC8F1F46D96F00F66A78 /* bbsCell.m in Sources */,
@@ -3232,6 +3273,7 @@
 				53204BFE1F593BD100A211BD /* ZTVendorPayModel.m in Sources */,
 				53CC9A9A1F57F4C30077CCF6 /* aboutVC.m in Sources */,
 				533ACE3F1F4AD36D00F66A78 /* DQAreasView.m in Sources */,
+				5338545B1F60478800538CE4 /* orderdetalisCell2.m in Sources */,
 				182E81101F418C3200720AA4 /* FastForwardView.m in Sources */,
 				53CC98F51F568E930077CCF6 /* chongzhifootView.m in Sources */,
 				533A8A411F4C262A0087E699 /* DemoCellModel.m in Sources */,
@@ -3408,6 +3450,7 @@
 					"$(PROJECT_DIR)/Theweddingceremonylive/直播sdk/NIM_iOS_SDK_v4/NIMSDK",
 					"$(PROJECT_DIR)/Theweddingceremonylive/Vendor/ZTVendorManager/VendorSDK/AlipaySDK",
 					"$(PROJECT_DIR)/Theweddingceremonylive/Vendor/ZTVendorManager/VendorSDK/UMSocial/UMSocialSDK",
+					"$(PROJECT_DIR)/Theweddingceremonylive/Tool/Tencent",
 				);
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -3451,6 +3494,7 @@
 					"$(PROJECT_DIR)/Theweddingceremonylive/直播sdk/NIM_iOS_SDK_v4/NIMSDK",
 					"$(PROJECT_DIR)/Theweddingceremonylive/Vendor/ZTVendorManager/VendorSDK/AlipaySDK",
 					"$(PROJECT_DIR)/Theweddingceremonylive/Vendor/ZTVendorManager/VendorSDK/UMSocial/UMSocialSDK",
+					"$(PROJECT_DIR)/Theweddingceremonylive/Tool/Tencent",
 				);
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

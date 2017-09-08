@@ -29,6 +29,26 @@ static NSString *systemcellidentfid = @"systencellidentfid";
 {
     [super viewWillAppear:animated];
     [self.tabBarController.tabBar setHidden:YES];
+
+
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(rebackToRootViewAction)];
+    
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor colorWithHexString:@"E95F46"];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"E95F46"]}];
+    self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
+    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+
+    
+}
+
+- (void)rebackToRootViewAction {
+    if ([self.typestr isEqualToString:@"1"]) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    else
+    {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

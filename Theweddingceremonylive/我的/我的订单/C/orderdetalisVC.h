@@ -9,5 +9,6 @@
 #import "BaseViewController.h"
 
 @interface orderdetalisVC : BaseViewController
+@property (nonatomic,strong) NSString *ordersn;
 
 @end

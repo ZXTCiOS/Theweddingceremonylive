@@ -18,6 +18,12 @@
 #import <NIMAVChat/NIMAVChat.h>
 #import "ZTVendorManager.h"
 
+#import "WXApi.h"
+#import "UMSocialQQHandler.h"
+#import <TencentOpenAPI/QQApiInterface.h>
+//
+//#import "MBProgressHUD+Tools_cc.h"
+
 @interface LoginVC ()<UITextFieldDelegate>
 @property (nonatomic,strong) UIImageView *logoimg;
 @property (nonatomic,strong) UITextField *nicknametext;
@@ -57,6 +63,7 @@
     
     self.payManager = [[ZTVendorPayManager alloc]init];
     [self setuplayout];
+    [self weixinLogin];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -346,7 +353,8 @@
         user_pwd = self.passwordtext.text;
     }
     
-    
+//    [MBProgressHUD showMessage:@"正在登录"];
+//    
     NSString *type = @"1";
     NSDictionary *para = @{@"user_tel":user_tel,@"user_pwd":user_pwd,@"type":type};
     [DNNetworking postWithURLString:post_login parameters:para success:^(id obj) {
@@ -376,8 +384,10 @@
         {
             [MBProgressHUD showSuccess:@"密码错误"];
         }
+//        [MBProgressHUD hideHUDForView:self.view];
     } failure:^(NSError *error) {
         [MBProgressHUD showSuccess:@"网络错误"];
+//        [MBProgressHUD hideHUDForView:self.view];
     }];
     
 }
@@ -418,6 +428,24 @@
     return YES;
 }
 
+-(void)weixinLogin{
+    if([WXApi isWXAppInstalled]){
+        
+        [self.weixinBtn setHidden:NO];
+        
+    }else{
+        [self.weixinBtn setHidden:YES];
+    }
+    if ([QQApiInterface isQQInstalled]) {
+        [self.qqBtn setHidden:NO];
+    }
+    else
+    {
+        [self.qqBtn setHidden:YES];
+    }
+    
+    
+}
 #pragma mark - nav
 
 -(void)viewWillAppear:(BOOL)animated
