@@ -11,7 +11,7 @@
 #import "bbsModel.h"
 #import "DemoTableViewController.h"
 
-@interface qualityVC ()<UITableViewDataSource,UITableViewDelegate,mybbsVdelegate>
+@interface qualityVC ()<UITableViewDataSource,UITableViewDelegate,mybbsVdelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource>
 {
     int pn;
 }
@@ -156,10 +156,22 @@ static NSString *qualityidentfid = @"qualityidentfid";
         _table = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, kScreenW, kScreenH-64-50)];
         _table.dataSource = self;
         _table.delegate = self;
+        _table.emptyDataSetDelegate = self;
+        _table.emptyDataSetSource = self;
     }
     return _table;
 }
+#pragma mark 空数据视图 DataSource && delegate
 
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
+    return [UIImage imageNamed:@"emptyImg"];        // 空数据图片
+}
+
+- (void)emptyDataSet:(UIScrollView *)scrollView didTapView:(UIView *)view{
+    
+    [self.table beginHeaderRefresh];
+    NSLog(@"empty image tapped");
+}
 #pragma mark -UITableViewDataSource&&UITableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

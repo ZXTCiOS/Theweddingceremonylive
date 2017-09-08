@@ -414,6 +414,27 @@
 {
     [ZTVendorManager loginWith:ZTVendorPlatformTypeWechat completionHandler:^(ZTVendorAccountModel *model, NSError *error) {
         NSLog(@"nickname:%@",model.nickname);
+        
+        NSString *unionid = [model.originalResponse objectForKey:@"unionid"];
+        NSString *nickname = model.nickname;
+        NSString *headimgurl = model.iconurl;
+        NSString *city = [model.originalResponse objectForKey:@"city"];
+        NSString *sex = [model.originalResponse objectForKey:@"sex"];
+        //NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
+        NSString *type = @"2";
+        
+        NSDictionary *para = @{@"type":type,@"unionid":unionid,@"nickname":nickname,@"headimgurl":headimgurl,@"city":city,@"sex":sex};
+        
+        [DNNetworking postWithURLString:post_login parameters:para success:^(id obj) {
+            
+            
+            
+        } failure:^(NSError *error) {
+            
+            
+            
+        }];
+        
     }];
     
 //    ZTVendorShareModel *model = [[ZTVendorShareModel alloc]init];
