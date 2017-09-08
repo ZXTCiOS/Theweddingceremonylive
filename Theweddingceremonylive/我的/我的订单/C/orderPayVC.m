@@ -20,7 +20,7 @@
 @property (nonatomic,strong) UILabel *lab2;
 @property (nonatomic,strong) UILabel *labname2;
 @property (nonatomic,strong) UIView *lineview;
-@property (strong, nonatomic)UIView *bgView;//半透明背景
+@property (strong,nonatomic) UIView *bgView;//半透明背景
 @property (nonatomic,strong) UILabel *lab3;
 @property (nonatomic,strong) UILabel *pricelab;
 @property (nonatomic,strong) UIButton *submitBtn;
@@ -28,6 +28,8 @@
 @property (nonatomic,strong) zhifuView *zhiView;
 
 @property (nonatomic,strong) NSString *oldpricestr;
+
+@property (nonatomic,strong) NSString *newpricestr;
 @end
 
 @implementation orderPayVC
@@ -69,6 +71,12 @@
         if ([[obj objectForKey:@"code"] intValue]==1000) {
             NSDictionary *data = [obj objectForKey:@"data"];
             self.oldpricestr = [data objectForKey:@"price"];
+            
+            NSInteger price2 = [self.order_price floatValue]-[self.oldpricestr floatValue];
+            self.newpricestr = [NSString stringWithFormat:@"%ld",(long)price2];
+            NSString *textstr = [NSString stringWithFormat:@"%@%@%@%@",@"原价:",self.oldpricestr,@"需支付:",self.newpricestr];
+           // _pricelab.text = [NSString stringWithFormat:@"%@%@%@",@"¥",@" ",self.order_price];
+            _pricelab.text = textstr;
         }
     } failure:^(NSError *error) {
         
@@ -266,7 +274,7 @@
         _pricelab.textColor = [UIColor colorWithHexString:@"ed5e40"];
         _pricelab.font = [UIFont systemFontOfSize:16];
         _pricelab.textAlignment = NSTextAlignmentCenter;
-        _pricelab.text = [NSString stringWithFormat:@"%@%@%@",@"¥",@" ",self.order_price];
+       //
         //        _pricelab.text = self.order_price;
     }
     return _pricelab;
@@ -379,11 +387,11 @@
     NSDictionary *para = [NSDictionary dictionary];
     
     if ([strisNull isNullToString:self.tuijian]) {
-        para = @{@"uid":uid,@"token":token,@"order_pattern":self.order_pattern,@"order_goods":self.order_goods,@"order_goods_tuijian":self.order_goods_tuijian,@"order_price":self.order_price,@"create_time":self.create_time,@"room_count":self.room_count,@"ordersn":self.ordersn};
+        para = @{@"uid":uid,@"token":token,@"order_pattern":self.order_pattern,@"order_goods":self.order_goods,@"order_goods_tuijian":self.order_goods_tuijian,@"order_price":self.newpricestr,@"create_time":self.create_time,@"room_count":self.room_count,@"ordersn":self.ordersn};
     }
     else
     {
-        para = @{@"uid":uid,@"token":token,@"order_pattern":self.order_pattern,@"order_goods":self.order_goods,@"order_goods_tuijian":self.order_goods_tuijian,@"order_price":self.order_price,@"tuijian":self.tuijian,@"create_time":self.create_time,@"room_count":self.room_count,@"ordersn":self.ordersn};
+        para = @{@"uid":uid,@"token":token,@"order_pattern":self.order_pattern,@"order_goods":self.order_goods,@"order_goods_tuijian":self.order_goods_tuijian,@"order_price":self.newpricestr,@"tuijian":self.tuijian,@"create_time":self.create_time,@"room_count":self.room_count,@"ordersn":self.ordersn};
     }
     
     [DNNetworking postWithURLString:post_shenjiorderup parameters:para success:^(id obj) {
@@ -399,8 +407,6 @@
     } failure:^(NSError *error) {
         [MBProgressHUD showSuccess:@"没有网络"];
     }];
-    
-    
 }
 
 #pragma mark - tabbar

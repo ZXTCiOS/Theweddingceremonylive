@@ -140,6 +140,12 @@ static NSString *livecellidentfid = @"livecellidentfid";
     self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:1];
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.tabBarController.tabBar setHidden:YES];
+}
+
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];

@@ -353,8 +353,8 @@
         user_pwd = self.passwordtext.text;
     }
     
-    [MBProgressHUD showMessage:@"正在登录"];
-    
+//    [MBProgressHUD showMessage:@"正在登录"];
+//    
     NSString *type = @"1";
     NSDictionary *para = @{@"user_tel":user_tel,@"user_pwd":user_pwd,@"type":type};
     [DNNetworking postWithURLString:post_login parameters:para success:^(id obj) {
@@ -384,10 +384,10 @@
         {
             [MBProgressHUD showSuccess:@"密码错误"];
         }
-        [MBProgressHUD hideHUD];
+//        [MBProgressHUD hideHUDForView:self.view];
     } failure:^(NSError *error) {
         [MBProgressHUD showSuccess:@"网络错误"];
-        [MBProgressHUD hideHUD];
+//        [MBProgressHUD hideHUDForView:self.view];
     }];
     
 }
