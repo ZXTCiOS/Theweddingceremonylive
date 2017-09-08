@@ -21,9 +21,9 @@
 #import "NELivePlayer.h"// 网易云播放器协议
 
 
+//#define urls @"rtmp://ve266c7be.live.126.net/live/5f581cb50c724380bd08788abe7b0f9d" // rtmp
 
-
-#define flv @"rtmp://ve266c7be.live.126.net/live/5f581cb50c724380bd08788abe7b0f9d"
+#define urls @"http://flve266c7be.live.126.net/live/5f581cb50c724380bd08788abe7b0f9d.flv?netease=flve266c7be.live.126.net" // HTTP
 
 
 @interface PortraitFullViewController ()<UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
@@ -33,10 +33,10 @@
 
 @property (nonatomic) UIImageView *placeholderView; // 模糊图片
 
-//@property (nonatomic, strong) IJKFFMoviePlayerController *player;
-///@property (nonatomic, strong) NELivePlayerController *player;
-@property(nonatomic, strong) id<NELivePlayer> liveplayer; // 网易云播放器
 
+@property(nonatomic, strong) id<NELivePlayer> liveplayer; // 网易云播放器
+@property (nonatomic, copy) NSString *url;
+@property (nonatomic, copy) NSString *roomid;
 
 @property (nonatomic, strong) PortraitChatView *chatView; // 聊天框
 
@@ -51,52 +51,21 @@
 
 
 
-- (NSString *)getURL{
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-     __block NSString *url;
-    [manager GET:@"" parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-        
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-         NSArray *arr = [[responseObject objectForKey:@"data"] objectForKey:@"list"];
-        url = [arr.firstObject objectForKey:@"flv"];
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-    }];
-    return url;
-}
 
-/*
-#pragma configPlayer
-- (void)configPlayer{
-    self.player = [[IJKFFMoviePlayerController alloc] initWithContentURLString:@"" withOptions:[IJKFFOptions optionsByDefault]];
-    [self.view addSubview:self.player.view];
-    self.player.shouldAutoplay = YES;
-    self.player.scalingMode = IJKMPMovieScalingModeAspectFit;
-    [self.player prepareToPlay];
-    
-}
- */
 
 - (void)configPlayer{
-    /*
-    self.player = [[NELivePlayerController alloc] initWithContentURL:@"http://hdl.9158.com/live/788687910fe9c61a38d7821773c0bb56.flv".xd_URL];
-    self.player.view.frame = CGRectMake(0, 0, kScreenW, kScreenH);
-    [self.view addSubview:self.player.view];
-    self.player.shouldAutoplay = YES;
-    [self.player prepareToPlay];*/
     
-    self.liveplayer = [[NELivePlayerController alloc]
-                       initWithContentURL:flv.xd_URL];
+        
+    self.liveplayer = [[NELivePlayerController alloc] initWithContentURL:urls.xd_URL];
     if (self.liveplayer == nil) {
         NSLog(@"failed to initialize!");
     }
-    
     UIView * playerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH)];
     self.liveplayer.view.frame = playerView.bounds;
     [self.liveplayer prepareToPlay];
     self.liveplayer.shouldAutoplay = YES;
     [self.view addSubview:self.liveplayer.view];
+    [self.liveplayer play];
 }
 
 
@@ -189,14 +158,66 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
-    [self configPlayer];
+    [self liveplayer];
     [self placeholderView];
     [self configMaskview];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(NELivePlayerDidPreparedToPlay:)
+                                                 name:NELivePlayerDidPreparedToPlayNotification
+                                               object:_liveplayer];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(NELivePlayerPlaybackStateChanged:)
+                                                 name:NELivePlayerPlaybackStateChangedNotification
+                                               object:_liveplayer];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(NeLivePlayerloadStateChanged:)
+                                                 name:NELivePlayerLoadStateChangedNotification
+                                               object:_liveplayer];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(NELivePlayerPlayBackFinished:)
+                                                 name:NELivePlayerPlaybackFinishedNotification
+                                               object:_liveplayer];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(NELivePlayerFirstVideoDisplayed:)
+                                                 name:NELivePlayerFirstVideoDisplayedNotification
+                                               object:_liveplayer];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(NELivePlayerFirstAudioDisplayed:)
+                                                 name:NELivePlayerFirstAudioDisplayedNotification
+                                               object:_liveplayer];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(NELivePlayerReleaseSuccess:)
+                                                 name:NELivePlayerReleaseSueecssNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(NELivePlayerVideoParseError:)
+                                                 name:NELivePlayerVideoParseErrorNotification
+                                               object:_liveplayer];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(NELivePlayerSeekComplete:)
+                                                 name:NELivePlayerMoviePlayerSeekCompletedNotification
+                                               object:_liveplayer];
+
     
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    
+    [self.liveplayer setBufferStrategy:NELPLowDelay];
+    [self.liveplayer setScalingMode:NELPMovieScalingModeNone];
+    [self.liveplayer setShouldAutoplay:YES];
+    [self.liveplayer setPauseInBackground:NO];
+    [self.liveplayer setPlaybackTimeout:15 *1000];
     [self.liveplayer prepareToPlay];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
@@ -212,7 +233,6 @@
 - (void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
     [self.liveplayer shutdown];
-    
 }
 
 - (void)dealloc{
@@ -220,11 +240,34 @@
     [self.liveplayer.view removeFromSuperview];
     self.liveplayer = nil;
     NSLog(@"protraitFullViewController dealloc");
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:NELivePlayerDidPreparedToPlayNotification object:_liveplayer];
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:NELivePlayerLoadStateChangedNotification object:_liveplayer];
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:NELivePlayerPlaybackFinishedNotification object:_liveplayer];
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:NELivePlayerFirstVideoDisplayedNotification object:_liveplayer];
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:NELivePlayerFirstAudioDisplayedNotification object:_liveplayer];
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:NELivePlayerVideoParseErrorNotification object:_liveplayer];
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:NELivePlayerPlaybackStateChangedNotification object:_liveplayer];
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:NELivePlayerMoviePlayerSeekCompletedNotification object:_liveplayer];
 }
 
 
 #pragma mark - lazy loading  懒加载
 
+- (id<NELivePlayer>)liveplayer{
+    if (!_liveplayer) {
+        _liveplayer = [[NELivePlayerController alloc] initWithContentURL:urls.xd_URL];
+        if (!_liveplayer) {
+            NSLog(@"播放器初始化失败");
+        }
+        UIView * playerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH)];
+        _liveplayer.view.frame = playerView.bounds;
+        [_liveplayer prepareToPlay];
+        _liveplayer.shouldAutoplay = YES;
+        [self.view addSubview:_liveplayer.view];
+        [_liveplayer play];
+    }
+    return _liveplayer;
+}
 
 - (UIScrollView *)maskview{
     if (!_maskview) {
@@ -259,8 +302,121 @@
 }
 
 
+- (void)NELivePlayerDidPreparedToPlay:(NSNotification*)notification
+{
+    //add some methods
+    NSLog(@"NELivePlayerDidPreparedToPlay");
+    //[self syncUIStatus];
+    [self.liveplayer play]; //开始播放
+}
+
+- (void)NELivePlayerPlaybackStateChanged:(NSNotification*)notification
+{
+    //    NSLog(@"NELivePlayerPlaybackStateChanged");
+}
+
+- (void)NeLivePlayerloadStateChanged:(NSNotification*)notification
+{
+    NELPMovieLoadState nelpLoadState = _liveplayer.loadState;
+    
+    if (nelpLoadState == NELPMovieLoadStatePlaythroughOK)
+    {
+        NSLog(@"finish buffering");
+//        self.bufferingIndicate.hidden = YES;
+//        self.bufferingReminder.hidden = YES;
+//        [self.bufferingIndicate stopAnimating];
+    }
+    else if (nelpLoadState == NELPMovieLoadStateStalled)
+    {
+        NSLog(@"begin buffering");
+//        self.bufferingIndicate.hidden = NO;
+//        self.bufferingReminder.hidden = NO;
+//        [self.bufferingIndicate startAnimating];
+    }
+}
+
+- (void)NELivePlayerPlayBackFinished:(NSNotification*)notification
+{
+    UIAlertController *alertController = NULL;
+    UIAlertAction *action = NULL;
+    switch ([[[notification userInfo] valueForKey:NELivePlayerPlaybackDidFinishReasonUserInfoKey] intValue])
+    {
+        case NELPMovieFinishReasonPlaybackEnded:
+//            if ([self.mediaType isEqualToString:@"livestream"]) {
+//                alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"直播结束" preferredStyle:UIAlertControllerStyleAlert];
+//                action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+//                    if (self.presentingViewController) {
+//                        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+//                    }}];
+//                [alertController addAction:action];
+//                [self presentViewController:alertController animated:YES completion:nil];
+            //}
+            break;
+            
+        case NELPMovieFinishReasonPlaybackError:
+        {
+            alertController = [UIAlertController alertControllerWithTitle:@"注意" message:@"播放失败" preferredStyle:UIAlertControllerStyleAlert];
+            action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+                if (self.presentingViewController) {
+                    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+                }
+            }];
+            [alertController addAction:action];
+            [self presentViewController:alertController animated:YES completion:nil];
+            break;
+        }
+            
+        case NELPMovieFinishReasonUserExited:
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (void)NELivePlayerFirstVideoDisplayed:(NSNotification*)notification
+{
+    NSLog(@"first video frame rendered!");
+}
+
+- (void)NELivePlayerFirstAudioDisplayed:(NSNotification*)notification
+{
+    NSLog(@"first audio frame rendered!");
+}
+
+- (void)NELivePlayerVideoParseError:(NSNotification*)notification
+{
+    NSLog(@"video parse error!");
+}
+
+- (void)NELivePlayerSeekComplete:(NSNotification*)notification
+{
+    NSLog(@"seek complete!");
+}
+
+- (void)NELivePlayerReleaseSuccess:(NSNotification*)notification
+{
+    NSLog(@"resource release success!!!");
+    // 释放timer
+//    if (timer != nil) {
+//        dispatch_source_cancel(timer);
+//        timer = nil;
+//    }
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:NELivePlayerReleaseSueecssNotification object:_liveplayer];
+}
+
+
+
 #pragma mark - initialize 初始化
 
+- (instancetype)initWithChatroomID:(NSString *)roomid Url:(NSString *)url{
+    self = [super init];
+    if (self) {
+        self.url = url;
+        self.roomid = roomid;
+    }
+    return self;
+}
 
 
 

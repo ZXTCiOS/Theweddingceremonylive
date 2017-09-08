@@ -10,4 +10,10 @@
 
 @interface PortraitFullViewController : UIViewController
 
+
+
+
+- (instancetype)initWithChatroomID:(NSString *)roomid Url:(NSString *) url;
+
+
 @end

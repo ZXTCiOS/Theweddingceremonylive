@@ -18,7 +18,7 @@
 // viewcontroller
 
 
-@interface HorizontalPushVCViewController ()<NIMNetCallManagerDelegate>
+@interface HorizontalPushVCViewController ()<NIMNetCallManagerDelegate, NIMChatroomManagerDelegate>
 
 @property (nonatomic, strong) UIView *localPreView;
 
@@ -26,7 +26,7 @@
 
 @property (nonatomic, strong) UIView *displayView;
 
-@property (nonatomic, copy)   NIMChatroom *chatroom;
+@property (nonatomic, copy)    NSString *roomid;
 
 
 
@@ -51,10 +51,9 @@
     [self joinMeeting];
     // 打开摄像头预览
     [[NIMAVChatSDK sharedSDK].netCallManager startVideoCapture:[self para]];
+    // 进入聊天室
+    [self enterChatroom];
     
-    // 创建群组
-    NIMCreateTeamOption *option = [[NIMCreateTeamOption alloc] init];
-    //[NIMSDK sharedSDK].teamManager createTeam: option users:<#(nonnull NSArray<NSString *> *)#> completion:<#^(NSError * _Nullable error, NSString * _Nullable teamId)completion#>
     
     
     
@@ -75,6 +74,9 @@
     [super viewDidDisappear:animated];
     [[NIMAVChatSDK sharedSDK].netCallManager stopVideoCapture];
     [[NIMAVChatSDK sharedSDK].netCallManager leaveMeeting:self.meeting];
+    [[NIMSDK sharedSDK].chatroomManager exitChatroom:self.roomid completion:^(NSError * _Nullable error) {
+        
+    }];
 }
 
 
@@ -85,6 +87,40 @@
     self.view.backgroundColor = UIColorHex(0xdfe2e6);
     [[NIMAVChatSDK sharedSDK].netCallManager addDelegate:self];
 }
+
+#pragma mark - 聊天室
+
+- (void)enterChatroom{
+    
+    NIMChatroomEnterRequest *request = [[NIMChatroomEnterRequest alloc] init];
+    request.roomId = self.roomid;
+    request.roomExt = @"";
+    request.roomNotifyExt = @"";
+    request.retryCount = 5;
+    [[NIMSDK sharedSDK].chatroomManager enterChatroom:request completion:^(NSError * _Nullable error, NIMChatroom * _Nullable chatroom, NIMChatroomMember * _Nullable me) {
+        
+    }];
+}
+
+// 聊天室连接状态
+- (void)chatroom:(NSString *)roomId connectionStateChanged:(NIMChatroomConnectionState)state{
+    
+    NSLog(@"state: %ld", state);
+}
+// 自动登录失败
+- (void)chatroom:(NSString *)roomId autoLoginFailed:(NSError *)error{
+    
+}
+// 聊天室关闭, 或者被踢
+- (void)chatroom:(NSString *)roomId beKicked:(NIMChatroomKickReason)reason{
+    
+}
+
+
+
+
+
+
 
 
 #pragma mark - NIMNetCallManager   互动直播接口
@@ -100,7 +136,6 @@
 }
 
 
-
 // 加入互动直播间
 - (void)joinMeeting{
     
@@ -108,7 +143,7 @@
     NIMNetCallOption *option = [[NIMNetCallOption alloc] init];
     self.meeting.option = option;
     option.enableBypassStreaming = YES;
-    option.bypassStreamingUrl = @"rtmp://pe266c7be.live.126.net/live/5f581cb50c724380bd08788abe7b0f9d?wsSecret=79238f1d3d3c7f3de0fb1870fcc5f23d&wsTime=1504668103";
+    option.bypassStreamingUrl = @"rtmp://pe266c7be.live.126.net/live/5f581cb50c724380bd08788abe7b0f9d?wsSecret=73e4d9a846fbadd56eccb1b5c90a3ab7&wsTime=1504859570";
      option.videoCaptureParam = [self para];
     // 开启该选项，以在远端设备旋转时在本端自动调整角度
     option.autoRotateRemoteVideo = YES;
@@ -137,18 +172,19 @@
      四分格平铺；
      四分格裁剪平铺。
      */
-    option.bypassStreamingVideoMixMode = 0;
+    option.bypassStreamingVideoMixMode = NIMNetCallVideoMixModeCustomLayout;
     
     /**
      混屏自定义布局
      */
-    //option.bypassStreamingVideoMixCustomLayoutConfig
+    option.bypassStreamingVideoMixCustomLayoutConfig = @"";
     self.meeting.actor = YES;
     [[NIMAVChatSDK sharedSDK].netCallManager joinMeeting:self.meeting completion:^(NIMNetCallMeeting * _Nonnull meeting, NSError * _Nonnull error) {
         NSLog(@"join error %@", error);
         if (!error) NSLog(@"-------加入 metting 成功------  meeting: %@", meeting);
     }];
 }
+
 
 // 配置视频采集参数
 - (NIMNetCallVideoCaptureParam *)para{
@@ -192,13 +228,6 @@
         bufferWidth = CVPixelBufferGetWidth(pixelBuffer);
         bufferHeight = CVPixelBufferGetHeight(pixelBuffer);
     }
-    /*
-    if ([NTESLiveManager sharedInstance].orientation == NIMVideoOrientationLandscapeRight) {
-        if (bufferWidth < bufferHeight) {
-            NSLog(@"============== bufferWidth < bufferHeight");
-            return;
-        }
-    }*/
     
     [[NIMAVChatSDK sharedSDK].netCallManager sendVideoSampleBuffer:sampleBuffer];
     // 水印
@@ -224,7 +253,7 @@
     [[NIMAVChatSDK sharedSDK].netCallManager selectBeautifyType:NIMNetCallFilterTypeZiran];
 }
 
-/*
+
 // 用户加入房间通知
 - (void)onUserJoined:(NSString *)uid meeting:(NIMNetCallMeeting *)meeting{
     
@@ -354,7 +383,7 @@
 //可以在视频通话过程中实时切换软硬件编解码器。硬件编解码设置仅在 iOS 8.0 及以上系统有效。如果用户尚未加入通话，则无法设置。
 
 
-*/
+
 
 
 #pragma mark - 创建群组

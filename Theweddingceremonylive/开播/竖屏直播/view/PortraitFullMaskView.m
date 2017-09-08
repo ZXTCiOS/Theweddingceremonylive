@@ -23,9 +23,9 @@
 - (void)awakeFromNib{
     [super awakeFromNib];
     
-    self.user_img.layer.cornerRadius = 26;
+    self.user_img.layer.cornerRadius = 18;
     self.user_img.layer.masksToBounds = YES;
-    self.info.layer.cornerRadius = 26;
+    self.info.layer.cornerRadius = 18;
     self.info.layer.masksToBounds = YES;
     
     
