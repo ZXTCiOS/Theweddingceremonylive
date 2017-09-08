@@ -13,7 +13,7 @@
 
 
 
-- (instancetype)initWithUrl:(NSString *) url;
+- (instancetype)initWithChatroomID:(NSString *)roomid Url:(NSString *) url;
 
 
 @end

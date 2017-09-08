@@ -10,4 +10,10 @@
 
 @interface HorizontalPushVCViewController : BaseViewController
 
+
+
+// tofix
+//- (instancetype)initWithChatroomID:(NSString *) roomid ;
+
+
 @end

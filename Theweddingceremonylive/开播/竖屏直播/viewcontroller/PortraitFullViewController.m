@@ -21,7 +21,7 @@
 #import "NELivePlayer.h"// 网易云播放器协议
 
 
-//#define urls @"rtmp://ve266c7be.live.126.net/live/5f581cb50c724380bd08788abe7b0f9d"// rtmp
+//#define urls @"rtmp://ve266c7be.live.126.net/live/5f581cb50c724380bd08788abe7b0f9d" // rtmp
 
 #define urls @"http://flve266c7be.live.126.net/live/5f581cb50c724380bd08788abe7b0f9d.flv?netease=flve266c7be.live.126.net" // HTTP
 
@@ -33,10 +33,10 @@
 
 @property (nonatomic) UIImageView *placeholderView; // 模糊图片
 
-//@property (nonatomic, strong) IJKFFMoviePlayerController *player;
-///@property (nonatomic, strong) NELivePlayerController *player;
+
 @property(nonatomic, strong) id<NELivePlayer> liveplayer; // 网易云播放器
 @property (nonatomic, copy) NSString *url;
+@property (nonatomic, copy) NSString *roomid;
 
 @property (nonatomic, strong) PortraitChatView *chatView; // 聊天框
 
@@ -409,10 +409,11 @@
 
 #pragma mark - initialize 初始化
 
-- (instancetype)initWithUrl:(NSString *)url{
+- (instancetype)initWithChatroomID:(NSString *)roomid Url:(NSString *)url{
     self = [super init];
     if (self) {
         self.url = url;
+        self.roomid = roomid;
     }
     return self;
 }
