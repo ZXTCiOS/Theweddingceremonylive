@@ -167,6 +167,11 @@
 		5338545B1F60478800538CE4 /* orderdetalisCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 5338545A1F60478800538CE4 /* orderdetalisCell2.m */; };
 		533854641F60E90A00538CE4 /* orderdetalisCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = 533854631F60E90A00538CE4 /* orderdetalisCell3.m */; };
 		533854671F60FBEB00538CE4 /* wanshanorderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 533854661F60FBEB00538CE4 /* wanshanorderVC.m */; };
+		533854E41F6145E400538CE4 /* shenjitypeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 533854E31F6145E400538CE4 /* shenjitypeVC.m */; };
+		533854E71F61475A00538CE4 /* orderchanpingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 533854E61F61475A00538CE4 /* orderchanpingVC.m */; };
+		533854EA1F61494800538CE4 /* orderxuanzeVC0.m in Sources */ = {isa = PBXBuildFile; fileRef = 533854E91F61494800538CE4 /* orderxuanzeVC0.m */; };
+		533854ED1F61495800538CE4 /* orderxuanzeVC1.m in Sources */ = {isa = PBXBuildFile; fileRef = 533854EC1F61495800538CE4 /* orderxuanzeVC1.m */; };
+		533854F01F61496900538CE4 /* orderPayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 533854EF1F61496900538CE4 /* orderPayVC.m */; };
 		533A8A311F4C06450087E699 /* detalisVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 533A8A301F4C06450087E699 /* detalisVC.m */; };
 		533A8A401F4C262A0087E699 /* DemoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533A8A351F4C262A0087E699 /* DemoTableViewController.m */; };
 		533A8A411F4C262A0087E699 /* DemoCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 533A8A381F4C262A0087E699 /* DemoCellModel.m */; };
@@ -629,6 +634,16 @@
 		533854631F60E90A00538CE4 /* orderdetalisCell3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = orderdetalisCell3.m; sourceTree = "<group>"; };
 		533854651F60FBEB00538CE4 /* wanshanorderVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wanshanorderVC.h; sourceTree = "<group>"; };
 		533854661F60FBEB00538CE4 /* wanshanorderVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = wanshanorderVC.m; sourceTree = "<group>"; };
+		533854E21F6145E400538CE4 /* shenjitypeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shenjitypeVC.h; sourceTree = "<group>"; };
+		533854E31F6145E400538CE4 /* shenjitypeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shenjitypeVC.m; sourceTree = "<group>"; };
+		533854E51F61475A00538CE4 /* orderchanpingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = orderchanpingVC.h; sourceTree = "<group>"; };
+		533854E61F61475A00538CE4 /* orderchanpingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = orderchanpingVC.m; sourceTree = "<group>"; };
+		533854E81F61494800538CE4 /* orderxuanzeVC0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = orderxuanzeVC0.h; sourceTree = "<group>"; };
+		533854E91F61494800538CE4 /* orderxuanzeVC0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = orderxuanzeVC0.m; sourceTree = "<group>"; };
+		533854EB1F61495800538CE4 /* orderxuanzeVC1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = orderxuanzeVC1.h; sourceTree = "<group>"; };
+		533854EC1F61495800538CE4 /* orderxuanzeVC1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = orderxuanzeVC1.m; sourceTree = "<group>"; };
+		533854EE1F61496900538CE4 /* orderPayVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = orderPayVC.h; sourceTree = "<group>"; };
+		533854EF1F61496900538CE4 /* orderPayVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = orderPayVC.m; sourceTree = "<group>"; };
 		533A8A2F1F4C06450087E699 /* detalisVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = detalisVC.h; sourceTree = "<group>"; };
 		533A8A301F4C06450087E699 /* detalisVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = detalisVC.m; sourceTree = "<group>"; };
 		533A8A341F4C262A0087E699 /* DemoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoTableViewController.h; sourceTree = "<group>"; };
@@ -1693,6 +1708,16 @@
 				531C05611F5E85B100C235FA /* orderdetalisVC.m */,
 				533854651F60FBEB00538CE4 /* wanshanorderVC.h */,
 				533854661F60FBEB00538CE4 /* wanshanorderVC.m */,
+				533854E21F6145E400538CE4 /* shenjitypeVC.h */,
+				533854E31F6145E400538CE4 /* shenjitypeVC.m */,
+				533854E51F61475A00538CE4 /* orderchanpingVC.h */,
+				533854E61F61475A00538CE4 /* orderchanpingVC.m */,
+				533854E81F61494800538CE4 /* orderxuanzeVC0.h */,
+				533854E91F61494800538CE4 /* orderxuanzeVC0.m */,
+				533854EB1F61495800538CE4 /* orderxuanzeVC1.h */,
+				533854EC1F61495800538CE4 /* orderxuanzeVC1.m */,
+				533854EE1F61496900538CE4 /* orderPayVC.h */,
+				533854EF1F61496900538CE4 /* orderPayVC.m */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -3023,6 +3048,7 @@
 				53CC98E91F568D910077CCF6 /* rechargrCell0.m in Sources */,
 				533A8A401F4C262A0087E699 /* DemoTableViewController.m in Sources */,
 				184A788D1F54181800EACCE1 /* WMPlayerVC.m in Sources */,
+				533854ED1F61495800538CE4 /* orderxuanzeVC1.m in Sources */,
 				18FE5D881F4AB33200C5A3CF /* WeddingVideoModel.m in Sources */,
 				533A8A421F4C262A0087E699 /* DemoCommentModel.m in Sources */,
 				53AC97DD1F3F5495009EC343 /* bindingViewController.m in Sources */,
@@ -3063,6 +3089,7 @@
 				5303E3E51F3EDF6800AB0AF2 /* FSCustomButton.m in Sources */,
 				5303E3D71F3ED2E800AB0AF2 /* LoginVC.m in Sources */,
 				5303E3DA1F3ED32B00AB0AF2 /* bottomlineView.m in Sources */,
+				533854E41F6145E400538CE4 /* shenjitypeVC.m in Sources */,
 				18FE233A1F4EC42C0088D3BF /* UIView+HYBUIViewCommon.m in Sources */,
 				18FE5D841F4AA8ED00C5A3CF /* WeddingVideoCell.m in Sources */,
 				53CC98B61F5410E80077CCF6 /* wanshanCell2.m in Sources */,
@@ -3094,6 +3121,7 @@
 				532564FD1F46499C00915E3B /* qualityVC.m in Sources */,
 				188038FC1F3EAB9B00A2B4AE /* SaveCenterVC.m in Sources */,
 				53FCA44C1F41524C001780F7 /* UILabel+YBAttributeTextTapAction.m in Sources */,
+				533854F01F61496900538CE4 /* orderPayVC.m in Sources */,
 				5303E3E81F3EE3C000AB0AF2 /* logupViewController.m in Sources */,
 				53D85CC01F51581E00EF0555 /* weddingPayVC.m in Sources */,
 				532564FA1F46498300915E3B /* hotVC.m in Sources */,
@@ -3111,6 +3139,7 @@
 				533ACE401F4AD36D00F66A78 /* DQCanCerEnsureView.m in Sources */,
 				1851F41E1F3D843E00369326 /* NSString+myUrl.m in Sources */,
 				53FCA4701F418E99001780F7 /* perfectingCell1.m in Sources */,
+				533854E71F61475A00538CE4 /* orderchanpingVC.m in Sources */,
 				53B68E501F4E770000674A2B /* realfootView.m in Sources */,
 				53FCA4641F418C17001780F7 /* mineCell0.m in Sources */,
 				18F9374C1F57FBFE00B267C0 /* PortraitAudienceView.m in Sources */,
@@ -3149,6 +3178,7 @@
 				530299491F4410B3004BC03A /* changepwdVC.m in Sources */,
 				53D02F421F3B1B5600CD504C /* AppDelegate.m in Sources */,
 				53D85CBD1F514AEC00EF0555 /* weddingCell.m in Sources */,
+				533854EA1F61494800538CE4 /* orderxuanzeVC0.m in Sources */,
 				1831DBE11F4D514200155691 /* LiebiaoCell.m in Sources */,
 				53CC9AB21F580AD60077CCF6 /* weddinglistModel.m in Sources */,
 				53CC998F1F57C0220077CCF6 /* CustomerserviceVC.m in Sources */,

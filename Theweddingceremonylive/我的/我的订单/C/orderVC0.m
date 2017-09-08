@@ -11,6 +11,9 @@
 #import "orderModel.h"
 #import "orderdetalisVC.h"
 
+#import "shenjitypeVC.h"
+
+
 @interface orderVC0 ()<UITableViewDataSource,UITableViewDelegate,mysubmitVdelegate>
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic,strong) NSMutableArray *dataSource;
@@ -114,6 +117,16 @@ static NSString *orderidentfid0 = @"orderidentfid0";
 {
     NSIndexPath *index = [self.table indexPathForCell:cell];
     NSLog(@"index------%ld",(long)index.row);
+    shenjitypeVC *vc = [[shenjitypeVC alloc] init];
+    orderModel *model = self.dataSource[index.row];
+    vc.datadic = [NSDictionary new];
+    NSString *create_time = model.create_time;
+    NSString *ordernb = model.ordernb;
+    NSString *ordertime = model.ordertime;
+    NSString *room_img = model.room_img;
+    NSString *room_name = model.room_name;
+    vc.datadic = @{@"create_time":create_time,@"ordernb":ordernb,@"ordertime":ordertime,@"room_img":room_img,@"room_name":room_name};
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

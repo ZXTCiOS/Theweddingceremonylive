@@ -1,18 +1,18 @@
 //
-//  predeterminedVC0.m
+//  orderxuanzeVC1.m
 //  Theweddingceremonylive
 //
-//  Created by 王俊钢 on 2017/8/24.
+//  Created by 王俊钢 on 2017/9/7.
 //  Copyright © 2017年 wangjungang. All rights reserved.
 //
 
-#import "predeterminedVC0.h"
+#import "orderxuanzeVC1.h"
 #import "predetermindCell.h"
 #import "predeterheadView0.h"
 #import "YUDatePicker.h"
-#import "weddingproductsVC.h"
+#import "orderchanpingVC.h"
 
-@interface predeterminedVC0 ()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
+@interface orderxuanzeVC1 ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic,strong) predeterheadView0 *headView;
 @property (nonatomic,strong) UIView *footView;
@@ -22,12 +22,13 @@
 
 @property (nonatomic,strong) NSString *numstr;
 @property (nonatomic,strong) NSString *timestr;
+
 @property (nonatomic,assign) BOOL istuijian;
+
 @end
+static NSString *orderxuanzedidentfid01 = @"orderxuanzedidentfid01";
 
-static NSString *predeterminedidentfid0 = @"predeterminedidentfid0";
-
-@implementation predeterminedVC0
+@implementation orderxuanzeVC1
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -37,13 +38,16 @@ static NSString *predeterminedidentfid0 = @"predeterminedidentfid0";
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"E95F46"]}];
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     self.title = @"预定房间";
-    self.pricestr = @"399";
-    self.numstr = @"300";
+    
+    [self nowtime];
+    self.numstr = @"5000";
+    self.pricestr = @"2999";
+    
     self.istuijian = NO;
     [self.view addSubview:self.table];
     self.table.tableHeaderView = self.headView;
     self.table.tableFooterView = self.footView;
-    [self nowtime];
+ 
 }
 
 #pragma mark - getters
@@ -69,14 +73,16 @@ static NSString *predeterminedidentfid0 = @"predeterminedidentfid0";
         _headView.backgroundColor = [UIColor colorWithHexString:@"e8e8e8"];
         [_headView.btn0 addTarget:self action:@selector(numselbtnclick0) forControlEvents:UIControlEventTouchUpInside];
         [_headView.btn1 addTarget:self action:@selector(numselbtnclick1) forControlEvents:UIControlEventTouchUpInside];
-        [_headView.btn2 addTarget:self action:@selector(numselbtnclick2) forControlEvents:UIControlEventTouchUpInside];
-        [_headView.btn3 addTarget:self action:@selector(numselbtnclick3) forControlEvents:UIControlEventTouchUpInside];
+        _headView.btn0.numlab.text = @"5000人";
+        _headView.btn1.numlab.text = @"10000人";
+        [_headView.btn2 setHidden:YES];
+        [_headView.btn3 setHidden:YES];
         _headView.userInteractionEnabled = YES;
         _headView.bgimg.userInteractionEnabled = YES;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(selectHeaderImage)];
         [_headView.bgimg addGestureRecognizer:tap];
         [_headView.selectbtn addTarget:self action:@selector(tuijianchoost) forControlEvents:UIControlEventTouchUpInside];
-
+        
     }
     return _headView;
 }
@@ -101,7 +107,7 @@ static NSString *predeterminedidentfid0 = @"predeterminedidentfid0";
         [_setBtn addTarget:self action:@selector(setBtnclick) forControlEvents:UIControlEventTouchUpInside];
         
         _setBtn.backgroundColor = [UIColor whiteColor];
-       // [_setBtn setTitleColor:[UIColor colorWithHexString:@"333333"] forState:normal];
+        // [_setBtn setTitleColor:[UIColor colorWithHexString:@"333333"] forState:normal];
         _setBtn.frame = CGRectMake(10*WIDTH_SCALE, 5, kScreenW-20*WIDTH_SCALE, 50*HEIGHT_SCALE);
         
         NSString *netstr = [NSString stringWithFormat:@"%@%@",@"价格:",_pricestr];
@@ -109,7 +115,7 @@ static NSString *predeterminedidentfid0 = @"predeterminedidentfid0";
         [str addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"333333"] range:NSMakeRange(0,3)];
         [str addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"ed5e40"] range:NSMakeRange(3,_pricestr.length)];
         [_setBtn setAttributedTitle:str forState:UIControlStateNormal];
-
+        
     }
     return _setBtn;
 }
@@ -123,15 +129,15 @@ static NSString *predeterminedidentfid0 = @"predeterminedidentfid0";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    predetermindCell *cell = [tableView dequeueReusableCellWithIdentifier:predeterminedidentfid0];
-    cell = [[predetermindCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:predeterminedidentfid0];
+    predetermindCell *cell = [tableView dequeueReusableCellWithIdentifier:orderxuanzedidentfid01];
+    cell = [[predetermindCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:orderxuanzedidentfid01];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.predetext.placeholder = @"输入推荐码";
     cell.predetext.tag = 301;
-    cell.predetext.delegate = self;
     cell.backgroundColor = [UIColor colorWithHexString:@"e8e8e8"];
     return cell;
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 60*HEIGHT_SCALE;
@@ -143,8 +149,6 @@ static NSString *predeterminedidentfid0 = @"predeterminedidentfid0";
 - (void)datePickerValueChanged:(UIDatePicker *)datePicker {
     NSLog(@"UIDatePicker:%@", datePicker.date);
 }
-
-
 
 #pragma mark - 实现方法
 
@@ -158,13 +162,12 @@ static NSString *predeterminedidentfid0 = @"predeterminedidentfid0";
     self.headView.btn2.numlab.textColor = [UIColor colorWithHexString:@"333333"];
     self.headView.btn3.selimg.image = [UIImage imageNamed:@"zb_oroom_pf"];
     self.headView.btn3.numlab.textColor = [UIColor colorWithHexString:@"333333"];
-    self.pricestr = @"399";
+    self.pricestr = @"2999";
     NSString *netstr = [NSString stringWithFormat:@"%@%@",@"价格:",_pricestr];
     NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:netstr];
     [str addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"333333"] range:NSMakeRange(0,3)];
     [str addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"ed5e40"] range:NSMakeRange(3,_pricestr.length)];
     [_setBtn setAttributedTitle:str forState:UIControlStateNormal];
-    self.numstr = @"300";
 }
 
 -(void)numselbtnclick1
@@ -177,52 +180,14 @@ static NSString *predeterminedidentfid0 = @"predeterminedidentfid0";
     self.headView.btn2.numlab.textColor = [UIColor colorWithHexString:@"333333"];
     self.headView.btn3.selimg.image = [UIImage imageNamed:@"zb_oroom_pf"];
     self.headView.btn3.numlab.textColor = [UIColor colorWithHexString:@"333333"];
-    self.pricestr = @"520";
+    self.pricestr = @"3999";
     NSString *netstr = [NSString stringWithFormat:@"%@%@",@"价格:",_pricestr];
     NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:netstr];
     [str addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"333333"] range:NSMakeRange(0,3)];
     [str addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"ed5e40"] range:NSMakeRange(3,_pricestr.length)];
     [_setBtn setAttributedTitle:str forState:UIControlStateNormal];
-    self.numstr = @"500";
 }
 
--(void)numselbtnclick2
-{
-    self.headView.btn0.selimg.image = [UIImage imageNamed:@"zb_oroom_po"];
-    self.headView.btn0.numlab.textColor = [UIColor colorWithHexString:@"333333"];
-    self.headView.btn1.selimg.image = [UIImage imageNamed:@"zb_oroom_pt"];
-    self.headView.btn1.numlab.textColor = [UIColor colorWithHexString:@"333333"];
-    self.headView.btn2.selimg.image = [UIImage imageNamed:@"zb_orrom_2"];
-    self.headView.btn2.numlab.textColor = [UIColor colorWithHexString:@"ed5e40"];
-    self.headView.btn3.selimg.image = [UIImage imageNamed:@"zb_oroom_pf"];
-    self.headView.btn3.numlab.textColor = [UIColor colorWithHexString:@"333333"];
-    self.pricestr = @"999";
-    NSString *netstr = [NSString stringWithFormat:@"%@%@",@"价格:",_pricestr];
-    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:netstr];
-    [str addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"333333"] range:NSMakeRange(0,3)];
-    [str addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"ed5e40"] range:NSMakeRange(3,_pricestr.length)];
-    [_setBtn setAttributedTitle:str forState:UIControlStateNormal];
-    self.numstr = @"1000";
-}
-
--(void)numselbtnclick3
-{
-    self.headView.btn0.selimg.image = [UIImage imageNamed:@"zb_oroom_po"];
-    self.headView.btn0.numlab.textColor = [UIColor colorWithHexString:@"333333"];
-    self.headView.btn1.selimg.image = [UIImage imageNamed:@"zb_oroom_pt"];
-    self.headView.btn1.numlab.textColor = [UIColor colorWithHexString:@"333333"];
-    self.headView.btn2.selimg.image = [UIImage imageNamed:@"zb_oroom_pth"];
-    self.headView.btn2.numlab.textColor = [UIColor colorWithHexString:@"333333"];
-    self.headView.btn3.selimg.image = [UIImage imageNamed:@"zb_oroom_pf_s"];
-    self.headView.btn3.numlab.textColor = [UIColor colorWithHexString:@"ed5e40"];
-    self.pricestr = @"1314";
-    NSString *netstr = [NSString stringWithFormat:@"%@%@",@"价格:",_pricestr];
-    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:netstr];
-    [str addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"333333"] range:NSMakeRange(0,3)];
-    [str addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"ed5e40"] range:NSMakeRange(3,_pricestr.length)];
-    [_setBtn setAttributedTitle:str forState:UIControlStateNormal];
-    self.numstr = @"1500";
-}
 
 
 -(void)selectHeaderImage
@@ -242,7 +207,8 @@ static NSString *predeterminedidentfid0 = @"predeterminedidentfid0";
     
     [datePicker yu_datePickerHandleClick:^(NSString *dateStr, NSInteger buttonIndex) {
         NSLog(@"date=%@,buttonIndex=%ld", dateStr, (long)buttonIndex);
-       
+        
+        
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateStyle:NSDateFormatterFullStyle];// 修改下面提到的北京时间的日期格式
         [formatter setTimeStyle:NSDateFormatterFullStyle];// 修改下面提到的北京时间的时间格式
@@ -253,54 +219,46 @@ static NSString *predeterminedidentfid0 = @"predeterminedidentfid0";
         NSLog(@"%@", dateStrddd);// 这个时间是北京时间戳
         self.timestr = dateStrddd;
         
+        
         NSString *yearstr = [dateStr substringWithRange:NSMakeRange(2, 2)];
         NSString *monthstr = [dateStr substringWithRange:NSMakeRange(5, 2)];
         NSString *daystr =[dateStr substringWithRange:NSMakeRange(8, 2)];
         self.headView.numlab0.text = yearstr;
         self.headView.numlab1.text = monthstr;
         self.headView.numlab2.text = daystr;
-       // self.timestr = [NSString stringWithFormat:@"%@%@%@%@%@%@",yearstr,@"年",monthstr,@"月",daystr,@"日"];
+        //self.timestr = [NSString stringWithFormat:@"%@%@%@%@%@%@",yearstr,@"年",monthstr,@"月",daystr,@"日"];
+        
     }];
     [datePicker show];
 }
 
-
 -(void)rightAction
 {
-    
-    weddingproductsVC *vc = [[weddingproductsVC alloc] init];
-    vc.order_pattern = self.typestr;
+    orderchanpingVC *vc = [[orderchanpingVC alloc] init];
+    vc.order_pattern = @"3";
     UITextField *text1 = [self.table viewWithTag:301];
     vc.tuijian = text1.text;
+    vc.pricestr = self.pricestr;
     vc.create_time = self.timestr;
     vc.room_count = self.numstr;
-    vc.pricestr = self.pricestr;
-    vc.typenamestr = self.typenamestr;
+    vc.typenamestr = @"公众人物直播";
+    vc.ordersn = self.ordersn;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 //推荐码选择
+
 -(void)tuijianchoost
 {
     self.istuijian = !self.istuijian;
     if (self.istuijian) {
-
         [self.headView.selectbtn setImage:[UIImage imageNamed:@"zb_oroom_sel_s"] forState:normal];
     }
     else
     {
-
         [self.headView.selectbtn setImage:[UIImage imageNamed:@"zb_oroom_sel"] forState:normal];
     }
 }
-
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-    if (self.istuijian) {
-        return YES;
-    }
-    return NO;
-}
-
 
 -(void)setBtnclick
 {
@@ -309,32 +267,45 @@ static NSString *predeterminedidentfid0 = @"predeterminedidentfid0";
 
 - (void)nowtime
 {
-    NSDate *date = [NSDate date];
+    
+    NSString *str = self.ordertimestr;
+    NSInteger inter = [str intValue];
+    NSString *dateStr = [self timestampSwitchTime:inter andFormatter:@"YYYY-MM-dd"];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateStyle:NSDateFormatterMediumStyle];
-    [formatter setTimeStyle:NSDateFormatterShortStyle];
-    [formatter setDateFormat:@"YYYY/MM/dd"];
-    NSString *DateTime = [formatter stringFromDate:date];
-    
-    //NSString *timestr222 = [NSString stringWithFormat:@"%@%@",DateTime,@"0:0:0"];
-    
-    NSString *yearstr = [DateTime substringWithRange:NSMakeRange(2, 2)];
-    NSString *monthstr = [DateTime substringWithRange:NSMakeRange(5, 2)];
-    NSString *daystr =[DateTime substringWithRange:NSMakeRange(8, 2)];
-    self.headView.numlab0.text = yearstr;
-    self.headView.numlab1.text = monthstr;
-    self.headView.numlab2.text = daystr;
-    
     [formatter setDateStyle:NSDateFormatterFullStyle];// 修改下面提到的北京时间的日期格式
     [formatter setTimeStyle:NSDateFormatterFullStyle];// 修改下面提到的北京时间的时间格式
     [formatter setDateFormat:@"YYYY-MM-dd"];// 此行代码与上面两行作用一样，故上面两行代码失效
-    NSDate *date2 = [formatter dateFromString:DateTime];
-    NSLog(@"%@", date2);// 这个时间是格林尼治时间
-    NSString *dateStrddd = [NSString stringWithFormat:@"%ld", (long)[date2 timeIntervalSince1970]];
+    NSDate *date = [formatter dateFromString:dateStr];
+    NSLog(@"%@", date);// 这个时间是格林尼治时间
+    NSString *dateStrddd = [NSString stringWithFormat:@"%ld", (long)[date timeIntervalSince1970]];
     NSLog(@"%@", dateStrddd);// 这个时间是北京时间戳
     self.timestr = dateStrddd;
+    NSString *yearstr = [dateStr substringWithRange:NSMakeRange(2, 2)];
+    NSString *monthstr = [dateStr substringWithRange:NSMakeRange(5, 2)];
+    NSString *daystr =[dateStr substringWithRange:NSMakeRange(8, 2)];
+    self.headView.numlab0.text = yearstr;
+    self.headView.numlab1.text = monthstr;
+    self.headView.numlab2.text = daystr;
+    [self.table reloadData];
     
 }
+
+#pragma mark - 将某个时间戳转化成 时间
+
+-(NSString *)timestampSwitchTime:(NSInteger)timestamp andFormatter:(NSString *)format{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateStyle:NSDateFormatterMediumStyle];
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    //format = @"YYYY-MM-dd hh:mm:ss";
+    [formatter setDateFormat:format]; // （@"YYYY-MM-dd hh:mm:ss"）----------设置你想要的格式,hh与HH的区别:分别表示12小时制,24小时制
+    NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"Asia/Beijing"];
+    [formatter setTimeZone:timeZone];
+    NSDate *confromTimesp = [NSDate dateWithTimeIntervalSince1970:timestamp];
+    NSString *confromTimespStr = [formatter stringFromDate:confromTimesp];
+    return confromTimespStr;
+}
+
+
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -347,4 +318,7 @@ static NSString *predeterminedidentfid0 = @"predeterminedidentfid0";
     [super viewWillDisappear:animated];
     [self.tabBarController.tabBar setHidden:NO];
 }
+
+
+
 @end

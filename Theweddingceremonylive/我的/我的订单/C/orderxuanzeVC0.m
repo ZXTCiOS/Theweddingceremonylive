@@ -1,18 +1,20 @@
 //
-//  predeterminedVC0.m
+//  orderxuanzeVC0.m
 //  Theweddingceremonylive
 //
-//  Created by 王俊钢 on 2017/8/24.
+//  Created by 王俊钢 on 2017/9/7.
 //  Copyright © 2017年 wangjungang. All rights reserved.
 //
 
-#import "predeterminedVC0.h"
+#import "orderxuanzeVC0.h"
 #import "predetermindCell.h"
 #import "predeterheadView0.h"
 #import "YUDatePicker.h"
 #import "weddingproductsVC.h"
 
-@interface predeterminedVC0 ()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
+#import "orderchanpingVC.h"
+
+@interface orderxuanzeVC0 ()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic,strong) predeterheadView0 *headView;
 @property (nonatomic,strong) UIView *footView;
@@ -23,11 +25,13 @@
 @property (nonatomic,strong) NSString *numstr;
 @property (nonatomic,strong) NSString *timestr;
 @property (nonatomic,assign) BOOL istuijian;
+
 @end
 
-static NSString *predeterminedidentfid0 = @"predeterminedidentfid0";
+static NSString *orderxuanzeidentfid0 = @"orderxuanzeidentfid0";
 
-@implementation predeterminedVC0
+
+@implementation orderxuanzeVC0
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -37,13 +41,18 @@ static NSString *predeterminedidentfid0 = @"predeterminedidentfid0";
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"E95F46"]}];
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     self.title = @"预定房间";
+    [self nowtime];
     self.pricestr = @"399";
     self.numstr = @"300";
     self.istuijian = NO;
     [self.view addSubview:self.table];
     self.table.tableHeaderView = self.headView;
     self.table.tableFooterView = self.footView;
-    [self nowtime];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - getters
@@ -76,7 +85,7 @@ static NSString *predeterminedidentfid0 = @"predeterminedidentfid0";
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(selectHeaderImage)];
         [_headView.bgimg addGestureRecognizer:tap];
         [_headView.selectbtn addTarget:self action:@selector(tuijianchoost) forControlEvents:UIControlEventTouchUpInside];
-
+        
     }
     return _headView;
 }
@@ -101,7 +110,7 @@ static NSString *predeterminedidentfid0 = @"predeterminedidentfid0";
         [_setBtn addTarget:self action:@selector(setBtnclick) forControlEvents:UIControlEventTouchUpInside];
         
         _setBtn.backgroundColor = [UIColor whiteColor];
-       // [_setBtn setTitleColor:[UIColor colorWithHexString:@"333333"] forState:normal];
+        // [_setBtn setTitleColor:[UIColor colorWithHexString:@"333333"] forState:normal];
         _setBtn.frame = CGRectMake(10*WIDTH_SCALE, 5, kScreenW-20*WIDTH_SCALE, 50*HEIGHT_SCALE);
         
         NSString *netstr = [NSString stringWithFormat:@"%@%@",@"价格:",_pricestr];
@@ -109,7 +118,7 @@ static NSString *predeterminedidentfid0 = @"predeterminedidentfid0";
         [str addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"333333"] range:NSMakeRange(0,3)];
         [str addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithHexString:@"ed5e40"] range:NSMakeRange(3,_pricestr.length)];
         [_setBtn setAttributedTitle:str forState:UIControlStateNormal];
-
+        
     }
     return _setBtn;
 }
@@ -123,8 +132,8 @@ static NSString *predeterminedidentfid0 = @"predeterminedidentfid0";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    predetermindCell *cell = [tableView dequeueReusableCellWithIdentifier:predeterminedidentfid0];
-    cell = [[predetermindCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:predeterminedidentfid0];
+    predetermindCell *cell = [tableView dequeueReusableCellWithIdentifier:orderxuanzeidentfid0];
+    cell = [[predetermindCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:orderxuanzeidentfid0];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.predetext.placeholder = @"输入推荐码";
     cell.predetext.tag = 301;
@@ -132,14 +141,12 @@ static NSString *predeterminedidentfid0 = @"predeterminedidentfid0";
     cell.backgroundColor = [UIColor colorWithHexString:@"e8e8e8"];
     return cell;
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 60*HEIGHT_SCALE;
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 - (void)datePickerValueChanged:(UIDatePicker *)datePicker {
     NSLog(@"UIDatePicker:%@", datePicker.date);
 }
@@ -242,7 +249,7 @@ static NSString *predeterminedidentfid0 = @"predeterminedidentfid0";
     
     [datePicker yu_datePickerHandleClick:^(NSString *dateStr, NSInteger buttonIndex) {
         NSLog(@"date=%@,buttonIndex=%ld", dateStr, (long)buttonIndex);
-       
+        
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateStyle:NSDateFormatterFullStyle];// 修改下面提到的北京时间的日期格式
         [formatter setTimeStyle:NSDateFormatterFullStyle];// 修改下面提到的北京时间的时间格式
@@ -259,7 +266,7 @@ static NSString *predeterminedidentfid0 = @"predeterminedidentfid0";
         self.headView.numlab0.text = yearstr;
         self.headView.numlab1.text = monthstr;
         self.headView.numlab2.text = daystr;
-       // self.timestr = [NSString stringWithFormat:@"%@%@%@%@%@%@",yearstr,@"年",monthstr,@"月",daystr,@"日"];
+        // self.timestr = [NSString stringWithFormat:@"%@%@%@%@%@%@",yearstr,@"年",monthstr,@"月",daystr,@"日"];
     }];
     [datePicker show];
 }
@@ -267,8 +274,7 @@ static NSString *predeterminedidentfid0 = @"predeterminedidentfid0";
 
 -(void)rightAction
 {
-    
-    weddingproductsVC *vc = [[weddingproductsVC alloc] init];
+    orderchanpingVC *vc = [[orderchanpingVC alloc] init];
     vc.order_pattern = self.typestr;
     UITextField *text1 = [self.table viewWithTag:301];
     vc.tuijian = text1.text;
@@ -276,6 +282,7 @@ static NSString *predeterminedidentfid0 = @"predeterminedidentfid0";
     vc.room_count = self.numstr;
     vc.pricestr = self.pricestr;
     vc.typenamestr = self.typenamestr;
+    vc.ordersn = self.ordersn;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -284,12 +291,12 @@ static NSString *predeterminedidentfid0 = @"predeterminedidentfid0";
 {
     self.istuijian = !self.istuijian;
     if (self.istuijian) {
-
+        
         [self.headView.selectbtn setImage:[UIImage imageNamed:@"zb_oroom_sel_s"] forState:normal];
     }
     else
     {
-
+        
         [self.headView.selectbtn setImage:[UIImage imageNamed:@"zb_oroom_sel"] forState:normal];
     }
 }
@@ -309,31 +316,42 @@ static NSString *predeterminedidentfid0 = @"predeterminedidentfid0";
 
 - (void)nowtime
 {
-    NSDate *date = [NSDate date];
+    
+    NSString *str = self.ordertimestr;
+    NSInteger inter = [str intValue];
+    NSString *dateStr = [self timestampSwitchTime:inter andFormatter:@"YYYY-MM-dd"];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateStyle:NSDateFormatterMediumStyle];
-    [formatter setTimeStyle:NSDateFormatterShortStyle];
-    [formatter setDateFormat:@"YYYY/MM/dd"];
-    NSString *DateTime = [formatter stringFromDate:date];
-    
-    //NSString *timestr222 = [NSString stringWithFormat:@"%@%@",DateTime,@"0:0:0"];
-    
-    NSString *yearstr = [DateTime substringWithRange:NSMakeRange(2, 2)];
-    NSString *monthstr = [DateTime substringWithRange:NSMakeRange(5, 2)];
-    NSString *daystr =[DateTime substringWithRange:NSMakeRange(8, 2)];
-    self.headView.numlab0.text = yearstr;
-    self.headView.numlab1.text = monthstr;
-    self.headView.numlab2.text = daystr;
-    
     [formatter setDateStyle:NSDateFormatterFullStyle];// 修改下面提到的北京时间的日期格式
     [formatter setTimeStyle:NSDateFormatterFullStyle];// 修改下面提到的北京时间的时间格式
     [formatter setDateFormat:@"YYYY-MM-dd"];// 此行代码与上面两行作用一样，故上面两行代码失效
-    NSDate *date2 = [formatter dateFromString:DateTime];
-    NSLog(@"%@", date2);// 这个时间是格林尼治时间
-    NSString *dateStrddd = [NSString stringWithFormat:@"%ld", (long)[date2 timeIntervalSince1970]];
+    NSDate *date = [formatter dateFromString:dateStr];
+    NSLog(@"%@", date);// 这个时间是格林尼治时间
+    NSString *dateStrddd = [NSString stringWithFormat:@"%ld", (long)[date timeIntervalSince1970]];
     NSLog(@"%@", dateStrddd);// 这个时间是北京时间戳
     self.timestr = dateStrddd;
+    NSString *yearstr = [dateStr substringWithRange:NSMakeRange(2, 2)];
+    NSString *monthstr = [dateStr substringWithRange:NSMakeRange(5, 2)];
+    NSString *daystr =[dateStr substringWithRange:NSMakeRange(8, 2)];
+    self.headView.numlab0.text = yearstr;
+    self.headView.numlab1.text = monthstr;
+    self.headView.numlab2.text = daystr;
+    [self.table reloadData];
     
+}
+
+#pragma mark - 将某个时间戳转化成 时间
+
+-(NSString *)timestampSwitchTime:(NSInteger)timestamp andFormatter:(NSString *)format{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateStyle:NSDateFormatterMediumStyle];
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    //format = @"YYYY-MM-dd hh:mm:ss";
+    [formatter setDateFormat:format]; // （@"YYYY-MM-dd hh:mm:ss"）----------设置你想要的格式,hh与HH的区别:分别表示12小时制,24小时制
+    NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"Asia/Beijing"];
+    [formatter setTimeZone:timeZone];
+    NSDate *confromTimesp = [NSDate dateWithTimeIntervalSince1970:timestamp];
+    NSString *confromTimespStr = [formatter stringFromDate:confromTimesp];
+    return confromTimespStr;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -347,4 +365,6 @@ static NSString *predeterminedidentfid0 = @"predeterminedidentfid0";
     [super viewWillDisappear:animated];
     [self.tabBarController.tabBar setHidden:NO];
 }
+
+
 @end

@@ -76,6 +76,7 @@ static NSString *wanshanorderidentfid9 = @"wanshanorderidentfid9";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 -(void)click{
     [self loadAlertView:self.yaoqingma contentStr:nil btnNum:2 btnStrArr:[NSArray arrayWithObjects:@"取消",@"修改", nil] type:11];
 }
