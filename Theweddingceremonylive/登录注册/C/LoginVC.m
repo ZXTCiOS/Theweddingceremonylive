@@ -430,6 +430,9 @@
         }
         else
         {
+            [MBManager showLoadingInView:self.view];
+
+            
             NSDictionary *para = @{@"type":type,@"unionid":unionid,@"nickname":nickname,@"headimgurl":headimgurl,@"city":city,@"sex":sex};
             
             [DNNetworking postWithURLString:post_login parameters:para success:^(id obj) {
@@ -452,6 +455,7 @@
                     
 //                    bindingViewController *bindingvc = [[bindingViewController alloc] init];
 //                    [self.navigationController pushViewController:bindingvc animated:YES];
+                    [MBManager hideAlert];
                     
                     [self loginNIMWithaccount:acount token:imtoken];
                     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -462,7 +466,7 @@
                 
             } failure:^(NSError *error) {
                 
-                
+                [MBManager hideAlert];
                 [MBProgressHUD showSuccess:@"登录失败"];
             }];
         }
