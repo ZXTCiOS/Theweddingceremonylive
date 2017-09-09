@@ -20,6 +20,8 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
 @property (weak, nonatomic) IBOutlet UIButton *closeBen;
 
 @property (weak, nonatomic) IBOutlet UIButton *redbagBtn;
@@ -29,10 +31,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *sendMsgBtn;
 
 @property (weak, nonatomic) IBOutlet UIImageView *bgImgV;
-
-
-
-
 
 
 

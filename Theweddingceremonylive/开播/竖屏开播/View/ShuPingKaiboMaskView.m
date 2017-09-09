@@ -28,9 +28,6 @@
     self.icon.layer.masksToBounds = YES;
     
     
-    
-    
-    
 }
 
 @end

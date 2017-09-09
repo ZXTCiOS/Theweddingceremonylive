@@ -21,7 +21,7 @@
                         <constraint firstAttribute="height" constant="50" id="rnP-a7-be7"/>
                     </constraints>
                 </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R7A-5f-4ct" customClass="iCarousel">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R7A-5f-4ct" customClass="UICollectionView">
                     <rect key="frame" x="75" y="16" width="160" height="50"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -45,7 +45,7 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID:12321" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z0q-DL-PR8">
-                            <rect key="frame" x="52" y="30" width="52.5" height="16"/>
+                            <rect key="frame" x="52" y="30" width="53" height="16"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
@@ -66,7 +66,7 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="88888" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJL-7g-dun">
-                    <rect key="frame" x="329.5" y="76" width="35.5" height="13.5"/>
+                    <rect key="frame" x="329" y="76" width="36" height="14"/>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -104,11 +104,11 @@
                     <state key="normal" title="Button"/>
                 </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="W6q-Sl-2Ho">
-                    <rect key="frame" x="16" y="380" width="274" height="189"/>
+                    <rect key="frame" x="16" y="389" width="260" height="180"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="274" id="fsA-lO-gr9"/>
-                        <constraint firstAttribute="height" constant="189" id="oua-aH-4sF"/>
+                        <constraint firstAttribute="width" constant="260" id="fsA-lO-gr9"/>
+                        <constraint firstAttribute="height" constant="180" id="oua-aH-4sF"/>
                     </constraints>
                 </tableView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a2R-eh-gCI" userLabel="BgImgV">
@@ -148,6 +148,7 @@
             <connections>
                 <outlet property="bgImgV" destination="a2R-eh-gCI" id="deB-80-sgR"/>
                 <outlet property="closeBen" destination="TQU-WS-6vX" id="ubk-lm-qFs"/>
+                <outlet property="collectionView" destination="R7A-5f-4ct" id="lYB-WS-q9p"/>
                 <outlet property="icon" destination="BPK-9M-v1a" id="vRd-u2-bvG"/>
                 <outlet property="iconMask" destination="JX1-Jm-Yeb" id="7Ml-V5-EoU"/>
                 <outlet property="labelCount" destination="rJL-7g-dun" id="RcP-jk-rAr"/>
@@ -158,7 +159,7 @@
                 <outlet property="sendMsgBtn" destination="C1I-EB-a61" id="eXj-I4-7lA"/>
                 <outlet property="tableView" destination="W6q-Sl-2Ho" id="xpo-6x-b3b"/>
             </connections>
-            <point key="canvasLocation" x="85.5" y="0.5"/>
+            <point key="canvasLocation" x="12" y="3"/>
         </view>
     </objects>
     <resources>

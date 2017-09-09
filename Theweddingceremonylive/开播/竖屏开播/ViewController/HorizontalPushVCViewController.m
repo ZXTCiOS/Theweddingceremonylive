@@ -14,11 +14,14 @@
 // model
 
 // view
+#import "ShuPingKaiboMaskView.h"
+#import "AudienceCell.h"
+#import "DanmuCell.h"
 
 // viewcontroller
 
 
-@interface HorizontalPushVCViewController ()<NIMNetCallManagerDelegate, NIMChatroomManagerDelegate>
+@interface HorizontalPushVCViewController ()<NIMNetCallManagerDelegate, NIMChatroomManagerDelegate, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) UIView *localPreView;
 
@@ -28,9 +31,9 @@
 
 @property (nonatomic, copy)    NSString *roomid;
 
-
-
-
+@property (nonatomic, strong) ShuPingKaiboMaskView *maskview;
+@property (nonatomic, strong) NSMutableArray *audiencelist;
+@property (nonatomic, strong) NSMutableArray *danmulist;
 
 
 
@@ -53,7 +56,8 @@
     [[NIMAVChatSDK sharedSDK].netCallManager startVideoCapture:[self para]];
     // 进入聊天室
     [self enterChatroom];
-    
+    // mask view
+    [self configMaskview];
     
     
     
@@ -87,6 +91,72 @@
     self.view.backgroundColor = UIColorHex(0xdfe2e6);
     [[NIMAVChatSDK sharedSDK].netCallManager addDelegate:self];
 }
+
+#pragma mark - mask view
+
+- (void)configMaskview{
+    self.maskview = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ShuPingKaiboMaskView class]) owner:nil options:nil].firstObject;
+    self.maskview.tableView.delegate = self;
+    self.maskview.tableView.dataSource = self;
+    self.maskview.collectionView.delegate = self;
+    self.maskview.collectionView.dataSource = self;
+    UIScrollView *scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH)];
+    scroll.contentSize = CGSizeMake(kScreenW*2, kScreenH);
+    self.maskview.frame = CGRectMake(kScreenW, 0, kScreenW, kScreenH);
+    [scroll addSubview:self.maskview];
+    [self.view addSubview:scroll];
+}
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return self.audiencelist.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    AudienceCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"" forIndexPath:indexPath];
+    // tofix
+    [cell.img sd_setImageWithURL:self.audiencelist[indexPath.row] placeholderImage:[UIImage imageNamed:@"touxiang"]];
+    return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    // todo: 点击头像, 连麦, 给房管
+}
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
+    return UIEdgeInsetsMake(0, 0, 0, 0);
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    return CGSizeMake(40, 40);
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
+    return 8;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.danmulist.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    DanmuCell *cell = [tableView dequeueReusableCellWithIdentifier:@"danmu" forIndexPath:indexPath];
+    cell.textL.text = @"富文本";
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    // todo: 主播, 管理员踢人封禁操作  view
+}
+
+
 
 #pragma mark - 聊天室
 
@@ -386,12 +456,24 @@
 
 
 
-#pragma mark - 创建群组
 
 
 
+#pragma mark - lazy loading
 
+- (NSMutableArray *)audiencelist{
+    if (!_audiencelist) {
+        _audiencelist = [NSMutableArray array];
+    }
+    return _audiencelist;
+}
 
+- (NSMutableArray *)danmulist{
+    if (!_danmulist) {
+        _danmulist = [NSMutableArray array];
+    }
+    return _danmulist;
+}
 
 
 

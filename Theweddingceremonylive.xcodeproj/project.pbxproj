@@ -68,6 +68,8 @@
 		18F6FEC91F4D83D80076A4F2 /* LieBiaoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F6FEC81F4D83D80076A4F2 /* LieBiaoModel.m */; };
 		18F7355F1F6275140054524B /* ShuPingKaiboMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F7355E1F6275140054524B /* ShuPingKaiboMaskView.m */; };
 		18F735611F6275610054524B /* ShuPingKaiboMaskView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F735601F6275610054524B /* ShuPingKaiboMaskView.xib */; };
+		18F735641F62A15E0054524B /* AudienceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F735631F62A15E0054524B /* AudienceCell.m */; };
+		18F735671F62B1B20054524B /* DanmuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F735661F62B1B20054524B /* DanmuCell.m */; };
 		18F9374C1F57FBFE00B267C0 /* PortraitAudienceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F937411F57FBFE00B267C0 /* PortraitAudienceView.m */; };
 		18F9374D1F57FBFE00B267C0 /* PortraitChatView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F937431F57FBFE00B267C0 /* PortraitChatView.m */; };
 		18F9374E1F57FBFE00B267C0 /* PortraitFullMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F937451F57FBFE00B267C0 /* PortraitFullMaskView.m */; };
@@ -461,6 +463,10 @@
 		18F7355D1F6275140054524B /* ShuPingKaiboMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShuPingKaiboMaskView.h; sourceTree = "<group>"; };
 		18F7355E1F6275140054524B /* ShuPingKaiboMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShuPingKaiboMaskView.m; sourceTree = "<group>"; };
 		18F735601F6275610054524B /* ShuPingKaiboMaskView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShuPingKaiboMaskView.xib; sourceTree = "<group>"; };
+		18F735621F62A15E0054524B /* AudienceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudienceCell.h; sourceTree = "<group>"; };
+		18F735631F62A15E0054524B /* AudienceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudienceCell.m; sourceTree = "<group>"; };
+		18F735651F62B1B20054524B /* DanmuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DanmuCell.h; sourceTree = "<group>"; };
+		18F735661F62B1B20054524B /* DanmuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DanmuCell.m; sourceTree = "<group>"; };
 		18F937401F57FBFE00B267C0 /* PortraitAudienceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortraitAudienceView.h; sourceTree = "<group>"; };
 		18F937411F57FBFE00B267C0 /* PortraitAudienceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortraitAudienceView.m; sourceTree = "<group>"; };
 		18F937421F57FBFE00B267C0 /* PortraitChatView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortraitChatView.h; sourceTree = "<group>"; };
@@ -1484,6 +1490,10 @@
 				18F7355D1F6275140054524B /* ShuPingKaiboMaskView.h */,
 				18F7355E1F6275140054524B /* ShuPingKaiboMaskView.m */,
 				18F735601F6275610054524B /* ShuPingKaiboMaskView.xib */,
+				18F735621F62A15E0054524B /* AudienceCell.h */,
+				18F735631F62A15E0054524B /* AudienceCell.m */,
+				18F735651F62B1B20054524B /* DanmuCell.h */,
+				18F735661F62B1B20054524B /* DanmuCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3127,6 +3137,7 @@
 				53CC98DB1F566C590077CCF6 /* reflectVC.m in Sources */,
 				533854671F60FBEB00538CE4 /* wanshanorderVC.m in Sources */,
 				532565001F4649B700915E3B /* localVC.m in Sources */,
+				18F735641F62A15E0054524B /* AudienceCell.m in Sources */,
 				53B68E5C1F4EBFD800674A2B /* predeterminedVC1.m in Sources */,
 				184A78891F53FB9D00EACCE1 /* WeddingLiveTableCell.m in Sources */,
 				18FE5D941F4AE3C800C5A3CF /* MainNaviBar.m in Sources */,
@@ -3203,6 +3214,7 @@
 				53CC9AB21F580AD60077CCF6 /* weddinglistModel.m in Sources */,
 				53CC998F1F57C0220077CCF6 /* CustomerserviceVC.m in Sources */,
 				53CC98CF1F5420000077CCF6 /* PZXVerificationTextField.m in Sources */,
+				18F735671F62B1B20054524B /* DanmuCell.m in Sources */,
 				1851F41D1F3D843E00369326 /* NSObject+Parse.m in Sources */,
 				533ACCF81F4A7BE500F66A78 /* UIView+ViewController.m in Sources */,
 				533ACE3E1F4AD36D00F66A78 /* DQAreasModel.m in Sources */,
