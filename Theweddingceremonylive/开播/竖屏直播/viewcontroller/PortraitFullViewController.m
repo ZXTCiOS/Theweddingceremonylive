@@ -21,9 +21,9 @@
 #import "NELivePlayer.h"// 网易云播放器协议
 
 
-//#define urls @"rtmp://ve266c7be.live.126.net/live/5f581cb50c724380bd08788abe7b0f9d" // rtmp
+#define urls @"rtmp://ve266c7be.live.126.net/live/5f581cb50c724380bd08788abe7b0f9d" // rtmp
 
-#define urls @"http://flve266c7be.live.126.net/live/5f581cb50c724380bd08788abe7b0f9d.flv?netease=flve266c7be.live.126.net" // HTTP
+//#define urls @"rtmp://live.hkstv.hk.lxdns.com/live/hks" // RTMP
 
 
 @interface PortraitFullViewController ()<UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
@@ -55,8 +55,7 @@
 
 - (void)configPlayer{
     
-        
-    self.liveplayer = [[NELivePlayerController alloc] initWithContentURL:urls.xd_URL];
+    self.liveplayer = [[NELivePlayerController alloc] initWithContentURL:[NSURL URLWithString:urls]];
     if (self.liveplayer == nil) {
         NSLog(@"failed to initialize!");
     }
@@ -255,7 +254,7 @@
 
 - (id<NELivePlayer>)liveplayer{
     if (!_liveplayer) {
-        _liveplayer = [[NELivePlayerController alloc] initWithContentURL:urls.xd_URL];
+        _liveplayer = [[NELivePlayerController alloc] initWithContentURL:[NSURL URLWithString:urls]];
         if (!_liveplayer) {
             NSLog(@"播放器初始化失败");
         }

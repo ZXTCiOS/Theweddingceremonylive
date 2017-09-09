@@ -10,6 +10,8 @@
 #import "ActionSheetView.h"
 #import "pilotliveVC.h"
 #import "ZTVendorManager.h"
+#import "QRcodeTool.h"
+
 
 @interface weddingcardVC ()<UIScrollViewDelegate>
 @property (nonatomic,strong) UIScrollView *scroll;
@@ -119,7 +121,12 @@
             NSString *str = self.timestr;
             NSInteger inter = [str intValue];
             _lab2.text = [self timestampSwitchTime:inter andFormatter:@"YYYY-MM-dd hh:mm:ss"];
-
+            
+            NSString *url1str = [datadic objectForKey:@"url1"];
+            NSString *url2str = [datadic objectForKey:@"url1"];
+            
+            self.leftimg.image = [QRcodeTool QRcodeToolgeneratedDataString:url1str imageViewWidth:150];
+            self.rightimg.image = [QRcodeTool QRcodeToolgeneratedDataString:url2str imageViewWidth:150];
         }
     } failure:^(NSError *error) {
         [MBProgressHUD showSuccess:@"网络错误"];
@@ -199,7 +206,7 @@
     {
         _leftimg = [[UIImageView alloc] init];
         _leftimg.frame = CGRectMake(40*WIDTH_SCALE, 880*HEIGHT_SCALE, 100*WIDTH_SCALE, 100*WIDTH_SCALE);
-        [_leftimg sd_setImageWithURL:[NSURL URLWithString:@"https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1910365638,1248188591&fm=26&gp=0.jpg"]];
+        //[_leftimg sd_setImageWithURL:[NSURL URLWithString:@"https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1910365638,1248188591&fm=26&gp=0.jpg"]];
     }
     return _leftimg;
 }
@@ -210,7 +217,7 @@
     {
         _rightimg = [[UIImageView alloc] init];
         _rightimg.frame = CGRectMake(kScreenW/2+40*WIDTH_SCALE, 880*HEIGHT_SCALE, 100*WIDTH_SCALE, 100*WIDTH_SCALE);
-        [_rightimg sd_setImageWithURL:[NSURL URLWithString:@"https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1910365638,1248188591&fm=26&gp=0.jpg"]];
+       // [_rightimg sd_setImageWithURL:[NSURL URLWithString:@"https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1910365638,1248188591&fm=26&gp=0.jpg"]];
     }
     return _rightimg;
 }

@@ -12,7 +12,7 @@
 #import "DemoTableViewController.h"
 #import "bbsModel.h"
 
-@interface hotVC ()<UITableViewDataSource,UITableViewDelegate,mybbsVdelegate>
+@interface hotVC ()<UITableViewDataSource,UITableViewDelegate,mybbsVdelegate,DZNEmptyDataSetSource,DZNEmptyDataSetDelegate>
 {
     int pn;
 }
@@ -157,8 +157,22 @@ static NSString *hotidentfid = @"hotidentfid";
         _table = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, kScreenW, kScreenH-64-50)];
         _table.dataSource = self;
         _table.delegate = self;
+        _table.emptyDataSetSource = self;
+        _table.emptyDataSetDelegate = self;
     }
     return _table;
+}
+
+#pragma mark 空数据视图 DataSource && delegate
+
+- (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
+    return [UIImage imageNamed:@"emptyImg"];        // 空数据图片
+}
+
+- (void)emptyDataSet:(UIScrollView *)scrollView didTapView:(UIView *)view{
+    
+    [self.table beginHeaderRefresh];
+    NSLog(@"empty image tapped");
 }
 
 #pragma mark -UITableViewDataSource&&UITableViewDelegate

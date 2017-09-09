@@ -199,6 +199,7 @@
 		533ACE3F1F4AD36D00F66A78 /* DQAreasView.m in Sources */ = {isa = PBXBuildFile; fileRef = 533ACE3A1F4AD36D00F66A78 /* DQAreasView.m */; };
 		533ACE401F4AD36D00F66A78 /* DQCanCerEnsureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 533ACE3C1F4AD36D00F66A78 /* DQCanCerEnsureView.m */; };
 		533ACE431F4AEB2600F66A78 /* myshopModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 533ACE421F4AEB2600F66A78 /* myshopModel.m */; };
+		533D6CCD1F626FA100655B83 /* QRcodeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 533D6CCC1F626FA100655B83 /* QRcodeTool.m */; };
 		536D54D31F4FFFC000A54749 /* detalisCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 536D54D21F4FFFC000A54749 /* detalisCell2.m */; };
 		536D54D61F500B0600A54749 /* predetermindCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 536D54D51F500B0600A54749 /* predetermindCell.m */; };
 		536D54D91F50177500A54749 /* predeterheadView0.m in Sources */ = {isa = PBXBuildFile; fileRef = 536D54D81F50177500A54749 /* predeterheadView0.m */; };
@@ -702,6 +703,8 @@
 		533ACE3C1F4AD36D00F66A78 /* DQCanCerEnsureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DQCanCerEnsureView.m; sourceTree = "<group>"; };
 		533ACE411F4AEB2600F66A78 /* myshopModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = myshopModel.h; path = "Theweddingceremonylive/论坛/C/myshopModel.h"; sourceTree = SOURCE_ROOT; };
 		533ACE421F4AEB2600F66A78 /* myshopModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = myshopModel.m; path = "Theweddingceremonylive/论坛/C/myshopModel.m"; sourceTree = SOURCE_ROOT; };
+		533D6CCB1F626FA100655B83 /* QRcodeTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRcodeTool.h; sourceTree = "<group>"; };
+		533D6CCC1F626FA100655B83 /* QRcodeTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRcodeTool.m; sourceTree = "<group>"; };
 		536D54D11F4FFFC000A54749 /* detalisCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = detalisCell2.h; path = "Theweddingceremonylive/开播/C/detalisCell2.h"; sourceTree = SOURCE_ROOT; };
 		536D54D21F4FFFC000A54749 /* detalisCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = detalisCell2.m; path = "Theweddingceremonylive/开播/C/detalisCell2.m"; sourceTree = SOURCE_ROOT; };
 		536D54D41F500B0600A54749 /* predetermindCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = predetermindCell.h; path = "Theweddingceremonylive/开播/C/predetermindCell.h"; sourceTree = SOURCE_ROOT; };
@@ -2062,6 +2065,15 @@
 			path = addRess_areas;
 			sourceTree = "<group>";
 		};
+		533D6CCA1F626FA100655B83 /* codeTools */ = {
+			isa = PBXGroup;
+			children = (
+				533D6CCB1F626FA100655B83 /* QRcodeTool.h */,
+				533D6CCC1F626FA100655B83 /* QRcodeTool.m */,
+			);
+			path = codeTools;
+			sourceTree = "<group>";
+		};
 		53B68E661F4EEC5F00674A2B /* NullSafe */ = {
 			isa = PBXGroup;
 			children = (
@@ -2369,6 +2381,7 @@
 		53D02F771F3BF5F800CD504C /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				533D6CCA1F626FA100655B83 /* codeTools */,
 				533854541F5FEAC500538CE4 /* Tencent */,
 				1880390B1F3EAE2600A2B4AE /* WKWedViewController.h */,
 				1880390C1F3EAE2600A2B4AE /* WKWedViewController.m */,
@@ -3078,6 +3091,7 @@
 				533A8A401F4C262A0087E699 /* DemoTableViewController.m in Sources */,
 				184A788D1F54181800EACCE1 /* WMPlayerVC.m in Sources */,
 				533854ED1F61495800538CE4 /* orderxuanzeVC1.m in Sources */,
+				533D6CCD1F626FA100655B83 /* QRcodeTool.m in Sources */,
 				18FE5D881F4AB33200C5A3CF /* WeddingVideoModel.m in Sources */,
 				533A8A421F4C262A0087E699 /* DemoCommentModel.m in Sources */,
 				53AC97DD1F3F5495009EC343 /* bindingViewController.m in Sources */,

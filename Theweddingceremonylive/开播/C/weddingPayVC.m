@@ -356,6 +356,22 @@
     
     NSDictionary *para = [NSDictionary dictionary];
     
+    if ([self.order_pattern isEqualToString:@"1"]) {
+        NSDate *date = [NSDate date];
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateStyle:NSDateFormatterMediumStyle];
+        [formatter setTimeStyle:NSDateFormatterShortStyle];
+        [formatter setDateFormat:@"YYYY/MM/dd"];
+        NSString *DateTime = [formatter stringFromDate:date];
+        [formatter setDateFormat:@"YYYY-MM-dd"];// 此行代码与上面两行作用一样，故上面两行代码失效
+        NSDate *date2 = [formatter dateFromString:DateTime];
+        NSLog(@"%@", date2);// 这个时间是格林尼治时间
+        NSString *dateStrddd = [NSString stringWithFormat:@"%ld", (long)[date2 timeIntervalSince1970]];
+        NSLog(@"%@", dateStrddd);// 这个时间是北京时间戳
+        self.create_time = dateStrddd;
+        
+    }
+    
     if ([strisNull isNullToString:self.tuijian]) {
         para = @{@"uid":uid,@"token":token,@"order_pattern":self.order_pattern,@"order_goods":self.order_goods,@"order_goods_tuijian":self.order_goods_tuijian,@"order_price":self.order_price,@"create_time":self.create_time,@"room_count":self.room_count};
     }
