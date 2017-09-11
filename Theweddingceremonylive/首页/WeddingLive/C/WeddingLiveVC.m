@@ -18,7 +18,7 @@
 // viewcontroller
 #import "PortraitFullViewController.h"
 #import "HorizontalPushVCViewController.h"
-#import "NELivePlayerViewController.h"
+
 
 
 @interface WeddingLiveVC ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
