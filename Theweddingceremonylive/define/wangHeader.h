@@ -100,4 +100,7 @@
 
 //升级订单
 #define post_shenjiorderup  @"/interface.php/Home/Orderup/orderup1"
+
+//获取商机信息
+#define post_getbusininfo   @"/interface.php/Home/Index/getbusininfo"
 #endif /* wangHeader_h */
