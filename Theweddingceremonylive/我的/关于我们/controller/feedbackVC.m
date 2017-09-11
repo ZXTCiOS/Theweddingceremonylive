@@ -60,7 +60,17 @@
 
 -(void)sendbtnclick
 {
-
+    NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
+    NSString *uid = [userdefat objectForKey:user_uid];
+    NSString *token = [userdefat objectForKey:user_token];
+    if (self.contentText.text.length==0) {
+        
+    }
+    else
+    {
+        NSString *content = self.contentText.text;
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning {
