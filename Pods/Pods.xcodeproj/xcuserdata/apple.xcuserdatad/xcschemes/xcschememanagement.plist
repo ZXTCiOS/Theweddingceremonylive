@@ -37,6 +37,11 @@
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
+		<key>HMQRCodeScanner.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>23</integer>
+		</dict>
 		<key>HXWeiboPhotoPicker.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -179,7 +184,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>208CE8CA340EEA142F2112A752A4611B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>2B21D2A821196F83A42092A243E13BEF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>369F8E066337CF9788C8C72408E96DF1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4DB8DEC4D389AEFE4B3A80E3C5B7DFC0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -254,7 +274,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>AD2ABB38D75E0CF595FAE71D2DF3CC35</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>B66432E3F9D1139DC8F35D07107C9211</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BEE8A3A4664B025242285D15C332ECA2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -279,12 +309,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>E20C375C2DD05E33B5E63170EB386BB9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>E3DD875AE78689ED81D0CDE108F60857</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>E74F26D6C6E7CACD63CDFFEE74858B53</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F99AE176A4C8DA68043276FBD6D2C04F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
