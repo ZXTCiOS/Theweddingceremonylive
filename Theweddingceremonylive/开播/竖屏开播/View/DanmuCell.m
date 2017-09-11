@@ -13,7 +13,7 @@
 
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
-    self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"danmu"];
+    self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"text"];
     if (self) {
         self.contentView.backgroundColor = [UIColor clearColor];
         [self textL];
@@ -24,7 +24,10 @@
 
 - (UILabel *)textL{
     if (!_textL) {
-        _textL = [[UILabel alloc] initWithFrame:CGRectMake(0, 3, 260, 30)];
+        _textL = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 260, 30)];
+        _textL.font = [UIFont systemFontOfSize:14];
+        _textL.textColor = [UIColor orangeColor];
+        [self addSubview:_textL];
     }
     return _textL;
 }

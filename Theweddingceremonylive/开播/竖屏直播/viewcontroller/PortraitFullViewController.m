@@ -200,7 +200,7 @@
         }
         [self.danmulist addObject:msg];
         [self.tableView reloadData];
-        [self.tableView scrollToBottom];
+        if (self.danmulist.count > 5) [self.tableView scrollToBottom];
         self.maskview.textField.text = @"";
         [self.maskview.textField resignFirstResponder];
     } forControlEvents:UIControlEventTouchUpInside];
@@ -284,11 +284,17 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     DanmuCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID_text forIndexPath:indexPath];
     cell.textL.text = self.danmulist[indexPath.row].text;
+    cell.backgroundColor = [UIColor clearColor];
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 30;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     // todo: 主播, 管理员踢人封禁操作  view
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
 #pragma mark - 聊天室
@@ -312,7 +318,7 @@
     }
     [self.danmulist addObjectsFromArray:messages];
     [self.tableView reloadData];
-    [self.tableView scrollToBottom];
+    if (self.danmulist.count > 5) [self.tableView scrollToBottom];
 }
 
 // 聊天室连接状态
