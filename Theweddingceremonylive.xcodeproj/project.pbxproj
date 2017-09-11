@@ -2999,6 +2999,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Theweddingceremonylive/Pods-Theweddingceremonylive-resources.sh",
 				"${PODS_ROOT}/CLPlayer/CLPlayer/Resource/CLPlayer.bundle",
 				"${PODS_ROOT}/CYTabBar/CYTabBar/CYTabBar.bundle",
+				"${PODS_ROOT}/HMQRCodeScanner/HMQRCodeScanner/QRCode/HMScanner.bundle",
 				"${PODS_ROOT}/HXWeiboPhotoPicker/微博照片选择/HXWeiboPhotoPicker/HXWeiboPhotoPicker.bundle",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",

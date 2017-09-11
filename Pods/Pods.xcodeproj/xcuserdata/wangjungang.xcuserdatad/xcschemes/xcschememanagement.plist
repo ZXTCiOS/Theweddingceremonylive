@@ -29,6 +29,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>HMQRCodeScanner.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>HXWeiboPhotoPicker.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -137,7 +142,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2B21D2A821196F83A42092A243E13BEF</key>
+		<key>208CE8CA340EEA142F2112A752A4611B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>369F8E066337CF9788C8C72408E96DF1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4DB8DEC4D389AEFE4B3A80E3C5B7DFC0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -162,16 +177,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6899CA97ED3851C548218C82B79E2732</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7755980D98AA911632A52A6B16C20C85</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>78008CABA72FDF0D53FB3E0FDD5D35B3</key>
 		<dict>
 			<key>primary</key>
@@ -192,6 +197,16 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>AD2ABB38D75E0CF595FAE71D2DF3CC35</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BEE8A3A4664B025242285D15C332ECA2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C94C9823580E887FE0E17439D249F698</key>
 		<dict>
 			<key>primary</key>
@@ -202,17 +217,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D8F2CEE33014E260C3D674AE5F395F65</key>
+		<key>E20C375C2DD05E33B5E63170EB386BB9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E3DD875AE78689ED81D0CDE108F60857</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E74F26D6C6E7CACD63CDFFEE74858B53</key>
+		<key>F99AE176A4C8DA68043276FBD6D2C04F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

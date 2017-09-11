@@ -29,6 +29,7 @@
 #import "WMPlayerVC.h"
 
 #import "shopdetalisVC.h"
+#import "HMScannerController.h"
 
 @interface MainVC ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, BannerViewDelegate, BannerViewDataSource>
 
@@ -67,6 +68,21 @@
     };
     navi.saoma = ^(){
         // todo  添加 扫码按钮点击事件
+        NSString *cardName = @"扫码地址";
+        UIImage *avatar = [UIImage imageNamed:@"avatar"];
+        // 实例化扫描控制器
+        HMScannerController *scanner = [HMScannerController scannerWithCardName:cardName avatar:avatar completion:^(NSString *stringValue) {
+            NSLog(@"str------%@",stringValue);
+            
+            //self.scanResultLabel.text = stringValue;
+        }];
+        
+        // 设置导航栏样式
+        [scanner setTitleColor:[UIColor whiteColor] tintColor:[UIColor greenColor]];
+        
+        // 展现扫描控制器
+        [self showDetailViewController:scanner sender:nil];
+        
     };
     [self.view addSubview:navi];
     
