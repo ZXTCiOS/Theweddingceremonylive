@@ -127,7 +127,7 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="V9H-dR-8hb" customClass="PortraitChatView">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="V9H-dR-8hb">
                     <rect key="frame" x="25" y="385" width="244" height="212"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -135,7 +135,7 @@
                         <constraint firstAttribute="height" constant="212" id="xWN-eG-hdm"/>
                     </constraints>
                 </tableView>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="VSm-1A-XSA" customClass="PortraitAudienceView">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="VSm-1A-XSA">
                     <rect key="frame" x="0.0" y="86" width="375" height="60"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -148,21 +148,53 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kf0-yQ-eLI">
+                    <rect key="frame" x="0.0" y="667" width="375" height="40"/>
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="祝福他们吧" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TfC-wX-AAW">
+                            <rect key="frame" x="8" y="6" width="299" height="28"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bUz-vM-T68">
+                            <rect key="frame" x="321" y="6" width="46" height="28"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="46" id="nEp-sh-K6v"/>
+                            </constraints>
+                            <state key="normal" title="发送"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="TfC-wX-AAW" firstAttribute="leading" secondItem="Kf0-yQ-eLI" secondAttribute="leading" constant="8" id="2xz-li-0Tn"/>
+                        <constraint firstAttribute="bottom" secondItem="TfC-wX-AAW" secondAttribute="bottom" constant="6" id="9dm-Hw-GvP"/>
+                        <constraint firstAttribute="trailing" secondItem="bUz-vM-T68" secondAttribute="trailing" constant="8" id="Do4-YI-ja0"/>
+                        <constraint firstAttribute="bottom" secondItem="bUz-vM-T68" secondAttribute="bottom" constant="6" id="Hca-sf-c0A"/>
+                        <constraint firstItem="TfC-wX-AAW" firstAttribute="top" secondItem="Kf0-yQ-eLI" secondAttribute="top" constant="6" id="I4j-s5-dW9"/>
+                        <constraint firstItem="bUz-vM-T68" firstAttribute="top" secondItem="Kf0-yQ-eLI" secondAttribute="top" constant="6" id="LM4-hQ-Zp9"/>
+                        <constraint firstItem="bUz-vM-T68" firstAttribute="leading" secondItem="TfC-wX-AAW" secondAttribute="trailing" constant="14" id="VMh-D5-ie1"/>
+                        <constraint firstAttribute="height" constant="40" id="rwi-04-hrj"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="VSm-1A-XSA" secondAttribute="trailing" id="19B-36-ydr"/>
                 <constraint firstAttribute="trailing" secondItem="n2V-vI-Vv6" secondAttribute="trailing" constant="30" id="4xL-HV-X24"/>
                 <constraint firstItem="V9H-dR-8hb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="25" id="6yS-rL-1KX"/>
+                <constraint firstItem="Kf0-yQ-eLI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="7Q9-7b-X1F"/>
                 <constraint firstAttribute="trailing" secondItem="gZ8-tQ-7jx" secondAttribute="trailing" constant="12" id="7dA-c7-iaU"/>
                 <constraint firstAttribute="trailing" secondItem="23a-bp-w4C" secondAttribute="trailing" constant="12" id="DED-Xs-l9l"/>
                 <constraint firstItem="23a-bp-w4C" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="GGI-mr-tqq"/>
+                <constraint firstAttribute="bottom" secondItem="Kf0-yQ-eLI" secondAttribute="bottom" constant="-40" id="N1u-0V-TFJ"/>
                 <constraint firstItem="7yC-CX-nLJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="27" id="Udu-i4-tDT"/>
                 <constraint firstItem="gZ8-tQ-7jx" firstAttribute="top" secondItem="23a-bp-w4C" secondAttribute="bottom" constant="8" id="Usk-FV-pVQ"/>
                 <constraint firstItem="n2V-vI-Vv6" firstAttribute="top" secondItem="V9H-dR-8hb" secondAttribute="bottom" constant="18" id="X2N-sh-lE4"/>
                 <constraint firstItem="n2V-vI-Vv6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="30" id="YcY-fI-Osk"/>
                 <constraint firstItem="VSm-1A-XSA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="gYc-Tf-UhW"/>
                 <constraint firstItem="7yC-CX-nLJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="25" id="jNH-EM-1HL"/>
+                <constraint firstAttribute="trailing" secondItem="Kf0-yQ-eLI" secondAttribute="trailing" id="kcz-Yy-c4M"/>
                 <constraint firstItem="VSm-1A-XSA" firstAttribute="top" secondItem="gZ8-tQ-7jx" secondAttribute="bottom" constant="7.5" id="nes-2J-jcl"/>
                 <constraint firstAttribute="bottom" secondItem="n2V-vI-Vv6" secondAttribute="bottom" constant="12" id="sHl-Gj-Kld"/>
             </constraints>
@@ -171,15 +203,18 @@
                 <outlet property="collectionView" destination="VSm-1A-XSA" id="Isu-OW-i3q"/>
                 <outlet property="countL" destination="gZ8-tQ-7jx" id="A44-cj-2PK"/>
                 <outlet property="info" destination="23a-bp-w4C" id="ulu-eS-eGd"/>
+                <outlet property="send" destination="bUz-vM-T68" id="LfW-YG-dYX"/>
                 <outlet property="tableView" destination="V9H-dR-8hb" id="vFi-a8-kgR"/>
+                <outlet property="textFView" destination="Kf0-yQ-eLI" id="xMm-FB-gFv"/>
+                <outlet property="textField" destination="TfC-wX-AAW" id="ZWf-71-kZ0"/>
                 <outlet property="user_id" destination="Y6p-Yb-9io" id="jTm-Ag-i1r"/>
                 <outlet property="user_img" destination="fUr-2N-aBm" id="48a-Lo-HKv"/>
                 <outlet property="user_name" destination="gbf-0P-To5" id="b5g-xf-fe4"/>
             </connections>
-            <point key="canvasLocation" x="-248" y="-31"/>
+            <point key="canvasLocation" x="-554" y="-110"/>
         </view>
     </objects>
     <resources>
-        <image name="logo" width="70" height="20"/>
+        <image name="logo" width="71" height="75"/>
     </resources>
 </document>

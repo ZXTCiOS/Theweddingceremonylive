@@ -20,8 +20,10 @@
 
 // viewcontroller
 
+#define cellID_text @"text"
+#define cellID_audience @"audience"
 
-@interface HorizontalPushVCViewController ()<NIMNetCallManagerDelegate, NIMChatroomManagerDelegate, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface HorizontalPushVCViewController ()<NIMNetCallManagerDelegate, NIMChatroomManagerDelegate,NIMChatManagerDelegate , UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) UIView *localPreView;
 @property (nonatomic, strong) ShuPingKaiboMaskView *maskview;
@@ -32,7 +34,7 @@
 @property (nonatomic, copy)    NSString *roomid;
 
 @property (nonatomic, strong) NSMutableArray *audiencelist;
-@property (nonatomic, strong) NSMutableArray *danmulist;
+@property (nonatomic, strong) NSMutableArray<NIMMessage *> *danmulist;
 
 @property (nonatomic, assign) BOOL isMute;
 @property (nonatomic, assign) NIMNetCallCamera camera;
@@ -112,6 +114,7 @@
     self.maskview.tableView.dataSource = self;
     self.maskview.collectionView.delegate = self;
     self.maskview.collectionView.dataSource = self;
+    [self registerCell];
     self.scrollV = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH)];
     _scrollV.contentSize = CGSizeMake(kScreenW*2, kScreenH);
     _scrollV.contentOffset = CGPointMake(kScreenW, 0);
@@ -125,7 +128,14 @@
     [self.scrollV addSubview:self.maskview];
     [self.view insertSubview:_scrollV atIndex:0];
 }
+#pragma mark 注册 cell
+- (void)registerCell{
+    // todo: 注册 cell
+    [self.maskview.tableView registerClass:[DanmuCell class] forCellReuseIdentifier:cellID_text];
+    [self.maskview.collectionView registerClass:[AudienceCell class] forCellWithReuseIdentifier:cellID_audience];
+}
 
+#pragma mark - 底部按钮功能
 - (void)scrollviewBtnEvent{
     [self.maskview.closeBen bk_addEventHandler:^(id sender) {
         [self.navigationController popViewControllerAnimated:YES];
@@ -147,6 +157,12 @@
         msg.text = text;
         NIMSession *session = [NIMSession session:self.roomid type:NIMSessionTypeChatroom];
         [[NIMSDK sharedSDK].chatManager sendMessage:msg toSession:session error:nil];
+        if (self.danmulist.count > 50){
+            [self.danmulist removeFirstObject];
+        }
+        [self.danmulist addObject:msg];
+        [self.maskview.tableView reloadData];
+        [self.maskview.tableView scrollToBottom];
         self.maskview.textField.text = @"";
         [self.maskview.textField resignFirstResponder];
     } forControlEvents:UIControlEventTouchUpInside];
@@ -163,6 +179,7 @@
     
 }
 
+#pragma mark - 键盘弹出隐藏通知
 - (void)keyboardWillShowshow:(NSNotification *) noti{
     
     NSDictionary *userInfo = [noti userInfo];
@@ -190,7 +207,7 @@
         [self.view layoutIfNeeded];
     }];
 }
-
+# pragma mark - 观众列表 delegate DataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     return 1;
 }
@@ -200,7 +217,7 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    AudienceCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"" forIndexPath:indexPath];
+    AudienceCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID_audience forIndexPath:indexPath];
     // tofix
     [cell.img sd_setImageWithURL:self.audiencelist[indexPath.row] placeholderImage:[UIImage imageNamed:@"touxiang"]];
     return cell;
@@ -209,7 +226,7 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     // todo: 点击头像, 连麦, 给房管
 }
-
+#pragma mark - 观众列表 flowlayout
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
     return UIEdgeInsetsMake(0, 0, 0, 0);
 }
@@ -222,6 +239,7 @@
     return 8;
 }
 
+#pragma mark - 聊天室 delegate && datasourse
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
@@ -231,8 +249,8 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    DanmuCell *cell = [tableView dequeueReusableCellWithIdentifier:@"danmu" forIndexPath:indexPath];
-    cell.textL.text = @"富文本";
+    DanmuCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID_text forIndexPath:indexPath];
+    cell.textL.text = self.danmulist[indexPath.row].text;
     return cell;
 }
 
@@ -254,6 +272,17 @@
     [[NIMSDK sharedSDK].chatroomManager enterChatroom:request completion:^(NSError * _Nullable error, NIMChatroom * _Nullable chatroom, NIMChatroomMember * _Nullable me) {
         NSLog(@"进入聊天室成功 roomID: %@", chatroom.roomId);
     }];
+}
+
+// 收到聊天室消息
+- (void)onRecvMessages:(NSArray<NIMMessage *> *)messages{
+    NSInteger remove = self.danmulist.count + messages.count - 50;
+    for (int i = 0; i < remove; i++) {
+        [self.danmulist removeFirstObject];
+    }
+    [self.danmulist addObjectsFromArray:messages];
+    [self.maskview.tableView reloadData];
+    [self.maskview.tableView scrollToBottom];
 }
 
 // 聊天室连接状态
@@ -413,9 +442,9 @@
     return _audiencelist;
 }
 
-- (NSMutableArray *)danmulist{
+- (NSMutableArray<NIMMessage *> *)danmulist{
     if (!_danmulist) {
-        _danmulist = [NSMutableArray array];
+        _danmulist = [NSMutableArray<NIMMessage *> array];
     }
     return _danmulist;
 }
