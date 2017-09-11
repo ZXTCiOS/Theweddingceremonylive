@@ -200,6 +200,7 @@
 		533ACE401F4AD36D00F66A78 /* DQCanCerEnsureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 533ACE3C1F4AD36D00F66A78 /* DQCanCerEnsureView.m */; };
 		533ACE431F4AEB2600F66A78 /* myshopModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 533ACE421F4AEB2600F66A78 /* myshopModel.m */; };
 		533D6CCD1F626FA100655B83 /* QRcodeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 533D6CCC1F626FA100655B83 /* QRcodeTool.m */; };
+		533D6D381F63DC0200655B83 /* MBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 533D6D371F63DC0200655B83 /* MBManager.m */; };
 		536D54D31F4FFFC000A54749 /* detalisCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 536D54D21F4FFFC000A54749 /* detalisCell2.m */; };
 		536D54D61F500B0600A54749 /* predetermindCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 536D54D51F500B0600A54749 /* predetermindCell.m */; };
 		536D54D91F50177500A54749 /* predeterheadView0.m in Sources */ = {isa = PBXBuildFile; fileRef = 536D54D81F50177500A54749 /* predeterheadView0.m */; };
@@ -705,6 +706,8 @@
 		533ACE421F4AEB2600F66A78 /* myshopModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = myshopModel.m; path = "Theweddingceremonylive/论坛/C/myshopModel.m"; sourceTree = SOURCE_ROOT; };
 		533D6CCB1F626FA100655B83 /* QRcodeTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRcodeTool.h; sourceTree = "<group>"; };
 		533D6CCC1F626FA100655B83 /* QRcodeTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRcodeTool.m; sourceTree = "<group>"; };
+		533D6D361F63DC0200655B83 /* MBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBManager.h; sourceTree = "<group>"; };
+		533D6D371F63DC0200655B83 /* MBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBManager.m; sourceTree = "<group>"; };
 		536D54D11F4FFFC000A54749 /* detalisCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = detalisCell2.h; path = "Theweddingceremonylive/开播/C/detalisCell2.h"; sourceTree = SOURCE_ROOT; };
 		536D54D21F4FFFC000A54749 /* detalisCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = detalisCell2.m; path = "Theweddingceremonylive/开播/C/detalisCell2.m"; sourceTree = SOURCE_ROOT; };
 		536D54D41F500B0600A54749 /* predetermindCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = predetermindCell.h; path = "Theweddingceremonylive/开播/C/predetermindCell.h"; sourceTree = SOURCE_ROOT; };
@@ -2074,6 +2077,15 @@
 			path = codeTools;
 			sourceTree = "<group>";
 		};
+		533D6D351F63DC0200655B83 /* MBManager */ = {
+			isa = PBXGroup;
+			children = (
+				533D6D361F63DC0200655B83 /* MBManager.h */,
+				533D6D371F63DC0200655B83 /* MBManager.m */,
+			);
+			path = MBManager;
+			sourceTree = "<group>";
+		};
 		53B68E661F4EEC5F00674A2B /* NullSafe */ = {
 			isa = PBXGroup;
 			children = (
@@ -2381,6 +2393,7 @@
 		53D02F771F3BF5F800CD504C /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				533D6D351F63DC0200655B83 /* MBManager */,
 				533D6CCA1F626FA100655B83 /* codeTools */,
 				533854541F5FEAC500538CE4 /* Tencent */,
 				1880390B1F3EAE2600A2B4AE /* WKWedViewController.h */,
@@ -3249,6 +3262,7 @@
 				5302993D1F42C631004BC03A /* systenBtn.m in Sources */,
 				188039051F3EAB9B00A2B4AE /* MyWalletTVC.m in Sources */,
 				53CC98B51F5410E80077CCF6 /* wanshanCell1.m in Sources */,
+				533D6D381F63DC0200655B83 /* MBManager.m in Sources */,
 				530299521F442E09004BC03A /* MyshopCell.m in Sources */,
 				18F937601F58076500B267C0 /* HorizontalPushVCViewController.m in Sources */,
 				188039031F3EAB9B00A2B4AE /* MyGiftTVC.m in Sources */,

@@ -17,11 +17,12 @@
 #import <NIMSDK/NIMSDK.h>
 #import <NIMAVChat/NIMAVChat.h>
 #import "ZTVendorManager.h"
-
 #import "WXApi.h"
 #import "UMSocialQQHandler.h"
 #import <TencentOpenAPI/QQApiInterface.h>
-//
+#import "MBManager.h"
+
+
 //#import "MBProgressHUD+Tools_cc.h"
 
 @interface LoginVC ()<UITextFieldDelegate>
@@ -353,8 +354,8 @@
         user_pwd = self.passwordtext.text;
     }
     
-//    [MBProgressHUD showMessage:@"正在登录"];
-//    
+    [MBManager showLoadingInView:self.view];
+    
     NSString *type = @"1";
     NSDictionary *para = @{@"user_tel":user_tel,@"user_pwd":user_pwd,@"type":type};
     [DNNetworking postWithURLString:post_login parameters:para success:^(id obj) {
@@ -384,10 +385,11 @@
         {
             [MBProgressHUD showSuccess:@"密码错误"];
         }
-//        [MBProgressHUD hideHUDForView:self.view];
+         [MBManager hideAlert];
+
     } failure:^(NSError *error) {
         [MBProgressHUD showSuccess:@"网络错误"];
-//        [MBProgressHUD hideHUDForView:self.view];
+        [MBManager hideAlert];
     }];
     
 }
@@ -428,6 +430,9 @@
         }
         else
         {
+            [MBManager showLoadingInView:self.view];
+
+            
             NSDictionary *para = @{@"type":type,@"unionid":unionid,@"nickname":nickname,@"headimgurl":headimgurl,@"city":city,@"sex":sex};
             
             [DNNetworking postWithURLString:post_login parameters:para success:^(id obj) {
@@ -448,6 +453,10 @@
                     [defat synchronize];
                     //todo: account...
                     
+//                    bindingViewController *bindingvc = [[bindingViewController alloc] init];
+//                    [self.navigationController pushViewController:bindingvc animated:YES];
+                    [MBManager hideAlert];
+                    
                     [self loginNIMWithaccount:acount token:imtoken];
                     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
                     MainTabBarController * main = [[MainTabBarController alloc] init];
@@ -457,7 +466,7 @@
                 
             } failure:^(NSError *error) {
                 
-                
+                [MBManager hideAlert];
                 [MBProgressHUD showSuccess:@"登录失败"];
             }];
         }

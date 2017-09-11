@@ -61,11 +61,24 @@
                  apsForProduction:NO
             advertisingIdentifier:nil];
     
+    // 注册通知
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(networkDidReceiveMessage:)
+                                                 name:kJPFNetworkDidReceiveMessageNotification
+                                               object:nil];
+
+    
+}
+
+// 接收到自定义消息事件
+- (void)networkDidReceiveMessage:(NSNotification *)notification {
+    
+    NSDictionary *userInfo = [notification userInfo];
+    NSLog(@"%@",userInfo);
 }
 
 - (void)application:(UIApplication *)application
 didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    
     /// Required - 注册 DeviceToken
     [JPUSHService registerDeviceToken:deviceToken];
 }
