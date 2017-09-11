@@ -26,6 +26,7 @@ pod 'LKSegmentBar'
 pod 'HXWeiboPhotoPicker'
 pod 'JPush'
 pod 'CLPlayer'
+pod 'HMQRCodeScanner'
   # Pods for Theweddingceremonylive
 
   target 'TheweddingceremonyliveTests' do
