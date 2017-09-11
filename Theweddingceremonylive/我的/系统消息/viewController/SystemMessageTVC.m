@@ -11,6 +11,7 @@
 
 @interface SystemMessageTVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
+@property (nonatomic,strong) NSMutableArray *dataSource;
 @end
 
 static NSString *systemcellidentfid = @"systencellidentfid";
@@ -20,7 +21,7 @@ static NSString *systemcellidentfid = @"systencellidentfid";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"系统消息";
-    
+    self.dataSource = [NSMutableArray array];
     [self.view addSubview:self.table];
     self.table.tableFooterView = [UIView new];
 }
@@ -56,6 +57,22 @@ static NSString *systemcellidentfid = @"systencellidentfid";
     // Dispose of any resources that can be recreated.
 }
 
+-(void)loaddata
+{
+    NSUserDefaults *defat = [NSUserDefaults standardUserDefaults];
+    NSString *uid = [defat objectForKey:user_uid];
+    NSString *token = [defat objectForKey:user_token];
+    NSDictionary *para = @{@"uid":uid,@"token":token};
+    [DNNetworking postWithURLString:post_tuisongfankui parameters:para success:^(id obj) {
+        if ([[obj objectForKey:@"code"] intValue]==1000) {
+            
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+    
+}
+
 #pragma mark - getters
 
 -(UITableView *)table
@@ -74,7 +91,7 @@ static NSString *systemcellidentfid = @"systencellidentfid";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return self.dataSource.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

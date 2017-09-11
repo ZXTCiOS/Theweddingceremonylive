@@ -7,6 +7,7 @@
 //
 
 #import "systemCell.h"
+#import "systemModel.h"
 
 @interface systemCell()
 @property (nonatomic,strong) UIImageView *leftimg;
@@ -14,6 +15,7 @@
 @property (nonatomic,strong) UIView *bgview;
 @property (nonatomic,strong) UILabel *contentlab;
 @property (nonatomic,strong) UILabel *timelab;
+@property (nonatomic,strong) systemModel *smodel;
 @end
 
 @implementation systemCell
@@ -108,7 +110,7 @@
     if(!_contentlab)
     {
         _contentlab = [[UILabel alloc] init];
-        _contentlab.text = @"北京地铁全线支持刷手机 苹果用户哭瞎北京地铁全线支持刷手机 苹果用户哭瞎北京地铁全线支持刷手机 苹果用户哭瞎北京地铁全线支持刷手机 苹果用户哭瞎北京地铁全线支持刷手机 苹果用户哭瞎北京地铁全线支持刷手机 苹果用户哭瞎";
+//        _contentlab.text = @"北京地铁全线支持刷手机 苹果用户哭瞎北京地铁全线支持刷手机 苹果用户哭瞎北京地铁全线支持刷手机 苹果用户哭瞎北京地铁全线支持刷手机 苹果用户哭瞎北京地铁全线支持刷手机 苹果用户哭瞎北京地铁全线支持刷手机 苹果用户哭瞎";
         _contentlab.font = [UIFont systemFontOfSize:13];
         _contentlab.textColor = [UIColor colorWithHexString:@"333333"];
         
@@ -123,11 +125,19 @@
         _timelab = [[UILabel alloc] init];
         _timelab.font = [UIFont systemFontOfSize:12];
         _timelab.textColor = [UIColor colorWithHexString:@"999999"];
-        NSString *str = @"1502850707";
-        NSInteger inter = [str intValue];
-        _timelab.text = [self timestampSwitchTime:inter andFormatter:@"YYYY-MM-dd hh:mm:ss"];
+      
     }
     return _timelab;
+}
+
+-(void)setdata:(systemModel *)model
+{
+    self.smodel = model;
+    self.contentlab.text = model.push_content;
+    NSString *str = model.push_addtime;
+    NSInteger inter = [str intValue];
+    _timelab.text = [self timestampSwitchTime:inter andFormatter:@"YYYY-MM-dd hh:mm:ss"];
+
 }
 
 #pragma mark - 将某个时间戳转化成 时间
