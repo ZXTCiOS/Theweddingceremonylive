@@ -56,11 +56,12 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.roomid = @"11168034";
+    [self setup];
     [self liveplayer];
     [self placeholderView];
     [self configMaskview];
     [self addNotification];
-    [self setup];
+    [self enterChatroom];
     
 }
 

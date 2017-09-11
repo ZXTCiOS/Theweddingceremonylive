@@ -307,7 +307,7 @@
         [[NIMSDK sharedSDK].chatManager resendMessage:message error:&err];
         //NSLog(@"error %@", error);
     } else {
-        //NSLog(@"message %@", message);
+        NSLog(@"message %@", message);
     }
 }
 
