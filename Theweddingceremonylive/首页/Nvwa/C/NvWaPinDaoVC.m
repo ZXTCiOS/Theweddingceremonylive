@@ -42,15 +42,24 @@
     [self configHeaderView];
 }
 
-- (void)viewWillAppear:(BOOL)animated{
+-(void)viewWillAppear:(BOOL)animated
+{
     [super viewWillAppear:animated];
+    [self.tabBarController.tabBar setHidden:YES];
     [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 
-- (void)viewDidDisappear:(BOOL)animated{
-    [super viewDidDisappear:animated];
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
+
+    [self.tabBarController.tabBar setHidden:NO];
 }
+
+//- (void)viewDidDisappear:(BOOL)animated{
+//    [super viewDidDisappear:animated];
+//}
 
 - (void)configHeaderView{
     if (self.header) {

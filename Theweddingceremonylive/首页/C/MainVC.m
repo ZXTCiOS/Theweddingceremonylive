@@ -28,6 +28,8 @@
 #import "WeddingLiveVC.h"
 #import "WMPlayerVC.h"
 
+#import "shopdetalisVC.h"
+
 @interface MainVC ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, BannerViewDelegate, BannerViewDataSource>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -77,7 +79,7 @@
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    
+    [self.tabBarController.tabBar setHidden:NO];
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
@@ -245,8 +247,10 @@
             break;
         case 2:{
             TuiJianModel *model = self.business[indexPath.row];
-            WKWedViewController *web = [[WKWedViewController alloc] initWithTitle:model.name Url:[NSURL URLWithString:model.busin_url]];
-            [self.navigationController pushViewController:web animated:YES];
+//            WKWedViewController *web = [[WKWedViewController alloc] initWithTitle:model.name Url:[NSURL URLWithString:model.busin_url]];
+            shopdetalisVC *vc = [[shopdetalisVC alloc] init];
+            vc.businid = [NSString stringWithFormat:@"%ld",(long)model.ident];
+            [self.navigationController pushViewController:vc animated:YES];
         }
             break;
         default:
@@ -344,5 +348,16 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.navigationController.navigationBar setHidden:NO];
+    
+}
+
+
+
 
 @end

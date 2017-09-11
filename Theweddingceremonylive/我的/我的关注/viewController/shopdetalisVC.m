@@ -135,4 +135,25 @@ static NSString *shopdetaliscellidentfid2 = @"shopdetaliscellidentfid2";
     return 0;
 }
 
+#pragma mark - tabbar
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.tabBarController.tabBar setHidden:YES];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.tabBarController.tabBar setHidden:NO];
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+}
+
+
 @end
