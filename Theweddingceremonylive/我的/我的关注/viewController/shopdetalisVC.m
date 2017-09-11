@@ -67,6 +67,7 @@ static NSString *shopdetaliscellidentfid2 = @"shopdetaliscellidentfid2";
         _table = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH)];
         _table.dataSource = self;
         _table.delegate = self;
+        _table.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     return _table;
 }
@@ -76,7 +77,7 @@ static NSString *shopdetaliscellidentfid2 = @"shopdetaliscellidentfid2";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return 4;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -104,6 +105,12 @@ static NSString *shopdetaliscellidentfid2 = @"shopdetaliscellidentfid2";
         [cell setdata:self.datadic];
         return cell;
     }
+    if (indexPath.row==3) {
+        shopdetalisCell2 *cell = [tableView dequeueReusableCellWithIdentifier:shopdetaliscellidentfid2];
+        cell = [[shopdetalisCell2 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:shopdetaliscellidentfid2];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }
     return nil;
 }
 
@@ -121,6 +128,9 @@ static NSString *shopdetaliscellidentfid2 = @"shopdetaliscellidentfid2";
                             cellContentViewWidth:[UIScreen mainScreen].bounds.size.width
                                        tableView:tableView];
         
+    }
+    if (indexPath.row==3) {
+        return 200*HEIGHT_SCALE;
     }
     return 0;
 }
