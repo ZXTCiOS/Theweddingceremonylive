@@ -103,4 +103,7 @@
 
 //获取商机信息
 #define post_getbusininfo   @"/interface.php/Home/Index/getbusininfo"
+
+//意见反馈
+#define post_yijianfankui   @"/interface.php/Home/Yijian/yijian"
 #endif /* wangHeader_h */
