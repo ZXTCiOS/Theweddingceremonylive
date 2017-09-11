@@ -7,7 +7,8 @@
 //
 
 #import "PortraitFullViewController.h"
-
+#import <NIMSDK/NIMSDK.h>
+#import <NIMAVChat/NIMAVChat.h>
 
 // model
 
@@ -23,24 +24,19 @@
 
 #define urls @"rtmp://ve266c7be.live.126.net/live/5f581cb50c724380bd08788abe7b0f9d" // rtmp
 
-//#define urls @"rtmp://live.hkstv.hk.lxdns.com/live/hks" // RTMP
-
 
 @interface PortraitFullViewController ()<UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
 
 
-@property (nonatomic, strong) UIScrollView *maskview;// 遮罩层
+@property (nonatomic, strong) UIScrollView *maskview;               // 遮罩层
+@property (nonatomic) UIImageView *placeholderView;                 // 模糊图片
 
-@property (nonatomic) UIImageView *placeholderView; // 模糊图片
-
-
-@property(nonatomic, strong) id<NELivePlayer> liveplayer; // 网易云播放器
+@property(nonatomic, strong) id<NELivePlayer> liveplayer;           // 网易云播放器
 @property (nonatomic, copy) NSString *url;
 @property (nonatomic, copy) NSString *roomid;
 
-@property (nonatomic, strong) PortraitChatView *chatView; // 聊天框
-
-@property (nonatomic, strong) PortraitAudienceView *audienceView; // 观众 view
+@property (nonatomic, strong) PortraitChatView *chatView;           // 聊天框
+@property (nonatomic, strong) PortraitAudienceView *audienceView;   // 观众 view
 
 
 
@@ -51,7 +47,16 @@
 
 
 
-
+- (void)enterChatroom{
+    NIMChatroomEnterRequest *request = [[NIMChatroomEnterRequest alloc] init];
+    request.roomId = @"11168034";//self.roomid;
+    request.roomExt = @"ext";
+    request.roomNotifyExt = @"";
+    request.retryCount = 5;
+    [[NIMSDK sharedSDK].chatroomManager enterChatroom:request completion:^(NSError * _Nullable error, NIMChatroom * _Nullable chatroom, NIMChatroomMember * _Nullable me) {
+        NSLog(@"errow %@", error);
+    }];
+}
 
 - (void)configPlayer{
     

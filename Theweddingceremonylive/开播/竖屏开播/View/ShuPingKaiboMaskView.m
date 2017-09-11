@@ -27,9 +27,8 @@
     self.icon.layer.cornerRadius = 25;
     self.icon.layer.masksToBounds = YES;
     
-    
-    
-    
+    self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
 }
 

@@ -20,6 +20,9 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
+// 底部 button
 @property (weak, nonatomic) IBOutlet UIButton *closeBen;
 
 @property (weak, nonatomic) IBOutlet UIButton *redbagBtn;
@@ -28,10 +31,18 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *sendMsgBtn;
 
-@property (weak, nonatomic) IBOutlet UIImageView *bgImgV;
+@property (weak, nonatomic) IBOutlet UIButton *jingyinBtn;
 
+@property (weak, nonatomic) IBOutlet UIButton *isBack;
 
+// 输入框
+@property (weak, nonatomic) IBOutlet UITextField *textField;
 
+@property (weak, nonatomic) IBOutlet UIButton *send;
+
+@property (weak, nonatomic) IBOutlet UIView *textFView;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *textViewBottemConstraint;
 
 
 
