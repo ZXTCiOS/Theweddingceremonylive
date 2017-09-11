@@ -95,6 +95,11 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
 
+- (void)dealloc{
+    [[NIMAVChatSDK sharedSDK].netCallManager removeDelegate:self];
+    [[NIMSDK sharedSDK].chatManager removeDelegate:self];
+    [[NIMSDK sharedSDK].chatroomManager removeDelegate:self];
+}
 
 - (void)setUpsth
 {
@@ -104,6 +109,8 @@
     [[UIApplication sharedApplication] setIdleTimerDisabled: YES];
     self.view.backgroundColor = UIColorHex(0xdfe2e6);
     [[NIMAVChatSDK sharedSDK].netCallManager addDelegate:self];
+    [[NIMSDK sharedSDK].chatManager addDelegate:self];
+    [[NIMSDK sharedSDK].chatroomManager addDelegate:self];
 }
 
 #pragma mark - mask view
@@ -298,9 +305,9 @@
     if (error) {
         NSError *err;
         [[NIMSDK sharedSDK].chatManager resendMessage:message error:&err];
-        NSLog(@"error %@", error);
+        //NSLog(@"error %@", error);
     } else {
-        NSLog(@"message %@", message);
+        //NSLog(@"message %@", message);
     }
 }
 
@@ -326,7 +333,7 @@
     self.meeting.name = @"xixi";//[userDefault objectForKey:user_uid]; // 使用 UID 作为互动直播间 name.
     [[NIMAVChatSDK sharedSDK].netCallManager reserveMeeting:self.meeting completion:^(NIMNetCallMeeting * _Nonnull meeting, NSError * _Nonnull error) {
         NSLog(@" reserve meeting error %@", error);
-        if (!error) NSLog(@"-------创建 metting 成功------  meeting: %@", meeting);
+        //if (!error) NSLog(@"-------创建 metting 成功------  meeting: %@", meeting);
     }];
 }
 
@@ -366,7 +373,7 @@
     self.meeting.actor = YES;
     [[NIMAVChatSDK sharedSDK].netCallManager joinMeeting:self.meeting completion:^(NIMNetCallMeeting * _Nonnull meeting, NSError * _Nonnull error) {
         NSLog(@"join error %@", error);
-        if (!error) NSLog(@"-------加入 metting 成功------  meeting: %@", meeting);
+        //if (!error) NSLog(@"-------加入 metting 成功------  meeting: %@", meeting);
     }];
 }
 

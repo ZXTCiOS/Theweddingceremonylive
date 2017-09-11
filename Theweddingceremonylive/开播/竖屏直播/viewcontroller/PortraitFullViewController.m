@@ -65,7 +65,9 @@
 }
 
 - (void)setup{
-    
+    [[NIMAVChatSDK sharedSDK].netCallManager addDelegate:self];
+    [[NIMSDK sharedSDK].chatManager addDelegate:self];
+    [[NIMSDK sharedSDK].chatroomManager addDelegate:self];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -121,6 +123,10 @@
     [[NSNotificationCenter defaultCenter]removeObserver:self name:NELivePlayerVideoParseErrorNotification object:_liveplayer];
     [[NSNotificationCenter defaultCenter]removeObserver:self name:NELivePlayerPlaybackStateChangedNotification object:_liveplayer];
     [[NSNotificationCenter defaultCenter]removeObserver:self name:NELivePlayerMoviePlayerSeekCompletedNotification object:_liveplayer];
+    
+    [[NIMAVChatSDK sharedSDK].netCallManager removeDelegate:self];
+    [[NIMSDK sharedSDK].chatManager removeDelegate:self];
+    [[NIMSDK sharedSDK].chatroomManager removeDelegate:self];
 }
 
 
