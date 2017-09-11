@@ -29,7 +29,7 @@
 #define cellID_text @"text"
 #define cellID_audience @"audience"
 
-@interface PortraitFullViewController ()<UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, NIMChatroomManagerDelegate>
+@interface PortraitFullViewController ()<UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, NIMChatroomManagerDelegate, NIMChatManagerDelegate>
 
 
 @property (nonatomic, strong) UIScrollView *scrollV;               // 遮罩层
@@ -60,9 +60,13 @@
     [self placeholderView];
     [self configMaskview];
     [self addNotification];
+    [self setup];
+    
 }
 
-
+- (void)setup{
+    
+}
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -153,13 +157,13 @@
     self.maskview.textField.inputAccessoryView = [UIView new];
     self.maskview.tableView.tableFooterView = [UIView new];
     self.maskview.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.maskview.tableView.delegate = self;
-    self.maskview.tableView.dataSource = self;
-    [self registerCell];
-    self.maskview.collectionView.delegate = self;
-    self.maskview.collectionView.dataSource = self;
     self.tableView = self.maskview.tableView;
     self.collectionView = self.maskview.collectionView;
+    [self registerCell];
+    self.maskview.tableView.delegate = self;
+    self.maskview.tableView.dataSource = self;
+    self.maskview.collectionView.delegate = self;
+    self.maskview.collectionView.dataSource = self;
     [self.scrollV addSubview:self.maskview];
     self.automaticallyAdjustsScrollViewInsets = NO;
     
