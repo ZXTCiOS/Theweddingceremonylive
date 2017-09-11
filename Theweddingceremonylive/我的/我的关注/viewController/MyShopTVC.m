@@ -9,6 +9,7 @@
 #import "MyShopTVC.h"
 #import "MyshopCell.h"
 #import "myshopModel.h"
+#import "shopdetalisVC.h"
 
 @interface MyShopTVC ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,mysubmitVdelegate>
 @property (strong,nonatomic) UICollectionView *myCollectionV;
@@ -126,7 +127,10 @@ static NSString *indentify =  @"indentify";
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"%ld",indexPath.row);
-
+    shopdetalisVC *vc = [[shopdetalisVC alloc] init];
+    myshopModel *model = self.dataSource[indexPath.row];
+    vc.businid = model.shopid;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void)submitbtnClick:(UICollectionViewCell *)cell

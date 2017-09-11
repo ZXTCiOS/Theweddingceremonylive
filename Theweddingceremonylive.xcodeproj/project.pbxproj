@@ -197,6 +197,10 @@
 		533ACE431F4AEB2600F66A78 /* myshopModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 533ACE421F4AEB2600F66A78 /* myshopModel.m */; };
 		533D6CCD1F626FA100655B83 /* QRcodeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 533D6CCC1F626FA100655B83 /* QRcodeTool.m */; };
 		533D6D381F63DC0200655B83 /* MBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 533D6D371F63DC0200655B83 /* MBManager.m */; };
+		533D6D5D1F66386C00655B83 /* shopdetalisVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 533D6D5C1F66386C00655B83 /* shopdetalisVC.m */; };
+		533D6D601F663CE300655B83 /* shopdetalisCell0.m in Sources */ = {isa = PBXBuildFile; fileRef = 533D6D5F1F663CE300655B83 /* shopdetalisCell0.m */; };
+		533D6D631F664F7300655B83 /* shopdetalisCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 533D6D621F664F7300655B83 /* shopdetalisCell1.m */; };
+		533D6D661F664F8800655B83 /* shopdetalisCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 533D6D651F664F8800655B83 /* shopdetalisCell2.m */; };
 		536D54D31F4FFFC000A54749 /* detalisCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 536D54D21F4FFFC000A54749 /* detalisCell2.m */; };
 		536D54D61F500B0600A54749 /* predetermindCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 536D54D51F500B0600A54749 /* predetermindCell.m */; };
 		536D54D91F50177500A54749 /* predeterheadView0.m in Sources */ = {isa = PBXBuildFile; fileRef = 536D54D81F50177500A54749 /* predeterheadView0.m */; };
@@ -696,6 +700,14 @@
 		533D6CCC1F626FA100655B83 /* QRcodeTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRcodeTool.m; sourceTree = "<group>"; };
 		533D6D361F63DC0200655B83 /* MBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBManager.h; sourceTree = "<group>"; };
 		533D6D371F63DC0200655B83 /* MBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBManager.m; sourceTree = "<group>"; };
+		533D6D5B1F66386C00655B83 /* shopdetalisVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shopdetalisVC.h; sourceTree = "<group>"; };
+		533D6D5C1F66386C00655B83 /* shopdetalisVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = shopdetalisVC.m; sourceTree = "<group>"; };
+		533D6D5E1F663CE300655B83 /* shopdetalisCell0.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = shopdetalisCell0.h; path = "Theweddingceremonylive/我的/我的关注/viewController/shopdetalisCell0.h"; sourceTree = SOURCE_ROOT; };
+		533D6D5F1F663CE300655B83 /* shopdetalisCell0.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = shopdetalisCell0.m; path = "Theweddingceremonylive/我的/我的关注/viewController/shopdetalisCell0.m"; sourceTree = SOURCE_ROOT; };
+		533D6D611F664F7300655B83 /* shopdetalisCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = shopdetalisCell1.h; path = "Theweddingceremonylive/我的/我的关注/viewController/shopdetalisCell1.h"; sourceTree = SOURCE_ROOT; };
+		533D6D621F664F7300655B83 /* shopdetalisCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = shopdetalisCell1.m; path = "Theweddingceremonylive/我的/我的关注/viewController/shopdetalisCell1.m"; sourceTree = SOURCE_ROOT; };
+		533D6D641F664F8800655B83 /* shopdetalisCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = shopdetalisCell2.h; path = "Theweddingceremonylive/我的/我的关注/viewController/shopdetalisCell2.h"; sourceTree = SOURCE_ROOT; };
+		533D6D651F664F8800655B83 /* shopdetalisCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = shopdetalisCell2.m; path = "Theweddingceremonylive/我的/我的关注/viewController/shopdetalisCell2.m"; sourceTree = SOURCE_ROOT; };
 		536D54D11F4FFFC000A54749 /* detalisCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = detalisCell2.h; path = "Theweddingceremonylive/开播/C/detalisCell2.h"; sourceTree = SOURCE_ROOT; };
 		536D54D21F4FFFC000A54749 /* detalisCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = detalisCell2.m; path = "Theweddingceremonylive/开播/C/detalisCell2.m"; sourceTree = SOURCE_ROOT; };
 		536D54D41F500B0600A54749 /* predetermindCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = predetermindCell.h; path = "Theweddingceremonylive/开播/C/predetermindCell.h"; sourceTree = SOURCE_ROOT; };
@@ -1194,6 +1206,12 @@
 			children = (
 				530299501F442E09004BC03A /* MyshopCell.h */,
 				530299511F442E09004BC03A /* MyshopCell.m */,
+				533D6D5E1F663CE300655B83 /* shopdetalisCell0.h */,
+				533D6D5F1F663CE300655B83 /* shopdetalisCell0.m */,
+				533D6D611F664F7300655B83 /* shopdetalisCell1.h */,
+				533D6D621F664F7300655B83 /* shopdetalisCell1.m */,
+				533D6D641F664F8800655B83 /* shopdetalisCell2.h */,
+				533D6D651F664F8800655B83 /* shopdetalisCell2.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1203,6 +1221,8 @@
 			children = (
 				188038DC1F3EAB9B00A2B4AE /* MyShopTVC.h */,
 				188038DD1F3EAB9B00A2B4AE /* MyShopTVC.m */,
+				533D6D5B1F66386C00655B83 /* shopdetalisVC.h */,
+				533D6D5C1F66386C00655B83 /* shopdetalisVC.m */,
 			);
 			path = viewController;
 			sourceTree = "<group>";
@@ -2976,9 +2996,17 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Theweddingceremonylive/Pods-Theweddingceremonylive-resources.sh",
+				"${PODS_ROOT}/CLPlayer/CLPlayer/Resource/CLPlayer.bundle",
+				"${PODS_ROOT}/CYTabBar/CYTabBar/CYTabBar.bundle",
+				"${PODS_ROOT}/HXWeiboPhotoPicker/微博照片选择/HXWeiboPhotoPicker/HXWeiboPhotoPicker.bundle",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/YJBannerView/YJBannerView/Resource/YJBannerView.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -3006,13 +3034,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TheweddingceremonyliveUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		60072A67C888A9DF08926AC9 /* [CP] Check Pods Manifest.lock */ = {
@@ -3021,13 +3052,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TheweddingceremonyliveTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DFE887C666D2A9EFCBA0B53E /* [CP] Embed Pods Frameworks */ = {
@@ -3051,13 +3085,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Theweddingceremonylive-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD32DC05B49205C25C041CB9 /* [CP] Embed Pods Frameworks */ = {
@@ -3169,6 +3206,7 @@
 				53FCA45C1F418689001780F7 /* MBProgressHUD+XMG.m in Sources */,
 				53D02F841F3BF68000CD504C /* LCTabBarButton.m in Sources */,
 				53CC9AAF1F57F78B0077CCF6 /* guanyuusVC.m in Sources */,
+				533D6D601F663CE300655B83 /* shopdetalisCell0.m in Sources */,
 				18FE23381F4EC42C0088D3BF /* HYBLoopScrollView.m in Sources */,
 				531C05651F5E899700C235FA /* orderdetalisCell.m in Sources */,
 				1831DBD41F4D281B00155691 /* NvWaCell.m in Sources */,
@@ -3245,6 +3283,7 @@
 				533D6D381F63DC0200655B83 /* MBManager.m in Sources */,
 				530299521F442E09004BC03A /* MyshopCell.m in Sources */,
 				18F937601F58076500B267C0 /* HorizontalPushVCViewController.m in Sources */,
+				533D6D661F664F8800655B83 /* shopdetalisCell2.m in Sources */,
 				188039031F3EAB9B00A2B4AE /* MyGiftTVC.m in Sources */,
 				18FE5D911F4AD95300C5A3CF /* MainHeaderView.m in Sources */,
 				533ACC8C1F46D66E00F66A78 /* addressVC.m in Sources */,
@@ -3263,6 +3302,7 @@
 				53D85CB71F51252500EF0555 /* YUDatePicker.m in Sources */,
 				533ACC8F1F46D96F00F66A78 /* bbsCell.m in Sources */,
 				531C055C1F5D486200C235FA /* zhifuView.m in Sources */,
+				533D6D631F664F7300655B83 /* shopdetalisCell1.m in Sources */,
 				1831DBCB1F4D268D00155691 /* BaseTableViewController.m in Sources */,
 				5303E3EF1F3EFBBE00AB0AF2 /* forgetViewController.m in Sources */,
 				184A78791F53B96300EACCE1 /* WeddingLivingCell.m in Sources */,
@@ -3276,6 +3316,7 @@
 				53D02F3F1F3B1B5600CD504C /* main.m in Sources */,
 				533ACCF71F4A7BE500F66A78 /* LLQImageViewController.m in Sources */,
 				53B68E4A1F4E6F4A00674A2B /* realCell.m in Sources */,
+				533D6D5D1F66386C00655B83 /* shopdetalisVC.m in Sources */,
 				53FCA4551F41758C001780F7 /* BDImagePicker.m in Sources */,
 				533ACE431F4AEB2600F66A78 /* myshopModel.m in Sources */,
 				53D02FA61F3BFB3000CD504C /* BBSVC.m in Sources */,

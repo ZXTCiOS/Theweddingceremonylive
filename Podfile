@@ -25,6 +25,7 @@ pod 'NinaPagerView'
 pod 'LKSegmentBar'
 pod 'HXWeiboPhotoPicker'
 pod 'JPush'
+pod 'CLPlayer'
   # Pods for Theweddingceremonylive
 
   target 'TheweddingceremonyliveTests' do

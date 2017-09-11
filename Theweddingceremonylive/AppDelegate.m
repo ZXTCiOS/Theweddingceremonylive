@@ -101,8 +101,6 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     NSDictionary * userInfo = response.notification.request.content.userInfo;
     if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
         [JPUSHService handleRemoteNotification:userInfo];
-        
-        
     }
     completionHandler();  // 系统要求执行这个方法
     NSLog(@"尼玛的推送消息呢===%@",userInfo);

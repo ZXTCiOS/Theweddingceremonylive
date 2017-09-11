@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>CLPlayer.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>CYTabBar.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -132,12 +137,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5437890023F30CA85DFCA260CA914D48</key>
+		<key>2B21D2A821196F83A42092A243E13BEF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>54CDFD1DB9035F3A4AAB707BE0C56034</key>
+		<key>5437890023F30CA85DFCA260CA914D48</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -157,6 +162,16 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>6899CA97ED3851C548218C82B79E2732</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7755980D98AA911632A52A6B16C20C85</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>78008CABA72FDF0D53FB3E0FDD5D35B3</key>
 		<dict>
 			<key>primary</key>
@@ -172,27 +187,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>90DD112B62A44A0CD737719AC22AF54C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9B15E13B3F4A94D1A36401215566D586</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9DC8D9E02903E93BD0B2FEC9D846EA20</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>9E033EDB5EC0819481B0546434FA577B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B66432E3F9D1139DC8F35D07107C9211</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -202,12 +197,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CAEECFE6149BDE6E543409DD4EEBF726</key>
+		<key>CF54A9FC68FEF355D91684D897E4697F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FE51B6D542F8A6E948618585FD5B1A7C</key>
+		<key>D8F2CEE33014E260C3D674AE5F395F65</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E3DD875AE78689ED81D0CDE108F60857</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E74F26D6C6E7CACD63CDFFEE74858B53</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FDF912303658AC798E54C24B60B2600B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

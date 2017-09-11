@@ -29,6 +29,8 @@ PODS:
   - BlocksKit/UIKit (2.2.5):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
+  - CLPlayer (1.1.1):
+    - Masonry
   - CYTabBar (1.2.0)
   - DZNEmptyDataSet (1.8.1)
   - HXWeiboPhotoPicker (2.0.5):
@@ -57,6 +59,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - BlocksKit
+  - CLPlayer
   - CYTabBar
   - DZNEmptyDataSet
   - HXWeiboPhotoPicker
@@ -78,6 +81,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
+  CLPlayer: 01be34f37a4bfef333c6b4ba33be81782576563e
   CYTabBar: 48d415fb61d9d24fef9342e1941c1627be5d81d2
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   HXWeiboPhotoPicker: 72a153db2a3fb7b812dd9da09aa6d462c88bdf60
@@ -97,6 +101,6 @@ SPEC CHECKSUMS:
   YJBannerView: 941917badacfe43f3c2a0a6934e7bc7350e584e9
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 89f3161d3b46fcc5f0052d05ff939ec48e5b7e03
+PODFILE CHECKSUM: beb88c0953d2d43b769465e747cee5d684971ef3
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.3.1
