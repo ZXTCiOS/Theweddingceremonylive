@@ -69,6 +69,14 @@
     else
     {
         NSString *content = self.contentText.text;
+        NSDictionary *para = @{@"uid":uid,@"token":token,@"content":content};
+        [DNNetworking postWithURLString:post_yijianfankui parameters:para success:^(id obj) {
+            NSString *msg = [obj objectForKey:@"msg"];
+            [MBProgressHUD showSuccess:msg];
+            
+        } failure:^(NSError *error) {
+            [MBProgressHUD showSuccess:@"网络错误"];
+        }];
         
     }
 }
