@@ -35,22 +35,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Theweddingceremonylive/AppDelegate.m"
-            timestampString = "526358113.378785"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
-            landmarkName = "-autoLogin"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Theweddingceremonylive/&#x767b;&#x5f55;&#x6ce8;&#x518c;/C/logupViewController.m"
             timestampString = "526358840.252211"
             startingColumnNumber = "9223372036854775807"
@@ -115,12 +99,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Theweddingceremonylive/&#x5f00;&#x64ad;/&#x7ad6;&#x5c4f;&#x5f00;&#x64ad;/ViewController/HorizontalPushVCViewController.m"
-            timestampString = "526812520.572597"
+            filePath = "Theweddingceremonylive/&#x5f00;&#x64ad;/&#x7ad6;&#x5c4f;&#x76f4;&#x64ad;/viewcontroller/PortraitFullViewController.m"
+            timestampString = "526814286.500824"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "285"
-            endingLineNumber = "285"
+            startingLineNumber = "323"
+            endingLineNumber = "323"
             landmarkName = "-onRecvMessages:"
             landmarkType = "7">
          </BreakpointContent>
@@ -131,12 +115,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Theweddingceremonylive/&#x5f00;&#x64ad;/&#x7ad6;&#x5c4f;&#x76f4;&#x64ad;/viewcontroller/PortraitFullViewController.m"
-            timestampString = "526812520.572597"
+            filePath = "Theweddingceremonylive/&#x5f00;&#x64ad;/&#x7ad6;&#x5c4f;&#x5f00;&#x64ad;/ViewController/HorizontalPushVCViewController.m"
+            timestampString = "526813193.588237"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "319"
-            endingLineNumber = "319"
+            startingLineNumber = "289"
+            endingLineNumber = "289"
             landmarkName = "-onRecvMessages:"
             landmarkType = "7">
          </BreakpointContent>
