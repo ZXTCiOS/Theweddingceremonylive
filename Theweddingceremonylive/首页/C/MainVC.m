@@ -71,6 +71,7 @@
         NSString *cardName = @"扫码地址";
         UIImage *avatar = [UIImage imageNamed:@"avatar"];
         // 实例化扫描控制器
+        
         HMScannerController *scanner = [HMScannerController scannerWithCardName:cardName avatar:avatar completion:^(NSString *stringValue) {
             NSLog(@"str------%@",stringValue);
             
