@@ -312,12 +312,12 @@
 
 - (void)enterChatroom{
     NIMChatroomEnterRequest *request = [[NIMChatroomEnterRequest alloc] init];
-    request.roomId = self.roomid;//self.roomid;
+    request.roomId = self.roomid;
     request.roomExt = @"ext";
     request.roomNotifyExt = @"";
     request.retryCount = 5;
     [[NIMSDK sharedSDK].chatroomManager enterChatroom:request completion:^(NSError * _Nullable error, NIMChatroom * _Nullable chatroom, NIMChatroomMember * _Nullable me) {
-        NSLog(@"errow %@", error);
+        if (!error) NSLog(@"进入聊天室成功");
     }];
 }
 
@@ -328,7 +328,7 @@
         [[NIMSDK sharedSDK].chatManager resendMessage:message error:&err];
         NSLog(@"error %@", error);
     } else {
-        NSLog(@"message %@", message);
+        //NSLog(@"message %@", message);
     }
 }
 
@@ -512,9 +512,8 @@
         {
             alertController = [UIAlertController alertControllerWithTitle:@"注意" message:@"播放失败" preferredStyle:UIAlertControllerStyleAlert];
             action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
-                if (self.presentingViewController) {
-                    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-                }
+                
+                [self.liveplayer switchContentUrl:[NSURL URLWithString:urls]];
             }];
             [alertController addAction:action];
             [self presentViewController:alertController animated:YES completion:nil];
