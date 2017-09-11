@@ -23,7 +23,7 @@
 #define cellID_text @"text"
 #define cellID_audience @"audience"
 
-@interface HorizontalPushVCViewController ()<NIMNetCallManagerDelegate, NIMChatroomManagerDelegate,NIMChatManagerDelegate , UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface HorizontalPushVCViewController ()<NIMNetCallManagerDelegate, NIMChatroomManagerDelegate, NIMChatManagerDelegate, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) UIView *localPreView;
 @property (nonatomic, strong) ShuPingKaiboMaskView *maskview;
@@ -49,7 +49,7 @@
 #pragma mark - life cycle 生命周期
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.roomid = @"11168034";
     
     [self setUpsth];
     // 创建直播间
@@ -155,8 +155,10 @@
         NSString *text = self.maskview.textField.text;
         NIMMessage *msg = [[NIMMessage alloc] init];
         msg.text = text;
+        msg.from = @"昵称";
         NIMSession *session = [NIMSession session:self.roomid type:NIMSessionTypeChatroom];
-        [[NIMSDK sharedSDK].chatManager sendMessage:msg toSession:session error:nil];
+        NSError *error;
+        [[NIMSDK sharedSDK].chatManager sendMessage:msg toSession:session error:&error];
         if (self.danmulist.count > 50){
             [self.danmulist removeFirstObject];
         }
@@ -239,7 +241,7 @@
     return 8;
 }
 
-#pragma mark - 聊天室 delegate && datasourse
+#pragma mark - tableview delegate && datasourse
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
@@ -271,7 +273,7 @@
 - (void)enterChatroom{
     
     NIMChatroomEnterRequest *request = [[NIMChatroomEnterRequest alloc] init];
-    request.roomId = @"11168034";//self.roomid;
+    request.roomId = self.roomid;
     request.roomExt = @"ext";
     request.roomNotifyExt = @"";
     request.retryCount = 5;
@@ -289,6 +291,17 @@
     [self.danmulist addObjectsFromArray:messages];
     [self.maskview.tableView reloadData];
     if (self.danmulist.count > 5) [self.maskview.tableView scrollToBottom];
+}
+
+- (void)sendMessage:(NIMMessage *)message didCompleteWithError:(NSError *)error{
+    
+    if (error) {
+        NSError *err;
+        [[NIMSDK sharedSDK].chatManager resendMessage:message error:&err];
+        NSLog(@"error %@", error);
+    } else {
+        NSLog(@"message %@", message);
+    }
 }
 
 // 聊天室连接状态

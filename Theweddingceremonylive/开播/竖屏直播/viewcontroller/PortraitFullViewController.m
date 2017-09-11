@@ -29,7 +29,7 @@
 #define cellID_text @"text"
 #define cellID_audience @"audience"
 
-@interface PortraitFullViewController ()<UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, NIMChatroomManagerDelegate, NIMChatManagerDelegate>
+@interface PortraitFullViewController ()<UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, NIMChatroomManagerDelegate, NIMChatManagerDelegate, NIMNetCallManagerDelegate>
 
 
 @property (nonatomic, strong) UIScrollView *scrollV;               // 遮罩层
@@ -312,6 +312,17 @@
     [[NIMSDK sharedSDK].chatroomManager enterChatroom:request completion:^(NSError * _Nullable error, NIMChatroom * _Nullable chatroom, NIMChatroomMember * _Nullable me) {
         NSLog(@"errow %@", error);
     }];
+}
+
+// 发送消息回调
+- (void)sendMessage:(NIMMessage *)message didCompleteWithError:(NSError *)error{
+    if (error) {
+        NSError *err;
+        [[NIMSDK sharedSDK].chatManager resendMessage:message error:&err];
+        NSLog(@"error %@", error);
+    } else {
+        NSLog(@"message %@", message);
+    }
 }
 
 // 收到聊天室消息
