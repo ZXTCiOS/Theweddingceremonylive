@@ -10,7 +10,7 @@
 // function
 #import <NIMSDK/NIMSDK.h>// 网易互动直播头文件
 #import <NIMAVChat/NIMAVChat.h>
-
+#import <IQKeyboardManager.h>
 // model
 
 // view
@@ -24,16 +24,18 @@
 @interface HorizontalPushVCViewController ()<NIMNetCallManagerDelegate, NIMChatroomManagerDelegate, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) UIView *localPreView;
+@property (nonatomic, strong) ShuPingKaiboMaskView *maskview;
+@property (nonatomic, strong) UIView *displayView;
+@property (nonatomic, strong) UIScrollView *scrollV;
 
 @property (nonatomic, strong) NIMNetCallMeeting *meeting;
-
-@property (nonatomic, strong) UIView *displayView;
-
 @property (nonatomic, copy)    NSString *roomid;
 
-@property (nonatomic, strong) ShuPingKaiboMaskView *maskview;
 @property (nonatomic, strong) NSMutableArray *audiencelist;
 @property (nonatomic, strong) NSMutableArray *danmulist;
+
+@property (nonatomic, assign) BOOL isMute;
+@property (nonatomic, assign) NIMNetCallCamera camera;
 
 
 
@@ -59,19 +61,23 @@
     // mask view
     [self configMaskview];
     
-    
-    
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
+    //关闭键盘相应
+    [IQKeyboardManager sharedManager].enable = NO;
+    [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = YES;
+    // 注册键盘弹出通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShowshow:) name: UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHidehide:) name: UIKeyboardWillHideNotification object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
+    
 }
 
 - (void) viewDidDisappear:(BOOL)animated{
@@ -81,11 +87,17 @@
     [[NIMSDK sharedSDK].chatroomManager exitChatroom:self.roomid completion:^(NSError * _Nullable error) {
         
     }];
+    [IQKeyboardManager sharedManager].enable = YES;
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
 
 
 - (void)setUpsth
 {
+    self.isMute = NO;
+    
     self.automaticallyAdjustsScrollViewInsets = NO;
     [[UIApplication sharedApplication] setIdleTimerDisabled: YES];
     self.view.backgroundColor = UIColorHex(0xdfe2e6);
@@ -100,11 +112,83 @@
     self.maskview.tableView.dataSource = self;
     self.maskview.collectionView.delegate = self;
     self.maskview.collectionView.dataSource = self;
-    UIScrollView *scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH)];
-    scroll.contentSize = CGSizeMake(kScreenW*2, kScreenH);
+    self.scrollV = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH)];
+    _scrollV.contentSize = CGSizeMake(kScreenW*2, kScreenH);
+    _scrollV.contentOffset = CGPointMake(kScreenW, 0);
+    _scrollV.bounces = NO;
+    _scrollV.pagingEnabled = YES;
+    self.scrollV.showsHorizontalScrollIndicator = NO;
+    self.scrollV.showsVerticalScrollIndicator = NO;
+    [self scrollviewBtnEvent];
     self.maskview.frame = CGRectMake(kScreenW, 0, kScreenW, kScreenH);
-    [scroll addSubview:self.maskview];
-    [self.view addSubview:scroll];
+    self.maskview.textField.inputAccessoryView = [UIView new];
+    [self.scrollV addSubview:self.maskview];
+    [self.view insertSubview:_scrollV atIndex:0];
+}
+
+- (void)scrollviewBtnEvent{
+    [self.maskview.closeBen bk_addEventHandler:^(id sender) {
+        [self.navigationController popViewControllerAnimated:YES];
+    } forControlEvents:UIControlEventTouchUpInside];
+    [self.maskview.redbagBtn bk_addEventHandler:^(id sender) {
+        // 红包
+    } forControlEvents:UIControlEventTouchUpInside];
+    [self.maskview.lianmaiBtn bk_addEventHandler:^(id sender) {
+        // 连麦
+    } forControlEvents:UIControlEventTouchUpInside];
+    [self.maskview.sendMsgBtn bk_addEventHandler:^(id sender) {
+        // 弹出键盘
+        [self.maskview.textField becomeFirstResponder];
+    } forControlEvents:UIControlEventTouchUpInside];
+    [self.maskview.send bk_addEventHandler:^(id sender) {
+        // 发送文字消息
+        NSString *text = self.maskview.textField.text;
+        NIMMessage *msg = [[NIMMessage alloc] init];
+        msg.text = text;
+        NIMSession *session = [NIMSession session:self.roomid type:NIMSessionTypeChatroom];
+        [[NIMSDK sharedSDK].chatManager sendMessage:msg toSession:session error:nil];
+        self.maskview.textField.text = @"";
+        [self.maskview.textField resignFirstResponder];
+    } forControlEvents:UIControlEventTouchUpInside];
+    [self.maskview.jingyinBtn bk_addEventHandler:^(id sender) {
+        self.isMute = !self.isMute;
+        [[NIMAVChatSDK sharedSDK].netCallManager setMute:self.isMute];
+        // todo: 更改静音按钮图片
+    } forControlEvents:UIControlEventTouchUpInside];
+    [self.maskview.isBack bk_addEventHandler:^(id sender) {
+        // 切换前后摄像头
+        self.camera = !self.camera;
+        [[NIMAVChatSDK sharedSDK].netCallManager switchCamera:self.camera];
+    } forControlEvents:UIControlEventTouchUpInside];
+    
+}
+
+- (void)keyboardWillShowshow:(NSNotification *) noti{
+    
+    NSDictionary *userInfo = [noti userInfo];
+    //NSLog(@"userinfo: %@", userInfo);
+    NSNumber *duration = [userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
+    NSNumber *curve = [userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey];
+    CGRect frame;
+    [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] getValue:&frame];
+    [UIView setAnimationCurve:[curve intValue]];
+    [UIView animateWithDuration:[duration floatValue] animations:^{
+        [self.view layoutIfNeeded];
+        self.maskview.textFView.frame = CGRectMake(0, frame.origin.y - 40, kScreenW, 40);
+        
+    }];
+}
+
+- (void)keyboardWillHidehide:(NSNotification *)noti{
+    NSDictionary *userInfo = [noti userInfo];
+    //NSLog(@"userinfo: %@", userInfo);
+    NSNumber *duration = [userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
+    NSNumber *curve = [userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey];
+    [UIView setAnimationCurve:[curve intValue]];
+    [UIView animateWithDuration:[duration floatValue] animations:^{
+        self.maskview.textFView.frame = CGRectMake(0, kScreenH, kScreenW, 40);
+        [self.view layoutIfNeeded];
+    }];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
@@ -163,12 +247,12 @@
 - (void)enterChatroom{
     
     NIMChatroomEnterRequest *request = [[NIMChatroomEnterRequest alloc] init];
-    request.roomId = self.roomid;
-    request.roomExt = @"";
+    request.roomId = @"11168034";//self.roomid;
+    request.roomExt = @"ext";
     request.roomNotifyExt = @"";
     request.retryCount = 5;
     [[NIMSDK sharedSDK].chatroomManager enterChatroom:request completion:^(NSError * _Nullable error, NIMChatroom * _Nullable chatroom, NIMChatroomMember * _Nullable me) {
-        
+        NSLog(@"进入聊天室成功 roomID: %@", chatroom.roomId);
     }];
 }
 
@@ -185,13 +269,6 @@
 - (void)chatroom:(NSString *)roomId beKicked:(NIMChatroomKickReason)reason{
     
 }
-
-
-
-
-
-
-
 
 #pragma mark - NIMNetCallManager   互动直播接口
 
@@ -216,7 +293,7 @@
     option.bypassStreamingUrl = @"rtmp://pe266c7be.live.126.net/live/5f581cb50c724380bd08788abe7b0f9d?wsSecret=73e4d9a846fbadd56eccb1b5c90a3ab7&wsTime=1504859570";
      option.videoCaptureParam = [self para];
     // 开启该选项，以在远端设备旋转时在本端自动调整角度
-    option.autoRotateRemoteVideo = YES;
+    option.autoRotateRemoteVideo = NO;
     // 编码器
     option.preferredVideoEncoder = NIMNetCallVideoCodecDefault;
     // 解码器
@@ -235,19 +312,9 @@
     option.bypassStreamingServerRecording = YES;
     // 扩展消息
     option.extendMessage = @"扩展消息";
-    /**
-     混屏模式:
-     右侧纵排浮窗
-     左侧纵排浮窗；
-     四分格平铺；
-     四分格裁剪平铺。
-     */
-    option.bypassStreamingVideoMixMode = NIMNetCallVideoMixModeCustomLayout;
     
-    /**
-     混屏自定义布局
-     */
-    option.bypassStreamingVideoMixCustomLayoutConfig = @"";
+    option.bypassStreamingVideoMixMode = 0;//NIMNetCallVideoMixModeCustomLayout;
+    //option.bypassStreamingVideoMixCustomLayoutConfig = @"";
     self.meeting.actor = YES;
     [[NIMAVChatSDK sharedSDK].netCallManager joinMeeting:self.meeting completion:^(NIMNetCallMeeting * _Nonnull meeting, NSError * _Nonnull error) {
         NSLog(@"join error %@", error);
@@ -261,49 +328,12 @@
     NIMNetCallVideoCaptureParam *para = [[NIMNetCallVideoCaptureParam alloc] init];
     para.format = 0;
     //默认是否是后置摄像头
-    para.startWithBackCamera = NO;
+    para.startWithBackCamera = YES;
+    self.camera = NIMNetCallCameraBack;
     para.startWithCameraOn = YES;
-    /*
-     *  默认方向
-    NIMVideoOrientationDefault             = 0,
-     *  垂直方向, home 键朝下
-     
-    NIMVideoOrientationPortrait            = 1,
-     *  垂直方向, home 键朝上
-    NIMVideoOrientationPortraitUpsideDown  = 2,
-     *  平方向, home 键在右边
-    NIMVideoOrientationLandscapeRight      = 3,
-     *  水平方向, home 键在左边
-    NIMVideoOrientationLandscapeLeft       = 4,
-     */
     para.videoCaptureOrientation = 0;
-    //para.videoCrop //裁剪16:9, 4:3, 1:1;
-    MJWeakSelf
-    para.videoHandler = ^(CMSampleBufferRef sampleBuffer){
-        [weakSelf processVideoSampleBuffer:sampleBuffer];
-    };
+    
     return para;
-}
-
-- (void)processVideoSampleBuffer:(CMSampleBufferRef)sampleBuffer{
-    CVPixelBufferRef pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
-    
-    size_t bufferWidth = 0;
-    size_t bufferHeight = 0;
-    
-    if (CVPixelBufferIsPlanar(pixelBuffer)) {
-        bufferHeight = CVPixelBufferGetHeightOfPlane(pixelBuffer, 0);
-        bufferWidth = CVPixelBufferGetWidthOfPlane(pixelBuffer, 0);
-    } else {
-        bufferWidth = CVPixelBufferGetWidth(pixelBuffer);
-        bufferHeight = CVPixelBufferGetHeight(pixelBuffer);
-    }
-    
-    [[NIMAVChatSDK sharedSDK].netCallManager sendVideoSampleBuffer:sampleBuffer];
-    // 水印
-    //[[NIMAVChatSDK sharedSDK].netCallManager addWaterMark:[UIImage imageNamed:@"uiimage"] rect:CGRectMake(0, 0, 0, 0) location:0];
-    // 清除水印
-    //[[NIMAVChatSDK sharedSDK].netCallManager cleanWaterMark];
 }
 
 
@@ -317,8 +347,7 @@
     }
     self.displayView = displayView;
     self.displayView.frame = CGRectMake(0, 0, kScreenW, kScreenH);
-    [self.view addSubview:self.displayView];
-    
+    [self.view insertSubview:self.displayView belowSubview:self.scrollV];
     // 默认美颜自然模式
     [[NIMAVChatSDK sharedSDK].netCallManager selectBeautifyType:NIMNetCallFilterTypeZiran];
 }
@@ -345,92 +374,8 @@
     
 }
 
-#pragma mark - 视频采集开始以后的动态控制
-
-// 动态设置视频采集方向
-- (BOOL)setVideoCaptureOrientation:(NIMVideoOrientation)orientation{
-    //orientation =
-    return YES;
-}
-
-// 采集方向切换完成后，SDK 通过以下回调通知应用：
-- (void)onCameraOrientationSwitchCompleted:(NIMVideoOrientation)orientation{
-    
-}
-
-//动态设置摄像头开关：
-- (BOOL)setCameraDisable:(BOOL)disable{
-    disable = !disable;
-    return YES;
-}
-
-//动态切换前后摄像头：
-- (void)switchCamera:(NIMNetCallCamera)camera{
-    
-}
-
-//摄像头切换完成后，SDK 通过以下回调通知应用：
-- (void)onCameraTypeSwitchCompleted:(NIMNetCallCamera)cameraType{
-    
-}
-
-//动态切换采集清晰度：
-- (BOOL)switchVideoQuality:(NIMNetCallVideoQuality)quality{
-    
-    return YES;
-}
-
-//清晰度切换完成后，SDK 通过以下回调通知应用：
-- (void)onCameraQualitySwitchCompleted:(NIMNetCallVideoQuality)videoQuality{
-    
-}
-
-//动态开关闪光灯：
-- (void)setCameraFlash:(BOOL)isFlashOn{
-    
-}
-
-//动态调节摄像头焦距，对画面进行放大缩小：
-- (void)changeLensPosition:(float)scale{
-    
-}
-
-//通过以下接口来获取摄像头最大放大倍数：
-- (CGFloat)getMaxZoomScale{
-    return 1;
-}
-
-//动态切换对焦模式：
-- (void)setFocusMode:(NIMNetCallFocusMode)mode{
-    
-}
-
-//当切换为手动对焦后，使用以下接口来传入对焦点，进行对焦：
-- (void)changeNMCVideoPreViewManualFocusPoint:(CGPoint)devicePoint{
-    
-}
 
 
-
-#pragma mark - 通话过程控制
-
-
-//设置静音...静音后对端将听不到本端的声音。
-- (BOOL)setMute:(BOOL)mute{
-    
-    return YES;
-}
-
-//设置扬声器...用于在扬声器和听筒间切换。
-- (BOOL)setSpeaker:(BOOL)useSpeaker{
-    
-    return YES;
-}
-
-//切换通话模式
-- (void)switchType:(NIMNetCallMediaType)type{
-    
-}
 
 #pragma mark - 通话中的编解码控制
 
