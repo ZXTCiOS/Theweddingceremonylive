@@ -8,6 +8,7 @@
 
 #import "SystemMessageTVC.h"
 #import "systemCell.h"
+#import "systemModel.h"
 
 @interface SystemMessageTVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
@@ -64,8 +65,21 @@ static NSString *systemcellidentfid = @"systencellidentfid";
     NSString *token = [defat objectForKey:user_token];
     NSDictionary *para = @{@"uid":uid,@"token":token};
     [DNNetworking postWithURLString:post_tuisongfankui parameters:para success:^(id obj) {
+        NSString *msg = [obj objectForKey:@"msg"];
+        [MBProgressHUD showSuccess:msg];
         if ([[obj objectForKey:@"code"] intValue]==1000) {
-            
+            NSArray *dataarr = [obj objectForKey:@"data"];
+            for (int i = 0; i<dataarr.count; i++) {
+                NSDictionary *dic = [dataarr objectAtIndex:i];
+                systemModel *model = [[systemModel alloc] init];
+                model.push_addtime = [dic objectForKey:@"push_addtime"];
+                model.push_title = [dic objectForKey:@"push_title"];
+                model.push_content = [dic objectForKey:@"push_content"];
+                model.push_id = [dic objectForKey:@"push_id"];
+                [self.dataSource addObject:model];
+                
+                [self.table reloadData];
+            }
         }
     } failure:^(NSError *error) {
         
@@ -99,6 +113,7 @@ static NSString *systemcellidentfid = @"systencellidentfid";
     systemCell *cell = [tableView dequeueReusableCellWithIdentifier:systemcellidentfid];
     cell = [[systemCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:systemcellidentfid];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    [cell setdata:self.dataSource[indexPath.row]];
     return cell;
 }
 
