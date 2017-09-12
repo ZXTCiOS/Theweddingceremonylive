@@ -22,7 +22,6 @@
     if (self) {
         [self addSubview:self.userImg];
         [self addSubview:self.nameLab];
-
         [self addSubview:self.line0];
         [self addSubview:self.line1];
         [self addSubview:self.btn0];
@@ -47,9 +46,8 @@
         make.left.equalTo(weakSelf).with.offset(14*WIDTH_SCALE);
         make.right.equalTo(weakSelf).with.offset(-14*WIDTH_SCALE);
         make.top.equalTo(weakSelf.userImg.mas_bottom).with.offset(20*HEIGHT_SCALE);
-        
+        make.height.mas_offset(20*HEIGHT_SCALE);
     }];
-    
 
     [self.btn0 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(weakSelf).with.offset(35*WIDTH_SCALE);
@@ -102,7 +100,7 @@
     return _userImg;
 }
 
--(UILabel *)nameLab1
+-(UILabel *)nameLab
 {
     if(!_nameLab)
     {

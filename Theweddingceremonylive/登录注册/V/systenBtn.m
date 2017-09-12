@@ -52,7 +52,7 @@
     }
     return _typeLab;
 }
-
+ 
 -(UIImageView *)redImg
 {
     if(!_redImg)
