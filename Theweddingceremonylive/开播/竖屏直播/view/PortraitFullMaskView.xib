@@ -286,6 +286,11 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TdC-HL-ddk">
+                    <rect key="frame" x="280" y="93" width="83" height="38"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="断开"/>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
@@ -318,6 +323,7 @@
                 <outlet property="collectionView" destination="VSm-1A-XSA" id="Isu-OW-i3q"/>
                 <outlet property="countL" destination="gZ8-tQ-7jx" id="A44-cj-2PK"/>
                 <outlet property="info" destination="23a-bp-w4C" id="ulu-eS-eGd"/>
+                <outlet property="leaveMeeting" destination="TdC-HL-ddk" id="Ons-z4-JFy"/>
                 <outlet property="send" destination="bUz-vM-T68" id="LfW-YG-dYX"/>
                 <outlet property="shareView" destination="YuL-HI-PxZ" id="W4h-U9-P6r"/>
                 <outlet property="tableView" destination="V9H-dR-8hb" id="vFi-a8-kgR"/>
@@ -327,7 +333,7 @@
                 <outlet property="user_img" destination="fUr-2N-aBm" id="48a-Lo-HKv"/>
                 <outlet property="user_name" destination="gbf-0P-To5" id="b5g-xf-fe4"/>
             </connections>
-            <point key="canvasLocation" x="-738.5" y="-479.5"/>
+            <point key="canvasLocation" x="-1052" y="-444"/>
         </view>
     </objects>
     <resources>

@@ -35,11 +35,16 @@
 @property (nonatomic, strong) UIScrollView *scrollV;               // 遮罩层
 @property (nonatomic, strong) PortraitFullMaskView *maskview;
 @property (nonatomic) UIImageView *placeholderView;                 // 模糊图片
+@property (nonatomic, strong) UIView *displayView;
+
 
 @property(nonatomic, strong) id<NELivePlayer> liveplayer;           // 网易云播放器
 @property (nonatomic, copy) NSString *url;
 @property (nonatomic, copy) NSString *roomid;
 @property (nonatomic, copy) NSString *roomName;
+@property (nonatomic, assign) NIMNetCallCamera camera;
+@property (nonatomic, strong) NIMNetCallMeeting *meeting;
+
 
 @property (nonatomic, strong) UITableView *tableView;           // 聊天框
 @property (nonatomic, strong) UICollectionView *collectionView;   // 观众 view
@@ -218,14 +223,7 @@
         [self.maskview.textField becomeFirstResponder];
     };
     view.second = ^(){//连麦 红包
-        NIMNetCallMeeting *meeting = [[NIMNetCallMeeting alloc] init];
-        meeting.name = self.roomName;
-        NIMNetCallOption *option = [[NIMNetCallOption alloc] init];
-        option.enableBypassStreaming = YES;
-        meeting.option = option;
-        [[NIMAVChatSDK sharedSDK].netCallManager joinMeeting:meeting completion:^(NIMNetCallMeeting * _Nonnull meeting, NSError * _Nonnull error) {
-            
-        }];
+        [self joinLianmai];
     };
     view.third = ^(){//礼物
         NSLog(@"3");
@@ -258,6 +256,106 @@
         
         
     };
+    [view.leaveMeeting bk_addEventHandler:^(id sender) {
+        // 连麦者主动离开直播间
+        [[NIMAVChatSDK sharedSDK].netCallManager leaveMeeting:self.meeting];
+        [[NIMAVChatSDK sharedSDK].netCallManager stopVideoCapture];
+        self.displayView = nil;
+        [self.liveplayer switchContentUrl:[NSURL URLWithString:self.url]];
+    } forControlEvents:UIControlEventTouchUpInside];
+}
+
+#pragma mark - 收到连麦消息  点击同意
+- (void)joinLianmai{
+    // 打开摄像头
+    [[NIMAVChatSDK sharedSDK].netCallManager startVideoCapture:[self para]];
+    [self joinMeeting];
+    [self.liveplayer stop];
+}
+
+// 加入互动直播间
+- (void)joinMeeting{
+    
+    // todo: 修改 option
+    NIMNetCallOption *option = [[NIMNetCallOption alloc] init];
+    self.meeting.option = option;
+    option.enableBypassStreaming = YES;
+    option.bypassStreamingUrl = @"rtmp://pe266c7be.live.126.net/live/5f581cb50c724380bd08788abe7b0f9d?wsSecret=73e4d9a846fbadd56eccb1b5c90a3ab7&wsTime=1504859570";
+    option.videoCaptureParam = [self para];
+    // 开启该选项，以在远端设备旋转时在本端自动调整角度
+    option.autoRotateRemoteVideo = NO;
+    // 编码器
+    option.preferredVideoEncoder = NIMNetCallVideoCodecDefault;
+    // 解码器
+    option.preferredVideoDecoder = NIMNetCallVideoCodecDefault;
+    // 最大编码 码率 不指定自动选择
+    //option.videoMaxEncodeBitrate
+    // 语音降噪
+    option.audioDenoise = YES;
+    // 人声检测
+    option.voiceDetect = NO;
+    // 服务器录制视频
+    option.serverRecordVideo = YES;
+    // 服务器录制音频
+    option.serverRecordAudio = YES;
+    // 服务器录制
+    option.bypassStreamingServerRecording = YES;
+    // 扩展消息
+    option.extendMessage = @"扩展消息";
+    
+    option.bypassStreamingVideoMixMode = 0;//NIMNetCallVideoMixModeCustomLayout;
+    //option.bypassStreamingVideoMixCustomLayoutConfig = @"";
+    self.meeting.actor = YES;
+    [[NIMAVChatSDK sharedSDK].netCallManager joinMeeting:self.meeting completion:^(NIMNetCallMeeting * _Nonnull meeting, NSError * _Nonnull error) {
+        NSLog(@"join error %@", error);
+        [[NIMAVChatSDK sharedSDK].netCallManager startVideoCapture:[self para]];
+        //if (!error) NSLog(@"-------加入 metting 成功------  meeting: %@", meeting);
+    }];
+}
+
+// 配置视频采集参数
+- (NIMNetCallVideoCaptureParam *)para{
+    NIMNetCallVideoCaptureParam *para = [[NIMNetCallVideoCaptureParam alloc] init];
+    para.format = 0;
+    //默认是否是后置摄像头
+    para.startWithBackCamera = YES;
+    self.camera = NIMNetCallCameraBack;
+    para.startWithCameraOn = YES;
+    para.videoCaptureOrientation = 0;
+    
+    return para;
+}
+
+- (void)onLocalDisplayviewReady:(UIView *)displayView{
+    if (self.displayView) {
+        [self.displayView removeFromSuperview];
+    }
+    self.displayView = displayView;
+    self.displayView.frame = CGRectMake(0, 0, kScreenW, kScreenH);
+    [self.view insertSubview:self.displayView belowSubview:self.scrollV];
+    // 默认美颜自然模式
+    [[NIMAVChatSDK sharedSDK].netCallManager selectBeautifyType:NIMNetCallFilterTypeZiran];
+}
+
+// 用户加入房间通知
+- (void)onUserJoined:(NSString *)uid meeting:(NIMNetCallMeeting *)meeting{
+    
+}
+
+// 用户离开房间通知
+- (void)onUserLeft:(NSString *)uid meeting:(NIMNetCallMeeting *)meeting{
+    
+}
+
+// 房间错误通知
+- (void)onMeetingError:(NSError *)error meeting:(NIMNetCallMeeting *)meeting{
+    // 一些异常情况可能会引起房间出错，请在收到该回调以后主动离开房间。
+    [[NIMAVChatSDK sharedSDK].netCallManager leaveMeeting:meeting];
+}
+
+// 直播状态回调
+- (void)onBypassStreamingStatus:(NIMBypassStreamingStatus)code{
+    
 }
 
 

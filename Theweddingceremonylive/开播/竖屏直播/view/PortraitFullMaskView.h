@@ -27,6 +27,7 @@ typedef void(^myblock)();
 
 
 
+@property (weak, nonatomic) IBOutlet UIButton *leaveMeeting;
 @property (nonatomic, copy) myblock first;
 @property (nonatomic, copy) myblock second;
 @property (nonatomic, copy) myblock third;
