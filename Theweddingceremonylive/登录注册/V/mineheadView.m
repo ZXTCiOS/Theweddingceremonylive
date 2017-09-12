@@ -22,7 +22,7 @@
     if (self) {
         [self addSubview:self.userImg];
         [self addSubview:self.nameLab];
-//        [self addSubview:self.idLab];
+
         [self addSubview:self.line0];
         [self addSubview:self.line1];
         [self addSubview:self.btn0];
@@ -50,12 +50,7 @@
         
     }];
     
-//    [self.idLab mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(weakSelf.nameLab);
-//        make.left.equalTo(weakSelf.nameLab.mas_right).with.offset(10*WIDTH_SCALE);
-//        make.right.equalTo(weakSelf).with.offset(-14*WIDTH_SCALE);
-//    }];
-    
+
     [self.btn0 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(weakSelf).with.offset(35*WIDTH_SCALE);
         make.top.equalTo(weakSelf.nameLab.mas_bottom).with.offset(10*HEIGHT_SCALE);
@@ -107,7 +102,7 @@
     return _userImg;
 }
 
--(UILabel *)nameLab
+-(UILabel *)nameLab1
 {
     if(!_nameLab)
     {
@@ -119,17 +114,6 @@
     return _nameLab;
 }
 
--(UILabel *)idLab
-{
-    if(!_idLab)
-    {
-        _idLab = [[UILabel alloc] init];
-        _idLab.textAlignment = NSTextAlignmentLeft;
-        _idLab.textColor = [UIColor colorWithHexString:@"666666"];
-        _idLab.text = @"ID-666666";
-    }
-    return _idLab;
-}
 
 -(systenBtn *)btn0
 {

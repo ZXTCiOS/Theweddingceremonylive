@@ -368,12 +368,12 @@
     // 扩展消息
     option.extendMessage = @"扩展消息";
     
-    option.bypassStreamingVideoMixMode = 0;//NIMNetCallVideoMixModeCustomLayout;
+    option.bypassStreamingVideoMixMode = NIMNetCallVideoCrop1x1;//NIMNetCallVideoMixModeCustomLayout;
     //option.bypassStreamingVideoMixCustomLayoutConfig = @"";
     self.meeting.actor = YES;
     [[NIMAVChatSDK sharedSDK].netCallManager joinMeeting:self.meeting completion:^(NIMNetCallMeeting * _Nonnull meeting, NSError * _Nonnull error) {
         NSLog(@"join error %@", error);
-        //if (!error) NSLog(@"-------加入 metting 成功------  meeting: %@", meeting);
+        if (!error) NSLog(@"-------加入 metting 成功------  meeting: %@", meeting);
     }];
 }
 

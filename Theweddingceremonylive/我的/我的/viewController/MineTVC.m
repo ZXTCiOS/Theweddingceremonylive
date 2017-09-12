@@ -65,7 +65,7 @@ static NSString *mineidentfid2 = @"mineidentfid2";
         if ([[obj objectForKey:@"code"] intValue]==1000) {
            self.dataDic =  [obj objectForKey:@"data"];
             self.headView.nameLab.text = [self.dataDic objectForKey:@"name"];
-            self.headView.idLab.text = [self.dataDic objectForKey:@"uid"];
+
             [self.headView.userImg sd_setImageWithURL:[NSURL URLWithString:[self.dataDic objectForKey:@"picture"]]];
      
         }
