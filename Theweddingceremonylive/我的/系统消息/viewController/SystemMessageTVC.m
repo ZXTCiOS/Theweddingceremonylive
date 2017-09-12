@@ -25,6 +25,8 @@ static NSString *systemcellidentfid = @"systencellidentfid";
     self.dataSource = [NSMutableArray array];
     [self.view addSubview:self.table];
     self.table.tableFooterView = [UIView new];
+    
+    [self loaddata];
 }
 
 -(void)viewWillAppear:(BOOL)animated
