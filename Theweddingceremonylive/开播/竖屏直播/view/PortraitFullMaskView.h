@@ -34,7 +34,11 @@ typedef void(^myblock)();
 @property (nonatomic, copy) myblock fifth;
 @property (nonatomic, copy) myblock icon;
 
-
+// 分享 view
+@property (weak, nonatomic) IBOutlet UIView *shareView;
+@property (weak, nonatomic) IBOutlet UIControl *QQ;
+@property (weak, nonatomic) IBOutlet UIControl *Wechat;
+@property (weak, nonatomic) IBOutlet UIControl *Pengyouquan;
 
 
 
