@@ -151,7 +151,8 @@
         // 红包
     } forControlEvents:UIControlEventTouchUpInside];
     [self.maskview.lianmaiBtn bk_addEventHandler:^(id sender) {
-        // 连麦
+        // 断开连麦
+        
     } forControlEvents:UIControlEventTouchUpInside];
     [self.maskview.sendMsgBtn bk_addEventHandler:^(id sender) {
         // 弹出键盘
@@ -394,6 +395,9 @@
 
 #pragma mark  - NIMNetCallManagerDelegate
 
+//本地摄像头预览就绪回调
+
+
 // 获取摄像头画面成功回调
 - (void)onLocalDisplayviewReady:(UIView *)displayView{
     
@@ -430,36 +434,7 @@
 }
 
 
-
-
-#pragma mark - 通话中的编解码控制
-
-//设置视频最大编码码率
-- (BOOL)setVideoMaxEncodeBitrate:(NSUInteger)bitrate{
-    
-    return YES;
-}
-//可以在视频通话过程中实时改变视频编码码率，以满足不同网络状况和使用场景需求。如果用户尚未加入通话，则无法设置。
-
-//切换视频编解码器
-- (BOOL)switchVideoEncoder:(NIMNetCallVideoCodec)codec{
-    
-    return YES;
-}
-- (BOOL)switchVideoDecoder:(NIMNetCallVideoCodec)codec{
-    
-    return YES;
-}
-//可以在视频通话过程中实时切换软硬件编解码器。硬件编解码设置仅在 iOS 8.0 及以上系统有效。如果用户尚未加入通话，则无法设置。
-
-
-
-
-
-
-
-
-#pragma mark - lazy loading
+#pragma mark - 懒加载
 
 - (NSMutableArray *)audiencelist{
     if (!_audiencelist) {
