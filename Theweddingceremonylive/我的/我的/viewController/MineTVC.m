@@ -76,6 +76,19 @@ static NSString *mineidentfid2 = @"mineidentfid2";
     } failure:^(NSError *error) {
         [MBProgressHUD showSuccess:@"失败"];
     }];
+    
+    
+    [DNNetworking postWithURLString:post_tuisongfankui parameters:para success:^(id obj) {
+        if ([[obj objectForKey:@"code"] intValue]==1000) {
+            [self.headView.btn0.redImg setHidden:NO];
+        }
+        else
+        {
+            [self.headView.btn0.redImg setHidden:YES];
+        }
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -116,6 +129,7 @@ static NSString *mineidentfid2 = @"mineidentfid2";
     {
         _headView = [[mineheadView alloc] init];
         _headView.frame = CGRectMake(0, 0, kScreenW, 210*HEIGHT_SCALE);
+        [_headView.btn0.redImg setHidden:YES];
         [_headView.btn0 addTarget:self action:@selector(btn0click) forControlEvents:UIControlEventTouchUpInside];
         [_headView.btn1 addTarget:self action:@selector(btn1click) forControlEvents:UIControlEventTouchUpInside];
         [_headView.btn2 addTarget:self action:@selector(btn2click) forControlEvents:UIControlEventTouchUpInside];

@@ -550,6 +550,8 @@
             action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
                 
                 [self.liveplayer switchContentUrl:[NSURL URLWithString:urls]];
+                [self.liveplayer prepareToPlay];
+                [self.liveplayer play];
             }];
             [alertController addAction:action];
             [self presentViewController:alertController animated:YES completion:nil];

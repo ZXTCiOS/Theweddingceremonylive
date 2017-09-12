@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+@class systemModel;
 
 @interface systemCell : UITableViewCell
-
+-(void)setdata:(systemModel *)model;
 @end

@@ -8,9 +8,11 @@
 
 #import "SystemMessageTVC.h"
 #import "systemCell.h"
+#import "systemModel.h"
 
 @interface SystemMessageTVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
+@property (nonatomic,strong) NSMutableArray *dataSource;
 @end
 
 static NSString *systemcellidentfid = @"systencellidentfid";
@@ -20,9 +22,11 @@ static NSString *systemcellidentfid = @"systencellidentfid";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"系统消息";
-    
+    self.dataSource = [NSMutableArray array];
     [self.view addSubview:self.table];
     self.table.tableFooterView = [UIView new];
+    
+    [self loaddata];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -56,6 +60,35 @@ static NSString *systemcellidentfid = @"systencellidentfid";
     // Dispose of any resources that can be recreated.
 }
 
+-(void)loaddata
+{
+    NSUserDefaults *defat = [NSUserDefaults standardUserDefaults];
+    NSString *uid = [defat objectForKey:user_uid];
+    NSString *token = [defat objectForKey:user_token];
+    NSDictionary *para = @{@"uid":uid,@"token":token};
+    [DNNetworking postWithURLString:post_tuisongfankui parameters:para success:^(id obj) {
+        NSString *msg = [obj objectForKey:@"msg"];
+        [MBProgressHUD showSuccess:msg];
+        if ([[obj objectForKey:@"code"] intValue]==1000) {
+            NSArray *dataarr = [obj objectForKey:@"data"];
+            for (int i = 0; i<dataarr.count; i++) {
+                NSDictionary *dic = [dataarr objectAtIndex:i];
+                systemModel *model = [[systemModel alloc] init];
+                model.push_addtime = [dic objectForKey:@"push_addtime"];
+                model.push_title = [dic objectForKey:@"push_title"];
+                model.push_content = [dic objectForKey:@"push_content"];
+                model.push_id = [dic objectForKey:@"push_id"];
+                [self.dataSource addObject:model];
+                
+                [self.table reloadData];
+            }
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+    
+}
+
 #pragma mark - getters
 
 -(UITableView *)table
@@ -74,7 +107,7 @@ static NSString *systemcellidentfid = @"systencellidentfid";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return self.dataSource.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -82,6 +115,7 @@ static NSString *systemcellidentfid = @"systencellidentfid";
     systemCell *cell = [tableView dequeueReusableCellWithIdentifier:systemcellidentfid];
     cell = [[systemCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:systemcellidentfid];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    [cell setdata:self.dataSource[indexPath.row]];
     return cell;
 }
 

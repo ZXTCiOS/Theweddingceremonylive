@@ -22,7 +22,7 @@
     if (self) {
         [self addSubview:self.userImg];
         [self addSubview:self.nameLab];
-        [self addSubview:self.idLab];
+//        [self addSubview:self.idLab];
         [self addSubview:self.line0];
         [self addSubview:self.line1];
         [self addSubview:self.btn0];
@@ -45,16 +45,16 @@
     
     [self.nameLab mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(weakSelf).with.offset(14*WIDTH_SCALE);
-        make.right.equalTo(weakSelf).with.offset(-kScreenW/2-10*WIDTH_SCALE);
+        make.right.equalTo(weakSelf).with.offset(-14*WIDTH_SCALE);
         make.top.equalTo(weakSelf.userImg.mas_bottom).with.offset(20*HEIGHT_SCALE);
         
     }];
     
-    [self.idLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(weakSelf.nameLab);
-        make.left.equalTo(weakSelf.nameLab.mas_right).with.offset(10*WIDTH_SCALE);
-        make.right.equalTo(weakSelf).with.offset(-14*WIDTH_SCALE);
-    }];
+//    [self.idLab mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(weakSelf.nameLab);
+//        make.left.equalTo(weakSelf.nameLab.mas_right).with.offset(10*WIDTH_SCALE);
+//        make.right.equalTo(weakSelf).with.offset(-14*WIDTH_SCALE);
+//    }];
     
     [self.btn0 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(weakSelf).with.offset(35*WIDTH_SCALE);
@@ -112,9 +112,8 @@
     if(!_nameLab)
     {
         _nameLab = [[UILabel alloc] init];
-        _nameLab.text = @"及时的雨";
         _nameLab.textColor = [UIColor colorWithHexString:@"333333"];
-        _nameLab.textAlignment = NSTextAlignmentRight;
+        _nameLab.textAlignment = NSTextAlignmentCenter;
 
     }
     return _nameLab;

@@ -183,11 +183,10 @@
 }
 
 - (void)iCarousel:(iCarousel *)ic didSelectedAtIndex:(NSInteger)index{
-    
     // TODO  添加 title
-    WKWedViewController *web = [[WKWedViewController alloc] initWithTitle:@"" Url:self.lunbo[index].linkurl.xd_URL];
-    [self.navigationController pushViewController:web animated:YES];
-    NSLog(@"点击 index %ld", index);
+//    WKWedViewController *web = [[WKWedViewController alloc] initWithTitle:@"" Url:self.lunbo[index].linkurl.xd_URL];
+//    [self.navigationController pushViewController:web animated:YES];
+//    NSLog(@"点击 index %ld", index);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{

@@ -106,4 +106,7 @@
 
 //意见反馈
 #define post_yijianfankui   @"/interface.php/Home/Yijian/yijian"
+
+//推送反馈
+#define post_tuisongfankui  @"/interface.php/Home/User/tuisong"
 #endif /* wangHeader_h */
