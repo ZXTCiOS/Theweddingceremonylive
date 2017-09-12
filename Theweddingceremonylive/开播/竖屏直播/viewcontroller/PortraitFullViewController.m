@@ -39,6 +39,7 @@
 @property(nonatomic, strong) id<NELivePlayer> liveplayer;           // 网易云播放器
 @property (nonatomic, copy) NSString *url;
 @property (nonatomic, copy) NSString *roomid;
+@property (nonatomic, copy) NSString *roomName;
 
 @property (nonatomic, strong) UITableView *tableView;           // 聊天框
 @property (nonatomic, strong) UICollectionView *collectionView;   // 观众 view
@@ -56,6 +57,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.roomid = @"11168034";
+    self.roomName = @"xixi";
     [self setup];
     [self liveplayer];
     [self placeholderView];
@@ -167,6 +169,7 @@
     self.tableView = self.maskview.tableView;
     self.collectionView = self.maskview.collectionView;
     [self registerCell];
+    [self shareBtnClick];
     self.maskview.tableView.delegate = self;
     self.maskview.tableView.dataSource = self;
     self.maskview.collectionView.delegate = self;
@@ -175,6 +178,30 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     
 }
+
+#pragma mark - 分享
+- (void)shareBtnClick{
+    // TODO: 添加分享功能
+    [self.maskview.QQ bk_addEventHandler:^(id sender) {
+        
+        [UIView animateWithDuration:0.25 animations:^{
+            self.maskview.shareView.frame = CGRectMake(0, kScreenH, kScreenW, 110);
+        }];
+    } forControlEvents:UIControlEventTouchUpInside];
+    [self.maskview.Wechat bk_addEventHandler:^(id sender) {
+        
+        [UIView animateWithDuration:0.25 animations:^{
+            self.maskview.shareView.frame = CGRectMake(0, kScreenH, kScreenW, 110);
+        }];
+    } forControlEvents:UIControlEventTouchUpInside];
+    [self.maskview.Pengyouquan bk_addEventHandler:^(id sender) {
+        
+        [UIView animateWithDuration:0.25 animations:^{
+            self.maskview.shareView.frame = CGRectMake(0, kScreenH, kScreenW, 110);
+        }];
+    } forControlEvents:UIControlEventTouchUpInside];
+}
+
 
 #pragma mark - 注册 cell
 - (void)registerCell{
@@ -187,14 +214,23 @@
     view.first = ^(){//聊天
         [self.maskview.textField becomeFirstResponder];
     };
-    view.second = ^(){//连麦
-        NSLog(@"2");
+    view.second = ^(){//连麦 红包
+        NIMNetCallMeeting *meeting = [[NIMNetCallMeeting alloc] init];
+        meeting.name = self.roomName;
+        NIMNetCallOption *option = [[NIMNetCallOption alloc] init];
+        option.enableBypassStreaming = YES;
+        meeting.option = option;
+        [[NIMAVChatSDK sharedSDK].netCallManager joinMeeting:meeting completion:^(NIMNetCallMeeting * _Nonnull meeting, NSError * _Nonnull error) {
+            
+        }];
     };
     view.third = ^(){//礼物
         NSLog(@"3");
     };
-    view.fourth = ^(){//红包
-        NSLog(@"4");
+    view.fourth = ^(){//分享
+        [UIView animateWithDuration:0.25 animations:^{
+            self.maskview.shareView.frame = CGRectMake(0, kScreenH - 110, kScreenW, 110);
+        }];
     };
     view.fifth = ^(){//返回
         [self.navigationController popViewControllerAnimated:YES];
@@ -497,15 +533,15 @@
     switch ([[[notification userInfo] valueForKey:NELivePlayerPlaybackDidFinishReasonUserInfoKey] intValue])
     {
         case NELPMovieFinishReasonPlaybackEnded:
-//            if ([self.mediaType isEqualToString:@"livestream"]) {
-//                alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"直播结束" preferredStyle:UIAlertControllerStyleAlert];
-//                action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
-//                    if (self.presentingViewController) {
-//                        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-//                    }}];
-//                [alertController addAction:action];
-//                [self presentViewController:alertController animated:YES completion:nil];
-            //}
+        {
+                alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"直播结束" preferredStyle:UIAlertControllerStyleAlert];
+                action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+                    if (self.presentingViewController) {
+                        
+                    }}];
+                [alertController addAction:action];
+                [self presentViewController:alertController animated:YES completion:nil];
+        }
             break;
             
         case NELPMovieFinishReasonPlaybackError:

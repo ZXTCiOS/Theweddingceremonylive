@@ -22,9 +22,9 @@
 - (void)awakeFromNib{
     [super awakeFromNib];
     
-    self.iconMask.layer.cornerRadius = 25;
+    self.iconMask.layer.cornerRadius = 18;
     self.iconMask.layer.masksToBounds = YES;
-    self.icon.layer.cornerRadius = 25;
+    self.icon.layer.cornerRadius = 18;
     self.icon.layer.masksToBounds = YES;
     
     self.tableView.backgroundColor = [UIColor clearColor];
