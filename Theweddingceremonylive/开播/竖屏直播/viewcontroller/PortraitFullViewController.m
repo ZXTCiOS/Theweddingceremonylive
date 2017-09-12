@@ -186,18 +186,21 @@
         
         [UIView animateWithDuration:0.25 animations:^{
             self.maskview.shareView.frame = CGRectMake(0, kScreenH, kScreenW, 110);
+            [self.maskview layoutIfNeeded];
         }];
     } forControlEvents:UIControlEventTouchUpInside];
     [self.maskview.Wechat bk_addEventHandler:^(id sender) {
         
         [UIView animateWithDuration:0.25 animations:^{
             self.maskview.shareView.frame = CGRectMake(0, kScreenH, kScreenW, 110);
+            [self.maskview layoutIfNeeded];
         }];
     } forControlEvents:UIControlEventTouchUpInside];
     [self.maskview.Pengyouquan bk_addEventHandler:^(id sender) {
         
         [UIView animateWithDuration:0.25 animations:^{
             self.maskview.shareView.frame = CGRectMake(0, kScreenH, kScreenW, 110);
+            [self.maskview layoutIfNeeded];
         }];
     } forControlEvents:UIControlEventTouchUpInside];
 }

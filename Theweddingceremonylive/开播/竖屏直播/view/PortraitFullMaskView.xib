@@ -165,7 +165,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YuL-HI-PxZ">
-                    <rect key="frame" x="0.0" y="557" width="375" height="110"/>
+                    <rect key="frame" x="0.0" y="667" width="375" height="110"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="分享这个直播到" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1p-FC-PhV">
                             <rect key="frame" x="10" y="10" width="107.5" height="18"/>
@@ -304,7 +304,7 @@
                 <constraint firstItem="n2V-vI-Vv6" firstAttribute="top" secondItem="V9H-dR-8hb" secondAttribute="bottom" constant="18" id="X2N-sh-lE4"/>
                 <constraint firstItem="n2V-vI-Vv6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="30" id="YcY-fI-Osk"/>
                 <constraint firstItem="23a-bp-w4C" firstAttribute="leading" secondItem="VSm-1A-XSA" secondAttribute="trailing" constant="2" id="cUp-6M-BLU"/>
-                <constraint firstAttribute="bottom" secondItem="YuL-HI-PxZ" secondAttribute="bottom" id="ded-Bo-oz6"/>
+                <constraint firstAttribute="bottom" secondItem="YuL-HI-PxZ" secondAttribute="bottom" constant="-110" id="ded-Bo-oz6"/>
                 <constraint firstItem="VSm-1A-XSA" firstAttribute="leading" secondItem="7yC-CX-nLJ" secondAttribute="trailing" constant="2" id="gRe-GD-6N2"/>
                 <constraint firstItem="7yC-CX-nLJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="jNH-EM-1HL"/>
                 <constraint firstAttribute="trailing" secondItem="Kf0-yQ-eLI" secondAttribute="trailing" id="kcz-Yy-c4M"/>
