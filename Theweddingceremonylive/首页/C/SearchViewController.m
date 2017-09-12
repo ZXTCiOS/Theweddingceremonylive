@@ -50,6 +50,20 @@
 }
 
 
+//#pragma mark - tabbar
+//
+//-(void)viewWillAppear:(BOOL)animated
+//{
+//    [super viewWillAppear:animated];
+//    [self.tabBarController.tabBar setHidden:YES];
+//    [self.navigationController setNavigationBarHidden:NO animated:NO];
+//}
+//
+//-(void)viewWillDisappear:(BOOL)animated
+//{
+//    [super viewWillDisappear:animated];
+//    [self.tabBarController.tabBar setHidden:NO];
+//}
 
 
 
@@ -116,7 +130,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
-    
+    [self.tabBarController.tabBar setHidden:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -130,6 +144,7 @@
     //[self.navigationController.navigationBar setHidden:NO];
     self.searchController.searchBar.hidden = YES;
     [self.searchController.searchBar endEditing:YES];
+    [self.tabBarController.tabBar setHidden:NO];
 }
 
 #pragma mark searchVC resultUpdating
