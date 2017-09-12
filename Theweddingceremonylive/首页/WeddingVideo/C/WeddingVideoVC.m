@@ -33,10 +33,22 @@
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([WeddingVideoCell class]) bundle:nil] forCellReuseIdentifier:@"cell"];
 }
 
-- (void)viewWillAppear:(BOOL)animated{
+
+#pragma mark - tabbar
+
+-(void)viewWillAppear:(BOOL)animated
+{
     [super viewWillAppear:animated];
+    [self.tabBarController.tabBar setHidden:YES];
     [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.tabBarController.tabBar setHidden:NO];
+}
+
 
 
 

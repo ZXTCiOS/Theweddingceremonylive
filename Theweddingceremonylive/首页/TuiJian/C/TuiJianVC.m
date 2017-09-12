@@ -12,6 +12,8 @@
 #import "TuijianDataModel.h"
 #import "SearchViewController.h"
 
+#import "shopdetalisVC.h"
+
 @interface TuiJianVC ()<UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) NSMutableArray<TuiJianModel *> *datalist;
@@ -35,10 +37,10 @@
     [self netWorking];
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
-}
+//- (void)viewWillAppear:(BOOL)animated{
+//    [super viewWillAppear:animated];
+//    [self.navigationController setNavigationBarHidden:NO animated:YES];
+//}
 
 
 - (void)netWorking{
@@ -152,8 +154,11 @@ static NSInteger page = 1;
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    
-    
+    TuiJianModel *model = self.datalist[indexPath.item];
+    NSString *idstr = [NSString stringWithFormat:@"%ld",model.ident];
+    shopdetalisVC *vc = [[shopdetalisVC alloc] init];
+    vc.businid = idstr;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 
@@ -185,6 +190,22 @@ static NSInteger page = 1;
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark - tabbar
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.tabBarController.tabBar setHidden:YES];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.tabBarController.tabBar setHidden:NO];
 }
 
 
