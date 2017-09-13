@@ -278,13 +278,14 @@
 
 // 加入互动直播间
 - (void)joinMeeting{
-    [[NIMAVChatSDK sharedSDK].netCallManager setSpeaker:YES];
+    
     // todo: 修改 option
     NIMNetCallOption *option = [[NIMNetCallOption alloc] init];
     self.meeting.option = option;
     option.enableBypassStreaming = YES;
     self.meeting.actor = YES;
     [[NIMAVChatSDK sharedSDK].netCallManager joinMeeting:self.meeting completion:^(NIMNetCallMeeting * _Nonnull meeting, NSError * _Nonnull error) {
+        [[NIMAVChatSDK sharedSDK].netCallManager setSpeaker:YES];
         NSLog(@"join error %@", error);
         if (!error) NSLog(@"-------加入 metting 成功------  meeting: %@", meeting);
     }];
@@ -316,6 +317,8 @@
 
 // 用户加入房间通知
 - (void)onUserJoined:(NSString *)uid meeting:(NIMNetCallMeeting *)meeting{
+    
+    
     
 }
 

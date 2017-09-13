@@ -137,7 +137,7 @@
 #pragma mark UITableView Datasource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return self.datalist.count ? 1 : 0;
+    return 0;//self.datalist.count ? 1 : 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

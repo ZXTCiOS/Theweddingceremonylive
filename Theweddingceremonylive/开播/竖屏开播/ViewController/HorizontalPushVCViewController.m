@@ -29,9 +29,13 @@
 @property (nonatomic, strong) ShuPingKaiboMaskView *maskview;
 @property (nonatomic, strong) UIView *displayView;
 @property (nonatomic, strong) UIScrollView *scrollV;
+@property (nonatomic, strong) UIImageView *lianmaiV;
 
 @property (nonatomic, strong) NIMNetCallMeeting *meeting;
 @property (nonatomic, copy)    NSString *roomid;
+@property (nonatomic, copy) NSString *roomName;
+@property (nonatomic, copy) NSString *pushUrl;
+
 
 @property (nonatomic, strong) NSMutableArray *audiencelist;
 @property (nonatomic, strong) NSMutableArray<NIMMessage *> *danmulist;
@@ -50,7 +54,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.roomid = @"11168034";
-    
+    self.roomName = @"xixi";
+    self.pushUrl = @"rtmp://pe266c7be.live.126.net/live/5f581cb50c724380bd08788abe7b0f9d?wsSecret=73e4d9a846fbadd56eccb1b5c90a3ab7&wsTime=1504859570";
     [self setUpsth];
     // 创建直播间
     [self reserveMeeting];
@@ -331,7 +336,7 @@
 // 创建直播间
 - (void)reserveMeeting{
     self.meeting = [[NIMNetCallMeeting alloc] init];
-    self.meeting.name = @"xixi";//[userDefault objectForKey:user_uid]; // 使用 UID 作为互动直播间 name.
+    self.meeting.name = self.roomName;//[userDefault objectForKey:user_uid]; // 使用 UID 作为互动直播间 name.
     [[NIMAVChatSDK sharedSDK].netCallManager reserveMeeting:self.meeting completion:^(NIMNetCallMeeting * _Nonnull meeting, NSError * _Nonnull error) {
         NSLog(@" reserve meeting error %@", error);
         //if (!error) NSLog(@"-------创建 metting 成功------  meeting: %@", meeting);
@@ -341,12 +346,12 @@
 
 // 加入互动直播间
 - (void)joinMeeting{
-    [[NIMAVChatSDK sharedSDK].netCallManager setSpeaker:YES];
+    
     // todo: 修改 option
     NIMNetCallOption *option = [[NIMNetCallOption alloc] init];
     self.meeting.option = option;
     option.enableBypassStreaming = YES;
-    option.bypassStreamingUrl = @"rtmp://pe266c7be.live.126.net/live/5f581cb50c724380bd08788abe7b0f9d?wsSecret=73e4d9a846fbadd56eccb1b5c90a3ab7&wsTime=1504859570";
+    option.bypassStreamingUrl = self.pushUrl;
      option.videoCaptureParam = [self para];
     // 开启该选项，以在远端设备旋转时在本端自动调整角度
     option.autoRotateRemoteVideo = NO;
@@ -373,6 +378,7 @@
     self.meeting.actor = YES;
     
     [[NIMAVChatSDK sharedSDK].netCallManager joinMeeting:self.meeting completion:^(NIMNetCallMeeting * _Nonnull meeting, NSError * _Nonnull error) {
+        [[NIMAVChatSDK sharedSDK].netCallManager setSpeaker:YES];
         NSLog(@"join error %@", error);
         if (!error) NSLog(@"-------加入 metting 成功------  meeting: %@", meeting);
     }];
@@ -414,12 +420,16 @@
 
 // 用户加入房间通知
 - (void)onUserJoined:(NSString *)uid meeting:(NIMNetCallMeeting *)meeting{
+    
+    
     NSLog(@"uid: %@ 加入", uid);
 }
 
 // 用户离开房间通知
 - (void)onUserLeft:(NSString *)uid meeting:(NIMNetCallMeeting *)meeting{
     NSLog(@"uid: %@ 离开", uid);
+    self.lianmaiV.hidden = YES;
+    self.lianmaiV = nil;
 }
 
 // 房间错误通知
@@ -435,7 +445,8 @@
 
 // 远程视频 YUV 数据就绪
 - (void)onRemoteYUVReady:(NSData *)yuvData width:(NSUInteger)width height:(NSUInteger)height from:(NSString *)user{
-    
+    UIImage *img = [UIImage imageWithData:yuvData];
+    self.lianmaiV.image = img;
 }
 
 - (void)onRemoteImageReady:(CGImageRef)image{
@@ -457,7 +468,14 @@
     return _danmulist;
 }
 
-
+- (UIImageView *)lianmaiV{
+    if (!_lianmaiV) {
+        _lianmaiV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH)];
+        //_lianmaiV.hidden = YES;
+        [self.view insertSubview:_lianmaiV aboveSubview:self.displayView];
+    }
+    return _lianmaiV;
+}
 
 
 
