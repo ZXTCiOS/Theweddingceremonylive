@@ -23,7 +23,7 @@
 #define cellID_text @"text"
 #define cellID_audience @"audience"
 
-@interface HorizontalPushVCViewController ()<NIMNetCallManagerDelegate, NIMChatroomManagerDelegate, NIMChatManagerDelegate, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface HorizontalPushVCViewController ()<NIMNetCallManagerDelegate, NIMChatroomManagerDelegate, NIMChatManagerDelegate,  UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) UIView *localPreView;
 @property (nonatomic, strong) ShuPingKaiboMaskView *maskview;
@@ -368,9 +368,8 @@
     option.bypassStreamingServerRecording = YES;
     // 扩展消息
     option.extendMessage = @"扩展消息";
-    
-    option.bypassStreamingVideoMixMode = NIMNetCallVideoCrop1x1;//NIMNetCallVideoMixModeCustomLayout;
-    //option.bypassStreamingVideoMixCustomLayoutConfig = @"";
+    option.bypassStreamingVideoMixMode = NIMNetCallVideoMixModeCustomLayout;
+    option.bypassStreamingVideoMixCustomLayoutConfig = @"{\"version\":0,\"set_host_as_main\":true,\"host_area\":{\"adaption\":1},\"special_show_mode\":true,\"n_host_area_number\":1,\"n_host_area_0\":{\"position_x\":0,\"position_y\":0,\"width_rate\":10000,\"height_rate\":10000,\"adaption\":0}}";
     self.meeting.actor = YES;
     [[NIMAVChatSDK sharedSDK].netCallManager joinMeeting:self.meeting completion:^(NIMNetCallMeeting * _Nonnull meeting, NSError * _Nonnull error) {
         NSLog(@"join error %@", error);
@@ -414,12 +413,12 @@
 
 // 用户加入房间通知
 - (void)onUserJoined:(NSString *)uid meeting:(NIMNetCallMeeting *)meeting{
-    
+    NSLog(@"uid: %@ 加入", uid);
 }
 
 // 用户离开房间通知
 - (void)onUserLeft:(NSString *)uid meeting:(NIMNetCallMeeting *)meeting{
-    
+    NSLog(@"uid: %@ 离开", uid);
 }
 
 // 房间错误通知
@@ -433,7 +432,14 @@
     
 }
 
+// 远程视频 YUV 数据就绪
+- (void)onRemoteYUVReady:(NSData *)yuvData width:(NSUInteger)width height:(NSUInteger)height from:(NSString *)user{
+    
+}
 
+- (void)onRemoteImageReady:(CGImageRef)image{
+    
+}
 #pragma mark - 懒加载
 
 - (NSMutableArray *)audiencelist{
