@@ -12,7 +12,7 @@
 @interface mineheadView : UIView
 @property (nonatomic,strong) UIImageView *userImg;
 @property (nonatomic,strong) UILabel *nameLab;
-@property (nonatomic,strong) UILabel *idLab;
+
 @property (nonatomic,strong) systenBtn *btn0;
 @property (nonatomic,strong) systenBtn *btn1;
 @property (nonatomic,strong) systenBtn *btn2;

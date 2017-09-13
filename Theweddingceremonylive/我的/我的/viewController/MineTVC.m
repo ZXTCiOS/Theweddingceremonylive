@@ -43,7 +43,6 @@ static NSString *mineidentfid2 = @"mineidentfid2";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //[self contentInit];
     
     self.view.backgroundColor = [UIColor whiteColor];
     
@@ -65,7 +64,7 @@ static NSString *mineidentfid2 = @"mineidentfid2";
         if ([[obj objectForKey:@"code"] intValue]==1000) {
            self.dataDic =  [obj objectForKey:@"data"];
             self.headView.nameLab.text = [self.dataDic objectForKey:@"name"];
-            self.headView.idLab.text = [self.dataDic objectForKey:@"uid"];
+
             [self.headView.userImg sd_setImageWithURL:[NSURL URLWithString:[self.dataDic objectForKey:@"picture"]]];
      
         }
@@ -250,8 +249,6 @@ static NSString *mineidentfid2 = @"mineidentfid2";
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (IBAction)safeCenter:(id)sender {
-}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -322,7 +319,7 @@ static NSString *mineidentfid2 = @"mineidentfid2";
             [[NSUserDefaults standardUserDefaults] synchronize];
             //NIM logout
             [[NIMSDK sharedSDK].loginManager logout:^(NSError * _Nullable error) {
-                
+                 
             }];
             
             AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
