@@ -234,6 +234,7 @@
     view.fourth = ^(){//分享
         [UIView animateWithDuration:0.25 animations:^{
             self.maskview.shareView.frame = CGRectMake(0, kScreenH - 110, kScreenW, 110);
+            [self.maskview layoutIfNeeded];
         }];
     };
     view.fifth = ^(){//返回

@@ -37,9 +37,9 @@ typedef void(^myblock)();
 
 // 分享 view
 @property (weak, nonatomic) IBOutlet UIView *shareView;
-@property (weak, nonatomic) IBOutlet UIControl *QQ;
-@property (weak, nonatomic) IBOutlet UIControl *Wechat;
-@property (weak, nonatomic) IBOutlet UIControl *Pengyouquan;
+@property (weak, nonatomic) IBOutlet UIButton *QQ;
+@property (weak, nonatomic) IBOutlet UIButton *Wechat;
+@property (weak, nonatomic) IBOutlet UIButton *Pengyouquan;
 
 
 
