@@ -278,7 +278,7 @@
 
 // 加入互动直播间
 - (void)joinMeeting{
-    
+    [[NIMAVChatSDK sharedSDK].netCallManager setSpeaker:YES];
     // todo: 修改 option
     NIMNetCallOption *option = [[NIMNetCallOption alloc] init];
     self.meeting.option = option;
