@@ -63,6 +63,9 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.roomid = @"11168034";
     self.roomName = @"xixi";
+    self.meeting = [[NIMNetCallMeeting alloc] init];
+    self.meeting.name = self.roomName;
+    
     [self setup];
     [self liveplayer];
     [self placeholderView];
@@ -280,36 +283,10 @@
     NIMNetCallOption *option = [[NIMNetCallOption alloc] init];
     self.meeting.option = option;
     option.enableBypassStreaming = YES;
-    option.bypassStreamingUrl = @"rtmp://pe266c7be.live.126.net/live/5f581cb50c724380bd08788abe7b0f9d?wsSecret=73e4d9a846fbadd56eccb1b5c90a3ab7&wsTime=1504859570";
-    option.videoCaptureParam = [self para];
-    // 开启该选项，以在远端设备旋转时在本端自动调整角度
-    option.autoRotateRemoteVideo = NO;
-    // 编码器
-    option.preferredVideoEncoder = NIMNetCallVideoCodecDefault;
-    // 解码器
-    option.preferredVideoDecoder = NIMNetCallVideoCodecDefault;
-    // 最大编码 码率 不指定自动选择
-    //option.videoMaxEncodeBitrate
-    // 语音降噪
-    option.audioDenoise = YES;
-    // 人声检测
-    option.voiceDetect = NO;
-    // 服务器录制视频
-    option.serverRecordVideo = YES;
-    // 服务器录制音频
-    option.serverRecordAudio = YES;
-    // 服务器录制
-    option.bypassStreamingServerRecording = YES;
-    // 扩展消息
-    option.extendMessage = @"扩展消息";
-    
-    option.bypassStreamingVideoMixMode = 0;//NIMNetCallVideoMixModeCustomLayout;
-    //option.bypassStreamingVideoMixCustomLayoutConfig = @"";
     self.meeting.actor = YES;
     [[NIMAVChatSDK sharedSDK].netCallManager joinMeeting:self.meeting completion:^(NIMNetCallMeeting * _Nonnull meeting, NSError * _Nonnull error) {
         NSLog(@"join error %@", error);
-        [[NIMAVChatSDK sharedSDK].netCallManager startVideoCapture:[self para]];
-        //if (!error) NSLog(@"-------加入 metting 成功------  meeting: %@", meeting);
+        if (!error) NSLog(@"-------加入 metting 成功------  meeting: %@", meeting);
     }];
 }
 
@@ -358,6 +335,14 @@
     
 }
 
+// 远程视频 YUV 数据就绪
+- (void)onRemoteYUVReady:(NSData *)yuvData width:(NSUInteger)width height:(NSUInteger)height from:(NSString *)user{
+    
+}
+
+- (void)onRemoteImageReady:(CGImageRef)image{
+    
+}
 
 
 #pragma mark - 键盘弹出隐藏通知
