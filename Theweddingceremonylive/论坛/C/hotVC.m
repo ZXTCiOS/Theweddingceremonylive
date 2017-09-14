@@ -166,7 +166,9 @@ static NSString *hotidentfid = @"hotidentfid";
 #pragma mark 空数据视图 DataSource && delegate
 
 - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
-    return [UIImage imageNamed:@"emptyImg"];        // 空数据图片
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"empthImg" ofType:@"png"];
+    UIImage *img = [UIImage imageWithContentsOfFile:path];
+    return img;        // 空数据图片
 }
 
 - (void)emptyDataSet:(UIScrollView *)scrollView didTapView:(UIView *)view{

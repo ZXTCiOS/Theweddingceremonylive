@@ -35,4 +35,15 @@ cell.preservesSuperviewLayoutMargins = NO;\
 
 #define userDefault [NSUserDefaults standardUserDefaults]
 
+
+typedef NS_ENUM(NSUInteger, NIMMyNotiType) {
+    NIMMyNotiTypeConnectMic,// 联麦
+    NIMMyNotiTypeDisconnect,// 断开
+};
+
+
+
+
+
+
 #endif /* constHeader_h */

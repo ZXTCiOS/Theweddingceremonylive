@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		18031C721F4827CD0038FAC7 /* MainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18031C711F4827CD0038FAC7 /* MainModel.m */; };
+		180364411F694A8D00238500 /* AudienceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 180364401F694A8C00238500 /* AudienceModel.m */; };
+		180364441F6A336900238500 /* NSDictionary+NTESJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 180364431F6A336900238500 /* NSDictionary+NTESJson.m */; };
+		180364471F6A473A00238500 /* NSString+NTES.m in Sources */ = {isa = PBXBuildFile; fileRef = 180364461F6A473A00238500 /* NSString+NTES.m */; };
 		1804ED8A1F4ED56A0004DAAE /* TuijianDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1804ED891F4ED56A0004DAAE /* TuijianDataModel.m */; };
 		1804ED8D1F4EEC2A0004DAAE /* WeddingVideoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1804ED8C1F4EEC2A0004DAAE /* WeddingVideoVC.m */; };
 		182E81101F418C3200720AA4 /* FastForwardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182E81091F418C3200720AA4 /* FastForwardView.m */; };
@@ -355,6 +358,12 @@
 		0A0D151F42A7F9C8F762F8E9 /* Pods-TheweddingceremonyliveUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheweddingceremonyliveUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheweddingceremonyliveUITests/Pods-TheweddingceremonyliveUITests.release.xcconfig"; sourceTree = "<group>"; };
 		18031C701F4827CD0038FAC7 /* MainModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainModel.h; sourceTree = "<group>"; };
 		18031C711F4827CD0038FAC7 /* MainModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainModel.m; sourceTree = "<group>"; };
+		1803643F1F694A8C00238500 /* AudienceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudienceModel.h; sourceTree = "<group>"; };
+		180364401F694A8C00238500 /* AudienceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudienceModel.m; sourceTree = "<group>"; };
+		180364421F6A336900238500 /* NSDictionary+NTESJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+NTESJson.h"; sourceTree = "<group>"; };
+		180364431F6A336900238500 /* NSDictionary+NTESJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+NTESJson.m"; sourceTree = "<group>"; };
+		180364451F6A473A00238500 /* NSString+NTES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NTES.h"; sourceTree = "<group>"; };
+		180364461F6A473A00238500 /* NSString+NTES.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NTES.m"; sourceTree = "<group>"; };
 		1804ED881F4ED56A0004DAAE /* TuijianDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuijianDataModel.h; sourceTree = "<group>"; };
 		1804ED891F4ED56A0004DAAE /* TuijianDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuijianDataModel.m; sourceTree = "<group>"; };
 		1804ED8B1F4EEC2A0004DAAE /* WeddingVideoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeddingVideoVC.h; sourceTree = "<group>"; };
@@ -1484,6 +1493,8 @@
 		18F9375B1F58058100B267C0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1803643F1F694A8C00238500 /* AudienceModel.h */,
+				180364401F694A8C00238500 /* AudienceModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2382,11 +2393,15 @@
 		53D02F761F3BF5F800CD504C /* category */ = {
 			isa = PBXGroup;
 			children = (
+				180364421F6A336900238500 /* NSDictionary+NTESJson.h */,
+				180364431F6A336900238500 /* NSDictionary+NTESJson.m */,
 				53B68E661F4EEC5F00674A2B /* NullSafe */,
 				1851F4131F3D843E00369326 /* NSObject+Parse.h */,
 				1851F4141F3D843E00369326 /* NSObject+Parse.m */,
 				1851F4151F3D843E00369326 /* NSString+myUrl.h */,
 				1851F4161F3D843E00369326 /* NSString+myUrl.m */,
+				180364451F6A473A00238500 /* NSString+NTES.h */,
+				180364461F6A473A00238500 /* NSString+NTES.m */,
 				1851F4171F3D843E00369326 /* UIScrollView+Refresh.h */,
 				1851F4181F3D843E00369326 /* UIScrollView+Refresh.m */,
 				1851F4191F3D843E00369326 /* UITextView+Placeholder.h */,
@@ -3221,6 +3236,7 @@
 				1847DED71F3C5A5F00C796A8 /* LiveVideoCell.m in Sources */,
 				531C055F1F5E63B200C235FA /* orderModel.m in Sources */,
 				533ACE401F4AD36D00F66A78 /* DQCanCerEnsureView.m in Sources */,
+				180364441F6A336900238500 /* NSDictionary+NTESJson.m in Sources */,
 				1851F41E1F3D843E00369326 /* NSString+myUrl.m in Sources */,
 				53FCA4701F418E99001780F7 /* perfectingCell1.m in Sources */,
 				533854E71F61475A00538CE4 /* orderchanpingVC.m in Sources */,
@@ -3246,6 +3262,7 @@
 				1845AEA31F469E0B002EAD47 /* BannerView.m in Sources */,
 				1831DBCD1F4D268D00155691 /* ViewController.m in Sources */,
 				18F6FEC91F4D83D80076A4F2 /* LieBiaoModel.m in Sources */,
+				180364471F6A473A00238500 /* NSString+NTES.m in Sources */,
 				1804ED8A1F4ED56A0004DAAE /* TuijianDataModel.m in Sources */,
 				53CC98971F53E48E0077CCF6 /* perfectinglineVC.m in Sources */,
 				53FCA45E1F418689001780F7 /* strisNull.m in Sources */,
@@ -3333,6 +3350,7 @@
 				53B68E621F4ECC9E00674A2B /* detalisCell1.m in Sources */,
 				53CC98CE1F5420000077CCF6 /* PZXVerificationCodeView.m in Sources */,
 				5303E3EC1F3EF5A800AB0AF2 /* QCCountdownButton.m in Sources */,
+				180364411F694A8D00238500 /* AudienceModel.m in Sources */,
 				53FCA4611F418BEE001780F7 /* mineheadView.m in Sources */,
 				533ACCF61F4A7BE500F66A78 /* LLQImageView.m in Sources */,
 				533ACD001F4AAC8B00F66A78 /* postCell0.m in Sources */,

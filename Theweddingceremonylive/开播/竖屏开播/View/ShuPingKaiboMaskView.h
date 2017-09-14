@@ -16,6 +16,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *labelID;
 
+@property (weak, nonatomic) IBOutlet UIImageView *bgView;
+
 @property (weak, nonatomic) IBOutlet UILabel *labelCount;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -23,11 +25,12 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 // 底部 button
+
+@property (weak, nonatomic) IBOutlet UIButton *duanKaiLianmai;
+
 @property (weak, nonatomic) IBOutlet UIButton *closeBen;
 
 @property (weak, nonatomic) IBOutlet UIButton *redbagBtn;
-
-@property (weak, nonatomic) IBOutlet UIButton *lianmaiBtn;
 
 @property (weak, nonatomic) IBOutlet UIButton *sendMsgBtn;
 

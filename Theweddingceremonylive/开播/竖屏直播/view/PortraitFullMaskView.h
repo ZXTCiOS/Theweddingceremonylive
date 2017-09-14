@@ -25,6 +25,9 @@ typedef void(^myblock)();
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UIButton *send;
 
+@property (weak, nonatomic) IBOutlet UIImageView *bgView;
+
+
 
 
 @property (weak, nonatomic) IBOutlet UIButton *leaveMeeting;
