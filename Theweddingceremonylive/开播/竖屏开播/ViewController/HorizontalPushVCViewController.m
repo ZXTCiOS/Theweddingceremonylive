@@ -11,7 +11,10 @@
 #import <NIMSDK/NIMSDK.h>// 网易互动直播头文件
 #import <NIMAVChat/NIMAVChat.h>
 #import <IQKeyboardManager.h>
+#import "NSDictionary+NTESJson.h"
+
 // model
+
 
 // view
 #import "ShuPingKaiboMaskView.h"
@@ -32,17 +35,24 @@
 @property (nonatomic, strong) UIImageView *lianmaiV;
 
 @property (nonatomic, strong) NIMNetCallMeeting *meeting;
+@property (nonatomic, copy) NSString *accid;
 @property (nonatomic, copy)    NSString *roomid;
 @property (nonatomic, copy) NSString *roomName;
 @property (nonatomic, copy) NSString *pushUrl;
+@property (nonatomic, copy) NSString *nickName;
+@property (nonatomic, assign) NSInteger count;
 
 
-@property (nonatomic, strong) NSMutableArray *audiencelist;
+
+
+
+@property (nonatomic, strong) NSMutableArray<NIMChatroomMember *> *audiencelist;
 @property (nonatomic, strong) NSMutableArray<NIMMessage *> *danmulist;
+@property (nonatomic, strong) NSMutableArray<NIMChatroomMember *> *managerlist;
 
 @property (nonatomic, assign) BOOL isMute;
 @property (nonatomic, assign) NIMNetCallCamera camera;
-
+@property (nonatomic, strong) NSTimer *timer;
 
 
 @end
@@ -56,6 +66,8 @@
     self.roomid = @"11168034";
     self.roomName = @"xixi";
     self.pushUrl = @"rtmp://pe266c7be.live.126.net/live/5f581cb50c724380bd08788abe7b0f9d?wsSecret=73e4d9a846fbadd56eccb1b5c90a3ab7&wsTime=1504859570";
+    self.nickName = @"齐天大圣";
+    self.count = 999;
     [self setUpsth];
     // 创建直播间
     [self reserveMeeting];
@@ -67,6 +79,10 @@
     [self enterChatroom];
     // mask view
     [self configMaskview];
+    
+    // 获取观众 / 每分钟
+    [self chatroomManager];
+    [self audienceListPerMin];
     
 }
 
@@ -122,6 +138,10 @@
 
 - (void)configMaskview{
     self.maskview = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ShuPingKaiboMaskView class]) owner:nil options:nil].firstObject;
+    
+    self.maskview.nameL.text = self.nickName;
+    self.maskview.labelCount.text = [NSString stringWithFormat:@"%ld", self.count];
+    
     self.maskview.tableView.delegate = self;
     self.maskview.tableView.dataSource = self;
     self.maskview.collectionView.delegate = self;
@@ -155,8 +175,26 @@
     [self.maskview.redbagBtn bk_addEventHandler:^(id sender) {
         // 红包
     } forControlEvents:UIControlEventTouchUpInside];
-    [self.maskview.lianmaiBtn bk_addEventHandler:^(id sender) {
+    [self.maskview.duanKaiLianmai bk_addEventHandler:^(id sender) {
         // 断开连麦
+        UIAlertController *vc = [UIAlertController alertControllerWithTitle:@"警告" message:@"确定断开连麦?" preferredStyle:1];
+        UIAlertAction *act1 = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            self.maskview.duanKaiLianmai.hidden = YES;
+            NIMCustomSystemNotification *noti = [[NIMCustomSystemNotification alloc] initWithContent:[@{@"type":@(NIMMyNotiTypeConnectMic)} jsonBody]];
+            noti.sendToOnlineUsersOnly = YES;
+            NIMSession *session = [NIMSession session:self.roomid type:NIMSessionTypeChatroom];
+            [[NIMSDK sharedSDK].systemNotificationManager sendCustomNotification:noti toSession:session completion:^(NSError * _Nullable error) {
+                if (!error) {
+                    [self.view showWarning:@"正在断开联麦..."];
+                }
+            }];
+        }];
+        UIAlertAction *act2 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        [vc addAction:act1];
+        [vc addAction:act2];
+        [self.navigationController presentViewController:vc animated:YES completion:nil];
         
     } forControlEvents:UIControlEventTouchUpInside];
     [self.maskview.sendMsgBtn bk_addEventHandler:^(id sender) {
@@ -166,9 +204,10 @@
     [self.maskview.send bk_addEventHandler:^(id sender) {
         // 发送文字消息
         NSString *text = self.maskview.textField.text;
+        if (!text.length) return;
         NIMMessage *msg = [[NIMMessage alloc] init];
         msg.text = text;
-        msg.from = @"昵称";
+        msg.from = self.nickName;
         NIMSession *session = [NIMSession session:self.roomid type:NIMSessionTypeChatroom];
         NSError *error;
         [[NIMSDK sharedSDK].chatManager sendMessage:msg toSession:session error:&error];
@@ -183,6 +222,8 @@
     } forControlEvents:UIControlEventTouchUpInside];
     [self.maskview.jingyinBtn bk_addEventHandler:^(id sender) {
         self.isMute = !self.isMute;
+        NSString *img = self.isMute ? @"zb_sound": @"zb_sound_y";
+        [self.maskview.jingyinBtn setImage:[UIImage imageNamed:img] forState:UIControlStateNormal];
         [[NIMAVChatSDK sharedSDK].netCallManager setMute:self.isMute];
         // todo: 更改静音按钮图片
     } forControlEvents:UIControlEventTouchUpInside];
@@ -233,14 +274,104 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     AudienceCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID_audience forIndexPath:indexPath];
-    // tofix
-    [cell.img sd_setImageWithURL:self.audiencelist[indexPath.row] placeholderImage:[UIImage imageNamed:@"touxiang"]];
+    [cell.img sd_setImageWithURL:self.audiencelist[indexPath.row].roomAvatar.xd_URL placeholderImage:[UIImage imageNamed:@"touxiang"]];
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     // todo: 点击头像, 连麦, 给房管
+    NIMChatroomMember *model = self.audiencelist[indexPath.row];
+    
+    UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *act1 = [UIAlertAction actionWithTitle:@"设为管理员" style: UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NIMChatroomMemberUpdateRequest *request = [[NIMChatroomMemberUpdateRequest alloc] init];
+        request.roomId = self.roomid;
+        request.userId = model.userId;
+        request.enable = YES;
+        request.notifyExt = @"";
+        [[NIMSDK sharedSDK].chatroomManager markMemberManager:request completion:^(NSError * _Nullable error) {
+            
+            // 改变本地数据
+            model.type = NIMChatroomMemberTypeManager;
+            [self.audiencelist removeObject:model];
+            [self.audiencelist insertObject:model atIndex:0];
+            [self.managerlist insertObject:model atIndex:0];
+        }];
+        
+    }];
+    UIAlertAction *act2 = [UIAlertAction actionWithTitle:@"联麦" style: UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        NIMCustomSystemNotification *noti = [[NIMCustomSystemNotification alloc] initWithContent:[@{@"type":@(NIMMyNotiTypeConnectMic), @"lianmaiid": model.userId} jsonBody]];
+        noti.sendToOnlineUsersOnly = YES;
+        NIMSession *session = [NIMSession session:self.roomid type:NIMSessionTypeChatroom];
+        [[NIMSDK sharedSDK].systemNotificationManager sendCustomNotification:noti toSession:session completion:^(NSError * _Nullable error) {
+            if (!error) {
+                [self.view showWarning:@"正在申请联麦..."];
+            }
+        }];
+        
+    }];
+    UIAlertAction *act3 = [UIAlertAction actionWithTitle:@"禁言" style: UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NIMChatroomMemberUpdateRequest *request = [[NIMChatroomMemberUpdateRequest alloc] init];
+        request.roomId = self.roomid;
+        request.userId = model.userId;
+        request.enable = YES;
+         [[NIMSDK sharedSDK].chatroomManager updateMemberMute:request completion:^(NSError * _Nullable error) {
+             if (!error) {
+                 [self.view showWarning:[NSString stringWithFormat: @"已禁言用户%@", model.roomNickname]];
+             } else {
+                 [self.view showWarning:@"禁言失败了, 请重试"];
+             }
+         }];
+    }];
+    UIAlertAction *act4 = [UIAlertAction actionWithTitle:@"取消" style: UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    
+    [alertC addAction:act1];
+    [alertC addAction:act2];
+    [alertC addAction:act3];
+    [alertC addAction:act4];
+    [self.navigationController presentViewController:alertC animated:YES completion:nil];
+    
 }
+
+- (void)chatroomManager{
+    // 获取管理员
+    NIMChatroomMemberRequest *request = [[NIMChatroomMemberRequest alloc] init];
+    request.roomId = self.roomid;
+    request.type = NIMChatroomFetchMemberTypeRegular; // 所有固定成员: 创建者, 管理员...
+    [[NIMSDK sharedSDK].chatroomManager fetchChatroomMembers:request completion:^(NSError * _Nullable error, NSArray<NIMChatroomMember *> * _Nullable members) {
+        // 只获取管理员.
+        if (!error) {
+            for (NIMChatroomMember *memb in members) {
+                if (memb.type == NIMChatroomMemberTypeManager) {
+                    [self.managerlist addObject:memb];
+                }
+            }
+        }
+    }];
+}
+
+- (void)audienceListPerMin{
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:30 block:^(NSTimer * _Nonnull timer) {
+        NIMChatroomMemberRequest *request = [[NIMChatroomMemberRequest alloc] init];
+        request.roomId = self.roomid;
+        request.type = NIMChatroomFetchMemberTypeTemp; // 临时成员
+        request.limit = 100;
+        [[NIMSDK sharedSDK].chatroomManager fetchChatroomMembers:request completion:^(NSError * _Nullable error, NSArray<NIMChatroomMember *> * _Nullable members) {
+            if (!error) {
+                [self.audiencelist removeAllObjects];
+                [self.audiencelist addObjectsFromArray:self.managerlist];
+                [self.audiencelist addObjectsFromArray:members];
+                [self.maskview.collectionView reloadData];
+            }
+        }];
+    } repeats:YES];
+    
+}
+
+
 #pragma mark - 观众列表 flowlayout
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
     return UIEdgeInsetsMake(0, 0, 0, 0);
@@ -421,7 +552,7 @@
 // 用户加入房间通知
 - (void)onUserJoined:(NSString *)uid meeting:(NIMNetCallMeeting *)meeting{
     
-    
+    self.maskview.duanKaiLianmai.hidden = NO;
     NSLog(@"uid: %@ 加入", uid);
 }
 
@@ -454,9 +585,9 @@
 }
 #pragma mark - 懒加载
 
-- (NSMutableArray *)audiencelist{
+- (NSMutableArray<NIMChatroomMember *> *)audiencelist{
     if (!_audiencelist) {
-        _audiencelist = [NSMutableArray array];
+        _audiencelist = [NSMutableArray<NIMChatroomMember *> array];
     }
     return _audiencelist;
 }
@@ -466,6 +597,13 @@
         _danmulist = [NSMutableArray<NIMMessage *> array];
     }
     return _danmulist;
+}
+
+- (NSMutableArray<NIMChatroomMember *> *)managerlist{
+    if (!_managerlist) {
+        _managerlist = [NSMutableArray<NIMChatroomMember *> array];
+    }
+    return _managerlist;
 }
 
 - (UIImageView *)lianmaiV{

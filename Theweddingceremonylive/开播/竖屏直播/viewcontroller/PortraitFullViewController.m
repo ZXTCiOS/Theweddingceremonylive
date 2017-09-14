@@ -10,6 +10,8 @@
 #import <NIMSDK/NIMSDK.h>
 #import <NIMAVChat/NIMAVChat.h>
 #import <IQKeyboardManager.h>
+#import "NSDictionary+NTESJson.h"
+#import "NSString+NTES.h"
 
 // model
 
@@ -29,7 +31,7 @@
 #define cellID_text @"text"
 #define cellID_audience @"audience"
 
-@interface PortraitFullViewController ()<UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, NIMChatroomManagerDelegate, NIMChatManagerDelegate, NIMNetCallManagerDelegate>
+@interface PortraitFullViewController ()<UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, NIMChatroomManagerDelegate, NIMChatManagerDelegate, NIMNetCallManagerDelegate, NIMSystemNotificationManagerDelegate>
 
 
 @property (nonatomic, strong) UIScrollView *scrollV;               // 遮罩层
@@ -44,6 +46,8 @@
 @property (nonatomic, copy) NSString *roomName;
 @property (nonatomic, assign) NIMNetCallCamera camera;
 @property (nonatomic, strong) NIMNetCallMeeting *meeting;
+@property (nonatomic, copy) NSString *nickName;
+@property (nonatomic, copy) NSString *accid;
 
 
 @property (nonatomic, strong) UITableView *tableView;           // 聊天框
@@ -67,9 +71,9 @@
     self.meeting.name = self.roomName;
     
     [self setup];
+    [self maskview];
     [self liveplayer];
     [self placeholderView];
-    [self configMaskview];
     [self addNotification];
     [self enterChatroom];
     
@@ -79,6 +83,7 @@
     [[NIMAVChatSDK sharedSDK].netCallManager addDelegate:self];
     [[NIMSDK sharedSDK].chatManager addDelegate:self];
     [[NIMSDK sharedSDK].chatroomManager addDelegate:self];
+    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -144,46 +149,12 @@
 
 
 
-- (void)configPlayer{
-    
-    self.liveplayer = [[NELivePlayerController alloc] initWithContentURL:[NSURL URLWithString:urls]];
-    if (self.liveplayer == nil) {
-        NSLog(@"failed to initialize!");
-    }
-    UIView * playerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH)];
-    self.liveplayer.view.frame = playerView.bounds;
-    [self.liveplayer prepareToPlay];
-    self.liveplayer.shouldAutoplay = YES;
-    [self.view addSubview:self.liveplayer.view];
-    [self.liveplayer play];
-}
-
-
-
 #pragma mark - 设置 view
 
 - (void)configMaskview{
     
-    self.maskview = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([PortraitFullMaskView class]) owner:nil options:nil].firstObject;
-    self.maskview.frame = CGRectMake(kScreenW, 0, kScreenW, kScreenH);
-    [self.maskview.user_img sd_setImageWithURL:@"http://liveimg.9158.com/pic/avator/2017-08/14/23/20170814230649_63538231_250.png".xd_URL placeholderImage:[UIImage imageNamed:@"touxiang"]];
-    self.maskview.user_name.text = @"美味🍦静静";
-    self.maskview.user_id.text = @"id:1231123";
-    self.maskview.countL.text = @"123321";
-    [self configBottomBtn:self.maskview];
-    self.maskview.textField.inputAccessoryView = [UIView new];
-    self.maskview.tableView.tableFooterView = [UIView new];
-    self.maskview.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView = self.maskview.tableView;
-    self.collectionView = self.maskview.collectionView;
-    [self registerCell];
-    [self shareBtnClick];
-    self.maskview.tableView.delegate = self;
-    self.maskview.tableView.dataSource = self;
-    self.maskview.collectionView.delegate = self;
-    self.maskview.collectionView.dataSource = self;
-    [self.scrollV addSubview:self.maskview];
-    self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    
     
 }
 
@@ -225,7 +196,7 @@
     view.first = ^(){//聊天
         [self.maskview.textField becomeFirstResponder];
     };
-    view.second = ^(){//连麦 红包
+    view.second = ^(){// 红包
         [self joinLianmai];
     };
     view.third = ^(){//礼物
@@ -243,6 +214,7 @@
     [self.maskview.send bk_addEventHandler:^(id sender) {
         // 发送文字消息
         NSString *text = self.maskview.textField.text;
+        if (!text.length) return;
         NIMMessage *msg = [[NIMMessage alloc] init];
         msg.text = text;
         NIMSession *session = [NIMSession session:self.roomid type:NIMSessionTypeChatroom];
@@ -257,16 +229,31 @@
         [self.maskview.textField resignFirstResponder];
     } forControlEvents:UIControlEventTouchUpInside];
     view.icon = ^(){//个人资料
-        
+        // todo: 查看个人资料
         
     };
-    [view.leaveMeeting bk_addEventHandler:^(id sender) {
-        // 连麦者主动离开直播间
-        [[NIMAVChatSDK sharedSDK].netCallManager leaveMeeting:self.meeting];
-        [[NIMAVChatSDK sharedSDK].netCallManager stopVideoCapture];
-        self.displayView = nil;
-        [self.liveplayer switchContentUrl:[NSURL URLWithString:self.url]];
+    [view.leaveMeeting bk_addEventHandler:^(UIButton *sender) {
+        
+        UIAlertController *vc = [UIAlertController alertControllerWithTitle:@"警告" message:@"确定断开连麦?" preferredStyle:1];
+        UIAlertAction *act1 = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            // 连麦者主动离开直播间
+            [[NIMAVChatSDK sharedSDK].netCallManager leaveMeeting:self.meeting];
+            [[NIMAVChatSDK sharedSDK].netCallManager stopVideoCapture];
+            [self.displayView removeFromSuperview];
+            self.displayView = nil;
+            [self liveplayer];
+            sender.hidden = YES;
+        }];
+        UIAlertAction *act2 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        [vc addAction:act1];
+        [vc addAction:act2];
+        [self.navigationController presentViewController:vc animated:YES completion:nil];
+        
+        
     } forControlEvents:UIControlEventTouchUpInside];
+    
 }
 
 #pragma mark - 收到连麦消息  点击同意
@@ -274,7 +261,6 @@
     // 打开摄像头
     [[NIMAVChatSDK sharedSDK].netCallManager startVideoCapture:[self para]];
     [self joinMeeting];
-    [self.liveplayer stop];
 }
 
 // 加入互动直播间
@@ -290,6 +276,7 @@
         NSLog(@"join error %@", error);
         if (!error) NSLog(@"-------加入 metting 成功------  meeting: %@", meeting);
     }];
+    self.maskview.leaveMeeting.hidden = NO;
 }
 
 // 配置视频采集参数
@@ -306,6 +293,9 @@
 }
 
 - (void)onLocalDisplayviewReady:(UIView *)displayView{
+    // 移除直播拉流播放器
+    [self.liveplayer.view removeFromSuperview];
+    self.liveplayer = nil;
     if (self.displayView) {
         [self.displayView removeFromSuperview];
     }
@@ -422,6 +412,7 @@
     DanmuCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID_text forIndexPath:indexPath];
     cell.textL.text = self.danmulist[indexPath.row].text;
     cell.backgroundColor = [UIColor clearColor];
+    cell.selectedBackgroundView = [UIView new];
     return cell;
 }
 
@@ -443,7 +434,14 @@
     request.roomNotifyExt = @"";
     request.retryCount = 5;
     [[NIMSDK sharedSDK].chatroomManager enterChatroom:request completion:^(NSError * _Nullable error, NIMChatroom * _Nullable chatroom, NIMChatroomMember * _Nullable me) {
-        if (!error) NSLog(@"进入聊天室成功");
+        if (!error) {
+            NIMTipObject *tipObject = [[NIMTipObject alloc] init];
+            NIMMessage *message = [[NIMMessage alloc] init];
+            message.messageObject = tipObject;
+            message.text = [NSString stringWithFormat:@"%@进入了直播间", self.nickName];
+            NIMSession *session = [NIMSession session:self.roomid type:NIMSessionTypeChatroom];
+            [[NIMSDK sharedSDK].chatManager sendMessage:message toSession:session error:nil];
+        }
     }];
 }
 
@@ -460,13 +458,49 @@
 
 // 收到聊天室消息
 - (void)onRecvMessages:(NSArray<NIMMessage *> *)messages{
-    NSInteger remove = self.danmulist.count + messages.count - 50;
+    
+    // 处理消息
+    NSMutableArray<NIMMessage *> *msgs = [NSMutableArray<NIMMessage *> array];
+    for (NIMMessage *message in messages) {
+        if (message.messageType == NIMMessageTypeNotification) {
+            // 聊天室通知
+            
+        } else {
+            [msgs addObject:message];
+        }
+        
+    }
+    
+    NSInteger remove = self.danmulist.count + msgs.count - 50;
     for (int i = 0; i < remove; i++) {
         [self.danmulist removeFirstObject];
     }
-    [self.danmulist addObjectsFromArray:messages];
+    [self.danmulist addObjectsFromArray:msgs];
     [self.tableView reloadData];
     if (self.danmulist.count > 5) [self.tableView scrollToBottom];
+}
+
+// 收到自定义通知
+-(void)onReceiveCustomSystemNotification:(NIMCustomSystemNotification *)notification{
+    NSString *content = notification.content;
+    NSDictionary *dic = [content jsonObject];
+    NIMMyNotiType type = [dic jsonInteger:@"type"];
+    if (type == NIMMyNotiTypeConnectMic) {
+        NSString *lianmaiid = [dic objectForKey:@"lianmaiid"];
+        if ([self.accid isEqualToString:lianmaiid]) {
+            [self joinLianmai];
+        }
+    } else if (type == NIMMyNotiTypeDisconnect) {
+        [[NIMAVChatSDK sharedSDK].netCallManager leaveMeeting:self.meeting];
+        [[NIMAVChatSDK sharedSDK].netCallManager stopVideoCapture];
+        [self.displayView removeFromSuperview];
+        self.displayView = nil;
+        [self liveplayer];
+        self.maskview.leaveMeeting.hidden = YES;
+        [self.view showWarning:@"主播终止了你的连麦"];
+    }
+    
+    
 }
 
 // 聊天室连接状态
@@ -484,55 +518,7 @@
 }
 
 
-#pragma mark - lazy loading  懒加载
 
-- (id<NELivePlayer>)liveplayer{
-    if (!_liveplayer) {
-        _liveplayer = [[NELivePlayerController alloc] initWithContentURL:[NSURL URLWithString:urls]];
-        if (!_liveplayer) {
-            NSLog(@"播放器初始化失败");
-        }
-        UIView * playerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH)];
-        _liveplayer.view.frame = playerView.bounds;
-        [_liveplayer prepareToPlay];
-        _liveplayer.shouldAutoplay = YES;
-        [self.view addSubview:_liveplayer.view];
-        [_liveplayer play];
-    }
-    return _liveplayer;
-}
-
-- (UIScrollView *)scrollV{
-    if (!_scrollV) {
-        _scrollV = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH)];
-        _scrollV.contentSize = CGSizeMake(kScreenW*2, kScreenH);
-        _scrollV.contentOffset = CGPointMake(kScreenW, 0);
-        _scrollV.pagingEnabled = YES;
-        _scrollV.showsVerticalScrollIndicator = NO;
-        _scrollV.showsHorizontalScrollIndicator = NO;
-        _scrollV.bounces = NO;
-        [self.view addSubview:_scrollV];
-    }
-    return _scrollV;
-}
-
-- (UIImageView *)placeholderView {
-    if(_placeholderView == nil) {
-        _placeholderView = [[UIImageView alloc] initWithFrame:self.view.bounds];
-        //[_placeholderView setImageURL:@"".xd_URL];
-        _placeholderView.image = [UIImage imageNamed:@"qidong"];
-        _placeholderView.contentMode = UIViewContentModeScaleAspectFill;
-        _placeholderView.clipsToBounds = YES;
-        //模糊效果
-        UIVisualEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
-        UIVisualEffectView *view = [[UIVisualEffectView alloc] initWithEffect:blur];
-        view.frame = _placeholderView.bounds;
-        [_placeholderView addSubview:view];
-        [self.view addSubview:_placeholderView];
-        [self.view sendSubviewToBack:_placeholderView];
-    }
-    return _placeholderView;
-}
 
 
 
@@ -702,6 +688,84 @@
     }
     return _danmulist;
 }
+
+
+
+- (id<NELivePlayer>)liveplayer{
+    if (!_liveplayer) {
+        _liveplayer = [[NELivePlayerController alloc] initWithContentURL:[NSURL URLWithString:urls]];
+        if (!_liveplayer) {
+            NSLog(@"播放器初始化失败");
+        }
+        UIView * playerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH)];
+        _liveplayer.view.frame = playerView.bounds;
+        [_liveplayer prepareToPlay];
+        _liveplayer.shouldAutoplay = YES;
+        [self.view insertSubview:_liveplayer.view belowSubview:self.scrollV];
+        [_liveplayer play];
+    }
+    return _liveplayer;
+}
+
+- (UIScrollView *)scrollV{
+    if (!_scrollV) {
+        _scrollV = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH)];
+        _scrollV.contentSize = CGSizeMake(kScreenW*2, kScreenH);
+        _scrollV.contentOffset = CGPointMake(kScreenW, 0);
+        _scrollV.pagingEnabled = YES;
+        _scrollV.showsVerticalScrollIndicator = NO;
+        _scrollV.showsHorizontalScrollIndicator = NO;
+        _scrollV.bounces = NO;
+        [self.view addSubview:_scrollV];
+    }
+    return _scrollV;
+}
+
+- (UIImageView *)placeholderView {
+    if(_placeholderView == nil) {
+        _placeholderView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+        //[_placeholderView setImageURL:@"".xd_URL];
+        _placeholderView.image = [UIImage imageNamed:@"qidong"];
+        _placeholderView.contentMode = UIViewContentModeScaleAspectFill;
+        _placeholderView.clipsToBounds = YES;
+        //模糊效果
+        UIVisualEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+        UIVisualEffectView *view = [[UIVisualEffectView alloc] initWithEffect:blur];
+        view.frame = _placeholderView.bounds;
+        [_placeholderView addSubview:view];
+        [self.view addSubview:_placeholderView];
+        [self.view sendSubviewToBack:_placeholderView];
+    }
+    return _placeholderView;
+}
+
+- (PortraitFullMaskView *)maskview{
+    if (!_maskview) {
+        _maskview = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([PortraitFullMaskView class]) owner:nil options:nil].firstObject;
+        _maskview.frame = CGRectMake(kScreenW, 0, kScreenW, kScreenH);
+        [self.maskview.user_img sd_setImageWithURL:@"http://liveimg.9158.com/pic/avator/2017-08/14/23/20170814230649_63538231_250.png".xd_URL placeholderImage:[UIImage imageNamed:@"touxiang"]];
+        _maskview.user_name.text = @"美味🍦静静";
+        _maskview.user_id.text = @"id:1231123";
+        _maskview.countL.text = @"123321";
+        
+        _maskview.bgView.image = [UIImage imageNamed:@""];
+        [self configBottomBtn:self.maskview];
+        _maskview.textField.inputAccessoryView = [UIView new];
+        _maskview.tableView.tableFooterView = [UIView new];
+        _maskview.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        self.tableView = self.maskview.tableView;
+        self.collectionView = self.maskview.collectionView;
+        [self registerCell];
+        [self shareBtnClick];
+        _maskview.tableView.delegate = self;
+        _maskview.tableView.dataSource = self;
+        _maskview.collectionView.delegate = self;
+        _maskview.collectionView.dataSource = self;
+        [self.scrollV addSubview:_maskview];
+    }
+    return _maskview;
+}
+
 
 #pragma mark - initialize 初始化
 
