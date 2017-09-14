@@ -173,7 +173,6 @@
                 <constraint firstItem="W6q-Sl-2Ho" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="HSp-h3-W56"/>
                 <constraint firstAttribute="trailing" secondItem="TQU-WS-6vX" secondAttribute="trailing" constant="16" id="HrL-mb-o5S"/>
                 <constraint firstItem="R9w-Be-ltk" firstAttribute="leading" secondItem="uvs-Wl-5Wz" secondAttribute="trailing" constant="10" id="Jb6-6R-q52"/>
-                <constraint firstItem="rJL-7g-dun" firstAttribute="leading" secondItem="BPK-9M-v1a" secondAttribute="trailing" constant="48" id="JzG-IQ-Xb5"/>
                 <constraint firstItem="TQU-WS-6vX" firstAttribute="leading" secondItem="Ubg-NQ-NyS" secondAttribute="trailing" constant="10" id="K6z-Fp-hKS"/>
                 <constraint firstItem="Ubg-NQ-NyS" firstAttribute="centerY" secondItem="C1I-EB-a61" secondAttribute="centerY" id="KeY-Yg-gdx"/>
                 <constraint firstAttribute="trailing" secondItem="JX1-Jm-Yeb" secondAttribute="trailing" constant="10" id="Kmj-2j-f7n"/>
@@ -193,6 +192,7 @@
                 <constraint firstAttribute="trailing" secondItem="VZ7-6P-9V7" secondAttribute="trailing" id="oBs-eC-Od9"/>
                 <constraint firstItem="VZ7-6P-9V7" firstAttribute="top" relation="greaterThanOrEqual" secondItem="W6q-Sl-2Ho" secondAttribute="bottom" id="t1P-bz-JeR"/>
                 <constraint firstItem="JX1-Jm-Yeb" firstAttribute="leading" secondItem="R7A-5f-4ct" secondAttribute="trailing" constant="10" id="vaG-Rf-K1Q"/>
+                <constraint firstAttribute="trailing" secondItem="BPK-9M-v1a" secondAttribute="trailing" constant="96" id="yps-xJ-ft9"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <connections>
