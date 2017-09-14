@@ -20,7 +20,7 @@ typedef void(^myblock)();
 @property (weak, nonatomic) IBOutlet UILabel *user_id;
 @property (weak, nonatomic) IBOutlet UILabel *countL;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIView *textFView;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UIButton *send;

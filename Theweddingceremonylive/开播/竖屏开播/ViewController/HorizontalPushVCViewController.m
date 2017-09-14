@@ -117,6 +117,8 @@
 }
 
 - (void)dealloc{
+    [self.timer invalidate];
+    self.timer = nil;
     [[NIMAVChatSDK sharedSDK].netCallManager removeDelegate:self];
     [[NIMSDK sharedSDK].chatManager removeDelegate:self];
     [[NIMSDK sharedSDK].chatroomManager removeDelegate:self];
@@ -146,6 +148,7 @@
     self.maskview.tableView.dataSource = self;
     self.maskview.collectionView.delegate = self;
     self.maskview.collectionView.dataSource = self;
+    
     [self registerCell];
     self.scrollV = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH)];
     _scrollV.contentSize = CGSizeMake(kScreenW*2, kScreenH);
@@ -222,7 +225,7 @@
     } forControlEvents:UIControlEventTouchUpInside];
     [self.maskview.jingyinBtn bk_addEventHandler:^(id sender) {
         self.isMute = !self.isMute;
-        NSString *img = self.isMute ? @"zb_sound": @"zb_sound_y";
+        NSString *img = self.isMute ? @"zb_sound_y": @"zb_sound";
         [self.maskview.jingyinBtn setImage:[UIImage imageNamed:img] forState:UIControlStateNormal];
         [[NIMAVChatSDK sharedSDK].netCallManager setMute:self.isMute];
         // todo: 更改静音按钮图片
@@ -364,6 +367,7 @@
                 [self.audiencelist removeAllObjects];
                 [self.audiencelist addObjectsFromArray:self.managerlist];
                 [self.audiencelist addObjectsFromArray:members];
+                self.maskview.labelCount.text = [NSString stringWithFormat:@"%ld", self.audiencelist.count];
                 [self.maskview.collectionView reloadData];
             }
         }];
@@ -374,15 +378,20 @@
 
 #pragma mark - 观众列表 flowlayout
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
-    return UIEdgeInsetsMake(0, 0, 0, 0);
+    
+    return UIEdgeInsetsZero;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return CGSizeMake(40, 40);
+    return CGSizeMake(36, 36);
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
     return 8;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
+    return 0;
 }
 
 #pragma mark - tableview delegate && datasourse
@@ -398,6 +407,7 @@
     DanmuCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID_text forIndexPath:indexPath];
     cell.textL.text = self.danmulist[indexPath.row].text;
     cell.backgroundColor = [UIColor clearColor];
+    cell.selectedBackgroundView = [UIView new];
     return cell;
 }
 
@@ -428,11 +438,23 @@
 
 // 收到聊天室消息
 - (void)onRecvMessages:(NSArray<NIMMessage *> *)messages{
-    NSInteger remove = self.danmulist.count + messages.count - 50;
+    // 处理消息
+    NSMutableArray<NIMMessage *> *msgs = [NSMutableArray<NIMMessage *> array];
+    for (NIMMessage *message in messages) {
+        if (message.messageType == NIMMessageTypeNotification) {
+            // 聊天室通知
+            
+        } else {
+            [msgs addObject:message];
+        }
+        
+    }
+    
+    NSInteger remove = self.danmulist.count + msgs.count - 50;
     for (int i = 0; i < remove; i++) {
         [self.danmulist removeFirstObject];
     }
-    [self.danmulist addObjectsFromArray:messages];
+    [self.danmulist addObjectsFromArray:msgs];
     [self.maskview.tableView reloadData];
     if (self.danmulist.count > 5) [self.maskview.tableView scrollToBottom];
 }

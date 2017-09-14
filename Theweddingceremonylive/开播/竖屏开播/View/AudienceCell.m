@@ -24,9 +24,9 @@
 
 - (UIImageView *)img{
     if (!_img) {
-        _img = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
-        [self addSubview:_img];
-        _img.layer.cornerRadius = 20;
+        _img = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 36, 36)];
+        [self.contentView addSubview:_img];
+        _img.layer.cornerRadius = 18;
         _img.layer.masksToBounds = YES;
     }
     return _img;
