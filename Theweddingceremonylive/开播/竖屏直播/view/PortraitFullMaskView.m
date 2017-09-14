@@ -27,12 +27,24 @@
     self.user_img.layer.masksToBounds = YES;
     self.info.layer.cornerRadius = 18;
     self.info.layer.masksToBounds = YES;
-    
-    
+    [self collectionView];
+    self.collectionView.backgroundColor = [UIColor clearColor];
 }
 
 
-
+- (UICollectionView *)collectionView{
+    if (!_collectionView) {
+        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+        layout.minimumLineSpacing = 0;
+        layout.minimumInteritemSpacing = 0;
+        layout.sectionInset = UIEdgeInsetsZero;
+        layout.itemSize = CGSizeMake(36, 36);
+        layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(75, 16, kScreenW - 140 - 75, 36) collectionViewLayout:layout];
+        [self addSubview:_collectionView];
+    }
+    return _collectionView;
+}
 
 
 

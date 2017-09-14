@@ -48,13 +48,14 @@
 @property (nonatomic, strong) NIMNetCallMeeting *meeting;
 @property (nonatomic, copy) NSString *nickName;
 @property (nonatomic, copy) NSString *accid;
-
+@property (nonatomic, strong) NSTimer *timer;
 
 @property (nonatomic, strong) UITableView *tableView;           // 聊天框
 @property (nonatomic, strong) UICollectionView *collectionView;   // 观众 view
 
-@property (nonatomic, strong) NSMutableArray *audiencelist;
+@property (nonatomic, strong) NSMutableArray<NIMChatroomMember *> *audiencelist;
 @property (nonatomic, strong) NSMutableArray<NIMMessage *> *danmulist;
+@property (nonatomic, strong) NSMutableArray<NIMChatroomMember *> *managerlist;
 
 @end
 
@@ -76,7 +77,8 @@
     [self placeholderView];
     [self addNotification];
     [self enterChatroom];
-    
+    [self chatroomManager];
+    [self audienceListPerMin];
 }
 
 - (void)setup{
@@ -123,6 +125,8 @@
 
 - (void)dealloc{
     
+    [self.timer invalidate];
+    self.timer = nil;
     [self.liveplayer.view removeFromSuperview];
     self.liveplayer = nil;
     NSLog(@"protraitFullViewController dealloc");
@@ -197,7 +201,7 @@
         [self.maskview.textField becomeFirstResponder];
     };
     view.second = ^(){// 红包
-        [self joinLianmai];
+        //[self joinLianmai];
     };
     view.third = ^(){//礼物
         NSLog(@"3");
@@ -315,8 +319,7 @@
 
 // 用户离开房间通知
 - (void)onUserLeft:(NSString *)uid meeting:(NIMNetCallMeeting *)meeting{
-    
-}
+    }
 
 // 房间错误通知
 - (void)onMeetingError:(NSError *)error meeting:(NIMNetCallMeeting *)meeting{
@@ -367,6 +370,45 @@
         [self.view layoutIfNeeded];
     }];
 }
+#pragma mark - 获取观众列表
+
+- (void)chatroomManager{
+    // 获取管理员
+    NIMChatroomMemberRequest *request = [[NIMChatroomMemberRequest alloc] init];
+    request.roomId = self.roomid;
+    request.type = NIMChatroomFetchMemberTypeRegular; // 所有固定成员: 创建者, 管理员...
+    [[NIMSDK sharedSDK].chatroomManager fetchChatroomMembers:request completion:^(NSError * _Nullable error, NSArray<NIMChatroomMember *> * _Nullable members) {
+        // 只获取管理员.
+        if (!error) {
+            for (NIMChatroomMember *memb in members) {
+                if (memb.type == NIMChatroomMemberTypeManager) {
+                    [self.managerlist addObject:memb];
+                }
+            }
+        }
+    }];
+}
+
+- (void)audienceListPerMin{
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:30 block:^(NSTimer * _Nonnull timer) {
+        NIMChatroomMemberRequest *request = [[NIMChatroomMemberRequest alloc] init];
+        request.roomId = self.roomid;
+        request.type = NIMChatroomFetchMemberTypeTemp; // 临时成员
+        request.limit = 100;
+        [[NIMSDK sharedSDK].chatroomManager fetchChatroomMembers:request completion:^(NSError * _Nullable error, NSArray<NIMChatroomMember *> * _Nullable members) {
+            if (!error) {
+                [self.audiencelist removeAllObjects];
+                [self.audiencelist addObjectsFromArray:self.managerlist];
+                [self.audiencelist addObjectsFromArray:members];
+                self.maskview.countL.text = [NSString stringWithFormat:@"%ld", self.audiencelist.count];
+                [self.maskview.collectionView reloadData];
+            }
+        }];
+    } repeats:YES];
+    
+}
+
+
 # pragma mark - 观众列表 delegate DataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     return 1;
@@ -379,7 +421,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     AudienceCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID_audience forIndexPath:indexPath];
     // tofix
-    [cell.img sd_setImageWithURL:self.audiencelist[indexPath.row] placeholderImage:[UIImage imageNamed:@"touxiang"]];
+    [cell.img sd_setImageWithURL:self.audiencelist[indexPath.row].roomAvatar.xd_URL placeholderImage:[UIImage imageNamed:@"touxiang"]];
     return cell;
 }
 
@@ -392,7 +434,7 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return CGSizeMake(40, 40);
+    return CGSizeMake(36, 36);
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
@@ -675,9 +717,9 @@
 
 #pragma mark 懒加载
 
-- (NSMutableArray *)audiencelist{
+- (NSMutableArray<NIMChatroomMember *> *)audiencelist{
     if (!_audiencelist) {
-        _audiencelist = [NSMutableArray array];
+        _audiencelist = [NSMutableArray<NIMChatroomMember *> array];
     }
     return _audiencelist;
 }
@@ -687,6 +729,13 @@
         _danmulist = [NSMutableArray<NIMMessage *> array];
     }
     return _danmulist;
+}
+
+- (NSMutableArray<NIMChatroomMember *> *)managerlist{
+    if (!_managerlist) {
+        _managerlist = [NSMutableArray<NIMChatroomMember *> array];
+    }
+    return _managerlist;
 }
 
 

@@ -17,13 +17,6 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zb_zhong" translatesAutoresizingMaskIntoConstraints="NO" id="3FR-dF-1OY">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R7A-5f-4ct" customClass="UICollectionView">
-                    <rect key="frame" x="75" y="16" width="160" height="36"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="36" id="xpf-tx-Shc"/>
-                    </constraints>
-                </view>
                 <view alpha="0.25" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JX1-Jm-Yeb">
                     <rect key="frame" x="245" y="16" width="120" height="36"/>
                     <subviews>
@@ -96,7 +89,7 @@
                         <constraint firstAttribute="height" constant="40" id="ALq-EB-jNT"/>
                         <constraint firstAttribute="width" constant="40" id="ZdD-v7-SMN"/>
                     </constraints>
-                    <state key="normal" image="zb_sound_y"/>
+                    <state key="normal" image="zb_sound"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uvs-Wl-5Wz">
                     <rect key="frame" x="169" y="607" width="40" height="40"/>
@@ -168,7 +161,6 @@
                 <constraint firstItem="VZ7-6P-9V7" firstAttribute="top" secondItem="3FR-dF-1OY" secondAttribute="bottom" id="CeB-dU-et8"/>
                 <constraint firstItem="DlA-6g-oup" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="CpX-2u-xsW"/>
                 <constraint firstItem="TQU-WS-6vX" firstAttribute="top" secondItem="Waw-Xm-Zg1" secondAttribute="bottom" constant="33" id="Ct1-mA-px8"/>
-                <constraint firstItem="R7A-5f-4ct" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="75" id="Ebz-ua-hVt"/>
                 <constraint firstItem="BPK-9M-v1a" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="HF4-08-Edb"/>
                 <constraint firstItem="W6q-Sl-2Ho" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="HSp-h3-W56"/>
                 <constraint firstAttribute="trailing" secondItem="TQU-WS-6vX" secondAttribute="trailing" constant="16" id="HrL-mb-o5S"/>
@@ -177,7 +169,6 @@
                 <constraint firstItem="Ubg-NQ-NyS" firstAttribute="centerY" secondItem="C1I-EB-a61" secondAttribute="centerY" id="KeY-Yg-gdx"/>
                 <constraint firstAttribute="trailing" secondItem="JX1-Jm-Yeb" secondAttribute="trailing" constant="10" id="Kmj-2j-f7n"/>
                 <constraint firstAttribute="bottom" secondItem="VZ7-6P-9V7" secondAttribute="bottom" constant="-42" id="LgC-vi-K0P"/>
-                <constraint firstItem="R7A-5f-4ct" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="Mwu-AS-8aT"/>
                 <constraint firstItem="JX1-Jm-Yeb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="NXj-cT-LPd"/>
                 <constraint firstItem="DlA-6g-oup" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="R7R-e9-Nps"/>
                 <constraint firstAttribute="bottom" secondItem="W6q-Sl-2Ho" secondAttribute="bottom" priority="100" constant="98" id="XNw-Id-NZa"/>
@@ -191,14 +182,12 @@
                 <constraint firstItem="rJL-7g-dun" firstAttribute="top" secondItem="JX1-Jm-Yeb" secondAttribute="bottom" constant="10" id="lPM-UG-w99"/>
                 <constraint firstAttribute="trailing" secondItem="VZ7-6P-9V7" secondAttribute="trailing" id="oBs-eC-Od9"/>
                 <constraint firstItem="VZ7-6P-9V7" firstAttribute="top" relation="greaterThanOrEqual" secondItem="W6q-Sl-2Ho" secondAttribute="bottom" id="t1P-bz-JeR"/>
-                <constraint firstItem="JX1-Jm-Yeb" firstAttribute="leading" secondItem="R7A-5f-4ct" secondAttribute="trailing" constant="10" id="vaG-Rf-K1Q"/>
                 <constraint firstAttribute="trailing" secondItem="BPK-9M-v1a" secondAttribute="trailing" constant="96" id="yps-xJ-ft9"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <connections>
                 <outlet property="bgView" destination="3FR-dF-1OY" id="aoe-Wr-ngd"/>
                 <outlet property="closeBen" destination="TQU-WS-6vX" id="ubk-lm-qFs"/>
-                <outlet property="collectionView" destination="R7A-5f-4ct" id="lYB-WS-q9p"/>
                 <outlet property="duanKaiLianmai" destination="Waw-Xm-Zg1" id="y24-IQ-0sr"/>
                 <outlet property="icon" destination="BPK-9M-v1a" id="vRd-u2-bvG"/>
                 <outlet property="iconMask" destination="JX1-Jm-Yeb" id="7Ml-V5-EoU"/>
@@ -226,7 +215,7 @@
         <image name="zb_lianmai" width="65" height="28"/>
         <image name="zb_mes" width="40" height="40"/>
         <image name="zb_qiehuan" width="40" height="40"/>
-        <image name="zb_sound_y" width="40" height="40"/>
+        <image name="zb_sound" width="40" height="40"/>
         <image name="zb_zhong" width="365" height="660"/>
     </resources>
 </document>
