@@ -157,7 +157,7 @@
     if(!_logoimg)
     {
         _logoimg = [[UIImageView alloc] init];
-        _logoimg.image = [UIImage imageNamed:@"loginlogo"];
+        _logoimg.image = [UIImage imageNamed:@"logoin_logo"];
     }
     return _logoimg;
 }

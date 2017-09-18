@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,14 +20,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qidong" translatesAutoresizingMaskIntoConstraints="NO" id="7C0-Vq-N12">
-                                <rect key="frame" x="127.5" y="79" width="120" height="147"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="图层-1" translatesAutoresizingMaskIntoConstraints="NO" id="7C0-Vq-N12">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="7C0-Vq-N12" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="OFc-nO-oj7"/>
-                            <constraint firstItem="7C0-Vq-N12" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="59" id="jGJ-cn-voP"/>
+                            <constraint firstItem="7C0-Vq-N12" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="Fap-11-VAr"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="7C0-Vq-N12" secondAttribute="bottom" id="ZYe-OF-4dI"/>
+                            <constraint firstItem="7C0-Vq-N12" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="aIX-12-fBR"/>
+                            <constraint firstAttribute="trailing" secondItem="7C0-Vq-N12" secondAttribute="trailing" id="oFL-aY-6A4"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -38,6 +39,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="qidong" width="120" height="147"/>
+        <image name="图层-1" width="375" height="667"/>
     </resources>
 </document>

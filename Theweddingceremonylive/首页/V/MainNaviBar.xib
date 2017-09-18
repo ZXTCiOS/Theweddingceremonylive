@@ -14,15 +14,15 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="xg6-ZY-TWW">
-                    <rect key="frame" x="20" y="32" width="70" height="20"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sy_logo" translatesAutoresizingMaskIntoConstraints="NO" id="xg6-ZY-TWW">
+                    <rect key="frame" x="20" y="32" width="130" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="ijb-Z5-ia7"/>
-                        <constraint firstAttribute="width" constant="70" id="pR7-Nf-yHr"/>
+                        <constraint firstAttribute="width" constant="130" id="pR7-Nf-yHr"/>
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DS2-hl-ySm" customClass="UIControl">
-                    <rect key="frame" x="98" y="27" width="227" height="30"/>
+                    <rect key="frame" x="158" y="27" width="167" height="30"/>
                     <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="t2A-JC-TRx"/>
@@ -32,7 +32,7 @@
                     </connections>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="关键词搜索" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h09-Bi-ee5">
-                    <rect key="frame" x="113" y="35" width="62" height="15"/>
+                    <rect key="frame" x="173" y="35" width="62" height="15"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" red="0.75294117647058822" green="0.75294117647058822" blue="0.75294117647058822" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -85,12 +85,12 @@
             <connections>
                 <outlet property="mask" destination="DS2-hl-ySm" id="vz3-Ty-eHx"/>
             </connections>
-            <point key="canvasLocation" x="-266" y="10"/>
+            <point key="canvasLocation" x="-19" y="18"/>
         </view>
     </objects>
     <resources>
-        <image name="logo" width="70" height="20"/>
         <image name="sy_ewm" width="22" height="22"/>
+        <image name="sy_logo" width="149" height="20"/>
         <image name="sy_search" width="16" height="16"/>
     </resources>
 </document>
