@@ -141,14 +141,14 @@
         make.top.equalTo(weakSelf.lineV.mas_bottom).with.offset(10*HEIGHT_SCALE);
         make.left.equalTo(weakSelf.lineV).with.offset(60*WIDTH_SCALE);
         make.width.mas_offset(36*WIDTH_SCALE);
-        make.height.mas_offset(50*WIDTH_SCALE);
+        make.height.mas_offset(60*WIDTH_SCALE);
     }];
     
     [self.weixinBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(weakSelf.lineV.mas_bottom).with.offset(10*HEIGHT_SCALE);
         make.right.equalTo(weakSelf.lineV).with.offset(-60*WIDTH_SCALE);
         make.width.mas_offset(36*WIDTH_SCALE);
-        make.height.mas_offset(50*WIDTH_SCALE);
+        make.height.mas_offset(60*WIDTH_SCALE);
     }];
     
 }
@@ -419,7 +419,7 @@
 //    bindingViewController *bindingvc = [[bindingViewController alloc] init];
 //    [self.navigationController pushViewController:bindingvc animated:YES];
 }
-
+ 
 -(void)weixinbtnclick
 {
     [ZTVendorManager loginWith:ZTVendorPlatformTypeWechat completionHandler:^(ZTVendorAccountModel *model, NSError *error) {

@@ -10,6 +10,7 @@
 #import "postCell0.h"
 #import "postCell1.h"
 #import <CoreLocation/CoreLocation.h>
+#import "JHUD.h"
 
 @interface postingVC ()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,UITextViewDelegate,HXPhotoViewDelegate,CLLocationManagerDelegate>
 {
@@ -20,6 +21,7 @@
 @property (nonatomic,copy) NSString *imgstr0;
 @property (nonatomic,copy) NSString *imgstr1;
 @property (nonatomic,copy) NSString *imgstr2;
+@property (nonatomic,strong) JHUD *hudView;
 @end
 
 static NSString *postidentfid0 = @"postidentfid0";
@@ -34,6 +36,9 @@ static NSString *postidentfid1 = @"postidentfid1";
     [self locate];
     [self.view addSubview:self.table];
     self.table.tableFooterView = [UIView new];
+    _hudView = [[JHUD alloc]initWithFrame:self.view.bounds];
+    
+    _hudView.messageLabel.text = @"发表中。。。";
 }
 
 - (void)didReceiveMemoryWarning {
