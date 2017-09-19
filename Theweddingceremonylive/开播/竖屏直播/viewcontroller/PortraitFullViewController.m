@@ -1005,8 +1005,9 @@
             if ([code isEqualToString:@"1000"]) {
                 // 拆红包成功
                 NSDictionary *data = [obj objectForKey:@"data"];
+                
                 self.qiangRedbag.from.text = [NSString stringWithFormat:@"抢到\"%@\"的红包", [data objectForKey:@"username"]];
-                self.qiangRedbag.money.text = [NSString stringWithFormat:@"%@", [data objectForKey:@"money"]];
+                self.qiangRedbag.money.text = [NSString stringWithFormat:@"%.2lf", [[data objectForKey:@"money"] floatValue]];
                 self.qiangRedbag.sucess.text = @"已存入余额";
                 [self.qiangRedbag.detail removeAllTargets];
                 [self.qiangRedbag.detail bk_addEventHandler:^(id sender) {
