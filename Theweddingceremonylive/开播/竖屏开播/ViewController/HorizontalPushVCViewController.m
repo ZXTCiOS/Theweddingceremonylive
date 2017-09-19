@@ -378,10 +378,12 @@
         // 发送测试在线状态
         NSString *uid = [userDefault objectForKey:user_uid];
         NSString *token = [userDefault objectForKey:user_token];
-        // todo: 房间 ID;
+        // tofix: 房间 ID;
         [DNNetworking postWithURLString:post_zhiboing parameters:@{@"uid": uid, @"token": token} success:^(id obj) {
             
-        } failure:nil];
+        } failure:^(NSError *error) {
+            [self.view showWarning:@"网络错误"];
+        }];
         
     } repeats:YES];
     

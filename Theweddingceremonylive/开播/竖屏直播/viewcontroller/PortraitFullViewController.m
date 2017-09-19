@@ -514,7 +514,7 @@
         if (message.messageType == NIMMessageTypeNotification) {
             // 聊天室通知
             
-        } else if([message.messageExt isEqualToString:@"gift"]) {
+        } else if([message.text isEqualToString:@"gift..."]) {
             // 礼物消息
             //NSDictionary *dic = [message.text jsonObject];
             [self.giftlist addObject:message.text];
@@ -523,9 +523,9 @@
             }
             message.text = [NSString stringWithFormat:@"%@送出了一个礼物", message.from];
             [msgs addObject:message];
-        } else if ([message.messageExt isEqualToString:@"redbag"]){
+        } else if ([message.text isEqualToString:@"redbag..."]){
             // 红包消息
-            NSDictionary *dic = [message.text jsonObject];
+            NSDictionary *dic = message.remoteExt;
             [self tanchuhongbao:dic];
             message.text = [NSString stringWithFormat:@"%@送出了一个红包", message.from];
             [msgs addObject:message];
@@ -897,12 +897,9 @@
                 if ([code isEqualToString:@"1000"]) {
                     NIMMessage *msg = [[NIMMessage alloc] init];
                     NIMSession *session = [NIMSession session:self.roomid type:NIMSessionTypeChatroom];
-                    msg.text = [@{@"giftid": giftid, @"from": self.nickName} jsonBody];
-                    msg.messageExt = @"gift";
+                    msg.text = @"gift...";
+                    msg.remoteExt = @{@"giftid": giftid, @"from": self.nickName};
                     [[NIMSDK sharedSDK].chatManager sendMessage:msg toSession:session error:nil];
-                    // TODO: 发礼物动画
-                    
-                    
                     
                     [self.giftlist addObject:giftid];
                     if (self.giftlist.count == 1) {
@@ -954,7 +951,6 @@
         } forControlEvents:UIControlEventTouchUpInside];
         [_redBag.sendBtn bk_addEventHandler:^(id sender) {
             [self sendRedBag];
-            
         } forControlEvents:UIControlEventTouchUpInside];
         
     }
@@ -975,8 +971,8 @@
             NSDictionary *data = [obj objectForKey:@"data"];
             NIMMessage *message = [[NIMMessage alloc] init];
             NIMSession *session = [NIMSession session:self.roomid type:NIMSessionTypeChatroom];
-            message.text = [data jsonBody];
-            message.messageExt = @"redbag";
+            message.text = @"redbag...";
+            message.remoteExt = data;
             [[NIMSDK sharedSDK].chatManager sendMessage:message toSession:session error:nil];
             
             [self tanchuhongbao:data];
