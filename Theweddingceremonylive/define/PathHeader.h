@@ -28,7 +28,7 @@
 #define post_sendgift @""           // 送礼物请求
 
 #define post_sendRedbag @"interface.php/Home/User/sentbag"         // 发红包
-#define post_chaiRedbag @""   // 拆红包
+#define post_chaiRedbag @"/interface.php/Home/User/getbag"   // 拆红包
 
 #define post_zhiboing  @""      // 直播中
 

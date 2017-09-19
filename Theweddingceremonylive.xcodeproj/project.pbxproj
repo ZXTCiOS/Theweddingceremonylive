@@ -34,6 +34,7 @@
 		1831DBDD1F4D4F6E00155691 /* NvWaTuiJianCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1831DBDC1F4D4F6E00155691 /* NvWaTuiJianCell.m */; };
 		1831DBE11F4D514200155691 /* LiebiaoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1831DBDF1F4D514200155691 /* LiebiaoCell.m */; };
 		1831DBE21F4D514200155691 /* LiebiaoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1831DBE01F4D514200155691 /* LiebiaoCell.xib */; };
+		1839D6C61F70E5350022F3C0 /* qiangRedbagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1839D6C51F70E5350022F3C0 /* qiangRedbagView.m */; };
 		1841E2BB1F6F6E5B007D362B /* SendRedBagView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1841E2BA1F6F6E5A007D362B /* SendRedBagView.xib */; };
 		1841E2BE1F6FB347007D362B /* hengpingWatchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841E2BD1F6FB347007D362B /* hengpingWatchVC.m */; };
 		1841E2C11F6FB367007D362B /* hengpingKaiboVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841E2C01F6FB367007D362B /* hengpingKaiboVC.m */; };
@@ -418,6 +419,8 @@
 		1831DBDE1F4D514200155691 /* LiebiaoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiebiaoCell.h; sourceTree = "<group>"; };
 		1831DBDF1F4D514200155691 /* LiebiaoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiebiaoCell.m; sourceTree = "<group>"; };
 		1831DBE01F4D514200155691 /* LiebiaoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LiebiaoCell.xib; sourceTree = "<group>"; };
+		1839D6C41F70E5350022F3C0 /* qiangRedbagView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qiangRedbagView.h; sourceTree = "<group>"; };
+		1839D6C51F70E5350022F3C0 /* qiangRedbagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = qiangRedbagView.m; sourceTree = "<group>"; };
 		1841E2BA1F6F6E5A007D362B /* SendRedBagView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SendRedBagView.xib; sourceTree = "<group>"; };
 		1841E2BC1F6FB347007D362B /* hengpingWatchVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hengpingWatchVC.h; sourceTree = "<group>"; };
 		1841E2BD1F6FB347007D362B /* hengpingWatchVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = hengpingWatchVC.m; sourceTree = "<group>"; };
@@ -1061,6 +1064,8 @@
 				1803645F1F6BC49800238500 /* GiftCell.h */,
 				180364601F6BC49800238500 /* GiftCell.m */,
 				180364611F6BC49800238500 /* GiftCell.xib */,
+				1839D6C41F70E5350022F3C0 /* qiangRedbagView.h */,
+				1839D6C51F70E5350022F3C0 /* qiangRedbagView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3216,6 +3221,7 @@
 				533A8A401F4C262A0087E699 /* DemoTableViewController.m in Sources */,
 				184A788D1F54181800EACCE1 /* WMPlayerVC.m in Sources */,
 				533854ED1F61495800538CE4 /* orderxuanzeVC1.m in Sources */,
+				1839D6C61F70E5350022F3C0 /* qiangRedbagView.m in Sources */,
 				533D6CCD1F626FA100655B83 /* QRcodeTool.m in Sources */,
 				18FE5D881F4AB33200C5A3CF /* WeddingVideoModel.m in Sources */,
 				533A8A421F4C262A0087E699 /* DemoCommentModel.m in Sources */,
