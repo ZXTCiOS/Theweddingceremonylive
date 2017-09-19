@@ -21,7 +21,7 @@
 #import "UMSocialQQHandler.h"
 #import <TencentOpenAPI/QQApiInterface.h>
 #import "MBManager.h"
-
+#import "JHUD.h"
 
 //#import "MBProgressHUD+Tools_cc.h"
 
@@ -41,7 +41,7 @@
 @property (nonatomic,strong) FSCustomButton *qqBtn;
 @property (nonatomic,strong) FSCustomButton *weixinBtn;
 
-@property (nonatomic, strong) ZTVendorPayManager *payManager;
+@property (nonatomic,strong) JHUD *hudView;
 @end
 
 @implementation LoginVC
@@ -62,7 +62,10 @@
     [self.view addSubview:self.qqBtn];
     [self.view addSubview:self.weixinBtn];
     
-    self.payManager = [[ZTVendorPayManager alloc]init];
+    _hudView = [[JHUD alloc]initWithFrame:self.view.bounds];
+    
+    _hudView.messageLabel.text = @"正在登录";
+
     [self setuplayout];
     [self weixinLogin];
 }
@@ -354,7 +357,8 @@
         user_pwd = self.passwordtext.text;
     }
     
-    [MBManager showLoadingInView:self.view];
+    //show
+    [_hudView showAtView:self.view hudType:JHUDLoadingTypeCircle];
     
     NSString *type = @"1";
     NSDictionary *para = @{@"user_tel":user_tel,@"user_pwd":user_pwd,@"type":type};
@@ -379,17 +383,21 @@
             AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
             MainTabBarController * main = [[MainTabBarController alloc] init];
             appDelegate.window.rootViewController = main;
-            
+            //hide
+            [_hudView hide];
         }
         else
         {
             [MBProgressHUD showSuccess:@"密码错误"];
         }
-         [MBManager hideAlert];
-
+        
+        //hide
+        [_hudView hide];
     } failure:^(NSError *error) {
         [MBProgressHUD showSuccess:@"网络错误"];
-        [MBManager hideAlert];
+        //hide
+        [_hudView hide];
+
     }];
     
 }
@@ -430,9 +438,8 @@
         }
         else
         {
-            [MBManager showLoadingInView:self.view];
-
-            
+            //show
+            [_hudView showAtView:self.view hudType:JHUDLoadingTypeCircle];
             NSDictionary *para = @{@"type":type,@"unionid":unionid,@"nickname":nickname,@"headimgurl":headimgurl,@"city":city,@"sex":sex};
             
             [DNNetworking postWithURLString:post_login parameters:para success:^(id obj) {
@@ -455,18 +462,20 @@
                     
 //                    bindingViewController *bindingvc = [[bindingViewController alloc] init];
 //                    [self.navigationController pushViewController:bindingvc animated:YES];
-                    [MBManager hideAlert];
+
                     
                     [self loginNIMWithaccount:acount token:imtoken];
                     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
                     MainTabBarController * main = [[MainTabBarController alloc] init];
                     appDelegate.window.rootViewController = main;
                 }
-                
+                //hide
+                [_hudView hide];
                 
             } failure:^(NSError *error) {
                 
-                [MBManager hideAlert];
+                //hide
+                [_hudView hide];
                 [MBProgressHUD showSuccess:@"登录失败"];
             }];
         }

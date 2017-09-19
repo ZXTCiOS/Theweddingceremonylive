@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'F99AE176A4C8DA68043276FBD6D2C04F'
+               BlueprintIdentifier = 'C60411F8DB968553904833BA621003F6'
                BlueprintName = 'YJBannerView'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libYJBannerView.a'>

@@ -38,6 +38,7 @@ PODS:
     - SDWebImage (~> 4.0)
   - IQKeyboardManager (4.0.13)
   - JCore (1.1.5)
+  - JHUD (0.3.0)
   - JPush (3.0.6):
     - JCore (~> 1.1.1)
   - LKSegmentBar (0.1.0)
@@ -66,6 +67,7 @@ DEPENDENCIES:
   - HMQRCodeScanner
   - HXWeiboPhotoPicker
   - IQKeyboardManager
+  - JHUD
   - JPush
   - LKSegmentBar
   - Masonry
@@ -90,6 +92,7 @@ SPEC CHECKSUMS:
   HXWeiboPhotoPicker: 72a153db2a3fb7b812dd9da09aa6d462c88bdf60
   IQKeyboardManager: 8eab4d8111418414619d1df8e4779ce5d0f8d7e2
   JCore: 9bd9c770c877c583d98b90a68792b8361974c231
+  JHUD: 17650f65045d9843a7ad19f6a0b1eac6c78a45d2
   JPush: c41be50eb1a574a66aeb68d237f00a4ec6ec3a82
   LKSegmentBar: 4452975002c8ec3f8647a4bdc8665b4360b5c6cf
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
@@ -104,6 +107,6 @@ SPEC CHECKSUMS:
   YJBannerView: 941917badacfe43f3c2a0a6934e7bc7350e584e9
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: bb727885f59922eff87f7e56068dae12a82f6337
+PODFILE CHECKSUM: dce9a178dda7f35b32a6049c68748d506d8bf095
 
 COCOAPODS: 1.3.1
