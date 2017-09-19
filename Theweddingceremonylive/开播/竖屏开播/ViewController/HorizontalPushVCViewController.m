@@ -26,7 +26,7 @@
 #define cellID_text @"text"
 #define cellID_audience @"audience"
 
-@interface HorizontalPushVCViewController ()<NIMNetCallManagerDelegate, NIMChatroomManagerDelegate, NIMChatManagerDelegate,  UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface HorizontalPushVCViewController ()<NIMNetCallManagerDelegate, NIMChatroomManagerDelegate, NIMChatManagerDelegate,  UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (nonatomic, strong) UIView *localPreView;
 @property (nonatomic, strong) ShuPingKaiboMaskView *maskview;
@@ -41,10 +41,7 @@
 @property (nonatomic, copy) NSString *pushUrl;
 @property (nonatomic, copy) NSString *nickName;
 @property (nonatomic, assign) NSInteger count;
-
-
-
-
+@property (nonatomic, assign) weddingType weddingtype;
 
 @property (nonatomic, strong) NSMutableArray<NIMChatroomMember *> *audiencelist;
 @property (nonatomic, strong) NSMutableArray<NIMMessage *> *danmulist;
@@ -143,12 +140,10 @@
     
     self.maskview.nameL.text = self.nickName;
     self.maskview.labelCount.text = [NSString stringWithFormat:@"%ld", self.count];
-    
     self.maskview.tableView.delegate = self;
     self.maskview.tableView.dataSource = self;
     self.maskview.collectionView.delegate = self;
     self.maskview.collectionView.dataSource = self;
-    
     [self registerCell];
     self.scrollV = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH)];
     _scrollV.contentSize = CGSizeMake(kScreenW*2, kScreenH);
@@ -158,6 +153,8 @@
     self.scrollV.showsHorizontalScrollIndicator = NO;
     self.scrollV.showsVerticalScrollIndicator = NO;
     [self scrollviewBtnEvent];
+    NSString *img = self.weddingtype ?@"zb_xi": @"zb_zhong";
+    self.maskview.bgView.image = [UIImage imageNamed:img];
     self.maskview.frame = CGRectMake(kScreenW, 0, kScreenW, kScreenH);
     self.maskview.textField.inputAccessoryView = [UIView new];
     [self.scrollV addSubview:self.maskview];
@@ -294,11 +291,15 @@
         request.notifyExt = @"";
         [[NIMSDK sharedSDK].chatroomManager markMemberManager:request completion:^(NSError * _Nullable error) {
             
+            if (error) {
+                NSLog(@"%@", error);
+            }else {
             // 改变本地数据
-            model.type = NIMChatroomMemberTypeManager;
-            [self.audiencelist removeObject:model];
-            [self.audiencelist insertObject:model atIndex:0];
-            [self.managerlist insertObject:model atIndex:0];
+                model.type = NIMChatroomMemberTypeManager;
+                [self.audiencelist removeObject:model];
+                [self.audiencelist insertObject:model atIndex:0];
+                [self.managerlist insertObject:model atIndex:0];
+            }
         }];
         
     }];
@@ -310,6 +311,8 @@
         [[NIMSDK sharedSDK].systemNotificationManager sendCustomNotification:noti toSession:session completion:^(NSError * _Nullable error) {
             if (!error) {
                 [self.view showWarning:@"正在申请联麦..."];
+            } else {
+                NSLog(@"%@", error);
             }
         }];
         
@@ -343,7 +346,7 @@
     // 获取管理员
     NIMChatroomMemberRequest *request = [[NIMChatroomMemberRequest alloc] init];
     request.roomId = self.roomid;
-    request.type = NIMChatroomFetchMemberTypeRegular; // 所有固定成员: 创建者, 管理员...
+    request.type = NIMChatroomFetchMemberTypeTemp; // 所有固定成员: 创建者, 管理员...
     [[NIMSDK sharedSDK].chatroomManager fetchChatroomMembers:request completion:^(NSError * _Nullable error, NSArray<NIMChatroomMember *> * _Nullable members) {
         // 只获取管理员.
         if (!error) {
@@ -358,6 +361,7 @@
 
 - (void)audienceListPerMin{
     self.timer = [NSTimer scheduledTimerWithTimeInterval:30 block:^(NSTimer * _Nonnull timer) {
+        // 请求观众
         NIMChatroomMemberRequest *request = [[NIMChatroomMemberRequest alloc] init];
         request.roomId = self.roomid;
         request.type = NIMChatroomFetchMemberTypeTemp; // 临时成员
@@ -371,11 +375,19 @@
                 [self.maskview.collectionView reloadData];
             }
         }];
+        // 发送测试在线状态
+        NSString *uid = [userDefault objectForKey:user_uid];
+        NSString *token = [userDefault objectForKey:user_token];
+        // todo: 房间 ID;
+        [DNNetworking postWithURLString:post_zhiboing parameters:@{@"uid": uid, @"token": token} success:^(id obj) {
+            
+        } failure:nil];
+        
     } repeats:YES];
     
 }
 
-
+/*
 #pragma mark - 观众列表 flowlayout
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
     
@@ -392,7 +404,7 @@
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
     return 0;
-}
+}*/
 
 #pragma mark - tableview delegate && datasourse
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

@@ -9,6 +9,7 @@
 #import "MiddleVC.h"
 #import "midVC.h"
 #import "RealVC.h"
+#import "HorizontalPushVCViewController.h"
 
 #import "weddingcardVC.h"
 
@@ -51,7 +52,10 @@
         else if([[obj objectForKey:@"code"] intValue]==1001)
         {
             //有预约
-            
+            // tofix: init
+            HorizontalPushVCViewController *vc = [[HorizontalPushVCViewController alloc] init];
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
         }
         else
         {

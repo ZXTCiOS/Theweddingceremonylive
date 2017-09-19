@@ -12,6 +12,7 @@
 #import <IQKeyboardManager.h>
 #import "NSDictionary+NTESJson.h"
 #import "NSString+NTES.h"
+#import "GiftAnimation.h"
 
 // model
 
@@ -19,6 +20,8 @@
 #import "PortraitFullMaskView.h"
 #import "AudienceCell.h"
 #import "DanmuCell.h"
+#import "GiftView.h"
+#import "SendRedBagView.h"
 
 // viewcontroller
 #import "NELivePlayerController.h"// 网易云播放器
@@ -34,10 +37,12 @@
 @interface PortraitFullViewController ()<UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, NIMChatroomManagerDelegate, NIMChatManagerDelegate, NIMNetCallManagerDelegate, NIMSystemNotificationManagerDelegate>
 
 
-@property (nonatomic, strong) UIScrollView *scrollV;               // 遮罩层
+@property (nonatomic, strong) UIScrollView *scrollV;                // 遮罩层
 @property (nonatomic, strong) PortraitFullMaskView *maskview;
 @property (nonatomic) UIImageView *placeholderView;                 // 模糊图片
 @property (nonatomic, strong) UIView *displayView;
+@property (nonatomic, strong) GiftView *giftV;
+@property (nonatomic, strong) SendRedBagView *redBag;
 
 
 @property(nonatomic, strong) id<NELivePlayer> liveplayer;           // 网易云播放器
@@ -49,13 +54,18 @@
 @property (nonatomic, copy) NSString *nickName;
 @property (nonatomic, copy) NSString *accid;
 @property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic, assign) weddingType weddingtype;
+@property (nonatomic, strong) NSString *yue;
 
-@property (nonatomic, strong) UITableView *tableView;           // 聊天框
-@property (nonatomic, strong) UICollectionView *collectionView;   // 观众 view
+@property (nonatomic, strong) UITableView *tableView;               // 聊天框
+@property (nonatomic, strong) UICollectionView *collectionView;     // 观众 view
 
 @property (nonatomic, strong) NSMutableArray<NIMChatroomMember *> *audiencelist;
 @property (nonatomic, strong) NSMutableArray<NIMMessage *> *danmulist;
 @property (nonatomic, strong) NSMutableArray<NIMChatroomMember *> *managerlist;
+@property (nonatomic, strong) NSMutableArray *giftlist;
+
+
 
 @end
 
@@ -151,17 +161,6 @@
 
 
 
-
-
-#pragma mark - 设置 view
-
-- (void)configMaskview{
-    
-    
-    
-    
-}
-
 #pragma mark - 分享
 - (void)shareBtnClick{
     // TODO: 添加分享功能
@@ -202,9 +201,13 @@
     };
     view.second = ^(){// 红包
         //[self joinLianmai];
+        self.redBag.hidden = NO;
+        
     };
     view.third = ^(){//礼物
-        NSLog(@"3");
+        [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            self.giftV.frame = CGRectMake(0, kScreenH- 230, kScreenW, 230);
+        } completion:nil];
     };
     view.fourth = ^(){//分享
         [UIView animateWithDuration:0.25 animations:^{
@@ -428,6 +431,7 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     // todo: 点击头像, 连麦, 给房管
 }
+/*
 #pragma mark - 观众列表 flowlayout
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
     return UIEdgeInsetsMake(0, 0, 0, 0);
@@ -440,7 +444,7 @@
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
     return 8;
 }
-
+*/
 #pragma mark - 聊天室 delegate && datasourse
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -507,6 +511,45 @@
         if (message.messageType == NIMMessageTypeNotification) {
             // 聊天室通知
             
+        } else if([message.messageExt isEqualToString:@"gift"]) {
+            // 礼物消息
+            //NSDictionary *dic = [message.text jsonObject];
+            [self.giftlist addObject:message.text];
+            if (self.giftlist.count == 1) {
+                [self beginGiftAnimation];
+            }
+            message.text = [NSString stringWithFormat:@"%@送出了一个礼物", message.from];
+            [msgs addObject:message];
+        } else if ([message.messageExt isEqualToString:@"redbag"]){
+            // 红包消息
+            NSDictionary *dic = [message.text jsonObject];
+            UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
+            [btn setBackgroundImage:[UIImage imageNamed:@"zb_hb_img"] forState:UIControlStateNormal];
+            [self.maskview addSubview:btn];
+            [btn setTitle:@"" forState:UIControlStateNormal];
+            btn.frame = CGRectMake((kScreenW - 150)/ 2, (kScreenH - 110)/ 2, 150, 110);
+            [btn bk_addEventHandler:^(id sender) {
+                // 拆红包
+                NSString *uid = [userDefault objectForKey:user_uid];
+                NSString *token = [userDefault objectForKey:user_token];
+                NSString *bagid = [dic objectForKey:@"bag_id"];
+                
+                [DNNetworking postWithURLString:post_chaiRedbag parameters:@{@"uid": uid, @"token": token, @"bag_id": bagid} success:^(id obj) {
+                    NSString *code = [obj objectForKey:@"code"];
+                    // todo: 拆
+                    if ([code isEqualToString:@"1000"]) {
+                        
+                    }
+                    
+                    
+                    
+                    [btn removeFromSuperview];
+                } failure:^(NSError *error) {
+                    [self.view showWarning:@"网络错误"];
+                }];
+            } forControlEvents:UIControlEventTouchUpInside];
+            message.text = [NSString stringWithFormat:@"%@送出了一个红包", message.from];
+            [msgs addObject:message];
         } else {
             [msgs addObject:message];
         }
@@ -521,6 +564,7 @@
     [self.tableView reloadData];
     if (self.danmulist.count > 5) [self.tableView scrollToBottom];
 }
+
 
 // 收到自定义通知
 -(void)onReceiveCustomSystemNotification:(NIMCustomSystemNotification *)notification{
@@ -541,8 +585,6 @@
         self.maskview.leaveMeeting.hidden = YES;
         [self.view showWarning:@"主播终止了你的连麦"];
     }
-    
-    
 }
 
 // 聊天室连接状态
@@ -715,6 +757,34 @@
     [[NSNotificationCenter defaultCenter]removeObserver:self name:NELivePlayerReleaseSueecssNotification object:_liveplayer];
 }
 
+#pragma mark 礼物动画
+
+- (void)beginGiftAnimation{
+    do {
+        NSString *giftid = self.giftlist.firstObject;
+        NSInteger section = giftid.integerValue / 10;
+        NSInteger row = giftid.integerValue % 10;
+        NSArray *gif = @[@"03", @"04", @"05", @"10", @"11", @"12", @"13", @"14", @"15", @"16", @"17", @"24", @"25", @"30", @"31", @"32", @"33", @"34", @"35", @"36", @"37"];
+        for (NSString *gift in gif) {
+            if ([gift isEqualToString:giftid]) {
+                [GiftAnimation giftWithGif:self.giftV.imagearr[section][row] addedToView:self.view completion:^{
+                    [self.giftlist removeFirstObject];
+                }];
+            }
+        }
+        if ([giftid isEqualToString:@"21"]) {
+            [GiftAnimation giftWithImage:self.giftV.imagearr[section][row] animationType:giftAnimationTypeCircle addedToView:self.view conpletion:^{
+                [self.giftlist removeFirstObject];
+            }];
+        }
+        [GiftAnimation giftWithImage:self.giftV.imagearr[section][row] animationType:giftAnimationTypeTop addedToView:self.view conpletion:^{
+            [self.giftlist removeFirstObject];
+        }];
+        
+    } while (self.giftlist.count == 0);
+}
+
+
 #pragma mark 懒加载
 
 - (NSMutableArray<NIMChatroomMember *> *)audiencelist{
@@ -738,7 +808,12 @@
     return _managerlist;
 }
 
-
+- (NSMutableArray *)giftlist{
+    if (!_giftlist) {
+        _giftlist = [NSMutableArray array];
+    }
+    return _giftlist;
+}
 
 - (id<NELivePlayer>)liveplayer{
     if (!_liveplayer) {
@@ -796,8 +871,9 @@
         _maskview.user_name.text = @"美味🍦静静";
         _maskview.user_id.text = @"id:1231123";
         _maskview.countL.text = @"123321";
+        NSString *img = self.weddingtype ?@"zb_xi": @"zb_zhong";
+        _maskview.bgView.image = [UIImage imageNamed:img];
         
-        _maskview.bgView.image = [UIImage imageNamed:@""];
         [self configBottomBtn:self.maskview];
         _maskview.textField.inputAccessoryView = [UIView new];
         _maskview.tableView.tableFooterView = [UIView new];
@@ -811,8 +887,108 @@
         _maskview.collectionView.delegate = self;
         _maskview.collectionView.dataSource = self;
         [self.scrollV addSubview:_maskview];
+        
     }
     return _maskview;
+}
+
+- (void)taptap{
+    if (_giftV) {
+        [UIView animateWithDuration:0.5 animations:^{
+            _giftV.frame = CGRectMake(0, kScreenH, kScreenW, 230);
+        }];
+    }
+}
+
+- (GiftView *)giftV{
+    if (!_giftV) {
+        _giftV = [[GiftView alloc] initWithDirection:screenDirectionV];
+        [self.maskview addSubview:_giftV];
+        // tofix
+        _giftV.yuE.text = self.yue;
+        [_giftV.send bk_addEventHandler:^(id sender) {
+            // tofix: 发送礼物请求
+            NSString *uid = [userDefault objectForKey:user_uid];
+            NSString *token = [userDefault objectForKey:user_token];
+            NSString *giftid = [NSString stringWithFormat:@"%ld%ld", _giftV.currentIndex.section, _giftV.currentIndex.row];
+            NSDictionary *para = @{@"uid": uid, @"token": token, @"gift_id": giftid};
+            
+            [DNNetworking postWithURLString:post_sendgift parameters:para success:^(id obj) {
+                NSString *code = [obj objectForKey:@"code"];
+                if ([code isEqualToString:@"1000"]) {
+                    NIMMessage *msg = [[NIMMessage alloc] init];
+                    NIMSession *session = [NIMSession session:self.roomid type:NIMSessionTypeChatroom];
+                    msg.text = [@{@"giftid": giftid, @"from": self.nickName} jsonBody];
+                    msg.messageExt = @"gift";
+                    [[NIMSDK sharedSDK].chatManager sendMessage:msg toSession:session error:nil];
+                    // TODO: 发礼物动画
+                    [self.giftlist addObject:giftid];
+                    if (self.giftlist.count == 1) {
+                        [self beginGiftAnimation];
+                    }
+                } else {
+                    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"余额不足" message:@"请充值" preferredStyle: UIAlertControllerStyleAlert];
+                    UIAlertAction *act = [UIAlertAction actionWithTitle:@"确定" style: UIAlertActionStyleDefault handler:nil];
+                    [alert addAction:act];
+                    [self.navigationController presentViewController:alert animated:YES completion:nil];
+                }
+            } failure:^(NSError *error) {
+                [self.view showWarning:@"网络错误"];
+            }];
+            [UIView animateWithDuration:0.5 animations:^{
+                _giftV.frame = CGRectMake(0, kScreenH, kScreenW, 230);
+            }];
+        } forControlEvents:UIControlEventTouchUpInside];
+        [_giftV.chongzhi bk_addEventHandler:^(id sender) {
+            // todo: 充值
+            
+            
+        } forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _giftV;
+}
+
+- (SendRedBagView *)redBag{
+    if (!_redBag) {
+        _redBag = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([SendRedBagView class]) owner:nil options:nil].firstObject;
+        _redBag.frame = CGRectMake(30, 100, kScreenW- 60, 360);
+        [self.maskview addSubview:_redBag];
+        _redBag.hidden = YES;
+        [_redBag.cancelBtn bk_addEventHandler:^(id sender) {
+            _redBag.hidden = YES;
+            [self.view endEditing:YES];
+        } forControlEvents:UIControlEventTouchUpInside];
+        [_redBag.sendBtn bk_addEventHandler:^(id sender) {
+            [self sendRedBag];
+        } forControlEvents:UIControlEventTouchUpInside];
+        
+    }
+    return _redBag;
+}
+
+- (void)sendRedBag{
+    NSString *uid = [userDefault objectForKey:user_uid];
+    NSString *token = [userDefault objectForKey:user_token];
+    NSString *money =_redBag.money.text;
+    NSString *number = _redBag.number.text;
+    BOOL isnormal = _redBag.isnormal;
+    
+    [DNNetworking postWithURLString:post_sendRedbag parameters:@{@"uid": uid, @"token": token, @"bag_money": money, @"bag_type": @(isnormal), @"bag_count": number} success:^(id obj) {
+        
+        NSString *code = [obj objectForKey:@"code"];
+        if ([code isEqualToString:@"1000"]) {
+            NSDictionary *data = [obj objectForKey:@"data"];
+            NIMMessage *message = [[NIMMessage alloc] init];
+            NIMSession *session = [NIMSession session:self.roomid type:NIMSessionTypeChatroom];
+            message.text = [data jsonBody];
+            message.messageExt = @"redbag";
+            [[NIMSDK sharedSDK].chatManager sendMessage:message toSession:session error:nil];
+        } else if([code isEqualToString:@"990"]) {
+            [self.view showWarning:@"余额不足"];
+        }
+    } failure:^(NSError *error) {
+        [self.view showWarning:@"网络错误"];
+    }];
 }
 
 

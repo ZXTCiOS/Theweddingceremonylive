@@ -19,7 +19,7 @@
 
 #define JIGUANG     @"48a4889e047c006938c2b298"
 
-#define BASE_URL   @"http://88.irapidtech.net/"
+#define BASE_URL   @"http://aimidao.tv/"
 
 //注册
 #define post_logup          @"/interface.php/Home/register/register"

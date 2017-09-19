@@ -41,7 +41,11 @@ typedef NS_ENUM(NSUInteger, NIMMyNotiType) {
     NIMMyNotiTypeDisconnect,// 断开
 };
 
-
+typedef NS_ENUM(NSUInteger, weddingType) {
+    weddingType_zhong,
+    weddingType_xi,
+    weddingType_none,
+};
 
 
 

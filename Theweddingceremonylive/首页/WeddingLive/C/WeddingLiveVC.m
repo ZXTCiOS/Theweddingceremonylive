@@ -220,8 +220,6 @@
     [decodeParm addObject:@"software"];
     [decodeParm addObject:@"livestream"];
     
-//    NELivePlayerViewController *nelpViewController = [[NELivePlayerViewController alloc] initWithURL:@"rtmp://ve266c7be.live.126.net/live/5f581cb50c724380bd08788abe7b0f9d".xd_URL andDecodeParm:decodeParm];
-//    [self presentViewController:nelpViewController animated:YES completion:nil];
     
     
     PortraitFullViewController *vc = [[PortraitFullViewController alloc] init];

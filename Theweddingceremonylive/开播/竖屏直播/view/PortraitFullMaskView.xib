@@ -201,7 +201,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="smR-FX-hyO">
-                            <rect key="frame" x="167" y="41" width="40" height="40"/>
+                            <rect key="frame" x="167.5" y="41" width="40" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="llU-04-iyx"/>
                                 <constraint firstAttribute="width" constant="40" id="zVF-Y2-PuF"/>
@@ -209,7 +209,7 @@
                             <state key="normal" image="weixin"/>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微信" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xlF-1E-bwP">
-                            <rect key="frame" x="173" y="84" width="29" height="17"/>
+                            <rect key="frame" x="173.5" y="84" width="29" height="17"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>

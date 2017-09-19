@@ -11,6 +11,12 @@
 		180364411F694A8D00238500 /* AudienceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 180364401F694A8C00238500 /* AudienceModel.m */; };
 		180364441F6A336900238500 /* NSDictionary+NTESJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 180364431F6A336900238500 /* NSDictionary+NTESJson.m */; };
 		180364471F6A473A00238500 /* NSString+NTES.m in Sources */ = {isa = PBXBuildFile; fileRef = 180364461F6A473A00238500 /* NSString+NTES.m */; };
+		1803644D1F6A7D0100238500 /* GiftView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1803644C1F6A7D0100238500 /* GiftView.m */; };
+		180364511F6B7D3400238500 /* SendRedBagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 180364501F6B7D3400238500 /* SendRedBagView.m */; };
+		180364551F6BAB8B00238500 /* RedBagModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 180364541F6BAB8B00238500 /* RedBagModel.m */; };
+		1803645B1F6BB03900238500 /* GiftAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1803645A1F6BB03900238500 /* GiftAnimation.m */; };
+		180364621F6BC49800238500 /* GiftCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 180364601F6BC49800238500 /* GiftCell.m */; };
+		180364631F6BC49800238500 /* GiftCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 180364611F6BC49800238500 /* GiftCell.xib */; };
 		1804ED8A1F4ED56A0004DAAE /* TuijianDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1804ED891F4ED56A0004DAAE /* TuijianDataModel.m */; };
 		1804ED8D1F4EEC2A0004DAAE /* WeddingVideoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1804ED8C1F4EEC2A0004DAAE /* WeddingVideoVC.m */; };
 		182E81101F418C3200720AA4 /* FastForwardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182E81091F418C3200720AA4 /* FastForwardView.m */; };
@@ -28,6 +34,13 @@
 		1831DBDD1F4D4F6E00155691 /* NvWaTuiJianCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1831DBDC1F4D4F6E00155691 /* NvWaTuiJianCell.m */; };
 		1831DBE11F4D514200155691 /* LiebiaoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1831DBDF1F4D514200155691 /* LiebiaoCell.m */; };
 		1831DBE21F4D514200155691 /* LiebiaoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1831DBE01F4D514200155691 /* LiebiaoCell.xib */; };
+		1841E2BB1F6F6E5B007D362B /* SendRedBagView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1841E2BA1F6F6E5A007D362B /* SendRedBagView.xib */; };
+		1841E2BE1F6FB347007D362B /* hengpingWatchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841E2BD1F6FB347007D362B /* hengpingWatchVC.m */; };
+		1841E2C11F6FB367007D362B /* hengpingKaiboVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841E2C01F6FB367007D362B /* hengpingKaiboVC.m */; };
+		1841E2C41F6FB7EB007D362B /* hengpingMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841E2C31F6FB7EB007D362B /* hengpingMaskView.m */; };
+		1841E2C71F6FB801007D362B /* hengpingWatchMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1841E2C61F6FB801007D362B /* hengpingWatchMaskView.m */; };
+		1841E2C91F6FB811007D362B /* hengpingMaskView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1841E2C81F6FB811007D362B /* hengpingMaskView.xib */; };
+		1841E2CB1F6FB81D007D362B /* hengpingWatchMaskView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1841E2CA1F6FB81D007D362B /* hengpingWatchMaskView.xib */; };
 		1843964C1F51597700C29035 /* WeddingLiveVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1843964B1F51597700C29035 /* WeddingLiveVC.m */; };
 		1843D9CC1F4565200001C7C6 /* MainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1843D9CB1F4565200001C7C6 /* MainCell.m */; };
 		1845AEA31F469E0B002EAD47 /* BannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1845AEA11F469E0B002EAD47 /* BannerView.m */; };
@@ -75,7 +88,6 @@
 		18F735671F62B1B20054524B /* DanmuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F735661F62B1B20054524B /* DanmuCell.m */; };
 		18F9374E1F57FBFE00B267C0 /* PortraitFullMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F937451F57FBFE00B267C0 /* PortraitFullMaskView.m */; };
 		18F9374F1F57FBFE00B267C0 /* PortraitFullMaskView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F937461F57FBFE00B267C0 /* PortraitFullMaskView.xib */; };
-		18F937501F57FBFE00B267C0 /* PortraitTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F937481F57FBFE00B267C0 /* PortraitTextView.m */; };
 		18F937511F57FBFE00B267C0 /* PortraitFullViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F9374B1F57FBFE00B267C0 /* PortraitFullViewController.m */; };
 		18F937601F58076500B267C0 /* HorizontalPushVCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F9375F1F58076500B267C0 /* HorizontalPushVCViewController.m */; };
 		18FE231C1F4E72DC0088D3BF /* NvwaYugaoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FE231B1F4E72DC0088D3BF /* NvwaYugaoModel.m */; };
@@ -364,6 +376,17 @@
 		180364431F6A336900238500 /* NSDictionary+NTESJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+NTESJson.m"; sourceTree = "<group>"; };
 		180364451F6A473A00238500 /* NSString+NTES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NTES.h"; sourceTree = "<group>"; };
 		180364461F6A473A00238500 /* NSString+NTES.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NTES.m"; sourceTree = "<group>"; };
+		1803644B1F6A7D0100238500 /* GiftView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GiftView.h; path = "../竖屏开播/View/GiftView.h"; sourceTree = "<group>"; };
+		1803644C1F6A7D0100238500 /* GiftView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GiftView.m; path = "../竖屏开播/View/GiftView.m"; sourceTree = "<group>"; };
+		1803644F1F6B7D3400238500 /* SendRedBagView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendRedBagView.h; sourceTree = "<group>"; };
+		180364501F6B7D3400238500 /* SendRedBagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendRedBagView.m; sourceTree = "<group>"; };
+		180364531F6BAB8B00238500 /* RedBagModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedBagModel.h; sourceTree = "<group>"; };
+		180364541F6BAB8B00238500 /* RedBagModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedBagModel.m; sourceTree = "<group>"; };
+		180364591F6BB03900238500 /* GiftAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiftAnimation.h; sourceTree = "<group>"; };
+		1803645A1F6BB03900238500 /* GiftAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiftAnimation.m; sourceTree = "<group>"; };
+		1803645F1F6BC49800238500 /* GiftCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiftCell.h; sourceTree = "<group>"; };
+		180364601F6BC49800238500 /* GiftCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiftCell.m; sourceTree = "<group>"; };
+		180364611F6BC49800238500 /* GiftCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GiftCell.xib; sourceTree = "<group>"; };
 		1804ED881F4ED56A0004DAAE /* TuijianDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuijianDataModel.h; sourceTree = "<group>"; };
 		1804ED891F4ED56A0004DAAE /* TuijianDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuijianDataModel.m; sourceTree = "<group>"; };
 		1804ED8B1F4EEC2A0004DAAE /* WeddingVideoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeddingVideoVC.h; sourceTree = "<group>"; };
@@ -395,6 +418,17 @@
 		1831DBDE1F4D514200155691 /* LiebiaoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiebiaoCell.h; sourceTree = "<group>"; };
 		1831DBDF1F4D514200155691 /* LiebiaoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiebiaoCell.m; sourceTree = "<group>"; };
 		1831DBE01F4D514200155691 /* LiebiaoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LiebiaoCell.xib; sourceTree = "<group>"; };
+		1841E2BA1F6F6E5A007D362B /* SendRedBagView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SendRedBagView.xib; sourceTree = "<group>"; };
+		1841E2BC1F6FB347007D362B /* hengpingWatchVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hengpingWatchVC.h; sourceTree = "<group>"; };
+		1841E2BD1F6FB347007D362B /* hengpingWatchVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = hengpingWatchVC.m; sourceTree = "<group>"; };
+		1841E2BF1F6FB367007D362B /* hengpingKaiboVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hengpingKaiboVC.h; sourceTree = "<group>"; };
+		1841E2C01F6FB367007D362B /* hengpingKaiboVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = hengpingKaiboVC.m; sourceTree = "<group>"; };
+		1841E2C21F6FB7EB007D362B /* hengpingMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hengpingMaskView.h; sourceTree = "<group>"; };
+		1841E2C31F6FB7EB007D362B /* hengpingMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = hengpingMaskView.m; sourceTree = "<group>"; };
+		1841E2C51F6FB801007D362B /* hengpingWatchMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hengpingWatchMaskView.h; sourceTree = "<group>"; };
+		1841E2C61F6FB801007D362B /* hengpingWatchMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = hengpingWatchMaskView.m; sourceTree = "<group>"; };
+		1841E2C81F6FB811007D362B /* hengpingMaskView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = hengpingMaskView.xib; sourceTree = "<group>"; };
+		1841E2CA1F6FB81D007D362B /* hengpingWatchMaskView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = hengpingWatchMaskView.xib; sourceTree = "<group>"; };
 		1843964A1F51597700C29035 /* WeddingLiveVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeddingLiveVC.h; sourceTree = "<group>"; };
 		1843964B1F51597700C29035 /* WeddingLiveVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeddingLiveVC.m; sourceTree = "<group>"; };
 		1843D9CA1F4565200001C7C6 /* MainCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainCell.h; sourceTree = "<group>"; };
@@ -482,8 +516,6 @@
 		18F937441F57FBFE00B267C0 /* PortraitFullMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortraitFullMaskView.h; sourceTree = "<group>"; };
 		18F937451F57FBFE00B267C0 /* PortraitFullMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortraitFullMaskView.m; sourceTree = "<group>"; };
 		18F937461F57FBFE00B267C0 /* PortraitFullMaskView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PortraitFullMaskView.xib; sourceTree = "<group>"; };
-		18F937471F57FBFE00B267C0 /* PortraitTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortraitTextView.h; sourceTree = "<group>"; };
-		18F937481F57FBFE00B267C0 /* PortraitTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortraitTextView.m; sourceTree = "<group>"; };
 		18F9374A1F57FBFE00B267C0 /* PortraitFullViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortraitFullViewController.h; sourceTree = "<group>"; };
 		18F9374B1F57FBFE00B267C0 /* PortraitFullViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortraitFullViewController.m; sourceTree = "<group>"; };
 		18F9375E1F58076500B267C0 /* HorizontalPushVCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizontalPushVCViewController.h; sourceTree = "<group>"; };
@@ -1018,6 +1050,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1803644E1F6B7CE000238500 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1803644F1F6B7D3400238500 /* SendRedBagView.h */,
+				180364501F6B7D3400238500 /* SendRedBagView.m */,
+				1841E2BA1F6F6E5A007D362B /* SendRedBagView.xib */,
+				1803644B1F6A7D0100238500 /* GiftView.h */,
+				1803644C1F6A7D0100238500 /* GiftView.m */,
+				1803645F1F6BC49800238500 /* GiftCell.h */,
+				180364601F6BC49800238500 /* GiftCell.m */,
+				180364611F6BC49800238500 /* GiftCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		180364521F6BAB7800238500 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				180364531F6BAB8B00238500 /* RedBagModel.h */,
+				180364541F6BAB8B00238500 /* RedBagModel.m */,
+				180364591F6BB03900238500 /* GiftAnimation.h */,
+				1803645A1F6BB03900238500 /* GiftAnimation.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		182E81061F418C3200720AA4 /* WMPlayer */ = {
 			isa = PBXGroup;
 			children = (
@@ -1402,8 +1460,6 @@
 				18F937441F57FBFE00B267C0 /* PortraitFullMaskView.h */,
 				18F937451F57FBFE00B267C0 /* PortraitFullMaskView.m */,
 				18F937461F57FBFE00B267C0 /* PortraitFullMaskView.xib */,
-				18F937471F57FBFE00B267C0 /* PortraitTextView.h */,
-				18F937481F57FBFE00B267C0 /* PortraitTextView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1437,6 +1493,9 @@
 		18F937541F58058100B267C0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1841E2C51F6FB801007D362B /* hengpingWatchMaskView.h */,
+				1841E2C61F6FB801007D362B /* hengpingWatchMaskView.m */,
+				1841E2CA1F6FB81D007D362B /* hengpingWatchMaskView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1444,6 +1503,8 @@
 		18F937551F58058100B267C0 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				1841E2BC1F6FB347007D362B /* hengpingWatchVC.h */,
+				1841E2BD1F6FB347007D362B /* hengpingWatchVC.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1468,6 +1529,9 @@
 		18F937581F58058100B267C0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1841E2C21F6FB7EB007D362B /* hengpingMaskView.h */,
+				1841E2C31F6FB7EB007D362B /* hengpingMaskView.m */,
+				1841E2C81F6FB811007D362B /* hengpingMaskView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1475,6 +1539,8 @@
 		18F937591F58058100B267C0 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				1841E2BF1F6FB367007D362B /* hengpingKaiboVC.h */,
+				1841E2C01F6FB367007D362B /* hengpingKaiboVC.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -2497,6 +2563,8 @@
 		53D02F891F3BF95300CD504C /* 开播 */ = {
 			isa = PBXGroup;
 			children = (
+				180364521F6BAB7800238500 /* Model */,
+				1803644E1F6B7CE000238500 /* View */,
 				18F937521F58058100B267C0 /* 横屏观看 */,
 				18F937561F58058100B267C0 /* 横屏开播 */,
 				18F9375A1F58058100B267C0 /* 竖屏推流 */,
@@ -2931,6 +2999,7 @@
 				182E81111F418C3200720AA4 /* FastForwardView.xib in Resources */,
 				18F735611F6275610054524B /* ShuPingKaiboMaskView.xib in Resources */,
 				18F9374F1F57FBFE00B267C0 /* PortraitFullMaskView.xib in Resources */,
+				1841E2C91F6FB811007D362B /* hengpingMaskView.xib in Resources */,
 				1831DBD51F4D281B00155691 /* NvWaCell.xib in Resources */,
 				53204C241F593D2A00A211BD /* copyUrl@3x.png in Resources */,
 				1847DED81F3C5A5F00C796A8 /* LiveVideoCell.xib in Resources */,
@@ -2951,6 +3020,7 @@
 				18FE5D961F4AE3D800C5A3CF /* MainNaviBar.xib in Resources */,
 				53204C2F1F593D2A00A211BD /* wechatquan@2x.png in Resources */,
 				53204C001F593BD100A211BD /* AlipaySDK.bundle in Resources */,
+				1841E2BB1F6F6E5B007D362B /* SendRedBagView.xib in Resources */,
 				53204C301F593D2A00A211BD /* wechatquan@3x.png in Resources */,
 				53204C2D1F593D2A00A211BD /* wechat@2x.png in Resources */,
 				53EEF2A31F3E9E1D0031D396 /* tabbar_bg@2x.png in Resources */,
@@ -2958,7 +3028,9 @@
 				53EEF2A41F3E9E1D0031D396 /* tabbar_bg@3x.png in Resources */,
 				184A788A1F53FB9D00EACCE1 /* WeddingLiveTableCell.xib in Resources */,
 				533854581F5FEAC500538CE4 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
+				180364631F6BC49800238500 /* GiftCell.xib in Resources */,
 				53D02F481F3B1B5600CD504C /* Main.storyboard in Resources */,
+				1841E2CB1F6FB81D007D362B /* hengpingWatchMaskView.xib in Resources */,
 				533ACE3D1F4AD36D00F66A78 /* areas.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3151,6 +3223,7 @@
 				53B68E681F4EEC5F00674A2B /* NullSafe.m in Sources */,
 				53CC98F81F5690230077CCF6 /* zhifuBtn.m in Sources */,
 				1843964C1F51597700C29035 /* WeddingLiveVC.m in Sources */,
+				1803644D1F6A7D0100238500 /* GiftView.m in Sources */,
 				536D54DC1F501FEB00A54749 /* selectnumBtn.m in Sources */,
 				53204BFD1F593BD100A211BD /* ZTVendorAccountModel.m in Sources */,
 				182E81121F418C3200720AA4 /* WMLightView.m in Sources */,
@@ -3161,7 +3234,6 @@
 				18FE23371F4EC42C0088D3BF /* HYBLoadImageView.m in Sources */,
 				53FCA4731F418EA5001780F7 /* perfectingCell2.m in Sources */,
 				53CC98B71F5410E80077CCF6 /* wanshanCell3.m in Sources */,
-				18F937501F57FBFE00B267C0 /* PortraitTextView.m in Sources */,
 				533A8A431F4C262A0087E699 /* DemoCommentView.m in Sources */,
 				533ACCFD1F4AABB600F66A78 /* postingVC.m in Sources */,
 				531C05621F5E85B100C235FA /* orderdetalisVC.m in Sources */,
@@ -3214,6 +3286,7 @@
 				53D02FA01F3BFA5900CD504C /* MainVC.m in Sources */,
 				532564E81F4539E500915E3B /* orderCell2.m in Sources */,
 				53B68E6B1F4EEF9000674A2B /* keyboardView.m in Sources */,
+				180364551F6BAB8B00238500 /* RedBagModel.m in Sources */,
 				53B68E441F4D8D0000674A2B /* midVC.m in Sources */,
 				532564FD1F46499C00915E3B /* qualityVC.m in Sources */,
 				188038FC1F3EAB9B00A2B4AE /* SaveCenterVC.m in Sources */,
@@ -3258,6 +3331,7 @@
 				53204BF91F593BD100A211BD /* AppDelegate+ZTVendorHelper.m in Sources */,
 				530299621F443ABF004BC03A /* orderVC2.m in Sources */,
 				182E81141F418C3200720AA4 /* WMPlayer.m in Sources */,
+				1841E2C71F6FB801007D362B /* hengpingWatchMaskView.m in Sources */,
 				53EEF2AA1F3E9EE80031D396 /* UITabBarController+QFExtension.m in Sources */,
 				1845AEA31F469E0B002EAD47 /* BannerView.m in Sources */,
 				1831DBCD1F4D268D00155691 /* ViewController.m in Sources */,
@@ -3287,11 +3361,14 @@
 				533ACCF81F4A7BE500F66A78 /* UIView+ViewController.m in Sources */,
 				533ACE3E1F4AD36D00F66A78 /* DQAreasModel.m in Sources */,
 				1843D9CC1F4565200001C7C6 /* MainCell.m in Sources */,
+				180364511F6B7D3400238500 /* SendRedBagView.m in Sources */,
 				53CC98B81F5410E80077CCF6 /* wanshanCell4.m in Sources */,
+				180364621F6BC49800238500 /* GiftCell.m in Sources */,
 				53CC98C51F541C990077CCF6 /* weddingcardVC.m in Sources */,
 				5302995C1F443AA5004BC03A /* orderVC0.m in Sources */,
 				1851F4211F3D843E00369326 /* UIView+HUD.m in Sources */,
 				18F937511F57FBFE00B267C0 /* PortraitFullViewController.m in Sources */,
+				1803645B1F6BB03900238500 /* GiftAnimation.m in Sources */,
 				5303E3E41F3EDF6800AB0AF2 /* CALayer+FSUI.m in Sources */,
 				53EEF2A91F3E9EE80031D396 /* MainTabBarController.m in Sources */,
 				1853D94A1F503D2400980936 /* infoModel.m in Sources */,
@@ -3304,12 +3381,14 @@
 				188039051F3EAB9B00A2B4AE /* MyWalletTVC.m in Sources */,
 				53CC98B51F5410E80077CCF6 /* wanshanCell1.m in Sources */,
 				533D6D381F63DC0200655B83 /* MBManager.m in Sources */,
+				1841E2C41F6FB7EB007D362B /* hengpingMaskView.m in Sources */,
 				530299521F442E09004BC03A /* MyshopCell.m in Sources */,
 				18F937601F58076500B267C0 /* HorizontalPushVCViewController.m in Sources */,
 				533D6D661F664F8800655B83 /* shopdetalisCell2.m in Sources */,
 				188039031F3EAB9B00A2B4AE /* MyGiftTVC.m in Sources */,
 				18FE5D911F4AD95300C5A3CF /* MainHeaderView.m in Sources */,
 				533ACC8C1F46D66E00F66A78 /* addressVC.m in Sources */,
+				1841E2C11F6FB367007D362B /* hengpingKaiboVC.m in Sources */,
 				533D6D931F66A57300655B83 /* systemModel.m in Sources */,
 				188038FF1F3EAB9B00A2B4AE /* MineTVC.m in Sources */,
 				184A787D1F53C5E800EACCE1 /* WeddingLiveModel.m in Sources */,
@@ -3362,6 +3441,7 @@
 				53CC98F51F568E930077CCF6 /* chongzhifootView.m in Sources */,
 				533A8A411F4C262A0087E699 /* DemoCellModel.m in Sources */,
 				53B68E651F4EDD1F00674A2B /* detalisModel.m in Sources */,
+				1841E2BE1F6FB347007D362B /* hengpingWatchVC.m in Sources */,
 				530299681F443EE1004BC03A /* orderCell.m in Sources */,
 				53204C321F593D2A00A211BD /* ActionSheetView.m in Sources */,
 				5302994F1F441185004BC03A /* changeCell1.m in Sources */,

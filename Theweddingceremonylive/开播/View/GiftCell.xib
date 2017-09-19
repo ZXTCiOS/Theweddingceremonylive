@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="GiftCell">
+            <rect key="frame" x="0.0" y="0.0" width="123" height="153"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="123" height="153"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vei-JO-nnz">
+                        <rect key="frame" x="1" y="1" width="121" height="151"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vEV-DE-kI3">
+                                <rect key="frame" x="8" y="8" width="105" height="119"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥ 11" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdX-fh-VP5">
+                                <rect key="frame" x="48" y="135" width="24" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="1" green="0.49803921569999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="vEV-DE-kI3" secondAttribute="trailing" constant="8" id="OjZ-Yq-TZv"/>
+                            <constraint firstItem="vEV-DE-kI3" firstAttribute="leading" secondItem="vei-JO-nnz" secondAttribute="leading" constant="8" id="Via-31-Ze5"/>
+                            <constraint firstItem="vEV-DE-kI3" firstAttribute="top" secondItem="vei-JO-nnz" secondAttribute="top" constant="8" id="anI-YX-BzJ"/>
+                            <constraint firstItem="jdX-fh-VP5" firstAttribute="centerX" secondItem="vEV-DE-kI3" secondAttribute="centerX" id="dPV-B4-7zp"/>
+                            <constraint firstAttribute="bottom" secondItem="jdX-fh-VP5" secondAttribute="bottom" id="hpU-tn-GH6"/>
+                            <constraint firstItem="jdX-fh-VP5" firstAttribute="top" secondItem="vEV-DE-kI3" secondAttribute="bottom" constant="8" id="ync-R2-UZr"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="vei-JO-nnz" secondAttribute="bottom" constant="1" id="1XH-7N-0v7"/>
+                <constraint firstItem="vei-JO-nnz" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="1" id="673-qe-YGl"/>
+                <constraint firstAttribute="trailing" secondItem="vei-JO-nnz" secondAttribute="trailing" constant="1" id="H82-oV-Z5G"/>
+                <constraint firstItem="vei-JO-nnz" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="1" id="XfQ-on-VQQ"/>
+            </constraints>
+            <size key="customSize" width="123" height="153"/>
+            <connections>
+                <outlet property="imageV" destination="vEV-DE-kI3" id="wt0-vX-SCx"/>
+                <outlet property="price" destination="jdX-fh-VP5" id="qOR-3j-cRo"/>
+            </connections>
+            <point key="canvasLocation" x="-433.5" y="-46.5"/>
+        </collectionViewCell>
+    </objects>
+</document>
