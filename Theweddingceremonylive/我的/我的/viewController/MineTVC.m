@@ -66,7 +66,12 @@ static NSString *mineidentfid2 = @"mineidentfid2";
             self.headView.nameLab.text = [self.dataDic objectForKey:@"name"];
 
             [self.headView.userImg sd_setImageWithURL:[NSURL URLWithString:[self.dataDic objectForKey:@"picture"]]];
-     
+            NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
+            NSString *userimg = [self.dataDic objectForKey:@"picture"];
+            NSString *name = [self.dataDic objectForKey:@"name"];
+            [userdefat setObject:userimg forKey:user_userimg];
+            [userdefat setObject:name forKey:user_name];
+            [userdefat synchronize];
         }
         else
         {

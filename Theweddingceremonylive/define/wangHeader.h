@@ -17,6 +17,9 @@
 #define user_imtoken @"IMTOKEN"
 #define user_phone    @"TEL"
 
+#define user_userimg @"userimg"
+#define user_name @"user_name"
+
 #define JIGUANG     @"48a4889e047c006938c2b298"
 
 #define BASE_URL   @"http://aimidao.tv/"
