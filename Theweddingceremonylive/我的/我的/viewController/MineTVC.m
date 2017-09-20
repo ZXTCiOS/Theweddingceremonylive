@@ -70,7 +70,7 @@ static NSString *mineidentfid2 = @"mineidentfid2";
             NSString *userimg = [self.dataDic objectForKey:@"picture"];
             NSString *name = [self.dataDic objectForKey:@"name"];
             [userdefat setObject:userimg forKey:user_userimg];
-            [userdefat setObject:name forKey:user_name];
+            [userdefat setObject:name forKey:user_nickname];
             [userdefat synchronize];
         }
         else

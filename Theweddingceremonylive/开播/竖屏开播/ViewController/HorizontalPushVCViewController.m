@@ -302,7 +302,7 @@
     // todo: 点击头像, 连麦, 给房管
     NIMChatroomMember *model = self.audiencelist[indexPath.row];
     
-    UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *alertC = [UIAlertController alertControllerWithTitle:user_nickname message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *act1 = [UIAlertAction actionWithTitle:@"设为管理员" style: UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         NIMChatroomMemberUpdateRequest *request = [[NIMChatroomMemberUpdateRequest alloc] init];
         request.roomId = self.roomid;
@@ -471,6 +471,8 @@
     request.roomId = self.roomid;
     request.roomExt = @"ext";
     request.roomNotifyExt = @"";
+    request.roomAvatar = user_userimg;
+    request.roomNickname = user_nickname;
     request.retryCount = 5;
     [[NIMSDK sharedSDK].chatroomManager enterChatroom:request completion:^(NSError * _Nullable error, NIMChatroom * _Nullable chatroom, NIMChatroomMember * _Nullable me) {
         NSLog(@"进入聊天室成功 roomID: %@", chatroom.roomId);
