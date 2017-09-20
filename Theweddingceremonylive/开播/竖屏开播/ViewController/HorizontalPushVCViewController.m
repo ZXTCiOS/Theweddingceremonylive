@@ -71,7 +71,7 @@
     self.roomid = @"11168034";
     self.roomName = @"xixi";
     self.pushUrl = @"rtmp://pe266c7be.live.126.net/live/5f581cb50c724380bd08788abe7b0f9d?wsSecret=73e4d9a846fbadd56eccb1b5c90a3ab7&wsTime=1504859570";
-    self.nickName = @"齐天大圣";
+    self.nickName = [userDefault objectForKey:user_nickname];
     self.count = 999;
     [self setUpsth];
     // 创建直播间
@@ -148,8 +148,8 @@
 
 - (void)configMaskview{
     self.maskview = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([ShuPingKaiboMaskView class]) owner:nil options:nil].firstObject;
-    
-    self.maskview.nameL.text = self.nickName;
+    [self.maskview.icon sd_setImageWithURL:[NSURL URLWithString: [userDefault objectForKey:user_userimg]] placeholderImage:[UIImage imageNamed:@"touxiang"]];
+    self.maskview.nameL.text = [userDefault objectForKey:user_nickname];
     self.maskview.labelCount.text = [NSString stringWithFormat:@"%ld", self.count];
     self.maskview.tableView.delegate = self;
     self.maskview.tableView.dataSource = self;

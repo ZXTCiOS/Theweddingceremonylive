@@ -320,6 +320,8 @@ static NSString *mineidentfid2 = @"mineidentfid2";
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:user_uid];
             //[userDefault setObject:@"1" forKey:user_imtoken];
             //[userDefault setObject:@"1" forKey:user_phone];
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:user_userimg];
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:user_nickname];
             [[NSUserDefaults standardUserDefaults] synchronize];
             //NIM logout
             [[NIMSDK sharedSDK].loginManager logout:^(NSError * _Nullable error) {

@@ -489,8 +489,8 @@
     NIMChatroomEnterRequest *request = [[NIMChatroomEnterRequest alloc] init];
     request.roomId = self.roomid;
     request.roomExt = @"ext";
-    request.roomAvatar = user_userimg;
-    request.roomNickname = user_nickname;
+    request.roomAvatar = [userDefault objectForKey:user_userimg];
+    request.roomNickname = [userDefault objectForKey:user_nickname];
     request.roomNotifyExt = @"";
     request.retryCount = 5;
     [[NIMSDK sharedSDK].chatroomManager enterChatroom:request completion:^(NSError * _Nullable error, NIMChatroom * _Nullable chatroom, NIMChatroomMember * _Nullable me) {
