@@ -119,14 +119,17 @@
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
-}
-
-- (void)dealloc{
     [self.timer invalidate];
     self.timer = nil;
     [[NIMAVChatSDK sharedSDK].netCallManager removeDelegate:self];
     [[NIMSDK sharedSDK].chatManager removeDelegate:self];
     [[NIMSDK sharedSDK].chatroomManager removeDelegate:self];
+    
+    [self.view removeAllSubviews];
+}
+
+- (void)dealloc{
+    
 }
 
 - (void)setUpsth
@@ -314,6 +317,13 @@
     }];
     UIAlertAction *act2 = [UIAlertAction actionWithTitle:@"联麦" style: UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
+        NIMMessage *message = [[NIMMessage alloc] init];
+        message.text = @"lianmai...";
+        message.remoteExt = @{@"type":@(NIMMyNotiTypeConnectMic), @"lianmaiid": model.userId};
+        NIMSession *session = [NIMSession session:self.roomid type:NIMSessionTypeChatroom];
+        [[NIMSDK sharedSDK].chatManager sendMessage:message toSession:session error:nil];
+        [self.view showWarning:@"正在申请联麦..."];
+        /*  自定义通知发送连麦请求
         NIMCustomSystemNotification *noti = [[NIMCustomSystemNotification alloc] initWithContent:[@{@"type":@(NIMMyNotiTypeConnectMic), @"lianmaiid": model.userId} jsonBody]];
         noti.sendToOnlineUsersOnly = YES;
         NIMSession *session = [NIMSession session:self.roomid type:NIMSessionTypeChatroom];
@@ -323,7 +333,7 @@
             } else {
                 NSLog(@"%@", error);
             }
-        }];
+        }];*/
         
     }];
     UIAlertAction *act3 = [UIAlertAction actionWithTitle:@"禁言" style: UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -373,7 +383,7 @@
         // 请求观众
         NIMChatroomMemberRequest *request = [[NIMChatroomMemberRequest alloc] init];
         request.roomId = self.roomid;
-        request.type = NIMChatroomFetchMemberTypeTemp; // 临时成员
+        request.type = NIMChatroomMemberTypeNormal; // 临时成员
         request.limit = 100;
         [[NIMSDK sharedSDK].chatroomManager fetchChatroomMembers:request completion:^(NSError * _Nullable error, NSArray<NIMChatroomMember *> * _Nullable members) {
             if (!error) {
@@ -480,7 +490,7 @@
             // 红包消息
             NSDictionary *dic = message.remoteExt;
             [self tanchuhongbao:dic];
-            message.text = [NSString stringWithFormat:@"%@送出了一个红包", message.from];
+            message.text = [NSString stringWithFormat:@"%@送出了一个红包", [dic objectForKey:@"username"]];
             [msgs addObject:message];
         } else {
             [msgs addObject:message];
@@ -664,12 +674,12 @@
 
 // 远程视频 YUV 数据就绪
 - (void)onRemoteYUVReady:(NSData *)yuvData width:(NSUInteger)width height:(NSUInteger)height from:(NSString *)user{
-    UIImage *img = [UIImage imageWithData:yuvData];
-    self.lianmaiV.image = img;
+    
 }
 
 - (void)onRemoteImageReady:(CGImageRef)image{
-    
+    UIImage *img = [UIImage imageWithCGImage:image];
+    self.lianmaiV.image = img;
 }
 #pragma mark - 懒加载
 
@@ -819,7 +829,7 @@
 - (void)tanchuhongbao:(NSDictionary *)data{
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
     [btn setBackgroundImage:[UIImage imageNamed:@"zb_hb_img"] forState:UIControlStateNormal];
-    [self.maskview addSubview:btn];
+    [self.view addSubview:btn];
     [btn setTitle:@"" forState:UIControlStateNormal];
     btn.frame = CGRectMake((kScreenW - 150)/ 2, (kScreenH - 110)/ 2, 150, 110);
     [btn bk_addEventHandler:^(id sender) {
@@ -846,6 +856,7 @@
                 } forControlEvents:UIControlEventTouchUpInside];
                 self.qiangRedbag.hidden = NO;
             } else if ([code isEqualToString:@"990"]){
+                self.qiangRedbag.money.text = @"";
                 self.qiangRedbag.from.text = [NSString stringWithFormat:@"\"%@\"的红包", [data objectForKey:@"username"]];
                 self.qiangRedbag.sucess.text = @"手慢了,红包已领完~~";
                 [self.qiangRedbag.detail removeAllTargets];

@@ -129,14 +129,16 @@
 
 - (void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
+    
+    [self.view removeAllSubviews];
+    
+    
+    
     [self.liveplayer shutdown];
     [IQKeyboardManager sharedManager].enable = YES;
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
-}
-
-- (void)dealloc{
     
     [self.timer invalidate];
     self.timer = nil;
@@ -160,6 +162,12 @@
     [[NIMAVChatSDK sharedSDK].netCallManager removeDelegate:self];
     [[NIMSDK sharedSDK].chatManager removeDelegate:self];
     [[NIMSDK sharedSDK].chatroomManager removeDelegate:self];
+    
+}
+
+- (void)dealloc{
+    
+    
 }
 
 
@@ -512,7 +520,7 @@
     NSMutableArray<NIMMessage *> *msgs = [NSMutableArray<NIMMessage *> array];
     for (NIMMessage *message in messages) {
         if (message.messageType == NIMMessageTypeNotification) {
-            // 聊天室通知
+            // 聊天室通知: 忽略...
             
         } else if([message.text isEqualToString:@"gift..."]) {
             // 礼物消息
@@ -529,6 +537,27 @@
             [self tanchuhongbao:dic];
             message.text = [NSString stringWithFormat:@"%@送出了一个红包", message.from];
             [msgs addObject:message];
+        } else if([message.text isEqualToString:@"lianmai..."]){
+            NSDictionary *dic = message.remoteExt;
+             //dic = @{@"type":@(NIMMyNotiTypeConnectMic), @"lianmaiid": model.userId}
+            NIMMyNotiType type = [dic jsonInteger:@"type"];
+            if (type == NIMMyNotiTypeConnectMic) {
+                NSString *lianmaiid = [dic objectForKey:@"lianmaiid"];
+                if ([self.accid isEqualToString:lianmaiid]) {
+                    
+                    [self joinLianmai];
+                }
+            } else if (type == NIMMyNotiTypeDisconnect) {
+                [[NIMAVChatSDK sharedSDK].netCallManager leaveMeeting:self.meeting];
+                [[NIMAVChatSDK sharedSDK].netCallManager stopVideoCapture];
+                [self.displayView removeFromSuperview];
+                self.displayView = nil;
+                [self liveplayer];
+                self.maskview.leaveMeeting.hidden = YES;
+                [self.view showWarning:@"主播终止了你的连麦"];
+            }
+            
+            
         } else {
             [msgs addObject:message];
         }
@@ -547,23 +576,8 @@
 
 // 收到自定义通知
 -(void)onReceiveCustomSystemNotification:(NIMCustomSystemNotification *)notification{
-    NSString *content = notification.content;
-    NSDictionary *dic = [content jsonObject];
-    NIMMyNotiType type = [dic jsonInteger:@"type"];
-    if (type == NIMMyNotiTypeConnectMic) {
-        NSString *lianmaiid = [dic objectForKey:@"lianmaiid"];
-        if ([self.accid isEqualToString:lianmaiid]) {
-            [self joinLianmai];
-        }
-    } else if (type == NIMMyNotiTypeDisconnect) {
-        [[NIMAVChatSDK sharedSDK].netCallManager leaveMeeting:self.meeting];
-        [[NIMAVChatSDK sharedSDK].netCallManager stopVideoCapture];
-        [self.displayView removeFromSuperview];
-        self.displayView = nil;
-        [self liveplayer];
-        self.maskview.leaveMeeting.hidden = YES;
-        [self.view showWarning:@"主播终止了你的连麦"];
-    }
+    //NSString *content = notification.content;
+    
 }
 
 // 聊天室连接状态
@@ -969,6 +983,7 @@
         NSString *code = [obj objectForKey:@"code"];
         if ([code isEqualToString:@"1000"]) {
             NSDictionary *data = [obj objectForKey:@"data"];
+          
             NIMMessage *message = [[NIMMessage alloc] init];
             NIMSession *session = [NIMSession session:self.roomid type:NIMSessionTypeChatroom];
             message.text = @"redbag...";
@@ -988,9 +1003,11 @@
 - (void)tanchuhongbao:(NSDictionary *)data{
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
     [btn setBackgroundImage:[UIImage imageNamed:@"zb_hb_img"] forState:UIControlStateNormal];
-    [self.maskview addSubview:btn];
-    [btn setTitle:@"" forState:UIControlStateNormal];
     btn.frame = CGRectMake((kScreenW - 150)/ 2, (kScreenH - 110)/ 2, 150, 110);
+    [self.view addSubview:btn];
+    
+    //[btn setTitle:@"" forState:UIControlStateNormal];
+    
     [btn bk_addEventHandler:^(id sender) {
         // 拆红包
         NSString *uid = [userDefault objectForKey:user_uid];
@@ -1016,6 +1033,7 @@
                 } forControlEvents:UIControlEventTouchUpInside];
                 self.qiangRedbag.hidden = NO;
             } else if ([code isEqualToString:@"990"]){
+                self.qiangRedbag.money.text = @"";
                 self.qiangRedbag.from.text = [NSString stringWithFormat:@"\"%@\"的红包", [data objectForKey:@"username"]];
                 self.qiangRedbag.sucess.text = @"手慢了,红包已领完~~";
                 [self.qiangRedbag.detail removeAllTargets];
