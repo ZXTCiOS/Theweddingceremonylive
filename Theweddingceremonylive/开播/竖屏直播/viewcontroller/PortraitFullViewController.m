@@ -83,6 +83,7 @@
     self.roomName = @"xixi";
     self.meeting = [[NIMNetCallMeeting alloc] init];
     self.meeting.name = self.roomName;
+    self.accid = @"15510922836";
     
     [self setup];
     [self maskview];
