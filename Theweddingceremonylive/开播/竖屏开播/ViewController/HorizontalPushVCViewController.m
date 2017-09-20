@@ -192,6 +192,14 @@
         UIAlertController *vc = [UIAlertController alertControllerWithTitle:@"警告" message:@"确定断开连麦?" preferredStyle:1];
         UIAlertAction *act1 = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             self.maskview.duanKaiLianmai.hidden = YES;
+            
+            NIMMessage *message = [[NIMMessage alloc] init];
+            message.text = @"lianmai...";
+            message.remoteExt = @{@"type":@(NIMMyNotiTypeDisconnect)};
+            NIMSession *session = [NIMSession session:self.roomid type:NIMSessionTypeChatroom];
+            [[NIMSDK sharedSDK].chatManager sendMessage:message toSession:session error:nil];
+            [self.view showWarning:@"正在断开联麦..."];
+            /*
             NIMCustomSystemNotification *noti = [[NIMCustomSystemNotification alloc] initWithContent:[@{@"type":@(NIMMyNotiTypeConnectMic)} jsonBody]];
             noti.sendToOnlineUsersOnly = YES;
             NIMSession *session = [NIMSession session:self.roomid type:NIMSessionTypeChatroom];
@@ -199,7 +207,7 @@
                 if (!error) {
                     [self.view showWarning:@"正在断开联麦..."];
                 }
-            }];
+            }];*/
         }];
         UIAlertAction *act2 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
@@ -365,7 +373,7 @@
     // 获取管理员
     NIMChatroomMemberRequest *request = [[NIMChatroomMemberRequest alloc] init];
     request.roomId = self.roomid;
-    request.type = NIMChatroomFetchMemberTypeTemp; // 所有固定成员: 创建者, 管理员...
+    request.type = NIMChatroomFetchMemberTypeRegular; // 所有固定成员: 创建者, 管理员...
     [[NIMSDK sharedSDK].chatroomManager fetchChatroomMembers:request completion:^(NSError * _Nullable error, NSArray<NIMChatroomMember *> * _Nullable members) {
         // 只获取管理员.
         if (!error) {
@@ -383,7 +391,7 @@
         // 请求观众
         NIMChatroomMemberRequest *request = [[NIMChatroomMemberRequest alloc] init];
         request.roomId = self.roomid;
-        request.type = NIMChatroomMemberTypeNormal; // 临时成员
+        request.type = NIMChatroomFetchMemberTypeTemp; // 临时成员
         request.limit = 100;
         [[NIMSDK sharedSDK].chatroomManager fetchChatroomMembers:request completion:^(NSError * _Nullable error, NSArray<NIMChatroomMember *> * _Nullable members) {
             if (!error) {
