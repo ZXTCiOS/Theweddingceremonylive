@@ -76,7 +76,6 @@ static NSString *mineidentfid2 = @"mineidentfid2";
         [MBProgressHUD showSuccess:@"失败"];
     }];
     
-    
     [DNNetworking postWithURLString:post_tuisongfankui parameters:para success:^(id obj) {
         if ([[obj objectForKey:@"code"] intValue]==1000) {
             [self.headView.btn0.redImg setHidden:NO];
