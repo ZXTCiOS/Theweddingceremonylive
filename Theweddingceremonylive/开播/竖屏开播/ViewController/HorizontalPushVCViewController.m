@@ -446,14 +446,22 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     DanmuCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID_text forIndexPath:indexPath];
-    cell.textL.text = self.danmulist[indexPath.row].text;
+    
+    NSString *from = self.danmulist[indexPath.row].from;
+    NSString *text = self.danmulist[indexPath.row].text;
+    NSString *total = [NSString stringWithFormat:@"%@:%@", from, text];
+    cell.textL.text = total;
     cell.backgroundColor = [UIColor clearColor];
     cell.selectedBackgroundView = [UIView new];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 30;
+    NSString *from = self.danmulist[indexPath.row].from;
+    NSString *text = self.danmulist[indexPath.row].text;
+    NSString *total = [NSString stringWithFormat:@"%@:%@", from, text];
+    CGFloat height = [total heightForFont:[UIFont systemFontOfSize:14] width:260];
+    return height > 30 ? height + 16 : 30;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -813,7 +821,7 @@
     NSString *token = [userDefault objectForKey:user_token];
     NSString *money =_redBag.money.text;
     NSString *number = _redBag.number.text;
-    BOOL isnormal = _redBag.isnormal;
+    BOOL isnormal = !_redBag.isnormal;
     
     [DNNetworking postWithURLString:post_sendRedbag parameters:@{@"uid": uid, @"token": token, @"bag_money": money, @"bag_type": @(isnormal), @"bag_count": number} success:^(id obj) {
         _redBag.hidden = YES;
@@ -844,6 +852,7 @@
     btn.frame = CGRectMake((kScreenW - 150)/ 2, (kScreenH - 110)/ 2, 150, 110);
     [btn bk_addEventHandler:^(id sender) {
         // 拆红包
+        btn.enabled = NO;
         NSString *uid = [userDefault objectForKey:user_uid];
         NSString *token = [userDefault objectForKey:user_token];
         NSString *bagid = [data objectForKey:@"bag_id"];
@@ -876,8 +885,10 @@
                 } forControlEvents:UIControlEventTouchUpInside];
                 self.qiangRedbag.hidden = NO;
             }
+            
             [btn removeFromSuperview];
         } failure:^(NSError *error) {
+            btn.enabled = YES;
             [self.view showWarning:@"网络错误"];
         }];
     } forControlEvents:UIControlEventTouchUpInside];

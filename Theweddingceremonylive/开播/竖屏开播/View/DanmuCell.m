@@ -24,10 +24,15 @@
 
 - (UILabel *)textL{
     if (!_textL) {
-        _textL = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 260, 30)];
+        _textL = [[UILabel alloc] init];
+                  //WithFrame:CGRectMake(0, 0, 260, 30)];
         _textL.font = [UIFont systemFontOfSize:14];
         _textL.textColor = [UIColor orangeColor];
+        _textL.numberOfLines = 0;
         [self addSubview:_textL];
+        [_textL mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.left.bottom.right.equalTo(0);
+        }];
     }
     return _textL;
 }
