@@ -141,14 +141,14 @@
         make.top.equalTo(weakSelf.lineV.mas_bottom).with.offset(10*HEIGHT_SCALE);
         make.left.equalTo(weakSelf.lineV).with.offset(60*WIDTH_SCALE);
         make.width.mas_offset(36*WIDTH_SCALE);
-        make.height.mas_offset(50*WIDTH_SCALE);
+        make.height.mas_offset(60*WIDTH_SCALE);
     }];
     
     [self.weixinBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(weakSelf.lineV.mas_bottom).with.offset(10*HEIGHT_SCALE);
         make.right.equalTo(weakSelf.lineV).with.offset(-60*WIDTH_SCALE);
         make.width.mas_offset(36*WIDTH_SCALE);
-        make.height.mas_offset(50*WIDTH_SCALE);
+        make.height.mas_offset(60*WIDTH_SCALE);
     }];
     
 }
@@ -415,11 +415,67 @@
     
     [ZTVendorManager loginWith:ZTVendorPlatformTypeQQ completionHandler:^(ZTVendorAccountModel *model, NSError *error) {
         NSLog(@"nickname:%@",model.nickname);
+        NSString *openid = model.openid;
+        NSString *nickname = model.nickname;
+        NSString *gender = model.gender;
+        NSString *city = [model.originalResponse objectForKey:@"city"];
+        NSString *figureurl = [model.originalResponse objectForKey:@"figureurl"];
+        
+        NSString *type = @"3";
+        if ([strisNull isNullToString:openid]) {
+            
+        }
+        else
+        {
+            //show
+            [_hudView showAtView:self.view hudType:JHUDLoadingTypeCircle];
+            NSDictionary *para = @{@"type":type,@"openid":openid,@"nickname":nickname,@"figureurl":figureurl,@"city":city,@"gender":gender};
+            
+            [DNNetworking postWithURLString:post_login parameters:para success:^(id obj) {
+                NSString *msg = [obj objectForKey:@"msg"];
+                [MBProgressHUD showSuccess:msg];
+                
+                if ([[obj objectForKey:@"code"] intValue]==1000) {
+                    NSDictionary *dic = [obj objectForKey:@"data"];
+                    NSString *tokenstr = [dic objectForKey:@"token"];
+                    NSString *uidstr = [dic objectForKey:@"uid"];
+                    NSString *imtoken = [dic objectForKey:@"imtoken"];
+                    NSString *acount = [dic objectForKey:@"tel"];
+                    NSUserDefaults *defat = [NSUserDefaults standardUserDefaults];
+                    [defat setObject:tokenstr forKey:user_token];
+                    [defat setObject:uidstr forKey:user_uid];
+                    [defat setObject:acount forKey:user_phone];
+                    [defat setObject:imtoken forKey:user_imtoken];
+                    [defat synchronize];
+                    //todo: account...
+                    
+                    //                    bindingViewController *bindingvc = [[bindingViewController alloc] init];
+                    //                    [self.navigationController pushViewController:bindingvc animated:YES];
+                    
+                    
+                    [self loginNIMWithaccount:acount token:imtoken];
+                    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+                    MainTabBarController * main = [[MainTabBarController alloc] init];
+                    appDelegate.window.rootViewController = main;
+                }
+                //hide
+                [_hudView hide];
+                
+            } failure:^(NSError *error) {
+                
+                //hide
+                [_hudView hide];
+                [MBProgressHUD showSuccess:@"登录失败"];
+            }];
+
+        }
+   
+        
     }];
 //    bindingViewController *bindingvc = [[bindingViewController alloc] init];
 //    [self.navigationController pushViewController:bindingvc animated:YES];
 }
-
+ 
 -(void)weixinbtnclick
 {
     [ZTVendorManager loginWith:ZTVendorPlatformTypeWechat completionHandler:^(ZTVendorAccountModel *model, NSError *error) {
@@ -430,7 +486,7 @@
         NSString *headimgurl = model.iconurl;
         NSString *city = [model.originalResponse objectForKey:@"city"];
         NSString *sex = [model.originalResponse objectForKey:@"sex"];
-        //NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
+
         NSString *type = @"2";
         
         if ([strisNull isNullToString:unionid]) {
