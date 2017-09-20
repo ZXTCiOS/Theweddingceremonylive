@@ -39,6 +39,33 @@
     [self tableView];
     self.currentIndex = [NSIndexPath indexPathForRow:0 inSection:0];
     self.view.backgroundColor = [UIColor lightGrayColor];
+    [self loaddata];
+}
+
+-(void)loaddata
+{
+    NSUserDefaults *defat = [NSUserDefaults standardUserDefaults];
+    NSString *uid = [defat objectForKey:user_uid];
+    NSString *token = [defat objectForKey:user_token];
+    NSDictionary *para = @{@"uid":uid,@"token":token};
+    [DNNetworking postWithURLString:post_getinfo parameters:para success:^(id obj) {
+        NSLog(@"obj------%@",obj);
+        if ([[obj objectForKey:@"code"] intValue]==1000) {
+            NSDictionary *dataDic =  [obj objectForKey:@"data"];
+            NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
+            NSString *userimg = [dataDic objectForKey:@"picture"];
+            NSString *name = [dataDic objectForKey:@"name"];
+            [userdefat setObject:userimg forKey:user_userimg];
+            [userdefat setObject:name forKey:user_nickname];
+            [userdefat synchronize];
+        }
+        else
+        {
+
+        }
+    } failure:^(NSError *error) {
+
+    }];
 }
 
 -(void)viewWillAppear:(BOOL)animated
