@@ -23,6 +23,7 @@
 #import "GiftView.h"
 #import "SendRedBagView.h"
 #import "qiangRedbagView.h"
+#import "RedbagDetailListView.h"
 
 // viewcontroller
 #import "NELivePlayerController.h"// 网易云播放器
@@ -45,7 +46,7 @@
 @property (nonatomic, strong) GiftView *giftV;
 @property (nonatomic, strong) SendRedBagView *redBag;
 @property (nonatomic, strong) qiangRedbagView *qiangRedbag;
-
+@property (nonatomic, strong) RedbagDetailListView *redbaglistV;
 
 
 @property(nonatomic, strong) id<NELivePlayer> liveplayer;           // 网易云播放器
@@ -79,11 +80,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    self.roomid = @"11168034";
+    self.roomid = @"11255726";
     self.roomName = @"xixi";
     self.meeting = [[NIMNetCallMeeting alloc] init];
     self.meeting.name = self.roomName;
     self.accid = @"15510922836";
+    self.nickName = @"阿四";
+    self.yue = @"100";
+    
+    
     
     [self setup];
     [self maskview];
@@ -391,7 +396,7 @@
     // 获取管理员
     NIMChatroomMemberRequest *request = [[NIMChatroomMemberRequest alloc] init];
     request.roomId = self.roomid;
-    request.type = NIMChatroomFetchMemberTypeRegular; // 所有固定成员: 创建者, 管理员...
+    request.type = NIMChatroomFetchMemberTypeRegular; //  创建者, 管理员...
     [[NIMSDK sharedSDK].chatroomManager fetchChatroomMembers:request completion:^(NSError * _Nullable error, NSArray<NIMChatroomMember *> * _Nullable members) {
         // 只获取管理员.
         if (!error) {
@@ -534,12 +539,13 @@
             
         } else if([message.text isEqualToString:@"gift..."]) {
             // 礼物消息
-            //NSDictionary *dic = [message.text jsonObject];
-            [self.giftlist addObject:message.text];
+            NSString *giftID = [message.remoteExt objectForKey:@"giftID"];
+            NSString *from = [message.remoteExt objectForKey:@"from"];
+            [self.giftlist addObject:giftID];
             if (self.giftlist.count == 1) {
                 [self beginGiftAnimation];
             }
-            message.text = [NSString stringWithFormat:@"%@送出了一个礼物", message.from];
+            message.text = [NSString stringWithFormat:@"%@送出了一个礼物", from];
             [msgs addObject:message];
         } else if ([message.text isEqualToString:@"redbag..."]){
             // 红包消息
@@ -763,28 +769,29 @@
 #pragma mark 礼物动画
 
 - (void)beginGiftAnimation{
-    do {
-        NSString *giftid = self.giftlist.firstObject;
-        NSInteger section = giftid.integerValue / 10;
-        NSInteger row = giftid.integerValue % 10;
-        NSArray *gif = @[@"03", @"04", @"05", @"10", @"11", @"12", @"13", @"14", @"15", @"16", @"17", @"24", @"25", @"30", @"31", @"32", @"33", @"34", @"35", @"36", @"37"];
-        for (NSString *gift in gif) {
-            if ([gift isEqualToString:giftid]) {
-                [GiftAnimation giftWithGif:self.giftV.imagearr[section][row] addedToView:self.view completion:^{
-                    [self.giftlist removeFirstObject];
-                }];
-            }
-        }
-        if ([giftid isEqualToString:@"21"]) {
-            [GiftAnimation giftWithImage:self.giftV.imagearr[section][row] animationType:giftAnimationTypeCircle addedToView:self.view conpletion:^{
-                [self.giftlist removeFirstObject];
-            }];
-        }
-        [GiftAnimation giftWithImage:self.giftV.imagearr[section][row] animationType:giftAnimationTypeTop addedToView:self.view conpletion:^{
+    if (!self.giftlist.count) return;
+    
+    NSString *giftid = self.giftlist.firstObject;
+    NSInteger section = giftid.integerValue / 10;
+    NSInteger row = giftid.integerValue % 10;
+    GiftModel *model = self.giftV.giftlist[section][row];
+    
+    if ([giftid isEqualToString:@"21"]) {   // 门票...
+        [GiftAnimation giftWithImage:model.picture animationType:giftAnimationTypeCircle addedToView:self.view conpletion:^{
             [self.giftlist removeFirstObject];
+            [self beginGiftAnimation];
         }];
-        
-    } while (self.giftlist.count == 0);
+    } else if (!model.isgif) {
+        [GiftAnimation giftWithImage:model.picture animationType:giftAnimationTypeTop addedToView:self.view conpletion:^{
+            [self.giftlist removeFirstObject];
+            [self beginGiftAnimation];
+        }];
+    } else if (model.isgif){
+        [GiftAnimation giftWithGif: model.picture addedToView:self.view completion:^{
+            [self.giftlist removeFirstObject];
+            [self beginGiftAnimation];
+        }];
+    }
 }
 
 
@@ -909,12 +916,15 @@
         [self.maskview addSubview:_giftV];
         // tofix
         _giftV.yuE.text = self.yue;
+        
         [_giftV.send bk_addEventHandler:^(id sender) {
             // tofix: 发送礼物请求
             NSString *uid = [userDefault objectForKey:user_uid];
             NSString *token = [userDefault objectForKey:user_token];
             NSString *giftid = [NSString stringWithFormat:@"%ld%ld", _giftV.currentIndex.section, _giftV.currentIndex.row];
-            NSDictionary *para = @{@"uid": uid, @"token": token, @"gift_id": giftid};
+            NSIndexPath *index = _giftV.currentIndex;
+            GiftModel *model = _giftV.giftlist[index.section][index.row];
+            NSDictionary *para = @{@"uid": uid, @"token": token, @"giftinfo_giftid": model.towuid};
             
             [DNNetworking postWithURLString:post_sendgift parameters:para success:^(id obj) {
                 NSString *code = [obj objectForKey:@"code"];
@@ -922,9 +932,11 @@
                     NIMMessage *msg = [[NIMMessage alloc] init];
                     NIMSession *session = [NIMSession session:self.roomid type:NIMSessionTypeChatroom];
                     msg.text = @"gift...";
-                    msg.remoteExt = @{@"giftid": giftid, @"from": self.nickName};
+                    NSString *from = self.nickName;
+                    msg.remoteExt = @{@"giftID": giftid, @"from": from};
                     [[NIMSDK sharedSDK].chatManager sendMessage:msg toSession:session error:nil];
-                    
+                    NSString *data = [obj objectForKey:@"data"];
+                    _giftV.yuE.text = [NSString stringWithFormat:@"%.2f", data.floatValue];
                     [self.giftlist addObject:giftid];
                     if (self.giftlist.count == 1) {
                         [self beginGiftAnimation];
@@ -1013,11 +1025,9 @@
 - (void)tanchuhongbao:(NSDictionary *)data{
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
     [btn setBackgroundImage:[UIImage imageNamed:@"zb_hb_img"] forState:UIControlStateNormal];
-    btn.frame = CGRectMake((kScreenW - 150)/ 2, (kScreenH - 110)/ 2, 150, 110);
     [self.view addSubview:btn];
-    
-    //[btn setTitle:@"" forState:UIControlStateNormal];
-    
+    [btn setTitle:@"" forState:UIControlStateNormal];
+    btn.frame = CGRectMake((kScreenW - 150)/ 2, (kScreenH - 110)/ 2, 150, 110);
     [btn bk_addEventHandler:^(id sender) {
         // 拆红包
         btn.enabled = NO;
@@ -1040,6 +1050,8 @@
                 [self.qiangRedbag.detail removeAllTargets];
                 [self.qiangRedbag.detail bk_addEventHandler:^(id sender) {
                     NSLog(@"点击查看详情");
+                    self.redbaglistV.hidden = NO;
+                    [self.redbaglistV netWorking];
                     self.qiangRedbag.hidden = YES;
                 } forControlEvents:UIControlEventTouchUpInside];
                 self.qiangRedbag.hidden = NO;
@@ -1050,6 +1062,8 @@
                 [self.qiangRedbag.detail removeAllTargets];
                 [self.qiangRedbag.detail bk_addEventHandler:^(id sender) {
                     NSLog(@"点击查看详情");
+                    self.redbaglistV.hidden = NO;
+                    [self.redbaglistV netWorking];
                     self.qiangRedbag.hidden = YES;
                 } forControlEvents:UIControlEventTouchUpInside];
                 self.qiangRedbag.hidden = NO;
@@ -1061,6 +1075,37 @@
         }];
     } forControlEvents:UIControlEventTouchUpInside];
 }
+
+- (RedbagDetailListView *)redbaglistV{
+    if (!_redbaglistV) {
+        _redbaglistV = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([RedbagDetailListView class]) owner:nil options:nil].firstObject;
+        _redbaglistV.hidden = YES;
+        [self.maskview addSubview:_redbaglistV];
+        [_redbaglistV mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(80);
+            make.bottom.equalTo(-60);
+            make.left.equalTo(60);
+            make.right.equalTo(-60);
+        }];
+        
+        [_redbaglistV.cancel bk_addEventHandler:^(id sender) {
+            _redbaglistV.hidden = YES;
+            _redbaglistV.datalist = nil;
+            _redbaglistV.imaV.image = [UIImage imageNamed:@"touxiang"];
+            _redbaglistV.from.text = @"谁的红包?";
+            _redbaglistV.total.text = @"0.00";
+            _redbaglistV.last.text = @"0.00";
+        } forControlEvents:UIControlEventTouchUpInside];
+        
+        
+    }
+    return _redbaglistV;
+}
+
+
+
+
+
 
 #pragma mark - initialize 初始化
 

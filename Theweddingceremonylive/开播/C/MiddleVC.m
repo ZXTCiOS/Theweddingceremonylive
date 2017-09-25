@@ -9,6 +9,7 @@
 #import "MiddleVC.h"
 #import "midVC.h"
 #import "RealVC.h"
+#import "PreLiveVC.h"
 #import "HorizontalPushVCViewController.h"
 
 #import "weddingcardVC.h"
@@ -42,7 +43,7 @@
     NSString *token = [userdefat objectForKey:user_token];
     NSDictionary *para = @{@"uid":uid,@"token":token};
     [DNNetworking postWithURLString:post_isyuyue parameters:para success:^(id obj) {
-        NSString *msg = [obj objectForKey:@"msg"];
+        NSString *msg = [obj objectForKey:@"mes"];
         [MBProgressHUD showSuccess:msg];
         if ([[obj objectForKey:@"code"] intValue]==1000) {
             midVC *vc = [[midVC alloc] init];
@@ -52,9 +53,8 @@
         else if([[obj objectForKey:@"code"] intValue]==1001)
         {
             //有预约
-            // tofix: init
-            HorizontalPushVCViewController *vc = [[HorizontalPushVCViewController alloc] init];
-            vc.hidesBottomBarWhenPushed = YES;
+            // TODO: 初始化
+            PreLiveVC *vc = [[PreLiveVC alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
         }
         else

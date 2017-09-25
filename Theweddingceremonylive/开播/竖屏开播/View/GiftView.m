@@ -13,19 +13,12 @@
 
 @interface GiftView ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
-@property (nonatomic, strong) NSArray *tongyong;
-@property (nonatomic, strong) NSArray *zhufu;
-@property (nonatomic, strong) NSArray *dongfang;
-@property (nonatomic, strong) NSArray *miyue;
-
 @property (nonatomic, strong) UIView *alphaV;
 
-
-@property (nonatomic, strong) NSArray *tongyongimg;
-@property (nonatomic, strong) NSArray *zhufuimg;
-@property (nonatomic, strong) NSArray *dongfangimg;
-@property (nonatomic, strong) NSArray *miyueimg;
-
+@property (nonatomic, strong) NSArray<GiftModel *> *gift_tongyong;
+@property (nonatomic, strong) NSArray<GiftModel *> *gift_zhufu;
+@property (nonatomic, strong) NSArray<GiftModel *> *gift_dongfang;
+@property (nonatomic, strong) NSArray<GiftModel *> *gift_miyue;
 
 @end
 
@@ -47,8 +40,7 @@
         [self chongzhi];
         [self yuE];
         [self collectionView];
-        self.pricearr = @[self.tongyong, self.zhufu, self.dongfang, self.miyue];
-        self.imagearr = @[self.tongyongimg, self.zhufuimg, self.dongfangimg, self.miyueimg];
+        
     }
     return self;
 }
@@ -213,13 +205,14 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return self.imagearr[section].count;
+    return self.giftlist[section].count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     GiftCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    cell.imageV.image = [UIImage imageNamed:self.imagearr[indexPath.section][indexPath.row]];
-    cell.price.text = [NSString stringWithFormat:@"¥%@", self.pricearr[indexPath.section][indexPath.row]];
+    GiftModel *model = self.giftlist[indexPath.section][indexPath.row];
+    cell.imageV.image = [UIImage imageNamed:model.picture];
+    cell.price.text = [NSString stringWithFormat:@"¥%ld", model.price];
     return cell;
 }
 
@@ -238,65 +231,74 @@
 }
 
 
-
-
-
-
-- (NSArray *)tongyong{
-    if (!_tongyong) {
-        _tongyong = @[@"1", @"2", @"3", @"6", @"8", @"9"];
+- (NSArray<NSArray *> *)giftlist{
+    if (!_giftlist) {
+        _giftlist = @[self.gift_tongyong, self.gift_zhufu, self.gift_dongfang, self.gift_miyue];
     }
-    return _tongyong;
+    return _giftlist;
 }
 
-- (NSArray *)zhufu{
-    if (!_zhufu) {
-        _zhufu = @[@"9", @"9", @"9", @"9", @"9", @"9",  @"19", @"19"];
+- (NSArray<GiftModel *> *)gift_tongyong{
+    if (!_gift_tongyong) {
+        GiftModel *model0 = [GiftModel giftWithGiftID:@"1" name:@"红玫瑰" picture:@"" price:1 isGIF:NO];
+        GiftModel *model1 = [GiftModel giftWithGiftID:@"2" name:@"郁金香" picture:@"" price:2 isGIF:NO];
+        GiftModel *model2 = [GiftModel giftWithGiftID:@"3" name:@"香水百合" picture:@"" price:3 isGIF:NO];
+        GiftModel *model3 = [GiftModel giftWithGiftID:@"4" name:@"花瓣雨" picture:@"" price:6 isGIF:YES];
+        GiftModel *model4 = [GiftModel giftWithGiftID:@"5" name:@"礼花筒" picture:@"" price:8 isGIF:YES];
+        GiftModel *model5 = [GiftModel giftWithGiftID:@"6" name:@"礼炮" picture:@"" price:9 isGIF:YES];
+        
+        _gift_tongyong = @[model0, model1, model2, model3, model4, model5];
     }
-    return _zhufu;
+    return _gift_tongyong;
 }
 
-- (NSArray *)dongfang{
-    if (!_dongfang) {
-        _dongfang = @[@"9", @"9", @"19", @"19", @"28", @"28"];
+- (NSArray<GiftModel *> *)gift_zhufu{
+    if (!_gift_zhufu) {
+        
+        GiftModel *model0 = [GiftModel giftWithGiftID:@"7" name:@"百年好合" picture:@"" price:9 isGIF:YES];
+        GiftModel *model1 = [GiftModel giftWithGiftID:@"8" name:@"永结同心" picture:@"" price:9 isGIF:YES];
+        GiftModel *model2 = [GiftModel giftWithGiftID:@"9" name:@"执手偕老" picture:@"" price:9 isGIF:YES];
+        GiftModel *model3 = [GiftModel giftWithGiftID:@"10" name:@"郎才女貌" picture:@"" price:9 isGIF:YES];
+        GiftModel *model4 = [GiftModel giftWithGiftID:@"11" name:@"花好月圆" picture:@"" price:9 isGIF:YES];
+        GiftModel *model5 = [GiftModel giftWithGiftID:@"12" name:@"佳偶天成" picture:@"" price:9 isGIF:YES];
+        GiftModel *model6 = [GiftModel giftWithGiftID:@"13" name:@"麒麟松子" picture:@"" price:19 isGIF:YES];
+        GiftModel *model7 = [GiftModel giftWithGiftID:@"14" name:@"龙凤呈祥" picture:@"" price:19 isGIF:YES];
+        
+        _gift_zhufu = @[model0, model1, model2, model3, model4, model5, model6, model7];
     }
-    return _dongfang;
+    return _gift_zhufu;
+}
+- (NSArray<GiftModel *> *)gift_dongfang{
+    if (!_gift_dongfang) {
+        GiftModel *model0 = [GiftModel giftWithGiftID:@"15" name:@"入场券" picture:@"" price:9 isGIF:NO];
+        GiftModel *model1 = [GiftModel giftWithGiftID:@"16" name:@"龙凤花烛" picture:@"" price:9 isGIF:NO];
+        GiftModel *model2 = [GiftModel giftWithGiftID:@"17" name:@"金元宝" picture:@"" price:19 isGIF:NO];
+        GiftModel *model3 = [GiftModel giftWithGiftID:@"18" name:@"玉如意" picture:@"" price:19 isGIF:NO];
+        GiftModel *model4 = [GiftModel giftWithGiftID:@"19" name:@"摇钱树" picture:@"" price:28 isGIF:YES];
+        GiftModel *model5 = [GiftModel giftWithGiftID:@"20" name:@"交杯酒" picture:@"" price:28 isGIF:YES];
+        
+        _gift_dongfang = @[model0, model1, model2, model3, model4, model5];
+    }
+    return _gift_dongfang;
 }
 
-- (NSArray *)miyue{
-    if (!_miyue) {
-        _miyue = @[@"28", @"28", @"28", @"28", @"28", @"28", @"28", @"28"];
+- (NSArray<GiftModel *> *)gift_miyue{
+    if (!_gift_miyue) {
+        GiftModel *model0 = [GiftModel giftWithGiftID:@"21" name:@"巴厘岛的沙滩" picture:@"" price:28 isGIF:YES];
+        GiftModel *model1 = [GiftModel giftWithGiftID:@"22" name:@"马尔代夫的阳光" picture:@"" price:28 isGIF:YES];
+        GiftModel *model2 = [GiftModel giftWithGiftID:@"23" name:@"夏威夷的草裙舞" picture:@"" price:28 isGIF:YES];
+        GiftModel *model3 = [GiftModel giftWithGiftID:@"24" name:@"爱琴海的晚风" picture:@"" price:28 isGIF:YES];
+        GiftModel *model4 = [GiftModel giftWithGiftID:@"25" name:@"巴黎的浪漫时尚" picture:@"" price:28 isGIF:YES];
+        GiftModel *model5 = [GiftModel giftWithGiftID:@"26" name:@"瑞士的湖光山色" picture:@"" price:28 isGIF:YES];
+        GiftModel *model6 = [GiftModel giftWithGiftID:@"27" name:@"威尼斯的水城风情" picture:@"" price:28 isGIF:YES];
+        GiftModel *model7 = [GiftModel giftWithGiftID:@"28" name:@"罗马的文艺气息" picture:@"" price:28 isGIF:YES];
+        
+        _gift_miyue = @[model0, model1, model2, model3, model4, model5, model6, model7];
     }
-    return _miyue;
+    return _gift_miyue;
 }
 
-- (NSArray *)tongyongimg{
-    if (!_tongyongimg) {
-        _tongyongimg = @[@"1", @"2", @"3", @"6", @"8", @"9"];
-    }
-    return _tongyongimg;
-}
 
-- (NSArray *)zhufuimg{
-    if (!_zhufuimg) {
-        _zhufuimg = @[@"9", @"9", @"9", @"9", @"9", @"9",  @"19", @"19"];
-    }
-    return _zhufuimg;
-}
-
-- (NSArray *)dongfangimg{
-    if (!_dongfangimg) {
-        _dongfangimg= @[@"9", @"9", @"19", @"19", @"28", @"28"];
-    }
-    return _dongfangimg;
-}
-
-- (NSArray *)miyueimg{
-    if (!_miyueimg) {
-        _miyueimg = @[@"28", @"28", @"28", @"28", @"28", @"28", @"28", @"28"];
-    }
-    return _miyueimg;
-}
 
 
 

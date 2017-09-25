@@ -18,7 +18,9 @@
 // viewcontroller
 #import "PortraitFullViewController.h"
 #import "HorizontalPushVCViewController.h"
-
+#import "hengpingKaiboVC.h"
+#import "hengpingWatchVC.h"
+#import "PreLiveVC.h"
 
 
 @interface WeddingLiveVC ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
@@ -40,7 +42,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self netWorking];
-    
+    //self.automaticallyAdjustsScrollViewInsets = NO;
     self.title = @"婚礼直播";
     
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([WeddingLivingCell class]) bundle:nil] forCellReuseIdentifier:@"living"];
@@ -116,7 +118,7 @@
     if (section == 2) {
         return self.futurelist.count;
     }
-    return 2;
+    return 4;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -205,27 +207,31 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if (indexPath.row) {
+    if (indexPath.row == 1) {
         HorizontalPushVCViewController *vc = [[HorizontalPushVCViewController alloc] init];
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
         return;
+    } else if (indexPath.row == 0){
+        // todo: 区别横竖屏   传参
+        PortraitFullViewController *vc = [[PortraitFullViewController alloc] init];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+        NSLog(@"section %ld, row %ld", indexPath.section, indexPath.row);
+    }else if (indexPath.row == 2){
+        // todo: 区别横竖屏   传参
+        hengpingWatchVC *vc = [[hengpingWatchVC alloc] init];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+        NSLog(@"section %ld, row %ld", indexPath.section, indexPath.row);
+    } else if (indexPath.row == 3) {
+        PreLiveVC *vc = [[PreLiveVC alloc] init];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+        
     }
     
     
-    
-    // todo: 区别横竖屏   传参
-    
-    NSMutableArray *decodeParm = [[NSMutableArray alloc] init];
-    [decodeParm addObject:@"software"];
-    [decodeParm addObject:@"livestream"];
-    
-    
-    
-    PortraitFullViewController *vc = [[PortraitFullViewController alloc] init];
-    vc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:vc animated:YES];
-    NSLog(@"section %ld, row %ld", indexPath.section, indexPath.row);
 }
 
 

@@ -40,6 +40,7 @@
     [self netWorking];
     [self configHeaderView];
     [self configHeaderView];
+    //self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 -(void)viewWillAppear:(BOOL)animated

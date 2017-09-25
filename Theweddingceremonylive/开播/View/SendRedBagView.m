@@ -39,6 +39,7 @@
     self.random.enabled = YES;
     [sender setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.random setTitleColor:krgb(182, 59, 34, 1) forState:UIControlStateNormal];
+    self.isnormal = YES;
 }
 
 
@@ -48,6 +49,7 @@
     self.normal.enabled = YES;
     [sender setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.normal setTitleColor:krgb(182, 59, 34, 1) forState:UIControlStateNormal];
+    self.isnormal = NO;
 }
 
 

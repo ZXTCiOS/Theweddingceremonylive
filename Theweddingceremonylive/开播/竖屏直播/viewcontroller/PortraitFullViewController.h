@@ -11,9 +11,9 @@
 @interface PortraitFullViewController : UIViewController
 
 
+- (instancetype)initWithChatroomID:(NSString *)roomid Url:(NSString *) url meetingname:(NSString *) meetingname ;
 
-
-- (instancetype)initWithChatroomID:(NSString *)roomid Url:(NSString *) url;
+- (instancetype)initWithChatroomID:(NSString *)roomid Url:(NSString *) url ;
 
 
 @end

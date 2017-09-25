@@ -23,7 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    //self.automaticallyAdjustsScrollViewInsets = NO;
     self.title = @"婚礼视频";
     [self netWorking];
     [XDFactory addSearchItemForVC:self clickedHandler:^{

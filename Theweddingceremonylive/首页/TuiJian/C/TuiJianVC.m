@@ -35,6 +35,7 @@
     [self.collectionView registerClass:[MainCell class] forCellWithReuseIdentifier:@"cell"];
     [self.collectionView registerClass:[tuijianRuseView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"head"];
     [self netWorking];
+    //self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 //- (void)viewWillAppear:(BOOL)animated{

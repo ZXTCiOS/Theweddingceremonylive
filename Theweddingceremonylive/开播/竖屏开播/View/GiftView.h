@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GiftModel.h"
 
 typedef NS_ENUM(NSUInteger, screenDirection) {
     screenDirectionV,
@@ -26,10 +27,7 @@ typedef NS_ENUM(NSUInteger, screenDirection) {
 
 
 @property (nonatomic, strong) NSIndexPath *currentIndex;
-@property (nonatomic, strong) NSArray<NSArray *> *pricearr;
-@property (nonatomic, strong) NSArray<NSArray *> *imagearr;
-
-
+@property (nonatomic, strong) NSArray<NSArray *> *giftlist;
 
 
 
