@@ -7,11 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GiftModel.h"
 
-typedef NS_ENUM(NSUInteger, giftAnimationType) {
-    giftAnimationTypeTop,
-    giftAnimationTypeCircle,
-};
+
 
 typedef void (^block)();
 
@@ -24,9 +22,6 @@ typedef void (^block)();
 @property (nonatomic, strong) UIImage *gifImage;
 
 
-+ (void)giftWithImage:(NSString *) image animationType:(giftAnimationType) type addedToView:(UIView *)view conpletion:(block) handler;
-
-+ (void)giftWithGif:(NSString *)gif addedToView:(UIView *)view completion:(block) handler;
-
++ (void)giftWithImage:(NSString *)imageName animationType:(giftAnimationType)type addedToView:(UIView *)view duration:(NSInteger)duration audioName:(NSString *)audio conpletion:(block)handler;
 
 @end

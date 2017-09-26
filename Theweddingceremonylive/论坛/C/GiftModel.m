@@ -13,16 +13,21 @@
 
 
 
-+ (instancetype)giftWithGiftID:(NSString *)gift_id name:(NSString *)name picture:(NSString *)pic price:(NSInteger)price isGIF:(BOOL)isgif{
++ (instancetype)giftWithGiftID:(NSString *)gift_id name:(NSString *)name picture:(NSString *)pic price:(NSInteger)price animationType:(giftAnimationType)animation duration:(NSInteger)duration audioName:(NSString *)audio{
     GiftModel *model = [[GiftModel alloc] init];
     
     model.towuid = gift_id;
     model.name = name;
     model.picture = pic;
     model.price = price;
-    model.isgif = isgif;
+    model.animation = animation;
+    model.duration = duration;
+    model.audioName = audio;
+    
     return model;
 }
+
+
 
 
 

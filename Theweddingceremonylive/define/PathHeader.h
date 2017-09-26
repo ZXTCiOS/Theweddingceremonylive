@@ -29,7 +29,7 @@
 
 #define post_sendRedbag @"interface.php/Home/User/sentbag"         // 发红包
 #define post_chaiRedbag @"/interface.php/Home/User/getbag"   // 拆红包
-#define post_redbagRecord @""       // 领取记录
+#define post_redbagRecord @"/interface.php/Home/User/yuer"       // 领取记录
 #define post_zhiboing  @""      // 直播中
 
 
