@@ -78,27 +78,39 @@ static NSString *livecellidentfid = @"livecellidentfid";
         cell = [[livetypeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:livecellidentfid];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    [cell.bgimg sd_setImageWithURL:[NSURL URLWithString:@"http://pic.pptbz.com/pptpic/201605/2016050149342801.jpg"]];
+//    [cell.bgimg sd_setImageWithURL:[NSURL URLWithString:@"http://pic.pptbz.com/pptpic/201605/2016050149342801.jpg"]];
     if (indexPath.row==0) {
-        cell.typelab.text = @"免费亲友内部直播";
-        cell.numberlab.text = @"可观看人数：100人";
-        [cell.pricelab setHidden:YES];
+        cell.bgimg.image = [UIImage imageNamed:@"leixing"];
     }
     if (indexPath.row==1) {
-        cell.typelab.text = @"旗舰款";
-        cell.numberlab.text = @"可观看人数：500-1500人";
-        cell.pricelab.text = @"520元起";
+        cell.bgimg.image = [UIImage imageNamed:@"leixingtwo"];
     }
     if (indexPath.row==2) {
-        cell.typelab.text = @"公众人物直播";
-        cell.numberlab.text = @"可观看人数：5000-15000人";
-        cell.pricelab.text = @"2999元起";
+        cell.bgimg.image = [UIImage imageNamed:@"leixingthr"];
     }
     if (indexPath.row==3) {
-        cell.typelab.text = @"开放直播间";
-        cell.numberlab.text = @"请联系客服";
-        [cell.pricelab setHidden:YES];
+        cell.bgimg.image = [UIImage imageNamed:@"leixingfour"];
     }
+//    if (indexPath.row==0) {
+//        cell.typelab.text = @"免费亲友内部直播";
+//        cell.numberlab.text = @"可观看人数：100人";
+//        [cell.pricelab setHidden:YES];
+//    }
+//    if (indexPath.row==1) {
+//        cell.typelab.text = @"旗舰款";
+//        cell.numberlab.text = @"可观看人数：500-1500人";
+//        cell.pricelab.text = @"520元起";
+//    }
+//    if (indexPath.row==2) {
+//        cell.typelab.text = @"公众人物直播";
+//        cell.numberlab.text = @"可观看人数：5000-15000人";
+//        cell.pricelab.text = @"2999元起";
+//    }
+//    if (indexPath.row==3) {
+//        cell.typelab.text = @"开放直播间";
+//        cell.numberlab.text = @"请联系客服";
+//        [cell.pricelab setHidden:YES];
+//    }
     return cell;
 }
 
@@ -129,7 +141,7 @@ static NSString *livecellidentfid = @"livecellidentfid";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 220*HEIGHT_SCALE;
+    return 150*HEIGHT_SCALE;
 }
 #pragma mark - 实现方法
 

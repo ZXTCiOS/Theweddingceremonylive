@@ -8,10 +8,10 @@
 
 #import "weddingcardVC.h"
 #import "ActionSheetView.h"
-#import "pilotliveVC.h"
+//#import "pilotliveVC.h"
 #import "ZTVendorManager.h"
 #import "QRcodeTool.h"
-
+#import "PreLiveVC.h"
 
 @interface weddingcardVC ()<UIScrollViewDelegate>
 @property (nonatomic,strong) UIScrollView *scroll;
@@ -473,7 +473,8 @@
 
 -(void)rightbtn1click
 {
-    pilotliveVC *vc = [[pilotliveVC alloc] init];
+    PreLiveVC *vc = [[PreLiveVC alloc] init];
+    vc.istesting = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
