@@ -7,7 +7,7 @@
 //
 
 #import "walletrecordCell.h"
-
+#import "walletlistModel.h"
 @interface walletrecordCell()
 @property (nonatomic,strong) UIImageView *leftImg;
 @property (nonatomic,strong) UILabel *nameLab;
@@ -15,6 +15,8 @@
 @property (nonatomic,strong) UILabel *priceLab;
 @property (nonatomic,strong) UILabel *balanceLab;
 @property (nonatomic,strong) UIImageView *typeImg;
+
+@property (nonatomic,strong) walletlistModel *wmodel;
 @end
 
 @implementation walletrecordCell
@@ -75,7 +77,7 @@
     if(!_leftImg)
     {
         _leftImg = [[UIImageView alloc] init];
-        _leftImg.image = [UIImage imageNamed:@"my_walet_cz"];
+
     }
     return _leftImg;
 }
@@ -87,7 +89,7 @@
         _nameLab = [[UILabel alloc] init];
         _nameLab.textColor = [UIColor colorWithHexString:@"333333"];
         _nameLab.font = [UIFont systemFontOfSize:17];
-        _nameLab.text = @"充值";
+    
     }
     return _nameLab;
 }
@@ -100,9 +102,9 @@
         _timeLab.textColor = [UIColor colorWithHexString:@"999999"];
         _timeLab.font = [UIFont systemFontOfSize:14];
         
-        NSString *str = @"1502850707";
-        NSInteger inter = [str intValue];
-        _timeLab.text = [self timestampSwitchTime:inter andFormatter:@"YYYY-MM-dd"];
+//        NSString *str = @"1502850707";
+//        NSInteger inter = [str intValue];
+//        _timeLab.text = [self timestampSwitchTime:inter andFormatter:@"YYYY-MM-dd"];
 
     }
     return _timeLab;
@@ -113,7 +115,7 @@
     if(!_priceLab)
     {
         _priceLab = [[UILabel alloc] init];
-        _priceLab.text = @"+30.00";
+
         _priceLab.textColor = [UIColor colorWithHexString:@"333333"];
         _priceLab.font = [UIFont systemFontOfSize:17];
         _priceLab.textAlignment = NSTextAlignmentRight;
@@ -126,7 +128,7 @@
     if(!_balanceLab)
     {
         _balanceLab = [[UILabel alloc] init];
-        _balanceLab.text = @"余额300";
+        //_balanceLab.text = @"余额300";
         _balanceLab.font = [UIFont systemFontOfSize:14];
         _balanceLab.textColor = [UIColor colorWithHexString:@"999999"];
         _balanceLab.textAlignment = NSTextAlignmentRight;
@@ -139,7 +141,7 @@
     if(!_typeImg)
     {
         _typeImg = [[UIImageView alloc] init];
-        _typeImg.image = [UIImage imageNamed:@"my_walet_cg"];
+       
     }
     return _typeImg;
 }
@@ -158,6 +160,52 @@
     NSDate *confromTimesp = [NSDate dateWithTimeIntervalSince1970:timestamp];
     NSString *confromTimespStr = [formatter stringFromDate:confromTimesp];
     return confromTimespStr;
+}
+
+#pragma mark - 数据方法
+
+-(void)setdata0:(walletlistModel *)model
+{
+    self.wmodel = model;
+    NSString *str = model.createtime;
+    NSInteger inter = [str intValue];
+    _timeLab.text = [self timestampSwitchTime:inter andFormatter:@"YYYY-MM-dd"];
+    _nameLab.text = @"充值";
+     _leftImg.image = [UIImage imageNamed:@"my_walet_cz"];
+    _priceLab.text = [NSString stringWithFormat:@"%@%@",@"+",model.goin_moeny];
+    
+}
+
+-(void)setdata1:(walletlistModel *)model
+{
+    self.wmodel = model;
+    NSString *str = model.giftinfo_addtime;
+    NSInteger inter = [str intValue];
+    _timeLab.text = [self timestampSwitchTime:inter andFormatter:@"YYYY-MM-dd"];
+    _nameLab.text = @"消费";
+    _leftImg.image = [UIImage imageNamed:@"my_walet_rmb"];
+   // _priceLab.text = [NSString stringWithFormat:@"%@%@",@"-",model.goin_moeny];
+    
+}
+
+-(void)setdata2:(walletlistModel *)model
+{
+    self.wmodel = model;
+    NSString *str = model.createtime;
+    NSInteger inter = [str intValue];
+    _timeLab.text = [self timestampSwitchTime:inter andFormatter:@"YYYY-MM-dd"];
+    _nameLab.text = @"提现";
+    _leftImg.image = [UIImage imageNamed:@"my_walet_tx"];
+    _priceLab.text = [NSString stringWithFormat:@"%@%@",@"+",model.money];
+    if ([model.is_give isEqualToString:@"0"]) {
+        _typeImg.image = [UIImage imageNamed:@"shenhezhong"];
+    }
+    if ([model.type isEqualToString:@"1"]) {
+        _typeImg.image = [UIImage imageNamed:@"my_walet_cg"];
+    }
+    if ([model.type isEqualToString:@"2"]) {
+        _typeImg.image = [UIImage imageNamed:@"my_walet_sb"];
+    }
 }
 
 @end
