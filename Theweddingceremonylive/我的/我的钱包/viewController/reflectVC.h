@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface reflectVC : BaseViewController
-
+@property (nonatomic,strong) NSString *moneystr;
 @end

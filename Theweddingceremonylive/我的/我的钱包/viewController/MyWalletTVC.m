@@ -16,6 +16,7 @@
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic,strong) NSString *user_wallet;
 @property (nonatomic,strong) WalletHeadView *walletV;
+
 @end
 
 @implementation MyWalletTVC
@@ -28,9 +29,6 @@
     self.navigationItem.title = @"我的钱包";
     
     [self.view addSubview:self.table];
-//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
-//    self.navigationItem.leftBarButtonItem.tintColor = [UIColor colorWithHexString:@"E95F46"];
-//    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"E95F46"]}];
     
     UIBarButtonItem *item1 = [[UIBarButtonItem alloc] bk_initWithTitle:@"交易记录" style:UIBarButtonItemStylePlain handler:^(id sender) {
         // 交易记录
@@ -48,6 +46,12 @@
     self.table.tableHeaderView = self.walletV;
     self.table.tableFooterView = [UIView new];
     self.table.backgroundColor = [UIColor colorWithHexString:@"f5f5f5"];
+//    [self loaddata];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
     [self loaddata];
 }
 
@@ -67,7 +71,11 @@
         [MBProgressHUD showSuccess:msg];
         if ([[obj objectForKey:@"code"] intValue]==1000) {
             NSDictionary *dic = [obj objectForKey:@"data"];
-            self.user_wallet = [dic objectForKey:@"user_wallet"];
+            NSString *str1 = [dic objectForKey:@"user_wallet"];
+            float userwalerfloat = [str1 floatValue];
+            NSString *str2 = [NSString stringWithFormat:@"%.2f",userwalerfloat];
+            self.user_wallet = str2;
+            
             self.walletV.balanceL.text = self.user_wallet;
 
         }
@@ -107,7 +115,6 @@
     
     if (!indexPath.section) {
         cell.imageView.image = [UIImage imageNamed:@"my_walet_rech"];
-        
         cell.textLabel.text = @"充值";
     } else {
         cell.imageView.image = [UIImage imageNamed:@"my_walet_wdr"];
@@ -124,13 +131,14 @@
     if (!indexPath.section) {
         NSLog(@"充值");
         rechargeVC *vc = [[rechargeVC alloc] init];
+        vc.moneystr = self.user_wallet;
         [self.navigationController pushViewController:vc animated:YES];
     } else {
         NSLog(@"提现");
         reflectVC *vc = [[reflectVC alloc] init];
+        vc.moneystr = self.user_wallet;
         [self.navigationController pushViewController:vc animated:YES];
     }
-    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

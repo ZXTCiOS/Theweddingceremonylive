@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface rechargeVC : BaseViewController
-
+@property (nonatomic,strong) NSString *moneystr;
 @end

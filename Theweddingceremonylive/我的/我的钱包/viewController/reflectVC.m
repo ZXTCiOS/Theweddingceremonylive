@@ -102,6 +102,7 @@ static NSString *reflectidentfid1 = @"reflectidentfid1";
     if (indexPath.section==0) {
         rechargrCell0 *cell = [tableView dequeueReusableCellWithIdentifier:reflectidentfid0];
         cell = [[rechargrCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reflectidentfid0];
+        cell.moneyLab.text = [NSString stringWithFormat:@"%@%@",@"余额：¥",self.moneystr];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -119,6 +120,7 @@ static NSString *reflectidentfid1 = @"reflectidentfid1";
             cell.leftlab.text = @"持卡人";
             cell.reflectext.placeholder = @"请输入持卡人姓名";
             cell.reflectext.tag = 202;
+            cell.reflectext.text = [userDefault objectForKey:user_kname];
             cell.reflectext.delegate = self;
         }
         if (indexPath.row==2) {
@@ -170,6 +172,13 @@ static NSString *reflectidentfid1 = @"reflectidentfid1";
     [text3 resignFirstResponder];
 }
 
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    UITextField *text1 = [self.table viewWithTag:202];
+    if (textField==text1) {
+        return NO;
+    }
+    return YES;
+}
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
@@ -179,7 +188,47 @@ static NSString *reflectidentfid1 = @"reflectidentfid1";
 
 -(void)selectbtnclick
 {
+    NSString *uid = [userDefault objectForKey:user_uid];
+    NSString *token = [userDefault objectForKey:user_token];
+    NSString *money = @"";
+    NSString *bankid = @"";
+    NSString *user_tel = @"";
+    NSString *name = @"";
     
+    UITextField *text0 = [self.table viewWithTag:201];
+    UITextField *text2 = [self.table viewWithTag:203];
+    UITextField *text3 = [self.table viewWithTag:204];
+    
+    NSString *kname = [userDefault objectForKey:user_kname];
+    if (kname.length!=0) {
+        name = kname;
+    }
+    else
+    {
+        name = @"";
+        [MBProgressHUD showSuccess:@"请先进行实名认证"];
+    }
+    if (text0.text.length==0) {
+        [MBProgressHUD showSuccess:@"请输入提现金额"];
+    }
+    else
+    {
+        money = text0.text;
+    }
+    if (text2.text.length==0) {
+        [MBProgressHUD showSuccess:@"请输入身份证号"];
+    }
+    else
+    {
+        bankid = text2.text;
+    }
+    if (text3.text.length==0) {
+        [MBProgressHUD showSuccess:@"请输入银行卡号"];
+    }
+    else
+    {
+        
+    }
 }
 
 @end

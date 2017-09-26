@@ -20,6 +20,8 @@
 #define user_userimg @"userimg"
 #define user_nickname @"user_name"
 
+#define user_kname @"user_kname"
+
 #define JIGUANG     @"48a4889e047c006938c2b298"
 
 #define BASE_URL   @"http://aimidao.tv/"
@@ -112,4 +114,9 @@
 
 //推送反馈
 #define post_tuisongfankui  @"/interface.php/Home/User/tuisong"
+
+//充值
+#define post_chongshi       @"/interface.php/Home/User/chongzhi"
+//提现
+#define post_tixian         @"/interface.php/Home/User/get_money"
 #endif /* wangHeader_h */

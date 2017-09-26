@@ -57,6 +57,8 @@ static NSString *rechargeidentfid0 = @"rechargeidentfid0";
         _fview.moneytext.delegate = self;
         [_fview.btn0 addTarget:self action:@selector(zhifubaoclick) forControlEvents:UIControlEventTouchUpInside];
         [_fview.btn1 addTarget:self action:@selector(weixinclick) forControlEvents:UIControlEventTouchUpInside];
+        [_fview.sendBtn addTarget:self action:@selector(sendBtnclcik) forControlEvents:UIControlEventTouchUpInside];
+        
     }
     return _fview;
 }
@@ -72,7 +74,7 @@ static NSString *rechargeidentfid0 = @"rechargeidentfid0";
 {
     rechargrCell0 *cell = [tableView dequeueReusableCellWithIdentifier:rechargeidentfid0];
     cell = [[rechargrCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:rechargeidentfid0];
-
+    cell.moneyLab.text = [NSString stringWithFormat:@"%@%@",@"余额：¥",self.moneystr];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -101,6 +103,38 @@ static NSString *rechargeidentfid0 = @"rechargeidentfid0";
     [textField resignFirstResponder];
     return YES;
 }
+
+-(void)sendBtnclcik
+{
+    NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
+    NSString *uid = [userdefat objectForKey:user_uid];
+    NSString *token = [userdefat objectForKey:user_token];
+    NSString *user_wallet = @"";
+    if (self.fview.moneytext.text.length==0) {
+        user_wallet = @"";
+        [MBProgressHUD showSuccess:@"请输入充值金额"];
+    }
+    else
+    {
+        user_wallet=  self.fview.moneytext.text;
+        NSDictionary *para = @{@"uid":uid,@"token":token,@"user_wallet":user_wallet};
+        
+        [DNNetworking postWithURLString:post_chongshi parameters:para success:^(id obj) {
+            if ([[obj objectForKey:@"code"] intValue]==1000) {
+                [MBProgressHUD showSuccess:@"充值成功"];
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+            else
+            {
+                NSString *msg = [obj objectForKey:@"msg"];
+                [MBProgressHUD showSuccess:msg];
+            }
+        } failure:^(NSError *error) {
+            [MBProgressHUD showSuccess:@"网络错误"];
+        }];
+    }
+}
+
 #pragma mark - 实现方法
 
 -(void)zhifubaoclick

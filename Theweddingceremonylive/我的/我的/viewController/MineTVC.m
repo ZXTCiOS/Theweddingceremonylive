@@ -69,6 +69,10 @@ static NSString *mineidentfid2 = @"mineidentfid2";
             NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
             NSString *userimg = [self.dataDic objectForKey:@"picture"];
             NSString *name = [self.dataDic objectForKey:@"name"];
+            NSString *kname = [self.dataDic objectForKey:@"kname"];
+            if (kname.length!=0) {
+                [userdefat setObject:kname forKey:user_kname];
+            }
             [userdefat setObject:userimg forKey:user_userimg];
             [userdefat setObject:name forKey:user_nickname];
             [userdefat synchronize];

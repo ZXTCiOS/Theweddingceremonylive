@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface rechargrCell0 : UITableViewCell
-
+@property (nonatomic,strong) UILabel *moneyLab;
 @end

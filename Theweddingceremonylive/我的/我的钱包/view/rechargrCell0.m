@@ -11,7 +11,7 @@
 @interface rechargrCell0()
 @property (nonatomic,strong) UIImageView *iconImg;
 @property (nonatomic,strong) UILabel *nameLab;
-@property (nonatomic,strong) UILabel *moneyLab;
+
 
 @end
 
