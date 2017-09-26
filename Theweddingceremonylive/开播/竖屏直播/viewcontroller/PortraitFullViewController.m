@@ -776,22 +776,10 @@
     NSInteger row = giftid.integerValue % 10;
     GiftModel *model = self.giftV.giftlist[section][row];
     
-    if ([giftid isEqualToString:@"21"]) {   // 门票...
-        [GiftAnimation giftWithImage:model.picture animationType:giftAnimationTypeCircle addedToView:self.view conpletion:^{
-            [self.giftlist removeFirstObject];
-            [self beginGiftAnimation];
-        }];
-    } else if (!model.isgif) {
-        [GiftAnimation giftWithImage:model.picture animationType:giftAnimationTypeTop addedToView:self.view conpletion:^{
-            [self.giftlist removeFirstObject];
-            [self beginGiftAnimation];
-        }];
-    } else if (model.isgif){
-        [GiftAnimation giftWithGif: model.picture addedToView:self.view completion:^{
-            [self.giftlist removeFirstObject];
-            [self beginGiftAnimation];
-        }];
-    }
+    [GiftAnimation giftWithImage:model.name animationType:model.animation addedToView:self.maskview duration:model.duration audioName:model.audioName conpletion:^{
+        [self.giftlist removeFirstObject];
+        [self beginGiftAnimation];
+    }];
 }
 
 
@@ -910,7 +898,7 @@
     }
 }
 
-- (GiftView *)giftV{
+- (GiftView *)giftV{ 
     if (!_giftV) {
         _giftV = [[GiftView alloc] initWithDirection:screenDirectionV];
         [self.maskview addSubview:_giftV];

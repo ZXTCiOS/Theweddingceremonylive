@@ -49,6 +49,11 @@
 		1845AEA81F46B5CE002EAD47 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1845AEA71F46B5CE002EAD47 /* iCarousel.m */; };
 		1847DED71F3C5A5F00C796A8 /* LiveVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1847DED51F3C5A5F00C796A8 /* LiveVideoCell.m */; };
 		1847DED81F3C5A5F00C796A8 /* LiveVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1847DED61F3C5A5F00C796A8 /* LiveVideoCell.xib */; };
+		1849EDD11F79F357002B08CA /* 奉旨闹洞房.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1849EDCF1F79F357002B08CA /* 奉旨闹洞房.gif */; };
+		1849EDD21F79F357002B08CA /* 奉旨闹洞房音效.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1849EDD01F79F357002B08CA /* 奉旨闹洞房音效.mp3 */; };
+		1849EDD61F79F385002B08CA /* 萤火虫之舞.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1849EDD41F79F385002B08CA /* 萤火虫之舞.gif */; };
+		1849EDD71F79F385002B08CA /* 萤火虫之舞.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1849EDD51F79F385002B08CA /* 萤火虫之舞.mp3 */; };
+		1849EDDD1F7A02F1002B08CA /* UIImageView+RotateImgV.m in Sources */ = {isa = PBXBuildFile; fileRef = 1849EDDC1F7A02F1002B08CA /* UIImageView+RotateImgV.m */; };
 		184A78791F53B96300EACCE1 /* WeddingLivingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 184A78771F53B96300EACCE1 /* WeddingLivingCell.m */; };
 		184A787A1F53B96300EACCE1 /* WeddingLivingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184A78781F53B96300EACCE1 /* WeddingLivingCell.xib */; };
 		184A787D1F53C5E800EACCE1 /* WeddingLiveModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 184A787C1F53C5E800EACCE1 /* WeddingLiveModel.m */; };
@@ -100,6 +105,47 @@
 		18F9374F1F57FBFE00B267C0 /* PortraitFullMaskView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F937461F57FBFE00B267C0 /* PortraitFullMaskView.xib */; };
 		18F937511F57FBFE00B267C0 /* PortraitFullViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F9374B1F57FBFE00B267C0 /* PortraitFullViewController.m */; };
 		18F937601F58076500B267C0 /* HorizontalPushVCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F9375F1F58076500B267C0 /* HorizontalPushVCViewController.m */; };
+		18FAA28E1F78E66100386D71 /* 礼物说明923.xls in Resources */ = {isa = PBXBuildFile; fileRef = 18FAA2501F78E66100386D71 /* 礼物说明923.xls */; };
+		18FAA28F1F78E66100386D71 /* 佳偶天成.gif in Resources */ = {isa = PBXBuildFile; fileRef = 18FAA2521F78E66100386D71 /* 佳偶天成.gif */; };
+		18FAA2901F78E66100386D71 /* 执手偕老.gif in Resources */ = {isa = PBXBuildFile; fileRef = 18FAA2541F78E66100386D71 /* 执手偕老.gif */; };
+		18FAA2911F78E66100386D71 /* 烟火音效.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 18FAA2551F78E66100386D71 /* 烟火音效.mp3 */; };
+		18FAA2921F78E66100386D71 /* 永结同心.gif in Resources */ = {isa = PBXBuildFile; fileRef = 18FAA2571F78E66100386D71 /* 永结同心.gif */; };
+		18FAA2931F78E66100386D71 /* 烟火音效.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 18FAA2581F78E66100386D71 /* 烟火音效.mp3 */; };
+		18FAA2941F78E66100386D71 /* 烟火音效.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 18FAA25A1F78E66100386D71 /* 烟火音效.mp3 */; };
+		18FAA2951F78E66100386D71 /* 百年好合.gif in Resources */ = {isa = PBXBuildFile; fileRef = 18FAA25B1F78E66100386D71 /* 百年好合.gif */; };
+		18FAA2961F78E66100386D71 /* 烟火音效.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 18FAA25D1F78E66100386D71 /* 烟火音效.mp3 */; };
+		18FAA2971F78E66100386D71 /* 花好月圆.gif in Resources */ = {isa = PBXBuildFile; fileRef = 18FAA25E1F78E66100386D71 /* 花好月圆.gif */; };
+		18FAA2981F78E66100386D71 /* 郎才女貌.gif in Resources */ = {isa = PBXBuildFile; fileRef = 18FAA25F1F78E66100386D71 /* 郎才女貌.gif */; };
+		18FAA2991F78E66100386D71 /* 麒麟送子.gif in Resources */ = {isa = PBXBuildFile; fileRef = 18FAA2611F78E66100386D71 /* 麒麟送子.gif */; };
+		18FAA29A1F78E66100386D71 /* 麒麟送子音效.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 18FAA2621F78E66100386D71 /* 麒麟送子音效.mp3 */; };
+		18FAA29B1F78E66100386D71 /* 龙凤呈祥.gif in Resources */ = {isa = PBXBuildFile; fileRef = 18FAA2641F78E66100386D71 /* 龙凤呈祥.gif */; };
+		18FAA29C1F78E66100386D71 /* 龙凤呈祥音效.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 18FAA2651F78E66100386D71 /* 龙凤呈祥音效.mp3 */; };
+		18FAA29D1F78E66100386D71 /* 夏威夷.gif in Resources */ = {isa = PBXBuildFile; fileRef = 18FAA2671F78E66100386D71 /* 夏威夷.gif */; };
+		18FAA29E1F78E66100386D71 /* 威尼斯.gif in Resources */ = {isa = PBXBuildFile; fileRef = 18FAA2681F78E66100386D71 /* 威尼斯.gif */; };
+		18FAA29F1F78E66100386D71 /* 巴厘岛.gif in Resources */ = {isa = PBXBuildFile; fileRef = 18FAA2691F78E66100386D71 /* 巴厘岛.gif */; };
+		18FAA2A01F78E66100386D71 /* 巴黎.gif in Resources */ = {isa = PBXBuildFile; fileRef = 18FAA26A1F78E66100386D71 /* 巴黎.gif */; };
+		18FAA2A11F78E66100386D71 /* 爱琴海.gif in Resources */ = {isa = PBXBuildFile; fileRef = 18FAA26B1F78E66100386D71 /* 爱琴海.gif */; };
+		18FAA2A21F78E66100386D71 /* 瑞士.gif in Resources */ = {isa = PBXBuildFile; fileRef = 18FAA26C1F78E66100386D71 /* 瑞士.gif */; };
+		18FAA2A31F78E66100386D71 /* 罗马.gif in Resources */ = {isa = PBXBuildFile; fileRef = 18FAA26D1F78E66100386D71 /* 罗马.gif */; };
+		18FAA2A41F78E66100386D71 /* 飞机音效.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 18FAA26E1F78E66100386D71 /* 飞机音效.mp3 */; };
+		18FAA2A51F78E66100386D71 /* 马尔代夫.gif in Resources */ = {isa = PBXBuildFile; fileRef = 18FAA26F1F78E66100386D71 /* 马尔代夫.gif */; };
+		18FAA2A61F78E66100386D71 /* 玫瑰花.gif in Resources */ = {isa = PBXBuildFile; fileRef = 18FAA2711F78E66100386D71 /* 玫瑰花.gif */; };
+		18FAA2A71F78E66100386D71 /* 百合花.gif in Resources */ = {isa = PBXBuildFile; fileRef = 18FAA2721F78E66100386D71 /* 百合花.gif */; };
+		18FAA2A81F78E66100386D71 /* 礼炮.gif in Resources */ = {isa = PBXBuildFile; fileRef = 18FAA2741F78E66100386D71 /* 礼炮.gif */; };
+		18FAA2A91F78E66100386D71 /* 礼炮声效.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 18FAA2751F78E66100386D71 /* 礼炮声效.mp3 */; };
+		18FAA2AA1F78E66100386D71 /* 礼花筒.gif in Resources */ = {isa = PBXBuildFile; fileRef = 18FAA2771F78E66100386D71 /* 礼花筒.gif */; };
+		18FAA2AB1F78E66100386D71 /* 礼花筒音效.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 18FAA2781F78E66100386D71 /* 礼花筒音效.mp3 */; };
+		18FAA2AC1F78E66100386D71 /* 舞狮.gif in Resources */ = {isa = PBXBuildFile; fileRef = 18FAA27A1F78E66100386D71 /* 舞狮.gif */; };
+		18FAA2AD1F78E66100386D71 /* 舞狮音效.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 18FAA27B1F78E66100386D71 /* 舞狮音效.mp3 */; };
+		18FAA2AE1F78E66100386D71 /* 花瓣雨.gif in Resources */ = {isa = PBXBuildFile; fileRef = 18FAA27C1F78E66100386D71 /* 花瓣雨.gif */; };
+		18FAA2B01F78E66100386D71 /* 鞭炮.gif in Resources */ = {isa = PBXBuildFile; fileRef = 18FAA27F1F78E66100386D71 /* 鞭炮.gif */; };
+		18FAA2B11F78E66100386D71 /* 鞭炮音效.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 18FAA2801F78E66100386D71 /* 鞭炮音效.mp3 */; };
+		18FAA2B21F78E66100386D71 /* 交杯酒.gif in Resources */ = {isa = PBXBuildFile; fileRef = 18FAA2831F78E66100386D71 /* 交杯酒.gif */; };
+		18FAA2B31F78E66100386D71 /* 交杯酒音效.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 18FAA2841F78E66100386D71 /* 交杯酒音效.mp3 */; };
+		18FAA2B61F78E66100386D71 /* 金元宝.gif in Resources */ = {isa = PBXBuildFile; fileRef = 18FAA2891F78E66100386D71 /* 金元宝.gif */; };
+		18FAA2B71F78E66100386D71 /* 金元宝音效.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 18FAA28A1F78E66100386D71 /* 金元宝音效.mp3 */; };
+		18FAA2B81F78E66100386D71 /* 金币.gif in Resources */ = {isa = PBXBuildFile; fileRef = 18FAA28C1F78E66100386D71 /* 金币.gif */; };
+		18FAA2B91F78E66100386D71 /* 金币音效.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 18FAA28D1F78E66100386D71 /* 金币音效.mp3 */; };
 		18FE231C1F4E72DC0088D3BF /* NvwaYugaoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FE231B1F4E72DC0088D3BF /* NvwaYugaoModel.m */; };
 		18FE231F1F4E749F0088D3BF /* NvwaHeaderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FE231E1F4E749F0088D3BF /* NvwaHeaderModel.m */; };
 		18FE23221F4E7AB90088D3BF /* MainNvwaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FE23211F4E7AB90088D3BF /* MainNvwaModel.m */; };
@@ -453,6 +499,12 @@
 		1847DED41F3C5A5F00C796A8 /* LiveVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveVideoCell.h; sourceTree = "<group>"; };
 		1847DED51F3C5A5F00C796A8 /* LiveVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveVideoCell.m; sourceTree = "<group>"; };
 		1847DED61F3C5A5F00C796A8 /* LiveVideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LiveVideoCell.xib; sourceTree = "<group>"; };
+		1849EDCF1F79F357002B08CA /* 奉旨闹洞房.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "奉旨闹洞房.gif"; sourceTree = "<group>"; };
+		1849EDD01F79F357002B08CA /* 奉旨闹洞房音效.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "奉旨闹洞房音效.mp3"; sourceTree = "<group>"; };
+		1849EDD41F79F385002B08CA /* 萤火虫之舞.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "萤火虫之舞.gif"; sourceTree = "<group>"; };
+		1849EDD51F79F385002B08CA /* 萤火虫之舞.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "萤火虫之舞.mp3"; sourceTree = "<group>"; };
+		1849EDDB1F7A02F1002B08CA /* UIImageView+RotateImgV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+RotateImgV.h"; sourceTree = "<group>"; };
+		1849EDDC1F7A02F1002B08CA /* UIImageView+RotateImgV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+RotateImgV.m"; sourceTree = "<group>"; };
 		184A78761F53B96300EACCE1 /* WeddingLivingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeddingLivingCell.h; sourceTree = "<group>"; };
 		184A78771F53B96300EACCE1 /* WeddingLivingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeddingLivingCell.m; sourceTree = "<group>"; };
 		184A78781F53B96300EACCE1 /* WeddingLivingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeddingLivingCell.xib; sourceTree = "<group>"; };
@@ -547,6 +599,48 @@
 		18F9374B1F57FBFE00B267C0 /* PortraitFullViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortraitFullViewController.m; sourceTree = "<group>"; };
 		18F9375E1F58076500B267C0 /* HorizontalPushVCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizontalPushVCViewController.h; sourceTree = "<group>"; };
 		18F9375F1F58076500B267C0 /* HorizontalPushVCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalPushVCViewController.m; sourceTree = "<group>"; };
+		18FAA24E1F78DC4B00386D71 /* giftJSON.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = giftJSON.geojson; sourceTree = "<group>"; };
+		18FAA2501F78E66100386D71 /* 礼物说明923.xls */ = {isa = PBXFileReference; lastKnownFileType = file; path = "礼物说明923.xls"; sourceTree = "<group>"; };
+		18FAA2521F78E66100386D71 /* 佳偶天成.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "佳偶天成.gif"; sourceTree = "<group>"; };
+		18FAA2541F78E66100386D71 /* 执手偕老.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "执手偕老.gif"; sourceTree = "<group>"; };
+		18FAA2551F78E66100386D71 /* 烟火音效.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "烟火音效.mp3"; sourceTree = "<group>"; };
+		18FAA2571F78E66100386D71 /* 永结同心.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "永结同心.gif"; sourceTree = "<group>"; };
+		18FAA2581F78E66100386D71 /* 烟火音效.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "烟火音效.mp3"; sourceTree = "<group>"; };
+		18FAA25A1F78E66100386D71 /* 烟火音效.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "烟火音效.mp3"; sourceTree = "<group>"; };
+		18FAA25B1F78E66100386D71 /* 百年好合.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "百年好合.gif"; sourceTree = "<group>"; };
+		18FAA25D1F78E66100386D71 /* 烟火音效.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "烟火音效.mp3"; sourceTree = "<group>"; };
+		18FAA25E1F78E66100386D71 /* 花好月圆.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "花好月圆.gif"; sourceTree = "<group>"; };
+		18FAA25F1F78E66100386D71 /* 郎才女貌.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "郎才女貌.gif"; sourceTree = "<group>"; };
+		18FAA2611F78E66100386D71 /* 麒麟送子.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "麒麟送子.gif"; sourceTree = "<group>"; };
+		18FAA2621F78E66100386D71 /* 麒麟送子音效.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "麒麟送子音效.mp3"; sourceTree = "<group>"; };
+		18FAA2641F78E66100386D71 /* 龙凤呈祥.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "龙凤呈祥.gif"; sourceTree = "<group>"; };
+		18FAA2651F78E66100386D71 /* 龙凤呈祥音效.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "龙凤呈祥音效.mp3"; sourceTree = "<group>"; };
+		18FAA2671F78E66100386D71 /* 夏威夷.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "夏威夷.gif"; sourceTree = "<group>"; };
+		18FAA2681F78E66100386D71 /* 威尼斯.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "威尼斯.gif"; sourceTree = "<group>"; };
+		18FAA2691F78E66100386D71 /* 巴厘岛.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "巴厘岛.gif"; sourceTree = "<group>"; };
+		18FAA26A1F78E66100386D71 /* 巴黎.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "巴黎.gif"; sourceTree = "<group>"; };
+		18FAA26B1F78E66100386D71 /* 爱琴海.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "爱琴海.gif"; sourceTree = "<group>"; };
+		18FAA26C1F78E66100386D71 /* 瑞士.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "瑞士.gif"; sourceTree = "<group>"; };
+		18FAA26D1F78E66100386D71 /* 罗马.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "罗马.gif"; sourceTree = "<group>"; };
+		18FAA26E1F78E66100386D71 /* 飞机音效.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "飞机音效.mp3"; sourceTree = "<group>"; };
+		18FAA26F1F78E66100386D71 /* 马尔代夫.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "马尔代夫.gif"; sourceTree = "<group>"; };
+		18FAA2711F78E66100386D71 /* 玫瑰花.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "玫瑰花.gif"; sourceTree = "<group>"; };
+		18FAA2721F78E66100386D71 /* 百合花.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "百合花.gif"; sourceTree = "<group>"; };
+		18FAA2741F78E66100386D71 /* 礼炮.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "礼炮.gif"; sourceTree = "<group>"; };
+		18FAA2751F78E66100386D71 /* 礼炮声效.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "礼炮声效.mp3"; sourceTree = "<group>"; };
+		18FAA2771F78E66100386D71 /* 礼花筒.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "礼花筒.gif"; sourceTree = "<group>"; };
+		18FAA2781F78E66100386D71 /* 礼花筒音效.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "礼花筒音效.mp3"; sourceTree = "<group>"; };
+		18FAA27A1F78E66100386D71 /* 舞狮.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "舞狮.gif"; sourceTree = "<group>"; };
+		18FAA27B1F78E66100386D71 /* 舞狮音效.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "舞狮音效.mp3"; sourceTree = "<group>"; };
+		18FAA27C1F78E66100386D71 /* 花瓣雨.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "花瓣雨.gif"; sourceTree = "<group>"; };
+		18FAA27F1F78E66100386D71 /* 鞭炮.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "鞭炮.gif"; sourceTree = "<group>"; };
+		18FAA2801F78E66100386D71 /* 鞭炮音效.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "鞭炮音效.mp3"; sourceTree = "<group>"; };
+		18FAA2831F78E66100386D71 /* 交杯酒.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "交杯酒.gif"; sourceTree = "<group>"; };
+		18FAA2841F78E66100386D71 /* 交杯酒音效.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "交杯酒音效.mp3"; sourceTree = "<group>"; };
+		18FAA2891F78E66100386D71 /* 金元宝.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "金元宝.gif"; sourceTree = "<group>"; };
+		18FAA28A1F78E66100386D71 /* 金元宝音效.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "金元宝音效.mp3"; sourceTree = "<group>"; };
+		18FAA28C1F78E66100386D71 /* 金币.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "金币.gif"; sourceTree = "<group>"; };
+		18FAA28D1F78E66100386D71 /* 金币音效.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "金币音效.mp3"; sourceTree = "<group>"; };
 		18FE231A1F4E72DC0088D3BF /* NvwaYugaoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvwaYugaoModel.h; sourceTree = "<group>"; };
 		18FE231B1F4E72DC0088D3BF /* NvwaYugaoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NvwaYugaoModel.m; sourceTree = "<group>"; };
 		18FE231D1F4E749F0088D3BF /* NvwaHeaderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NvwaHeaderModel.h; sourceTree = "<group>"; };
@@ -1085,6 +1179,7 @@
 				1841E2BA1F6F6E5A007D362B /* SendRedBagView.xib */,
 				1803644B1F6A7D0100238500 /* GiftView.h */,
 				1803644C1F6A7D0100238500 /* GiftView.m */,
+				18FAA24E1F78DC4B00386D71 /* giftJSON.geojson */,
 				1803645F1F6BC49800238500 /* GiftCell.h */,
 				180364601F6BC49800238500 /* GiftCell.m */,
 				180364611F6BC49800238500 /* GiftCell.xib */,
@@ -1165,6 +1260,24 @@
 				1847DED61F3C5A5F00C796A8 /* LiveVideoCell.xib */,
 			);
 			path = V;
+			sourceTree = "<group>";
+		};
+		1849EDCE1F79F357002B08CA /* 奉旨闹洞房 */ = {
+			isa = PBXGroup;
+			children = (
+				1849EDCF1F79F357002B08CA /* 奉旨闹洞房.gif */,
+				1849EDD01F79F357002B08CA /* 奉旨闹洞房音效.mp3 */,
+			);
+			path = "奉旨闹洞房";
+			sourceTree = "<group>";
+		};
+		1849EDD31F79F385002B08CA /* 萤火虫之舞 */ = {
+			isa = PBXGroup;
+			children = (
+				1849EDD41F79F385002B08CA /* 萤火虫之舞.gif */,
+				1849EDD51F79F385002B08CA /* 萤火虫之舞.mp3 */,
+			);
+			path = "萤火虫之舞";
 			sourceTree = "<group>";
 		};
 		188038C41F3EAB9B00A2B4AE /* 我的 */ = {
@@ -1632,6 +1745,192 @@
 				18F9375F1F58076500B267C0 /* HorizontalPushVCViewController.m */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		18FAA24F1F78E66100386D71 /* gif礼物 */ = {
+			isa = PBXGroup;
+			children = (
+				18FAA2501F78E66100386D71 /* 礼物说明923.xls */,
+				18FAA2511F78E66100386D71 /* 祝福 */,
+				18FAA2661F78E66100386D71 /* 蜜月 */,
+				18FAA2701F78E66100386D71 /* 通用 */,
+				18FAA2811F78E66100386D71 /* 闹洞房 */,
+			);
+			path = "gif礼物";
+			sourceTree = "<group>";
+		};
+		18FAA2511F78E66100386D71 /* 祝福 */ = {
+			isa = PBXGroup;
+			children = (
+				18FAA2521F78E66100386D71 /* 佳偶天成.gif */,
+				18FAA2531F78E66100386D71 /* 执手偕老 */,
+				18FAA2561F78E66100386D71 /* 永结同心 */,
+				18FAA2591F78E66100386D71 /* 百年好合 */,
+				18FAA25C1F78E66100386D71 /* 花好月圆 */,
+				18FAA25F1F78E66100386D71 /* 郎才女貌.gif */,
+				18FAA2601F78E66100386D71 /* 麒麟送子 */,
+				18FAA2631F78E66100386D71 /* 龙凤呈祥 */,
+			);
+			path = "祝福";
+			sourceTree = "<group>";
+		};
+		18FAA2531F78E66100386D71 /* 执手偕老 */ = {
+			isa = PBXGroup;
+			children = (
+				18FAA2541F78E66100386D71 /* 执手偕老.gif */,
+				18FAA2551F78E66100386D71 /* 烟火音效.mp3 */,
+			);
+			path = "执手偕老";
+			sourceTree = "<group>";
+		};
+		18FAA2561F78E66100386D71 /* 永结同心 */ = {
+			isa = PBXGroup;
+			children = (
+				18FAA2571F78E66100386D71 /* 永结同心.gif */,
+				18FAA2581F78E66100386D71 /* 烟火音效.mp3 */,
+			);
+			path = "永结同心";
+			sourceTree = "<group>";
+		};
+		18FAA2591F78E66100386D71 /* 百年好合 */ = {
+			isa = PBXGroup;
+			children = (
+				18FAA25A1F78E66100386D71 /* 烟火音效.mp3 */,
+				18FAA25B1F78E66100386D71 /* 百年好合.gif */,
+			);
+			path = "百年好合";
+			sourceTree = "<group>";
+		};
+		18FAA25C1F78E66100386D71 /* 花好月圆 */ = {
+			isa = PBXGroup;
+			children = (
+				18FAA25D1F78E66100386D71 /* 烟火音效.mp3 */,
+				18FAA25E1F78E66100386D71 /* 花好月圆.gif */,
+			);
+			path = "花好月圆";
+			sourceTree = "<group>";
+		};
+		18FAA2601F78E66100386D71 /* 麒麟送子 */ = {
+			isa = PBXGroup;
+			children = (
+				18FAA2611F78E66100386D71 /* 麒麟送子.gif */,
+				18FAA2621F78E66100386D71 /* 麒麟送子音效.mp3 */,
+			);
+			path = "麒麟送子";
+			sourceTree = "<group>";
+		};
+		18FAA2631F78E66100386D71 /* 龙凤呈祥 */ = {
+			isa = PBXGroup;
+			children = (
+				18FAA2641F78E66100386D71 /* 龙凤呈祥.gif */,
+				18FAA2651F78E66100386D71 /* 龙凤呈祥音效.mp3 */,
+			);
+			path = "龙凤呈祥";
+			sourceTree = "<group>";
+		};
+		18FAA2661F78E66100386D71 /* 蜜月 */ = {
+			isa = PBXGroup;
+			children = (
+				18FAA2671F78E66100386D71 /* 夏威夷.gif */,
+				18FAA2681F78E66100386D71 /* 威尼斯.gif */,
+				18FAA2691F78E66100386D71 /* 巴厘岛.gif */,
+				18FAA26A1F78E66100386D71 /* 巴黎.gif */,
+				18FAA26B1F78E66100386D71 /* 爱琴海.gif */,
+				18FAA26C1F78E66100386D71 /* 瑞士.gif */,
+				18FAA26D1F78E66100386D71 /* 罗马.gif */,
+				18FAA26E1F78E66100386D71 /* 飞机音效.mp3 */,
+				18FAA26F1F78E66100386D71 /* 马尔代夫.gif */,
+			);
+			path = "蜜月";
+			sourceTree = "<group>";
+		};
+		18FAA2701F78E66100386D71 /* 通用 */ = {
+			isa = PBXGroup;
+			children = (
+				1849EDD31F79F385002B08CA /* 萤火虫之舞 */,
+				18FAA2711F78E66100386D71 /* 玫瑰花.gif */,
+				18FAA2721F78E66100386D71 /* 百合花.gif */,
+				18FAA2731F78E66100386D71 /* 礼炮 */,
+				18FAA2761F78E66100386D71 /* 礼花筒 */,
+				18FAA2791F78E66100386D71 /* 舞狮 */,
+				18FAA27C1F78E66100386D71 /* 花瓣雨.gif */,
+				18FAA27E1F78E66100386D71 /* 鞭炮 */,
+			);
+			path = "通用";
+			sourceTree = "<group>";
+		};
+		18FAA2731F78E66100386D71 /* 礼炮 */ = {
+			isa = PBXGroup;
+			children = (
+				18FAA2741F78E66100386D71 /* 礼炮.gif */,
+				18FAA2751F78E66100386D71 /* 礼炮声效.mp3 */,
+			);
+			path = "礼炮";
+			sourceTree = "<group>";
+		};
+		18FAA2761F78E66100386D71 /* 礼花筒 */ = {
+			isa = PBXGroup;
+			children = (
+				18FAA2771F78E66100386D71 /* 礼花筒.gif */,
+				18FAA2781F78E66100386D71 /* 礼花筒音效.mp3 */,
+			);
+			path = "礼花筒";
+			sourceTree = "<group>";
+		};
+		18FAA2791F78E66100386D71 /* 舞狮 */ = {
+			isa = PBXGroup;
+			children = (
+				18FAA27A1F78E66100386D71 /* 舞狮.gif */,
+				18FAA27B1F78E66100386D71 /* 舞狮音效.mp3 */,
+			);
+			path = "舞狮";
+			sourceTree = "<group>";
+		};
+		18FAA27E1F78E66100386D71 /* 鞭炮 */ = {
+			isa = PBXGroup;
+			children = (
+				18FAA27F1F78E66100386D71 /* 鞭炮.gif */,
+				18FAA2801F78E66100386D71 /* 鞭炮音效.mp3 */,
+			);
+			path = "鞭炮";
+			sourceTree = "<group>";
+		};
+		18FAA2811F78E66100386D71 /* 闹洞房 */ = {
+			isa = PBXGroup;
+			children = (
+				1849EDCE1F79F357002B08CA /* 奉旨闹洞房 */,
+				18FAA2821F78E66100386D71 /* 交杯酒 */,
+				18FAA2881F78E66100386D71 /* 金元宝 */,
+				18FAA28B1F78E66100386D71 /* 金币 */,
+			);
+			path = "闹洞房";
+			sourceTree = "<group>";
+		};
+		18FAA2821F78E66100386D71 /* 交杯酒 */ = {
+			isa = PBXGroup;
+			children = (
+				18FAA2831F78E66100386D71 /* 交杯酒.gif */,
+				18FAA2841F78E66100386D71 /* 交杯酒音效.mp3 */,
+			);
+			path = "交杯酒";
+			sourceTree = "<group>";
+		};
+		18FAA2881F78E66100386D71 /* 金元宝 */ = {
+			isa = PBXGroup;
+			children = (
+				18FAA2891F78E66100386D71 /* 金元宝.gif */,
+				18FAA28A1F78E66100386D71 /* 金元宝音效.mp3 */,
+			);
+			path = "金元宝";
+			sourceTree = "<group>";
+		};
+		18FAA28B1F78E66100386D71 /* 金币 */ = {
+			isa = PBXGroup;
+			children = (
+				18FAA28C1F78E66100386D71 /* 金币.gif */,
+				18FAA28D1F78E66100386D71 /* 金币音效.mp3 */,
+			);
+			path = "金币";
 			sourceTree = "<group>";
 		};
 		18FE232E1F4EC42C0088D3BF /* HYBLoopScrollView */ = {
@@ -2478,6 +2777,7 @@
 		53D02F711F3B2A4C00CD504C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				18FAA24F1F78E66100386D71 /* gif礼物 */,
 				53D02F491F3B1B5600CD504C /* Assets.xcassets */,
 				18F72F4D1F74BBBF00353571 /* giphy.gif */,
 			);
@@ -2506,6 +2806,8 @@
 		53D02F761F3BF5F800CD504C /* category */ = {
 			isa = PBXGroup;
 			children = (
+				1849EDDB1F7A02F1002B08CA /* UIImageView+RotateImgV.h */,
+				1849EDDC1F7A02F1002B08CA /* UIImageView+RotateImgV.m */,
 				18F72F4F1F74DDF000353571 /* FLAnimatedImage */,
 				180364421F6A336900238500 /* NSDictionary+NTESJson.h */,
 				180364431F6A336900238500 /* NSDictionary+NTESJson.m */,
@@ -3038,53 +3340,98 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1849EDD71F79F385002B08CA /* 萤火虫之舞.mp3 in Resources */,
+				18FAA2B31F78E66100386D71 /* 交杯酒音效.mp3 in Resources */,
+				18FAA2B21F78E66100386D71 /* 交杯酒.gif in Resources */,
+				18FAA2A01F78E66100386D71 /* 巴黎.gif in Resources */,
 				53D02F4D1F3B1B5600CD504C /* LaunchScreen.storyboard in Resources */,
+				18FAA28E1F78E66100386D71 /* 礼物说明923.xls in Resources */,
 				53204C281F593D2A00A211BD /* tcentkongjian@3x.png in Resources */,
 				53204C2A1F593D2A00A211BD /* tcentQQ@3x.png in Resources */,
+				18FAA2AE1F78E66100386D71 /* 花瓣雨.gif in Resources */,
 				184A787A1F53B96300EACCE1 /* WeddingLivingCell.xib in Resources */,
 				53CC9A881F57F0520077CCF6 /* NMCVideoFilter.bundle in Resources */,
+				18FAA28F1F78E66100386D71 /* 佳偶天成.gif in Resources */,
 				53CC98C01F5411380077CCF6 /* shi.json in Resources */,
+				18FAA2B91F78E66100386D71 /* 金币音效.mp3 in Resources */,
 				1831DBE21F4D514200155691 /* LiebiaoCell.xib in Resources */,
 				53204C2C1F593D2A00A211BD /* tcentWeibo@3x.png in Resources */,
+				18FAA2931F78E66100386D71 /* 烟火音效.mp3 in Resources */,
+				18FAA2941F78E66100386D71 /* 烟火音效.mp3 in Resources */,
 				1853D94F1F5040D400980936 /* infoCell.xib in Resources */,
 				53204C231F593D2A00A211BD /* copyUrl@2x.png in Resources */,
 				182E81111F418C3200720AA4 /* FastForwardView.xib in Resources */,
 				18F735611F6275610054524B /* ShuPingKaiboMaskView.xib in Resources */,
+				18FAA29D1F78E66100386D71 /* 夏威夷.gif in Resources */,
+				18FAA2A71F78E66100386D71 /* 百合花.gif in Resources */,
+				18FAA2A11F78E66100386D71 /* 爱琴海.gif in Resources */,
 				18593E211F73AFC5004B376D /* RedbagDetailListView.xib in Resources */,
 				18F9374F1F57FBFE00B267C0 /* PortraitFullMaskView.xib in Resources */,
+				18FAA2A51F78E66100386D71 /* 马尔代夫.gif in Resources */,
+				1849EDD21F79F357002B08CA /* 奉旨闹洞房音效.mp3 in Resources */,
+				18FAA2911F78E66100386D71 /* 烟火音效.mp3 in Resources */,
+				18FAA2A61F78E66100386D71 /* 玫瑰花.gif in Resources */,
+				18FAA2901F78E66100386D71 /* 执手偕老.gif in Resources */,
 				1841E2C91F6FB811007D362B /* hengpingMaskView.xib in Resources */,
+				18FAA29F1F78E66100386D71 /* 巴厘岛.gif in Resources */,
 				1831DBD51F4D281B00155691 /* NvWaCell.xib in Resources */,
+				18FAA2A91F78E66100386D71 /* 礼炮声效.mp3 in Resources */,
+				18FAA2921F78E66100386D71 /* 永结同心.gif in Resources */,
 				53204C241F593D2A00A211BD /* copyUrl@3x.png in Resources */,
 				1847DED81F3C5A5F00C796A8 /* LiveVideoCell.xib in Resources */,
 				1845AEA41F469E0B002EAD47 /* BannerView.xib in Resources */,
+				18FAA2991F78E66100386D71 /* 麒麟送子.gif in Resources */,
+				18FAA2971F78E66100386D71 /* 花好月圆.gif in Resources */,
 				53204C2B1F593D2A00A211BD /* tcentWeibo@2x.png in Resources */,
+				18FAA2B81F78E66100386D71 /* 金币.gif in Resources */,
+				18FAA2A41F78E66100386D71 /* 飞机音效.mp3 in Resources */,
+				18FAA2B11F78E66100386D71 /* 鞭炮音效.mp3 in Resources */,
 				182E81131F418C3200720AA4 /* WMPlayer.bundle in Resources */,
 				53204C271F593D2A00A211BD /* tcentkongjian@2x.png in Resources */,
 				184A78851F53FB5600EACCE1 /* WeddingLiveFutureCell.xib in Resources */,
 				53D02F4A1F3B1B5600CD504C /* Assets.xcassets in Resources */,
+				18FAA2B71F78E66100386D71 /* 金元宝音效.mp3 in Resources */,
 				18FE5D851F4AA8ED00C5A3CF /* WeddingVideoCell.xib in Resources */,
+				1849EDD11F79F357002B08CA /* 奉旨闹洞房.gif in Resources */,
 				53204C251F593D2A00A211BD /* sinaweibo@2x.png in Resources */,
+				18FAA29A1F78E66100386D71 /* 麒麟送子音效.mp3 in Resources */,
+				18FAA29B1F78E66100386D71 /* 龙凤呈祥.gif in Resources */,
+				1849EDD61F79F385002B08CA /* 萤火虫之舞.gif in Resources */,
 				53204C061F593BD100A211BD /* UMSocialSDKPromptResources.bundle in Resources */,
+				18FAA29E1F78E66100386D71 /* 威尼斯.gif in Resources */,
+				18FAA2AA1F78E66100386D71 /* 礼花筒.gif in Resources */,
 				53204C261F593D2A00A211BD /* sinaweibo@3x.png in Resources */,
 				53204C0A1F593BD100A211BD /* README.txt in Resources */,
 				53CC98C11F5411380077CCF6 /* xian.json in Resources */,
 				53204C2E1F593D2A00A211BD /* wechat@3x.png in Resources */,
 				53CC98BF1F5411380077CCF6 /* sheng.json in Resources */,
+				18FAA2A81F78E66100386D71 /* 礼炮.gif in Resources */,
 				18FE5D961F4AE3D800C5A3CF /* MainNaviBar.xib in Resources */,
 				53204C2F1F593D2A00A211BD /* wechatquan@2x.png in Resources */,
+				18FAA2AB1F78E66100386D71 /* 礼花筒音效.mp3 in Resources */,
+				18FAA29C1F78E66100386D71 /* 龙凤呈祥音效.mp3 in Resources */,
+				18FAA2961F78E66100386D71 /* 烟火音效.mp3 in Resources */,
 				53204C001F593BD100A211BD /* AlipaySDK.bundle in Resources */,
 				1841E2BB1F6F6E5B007D362B /* SendRedBagView.xib in Resources */,
 				53204C301F593D2A00A211BD /* wechatquan@3x.png in Resources */,
+				18FAA2A21F78E66100386D71 /* 瑞士.gif in Resources */,
 				53204C2D1F593D2A00A211BD /* wechat@2x.png in Resources */,
 				53EEF2A31F3E9E1D0031D396 /* tabbar_bg@2x.png in Resources */,
+				18FAA2951F78E66100386D71 /* 百年好合.gif in Resources */,
 				53204C291F593D2A00A211BD /* tcentQQ@2x.png in Resources */,
+				18FAA2981F78E66100386D71 /* 郎才女貌.gif in Resources */,
 				53EEF2A41F3E9E1D0031D396 /* tabbar_bg@3x.png in Resources */,
+				18FAA2AC1F78E66100386D71 /* 舞狮.gif in Resources */,
+				18FAA2A31F78E66100386D71 /* 罗马.gif in Resources */,
 				18F72F571F74DDF000353571 /* Info.plist in Resources */,
 				184A788A1F53FB9D00EACCE1 /* WeddingLiveTableCell.xib in Resources */,
 				533854581F5FEAC500538CE4 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
+				18FAA2B01F78E66100386D71 /* 鞭炮.gif in Resources */,
 				180364631F6BC49800238500 /* GiftCell.xib in Resources */,
 				53D02F481F3B1B5600CD504C /* Main.storyboard in Resources */,
+				18FAA2B61F78E66100386D71 /* 金元宝.gif in Resources */,
 				1841E2CB1F6FB81D007D362B /* hengpingWatchMaskView.xib in Resources */,
+				18FAA2AD1F78E66100386D71 /* 舞狮音效.mp3 in Resources */,
 				18F72F4E1F74BBBF00353571 /* giphy.gif in Resources */,
 				533ACE3D1F4AD36D00F66A78 /* areas.json in Resources */,
 			);
@@ -3482,6 +3829,7 @@
 				533D6D5D1F66386C00655B83 /* shopdetalisVC.m in Sources */,
 				53FCA4551F41758C001780F7 /* BDImagePicker.m in Sources */,
 				185F944B1F76433900601300 /* PreLiveView.m in Sources */,
+				1849EDDD1F7A02F1002B08CA /* UIImageView+RotateImgV.m in Sources */,
 				533ACE431F4AEB2600F66A78 /* myshopModel.m in Sources */,
 				53D02FA61F3BFB3000CD504C /* BBSVC.m in Sources */,
 				53CC98D51F5575E80077CCF6 /* walletrecordCell.m in Sources */,
