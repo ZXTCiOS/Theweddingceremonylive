@@ -72,10 +72,10 @@
         NSDictionary *para = @{@"uid":uid,@"token":token,@"content":content};
         [DNNetworking postWithURLString:post_yijianfankui parameters:para success:^(id obj) {
             NSString *msg = [obj objectForKey:@"msg"];
-            [MBProgressHUD showSuccess:msg];
+            [MBProgressHUD showSuccess:msg toView:self.view];
             
         } failure:^(NSError *error) {
-            [MBProgressHUD showSuccess:@"网络错误"];
+            [MBProgressHUD showSuccess:@"网络错误" toView:self.view];
         }];
         
     }

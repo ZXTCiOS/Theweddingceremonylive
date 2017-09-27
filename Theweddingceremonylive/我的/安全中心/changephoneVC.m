@@ -139,13 +139,13 @@ static NSString *changephpneidentfid1 = @"changephpneidentfid1";
         NSDictionary *para = @{@"uid":uid,@"token":token,@"tel":tel};
         [DNNetworking postWithURLString:post_editphone parameters:para success:^(id obj) {
             NSString *hud = [obj objectForKey:@"mes"];
-            [MBProgressHUD showSuccess:hud];
+            [MBProgressHUD showSuccess:hud toView:self.view];
         } failure:^(NSError *error) {
-            [MBProgressHUD showSuccess:@"没有网络"];
+            [MBProgressHUD showSuccess:@"没有网络" toView:self.view];
         }];
     }else
     {
-        [MBProgressHUD showSuccess:@"请输入正确的验证码"];
+        [MBProgressHUD showSuccess:@"请输入正确的验证码" toView:self.view];
     }
 }
 
@@ -158,7 +158,7 @@ static NSString *changephpneidentfid1 = @"changephpneidentfid1";
         if ([[obj objectForKey:@"code"]isEqualToString:@"code"]) {
             NSDictionary *dic = [obj objectForKey:@"data"];
             self.codestr = [dic objectForKey:@"code"];
-            [MBProgressHUD showSuccess:@"请求成功"];
+            [MBProgressHUD showSuccess:@"请求成功" toView:self.view];
         }
     } failure:^(NSError *error) {
         

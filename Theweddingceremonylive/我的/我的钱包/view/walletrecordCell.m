@@ -171,6 +171,7 @@
     NSInteger inter = [str intValue];
     _timeLab.text = [self timestampSwitchTime:inter andFormatter:@"YYYY-MM-dd"];
     _nameLab.text = @"充值";
+    _balanceLab.text = [NSString stringWithFormat:@"%@%@",@"余额 ",model.yue];
      _leftImg.image = [UIImage imageNamed:@"my_walet_cz"];
     _priceLab.text = [NSString stringWithFormat:@"%@%@",@"+",model.goin_moeny];
     
@@ -184,7 +185,8 @@
     _timeLab.text = [self timestampSwitchTime:inter andFormatter:@"YYYY-MM-dd"];
     _nameLab.text = @"消费";
     _leftImg.image = [UIImage imageNamed:@"my_walet_rmb"];
-   // _priceLab.text = [NSString stringWithFormat:@"%@%@",@"-",model.goin_moeny];
+     _balanceLab.text = [NSString stringWithFormat:@"%@%@",@"余额 ",model.giftinfo_yue];
+    _priceLab.text = [NSString stringWithFormat:@"%@%@",@"-",model.giftinfo_price];
     
 }
 

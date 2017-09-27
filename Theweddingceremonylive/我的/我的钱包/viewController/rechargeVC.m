@@ -13,6 +13,7 @@
 @interface rechargeVC ()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic,strong) chongzhifootView *fview;
+@property (nonatomic,strong) NSString *type;
 @end
 
 static NSString *rechargeidentfid0 = @"rechargeidentfid0";
@@ -23,7 +24,7 @@ static NSString *rechargeidentfid0 = @"rechargeidentfid0";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"充值";
-    
+    self.type = @"1";
     [self.view addSubview:self.table];
     self.table.tableFooterView = self.fview;
 }
@@ -106,13 +107,25 @@ static NSString *rechargeidentfid0 = @"rechargeidentfid0";
 
 -(void)sendBtnclcik
 {
+    if ([self.type isEqualToString:@"1"]) {
+        [self zhifu];
+    }
+    else
+    {
+        [MBProgressHUD showSuccess:@"微信支付暂未开通，敬请期待" toView:self.view];
+
+    }
+}
+
+-(void)zhifu
+{
     NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
     NSString *uid = [userdefat objectForKey:user_uid];
     NSString *token = [userdefat objectForKey:user_token];
     NSString *user_wallet = @"";
     if (self.fview.moneytext.text.length==0) {
         user_wallet = @"";
-        [MBProgressHUD showSuccess:@"请输入充值金额"];
+        [MBProgressHUD showSuccess:@"请输入充值金额" toView:self.view];
     }
     else
     {
@@ -121,16 +134,16 @@ static NSString *rechargeidentfid0 = @"rechargeidentfid0";
         
         [DNNetworking postWithURLString:post_chongshi parameters:para success:^(id obj) {
             if ([[obj objectForKey:@"code"] intValue]==1000) {
-                [MBProgressHUD showSuccess:@"充值成功"];
+                [MBProgressHUD showSuccess:@"充值成功" toView:self.view];
                 [self.navigationController popViewControllerAnimated:YES];
             }
             else
             {
                 NSString *msg = [obj objectForKey:@"msg"];
-                [MBProgressHUD showSuccess:msg];
+                [MBProgressHUD showSuccess:msg toView:self.view];
             }
         } failure:^(NSError *error) {
-            [MBProgressHUD showSuccess:@"网络错误"];
+            [MBProgressHUD showSuccess:@"网络错误" toView:self.view];
         }];
     }
 }
@@ -143,6 +156,7 @@ static NSString *rechargeidentfid0 = @"rechargeidentfid0";
     self.fview.btn1.layer.borderColor = [UIColor colorWithHexString:@"dcdcdc"].CGColor;
     [self.fview.btn0.rightimg setHidden:NO];
     [self.fview.btn1.rightimg setHidden:YES];
+    self.type = @"1";
     
 }
 
@@ -152,6 +166,7 @@ static NSString *rechargeidentfid0 = @"rechargeidentfid0";
     self.fview.btn0.layer.borderColor = [UIColor colorWithHexString:@"dcdcdc"].CGColor;
     [self.fview.btn1.rightimg setHidden:NO];
     [self.fview.btn0.rightimg setHidden:YES];
+    self.type = @"2";
 }
 
 @end

@@ -43,7 +43,7 @@ static NSString *orderidentfid2 = @"orderidentfid2";
     NSDictionary *para = @{@"uid":uid,@"token":token,@"type":type};
     [DNNetworking postWithURLString:post_ordering parameters:para success:^(id obj) {
         NSString *msg = [obj objectForKey:@"msg"];
-        [MBProgressHUD showSuccess:msg];
+        [MBProgressHUD showSuccess:msg toView:self.view];
         if ([[obj objectForKey:@"code"] intValue]==1000) {
             NSArray *dataarr = [obj objectForKey:@"data"];
             for (int i = 0; i<dataarr.count; i++) {
@@ -63,7 +63,7 @@ static NSString *orderidentfid2 = @"orderidentfid2";
         
         
     } failure:^(NSError *error) {
-        [MBProgressHUD showSuccess:@"网络错误"];
+        [MBProgressHUD showSuccess:@"网络错误" toView:self.view];
     }];
 }
 

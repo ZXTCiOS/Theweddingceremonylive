@@ -14,6 +14,8 @@
 @property (nonatomic,strong) NSString *giftinfo_giftid;
 @property (nonatomic,strong) NSString *giftinfo_id;
 @property (nonatomic,strong) NSString *giftinfo_userid;
+@property (nonatomic,strong) NSString *giftinfo_yue;
+@property (nonatomic,strong) NSString *giftinfo_price;
 
 //提现
 @property (nonatomic,strong) NSString *bankid;
@@ -32,4 +34,5 @@
 @property (nonatomic,strong) NSString *goin_moeny;
 @property (nonatomic,strong) NSString *goin_userid;
 
+@property (nonatomic,strong) NSString *yue;
 @end

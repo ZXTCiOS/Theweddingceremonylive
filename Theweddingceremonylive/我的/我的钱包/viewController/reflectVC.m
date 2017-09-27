@@ -206,24 +206,24 @@ static NSString *reflectidentfid1 = @"reflectidentfid1";
     else
     {
         name = @"";
-        [MBProgressHUD showSuccess:@"请先进行实名认证"];
+        [MBProgressHUD showSuccess:@"请先进行实名认证" toView:self.view];
     }
     if (text0.text.length==0) {
-        [MBProgressHUD showSuccess:@"请输入提现金额"];
+        [MBProgressHUD showSuccess:@"请输入提现金额" toView:self.view];
     }
     else
     {
         money = text0.text;
     }
     if (text2.text.length==0) {
-        [MBProgressHUD showSuccess:@"请输入身份证号"];
+        [MBProgressHUD showSuccess:@"请输入身份证号" toView:self.view];
     }
     else
     {
         id_card = text2.text;
     }
     if (text3.text.length==0) {
-        [MBProgressHUD showSuccess:@"请输入银行卡号"];
+        [MBProgressHUD showSuccess:@"请输入银行卡号" toView:self.view];
     }
     else
     {
@@ -234,12 +234,12 @@ static NSString *reflectidentfid1 = @"reflectidentfid1";
     
     [DNNetworking postWithURLString:post_tixian parameters:para success:^(id obj) {
         NSString *msg = [obj objectForKey:@"msg"];
-        [MBProgressHUD showSuccess:msg];
+        [MBProgressHUD showSuccess:msg toView:self.view];
         if ([[obj objectForKey:@"code"]intValue]==1000) {
             [self.navigationController popViewControllerAnimated:YES];
         }
     } failure:^(NSError *error) {
-        [MBProgressHUD showSuccess:@"网络错误"];
+        [MBProgressHUD showSuccess:@"网络错误" toView:self.view];
     }];
 }
 

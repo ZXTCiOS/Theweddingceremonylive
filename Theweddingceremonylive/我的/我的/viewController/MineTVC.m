@@ -79,10 +79,10 @@ static NSString *mineidentfid2 = @"mineidentfid2";
         }
         else
         {
-            [MBProgressHUD showSuccess:@"失败"];
+            [MBProgressHUD showSuccess:@"失败" toView:self.view];
         }
     } failure:^(NSError *error) {
-        [MBProgressHUD showSuccess:@"失败"];
+        [MBProgressHUD showSuccess:@"失败" toView:self.view];
     }];
     
     [DNNetworking postWithURLString:post_tuisongfankui parameters:para success:^(id obj) {
@@ -326,6 +326,7 @@ static NSString *mineidentfid2 = @"mineidentfid2";
             //[userDefault setObject:@"1" forKey:user_phone];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:user_userimg];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:user_nickname];
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:user_kname];
             [[NSUserDefaults standardUserDefaults] synchronize];
             //NIM logout
             [[NIMSDK sharedSDK].loginManager logout:^(NSError * _Nullable error) {

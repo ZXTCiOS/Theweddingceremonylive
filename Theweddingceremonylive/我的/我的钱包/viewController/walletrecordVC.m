@@ -78,6 +78,7 @@ static NSString *walletrcordientfid2 = @"walletrcordientfid2";
                 model.goin_id = [dic objectForKey:@"goin_id"];
                 model.goin_moeny = [dic objectForKey:@"goin_moeny"];
                 model.goin_userid = [dic objectForKey:@"goin_userid"];
+                model.yue = [dic objectForKey:@"yue"];
                 [self.chongzhiarray addObject:model];
             }
             for (int i = 0; i<arr1.count; i++) {
@@ -87,6 +88,8 @@ static NSString *walletrcordientfid2 = @"walletrcordientfid2";
                 model.giftinfo_giftid = [dic objectForKey:@"giftinfo_giftid"];
                 model.giftinfo_id = [dic objectForKey:@"giftinfo_id"];
                 model.giftinfo_userid = [dic objectForKey:@"giftinfo_userid"];
+                model.giftinfo_yue = [dic objectForKey:@"giftinfo_yue"];
+                model.giftinfo_price = [dic objectForKey:@"giftinfo_price"];
                 [self.liwuarray addObject:model];
             }
             for (int i = 0; i<arr2.count; i++) {
@@ -101,14 +104,15 @@ static NSString *walletrcordientfid2 = @"walletrcordientfid2";
                 model.name = [dic objectForKey:@"name"];
                 model.type = [dic objectForKey:@"type"];
                 model.userid = [dic objectForKey:@"userid"];
+                
                 [self.tixianarray addObject:model];
             }
             [self.table reloadData];
         }
         NSString *msg = [obj objectForKey:@"msg"];
-        [MBProgressHUD showSuccess:msg];
+        [MBProgressHUD showSuccess:msg toView:self.view];
     } failure:^(NSError *error) {
-        [MBProgressHUD showSuccess:@"网络错误"];
+        [MBProgressHUD showSuccess:@"网络错误" toView:self.view];
     }];
 }
 

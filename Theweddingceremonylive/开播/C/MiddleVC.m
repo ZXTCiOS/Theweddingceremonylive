@@ -103,11 +103,11 @@
 //    [self.navigationController pushViewController:vc animated:NO];
     
     // 预约
-   // [self isyuyue];
+    //[self isyuyue];
     
     //认证
     [self isrenzheng];
-
+    
 //    midVC *vc = [[midVC alloc] init];
 //    [self.navigationController pushViewController:vc animated:NO];
 

@@ -58,7 +58,6 @@ static NSString *wanshanidentfid9 = @"wanshanidentfid9";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"完善信息";
-    
     if ([self.typestr isEqualToString:@"3"]) {
         
     }
