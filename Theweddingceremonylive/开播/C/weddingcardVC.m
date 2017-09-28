@@ -104,7 +104,7 @@
     
     [DNNetworking postWithURLString:post_getxitie parameters:para success:^(id obj) {
         NSString *msg = [obj objectForKey:@"msg"];
-        [MBProgressHUD showSuccess:msg];
+        [MBProgressHUD showSuccess:msg toView:self.view];
         if ([[obj objectForKey:@"code"] intValue]==1000) {
             NSDictionary *datadic = [obj objectForKey:@"data"];
             NSString *room_boy = [datadic objectForKey:@"room_boy"];
@@ -129,7 +129,7 @@
             self.rightimg.image = [QRcodeTool QRcodeToolgeneratedDataString:url2str imageViewWidth:150];
         }
     } failure:^(NSError *error) {
-        [MBProgressHUD showSuccess:@"网络错误"];
+        [MBProgressHUD showSuccess:@"网络错误" toView:self.view];
     }];
 }
 

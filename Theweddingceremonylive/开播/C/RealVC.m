@@ -176,13 +176,12 @@ static NSString *realidentfid = @"realidentfid";
                 [self.navigationController popViewControllerAnimated:YES];
             }
         } failure:^(NSError *error) {
-            [MBProgressHUD showSuccess:@"网络错误"];
+            [MBProgressHUD showSuccess:@"网络错误" toView:self.view];
         }];
     }
     else
     {
-        [MBProgressHUD showSuccess:@"请选择图片"];
-   
+        [MBProgressHUD showSuccess:@"请选择图片" toView:self.view];
     }
 
     

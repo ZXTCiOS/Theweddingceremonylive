@@ -328,7 +328,7 @@ static NSString *weddingidentfid = @"weddingidentfid";
     vc.name2 = [NSString stringWithFormat:@"%@%@%@",self.tuijianname,@" ",self.tuijianprice];
     
     if ([strisNull isNullToString:self.order_goodsstr]) {
-        [MBProgressHUD showSuccess:@"请选择商品"];
+        [MBProgressHUD showSuccess:@"请选择商品" toView:self.view];
     }
     else
     {
