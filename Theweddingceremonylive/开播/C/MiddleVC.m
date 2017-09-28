@@ -53,8 +53,9 @@
         else if([[obj objectForKey:@"code"] intValue]==1001)
         {
             //有预约
-            // TODO: 初始化
+            NSDictionary *data = [obj objectForKey:@"data"];
             PreLiveVC *vc = [[PreLiveVC alloc] init];
+            vc.type = [data objectForKey:@""];
             [self.navigationController pushViewController:vc animated:YES];
         }
         else

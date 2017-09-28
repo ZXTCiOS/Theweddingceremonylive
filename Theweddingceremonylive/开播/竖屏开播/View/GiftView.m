@@ -62,7 +62,12 @@
     if (!_collectionView) {
         UICollectionViewFlowLayout *layout  = [UICollectionViewFlowLayout new];
         CGRect frame;
-        layout.itemSize = CGSizeMake(kScreenW/4, 75);
+        if (self.direction == screenDirectionV){
+            layout.itemSize = CGSizeMake(kScreenW/4, 75);
+        } else {
+            layout.itemSize = CGSizeMake(kScreenH/4, 75);
+        }
+        
         layout.sectionInset = UIEdgeInsetsZero;
         layout.minimumLineSpacing = 0;
         layout.minimumInteritemSpacing = 0;
@@ -70,7 +75,7 @@
         if (self.direction == screenDirectionV) {
             frame = CGRectMake(0, 0, kScreenW, 160);
         } else {
-            frame = CGRectMake(0, 0, kScreenW, 75);
+            frame = CGRectMake(0, 0, kScreenW-100, 75);
         }
         _collectionView = [[UICollectionView alloc] initWithFrame:frame collectionViewLayout:layout];
         [_collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([GiftCell class]) bundle:nil] forCellWithReuseIdentifier:@"cell"];

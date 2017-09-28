@@ -7,13 +7,17 @@
 //
 
 #import "BaseViewController.h"
-
+#import <NIMSDK/NIMSDK.h>// 网易互动直播头文件
+#import <NIMAVChat/NIMAVChat.h>
 @interface HorizontalPushVCViewController : BaseViewController
 
+@property (nonatomic, strong) NSString *pwd;
+@property (nonatomic, strong) NSString *type;
+@property (nonatomic, strong) NSString *biaoti;
+@property (nonatomic, assign) NIMNetCallCamera camera;
+@property (nonatomic, strong) NSString *orderID;
 
-
-// tofix
-//- (instancetype)initWithChatroomID:(NSString *) roomid ;
+- (instancetype)initWithChatroomID:(NSString *) roomid pushurl:(NSString *)pushUrl yue:(CGFloat) yue;
 
 
 @end

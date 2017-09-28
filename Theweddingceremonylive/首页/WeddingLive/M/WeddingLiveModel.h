@@ -36,7 +36,7 @@
 
 @property (nonatomic, strong) NSArray<WeddingLiveDataLiveDataModel *> *data;
 
-@property (nonatomic, strong) NSString *date;
+@property (nonatomic, strong) NSString *time;
 
 @end
 
@@ -44,17 +44,19 @@
 
 @interface WeddingLiveDataLiveDataModel : NSObject
 
-@property (nonatomic, copy) NSString *imgurl;
+@property (nonatomic, copy) NSString *pindao_diretion;// 方向
+@property (nonatomic, copy) NSString *room_img; //大图
+@property (nonatomic, copy) NSString *pindao_renshu;//
+@property (nonatomic, copy) NSString *room_name;//房间名
+@property (nonatomic, assign) BOOL is_pwd;      //是否有密码
+@property (nonatomic, copy) NSString *tuilaliu; //
+@property (nonatomic, copy) NSString *roomid;   // 聊天室 ID
+@property (nonatomic, copy) NSString *order_password;//密码
+@property (nonatomic, copy) NSString *pattren;  //直播间类型
+@property (nonatomic, copy) NSString *uid;      //
+@property (nonatomic, copy) NSString *username; //主播名称
+@property (nonatomic, copy) NSString *picture;  //主播头像
 
-@property (nonatomic, copy) NSString *count;
-
-@property (nonatomic, copy) NSString *title;
-
-@property (nonatomic, assign) BOOL hasLock;
-
-@property (nonatomic, copy) NSString *url;
-
-@property (nonatomic, copy) NSString *room_id;
 
 
 @end

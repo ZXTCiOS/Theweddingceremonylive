@@ -21,7 +21,7 @@
 
 #define post_weddingvideo @"/interface.php/Home/Index/Wedding"                      // 婚礼视频
 
-#define post_weddinglive  @""                                                       // 婚礼直播
+#define post_weddinglive  @"/interface.php/Home/Index/pindaolist"                   // 婚礼直播
 
 #define post_search  @"/interface.php/Home/Index/search"                            // 搜索
 
@@ -30,8 +30,8 @@
 #define post_sendRedbag @"interface.php/Home/User/sentbag"         // 发红包
 #define post_chaiRedbag @"/interface.php/Home/User/getbag"   // 拆红包
 #define post_redbagRecord @"/interface.php/Home/User/yuer"       // 领取记录
-#define post_zhiboing  @""      // 直播中
-
+#define post_zhiboing  @"/interface.php/Home/Index/addzhibo"      // 直播中
+#define post_zhuboInfo  @"/interface.php/Home/User/get_info"     // 主播信息
 
 
 

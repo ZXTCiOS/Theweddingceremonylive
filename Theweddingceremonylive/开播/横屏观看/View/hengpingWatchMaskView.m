@@ -38,9 +38,10 @@
         layout.minimumInteritemSpacing = 0;
         layout.sectionInset = UIEdgeInsetsZero;
         layout.itemSize = CGSizeMake(36, 36);
-        //layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(22, 70, 36, kScreenH - 70 - 60) collectionViewLayout:layout];
+        
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(22, 70, 36, kScreenW - 70 - 60) collectionViewLayout:layout];
         [self addSubview:_collectionView];
+        
     }
     return _collectionView;
 }
