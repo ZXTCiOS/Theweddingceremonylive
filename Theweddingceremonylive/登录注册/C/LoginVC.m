@@ -253,7 +253,6 @@
     return _logupBtn;
 }
 
-
 -(UIButton *)loginbtn
 {
     if(!_loginbtn)
@@ -388,13 +387,13 @@
         }
         else
         {
-            [MBProgressHUD showSuccess:@"密码错误"];
+            [MBProgressHUD showSuccess:@"密码错误" toView:self.view];
         }
         
         //hide
         [_hudView hide];
     } failure:^(NSError *error) {
-        [MBProgressHUD showSuccess:@"网络错误"];
+        [MBProgressHUD showSuccess:@"网络错误" toView:self.view];
         //hide
         [_hudView hide];
 

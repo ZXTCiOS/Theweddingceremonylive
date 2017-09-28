@@ -347,7 +347,7 @@
         if ([[obj objectForKey:@"code"]isEqualToString:@"code"]) {
             NSDictionary *dic = [obj objectForKey:@"data"];
             self.codestr = [dic objectForKey:@"code"];
-            [MBProgressHUD showSuccess:@"请求成功"];
+            [MBProgressHUD showSuccess:@"请求成功" toView:self.view];
         }
     } failure:^(NSError *error) {
         
@@ -363,21 +363,21 @@
             NSDictionary *para = @{@"tel":tel,@"pwd":pwd};
             [DNNetworking postWithURLString:post_getpwd parameters:para success:^(id obj) {
                 NSString *mes = [obj objectForKey:@"mes"];
-                [MBProgressHUD showSuccess:mes];
+                [MBProgressHUD showSuccess:mes toView:self.view];
                 if ([[obj objectForKey:@"code"] intValue]==1000) {
                     [self.navigationController popViewControllerAnimated:YES];
                 }
             } failure:^(NSError *error) {
-                [MBProgressHUD showSuccess:@"没有网络"];
+                [MBProgressHUD showSuccess:@"没有网络" toView:self.view];
             }];
         }else
         {
-            [MBProgressHUD showSuccess:@"请检查输入的密码"];
+            [MBProgressHUD showSuccess:@"请检查输入的密码" toView:self.view];
         }
     }
     else
     {
-        [MBProgressHUD showSuccess:@"请输入正确的验证码"];
+        [MBProgressHUD showSuccess:@"请输入正确的验证码" toView:self.view];
     }
 }
 

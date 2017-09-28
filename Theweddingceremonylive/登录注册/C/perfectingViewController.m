@@ -195,17 +195,17 @@ static NSString *perfectidentfid3 = @"perfectidentfid3";
     NSDictionary *para = @{@"uid":uid,@"suffix":suffix,@"picture":picture,@"name":name,@"sex":sex,@"zname":zname};
     [DNNetworking postWithURLString:post_edit parameters:para success:^(id obj) {
         if ([[obj objectForKey:@"code"] intValue]==1000) {
-            [MBProgressHUD showSuccess:@"成功"];
+            [MBProgressHUD showSuccess:@"成功" toView:self.view];
         }
         else if ([[obj objectForKey:@"code"] intValue]==999)
         {
-            [MBProgressHUD showSuccess:@"未进行任何更新或者未知错误"];
+            [MBProgressHUD showSuccess:@"未进行任何更新或者未知错误" toView:self.view];
         }else
         {
-            [MBProgressHUD showSuccess:@"非法操作"];
+            [MBProgressHUD showSuccess:@"非法操作" toView:self.view];
         }
     } failure:^(NSError *error) {
-        [MBProgressHUD showSuccess:@"网络错误"];
+        [MBProgressHUD showSuccess:@"网络错误" toView:self.view];
     }];
     
     
@@ -231,10 +231,10 @@ static NSString *perfectidentfid3 = @"perfectidentfid3";
         }
         else
         {
-            [MBProgressHUD showSuccess:@"密码错误"];
+            [MBProgressHUD showSuccess:@"密码错误" toView:self.view];
         }
     } failure:^(NSError *error) {
-        [MBProgressHUD showSuccess:@"网络错误"];
+        [MBProgressHUD showSuccess:@"网络错误" toView:self.view];
     }];
 
 }

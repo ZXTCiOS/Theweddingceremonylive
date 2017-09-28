@@ -84,7 +84,7 @@ static NSString *systemcellidentfid = @"systencellidentfid";
             }
         }
     } failure:^(NSError *error) {
-        
+        [MBProgressHUD showSuccess:@"没有网络" toView:self.view];
     }];
     
 }
