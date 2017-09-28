@@ -420,26 +420,26 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
 #pragma mark 进入前台
 - (void)appWillEnterForeground:(NSNotification*)note
 {
-    if (self.playOrPauseBtn.isSelected==NO) {//如果是播放中，则继续播放
-        NSArray *tracks = [self.currentItem tracks];
-        for (AVPlayerItemTrack *playerItemTrack in tracks) {
-            if ([playerItemTrack.assetTrack hasMediaCharacteristic:AVMediaCharacteristicVisual]) {
-                playerItemTrack.enabled = YES;
-            }
-        }
-        self.playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.player];
-        self.playerLayer.frame = self.contentView.bounds;
-        self.playerLayer.videoGravity = AVLayerVideoGravityResize;
-        [self.contentView.layer insertSublayer:_playerLayer atIndex:0];
-        [self.player play];
-        self.state = WMPlayerStatePlaying;
-        NSLog(@"3333333%s WMPlayerStatePlaying",__FUNCTION__);
-
-    }else{
-        NSLog(@"%s WMPlayerStateStopped",__FUNCTION__);
-
-        self.state = WMPlayerStateStopped;
-    }
+//    if (self.playOrPauseBtn.isSelected==NO) {//如果是播放中，则继续播放
+//        NSArray *tracks = [self.currentItem tracks];
+//        for (AVPlayerItemTrack *playerItemTrack in tracks) {
+//            if ([playerItemTrack.assetTrack hasMediaCharacteristic:AVMediaCharacteristicVisual]) {
+//                playerItemTrack.enabled = YES;
+//            }
+//        }
+//        self.playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.player];
+//        self.playerLayer.frame = self.contentView.bounds;
+//        self.playerLayer.videoGravity = AVLayerVideoGravityResize;
+//        [self.contentView.layer insertSublayer:_playerLayer atIndex:0];
+//        [self.player play];
+//        self.state = WMPlayerStatePlaying;
+//        NSLog(@"3333333%s WMPlayerStatePlaying",__FUNCTION__);
+//
+//    }else{
+//        NSLog(@"%s WMPlayerStateStopped",__FUNCTION__);
+//
+//        self.state = WMPlayerStateStopped;
+//    }
 }
 #pragma mark
 #pragma mark appwillResignActive

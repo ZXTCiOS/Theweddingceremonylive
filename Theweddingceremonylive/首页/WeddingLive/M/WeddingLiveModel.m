@@ -17,6 +17,8 @@
 }
 
 
+
+
 @end
 
 @implementation WeddingLiveDataModel
@@ -26,6 +28,14 @@
              @"room_public": [WeddingLiveDataLivingModel class],
              @"room_private": [WeddingLiveDataLivingModel class],
              @"room_future": [WeddingLiveDataLivingModel class]
+             };
+}
+
++ (NSDictionary<NSString *,id> *)modelCustomPropertyMapper{
+    return @{
+             @"sm": @"room_public",
+             @"gk": @"room_private",
+             @"jq": @"room_future"
              };
 }
 
@@ -39,11 +49,21 @@
              };
 }
 
++ (NSDictionary<NSString *,id> *)modelCustomPropertyMapper{
+    return @{
+             
+             };
+}
+
 @end
 
 @implementation WeddingLiveDataLiveDataModel
 
-
++ (NSDictionary<NSString *,id> *)modelCustomPropertyMapper{
+    return @{
+             @"user_uid":@"uid"
+             };
+}
 
 @end
 

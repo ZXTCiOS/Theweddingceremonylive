@@ -50,9 +50,6 @@
 
 
 @property(nonatomic, strong) id<NELivePlayer> liveplayer;           // 网易云播放器
-@property (nonatomic, copy) NSString *url;
-@property (nonatomic, copy) NSString *roomid;
-@property (nonatomic, copy) NSString *roomName;
 @property (nonatomic, assign) NIMNetCallCamera camera;
 @property (nonatomic, strong) NIMNetCallMeeting *meeting;
 @property (nonatomic, copy) NSString *nickName;
@@ -80,13 +77,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    self.roomid = @"11255726";
-    self.roomName = @"xixi";
+    //self.roomid = @"11255726";
+    //self.roomName = @"xixi";
     self.meeting = [[NIMNetCallMeeting alloc] init];
-    self.meeting.name = self.roomName;
-    self.accid = @"15510922836";
-    self.nickName = @"阿四";
-    self.yue = @"100";
+    self.meeting.name = self.zhubo_uid;
+    
+    // TOFIX: USERID
+    self.accid = [userDefault objectForKey:user_nickname];
+    self.nickName = [userDefault objectForKey:user_kname];
+    
     
     
     
@@ -217,7 +216,7 @@
         [self.maskview.textField becomeFirstResponder];
     };
     view.second = ^(){// 红包
-        //[self joinLianmai];
+        
         self.redBag.hidden = NO;
         
     };
@@ -865,10 +864,10 @@
     if (!_maskview) {
         _maskview = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([PortraitFullMaskView class]) owner:nil options:nil].firstObject;
         _maskview.frame = CGRectMake(kScreenW, 0, kScreenW, kScreenH);
-        [self.maskview.user_img sd_setImageWithURL:@"http://liveimg.9158.com/pic/avator/2017-08/14/23/20170814230649_63538231_250.png".xd_URL placeholderImage:[UIImage imageNamed:@"touxiang"]];
-        _maskview.user_name.text = @"美味🍦静静";
-        _maskview.user_id.text = @"id:1231123";
-        _maskview.countL.text = @"123321";
+        [self.maskview.user_img sd_setImageWithURL:self.zhubo_img.xd_URL placeholderImage:[UIImage imageNamed:@"touxiang"]];
+        _maskview.user_name.text = self.zhubo_name;
+        _maskview.user_id.text = self.zhubo_uid;
+        _maskview.countL.text = @"0";
         NSString *img = self.weddingtype ?@"zb_xi": @"zb_zhong";
         _maskview.bgView.image = [UIImage imageNamed:img];
         
@@ -1097,11 +1096,12 @@
 
 #pragma mark - initialize 初始化
 
-- (instancetype)initWithChatroomID:(NSString *)roomid Url:(NSString *)url{
+- (instancetype)initWithChatroomID:(NSString *)roomid Url:(NSString *)url meetingname:(NSString *)meetingname{
     self = [super init];
     if (self) {
         self.url = url;
         self.roomid = roomid;
+        self.zhubo_uid = meetingname;
     }
     return self;
 }

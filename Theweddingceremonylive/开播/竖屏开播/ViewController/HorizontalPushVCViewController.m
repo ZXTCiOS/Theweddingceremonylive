@@ -8,8 +8,7 @@
 
 #import "HorizontalPushVCViewController.h"
 // function
-#import <NIMSDK/NIMSDK.h>// 网易互动直播头文件
-#import <NIMAVChat/NIMAVChat.h>
+
 #import <IQKeyboardManager.h>
 #import "NSDictionary+NTESJson.h"
 #import "RedbagDetailListView.h"
@@ -46,9 +45,7 @@
 
 
 @property (nonatomic, strong) NIMNetCallMeeting *meeting;
-@property (nonatomic, copy) NSString *accid;
-@property (nonatomic, copy)    NSString *roomid;
-@property (nonatomic, copy) NSString *roomName;
+@property (nonatomic, copy) NSString *roomid;
 @property (nonatomic, copy) NSString *pushUrl;
 @property (nonatomic, copy) NSString *nickName;
 @property (nonatomic, assign) NSInteger count;
@@ -61,7 +58,7 @@
 @property (nonatomic, strong) NSMutableArray *giftlist;
 
 @property (nonatomic, assign) BOOL isMute;
-@property (nonatomic, assign) NIMNetCallCamera camera;
+
 @property (nonatomic, strong) NSTimer *timer;
 
 
@@ -73,13 +70,10 @@
 #pragma mark - life cycle 生命周期
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.roomid = @"11255726";//  //11168034
-    self.roomName = @"xixi";
-    self.pushUrl = @"rtmp://pe266c7be.live.126.net/live/5f581cb50c724380bd08788abe7b0f9d?wsSecret=73e4d9a846fbadd56eccb1b5c90a3ab7&wsTime=1504859570";
-    self.nickName = [userDefault objectForKey:user_nickname];
-    self.count = 999;
-    self.yue = @"100";
-    
+    //self.roomid = @"11255726";//  //11168034
+    //self.pushUrl = @"rtmp://pe266c7be.live.126.net/live/5f581cb50c724380bd08788abe7b0f9d?wsSecret=73e4d9a846fbadd56eccb1b5c90a3ab7&wsTime=1504859570";
+    self.nickName = [userDefault objectForKey:user_kname];
+    self.count = 0;
     
     [self setUpsth];
     // 创建直播间
@@ -407,14 +401,16 @@
                 [self.audiencelist addObjectsFromArray:self.managerlist];
                 [self.audiencelist addObjectsFromArray:members];
                 self.maskview.labelCount.text = [NSString stringWithFormat:@"%ld", self.audiencelist.count];
+                self.count = members.count;
                 [self.maskview.collectionView reloadData];
             }
         }];
         // 发送测试在线状态
         NSString *uid = [userDefault objectForKey:user_uid];
         NSString *token = [userDefault objectForKey:user_token];
-        // tofix: 房间 ID;
-        [DNNetworking postWithURLString:post_zhiboing parameters:@{@"uid": uid, @"token": token} success:^(id obj) {
+        NSString *count = [NSString stringWithFormat:@"%ld", self.count];
+        NSDictionary *para = @{@"uid": uid, @"token": token, @"renshu": count, @"ordersn": self.orderID, @"direction": @"1"};
+        [DNNetworking postWithURLString:post_zhiboing parameters:para success:^(id obj) {
             
         } failure:^(NSError *error) {
             [self.view showWarning:@"网络错误"];
@@ -487,8 +483,8 @@
     request.roomId = self.roomid;
     request.roomExt = @"ext";
     request.roomNotifyExt = @"";
-    request.roomAvatar = user_userimg;
-    request.roomNickname = user_nickname;
+    request.roomAvatar = [userDefault objectForKey: user_userimg];
+    request.roomNickname = [userDefault objectForKey: user_nickname];
     request.retryCount = 5;
     [[NIMSDK sharedSDK].chatroomManager enterChatroom:request completion:^(NSError * _Nullable error, NIMChatroom * _Nullable chatroom, NIMChatroomMember * _Nullable me) {
         NSLog(@"进入聊天室成功 roomID: %@", chatroom.roomId);
@@ -564,7 +560,7 @@
 // 创建直播间
 - (void)reserveMeeting{
     self.meeting = [[NIMNetCallMeeting alloc] init];
-    self.meeting.name = self.roomName;//[userDefault objectForKey:user_uid]; // 使用 UID 作为互动直播间 name.
+    self.meeting.name = [userDefault objectForKey:user_uid]; // 使用 UID 作为互动直播间 name.
     [[NIMAVChatSDK sharedSDK].netCallManager reserveMeeting:self.meeting completion:^(NIMNetCallMeeting * _Nonnull meeting, NSError * _Nonnull error) {
         NSLog(@" reserve meeting error %@", error);
         //if (!error) NSLog(@"-------创建 metting 成功------  meeting: %@", meeting);
@@ -927,23 +923,18 @@
     return _redbaglistV;
 }
 
-//强制转屏
-- (void)interfaceOrientation:(UIInterfaceOrientation)orientation
-{
-    if ([[UIDevice currentDevice] respondsToSelector:@selector(setOrientation:)]) {
-        SEL selector  = NSSelectorFromString(@"setOrientation:");
-        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[UIDevice instanceMethodSignatureForSelector:selector]];
-        [invocation setSelector:selector];
-        [invocation setTarget:[UIDevice currentDevice]];
-        int val = orientation;
-        // 从2开始是因为0 1 两个参数已经被selector和target占用
-        [invocation setArgument:&val atIndex:2];
-        [invocation invoke];
+
+
+
+- (instancetype)initWithChatroomID:(NSString *)roomid pushurl:(NSString *)pushUrl yue:(CGFloat)yue{
+    self = [super init];
+    if (self) {
+        self.roomid = roomid;
+        self.pushUrl = pushUrl;
+        self.yue = [NSString stringWithFormat:@"%.2f", yue];
     }
+    return self;
 }
-
-
-
 
 #pragma mark - receiveMemoryWarning
 

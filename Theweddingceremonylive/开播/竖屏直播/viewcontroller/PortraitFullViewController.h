@@ -10,10 +10,16 @@
 
 @interface PortraitFullViewController : UIViewController
 
+@property (nonatomic, copy) NSString *url;
+@property (nonatomic, copy) NSString *roomid;
 
-- (instancetype)initWithChatroomID:(NSString *)roomid Url:(NSString *) url meetingname:(NSString *) meetingname ;
+@property (nonatomic, copy) NSString *zhubo_name;
+@property (nonatomic, copy) NSString *zhubo_img;
+@property (nonatomic, copy) NSString *zhubo_uid;
 
-- (instancetype)initWithChatroomID:(NSString *)roomid Url:(NSString *) url ;
+
+
+- (instancetype)initWithChatroomID:(NSString *)roomid Url:(NSString *) url meetingname:(NSString *) meetingname;
 
 
 @end

@@ -20,9 +20,8 @@
 @property (nonatomic, assign) BOOL isPortrait;
 @property (nonatomic, strong) PreLiveView *maskview;
 @property (nonatomic, strong) UIView *displayView;
-
-
-
+@property (nonatomic, strong) NSString *pwd;
+@property (nonatomic, strong) NSString *orderID;
 
 @end
 
@@ -32,10 +31,31 @@
     [super viewDidLoad];
     
     self.isPortrait = YES;
-    
+    self.camera = NIMNetCallCameraBack;
     
     [[NIMAVChatSDK sharedSDK].netCallManager addDelegate:self];
     [[NIMAVChatSDK sharedSDK].netCallManager startVideoCapture:[self para]];
+    
+    NSString *uid = [userDefault objectForKey:user_uid];
+    NSString *token = [userDefault objectForKey:user_token];
+    [DNNetworking postWithURLString:post_zhuboInfo parameters:@{@"uid": uid, @"token": token} success:^(id obj) {
+        
+        NSString *code = [obj objectForKey:@"code"];
+        if ([code isEqualToString:@"1000"]) {
+            NSDictionary *data = [obj objectForKey:@"data"];
+            NSString *roomid = [data objectForKey:@"roomid"];
+            NSString *tuiliu = [data objectForKey:@"tuiliu"];
+            NSString *yue = [data objectForKey:@"yuer"];
+            self.pwd = [data objectForKey:@"passwork"];
+            self.type = [data objectForKey:@"leixing"];
+            self.roomid = roomid;
+            self.tuiliu = tuiliu;
+            self.yue = yue.floatValue;
+            self.orderID = [obj objectForKey:@"ordersn"];
+        }
+    } failure:^(NSError *error) {
+        [self.view showWarning:@"网络错误"];
+    }];
     
     
     [self configMaskview];
@@ -70,6 +90,10 @@
 }
 
 - (void)configMaskview{
+    
+    NSString *title = self.istesting? @" 我要体验": @"开始直播";
+    [self.maskview.kaishi setTitle:title forState:UIControlStateNormal];
+    
     [self.maskview.switchCamera bk_addEventHandler:^(id sender) {
         self.camera = !self.camera;
         [[NIMAVChatSDK sharedSDK].netCallManager switchCamera:self.camera];
@@ -83,17 +107,34 @@
     } forControlEvents:UIControlEventTouchUpInside];
     [self.maskview.kaishi bk_addEventHandler:^(id sender) {
         
-        // parameters: camera, 主播信息, 
+        //self.type类型判断: 1.内部亲友直播:100人以内    2. 内部亲友直播:>100      3. 公开直播     4. 定制直播
+        
+        // 是否加密
         
         
         
-        UIViewController *vc;
-        if (self.isPortrait) {
-            vc = [[HorizontalPushVCViewController alloc] init];
-        } else {
-            vc = [[hengpingKaiboVC alloc] init];
+        if (self.roomid && self.tuiliu) {
+            
+            if (self.isPortrait) {
+                HorizontalPushVCViewController *vc = [[HorizontalPushVCViewController alloc] initWithChatroomID:self.roomid pushurl:self.tuiliu yue:self.yue];
+                vc.type = self.type;
+                vc.pwd = self.pwd;
+                vc.biaoti = self.maskview.title.text;
+                vc.camera = self.camera;
+                vc.orderID = self.orderID;
+                [self.navigationController pushViewController:vc animated:YES];
+            } else {
+                hengpingKaiboVC *vc = [[hengpingKaiboVC alloc] initWithChatroomID:self.roomid pushurl:self.tuiliu yue:self.yue];
+                vc.type = self.type;
+                vc.pwd = self.pwd;
+                vc.biaoti = self.maskview.title.text;
+                vc.camera = self.camera;
+                vc.orderID = self.orderID;
+                [self.navigationController pushViewController:vc animated:YES];
+                
+            }
+            
         }
-        [self.navigationController pushViewController:vc animated:YES];
         
     } forControlEvents:UIControlEventTouchUpInside];
     

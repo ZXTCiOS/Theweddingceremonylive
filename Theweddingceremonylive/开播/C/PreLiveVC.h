@@ -10,5 +10,10 @@
 
 @interface PreLiveVC : UIViewController
 @property (nonatomic,assign) BOOL istesting;
+@property (nonatomic, copy) NSString *roomid;
+@property (nonatomic, copy) NSString *tuiliu;
+@property (nonatomic, assign) CGFloat yue;
+@property (nonatomic, strong) NSString *type;
+
 
 @end
