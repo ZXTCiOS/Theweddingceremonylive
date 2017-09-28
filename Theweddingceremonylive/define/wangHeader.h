@@ -119,4 +119,6 @@
 #define post_chongshi       @"/interface.php/Home/User/chongzhi"
 //提现
 #define post_tixian         @"/interface.php/Home/User/get_money"
+//申请记录
+#define post_moenylist      @"/interface.php/Home/User/moenylist"
 #endif /* wangHeader_h */

@@ -58,7 +58,6 @@ static NSString *wanshanidentfid9 = @"wanshanidentfid9";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"完善信息";
-    
     if ([self.typestr isEqualToString:@"3"]) {
         
     }
@@ -403,14 +402,14 @@ static NSString *wanshanidentfid9 = @"wanshanidentfid9";
     
     [DNNetworking postWithURLString:post_finish_order_info parameters:para success:^(id obj) {
         NSString *msg = [obj objectForKey:@"msg"];
-        [MBProgressHUD showSuccess:msg];
+        [MBProgressHUD showSuccess:msg toView:self.view];
         if ([[obj objectForKey:@"code"] intValue]==1000) {
             weddingcardVC *vc = [[weddingcardVC alloc] init];
             vc.order_id = self.order_id;
             [self.navigationController pushViewController:vc animated:YES];
         }
     } failure:^(NSError *error) {
-        [MBProgressHUD showSuccess:@"没有网络"];
+        [MBProgressHUD showSuccess:@"没有网络" toView:self.view];
     }];
 }
 

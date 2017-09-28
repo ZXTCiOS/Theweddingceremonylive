@@ -60,14 +60,13 @@ static NSString *modifyidentfid5 = @"modifyidentfid5";
         }
         else
         {
-            [MBProgressHUD showSuccess:@"失败"];
+            [MBProgressHUD showSuccess:@"失败" toView:self.view];
         }
         [self.table reloadData];
     } failure:^(NSError *error) {
-        [MBProgressHUD showSuccess:@"失败"];
+        [MBProgressHUD showSuccess:@"失败" toView:self.view];
     }];
 }
-
 
 #pragma mark - getters
 
@@ -205,7 +204,6 @@ static NSString *modifyidentfid5 = @"modifyidentfid5";
 #pragma mark - 实现方法
 -(void)submitbtnClick:(UITableViewCell *)cell
 {
-    NSLog(@"完成");
     [self setbtnclick];
 }
 
@@ -262,14 +260,14 @@ static NSString *modifyidentfid5 = @"modifyidentfid5";
     NSDictionary *para = @{@"uid":uid,@"token":token,@"suffix":suffix,@"picture":picture,@"sex":sex,@"name":name,@"old":old,@"address":address};
     [DNNetworking postWithURLString:post_finish parameters:para success:^(id obj) {
         if ([[obj objectForKey:@"code"] intValue]==1000) {
-            [MBProgressHUD showSuccess:@"成功"];
+            [MBProgressHUD showSuccess:@"成功" toView:self.view];
         }
         else
         {
-            [MBProgressHUD showSuccess:@"网络繁忙"];
+            [MBProgressHUD showSuccess:@"网络繁忙" toView:self.view];
         }
     } failure:^(NSError *error) {
-        [MBProgressHUD showSuccess:@"没有网络"];
+        [MBProgressHUD showSuccess:@"没有网络" toView:self.view];
     }];
 }
 

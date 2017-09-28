@@ -382,7 +382,8 @@
     
     [DNNetworking postWithURLString:post_orderup parameters:para success:^(id obj) {
         NSString *mes = [obj objectForKey:@"msg"];
-        [MBProgressHUD showSuccess:mes];
+
+        [MBProgressHUD showSuccess:mes toView:self.view];
         if ([[obj objectForKey:@"code"] intValue]==1000) {
             perfectinglineVC *vc = [[perfectinglineVC alloc] init];
             vc.order_id = [obj objectForKey:@"data"];
@@ -391,7 +392,7 @@
         }
         
     } failure:^(NSError *error) {
-        [MBProgressHUD showSuccess:@"没有网络"];
+        [MBProgressHUD showSuccess:@"没有网络" toView:self.view];
     }];
     
 

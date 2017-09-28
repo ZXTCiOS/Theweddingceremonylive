@@ -354,7 +354,7 @@
 {
     if ([self.codestr isEqualToString:self.codetext.text]) {
         if (self.passtext.text!=self.newpasstext.text) {
-            [MBProgressHUD showSuccess:@"请检查密码输入"];
+            [MBProgressHUD showSuccess:@"请检查密码输入" toView:self.view];
         }
         else
         {
@@ -379,7 +379,7 @@
             [DNNetworking postWithURLString:post_logup parameters:para success:^(id obj) {
                 NSString *msg = [obj objectForKey:@"msg"];
                 if ([[obj objectForKey:@"code"] intValue]==1000) {
-                    [MBProgressHUD showSuccess:msg];
+                    [MBProgressHUD showSuccess:msg toView:self.view];
                     NSUserDefaults *defat = [NSUserDefaults standardUserDefaults];
                     NSDictionary *dic = [obj objectForKey:@"data"];
                     NSString *uid = [dic objectForKey:@"uid"];
@@ -400,7 +400,7 @@
                 }
                 else
                 {
-                    [MBProgressHUD showSuccess:msg];
+                    [MBProgressHUD showSuccess:msg toView:self.view];
                 }
             } failure:^(NSError *error) {
                 
@@ -409,7 +409,7 @@
     }
     else
     {
-        [MBProgressHUD showSuccess:@"请输入正确的验证码"];
+        [MBProgressHUD showSuccess:@"请输入正确的验证码" toView:self.view];
     }
 }
 
@@ -428,7 +428,7 @@
         if ([[obj objectForKey:@"code"]isEqualToString:@"code"]) {
             NSDictionary *dic = [obj objectForKey:@"data"];
             self.codestr = [NSString stringWithFormat:@"%@", [dic objectForKey:@"code"]];   //[dic objectForKey:@"code"];
-            [MBProgressHUD showSuccess:@"请求成功"];
+            [MBProgressHUD showSuccess:@"请求成功" toView:self.view];
         }
     } failure:^(NSError *error) {
         if (error) {

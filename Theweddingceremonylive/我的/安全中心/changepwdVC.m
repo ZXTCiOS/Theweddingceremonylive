@@ -123,12 +123,12 @@ static NSString *changepwdidentfid1 = @"changepwdidentfid1";
     UITextField *text2 = [self.table viewWithTag:202];
     
     if (text1.text.length==0||text2.text.length==0) {
-        [MBProgressHUD showSuccess:@"请输入密码"];
+        [MBProgressHUD showSuccess:@"请输入密码" toView:self.view];
     }
     if (text1.text.length!=0&&text2.text.length!=0) {
         
         if ([text1.text isEqualToString:text2.text]) {
-            [MBProgressHUD showSuccess:@"输入正确"];
+            [MBProgressHUD showSuccess:@"输入正确" toView:self.view];
             NSUserDefaults *defat = [NSUserDefaults standardUserDefaults];
             NSString *uid = [defat objectForKey:user_uid];
             NSString *token = [defat objectForKey:user_token];
@@ -136,14 +136,14 @@ static NSString *changepwdidentfid1 = @"changepwdidentfid1";
             NSDictionary *para = @{@"uid":uid,@"token":token,@"pwd":pwd};
             [DNNetworking postWithURLString:post_editpwd parameters:para success:^(id obj) {
                 NSString *mes = [obj objectForKey:@"mes"];
-                [MBProgressHUD showSuccess:mes];
+                [MBProgressHUD showSuccess:mes toView:self.view];
             } failure:^(NSError *error) {
-                [MBProgressHUD showSuccess:@"没有网络"];
+                [MBProgressHUD showSuccess:@"没有网络" toView:self.view];
             }];
         }
         else
         {
-            [MBProgressHUD showSuccess:@"两次密码必须保持一致"];
+            [MBProgressHUD showSuccess:@"两次密码必须保持一致" toView:self.view];
         }
     }
 }

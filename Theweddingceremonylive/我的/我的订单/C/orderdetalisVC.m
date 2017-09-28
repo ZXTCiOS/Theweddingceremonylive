@@ -54,7 +54,7 @@ static NSString *orderdetalisidentfid3 = @"orderdetalisidentfid3";
     NSDictionary *para = @{@"uid":uid,@"token":token,@"ordersn":self.ordersn};
     [DNNetworking postWithURLString:post_orderdetalis parameters:para success:^(id obj) {
         NSString *msg = [obj objectForKey:@"msg"];
-        [MBProgressHUD showSuccess:msg];
+        [MBProgressHUD showSuccess:msg toView:self.view];
         if ([[obj objectForKey:@"code"] intValue]==1000) {
             self.dataDic = [obj objectForKey:@"data"];
             
@@ -70,7 +70,7 @@ static NSString *orderdetalisidentfid3 = @"orderdetalisidentfid3";
             [self.table reloadData];
         }
     } failure:^(NSError *error) {
-        [MBProgressHUD showSuccess:@"网络错误"];
+        [MBProgressHUD showSuccess:@"网络错误" toView:self.view];
     }];
     
 }

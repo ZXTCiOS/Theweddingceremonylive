@@ -47,13 +47,13 @@ static NSString *shopdetaliscellidentfid2 = @"shopdetaliscellidentfid2";
     
     [DNNetworking postWithURLString:post_getbusininfo parameters:para success:^(id obj) {
         NSString *msg = [obj objectForKey:@"msg"];
-        [MBProgressHUD showSuccess:msg];
+        [MBProgressHUD showSuccess:msg toView:self.view];
         if ([[obj objectForKey:@"code"] intValue]==1000) {
             self.datadic = [obj objectForKey:@"data"];
             [self.table reloadData];
         }
     } failure:^(NSError *error) {
-        [MBProgressHUD showSuccess:@"网络失败"];
+        [MBProgressHUD showSuccess:@"网络失败" toView:self.view];
     }];
 }
 

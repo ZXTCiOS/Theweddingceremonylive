@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class walletlistModel;
 @interface walletrecordCell : UITableViewCell
-
+-(void)setdata0:(walletlistModel *)model;
+-(void)setdata1:(walletlistModel *)model;
+-(void)setdata2:(walletlistModel *)model;
 @end

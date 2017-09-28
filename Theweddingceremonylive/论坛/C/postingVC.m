@@ -188,9 +188,9 @@ static NSString *postidentfid1 = @"postidentfid1";
         if ([[obj objectForKey:@"code"] intValue]==1000) {
             [self.navigationController popViewControllerAnimated:YES];
         }
-        [MBProgressHUD showSuccess:msg];
+        [MBProgressHUD showSuccess:msg toView:self.view];
     } failure:^(NSError *error) {
-        [MBProgressHUD showSuccess:@"发帖失败"];
+        [MBProgressHUD showSuccess:@"发帖失败" toView:self.view];
     }];
 }
 

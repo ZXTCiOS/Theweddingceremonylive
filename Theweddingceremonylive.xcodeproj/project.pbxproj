@@ -274,6 +274,7 @@
 		533D6D631F664F7300655B83 /* shopdetalisCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 533D6D621F664F7300655B83 /* shopdetalisCell1.m */; };
 		533D6D661F664F8800655B83 /* shopdetalisCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 533D6D651F664F8800655B83 /* shopdetalisCell2.m */; };
 		533D6D931F66A57300655B83 /* systemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 533D6D921F66A57300655B83 /* systemModel.m */; };
+		536132381F7A468C0086995C /* walletlistModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 536132371F7A468C0086995C /* walletlistModel.m */; };
 		536D54D31F4FFFC000A54749 /* detalisCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 536D54D21F4FFFC000A54749 /* detalisCell2.m */; };
 		536D54D61F500B0600A54749 /* predetermindCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 536D54D51F500B0600A54749 /* predetermindCell.m */; };
 		536D54D91F50177500A54749 /* predeterheadView0.m in Sources */ = {isa = PBXBuildFile; fileRef = 536D54D81F50177500A54749 /* predeterheadView0.m */; };
@@ -876,6 +877,8 @@
 		533D6D651F664F8800655B83 /* shopdetalisCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = shopdetalisCell2.m; path = "Theweddingceremonylive/我的/我的关注/viewController/shopdetalisCell2.m"; sourceTree = SOURCE_ROOT; };
 		533D6D911F66A57300655B83 /* systemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = systemModel.h; sourceTree = "<group>"; };
 		533D6D921F66A57300655B83 /* systemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = systemModel.m; sourceTree = "<group>"; };
+		536132361F7A468C0086995C /* walletlistModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = walletlistModel.h; sourceTree = "<group>"; };
+		536132371F7A468C0086995C /* walletlistModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = walletlistModel.m; sourceTree = "<group>"; };
 		536D54D11F4FFFC000A54749 /* detalisCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = detalisCell2.h; path = "Theweddingceremonylive/开播/C/detalisCell2.h"; sourceTree = SOURCE_ROOT; };
 		536D54D21F4FFFC000A54749 /* detalisCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = detalisCell2.m; path = "Theweddingceremonylive/开播/C/detalisCell2.m"; sourceTree = SOURCE_ROOT; };
 		536D54D41F500B0600A54749 /* predetermindCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = predetermindCell.h; path = "Theweddingceremonylive/开播/C/predetermindCell.h"; sourceTree = SOURCE_ROOT; };
@@ -1499,18 +1502,11 @@
 		188038E71F3EAB9B00A2B4AE /* 我的钱包 */ = {
 			isa = PBXGroup;
 			children = (
-				188038E81F3EAB9B00A2B4AE /* model */,
+				536132351F7A467A0086995C /* model */,
 				188038E91F3EAB9B00A2B4AE /* view */,
 				188038EC1F3EAB9B00A2B4AE /* viewController */,
 			);
 			path = "我的钱包";
-			sourceTree = "<group>";
-		};
-		188038E81F3EAB9B00A2B4AE /* model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = model;
 			sourceTree = "<group>";
 		};
 		188038E91F3EAB9B00A2B4AE /* view */ = {
@@ -2516,6 +2512,15 @@
 			children = (
 				533D6D911F66A57300655B83 /* systemModel.h */,
 				533D6D921F66A57300655B83 /* systemModel.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		536132351F7A467A0086995C /* model */ = {
+			isa = PBXGroup;
+			children = (
+				536132361F7A468C0086995C /* walletlistModel.h */,
+				536132371F7A468C0086995C /* walletlistModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -3800,6 +3805,7 @@
 				188039031F3EAB9B00A2B4AE /* MyGiftTVC.m in Sources */,
 				18FE5D911F4AD95300C5A3CF /* MainHeaderView.m in Sources */,
 				533ACC8C1F46D66E00F66A78 /* addressVC.m in Sources */,
+				536132381F7A468C0086995C /* walletlistModel.m in Sources */,
 				1841E2C11F6FB367007D362B /* hengpingKaiboVC.m in Sources */,
 				533D6D931F66A57300655B83 /* systemModel.m in Sources */,
 				188038FF1F3EAB9B00A2B4AE /* MineTVC.m in Sources */,

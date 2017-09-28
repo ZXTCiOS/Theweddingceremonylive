@@ -68,7 +68,7 @@ static NSString *systemcellidentfid = @"systencellidentfid";
     NSDictionary *para = @{@"uid":uid,@"token":token};
     [DNNetworking postWithURLString:post_tuisongfankui parameters:para success:^(id obj) {
         NSString *msg = [obj objectForKey:@"msg"];
-        [MBProgressHUD showSuccess:msg];
+        [MBProgressHUD showSuccess:msg toView:self.view];
         if ([[obj objectForKey:@"code"] intValue]==1000) {
             NSArray *dataarr = [obj objectForKey:@"data"];
             for (int i = 0; i<dataarr.count; i++) {
@@ -84,7 +84,7 @@ static NSString *systemcellidentfid = @"systencellidentfid";
             }
         }
     } failure:^(NSError *error) {
-        
+        [MBProgressHUD showSuccess:@"没有网络" toView:self.view];
     }];
     
 }

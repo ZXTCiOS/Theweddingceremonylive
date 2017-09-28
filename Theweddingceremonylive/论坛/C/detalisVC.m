@@ -318,11 +318,11 @@ static NSString *detalisidentfid2 = @"detalisidentfid2";
         NSDictionary *para = @{@"uid":uid,@"token":token,@"bbs_id":bbs_id,@"content":content};
         [DNNetworking postWithURLString:post_sendmes parameters:para success:^(id obj) {
             NSString *mes = [obj objectForKey:@"mes"];
-            [MBProgressHUD showSuccess:mes];
+            [MBProgressHUD showSuccess:mes toView:self.view];
             [self loaddata];
              [self.keyView.textview resignFirstResponder];
         } failure:^(NSError *error) {
-            [MBProgressHUD showSuccess:@"网络错误"];
+            [MBProgressHUD showSuccess:@"网络错误" toView:self.view];
              [self.keyView.textview resignFirstResponder];
         }];
     }

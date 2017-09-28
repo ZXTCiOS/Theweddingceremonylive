@@ -44,7 +44,7 @@
     NSDictionary *para = @{@"uid":uid,@"token":token};
     [DNNetworking postWithURLString:post_isyuyue parameters:para success:^(id obj) {
         NSString *msg = [obj objectForKey:@"mes"];
-        [MBProgressHUD showSuccess:msg];
+        [MBProgressHUD showSuccess:msg toView:self.view];
         if ([[obj objectForKey:@"code"] intValue]==1000) {
             midVC *vc = [[midVC alloc] init];
             [self.navigationController pushViewController:vc animated:NO];
@@ -63,7 +63,7 @@
             
         }
     } failure:^(NSError *error) {
-        [MBProgressHUD showSuccess:@"没有网络"];
+        [MBProgressHUD showSuccess:@"没有网络" toView:self.view];
     }];
     
 }
@@ -76,7 +76,7 @@
     NSDictionary *para = @{@"uid":uid,@"token":token};
     [DNNetworking postWithURLString:post_is_renzheng parameters:para success:^(id obj) {
         NSString *msg = [obj objectForKey:@"msg"];
-        [MBProgressHUD showSuccess:msg];
+        [MBProgressHUD showSuccess:msg toView:self.view];
         if ([[obj objectForKey:@"code"] intValue]==996) {
                 RealVC *vc = [[RealVC alloc] init];
                 [self.navigationController pushViewController:vc animated:NO];
@@ -104,11 +104,11 @@
 //    [self.navigationController pushViewController:vc animated:NO];
     
     // 预约
-   // [self isyuyue];
+    //[self isyuyue];
     
     //认证
     [self isrenzheng];
-
+    
 //    midVC *vc = [[midVC alloc] init];
 //    [self.navigationController pushViewController:vc animated:NO];
 

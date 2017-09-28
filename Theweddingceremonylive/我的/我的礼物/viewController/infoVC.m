@@ -53,13 +53,13 @@ static NSString *infocellidentfid6 = @"infoidentfid6";
     NSDictionary *para = @{@"uid":uid,@"useruid":self.useruid,@"token":token};
     [DNNetworking postWithURLString:post_finduserinfo parameters:para success:^(id obj) {
         NSString *msg = [obj objectForKey:@"msg"];
-        [MBProgressHUD showSuccess:msg];
+        [MBProgressHUD showSuccess:msg toView:self.view];
         if ([[obj objectForKey:@"code"] intValue]==1000) {
             self.dataDic = [obj objectForKey:@"data"];
         }
         [self.table reloadData];
     } failure:^(NSError *error) {
-        [MBProgressHUD showSuccess:@"没有网络"];
+        [MBProgressHUD showSuccess:@"没有网络" toView:self.view];
     }];
 }
 

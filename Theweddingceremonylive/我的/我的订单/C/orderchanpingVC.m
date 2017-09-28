@@ -67,7 +67,7 @@ static NSString *orderchanpingidengfid = @"orderchanpingidengfid";
     [DNNetworking postWithURLString:post_goodslist parameters:para success:^(id obj) {
         
         NSString *msg = [obj objectForKey:@"msg"];
-        [MBProgressHUD showSuccess:msg];
+        [MBProgressHUD showSuccess:msg toView:self.view];
         if ([[obj objectForKey:@"code"] intValue]==1000) {
             
             NSDictionary *datadic = [obj objectForKey:@"data"];
