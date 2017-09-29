@@ -33,6 +33,9 @@
     self.isPortrait = YES;
     self.camera = NIMNetCallCameraBack;
     
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@""] style:UIBarButtonItemStylePlain target:self action:nil];
+    
+    
     [[NIMAVChatSDK sharedSDK].netCallManager addDelegate:self];
     [[NIMAVChatSDK sharedSDK].netCallManager startVideoCapture:[self para]];
     
@@ -103,7 +106,8 @@
         self.isPortrait = !self.isPortrait;
     } forControlEvents:UIControlEventTouchUpInside];
     [self.maskview.cancel bk_addEventHandler:^(id sender) {
-        [self.navigationController popViewControllerAnimated:NO];
+       // [self.navigationController popViewControllerAnimated:NO];
+        self.tabBarController.selectedViewController = [self.tabBarController.viewControllers objectAtIndex:1];
     } forControlEvents:UIControlEventTouchUpInside];
     [self.maskview.kaishi bk_addEventHandler:^(id sender) {
         

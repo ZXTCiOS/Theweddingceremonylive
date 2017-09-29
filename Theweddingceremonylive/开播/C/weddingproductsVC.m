@@ -177,13 +177,10 @@ static NSString *weddingidentfid = @"weddingidentfid";
     cell = [[weddingCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:weddingidentfid];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     if (indexPath.section==0) {
-
         [cell setdata:self.datasource0[indexPath.row]];
     }
     if (indexPath.section==1) {
-
         [cell setdata:self.datasource1[indexPath.row]];
-
     }
     cell.delegate = self;
     return cell;

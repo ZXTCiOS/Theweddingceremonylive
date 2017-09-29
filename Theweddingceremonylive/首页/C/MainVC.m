@@ -276,9 +276,6 @@
         default:
             break;
     }
-    
-    
-    
     NSLog(@"%ld, %ld", indexPath.section, indexPath.row);
 }
 

@@ -331,7 +331,8 @@
         self.zhiView.transform = CGAffineTransformIdentity;
         
     }];
-    [self zhifujiekou];
+    [MBProgressHUD showSuccess:@"微信支付暂未开通，敬请期待" toView:self.view];
+    //[self zhifujiekou];
 }
 
 -(void)zhifubaoclick
@@ -341,6 +342,7 @@
         self.zhiView.transform = CGAffineTransformIdentity;
         
     }];
+    [self zhifujiekou];
 }
 //支付接口
 

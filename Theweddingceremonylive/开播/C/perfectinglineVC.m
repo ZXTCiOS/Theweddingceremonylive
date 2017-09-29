@@ -350,6 +350,7 @@ static NSString *wanshanidentfid9 = @"wanshanidentfid9";
     NSString *room_name;
     if (textname.text.length==0) {
         room_name = @"";
+        [MBProgressHUD showSuccess:@"请输入房间名" toView:self.view];
     }
     else
     {
@@ -393,6 +394,7 @@ static NSString *wanshanidentfid9 = @"wanshanidentfid9";
     NSString *room_tel = [[NSString alloc] init];
     if (teltext.text.length==0) {
         room_tel = @"";
+        [MBProgressHUD showSuccess:@"请输入手机号" toView:self.view];
     }
     else
     {
