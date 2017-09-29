@@ -204,19 +204,23 @@
             MJWeakSelf
             view.shipin = ^(){
                 WeddingVideoVC *vc = [[WeddingVideoVC alloc] init];
+                vc.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:vc animated:YES];
             };
             view.zhibo = ^(){
                 WeddingLiveVC *vc = [[WeddingLiveVC alloc] init];
+                vc.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:vc animated:YES];
             };
             view.tuijian = ^(){
                 TuiJianVC *vc = [[TuiJianVC alloc] initWithCollectionViewLayout:[UICollectionViewFlowLayout new]];
+                vc.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:vc animated:YES];
             };
             view.nvwa = ^(){
-                NvWaPinDaoVC *VC = [[NvWaPinDaoVC alloc] init];
-                [weakSelf.navigationController pushViewController:VC animated:YES];
+                NvWaPinDaoVC *vc = [[NvWaPinDaoVC alloc] init];
+                vc.hidesBottomBarWhenPushed = YES;
+                [weakSelf.navigationController pushViewController:vc animated:YES];
             };
             [view reloadData];
             return view;

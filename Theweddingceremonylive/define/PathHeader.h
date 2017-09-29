@@ -22,7 +22,7 @@
 #define post_weddingvideo @"/interface.php/Home/Index/Wedding"                      // 婚礼视频
 
 #define post_weddinglive  @"/interface.php/Home/Index/pindaolist"                   // 婚礼直播
-
+#define post_livelistmore @"/interface.php/Home/Index/morelist"                     // 更多
 #define post_search  @"/interface.php/Home/Index/search"                            // 搜索
 
 #define post_sendgift @"/interface.php/Home/User/addgift"           // 送礼物请求

@@ -55,7 +55,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.tabBarController.tabBar setHidden:YES];
+    //[self.tabBarController.tabBar setHidden:YES];
     [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 
@@ -112,11 +112,11 @@
 #pragma mark - tableview Delegate && datasource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return self.publiclist.count ? 3 : 0;
+    return 3;//self.publiclist.count ? 3 : 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
+    //return 4;
     if (section == 0) {
         return self.publiclist.data.count;
     } else if (section == 1){
@@ -148,11 +148,16 @@
         model = self.publiclist.data[indexPath.row];
     }
     WeddingLivingCell *cell = [tableView dequeueReusableCellWithIdentifier:@"living" forIndexPath:indexPath];
-    return cell;
+    //return cell;
     [cell.imgV sd_setImageWithURL:model.room_img.xd_URL placeholderImage:[UIImage imageNamed:@"hlzbfive"]];
     cell.titleL.text = model.room_name;
     cell.countL.text = model.pindao_renshu;
     cell.lockImg.hidden = !indexPath.section;
+    if (indexPath.section == 1) {
+        cell.lockImg.hidden = NO;
+    } else {
+        cell.lockImg.hidden = YES;
+    }
     return cell;
 }
 
@@ -172,7 +177,7 @@
             count.text = [NSString stringWithFormat:@"%@场", self.publiclist.count];
             [view bk_addEventHandler:^(id sender) {
                 PublicVC *vc = [[PublicVC alloc] init];
-                vc.type = @"1";
+                vc.type = @"0";
                 [self.navigationController pushViewController:vc animated:YES];
             } forControlEvents:UIControlEventTouchUpInside];
         }
@@ -182,7 +187,7 @@
             count.text = [NSString stringWithFormat:@"%@场", self.privatelist.count];
             [view bk_addEventHandler:^(id sender) {
                 PublicVC *vc = [[PublicVC alloc] init];
-                vc.type = @"2";
+                vc.type = @"1";
                 [self.navigationController pushViewController:vc animated:YES];
             } forControlEvents:UIControlEventTouchUpInside];
         }
@@ -219,6 +224,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    /*
     if (indexPath.row == 1) {
         HorizontalPushVCViewController *vc = [[HorizontalPushVCViewController alloc] init];
         vc.hidesBottomBarWhenPushed = YES;
@@ -237,14 +243,11 @@
         [self.navigationController pushViewController:vc animated:YES];
         NSLog(@"section %ld, row %ld", indexPath.section, indexPath.row);
     } else if (indexPath.row == 3) {
-        
-        
-        
         hengpingKaiboVC *vc = [[hengpingKaiboVC alloc] initWithChatroomID:@"" pushurl:@"" yue:3];
         //PreLiveVC *vc = [[PreLiveVC alloc] init];
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
-    }
+    }*/
     
     
     if (indexPath.section == 0) {

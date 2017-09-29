@@ -25,7 +25,7 @@
 #import "qiangRedbagView.h"
 #import "GiftView.h"
 #import "hengpingMaskView.h"
-
+#import "rechargeVC.h"
 // viewcontroller
 
 #define cellID_text @"text"
@@ -178,7 +178,7 @@
 }
 #pragma mark 注册 cell
 - (void)registerCell{
-    // todo: 注册 cell
+    
     [self.maskview.tableView registerClass:[DanmuCell class] forCellReuseIdentifier:cellID_text];
     [self.maskview.collectionView registerClass:[AudienceCell class] forCellWithReuseIdentifier:cellID_audience];
 }
@@ -250,7 +250,7 @@
         NSString *img = self.isMute ? @"zb_sound_y": @"zb_sound";
         [self.maskview.jingyinBtn setImage:[UIImage imageNamed:img] forState:UIControlStateNormal];
         [[NIMAVChatSDK sharedSDK].netCallManager setMute:self.isMute];
-        // todo: 更改静音按钮图片
+        
     } forControlEvents:UIControlEventTouchUpInside];
     [self.maskview.isBack bk_addEventHandler:^(id sender) {
         // 切换前后摄像头
@@ -304,7 +304,7 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    // todo: 点击头像, 连麦, 给房管
+    
     NIMChatroomMember *model = self.audiencelist[indexPath.row];
     
     UIAlertController *alertC = [UIAlertController alertControllerWithTitle:user_nickname message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
@@ -574,7 +574,7 @@
 // 加入互动直播间
 - (void)joinMeeting{
     
-    // todo: 修改 option
+    
     NIMNetCallOption *option = [[NIMNetCallOption alloc] init];
     self.meeting.option = option;
     option.enableBypassStreaming = YES;
@@ -739,10 +739,10 @@
     if (!_giftV) {
         _giftV = [[GiftView alloc] initWithDirection:screenDirectionV];
         [self.maskview addSubview:_giftV];
-        // tofix
+        
         _giftV.yuE.text = self.yue;
         [_giftV.send bk_addEventHandler:^(id sender) {
-            // tofix: 发送礼物请求
+            
             
             NSString *uid = [userDefault objectForKey:user_uid];
             NSString *token = [userDefault objectForKey:user_token];
@@ -779,9 +779,10 @@
             }];
         } forControlEvents:UIControlEventTouchUpInside];
         [_giftV.chongzhi bk_addEventHandler:^(id sender) {
-            // todo: 充值
             
-            
+            rechargeVC *vc = [[rechargeVC alloc] init];
+            vc.moneystr = self.yue;
+            [self.navigationController presentViewController:vc animated:YES completion:nil];
         } forControlEvents:UIControlEventTouchUpInside];
     }
     return _giftV;
@@ -837,7 +838,7 @@
             [[NIMSDK sharedSDK].chatManager sendMessage:message toSession:session error:nil];
             
             [self tanchuhongbao:data];
-            
+            [self.view endEditing:YES];
         } else if([code isEqualToString:@"990"]) {
             [self.view showWarning:@"余额不足"];
         }
@@ -867,7 +868,7 @@
             if ([code isEqualToString:@"1000"]) {
                 // 拆红包成功
                 NSDictionary *data = [obj objectForKey:@"data"];
-                
+                self.redbaglistV.redbagID = [data objectForKey:@"bag_id"];
                 self.qiangRedbag.from.text = [NSString stringWithFormat:@"抢到\"%@\"的红包", [data objectForKey:@"username"]];
                 self.qiangRedbag.money.text = [NSString stringWithFormat:@"%.2lf", [[data objectForKey:@"money"] floatValue]];
                 self.qiangRedbag.sucess.text = @"已存入余额";

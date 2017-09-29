@@ -445,10 +445,12 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
 #pragma mark appwillResignActive
 - (void)appwillResignActive:(NSNotification *)note
 {
+    [self.player pause];
     NSLog(@"appwillResignActive");
 }
 - (void)appBecomeActive:(NSNotification *)note
 {
+    [self.player pause];
     NSLog(@"appBecomeActive");
 }
 //视频进度条的点击事件

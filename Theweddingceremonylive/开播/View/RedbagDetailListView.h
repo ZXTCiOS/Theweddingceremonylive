@@ -14,7 +14,7 @@
 @property(nonatomic, strong) NSArray<RedBagModel *> *datalist;
 @property (nonatomic, strong) UITableView *tableView;
 
-@property (nonatomic, assign) NSInteger redbagID;
+@property (nonatomic, copy) NSString *redbagID;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imaV;
 @property (weak, nonatomic) IBOutlet UILabel *from;

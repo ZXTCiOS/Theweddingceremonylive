@@ -650,7 +650,7 @@ typedef NS_ENUM(NSInteger, CLPlayerState) {
 - (void)appDidEnterPlayground:(NSNotification *)note{
     //继续播放
     if (_isUserPlay) {
-        [self playVideo];
+        //[self playVideo];
     }
 }
 #pragma mark - 获取资源图片
