@@ -19,8 +19,9 @@
 
 
 
-
-
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *get_money;
+@property (nonatomic, copy) NSString *picture;
 
 
 

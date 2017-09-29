@@ -41,12 +41,12 @@ static NSString *walletrcordientfid2 = @"walletrcordientfid2";
     NSCalendar *calendar = nil;
     if (version.doubleValue >= 11.0) { // iOS系统版本 >= 11.0
         calendar = [NSCalendar calendarWithIdentifier:NSCalendarIdentifierGregorian];
-        //这里适配iOS11
-        if (@available(iOS 11.0, *)) {
-            self.table.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-        } else {
-            // Fallback on earlier versions
-        }
+//        //这里适配iOS11
+//        if (@available(iOS 11.0, *)) {
+//            self.table.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+//        } else {
+//            // Fallback on earlier versions
+//        }
         self.table.contentInset = UIEdgeInsetsMake(64, 0, 49, 0);
         self.table.scrollIndicatorInsets = self.table.contentInset;
     } else{ //iOS系统版本 < 11.0

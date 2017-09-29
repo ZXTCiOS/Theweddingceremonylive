@@ -28,7 +28,7 @@
 // viewcontroller
 #import "NELivePlayerController.h"// 网易云播放器
 #import "NELivePlayer.h"// 网易云播放器协议
-
+#import "rechargeVC.h"
 
 #define urls @"rtmp://ve266c7be.live.126.net/live/5f581cb50c724380bd08788abe7b0f9d" // rtmp
 
@@ -81,8 +81,6 @@
     //self.roomName = @"xixi";
     self.meeting = [[NIMNetCallMeeting alloc] init];
     self.meeting.name = self.zhubo_uid;
-    
-    // TOFIX: USERID
     self.accid = [userDefault objectForKey:user_nickname];
     self.nickName = [userDefault objectForKey:user_kname];
     
@@ -439,7 +437,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     AudienceCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID_audience forIndexPath:indexPath];
-    // tofix
+    
     [cell.img sd_setImageWithURL:self.audiencelist[indexPath.row].roomAvatar.xd_URL placeholderImage:[UIImage imageNamed:@"touxiang"]];
     return cell;
 }
@@ -901,11 +899,11 @@
     if (!_giftV) {
         _giftV = [[GiftView alloc] initWithDirection:screenDirectionV];
         [self.maskview addSubview:_giftV];
-        // tofix
+        
         _giftV.yuE.text = self.yue;
         
         [_giftV.send bk_addEventHandler:^(id sender) {
-            // tofix: 发送礼物请求
+            
             NSString *uid = [userDefault objectForKey:user_uid];
             NSString *token = [userDefault objectForKey:user_token];
             NSString *giftid = [NSString stringWithFormat:@"%ld%ld", _giftV.currentIndex.section, _giftV.currentIndex.row];
@@ -943,7 +941,9 @@
         } forControlEvents:UIControlEventTouchUpInside];
         [_giftV.chongzhi bk_addEventHandler:^(id sender) {
             // todo: 充值
-            
+            rechargeVC *vc = [[rechargeVC alloc] init];
+            vc.moneystr = self.yue;
+            [self.navigationController presentViewController:vc animated:YES completion:nil];
             
         } forControlEvents:UIControlEventTouchUpInside];
     }
@@ -1000,7 +1000,7 @@
             [[NIMSDK sharedSDK].chatManager sendMessage:message toSession:session error:nil];
             
             [self tanchuhongbao:data];
-            
+            [self.view endEditing:YES];
         } else if([code isEqualToString:@"990"]) {
             [self.view showWarning:@"余额不足"];
         }
@@ -1030,7 +1030,7 @@
             if ([code isEqualToString:@"1000"]) {
                 // 拆红包成功
                 NSDictionary *data = [obj objectForKey:@"data"];
-                
+                self.redbaglistV.redbagID = [data objectForKey:@"bag_id"];
                 self.qiangRedbag.from.text = [NSString stringWithFormat:@"抢到\"%@\"的红包", [data objectForKey:@"username"]];
                 self.qiangRedbag.money.text = [NSString stringWithFormat:@"%.2lf", [[data objectForKey:@"money"] floatValue]];
                 self.qiangRedbag.sucess.text = @"已存入余额";
@@ -1050,6 +1050,7 @@
                 [self.qiangRedbag.detail bk_addEventHandler:^(id sender) {
                     NSLog(@"点击查看详情");
                     self.redbaglistV.hidden = NO;
+                    
                     [self.redbaglistV netWorking];
                     self.qiangRedbag.hidden = YES;
                 } forControlEvents:UIControlEventTouchUpInside];

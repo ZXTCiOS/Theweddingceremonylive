@@ -56,6 +56,7 @@
             NSDictionary *data = [obj objectForKey:@"data"];
             PreLiveVC *vc = [[PreLiveVC alloc] init];
             vc.type = [data objectForKey:@""];
+            vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }
         else
