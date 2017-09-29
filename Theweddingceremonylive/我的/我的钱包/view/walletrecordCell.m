@@ -167,47 +167,55 @@
 -(void)setdata0:(walletlistModel *)model
 {
     self.wmodel = model;
-    NSString *str = model.createtime;
-    NSInteger inter = [str intValue];
-    _timeLab.text = [self timestampSwitchTime:inter andFormatter:@"YYYY-MM-dd"];
-    _nameLab.text = @"充值";
-    _balanceLab.text = [NSString stringWithFormat:@"%@%@",@"余额 ",model.yue];
-     _leftImg.image = [UIImage imageNamed:@"my_walet_cz"];
-    _priceLab.text = [NSString stringWithFormat:@"%@%@",@"+",model.goin_moeny];
+    if ([model.zhuangtai isEqualToString:@"chongzhi"]) {
+        NSString *str = model.createtime;
+        NSInteger inter = [str intValue];
+        _timeLab.text = [self timestampSwitchTime:inter andFormatter:@"YYYY-MM-dd"];
+        _nameLab.text = @"充值";
+        _balanceLab.text = [NSString stringWithFormat:@"%@%@",@"余额 ",model.yue];
+        _leftImg.image = [UIImage imageNamed:@"my_walet_cz"];
+        _priceLab.text = [NSString stringWithFormat:@"%@%@",@"+",model.goin_moeny];
+    }
+    if ([model.zhuangtai isEqualToString:@"upmoney"]) {
+        NSString *str = model.createtime;
+        NSInteger inter = [str intValue];
+        _timeLab.text = [self timestampSwitchTime:inter andFormatter:@"YYYY-MM-dd"];
+        _nameLab.text = @"提现";
+        _leftImg.image = [UIImage imageNamed:@"my_walet_tx"];
+        _priceLab.text = [NSString stringWithFormat:@"%@%@",@"+",model.money];
+        if ([model.is_give isEqualToString:@"0"]) {
+            _typeImg.image = [UIImage imageNamed:@"shenhezhong"];
+        }
+        if ([model.type isEqualToString:@"1"]) {
+            _typeImg.image = [UIImage imageNamed:@"my_walet_cg"];
+        }
+        if ([model.type isEqualToString:@"2"]) {
+            _typeImg.image = [UIImage imageNamed:@"my_walet_sb"];
+        }
+    }
+    if ([model.zhuangtai isEqualToString:@"liwu"]) {
+        NSString *str = model.giftinfo_addtime;
+        NSInteger inter = [str intValue];
+        _timeLab.text = [self timestampSwitchTime:inter andFormatter:@"YYYY-MM-dd"];
+        _nameLab.text = @"消费";
+        _leftImg.image = [UIImage imageNamed:@"my_walet_rmb"];
+        _balanceLab.text = [NSString stringWithFormat:@"%@%@",@"余额 ",model.giftinfo_yue];
+        _priceLab.text = [NSString stringWithFormat:@"%@%@",@"-",model.giftinfo_price];
+    }
+
     
 }
 
 -(void)setdata1:(walletlistModel *)model
 {
     self.wmodel = model;
-    NSString *str = model.giftinfo_addtime;
-    NSInteger inter = [str intValue];
-    _timeLab.text = [self timestampSwitchTime:inter andFormatter:@"YYYY-MM-dd"];
-    _nameLab.text = @"消费";
-    _leftImg.image = [UIImage imageNamed:@"my_walet_rmb"];
-     _balanceLab.text = [NSString stringWithFormat:@"%@%@",@"余额 ",model.giftinfo_yue];
-    _priceLab.text = [NSString stringWithFormat:@"%@%@",@"-",model.giftinfo_price];
+
     
 }
 
 -(void)setdata2:(walletlistModel *)model
 {
-    self.wmodel = model;
-    NSString *str = model.createtime;
-    NSInteger inter = [str intValue];
-    _timeLab.text = [self timestampSwitchTime:inter andFormatter:@"YYYY-MM-dd"];
-    _nameLab.text = @"提现";
-    _leftImg.image = [UIImage imageNamed:@"my_walet_tx"];
-    _priceLab.text = [NSString stringWithFormat:@"%@%@",@"+",model.money];
-    if ([model.is_give isEqualToString:@"0"]) {
-        _typeImg.image = [UIImage imageNamed:@"shenhezhong"];
-    }
-    if ([model.type isEqualToString:@"1"]) {
-        _typeImg.image = [UIImage imageNamed:@"my_walet_cg"];
-    }
-    if ([model.type isEqualToString:@"2"]) {
-        _typeImg.image = [UIImage imageNamed:@"my_walet_sb"];
-    }
+
 }
 
 @end

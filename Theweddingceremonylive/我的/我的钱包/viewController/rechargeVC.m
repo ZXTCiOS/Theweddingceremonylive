@@ -9,6 +9,7 @@
 #import "rechargeVC.h"
 #import "rechargrCell0.h"
 #import "chongzhifootView.h"
+#import <AlipaySDK/AlipaySDK.h>
 
 @interface rechargeVC ()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
 @property (nonatomic,strong) UITableView *table;
@@ -119,33 +120,47 @@ static NSString *rechargeidentfid0 = @"rechargeidentfid0";
 
 -(void)zhifu
 {
-    NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
-    NSString *uid = [userdefat objectForKey:user_uid];
-    NSString *token = [userdefat objectForKey:user_token];
-    NSString *user_wallet = @"";
-    if (self.fview.moneytext.text.length==0) {
-        user_wallet = @"";
-        [MBProgressHUD showSuccess:@"请输入充值金额" toView:self.view];
-    }
-    else
-    {
-        user_wallet=  self.fview.moneytext.text;
-        NSDictionary *para = @{@"uid":uid,@"token":token,@"user_wallet":user_wallet};
-        
-        [DNNetworking postWithURLString:post_chongshi parameters:para success:^(id obj) {
-            if ([[obj objectForKey:@"code"] intValue]==1000) {
-                [MBProgressHUD showSuccess:@"充值成功" toView:self.view];
-                [self.navigationController popViewControllerAnimated:YES];
-            }
-            else
-            {
-                NSString *msg = [obj objectForKey:@"msg"];
-                [MBProgressHUD showSuccess:msg toView:self.view];
-            }
-        } failure:^(NSError *error) {
-            [MBProgressHUD showSuccess:@"网络错误" toView:self.view];
-        }];
-    }
+    NSString *appScheme = @"zhifubaozhifubaozhifubao";
+    //NSString *orderString = responseObject[@"data"][@"niu_index_response"];
+    NSString *orderString = @"";
+    // NOTE: 调用支付结果开始支付
+    [[AlipaySDK defaultService] payOrder:orderString fromScheme:appScheme callback:^(NSDictionary *resultDic) {
+        NSLog(@"reslut = %@",resultDic);
+        NSString * memo = resultDic[@"memo"];
+        NSLog(@"===memo:%@", memo);
+        if ([resultDic[@"ResultStatus"] isEqualToString:@"9000"]) {
+            
+        }else{
+            
+        }
+    }];
+//    NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
+//    NSString *uid = [userdefat objectForKey:user_uid];
+//    NSString *token = [userdefat objectForKey:user_token];
+//    NSString *user_wallet = @"";
+//    if (self.fview.moneytext.text.length==0) {
+//        user_wallet = @"";
+//        [MBProgressHUD showSuccess:@"请输入充值金额" toView:self.view];
+//    }
+//    else
+//    {
+//        user_wallet=  self.fview.moneytext.text;
+//        NSDictionary *para = @{@"uid":uid,@"token":token,@"user_wallet":user_wallet};
+//
+//        [DNNetworking postWithURLString:post_chongshi parameters:para success:^(id obj) {
+//            if ([[obj objectForKey:@"code"] intValue]==1000) {
+//                [MBProgressHUD showSuccess:@"充值成功" toView:self.view];
+//                [self.navigationController popViewControllerAnimated:YES];
+//            }
+//            else
+//            {
+//                NSString *msg = [obj objectForKey:@"msg"];
+//                [MBProgressHUD showSuccess:msg toView:self.view];
+//            }
+//        } failure:^(NSError *error) {
+//            [MBProgressHUD showSuccess:@"网络错误" toView:self.view];
+//        }];
+//    }
 }
 
 #pragma mark - 实现方法
@@ -157,7 +172,6 @@ static NSString *rechargeidentfid0 = @"rechargeidentfid0";
     [self.fview.btn0.rightimg setHidden:NO];
     [self.fview.btn1.rightimg setHidden:YES];
     self.type = @"1";
-    
 }
 
 -(void)weixinclick

@@ -35,4 +35,7 @@
 @property (nonatomic,strong) NSString *goin_userid;
 
 @property (nonatomic,strong) NSString *yue;
+
+//状态
+@property (nonatomic,strong) NSString *zhuangtai;
 @end
