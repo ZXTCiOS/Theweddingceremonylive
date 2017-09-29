@@ -36,26 +36,26 @@
     [[NIMAVChatSDK sharedSDK].netCallManager addDelegate:self];
     [[NIMAVChatSDK sharedSDK].netCallManager startVideoCapture:[self para]];
     
-    NSString *uid = [userDefault objectForKey:user_uid];
-    NSString *token = [userDefault objectForKey:user_token];
-    [DNNetworking postWithURLString:post_zhuboInfo parameters:@{@"uid": uid, @"token": token} success:^(id obj) {
-        
-        NSString *code = [obj objectForKey:@"code"];
-        if ([code isEqualToString:@"1000"]) {
-            NSDictionary *data = [obj objectForKey:@"data"];
-            NSString *roomid = [data objectForKey:@"roomid"];
-            NSString *tuiliu = [data objectForKey:@"tuiliu"];
-            NSString *yue = [data objectForKey:@"yuer"];
-            self.pwd = [data objectForKey:@"passwork"];
-            self.type = [data objectForKey:@"leixing"];
-            self.roomid = roomid;
-            self.tuiliu = tuiliu;
-            self.yue = yue.floatValue;
-            self.orderID = [obj objectForKey:@"ordersn"];
-        }
-    } failure:^(NSError *error) {
-        [self.view showWarning:@"网络错误"];
-    }];
+//    NSString *uid = [userDefault objectForKey:user_uid];
+//    NSString *token = [userDefault objectForKey:user_token];
+//    [DNNetworking postWithURLString:post_zhuboInfo parameters:@{@"uid": uid, @"token": token} success:^(id obj) {
+//
+//        NSString *code = [obj objectForKey:@"code"];
+//        if ([code isEqualToString:@"1000"]) {
+//            NSDictionary *data = [obj objectForKey:@"data"];
+//            NSString *roomid = [data objectForKey:@"roomid"];
+//            NSString *tuiliu = [data objectForKey:@"tuiliu"];
+//            NSString *yue = [data objectForKey:@"yuer"];
+//            self.pwd = [data objectForKey:@"passwork"];
+//            self.type = [data objectForKey:@"leixing"];
+//            self.roomid = roomid;
+//            self.tuiliu = tuiliu;
+//            self.yue = yue.floatValue;
+//            self.orderID = [obj objectForKey:@"ordersn"];
+//        }
+//    } failure:^(NSError *error) {
+//        [self.view showWarning:@"网络错误"];
+//    }];
     
     
     [self configMaskview];

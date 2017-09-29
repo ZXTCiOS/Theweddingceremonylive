@@ -40,6 +40,7 @@
     self.currentIndex = [NSIndexPath indexPathForRow:0 inSection:0];
     self.view.backgroundColor = [UIColor lightGrayColor];
     [self loaddata];
+    
 }
 
 -(void)loaddata
@@ -49,7 +50,8 @@
     NSString *token = [defat objectForKey:user_token];
     NSDictionary *para = @{@"uid":uid,@"token":token};
     [DNNetworking postWithURLString:post_getinfo parameters:para success:^(id obj) {
-        NSLog(@"obj------%@",obj);
+        NSString *msg = [obj objectForKey:@"msg"];
+        [MBProgressHUD showSuccess:msg toView:self.view];
         if ([[obj objectForKey:@"code"] intValue]==1000) {
             NSDictionary *dataDic =  [obj objectForKey:@"data"];
             NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
@@ -61,10 +63,10 @@
         }
         else
         {
-
+            
         }
     } failure:^(NSError *error) {
-
+        [MBProgressHUD showSuccess:@"网络错误" toView:self.view];
     }];
 }
 
@@ -76,8 +78,7 @@
     //设置为透明
     self.tabBarController.tabBar.translucent = YES;
     [self.navigationController setNavigationBarHidden:YES];
-    
-    
+
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -99,7 +100,6 @@
         [self endPlayerAtIndexPath:self.currentIndex];
     }
 }
-
 
 #pragma networking
 
@@ -297,7 +297,7 @@ static BOOL isDragging;
 
 - (UITableView *)tableView{
     if (!_tableView) {
-        CGRect frame = CGRectMake(0, -0, kScreenW, kScreenH );
+        CGRect frame = CGRectMake(0, -0, kScreenW, kScreenH);
         _tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStyleGrouped];
         [self.view addSubview:_tableView];
         _tableView.delegate = self;
@@ -305,6 +305,7 @@ static BOOL isDragging;
         _tableView.tableFooterView = [UIView new];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.pagingEnabled = YES;
+        _tableView.backgroundColor = [UIColor blackColor];
         [_tableView registerNib:[UINib nibWithNibName:NSStringFromClass([LiveVideoCell class]) bundle:nil] forCellReuseIdentifier:@"cell"];
     }
     return _tableView;
