@@ -97,11 +97,14 @@
 
 
 - (IBAction)QQ:(id)sender {
+    
 }
 
 - (IBAction)Wechat:(id)sender {
+    
 }
 
 - (IBAction)Pengyouquan:(id)sender {
+    
 }
 @end
