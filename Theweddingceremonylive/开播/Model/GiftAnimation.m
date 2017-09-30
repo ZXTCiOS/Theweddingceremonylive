@@ -30,36 +30,6 @@
     imgV.frame = CGRectMake((kScreenW - imageW)/2, (kScreenH - imageH)/2, imageW, imageH);
     imgV.layer.anchorPoint = CGPointMake(0.5, 0.5);
     
-    /*
-    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        
-    } completion:^(BOOL finished) {
-        [UIView animateWithDuration:0.3 delay:duration options:UIViewAnimationOptionCurveEaseOut animations:^{
-            if (type == giftAnimationTypeCircle) {
-                //imgV.center = CGPointMake(kScreenW/2, kScreenH/2);
-                
-                //imgV.transform = CGAffineTransformMakeRotation(5*M_PI);
-                
-                imgV.transform = CGAffineTransformRotate(imgV.transform, 2*M_PI-0.01);
-            } else if (type == giftAnimationTypeTop) {
-                imgV.frame = CGRectMake((kScreenW - imageW)/2, (kScreenH - imageH)/2 - movedistance, imageW, imageH);
-            } else {
-                
-            }
-        } completion:^(BOOL finished) {
-            [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-                imgV.alpha = 0;
-            } completion:^(BOOL finished) {
-                [imgV removeFromSuperview];
-                !handler ?: handler();
-            }];
-        }];
-    }];*/
-    
-    
-    
-    
-    
     
     switch (type) {
         case giftAnimationTypeTop:{
@@ -96,46 +66,44 @@
             [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
                 
             } completion:^(BOOL finished) {
-                [UIView animateWithDuration:0.3 delay:duration options:UIViewAnimationOptionCurveEaseOut animations:^{
-                    
-                        
+                [UIView animateWithDuration:0.1 delay:duration options:UIViewAnimationOptionCurveEaseOut animations:^{
                     imgV.transform = CGAffineTransformRotate(imgV.transform, M_PI);
-                    
                 } completion:^(BOOL finished) {
-                    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-                        imgV.alpha = 0;
+                    [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+                        imgV.transform = CGAffineTransformMakeRotation(M_PI);
                     } completion:^(BOOL finished) {
-                        [imgV removeFromSuperview];
-                        !handler ?: handler();
+                        [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+                            imgV.transform = CGAffineTransformMakeRotation(M_PI);
+                        } completion:^(BOOL finished) {
+                            [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+                                imgV.transform = CGAffineTransformMakeRotation(M_PI);
+                            } completion:^(BOOL finished) {
+                                [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+                                    imgV.transform = CGAffineTransformMakeRotation(M_PI);
+                                } completion:^(BOOL finished) {
+                                    [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+                                        imgV.transform = CGAffineTransformMakeRotation(M_PI);
+                                    } completion:^(BOOL finished) {
+                                        [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                                            imgV.alpha = 0;
+                                        } completion:^(BOOL finished) {
+                                            [imgV removeFromSuperview];
+                                            !handler ?: handler();
+                                        }];
+                                    }];
+                                }];
+                            }];
+                        }];
                     }];
                 }];
             }];
             
-//            [UIView animateWithDuration:0.3 delay:duration options:UIViewAnimationOptionCurveEaseOut animations:^{
-//                
-//            } completion:^(BOOL finished) {
-//                [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-//                    
-//                    [imgV rotate360DegreeWithImageView];
-//                    
-//                } completion:^(BOOL finished) {
-//                    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-//                        imgV.alpha = 0;
-//                    } completion:^(BOOL finished) {
-//                        [imgV stopRotate];
-//                        [imgV removeFromSuperview];
-//                        !handler ?: handler();
-//                    }];
-//                }];
-//            }];
             
         }
             break;
         default:
             break;
     }
-    
-    
     
     
     if (![audio isEqualToString:@"none"]) {
@@ -151,6 +119,7 @@
         AudioServicesPlaySystemSound(soundID);
     }
 }
+
 
 
 
