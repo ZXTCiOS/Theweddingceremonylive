@@ -181,7 +181,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 
 
 - (void)configNimSDK{
-    NSString *appKey        = @"55c573ae6c0fb6d673a401954b3d5c5b";
+    NSString *appKey        = @"25f850443721cca735cb57bd26c412ab";
     NIMSDKOption *option    = [NIMSDKOption optionWithAppKey:appKey];
     //TODO: 添加 apns
     option.apnsCername      = @"your APNs cer name";
