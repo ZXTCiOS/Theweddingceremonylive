@@ -122,16 +122,17 @@ static NSString *rechargeidentfid0 = @"rechargeidentfid0";
 {
     NSString *appScheme = @"zhifubaozhifubaozhifubao";
     //NSString *orderString = responseObject[@"data"][@"niu_index_response"];
-    NSString *orderString = @"";
+    NSString *orderString = @"alipay_sdk=alipay-sdk-php-20161101&app_id=2017091108668497&biz_content=%7B%22body%22%3A%22123%22%2C%22subject%22%3A%22123%22%2C%22out_trade_no%22%3A%22123456%22%2C%22total_amount%22%3A%229.88%22%2C%22product_code%22%3A%22QUICK_MSECURITY_PAY%22%7D&charset=UTF-8&format=json&method=alipay.trade.app.pay&notify_url=http%3A%2F%2Faimidao.tv%2Fadmin.php%2FLogin%2Fnotify&sign_type=RSA2&timestamp=2017-09-29+22%3A21%3A29&version=1.0&sign=HASK7HfoSJgzPs44%2BCzodSgfrzqXTsKHNnQ%2BGJal1ZhxaFO8M2baE35GWgfzDvZU4UyDg7%2B491YsF3O9gNGiEuKTWlgFTylanE5llz7%2B%2BsQHVGWUX3CvS8vky9dT5uRdocMlZtWFNTc8FL4ByMCS4vECoYWAWXclqcHwZweC8iA%3D";
+    
     // NOTE: 调用支付结果开始支付
     [[AlipaySDK defaultService] payOrder:orderString fromScheme:appScheme callback:^(NSDictionary *resultDic) {
         NSLog(@"reslut = %@",resultDic);
         NSString * memo = resultDic[@"memo"];
         NSLog(@"===memo:%@", memo);
         if ([resultDic[@"ResultStatus"] isEqualToString:@"9000"]) {
-            
+
         }else{
-            
+
         }
     }];
 //    NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];

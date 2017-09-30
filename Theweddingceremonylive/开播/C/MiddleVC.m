@@ -55,7 +55,9 @@
             //有预约
             NSDictionary *data = [obj objectForKey:@"data"];
             PreLiveVC *vc = [[PreLiveVC alloc] init];
-            vc.type = [data objectForKey:@""];
+            vc.type = [data objectForKey:@"leixing"];
+            vc.roomid = [data objectForKey:@"roomid"];
+            vc.tuiliu = [data objectForKey:@"tuiliu"];
             vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }
