@@ -33,6 +33,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+
+    
     //self.edgesForExtendedLayout = UIRectEdgeTop | UIRectEdgeBottom;
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self networking];
@@ -302,6 +304,11 @@ static BOOL isDragging;
         [self.view addSubview:_tableView];
         _tableView.delegate = self;
         _tableView.dataSource = self;
+//        if (@available(iOS 11,*)) {
+//            if ([self.tableView respondsToSelector:@selector(setContentInsetAdjustmentBehavior:)]) {
+//                self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+//            }
+//        }
         _tableView.tableFooterView = [UIView new];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.pagingEnabled = YES;

@@ -64,12 +64,21 @@ static NSString *wanshanidentfid9 = @"wanshanidentfid9";
     else
     {
         [self click];
+        
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"邀请码" style:UIBarButtonItemStylePlain target:self action:@selector(yaoqingma)];
+        self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithHexString:@"E95F46"];
+        
     }
-
+ 
     self.room_yangshi = @"3";
     [self.view addSubview:self.table];
     self.table.tableFooterView = self.footView;
     self.qinyouyaoqingma = @"";
+}
+
+-(void)yaoqingma
+{
+    [self click];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -400,19 +409,45 @@ static NSString *wanshanidentfid9 = @"wanshanidentfid9";
     {
         room_tel =teltext.text;
     }
-    NSDictionary *para = @{@"uid":uid,@"token":token,@"ordernb":self.order_id,@"room_name":room_name,@"room_img":self.room_img,@"suffix1":suffix1,@"xitie_img":self.xitie_img,@"suffix2":suffix2,@"room_yangshi":self.room_yangshi,@"room_address":self.room_address,@"room_boy":room_boy,@"room_girl":room_girl,@"Delivery_address":Delivery_address,@"room_tel":room_tel,@"p_assword":self.qinyouyaoqingma};
     
-    [DNNetworking postWithURLString:post_finish_order_info parameters:para success:^(id obj) {
-        NSString *msg = [obj objectForKey:@"msg"];
-        [MBProgressHUD showSuccess:msg toView:self.view];
-        if ([[obj objectForKey:@"code"] intValue]==1000) {
-            weddingcardVC *vc = [[weddingcardVC alloc] init];
-            vc.order_id = self.order_id;
-            [self.navigationController pushViewController:vc animated:YES];
+    if ([self.typestr isEqualToString:@"3"]) {
+        NSDictionary *para = @{@"uid":uid,@"token":token,@"ordernb":self.order_id,@"room_name":room_name,@"room_img":self.room_img,@"suffix1":suffix1,@"xitie_img":self.xitie_img,@"suffix2":suffix2,@"room_yangshi":self.room_yangshi,@"room_address":self.room_address,@"room_boy":room_boy,@"room_girl":room_girl,@"Delivery_address":Delivery_address,@"room_tel":room_tel,@"p_assword":self.qinyouyaoqingma};
+        
+        [DNNetworking postWithURLString:post_finish_order_info parameters:para success:^(id obj) {
+            NSString *msg = [obj objectForKey:@"msg"];
+            [MBProgressHUD showSuccess:msg toView:self.view];
+            if ([[obj objectForKey:@"code"] intValue]==1000) {
+                weddingcardVC *vc = [[weddingcardVC alloc] init];
+                vc.order_id = self.order_id;
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+        } failure:^(NSError *error) {
+            [MBProgressHUD showSuccess:@"没有网络" toView:self.view];
+        }];
+    }
+    else
+    {
+        if (self.qinyouyaoqingma.length==0) {
+            [MBProgressHUD showSuccess:@"请输入邀请码" toView:self.view];
         }
-    } failure:^(NSError *error) {
-        [MBProgressHUD showSuccess:@"没有网络" toView:self.view];
-    }];
+        else
+        {
+            NSDictionary *para = @{@"uid":uid,@"token":token,@"ordernb":self.order_id,@"room_name":room_name,@"room_img":self.room_img,@"suffix1":suffix1,@"xitie_img":self.xitie_img,@"suffix2":suffix2,@"room_yangshi":self.room_yangshi,@"room_address":self.room_address,@"room_boy":room_boy,@"room_girl":room_girl,@"Delivery_address":Delivery_address,@"room_tel":room_tel,@"p_assword":self.qinyouyaoqingma};
+            
+            [DNNetworking postWithURLString:post_finish_order_info parameters:para success:^(id obj) {
+                NSString *msg = [obj objectForKey:@"msg"];
+                [MBProgressHUD showSuccess:msg toView:self.view];
+                if ([[obj objectForKey:@"code"] intValue]==1000) {
+                    weddingcardVC *vc = [[weddingcardVC alloc] init];
+                    vc.order_id = self.order_id;
+                    [self.navigationController pushViewController:vc animated:YES];
+                }
+            } failure:^(NSError *error) {
+                [MBProgressHUD showSuccess:@"没有网络" toView:self.view];
+            }];
+        }
+    }
+
 }
 
 -(void)typebtn0click

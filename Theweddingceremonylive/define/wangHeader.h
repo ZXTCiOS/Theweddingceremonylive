@@ -121,4 +121,9 @@
 #define post_tixian         @"/interface.php/Home/User/get_money"
 //申请记录
 #define post_moenylist      @"/interface.php/Home/User/moenylist"
+//订单回掉地址   成功  1 失败 0
+#define post_chuliorder     @"/interface.php/Home/orderup/chuliorder"
+
+//充值回掉地址
+#define post_chongzhichuli @"/interface.php/Home/User/chonzhichuli"
 #endif /* wangHeader_h */

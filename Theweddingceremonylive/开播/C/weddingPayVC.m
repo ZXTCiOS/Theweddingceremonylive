@@ -10,6 +10,7 @@
 #import "perfectinglineVC.h"
 #import "zhifuView.h"
 #import "AppDelegate.h"
+#import <AlipaySDK/AlipaySDK.h>
 
 @interface weddingPayVC ()
 @property (nonatomic,strong) UIView *bgview;
@@ -381,23 +382,57 @@
     {
         para = @{@"uid":uid,@"token":token,@"order_pattern":self.order_pattern,@"order_goods":self.order_goods,@"order_goods_tuijian":self.order_goods_tuijian,@"order_price":self.order_price,@"tuijian":self.tuijian,@"create_time":self.create_time,@"room_count":self.room_count};
     }
+
+
     
     [DNNetworking postWithURLString:post_orderup parameters:para success:^(id obj) {
         NSString *mes = [obj objectForKey:@"msg"];
-
         [MBProgressHUD showSuccess:mes toView:self.view];
         if ([[obj objectForKey:@"code"] intValue]==1000) {
             perfectinglineVC *vc = [[perfectinglineVC alloc] init];
-            vc.order_id = [obj objectForKey:@"data"];
+            NSDictionary *data = [obj objectForKey:@"data"];
+            vc.order_id = [data objectForKey:@"ordernb"];
             vc.typestr = self.order_pattern;
+            NSString *zhifubao = [data objectForKey:@"zhifubao"];
+            NSString *appScheme = @"zhifubaozhifubaozhifubao";
+            NSString *orderString = zhifubao;
+            // NOTE: 调用支付结果开始支付
+            
+            NSString *price = [data objectForKey:@"price"];
+            NSString *order_id = [data objectForKey:@"order_id"];
+            
+            
+            [[AlipaySDK defaultService] payOrder:orderString fromScheme:appScheme callback:^(NSDictionary *resultDic) {
+                NSLog(@"reslut = %@",resultDic);
+                NSString * memo = resultDic[@"memo"];
+                NSLog(@"===memo:%@", memo);
+                if ([resultDic[@"ResultStatus"] isEqualToString:@"9000"]) {
+                    NSDictionary *para = @{@"":uid,@"token":token,@"price":price,@"order_id":order_id,@"type":@"1"};
+                    
+                    [DNNetworking postWithURLString:post_chuliorder parameters:para success:^(id obj) {
+                        
+                    } failure:^(NSError *error) {
+                        
+                    }];
+                }else{
+                    NSDictionary *para = @{@"":uid,@"token":token,@"price":price,@"order_id":order_id,@"type":@"0"};
+                    
+                    [DNNetworking postWithURLString:post_chuliorder parameters:para success:^(id obj) {
+                        
+                    } failure:^(NSError *error) {
+                        
+                    }];
+                }
+            }];
+            
             [self.navigationController pushViewController:vc animated:YES];
         }
         
     } failure:^(NSError *error) {
         [MBProgressHUD showSuccess:@"没有网络" toView:self.view];
     }];
-    
 
+    
 }
 
 #pragma mark - tabbar
