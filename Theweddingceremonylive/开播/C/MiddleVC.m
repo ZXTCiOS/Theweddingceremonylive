@@ -60,6 +60,7 @@
             vc.tuiliu = [data objectForKey:@"tuiliu"];
             vc.orderID = [data objectForKey:@"ordersn"];
             vc.pwd = [data objectForKey:@"password"];
+            vc.weddingType = [data objectForKey:@"yangshi"];
             vc.hidesBottomBarWhenPushed = YES;
             vc.istesting = NO;
             [self.navigationController pushViewController:vc animated:YES];
@@ -75,6 +76,7 @@
             vc.orderID = [data objectForKey:@"ordersn"];
             vc.pwd = [data objectForKey:@"password"];
             vc.hidesBottomBarWhenPushed = YES;
+            vc.weddingType = [data objectForKey:@"yangshi"];
             vc.istesting = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }

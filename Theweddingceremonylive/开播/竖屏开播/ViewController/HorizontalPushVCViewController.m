@@ -49,7 +49,7 @@
 @property (nonatomic, copy) NSString *pushUrl;
 @property (nonatomic, copy) NSString *nickName;
 @property (nonatomic, assign) NSInteger count;
-@property (nonatomic, assign) weddingType weddingtype;
+
 @property (nonatomic, strong) NSString *yue;
 
 @property (nonatomic, strong) NSMutableArray<NIMChatroomMember *> *audiencelist;
@@ -70,9 +70,8 @@
 #pragma mark - life cycle 生命周期
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //self.roomid = @"11255726";//  //11168034
-    //self.pushUrl = @"rtmp://pe266c7be.live.126.net/live/5f581cb50c724380bd08788abe7b0f9d?wsSecret=73e4d9a846fbadd56eccb1b5c90a3ab7&wsTime=1504859570";
-    self.nickName = [userDefault objectForKey:user_kname];
+    
+    self.nickName = [userDefault objectForKey: user_nickname];
     self.count = 0;
     
     
@@ -169,7 +168,21 @@
     self.scrollV.showsHorizontalScrollIndicator = NO;
     self.scrollV.showsVerticalScrollIndicator = NO;
     [self scrollviewBtnEvent];
-    NSString *img = self.weddingtype ?@"zb_xi": @"zb_zhong";
+    NSString *img;// = self.weddingtype ?@"zb_xi": @"zb_zhong";
+    switch (self.weddingtype) {
+        case weddingType_zhong:
+            img = @"zb_zhong";
+            break;
+        case weddingType_xi:
+            img = @"zb_xi";
+            break;
+        case weddingType_none:
+            self.maskview.bgView.hidden = YES;
+            break;
+        default:
+            break;
+    }
+    
     self.maskview.bgView.image = [UIImage imageNamed:img];
     self.maskview.frame = CGRectMake(kScreenW, 0, kScreenW, kScreenH);
     self.maskview.textField.inputAccessoryView = [UIView new];

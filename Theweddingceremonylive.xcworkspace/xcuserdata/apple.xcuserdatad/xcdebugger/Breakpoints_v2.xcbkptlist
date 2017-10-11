@@ -68,7 +68,7 @@
                   moduleName = "Theweddingceremonylive"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Desktop/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9/Theweddingceremonylive/Theweddingceremonylive/%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C/C/LoginVC.m"
-                  timestampString = "529320863.689057"
+                  timestampString = "529383194.93703"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "387"
@@ -83,7 +83,7 @@
                   moduleName = "Theweddingceremonylive"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Desktop/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9/Theweddingceremonylive/Theweddingceremonylive/%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C/C/LoginVC.m"
-                  timestampString = "529320863.691718"
+                  timestampString = "529383194.939232"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "387"
@@ -132,7 +132,7 @@
                   moduleName = "Theweddingceremonylive"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Desktop/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9/Theweddingceremonylive/Theweddingceremonylive/%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C/C/LoginVC.m"
-                  timestampString = "529320863.702915"
+                  timestampString = "529383194.947366"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "364"
@@ -147,7 +147,7 @@
                   moduleName = "Theweddingceremonylive"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Desktop/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9/Theweddingceremonylive/Theweddingceremonylive/%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C/C/LoginVC.m"
-                  timestampString = "529320863.705279"
+                  timestampString = "529383194.949532"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "367"
@@ -186,102 +186,6 @@
             startingLineNumber = "128"
             endingLineNumber = "128"
             landmarkName = "-HeaderRefresh"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Theweddingceremonylive/&#x5f00;&#x64ad;/&#x7ad6;&#x5c4f;&#x76f4;&#x64ad;/viewcontroller/PortraitFullViewController.m"
-            timestampString = "529302846.998672"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "506"
-            endingLineNumber = "506"
-            landmarkName = "-enterChatroom"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Theweddingceremonylive/&#x5f00;&#x64ad;/&#x7ad6;&#x5c4f;&#x76f4;&#x64ad;/viewcontroller/PortraitFullViewController.m"
-            timestampString = "529302917.179034"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "509"
-            endingLineNumber = "509"
-            landmarkName = "-enterChatroom"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Theweddingceremonylive/&#x5f00;&#x64ad;/C/perfectinglineVC.m"
-            timestampString = "529315271.870466"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "417"
-            endingLineNumber = "417"
-            landmarkName = "-submitbtnclick"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Theweddingceremonylive/&#x5f00;&#x64ad;/C/perfectinglineVC.m"
-            timestampString = "529315275.641929"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "438"
-            endingLineNumber = "438"
-            landmarkName = "-submitbtnclick"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Theweddingceremonylive/&#x5f00;&#x64ad;/C/perfectinglineVC.m"
-            timestampString = "529317522.617097"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "425"
-            endingLineNumber = "425"
-            landmarkName = "-submitbtnclick"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Theweddingceremonylive/&#x5f00;&#x64ad;/C/perfectinglineVC.m"
-            timestampString = "529317539.687761"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "446"
-            endingLineNumber = "446"
-            landmarkName = "-submitbtnclick"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

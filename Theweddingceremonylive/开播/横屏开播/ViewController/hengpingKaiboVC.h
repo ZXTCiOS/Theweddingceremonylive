@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSString *biaoti;
 @property (nonatomic, assign) NIMNetCallCamera camera;
 @property (nonatomic, strong) NSString *orderID;
+@property (nonatomic, assign) weddingType weddingtype;
 
 - (instancetype)initWithChatroomID:(NSString *) roomid pushurl:(NSString *)pushUrl yue:(CGFloat) yue;
 

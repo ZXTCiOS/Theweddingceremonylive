@@ -30,7 +30,8 @@
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     
-    
+    //self.searchController.searchBar.showsScopeBar = YES;
+    //self.searchController.searchBar.showsBookmarkButton = YES;
     self.searchController.searchBar.showsCancelButton = YES;
     for(id sousuo in [self.searchController.searchBar subviews])
     {
@@ -38,9 +39,13 @@
         {
             if([zz isKindOfClass:[UIButton class]]){
                 UIButton *btn = (UIButton *)zz;
-                [btn setTitle:@"取消" forState:UIControlStateNormal];
+                [btn setTitle:@"返回" forState:UIControlStateNormal];
                 [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
                 self.searchController.searchBar.showsCancelButton = YES;
+                [btn removeAllTargets];
+                [btn bk_addEventHandler:^(id sender) {
+                    [self.navigationController popViewControllerAnimated:YES];
+                } forControlEvents:UIControlEventTouchUpInside];
             }
         }
     }
@@ -149,6 +154,23 @@
 
 #pragma mark searchVC resultUpdating
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController{
+    self.searchController.searchBar.showsCancelButton = YES;
+    for(id sousuo in [self.searchController.searchBar subviews])
+    {
+        for (id zz in [sousuo subviews])
+        {
+            if([zz isKindOfClass:[UIButton class]]){
+                UIButton *btn = (UIButton *)zz;
+                [btn setTitle:@"返回" forState:UIControlStateNormal];
+                [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+                self.searchController.searchBar.showsCancelButton = YES;
+                [btn removeAllTargets];
+                [btn bk_addEventHandler:^(id sender) {
+                    [self.navigationController popViewControllerAnimated:YES];
+                } forControlEvents:UIControlEventTouchUpInside];
+            }
+        }
+    }
     NSString *text = searchController.searchBar.text;
     if ([text isEqualToString:@""]) {
         [self.tableView reloadData];
@@ -164,12 +186,12 @@
             self.list = [obj valueForKey:@"data"];
             [self.tableView reloadData];
         } else {
-            NSString *message = [NSString stringWithFormat:@"%@", [obj valueForKey:@"message"]];
-            [self.view showWarning:message];
+            //NSString *message = [NSString stringWithFormat:@"%@", [obj valueForKey:@"message"]];
+            //[self.view showWarning:message];
         }
         
     } failure:^(NSError *error) {
-        [self.view showWarning:@"网络错误"];
+        //[self.view showWarning:@"网络错误"];
     }];
     
     
