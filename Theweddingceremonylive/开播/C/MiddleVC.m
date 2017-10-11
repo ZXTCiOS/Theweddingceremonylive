@@ -45,7 +45,7 @@
     [DNNetworking postWithURLString:post_isyuyue parameters:para success:^(id obj) {
         NSString *msg = [obj objectForKey:@"mes"];
         [MBProgressHUD showSuccess:msg toView:self.view];
-        if ([[obj objectForKey:@"code"] intValue]==1000) {
+        if ([[obj objectForKey:@"code"] intValue]==1002) {
             midVC *vc = [[midVC alloc] init];
             [self.navigationController pushViewController:vc animated:NO];
             
@@ -58,12 +58,25 @@
             vc.type = [data objectForKey:@"leixing"];
             vc.roomid = [data objectForKey:@"roomid"];
             vc.tuiliu = [data objectForKey:@"tuiliu"];
+            vc.orderID = [data objectForKey:@"ordersn"];
+            vc.pwd = [data objectForKey:@"password"];
             vc.hidesBottomBarWhenPushed = YES;
+            vc.istesting = NO;
             [self.navigationController pushViewController:vc animated:YES];
         }
-        else
+        else if ([[obj objectForKey:@"code"] intValue]==1000)
         {
-            
+            //有预约
+            NSDictionary *data = [obj objectForKey:@"data"];
+            PreLiveVC *vc = [[PreLiveVC alloc] init];
+            vc.type = [data objectForKey:@"leixing"];
+            vc.roomid = [data objectForKey:@"roomid"];
+            vc.tuiliu = [data objectForKey:@"tuiliu"];
+            vc.orderID = [data objectForKey:@"ordersn"];
+            vc.pwd = [data objectForKey:@"password"];
+            vc.hidesBottomBarWhenPushed = YES;
+            vc.istesting = YES;
+            [self.navigationController pushViewController:vc animated:YES];
         }
     } failure:^(NSError *error) {
         [MBProgressHUD showSuccess:@"没有网络" toView:self.view];

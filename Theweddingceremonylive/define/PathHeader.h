@@ -25,13 +25,13 @@
 #define post_livelistmore @"/interface.php/Home/Index/morelist"                     // 更多
 #define post_search  @"/interface.php/Home/Index/search"                            // 搜索
 
-#define post_sendgift @"/interface.php/Home/User/addgift"           // 送礼物请求
+#define post_sendgift @"/interface.php/Home/User/addgift"                           // 送礼物请求
 
-#define post_sendRedbag @"interface.php/Home/User/sentbag"         // 发红包
-#define post_chaiRedbag @"/interface.php/Home/User/getbag"   // 拆红包
-#define post_redbagRecord @"/interface.php/Home/User/yuer"       // 领取记录
-#define post_zhiboing  @"/interface.php/Home/Index/addzhibo"      // 直播中
-#define post_zhuboInfo  @"/interface.php/Home/User/get_info"     // 主播信息
+#define post_sendRedbag @"interface.php/Home/User/sentbag"                          // 发红包
+#define post_chaiRedbag @"/interface.php/Home/User/getbag"                          // 拆红包
+#define post_redbagRecord @"/interface.php/Home/User/yuer"                          // 领取记录
+#define post_zhiboing  @"/interface.php/Home/Index/addzhibo"                        // 直播中
+#define post_zhuboInfo  @"/interface.php/Home/User/get_info"                        // 主播信息
 
 
 

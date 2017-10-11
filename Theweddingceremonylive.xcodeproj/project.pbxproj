@@ -3312,13 +3312,13 @@
 					};
 					53D02F521F3B1B5600CD504C = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = GZJLNU22Y5;
+						DevelopmentTeam = NNWJGVKRJE;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 53D02F391F3B1B5600CD504C;
 					};
 					53D02F5D1F3B1B5600CD504C = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 22Y9Y734K3;
+						DevelopmentTeam = NNWJGVKRJE;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 53D02F391F3B1B5600CD504C;
 					};
@@ -4112,7 +4112,7 @@
 			baseConfigurationReference = 18F40CBA8FE5D3181F0F3B4C /* Pods-TheweddingceremonyliveTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = GZJLNU22Y5;
+				DEVELOPMENT_TEAM = NNWJGVKRJE;
 				INFOPLIST_FILE = TheweddingceremonyliveTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -4127,7 +4127,7 @@
 			baseConfigurationReference = B6A1DE35CE93F6A9038FF711 /* Pods-TheweddingceremonyliveTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = GZJLNU22Y5;
+				DEVELOPMENT_TEAM = NNWJGVKRJE;
 				INFOPLIST_FILE = TheweddingceremonyliveTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -4141,7 +4141,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F9C76CD6B624B22E51350699 /* Pods-TheweddingceremonyliveUITests.debug.xcconfig */;
 			buildSettings = {
-				DEVELOPMENT_TEAM = 22Y9Y734K3;
+				DEVELOPMENT_TEAM = NNWJGVKRJE;
 				INFOPLIST_FILE = TheweddingceremonyliveUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -4155,7 +4155,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0A0D151F42A7F9C8F762F8E9 /* Pods-TheweddingceremonyliveUITests.release.xcconfig */;
 			buildSettings = {
-				DEVELOPMENT_TEAM = 22Y9Y734K3;
+				DEVELOPMENT_TEAM = NNWJGVKRJE;
 				INFOPLIST_FILE = TheweddingceremonyliveUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

@@ -49,7 +49,7 @@
     [self.view addSubview:self.lineview];
     [self.view addSubview:self.pricelab];
     [self.view addSubview:self.submitBtn];
-    
+    self.order_price = @"0.1";
 //    [self.view addSubview:self.zhiView];
     [self setuplayout];
     
@@ -407,15 +407,15 @@
                 NSString * memo = resultDic[@"memo"];
                 NSLog(@"===memo:%@", memo);
                 if ([resultDic[@"ResultStatus"] isEqualToString:@"9000"]) {
-                    NSDictionary *para = @{@"":uid,@"token":token,@"price":price,@"order_id":order_id,@"type":@"1"};
+                    NSDictionary *para = @{@"uid":uid,@"token":token,@"price":price,@"order_id":order_id,@"type":@"1"};
                     
                     [DNNetworking postWithURLString:post_chuliorder parameters:para success:^(id obj) {
-                        
+                        [self.navigationController pushViewController:vc animated:YES];
                     } failure:^(NSError *error) {
                         
                     }];
                 }else{
-                    NSDictionary *para = @{@"":uid,@"token":token,@"price":price,@"order_id":order_id,@"type":@"0"};
+                    NSDictionary *para = @{@"uid":uid,@"token":token,@"price":price,@"order_id":order_id,@"type":@"0"};
                     
                     [DNNetworking postWithURLString:post_chuliorder parameters:para success:^(id obj) {
                         
@@ -425,7 +425,7 @@
                 }
             }];
             
-            [self.navigationController pushViewController:vc animated:YES];
+            
         }
         
     } failure:^(NSError *error) {

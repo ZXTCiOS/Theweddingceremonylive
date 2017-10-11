@@ -30,7 +30,7 @@
 #import "NELivePlayer.h"// 网易云播放器协议
 #import "rechargeVC.h"
 
-#define urls @"rtmp://ve266c7be.live.126.net/live/5f581cb50c724380bd08788abe7b0f9d" // rtmp
+
 
 
 #define cellID_text @"text"
@@ -85,7 +85,7 @@
     self.nickName = [userDefault objectForKey:user_kname];
     
     
-    
+    NSLog(@"%@", self.url);
     
     [self setup];
     [self maskview];
@@ -715,7 +715,7 @@
             alertController = [UIAlertController alertControllerWithTitle:@"注意" message:@"播放失败" preferredStyle:UIAlertControllerStyleAlert];
             action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
                 
-                [self.liveplayer switchContentUrl:[NSURL URLWithString:urls]];
+                [self.liveplayer switchContentUrl:[NSURL URLWithString:self.url]];
                 [self.liveplayer prepareToPlay];
                 [self.liveplayer play];
             }];
@@ -812,7 +812,7 @@
 
 - (id<NELivePlayer>)liveplayer{
     if (!_liveplayer) {
-        _liveplayer = [[NELivePlayerController alloc] initWithContentURL:[NSURL URLWithString:urls]];
+        _liveplayer = [[NELivePlayerController alloc] initWithContentURL:[NSURL URLWithString:self.url]];
         if (!_liveplayer) {
             NSLog(@"播放器初始化失败");
         }

@@ -64,6 +64,7 @@
     navi.frame = CGRectMake(0, 0, kScreenW, 64);
     navi.search = ^(){
         SearchViewController *vc = [[SearchViewController alloc] init];
+        vc.hidesBottomBarWhenPushed =YES;
         [self.navigationController pushViewController:vc animated:YES];
     };
     navi.saoma = ^(){
@@ -145,10 +146,23 @@
 #pragma mark collectionView  dataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    return self.shipin.count ? 3 : 0;
+    return self.business.count ? 3 : 0;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    switch (section) {
+        case 0:
+            return self.shipin.count;
+            break;
+            case 1:
+            return 1;
+            case 2:
+            return self.business.count;
+        default:
+            break;
+    }
+    
+    
     return section == 1 ? 1 : 4;
 }
 

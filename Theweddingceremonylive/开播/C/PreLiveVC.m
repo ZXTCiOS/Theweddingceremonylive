@@ -20,8 +20,7 @@
 @property (nonatomic, assign) BOOL isPortrait;
 @property (nonatomic, strong) PreLiveView *maskview;
 @property (nonatomic, strong) UIView *displayView;
-@property (nonatomic, strong) NSString *pwd;
-@property (nonatomic, strong) NSString *orderID;
+
 
 @end
 
@@ -36,8 +35,8 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@""] style:UIBarButtonItemStylePlain target:self action:nil];
     
     
-    [[NIMAVChatSDK sharedSDK].netCallManager addDelegate:self];
-    [[NIMAVChatSDK sharedSDK].netCallManager startVideoCapture:[self para]];
+//    [[NIMAVChatSDK sharedSDK].netCallManager addDelegate:self];
+//    [[NIMAVChatSDK sharedSDK].netCallManager startVideoCapture:[self para]];
     
 //    NSString *uid = [userDefault objectForKey:user_uid];
 //    NSString *token = [userDefault objectForKey:user_token];
@@ -67,16 +66,26 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [[NIMAVChatSDK sharedSDK].netCallManager addDelegate:self];
+    
     self.navigationController.navigationBar.hidden = YES;
 }
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+    [[NIMAVChatSDK sharedSDK].netCallManager stopVideoCapture];
+    [[NIMAVChatSDK sharedSDK].netCallManager removeDelegate:self];
     self.navigationController.navigationBar.hidden = NO;
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [[NIMAVChatSDK sharedSDK].netCallManager startVideoCapture:[self para]];
+}
+
 - (void)viewDidDisappear:(BOOL)animated{
-    [[NIMAVChatSDK sharedSDK].netCallManager removeDelegate:self];
-    [[NIMAVChatSDK sharedSDK].netCallManager stopVideoCapture];
+    
+    [self.displayView removeFromSuperview];
+    self.displayView = nil;
 }
 
 // 配置视频采集参数

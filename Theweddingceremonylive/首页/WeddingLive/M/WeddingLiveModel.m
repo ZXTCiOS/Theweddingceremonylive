@@ -25,19 +25,13 @@
 
 + (NSDictionary<NSString *,id> *)modelContainerPropertyGenericClass{
     return @{
-             @"room_public": [WeddingLiveDataLivingModel class],
-             @"room_private": [WeddingLiveDataLivingModel class],
-             @"room_future": [WeddingLiveDataLivingModel class]
+             @"gk": [WeddingLiveDataLivingModel class],
+             @"sm": [WeddingLiveDataLivingModel class],
+             @"jq": [WeddingLiveDataLivingModel class]
              };
 }
 
-+ (NSDictionary<NSString *,id> *)modelCustomPropertyMapper{
-    return @{
-             @"sm": @"room_public",
-             @"gk": @"room_private",
-             @"jq": @"room_future"
-             };
-}
+
 
 @end
 
@@ -45,15 +39,11 @@
 
 + (NSDictionary<NSString *,id> *)modelContainerPropertyGenericClass{
     return @{
-             @"data": [WeddingLiveDataLiveDataModel class]
+             @"room_data": [WeddingLiveDataLiveDataModel class]
              };
 }
 
-+ (NSDictionary<NSString *,id> *)modelCustomPropertyMapper{
-    return @{
-             
-             };
-}
+
 
 @end
 
@@ -66,6 +56,14 @@
 }
 
 @end
+@implementation tuilaliu
 
 
+
+@end
+@implementation tuilaliuret
+
+
+
+@end
 

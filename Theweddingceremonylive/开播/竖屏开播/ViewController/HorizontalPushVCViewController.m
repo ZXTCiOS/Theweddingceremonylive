@@ -75,13 +75,11 @@
     self.nickName = [userDefault objectForKey:user_kname];
     self.count = 0;
     
-    [self setUpsth];
+    
     // 创建直播间
     [self reserveMeeting];
     // 加入直播间
     [self joinMeeting];
-    // 打开摄像头预览
-    [[NIMAVChatSDK sharedSDK].netCallManager startVideoCapture:[self para]];
     // 进入聊天室
     [self enterChatroom];
     // mask view
@@ -95,6 +93,10 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self setUpsth];
+    // 打开摄像头预览
+    [[NIMAVChatSDK sharedSDK].netCallManager startVideoCapture:[self para]];
+    
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     //关闭键盘相应
     [IQKeyboardManager sharedManager].enable = NO;
@@ -123,6 +125,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
     [self.timer invalidate];
     self.timer = nil;
+    [[NIMAVChatSDK sharedSDK].netCallManager stopVideoCapture];
     [[NIMAVChatSDK sharedSDK].netCallManager removeDelegate:self];
     [[NIMSDK sharedSDK].chatManager removeDelegate:self];
     [[NIMSDK sharedSDK].chatroomManager removeDelegate:self];
@@ -384,7 +387,7 @@
                     [self.managerlist addObject:memb];
                 }
             }
-        }
+        } 
     }];
 }
 
@@ -575,8 +578,10 @@
     NIMNetCallOption *option = [[NIMNetCallOption alloc] init];
     self.meeting.option = option;
     option.enableBypassStreaming = YES;
+    //NSString *url = [self.pushUrl componentsSeparatedByString:@"?"].firstObject;
     option.bypassStreamingUrl = self.pushUrl;
-     option.videoCaptureParam = [self para];
+    NSLog(@"%@", self.pushUrl);
+    option.videoCaptureParam = [self para];
     // 开启该选项，以在远端设备旋转时在本端自动调整角度
     option.autoRotateRemoteVideo = NO;
     // 编码器
@@ -617,6 +622,7 @@
     para.startWithBackCamera = YES;
     self.camera = NIMNetCallCameraBack;
     para.startWithCameraOn = YES;
+    
     para.videoCaptureOrientation = 0;
     
     return para;

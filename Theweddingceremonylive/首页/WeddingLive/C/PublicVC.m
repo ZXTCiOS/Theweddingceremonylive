@@ -132,12 +132,12 @@ static NSInteger page = 1;
     if ([self.type isEqualToString:@"0"]) {
         if ([model.pindao_diretion isEqualToString:@"0"]) {
             // 横屏
-            hengpingWatchVC *vc = [[hengpingWatchVC alloc] initWithChatroomID:model.roomid Url:model.tuilaliu meetingname:model.uid];
+            hengpingWatchVC *vc = [[hengpingWatchVC alloc] initWithChatroomID:model.roomid Url:model.tuilaliu.ret.rtmpPullUrl meetingname:model.uid];
             vc.zhubo_name = model.username;
             vc.zhubo_img = model.picture;
             [self.navigationController pushViewController:vc animated:NO];
         } else {
-            PortraitFullViewController *vc = [[PortraitFullViewController alloc] initWithChatroomID:model.roomid Url:model.tuilaliu meetingname:model.uid];
+            PortraitFullViewController *vc = [[PortraitFullViewController alloc] initWithChatroomID:model.roomid Url:model.tuilaliu.ret.rtmpPullUrl meetingname:model.uid];
             vc.zhubo_name = model.username;
             vc.zhubo_img = model.picture;
             [self.navigationController pushViewController:vc animated:NO];
@@ -153,12 +153,12 @@ static NSInteger page = 1;
                 
                 if ([model.pindao_diretion isEqualToString:@"0"]) {
                     // 横屏
-                    hengpingWatchVC *vc = [[hengpingWatchVC alloc] initWithChatroomID:model.roomid Url:model.tuilaliu meetingname:model.uid];
+                    hengpingWatchVC *vc = [[hengpingWatchVC alloc] initWithChatroomID:model.roomid Url:model.tuilaliu.ret.rtmpPullUrl meetingname:model.uid];
                     vc.zhubo_name = model.username;
                     vc.zhubo_img = model.picture;
                     [self.navigationController pushViewController:vc animated:NO];
                 } else {
-                    PortraitFullViewController *vc = [[PortraitFullViewController alloc] initWithChatroomID:model.roomid Url:model.tuilaliu meetingname:model.uid];
+                    PortraitFullViewController *vc = [[PortraitFullViewController alloc] initWithChatroomID:model.roomid Url:model.tuilaliu.ret.rtmpPullUrl meetingname:model.uid];
                     vc.zhubo_name = model.username;
                     vc.zhubo_img = model.picture;
                     [self.navigationController pushViewController:vc animated:NO];

@@ -62,7 +62,7 @@
 -(void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [self.tabBarController.tabBar setHidden:NO];
+    //[self.tabBarController.tabBar setHidden:NO];
 }
 
 
@@ -90,9 +90,9 @@
             
             WeddingLiveModel *model = [WeddingLiveModel parse:obj];
             self.model = model;
-            self.publiclist = model.data.room_public;
-            self.privatelist = model.data.room_private;
-            self.futurelist = model.data.room_future;
+            self.publiclist = model.data.gk;
+            self.privatelist = model.data.sm;
+            self.futurelist = model.data.jq;
             [self.tableView reloadData];
             // 下拉刷新时 近期婚礼直播还没显示所以不用刷新
         } else {
@@ -118,9 +118,9 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     //return 4;
     if (section == 0) {
-        return self.publiclist.data.count;
+        return self.publiclist.room_data.count;
     } else if (section == 1){
-        return self.privatelist.data.count;
+        return self.privatelist.room_data.count;
     } else if (section == 2) {
         return self.futurelist.count;
     } return 0;
@@ -135,7 +135,7 @@
         formatter.dateFormat = @"yyyy-MM-dd";
         NSDate *date = [NSDate dateWithTimeIntervalSince1970:[model.time doubleValue]];
         cell.dateL.text = [formatter stringFromDate:date];
-        cell.countL.text = [NSString stringWithFormat:@"%@场", model.count];
+        cell.countL.text = [NSString stringWithFormat:@"%@场", model.room_renshu];
         cell.collectionView.delegate = self;
         cell.collectionView.dataSource = self;
         cell.collectionView.tag = 500 + indexPath.row;
@@ -143,13 +143,13 @@
     }
     WeddingLiveDataLiveDataModel *model;
     if (indexPath.section) {
-        model = self.privatelist.data[indexPath.row];
+        model = self.privatelist.room_data[indexPath.row];
     } else {
-        model = self.publiclist.data[indexPath.row];
+        model = self.publiclist.room_data[indexPath.row];
     }
     WeddingLivingCell *cell = [tableView dequeueReusableCellWithIdentifier:@"living" forIndexPath:indexPath];
     //return cell;
-    [cell.imgV sd_setImageWithURL:model.room_img.xd_URL placeholderImage:[UIImage imageNamed:@"hlzbfive"]];
+    [cell.imgV sd_setImageWithURL:[NSURL URLWithString: model.room_img] placeholderImage:[UIImage imageNamed:@"hlzbfive"]];
     cell.titleL.text = model.room_name;
     cell.countL.text = model.pindao_renshu;
     cell.lockImg.hidden = !indexPath.section;
@@ -164,6 +164,7 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIControl *view = [[UIControl alloc] initWithFrame:CGRectMake(0, 0, 0, 30)];
+    view.backgroundColor = [UIColor whiteColor];
     UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(12, 12, 200, 17)];
     
     UILabel *count = [[UILabel alloc] initWithFrame:CGRectMake(kScreenW - 112, 12, 100, 17)];
@@ -174,7 +175,10 @@
     switch (section) {
         case 0:{
             title.text = @"全平台直播";
-            count.text = [NSString stringWithFormat:@"%@场", self.publiclist.count];
+            count.text = [NSString stringWithFormat:@"%@场", self.publiclist.room_renshu];
+            if (!self.publiclist.room_renshu) {
+                count.text = @"0场";
+            }
             [view bk_addEventHandler:^(id sender) {
                 PublicVC *vc = [[PublicVC alloc] init];
                 vc.type = @"0";
@@ -184,7 +188,10 @@
             break;
         case 1:{
             title.text = @"亲友内部直播";
-            count.text = [NSString stringWithFormat:@"%@场", self.privatelist.count];
+            count.text = [NSString stringWithFormat:@"%@场", self.privatelist.room_renshu];
+            if (!self.privatelist.room_renshu) {
+                count.text = @"0场";
+            }
             [view bk_addEventHandler:^(id sender) {
                 PublicVC *vc = [[PublicVC alloc] init];
                 vc.type = @"1";
@@ -251,41 +258,45 @@
     
     
     if (indexPath.section == 0) {
-        WeddingLiveDataLiveDataModel *model = self.publiclist.data[indexPath.row];
+        WeddingLiveDataLiveDataModel *model = self.publiclist.room_data[indexPath.row];
         if ([model.pindao_diretion isEqualToString:@"0"]) {
             // 横屏
-            hengpingWatchVC *vc = [[hengpingWatchVC alloc] initWithChatroomID:model.roomid Url:model.tuilaliu meetingname:model.uid];
+            hengpingWatchVC *vc = [[hengpingWatchVC alloc] initWithChatroomID:model.roomid Url:model.tuilaliu.ret.rtmpPullUrl meetingname:model.uid];
             vc.zhubo_name = model.username;
             vc.zhubo_img = model.picture;
+            vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:NO];
         } else {
-            PortraitFullViewController *vc = [[PortraitFullViewController alloc] initWithChatroomID:model.roomid Url:model.tuilaliu meetingname:model.uid];
+            PortraitFullViewController *vc = [[PortraitFullViewController alloc] initWithChatroomID:model.roomid Url:model.tuilaliu.ret.rtmpPullUrl meetingname:model.uid];
             vc.zhubo_name = model.username;
             vc.zhubo_img = model.picture;
+            vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:NO];
         }
         
     } else if (indexPath.section == 1){
-        WeddingLiveDataLiveDataModel *model = self.privatelist.data[indexPath.row];
+        WeddingLiveDataLiveDataModel *model = self.privatelist.room_data[indexPath.row];
         
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"请输入密码" message:@"" preferredStyle:UIAlertControllerStyleAlert];
         [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
             textField.placeholder = @"请输入密码";
         }];
         UIAlertAction *act = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             UITextField *pwd = alert.textFields.firstObject;
-            if ([pwd isEqual:model.order_password]) {
+            if (![pwd isEqual:model.order_password]) {
                 
                 if ([model.pindao_diretion isEqualToString:@"0"]) {
                     // 横屏
-                    hengpingWatchVC *vc = [[hengpingWatchVC alloc] initWithChatroomID:model.roomid Url:model.tuilaliu meetingname:model.uid];
+                    hengpingWatchVC *vc = [[hengpingWatchVC alloc] initWithChatroomID:model.roomid Url:model.tuilaliu.ret.rtmpPullUrl meetingname:model.uid];
                     vc.zhubo_name = model.username;
                     vc.zhubo_img = model.picture;
+                    vc.hidesBottomBarWhenPushed = YES;
                     [self.navigationController pushViewController:vc animated:NO];
                 } else {
-                    PortraitFullViewController *vc = [[PortraitFullViewController alloc] initWithChatroomID:model.roomid Url:model.tuilaliu meetingname:model.uid];
+                    PortraitFullViewController *vc = [[PortraitFullViewController alloc] initWithChatroomID:model.roomid Url:model.tuilaliu.ret.rtmpPullUrl meetingname:model.uid];
                     vc.zhubo_name = model.username;
                     vc.zhubo_img = model.picture;
+                    vc.hidesBottomBarWhenPushed = YES;
                     [self.navigationController pushViewController:vc animated:NO];
                 }
                 
@@ -312,13 +323,13 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     
-    return self.futurelist[collectionView.tag - 500].data.count;
+    return self.futurelist[collectionView.tag - 500].room_data.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     WeddingLiveFutureCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"future" forIndexPath:indexPath];
-    WeddingLiveDataLiveDataModel *model = self.futurelist[collectionView.tag - 500].data[indexPath.row];
-    [cell.imgV sd_setImageWithURL:model.room_img.xd_URL placeholderImage:[UIImage imageNamed:@"hlzbfive"]];
+    WeddingLiveDataLiveDataModel *model = self.futurelist[collectionView.tag - 500].room_data[indexPath.row];
+    [cell.imgV sd_setImageWithURL:[NSURL URLWithString: model.room_img] placeholderImage:[UIImage imageNamed:@"hlzbfive"]];
     cell.titleL.text = model.room_name;
     return cell;
 }

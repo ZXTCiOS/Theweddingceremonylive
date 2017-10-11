@@ -72,6 +72,7 @@
             make.size.equalTo(CGSizeMake(300, 50));
         }];
         _title.font = [UIFont systemFontOfSize:30];
+        _title.textColor = [UIColor whiteColor];
     }
     return _title;
 }
