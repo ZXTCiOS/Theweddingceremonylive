@@ -24,6 +24,20 @@
 #define SizeScale (kScreenW != 414 ? 1 : 1.2)
 #define kFont(value) [UIFont systemFontOfSize:value * SizeScale]
 
+#define  adjustsScrollViewInsets_NO(scrollView,vc)\
+do { \
+_Pragma("clang diagnostic push") \
+_Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"") \
+if ([UIScrollView instancesRespondToSelector:NSSelectorFromString(@"setContentInsetAdjustmentBehavior:")]) {\
+[scrollView   performSelector:NSSelectorFromString(@"setContentInsetAdjustmentBehavior:") withObject:@(2)];\
+} else {\
+vc.automaticallyAdjustsScrollViewInsets = NO;\
+}\
+_Pragma("clang diagnostic pop") \
+} while (0)
+
+
+
 /********* 去掉Cell分割线的左边距   *************/
 #define kRemoveLeftSeparator(cell) \
 cell.separatorInset = UIEdgeInsetsZero;\

@@ -39,7 +39,7 @@
         {
             if([zz isKindOfClass:[UIButton class]]){
                 UIButton *btn = (UIButton *)zz;
-                [btn setTitle:@"取消" forState:UIControlStateNormal];
+                [btn setTitle:@"返回" forState:UIControlStateNormal];
                 [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
                 self.searchController.searchBar.showsCancelButton = YES;
                 [btn removeAllTargets];
@@ -161,7 +161,7 @@
         {
             if([zz isKindOfClass:[UIButton class]]){
                 UIButton *btn = (UIButton *)zz;
-                [btn setTitle:@"取消" forState:UIControlStateNormal];
+                [btn setTitle:@"返回" forState:UIControlStateNormal];
                 [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
                 self.searchController.searchBar.showsCancelButton = YES;
                 [btn removeAllTargets];
