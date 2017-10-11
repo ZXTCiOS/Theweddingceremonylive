@@ -95,12 +95,11 @@ static NSString *qualityidentfid = @"qualityidentfid";
             
             [self.table reloadData];
         }
-        NSString *msg = [obj objectForKey:@"msg"];
-        [MBProgressHUD showSuccess:msg toView:self.view];
+
         [self.table endHeaderRefresh];
     } failure:^(NSError *error) {
         [self.table endHeaderRefresh];
-        [MBProgressHUD showSuccess:@"没有网络" toView:self.view];
+
     }];
 }
 
@@ -137,12 +136,11 @@ static NSString *qualityidentfid = @"qualityidentfid";
             
             [self.table reloadData];
         }
-        NSString *msg = [obj objectForKey:@"msg"];
-        [MBProgressHUD showSuccess:msg toView:self.view];
+
         [self.table endFooterRefresh];
     } failure:^(NSError *error) {
         [self.table endFooterRefresh];
-        [MBProgressHUD showSuccess:@"没有网络" toView:self.view];
+
     }];
 }
 

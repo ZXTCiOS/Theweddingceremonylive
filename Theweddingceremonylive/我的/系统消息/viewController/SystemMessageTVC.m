@@ -10,6 +10,9 @@
 #import "systemCell.h"
 #import "systemModel.h"
 
+
+
+
 @interface SystemMessageTVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic,strong) NSMutableArray *dataSource;
@@ -25,8 +28,15 @@ static NSString *systemcellidentfid = @"systencellidentfid";
     self.dataSource = [NSMutableArray array];
     [self.view addSubview:self.table];
     self.table.tableFooterView = [UIView new];
+
     
     [self loaddata];
+}
+
+
+-(void)popanimat
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ValuePass" object:nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -47,10 +57,12 @@ static NSString *systemcellidentfid = @"systencellidentfid";
 
 - (void)rebackToRootViewAction {
     if ([self.typestr isEqualToString:@"1"]) {
+        [self popanimat];
         [self dismissViewControllerAnimated:YES completion:nil];
     }
     else
     {
+        [self popanimat];
         [self.navigationController popViewControllerAnimated:YES];
     }
 }

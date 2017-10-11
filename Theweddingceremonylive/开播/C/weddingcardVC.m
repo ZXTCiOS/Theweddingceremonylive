@@ -397,7 +397,7 @@
     UIGraphicsEndImageContext();
     if (image != nil) {
         NSLog(@"截图成功!");
-//        UIImageWriteToSavedPhotosAlbum(image,self,@selector(image:didFinishSavingWithError:contextInfo:),NULL);
+        UIImageWriteToSavedPhotosAlbum(image,self,@selector(image:didFinishSavingWithError:contextInfo:),NULL);
         
         NSArray *titlearr = @[@"微信朋友圈",@"微信好友",@"QQ"];
         NSArray *imageArr = @[@"wechatquan",@"wechat",@"tcentQQ"];
@@ -455,7 +455,7 @@
 {
     NSArray *titlearr = @[@"微信朋友圈",@"微信好友",@"QQ"];
     NSArray *imageArr = @[@"wechatquan",@"wechat",@"tcentQQ"];
-    ActionSheetView *actionsheet = [[ActionSheetView alloc] initWithShareHeadOprationWith:titlearr andImageArry:imageArr andProTitle:@"测试" and:ShowTypeIsShareStyle];
+    ActionSheetView *actionsheet = [[ActionSheetView alloc] initWithShareHeadOprationWith:titlearr andImageArry:imageArr andProTitle:@"喜帖" and:ShowTypeIsShareStyle];
     [actionsheet setBtnClick:^(NSInteger btnTag) {
         NSLog(@"\n点击第几个====%ld\n当前选中的按钮title====%@",btnTag,titlearr[btnTag]);
         if (btnTag==1) {

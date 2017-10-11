@@ -62,7 +62,6 @@ static NSString *mineidentfid2 = @"mineidentfid2";
     NSString *token = [userDefault objectForKey:user_token];
     NSDictionary *para = @{@"uid":uid,@"token":token};
     [DNNetworking postWithURLString:post_getinfo parameters:para success:^(id obj) {
-        NSLog(@"obj------%@",obj);
         if ([[obj objectForKey:@"code"] intValue]==1000) {
              self.infodic =  [obj objectForKey:@"data"];
         }
@@ -109,18 +108,34 @@ static NSString *mineidentfid2 = @"mineidentfid2";
         [MBProgressHUD showSuccess:@"失败" toView:self.view];
     }];
     
-    [DNNetworking postWithURLString:post_tuisongfankui parameters:para success:^(id obj) {
-        if ([[obj objectForKey:@"code"] intValue]==1000) {
-            [self.headView.btn0.redImg setHidden:NO];
-        }
-        else
-        {
-            [self.headView.btn0.redImg setHidden:YES];
-        }
-    } failure:^(NSError *error) {
-        
-    }];
+    static dispatch_once_t disOnce;
+    
+    dispatch_once(&disOnce,
+                  ^ {
+                      [DNNetworking postWithURLString:post_tuisongfankui parameters:para success:^(id obj) {
+                          if ([[obj objectForKey:@"code"] intValue]==1000) {
+                              [self.headView.btn0.redImg setHidden:NO];
+                          }
+                          else
+                          {
+                              [self.headView.btn0.redImg setHidden:YES];
+                          }
+                      } failure:^(NSError *error) {
+                          
+                      }];
+                      
+                  });
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveValue:)name:@"ValuePass"object:nil];
 }
+
+- (void)receiveValue:(NSNotification* )notifi{
+    
+    NSLog(@"%@, %@",notifi.object, notifi.userInfo);
+    [self.headView.btn0.redImg setHidden:YES];
+}
+
+
 
 -(void)viewWillAppear:(BOOL)animated
 {

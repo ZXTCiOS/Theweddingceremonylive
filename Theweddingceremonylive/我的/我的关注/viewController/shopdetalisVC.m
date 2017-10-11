@@ -14,6 +14,7 @@
 @interface shopdetalisVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic,strong) NSDictionary *datadic;
+@property (nonatomic,assign) BOOL guanzhu;
 @end
 
 static NSString *shopdetaliscellidentfid = @"shopdetaliscellidentfid";
@@ -25,6 +26,7 @@ static NSString *shopdetaliscellidentfid2 = @"shopdetaliscellidentfid2";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.guanzhu = NO;
     // Do any additional setup after loading the view.
     self.title = @"商家详情";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"关注" style:UIBarButtonItemStylePlain target:self action:@selector(rightAction)];
@@ -53,6 +55,15 @@ static NSString *shopdetaliscellidentfid2 = @"shopdetaliscellidentfid2";
         [MBProgressHUD showSuccess:msg toView:self.view];
         if ([[obj objectForKey:@"code"] intValue]==1000) {
             self.datadic = [obj objectForKey:@"data"];
+            NSDictionary *dic = [obj objectForKey:@"data"];
+            NSString *is_guanzhu = [dic objectForKey:@"is_guanzhu"];
+            if ([is_guanzhu isEqualToString:@"0"]) {
+                self.guanzhu = NO;
+            }
+            else
+            {
+                self.guanzhu = YES;
+            }
             [self.table reloadData];
         }
     } failure:^(NSError *error) {
@@ -140,15 +151,22 @@ static NSString *shopdetaliscellidentfid2 = @"shopdetaliscellidentfid2";
 
 -(void)rightAction
 {
-    NSString *uid = [userDefault objectForKey:user_uid];
-    NSString *token = [userDefault objectForKey:user_token];
-    NSDictionary *para = @{@"uid":uid,@"token":token,@"businid":self.businid};
-    [DNNetworking postWithURLString:post_guanzhushangjia parameters:para success:^(id obj) {
-        NSString *msg = [obj objectForKey:@"msg"];
-        [MBProgressHUD showSuccess:msg toView:self.view];
-    } failure:^(NSError *error) {
-        [MBProgressHUD showSuccess:@"网络错误" toView:self.view];
-    }];;
+    if (self.guanzhu) {
+        
+    }
+    else
+    {
+        NSString *uid = [userDefault objectForKey:user_uid];
+        NSString *token = [userDefault objectForKey:user_token];
+        NSDictionary *para = @{@"uid":uid,@"token":token,@"businid":self.businid};
+        [DNNetworking postWithURLString:post_guanzhushangjia parameters:para success:^(id obj) {
+            NSString *msg = [obj objectForKey:@"msg"];
+            [MBProgressHUD showSuccess:msg toView:self.view];
+        } failure:^(NSError *error) {
+            [MBProgressHUD showSuccess:@"网络错误" toView:self.view];
+        }];;
+    }
+
     
 }
 

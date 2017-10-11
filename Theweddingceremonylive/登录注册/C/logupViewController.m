@@ -33,6 +33,8 @@
 @property (nonatomic,strong) UIButton *submitBtn;
 
 @property (nonatomic,strong) NSString *codestr;
+
+@property (nonatomic,assign) BOOL isyanzhengma;
 @end
 
 @implementation logupViewController
@@ -41,6 +43,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"注册";
+    self.isyanzhengma = NO;
     [self.view addSubview:self.lab0];
     [self.view addSubview:self.phonetext];
     [self.view addSubview:self.lineview0];
@@ -57,15 +60,9 @@
     [self.view addSubview:self.lineview3];
     [self setuplayout];
     
-    //进度b
-    [self.sentCodeBtn processBlock:^(NSUInteger second) {
-        self.sentCodeBtn.title = [NSString stringWithFormat:@"(%lis)后重新获取", second] ;
-        
-      
-        
-    } onFinishedBlock:^{  // 倒计时完毕
-        self.sentCodeBtn.title = @"重新获取验证码";
-    }];
+
+
+    
 
 }
 
@@ -275,7 +272,7 @@
         _sentCodeBtn.totalSecond = KTime;
         _sentCodeBtn.layer.masksToBounds = YES;
         _sentCodeBtn.layer.cornerRadius = 20*HEIGHT_SCALE;
-        [_sentCodeBtn addTarget:self action:@selector(sendcodebtnclock) forControlEvents:UIControlEventTouchUpInside];
+
     }
     return _sentCodeBtn;
 }
@@ -453,5 +450,24 @@
     [self.newpasstext resignFirstResponder];
 }
 
-
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    NSUInteger length = self.phonetext.text.length - range.length + string.length;
+    
+    if (length > 0) {
+        self.sentCodeBtn.enabled = YES;
+        //进度b
+        [self.sentCodeBtn processBlock:^(NSUInteger second) {
+            self.sentCodeBtn.title = [NSString stringWithFormat:@"(%lis)后重新获取", second] ;
+        } onFinishedBlock:^{  // 倒计时完毕
+            self.sentCodeBtn.title = @"重新获取验证码";
+        }];
+        [_sentCodeBtn addTarget:self action:@selector(sendcodebtnclock) forControlEvents:UIControlEventTouchUpInside];
+        
+    } else {
+        
+        self.sentCodeBtn.enabled = NO;
+    }
+    return YES;
+}
 @end
