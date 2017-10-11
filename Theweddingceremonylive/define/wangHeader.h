@@ -126,4 +126,7 @@
 
 //充值回掉地址
 #define post_chongzhichuli @"/interface.php/Home/User/chonzhichuli"
+
+//关注商家
+#define post_guanzhushangjia @"/interface.php/Home/Index/guanzhu"
 #endif /* wangHeader_h */

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ModifyInfoVC : BaseViewController
-
+@property (nonatomic,strong) NSDictionary *infoDic;
 @end

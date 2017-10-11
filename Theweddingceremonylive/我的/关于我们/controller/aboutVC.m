@@ -51,7 +51,7 @@ static NSString *aboutidentfid = @"aboutidentfid";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -62,19 +62,15 @@ static NSString *aboutidentfid = @"aboutidentfid";
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.font = [UIFont systemFontOfSize:14];
     cell.textLabel.textColor = [UIColor colorWithHexString:@"333333"];
+  
     if (indexPath.row==0) {
-        cell.textLabel.text = @"检测更新";
-    }
-    if (indexPath.row==1) {
         cell.textLabel.text = @"意见反馈";
         
     }
-    if (indexPath.row==2) {
+    if (indexPath.row==1) {
         cell.textLabel.text = @"用户协议";
     }
-    if (indexPath.row==3) {
-        cell.textLabel.text = @"关于我们";
-    }
+
     return cell;
 }
 
@@ -86,20 +82,14 @@ static NSString *aboutidentfid = @"aboutidentfid";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row==0) {
-        
-    }
-    if (indexPath.row==1) {
         feedbackVC *vc = [[feedbackVC alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }
-    if (indexPath.row==2) {
+    if (indexPath.row==1) {
         userprotocolVC *vc = [[userprotocolVC alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }
-    if (indexPath.row==3) {
-        guanyuusVC *vc = [[guanyuusVC alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-    }
+
 }
 
 -(void)viewWillAppear:(BOOL)animated

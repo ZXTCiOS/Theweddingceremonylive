@@ -27,6 +27,9 @@ static NSString *shopdetaliscellidentfid2 = @"shopdetaliscellidentfid2";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"商家详情";
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"关注" style:UIBarButtonItemStylePlain target:self action:@selector(rightAction)];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithHexString:@"E95F46"];
+    
     self.datadic = [NSDictionary dictionary];
     [self.view addSubview:self.table];
     self.table.tableFooterView = [UIView new];
@@ -133,6 +136,20 @@ static NSString *shopdetaliscellidentfid2 = @"shopdetaliscellidentfid2";
         return 200*HEIGHT_SCALE;
     }
     return 0;
+}
+
+-(void)rightAction
+{
+    NSString *uid = [userDefault objectForKey:user_uid];
+    NSString *token = [userDefault objectForKey:user_token];
+    NSDictionary *para = @{@"uid":uid,@"token":token,@"businid":self.businid};
+    [DNNetworking postWithURLString:post_guanzhushangjia parameters:para success:^(id obj) {
+        NSString *msg = [obj objectForKey:@"msg"];
+        [MBProgressHUD showSuccess:msg toView:self.view];
+    } failure:^(NSError *error) {
+        [MBProgressHUD showSuccess:@"网络错误" toView:self.view];
+    }];;
+    
 }
 
 #pragma mark - tabbar
