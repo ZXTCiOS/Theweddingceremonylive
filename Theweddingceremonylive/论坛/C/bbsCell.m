@@ -120,7 +120,7 @@
         [_dianBtn setTitleColor:[UIColor colorWithHexString:@"c7c7cd"] forState:normal];
         _dianBtn.buttonImagePosition = FSCustomButtonImagePositionLeft;
         _dianBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
-        _dianBtn.titleLabel.font = [UIFont systemFontOfSize:12];
+        _dianBtn.titleLabel.font = [UIFont systemFontOfSize:15];
         [_dianBtn addTarget:self action:@selector(dianBtnclick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _dianBtn;
@@ -188,13 +188,12 @@
     .autoHeightRatio(0);
     
     UIView *bottomview = [UIView new];
-    
     if (dataimg.count==0) {
         weakSelf.dianBtn.sd_layout
         .rightSpaceToView(weakSelf.contentView, 12*WIDTH_SCALE)
         .topSpaceToView(weakSelf.contentlab, 36*HEIGHT_SCALE)
-        .heightIs(12*HEIGHT_SCALE)
-        .widthIs(60*WIDTH_SCALE);
+        .heightIs(30*HEIGHT_SCALE)
+        .widthIs(40*WIDTH_SCALE);
         
         bottomview = self.dianBtn;
     }
@@ -210,8 +209,8 @@
         weakSelf.dianBtn.sd_layout
         .rightSpaceToView(weakSelf.contentView, 12*WIDTH_SCALE)
         .topSpaceToView(weakSelf.bbsimg, 36*HEIGHT_SCALE)
-        .heightIs(12*HEIGHT_SCALE)
-        .widthIs(60*WIDTH_SCALE);
+        .heightIs(30*HEIGHT_SCALE)
+        .widthIs(40*WIDTH_SCALE);
         
         bottomview = self.dianBtn;
         
