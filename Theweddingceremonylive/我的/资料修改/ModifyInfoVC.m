@@ -17,7 +17,6 @@
 @property (nonatomic,strong) UIView *headView;
 @property (nonatomic,strong) UIImageView *userImg;
 @property (nonatomic,strong) NSString *sexstr;
-@property (nonatomic,strong) NSDictionary *dic;
 @end
 
 static NSString *modifyidentfid0 = @"modifyidentfid0";
@@ -37,7 +36,6 @@ static NSString *modifyidentfid5 = @"modifyidentfid5";
     self.sexstr = @"0";
     self.table.tableFooterView = [UIView new];
     self.table.tableHeaderView = self.headView;
-    self.dic = [NSDictionary dictionary];
     [self loaddata];
 }
 
@@ -48,24 +46,8 @@ static NSString *modifyidentfid5 = @"modifyidentfid5";
 
 -(void)loaddata
 {
-    NSUserDefaults *defat = [NSUserDefaults standardUserDefaults];
-    NSString *uid = [defat objectForKey:user_uid];
-    NSString *token = [defat objectForKey:user_token];
-    NSDictionary *para = @{@"uid":uid,@"token":token};
-    [DNNetworking postWithURLString:post_getinfo parameters:para success:^(id obj) {
-        NSLog(@"obj------%@",obj);
-        if ([[obj objectForKey:@"code"] intValue]==1000) {
-            self.dic =  [obj objectForKey:@"data"];
-            [_userImg sd_setImageWithURL:[NSURL URLWithString:[self.dic objectForKey:@"picture"]] placeholderImage:[UIImage imageNamed:@"userpic"]];
-        }
-        else
-        {
-            [MBProgressHUD showSuccess:@"失败" toView:self.view];
-        }
-        [self.table reloadData];
-    } failure:^(NSError *error) {
-        [MBProgressHUD showSuccess:@"失败" toView:self.view];
-    }];
+     [_userImg sd_setImageWithURL:[NSURL URLWithString:[self.infoDic objectForKey:@"picture"]] placeholderImage:[UIImage imageNamed:@"userpic"]];
+    
 }
 
 #pragma mark - getters
@@ -129,7 +111,7 @@ static NSString *modifyidentfid5 = @"modifyidentfid5";
             cell.text.placeholder = @"请输入昵称";
             cell.text.tag = 201;
         }
-        cell.text.text = [self.dic objectForKey:@"name"];
+        cell.text.text = [self.infoDic objectForKey:@"name"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -151,7 +133,7 @@ static NSString *modifyidentfid5 = @"modifyidentfid5";
             cell.text.placeholder = @"请输入年龄";
             cell.text.tag = 202;
         }
-        cell.text.text = [self.dic objectForKey:@"old"];
+        cell.text.text = [self.infoDic objectForKey:@"old"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -163,7 +145,7 @@ static NSString *modifyidentfid5 = @"modifyidentfid5";
             cell.text.placeholder = @"请输入地区";
             cell.text.tag = 203;
         }
-        cell.text.text = [self.dic objectForKey:@"address"];
+        cell.text.text = [self.infoDic objectForKey:@"address"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -219,14 +201,11 @@ static NSString *modifyidentfid5 = @"modifyidentfid5";
 
 -(void)setbtnclick
 {
-    
     UITextField *text1 = [self.table viewWithTag:201];
     UITextField *text2 = [self.table viewWithTag:202];
     UITextField *text3 = [self.table viewWithTag:203];
-//    UITextField *text4 = [self.table viewWithTag:204];
     
-    NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
-    NSString *uid = [userdefat objectForKey:user_uid];
+    NSString *uid = [userDefault objectForKey:user_uid];
     NSString *suffix = @"png";
     UIImage *img = self.userImg.image;
     NSData *imageData = UIImageJPEGRepresentation(img, 1.0);
@@ -248,7 +227,7 @@ static NSString *modifyidentfid5 = @"modifyidentfid5";
     {
         old = text2.text;
     }
-    NSString *token = [userdefat objectForKey:user_token];
+    NSString *token = [userDefault objectForKey:user_token];
     NSString *address = @"";
     if (text3.text.length==0) {
         address = @"";
@@ -288,7 +267,6 @@ static NSString *modifyidentfid5 = @"modifyidentfid5";
     [text2 resignFirstResponder];
     [text3 resignFirstResponder];
     [text4 resignFirstResponder];
-    
 }
 
 -(void)viewWillAppear:(BOOL)animated

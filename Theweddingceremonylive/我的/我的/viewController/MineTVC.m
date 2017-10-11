@@ -34,6 +34,7 @@
 @property (nonatomic,strong) UIImageView *userImg;
 @property (nonatomic,strong) UILabel *nameLab;
 @property (nonatomic,strong) NSDictionary *dataDic;
+@property (nonatomic,strong) NSDictionary *infodic;
 @end
 static NSString *mineidentfid0 = @"mineidentfid0";
 static NSString *mineidentfid1 = @"mineidentfid1";
@@ -50,6 +51,29 @@ static NSString *mineidentfid2 = @"mineidentfid2";
     self.table.tableHeaderView = self.headView;
     self.table.tableFooterView = [UIView new];
     [self loaddata];
+    [self loaddatainfo];
+}
+
+
+-(void)loaddatainfo
+{
+    self.infodic = [NSDictionary dictionary];
+    NSString *uid = [userDefault objectForKey:user_uid];
+    NSString *token = [userDefault objectForKey:user_token];
+    NSDictionary *para = @{@"uid":uid,@"token":token};
+    [DNNetworking postWithURLString:post_getinfo parameters:para success:^(id obj) {
+        NSLog(@"obj------%@",obj);
+        if ([[obj objectForKey:@"code"] intValue]==1000) {
+             self.infodic =  [obj objectForKey:@"data"];
+        }
+        else
+        {
+            [MBProgressHUD showSuccess:@"失败" toView:self.view];
+        }
+        [self.table reloadData];
+    } failure:^(NSError *error) {
+        [MBProgressHUD showSuccess:@"失败" toView:self.view];
+    }];
 }
 
 
@@ -367,6 +391,7 @@ static NSString *mineidentfid2 = @"mineidentfid2";
 -(void)btn1click
 {
     ModifyInfoVC *modvc = [[ModifyInfoVC alloc] init];
+    modvc.infoDic = self.infodic;
     [self.navigationController pushViewController:modvc animated:YES];
 }
 

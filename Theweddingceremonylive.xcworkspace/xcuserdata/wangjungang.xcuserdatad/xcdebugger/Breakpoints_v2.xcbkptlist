@@ -48,31 +48,31 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__27-[weddingPayVC zhifujiekou]_block_invoke_5"
+                  symbolName = "__27-[weddingPayVC zhifujiekou]_block_invoke_2.400"
                   moduleName = "Theweddingceremonylive"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/wangjungang/Desktop/%E7%9B%B4%E6%92%AD/Theweddingceremonylive/Theweddingceremonylive/%E5%BC%80%E6%92%AD/C/weddingPayVC.m"
-                  timestampString = "528456091.172507"
+                  urlString = "file:///Users/wangjungang/Desktop/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9%202/Theweddingceremonylive/Theweddingceremonylive/%E5%BC%80%E6%92%AD/C/weddingPayVC.m"
+                  timestampString = "529396302.538917"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "422"
                   endingLineNumber = "422"
-                  offsetFromSymbolStart = "56">
+                  offsetFromSymbolStart = "52">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__27-[weddingPayVC zhifujiekou]_block_invoke_6"
+                  symbolName = "__27-[weddingPayVC zhifujiekou]_block_invoke_3.403"
                   moduleName = "Theweddingceremonylive"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/wangjungang/Desktop/%E7%9B%B4%E6%92%AD/Theweddingceremonylive/Theweddingceremonylive/%E5%BC%80%E6%92%AD/C/weddingPayVC.m"
-                  timestampString = "528456091.176798"
+                  urlString = "file:///Users/wangjungang/Desktop/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9%202/Theweddingceremonylive/Theweddingceremonylive/%E5%BC%80%E6%92%AD/C/weddingPayVC.m"
+                  timestampString = "529396302.543452"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "424"
                   endingLineNumber = "424"
-                  offsetFromSymbolStart = "56">
+                  offsetFromSymbolStart = "52">
                </Location>
             </Locations>
          </BreakpointContent>
