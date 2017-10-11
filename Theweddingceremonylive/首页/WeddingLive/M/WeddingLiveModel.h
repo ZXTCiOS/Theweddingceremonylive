@@ -56,7 +56,7 @@
 @property (nonatomic, copy) NSString *uid;      //
 @property (nonatomic, copy) NSString *username; //主播名称
 @property (nonatomic, copy) NSString *picture;  //主播头像
-
+@property (nonatomic, copy) NSString *room_yangshi;
 
 
 @end

@@ -42,7 +42,7 @@ typedef NS_ENUM(NSUInteger, NIMMyNotiType) {
 };
 
 typedef NS_ENUM(NSUInteger, weddingType) {
-    weddingType_zhong,
+    weddingType_zhong = 1,
     weddingType_xi,
     weddingType_none,
 };

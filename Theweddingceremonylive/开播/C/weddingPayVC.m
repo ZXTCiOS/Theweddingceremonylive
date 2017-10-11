@@ -406,13 +406,14 @@
                 NSLog(@"reslut = %@",resultDic);
                 NSString * memo = resultDic[@"memo"];
                 NSLog(@"===memo:%@", memo);
-                if ([resultDic[@"ResultStatus"] isEqualToString:@"9000"]) {
+                NSString *status = [resultDic objectForKey:@"resultStatus"];
+                if ([status isEqualToString:@"9000"]) {
                     NSDictionary *para = @{@"uid":uid,@"token":token,@"price":price,@"order_id":order_id,@"type":@"1"};
                     
                     [DNNetworking postWithURLString:post_chuliorder parameters:para success:^(id obj) {
                         [self.navigationController pushViewController:vc animated:YES];
                     } failure:^(NSError *error) {
-                        
+                        NSLog(@"fail");
                     }];
                 }else{
                     NSDictionary *para = @{@"uid":uid,@"token":token,@"price":price,@"order_id":order_id,@"type":@"0"};

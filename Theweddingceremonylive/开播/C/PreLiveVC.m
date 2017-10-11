@@ -135,6 +135,7 @@
                 vc.biaoti = self.maskview.title.text;
                 vc.camera = self.camera;
                 vc.orderID = self.orderID;
+                vc.weddingtype = [self.weddingType intValue];
                 [self.navigationController pushViewController:vc animated:YES];
             } else {
                 hengpingKaiboVC *vc = [[hengpingKaiboVC alloc] initWithChatroomID:self.roomid pushurl:self.tuiliu yue:self.yue];
@@ -143,6 +144,7 @@
                 vc.biaoti = self.maskview.title.text;
                 vc.camera = self.camera;
                 vc.orderID = self.orderID;
+                vc.weddingtype = [self.weddingType intValue];
                 [self.navigationController pushViewController:vc animated:YES];
                 
             }

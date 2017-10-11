@@ -264,12 +264,14 @@
             hengpingWatchVC *vc = [[hengpingWatchVC alloc] initWithChatroomID:model.roomid Url:model.tuilaliu.ret.rtmpPullUrl meetingname:model.uid];
             vc.zhubo_name = model.username;
             vc.zhubo_img = model.picture;
+            vc.weddingtype = [model.room_yangshi intValue];
             vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:NO];
         } else {
             PortraitFullViewController *vc = [[PortraitFullViewController alloc] initWithChatroomID:model.roomid Url:model.tuilaliu.ret.rtmpPullUrl meetingname:model.uid];
             vc.zhubo_name = model.username;
             vc.zhubo_img = model.picture;
+            vc.weddingtype = [model.room_yangshi intValue];
             vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:NO];
         }
@@ -290,12 +292,14 @@
                     hengpingWatchVC *vc = [[hengpingWatchVC alloc] initWithChatroomID:model.roomid Url:model.tuilaliu.ret.rtmpPullUrl meetingname:model.uid];
                     vc.zhubo_name = model.username;
                     vc.zhubo_img = model.picture;
+                    vc.weddingtype = [model.room_yangshi intValue];
                     vc.hidesBottomBarWhenPushed = YES;
                     [self.navigationController pushViewController:vc animated:NO];
                 } else {
                     PortraitFullViewController *vc = [[PortraitFullViewController alloc] initWithChatroomID:model.roomid Url:model.tuilaliu.ret.rtmpPullUrl meetingname:model.uid];
                     vc.zhubo_name = model.username;
                     vc.zhubo_img = model.picture;
+                    vc.weddingtype = [model.room_yangshi intValue];
                     vc.hidesBottomBarWhenPushed = YES;
                     [self.navigationController pushViewController:vc animated:NO];
                 }

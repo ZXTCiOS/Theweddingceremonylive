@@ -17,7 +17,7 @@
 @property (nonatomic, copy) NSString *zhubo_img;
 @property (nonatomic, copy) NSString *zhubo_uid;
 
-
+@property (nonatomic, assign) weddingType weddingtype;
 
 - (instancetype)initWithChatroomID:(NSString *)roomid Url:(NSString *) url meetingname:(NSString *) meetingname;
 

@@ -55,7 +55,6 @@
 @property (nonatomic, copy) NSString *nickName;
 @property (nonatomic, copy) NSString *accid;
 @property (nonatomic, strong) NSTimer *timer;
-@property (nonatomic, assign) weddingType weddingtype;
 @property (nonatomic, strong) NSString *yue;
 
 @property (nonatomic, strong) UITableView *tableView;               // 聊天框
@@ -866,7 +865,20 @@
         _maskview.user_name.text = self.zhubo_name;
         _maskview.user_id.text = self.zhubo_uid;
         _maskview.countL.text = @"0";
-        NSString *img = self.weddingtype ?@"zb_xi": @"zb_zhong";
+        NSString *img ;//= self.weddingtype ?@"zb_xi": @"zb_zhong";
+        switch (self.weddingtype) {
+            case weddingType_zhong:
+                img = @"zb_zhong";
+                break;
+            case weddingType_xi:
+                img = @"zb_xi";
+                break;
+            case weddingType_none:
+                self.maskview.bgView.hidden = YES;
+                break;
+            default:
+                break;
+        }
         _maskview.bgView.image = [UIImage imageNamed:img];
         
         [self configBottomBtn:self.maskview];

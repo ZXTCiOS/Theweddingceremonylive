@@ -13,8 +13,10 @@
 @property (nonatomic, copy) NSString *roomid;
 @property (nonatomic, copy) NSString *tuiliu;
 @property (nonatomic, assign) CGFloat yue;
-@property (nonatomic, strong) NSString *type;
-@property (nonatomic, strong) NSString *pwd;
-@property (nonatomic, strong) NSString *orderID;
+@property (nonatomic, copy) NSString *type;
+@property (nonatomic, copy) NSString *pwd;
+@property (nonatomic, copy) NSString *orderID;
+@property (nonatomic, copy) NSString *weddingType;
+
 
 @end
