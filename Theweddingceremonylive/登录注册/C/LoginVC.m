@@ -410,7 +410,6 @@
 
 -(void)qqbtnclick
 {
-    
     [ZTVendorManager loginWith:ZTVendorPlatformTypeQQ completionHandler:^(ZTVendorAccountModel *model, NSError *error) {
         NSLog(@"nickname:%@",model.nickname);
         NSString *openid = model.openid;

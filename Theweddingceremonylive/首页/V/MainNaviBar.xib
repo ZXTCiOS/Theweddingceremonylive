@@ -1,10 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -22,10 +23,23 @@
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DS2-hl-ySm" customClass="UIControl">
-                    <rect key="frame" x="158" y="27" width="167" height="30"/>
+                    <rect key="frame" x="158" y="27" width="206" height="30"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sy_search" translatesAutoresizingMaskIntoConstraints="NO" id="OqA-T3-8i1">
+                            <rect key="frame" x="182" y="8" width="16" height="16"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="16" id="Ngg-x4-dQF"/>
+                                <constraint firstAttribute="height" constant="16" id="jTz-0H-fph"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
                     <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
+                        <constraint firstAttribute="bottom" secondItem="OqA-T3-8i1" secondAttribute="bottom" constant="6" id="6Og-cZ-JZK"/>
+                        <constraint firstItem="OqA-T3-8i1" firstAttribute="top" secondItem="DS2-hl-ySm" secondAttribute="top" constant="8" id="AYq-ag-kiV"/>
+                        <constraint firstItem="OqA-T3-8i1" firstAttribute="centerY" secondItem="DS2-hl-ySm" secondAttribute="centerY" constant="1" id="PMM-km-Uvi"/>
                         <constraint firstAttribute="height" constant="30" id="t2A-JC-TRx"/>
+                        <constraint firstAttribute="trailing" secondItem="OqA-T3-8i1" secondAttribute="trailing" constant="8" id="ydH-QF-mvz"/>
                     </constraints>
                     <connections>
                         <action selector="search:" destination="iN0-l3-epB" eventType="touchUpInside" id="keP-eF-7y8"/>
@@ -37,24 +51,6 @@
                     <color key="textColor" red="0.75294117647058822" green="0.75294117647058822" blue="0.75294117647058822" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sy_search" translatesAutoresizingMaskIntoConstraints="NO" id="OqA-T3-8i1">
-                    <rect key="frame" x="297" y="34" width="16" height="16"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="16" id="T73-ps-Ear"/>
-                        <constraint firstAttribute="height" constant="16" id="aIz-oA-rRT"/>
-                    </constraints>
-                </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9PV-0F-Bko">
-                    <rect key="frame" x="333" y="31" width="22" height="22"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="22" id="WOS-Lq-j04"/>
-                        <constraint firstAttribute="width" constant="22" id="eyn-4u-eMb"/>
-                    </constraints>
-                    <state key="normal" image="sy_ewm"/>
-                    <connections>
-                        <action selector="saoma:" destination="iN0-l3-epB" eventType="touchUpInside" id="Psz-pD-ebb"/>
-                    </connections>
-                </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cM4-tC-7kl">
                     <rect key="frame" x="0.0" y="63" width="375" height="1"/>
                     <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -70,26 +66,21 @@
                 <constraint firstItem="h09-Bi-ee5" firstAttribute="centerY" secondItem="DS2-hl-ySm" secondAttribute="centerY" id="YOh-DA-ENp"/>
                 <constraint firstAttribute="bottom" secondItem="cM4-tC-7kl" secondAttribute="bottom" id="bcJ-9b-gTq"/>
                 <constraint firstItem="DS2-hl-ySm" firstAttribute="centerY" secondItem="xg6-ZY-TWW" secondAttribute="centerY" id="cnB-Lk-pkL"/>
-                <constraint firstItem="9PV-0F-Bko" firstAttribute="centerY" secondItem="xg6-ZY-TWW" secondAttribute="centerY" id="et8-j4-afp"/>
+                <constraint firstAttribute="trailing" secondItem="DS2-hl-ySm" secondAttribute="trailing" constant="11" id="fXJ-aU-Y5X"/>
                 <constraint firstItem="xg6-ZY-TWW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="gEc-L0-blA"/>
-                <constraint firstAttribute="trailing" secondItem="9PV-0F-Bko" secondAttribute="trailing" constant="20" id="hSI-ZN-Oyn"/>
                 <constraint firstItem="h09-Bi-ee5" firstAttribute="leading" secondItem="xg6-ZY-TWW" secondAttribute="trailing" constant="23" id="huc-WX-xDQ"/>
                 <constraint firstItem="cM4-tC-7kl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="i81-tK-N18"/>
                 <constraint firstAttribute="bottom" secondItem="xg6-ZY-TWW" secondAttribute="bottom" constant="12" id="mVr-Pt-ujs"/>
-                <constraint firstItem="OqA-T3-8i1" firstAttribute="centerY" secondItem="DS2-hl-ySm" secondAttribute="centerY" id="p1Q-CP-Jy5"/>
-                <constraint firstItem="9PV-0F-Bko" firstAttribute="leading" secondItem="OqA-T3-8i1" secondAttribute="trailing" constant="20" id="p3t-aM-mtF"/>
-                <constraint firstItem="9PV-0F-Bko" firstAttribute="leading" secondItem="DS2-hl-ySm" secondAttribute="trailing" constant="8" id="xGR-PS-sXO"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="mask" destination="DS2-hl-ySm" id="vz3-Ty-eHx"/>
             </connections>
-            <point key="canvasLocation" x="-19" y="18"/>
+            <point key="canvasLocation" x="-19.5" y="18"/>
         </view>
     </objects>
     <resources>
-        <image name="sy_ewm" width="22" height="22"/>
         <image name="sy_logo" width="149" height="20"/>
         <image name="sy_search" width="16" height="16"/>
     </resources>
