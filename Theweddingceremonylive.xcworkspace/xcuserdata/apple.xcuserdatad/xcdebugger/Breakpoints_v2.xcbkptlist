@@ -68,12 +68,12 @@
                   moduleName = "Theweddingceremonylive"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Desktop/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9/Theweddingceremonylive/Theweddingceremonylive/%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C/C/LoginVC.m"
-                  timestampString = "529383194.93703"
+                  timestampString = "529469182.83104"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "387"
                   endingLineNumber = "387"
-                  offsetFromSymbolStart = "932">
+                  offsetFromSymbolStart = "843">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -83,12 +83,12 @@
                   moduleName = "Theweddingceremonylive"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Desktop/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9/Theweddingceremonylive/Theweddingceremonylive/%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C/C/LoginVC.m"
-                  timestampString = "529383194.939232"
+                  timestampString = "529469182.833256"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "387"
                   endingLineNumber = "387"
-                  offsetFromSymbolStart = "1084">
+                  offsetFromSymbolStart = "977">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -132,12 +132,12 @@
                   moduleName = "Theweddingceremonylive"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Desktop/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9/Theweddingceremonylive/Theweddingceremonylive/%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C/C/LoginVC.m"
-                  timestampString = "529383194.947366"
+                  timestampString = "529469182.843612"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "364"
                   endingLineNumber = "364"
-                  offsetFromSymbolStart = "876">
+                  offsetFromSymbolStart = "829">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -147,12 +147,12 @@
                   moduleName = "Theweddingceremonylive"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Desktop/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9/Theweddingceremonylive/Theweddingceremonylive/%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C/C/LoginVC.m"
-                  timestampString = "529383194.949532"
+                  timestampString = "529469182.845823"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "367"
                   endingLineNumber = "367"
-                  offsetFromSymbolStart = "64">
+                  offsetFromSymbolStart = "54">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -187,6 +187,20 @@
             endingLineNumber = "128"
             landmarkName = "-HeaderRefresh"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../Documents/Work/&#x5a5a;&#x793c;&#x76f4;&#x64ad;/Theweddingceremonylive/Theweddingceremonylive/&#x5f00;&#x64ad;/View/GiftCell.h"
+            timestampString = "529406015.313731"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

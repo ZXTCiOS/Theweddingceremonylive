@@ -933,7 +933,7 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
 {
     self.state = WMPlayerStateBuffering;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self play];
+        //[self play];
         //here
         [self.loadingView stopAnimating];
     });

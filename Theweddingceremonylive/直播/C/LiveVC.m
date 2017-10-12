@@ -33,6 +33,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
     adjustsScrollViewInsets_NO(self.tableView, self);
     
     //self.edgesForExtendedLayout = UIRectEdgeTop | UIRectEdgeBottom;
@@ -178,6 +179,11 @@
     LiveVideoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.model = self.datalist[indexPath.row];
+    
+    [cell.shareBtn removeAllTargets];
+    [cell.shareBtn bk_addEventHandler:^(id sender) {
+        
+    } forControlEvents:UIControlEventTouchUpInside];
     cell.tag = 100 + indexPath.row;
     return cell;
 }

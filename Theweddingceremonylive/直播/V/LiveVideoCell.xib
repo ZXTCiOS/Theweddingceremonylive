@@ -32,7 +32,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BxO-7Q-rId">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BxO-7Q-rId">
                                 <rect key="frame" x="266" y="20" width="34" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="ajl-9a-bMw"/>
@@ -94,6 +94,7 @@
                 <outlet property="list" destination="BxO-7Q-rId" id="YSS-yD-l3R"/>
                 <outlet property="pause" destination="Vuq-ZZ-4tP" id="Ma7-Hn-CDP"/>
                 <outlet property="share" destination="Oeh-2p-B20" id="P2Y-NI-zby"/>
+                <outlet property="shareBtn" destination="Oeh-2p-B20" id="f4F-0I-Dk7"/>
                 <outlet property="time" destination="Doj-hG-JHa" id="rau-nH-yBY"/>
                 <outlet property="title" destination="aPb-kg-kz3" id="OD4-xK-dwq"/>
             </connections>
