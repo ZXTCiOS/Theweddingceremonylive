@@ -531,7 +531,9 @@
             [self tanchuhongbao:dic];
             message.text = [NSString stringWithFormat:@"%@送出了一个红包", [dic objectForKey:@"username"]];
             [msgs addObject:message];
-        } else {
+        } else if ([message.text isEqualToString:@"lianmai..."]){
+            self.maskview.duanKaiLianmai.hidden = YES;
+        }else {
             [msgs addObject:message];
         }
         

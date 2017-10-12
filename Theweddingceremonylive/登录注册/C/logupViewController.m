@@ -387,7 +387,8 @@
                     [defat setObject:acount forKey:user_phone];
                     [defat setObject:imtoken forKey:user_imtoken];
                     [self loginNIMWithaccount:acount token:imtoken];
-                    
+                    NSString *username = [dic objectForKey:@"user_name"];
+                    [defat setObject:username forKey:user_nickname];
                     [defat synchronize];
                     
                     perfectingViewController *pervc = [[perfectingViewController alloc] init];

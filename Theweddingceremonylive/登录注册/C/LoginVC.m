@@ -377,6 +377,8 @@
             [defat setObject:uidstr forKey:user_uid];
             [defat setObject:acount forKey:user_phone];
             [defat setObject:imtoken forKey:user_imtoken];
+            NSString *username = [dic objectForKey:@"user_name"];
+            [defat setObject:username forKey:user_nickname];
             [defat synchronize];
             //todo: account...
             
@@ -445,6 +447,8 @@
                     [defat setObject:uidstr forKey:user_uid];
                     [defat setObject:acount forKey:user_phone];
                     [defat setObject:imtoken forKey:user_imtoken];
+                    NSString *username = [dic objectForKey:@"user_name"];
+                    [defat setObject:username forKey:user_nickname];
                     [defat synchronize];
                     //todo: account...
                     
@@ -507,11 +511,14 @@
                     NSString *uidstr = [dic objectForKey:@"uid"];
                     NSString *imtoken = [dic objectForKey:@"imtoken"];
                     NSString *acount = [dic objectForKey:@"tel"];
+                    //NSString *username = [dic objectForKey:@"username"];
                     NSUserDefaults *defat = [NSUserDefaults standardUserDefaults];
                     [defat setObject:tokenstr forKey:user_token];
                     [defat setObject:uidstr forKey:user_uid];
                     [defat setObject:acount forKey:user_phone];
                     [defat setObject:imtoken forKey:user_imtoken];
+                    NSString *username = [dic objectForKey:@"user_name"];
+                    [defat setObject:username forKey:user_nickname];
                     [defat synchronize];
                     //todo: account...
                     

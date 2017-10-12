@@ -500,6 +500,7 @@
     request.retryCount = 5;
     [[NIMSDK sharedSDK].chatroomManager enterChatroom:request completion:^(NSError * _Nullable error, NIMChatroom * _Nullable chatroom, NIMChatroomMember * _Nullable me) {
         if (!error) {
+            self.accid = me.userId;
             NIMTipObject *tipObject = [[NIMTipObject alloc] init];
             NIMMessage *message = [[NIMMessage alloc] init];
             message.messageObject = tipObject;

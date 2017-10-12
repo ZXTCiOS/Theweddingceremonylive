@@ -57,6 +57,7 @@ static NSString *rechargeidentfid0 = @"rechargeidentfid0";
         _fview = [[chongzhifootView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, 500)];
         _fview.backgroundColor = [UIColor whiteColor];
         _fview.moneytext.delegate = self;
+        _fview.moneytext.keyboardType = UIKeyboardTypeDecimalPad;
         [_fview.btn0 addTarget:self action:@selector(zhifubaoclick) forControlEvents:UIControlEventTouchUpInside];
         [_fview.btn1 addTarget:self action:@selector(weixinclick) forControlEvents:UIControlEventTouchUpInside];
         [_fview.sendBtn addTarget:self action:@selector(sendBtnclcik) forControlEvents:UIControlEventTouchUpInside];
@@ -152,7 +153,7 @@ static NSString *rechargeidentfid0 = @"rechargeidentfid0";
                         NSLog(@"reslut = %@",resultDic);
                         NSString * memo = resultDic[@"memo"];
                         NSLog(@"===memo:%@", memo);
-                        if ([resultDic[@"ResultStatus"] isEqualToString:@"9000"]) {
+                        if ([resultDic[@"resultStatus"] isEqualToString:@"9000"]) {
 
                             NSDictionary *dict = @{@"uid":uid,@"token":token,@"id":idstr,@"price":price,@"type":@"1"};
                             [DNNetworking postWithURLString:post_chongzhichuli parameters:dict success:^(id obj) {

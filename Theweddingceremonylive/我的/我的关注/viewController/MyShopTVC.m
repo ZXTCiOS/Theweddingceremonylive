@@ -37,6 +37,8 @@ static NSString *indentify =  @"indentify";
 
 -(void)loadtata
 {
+    [self.dataSource removeAllObjects];
+
     NSUserDefaults *userefat = [NSUserDefaults standardUserDefaults];
     NSString *uid = [userefat objectForKey:user_uid];
     NSString *token = [userefat objectForKey:user_token];
@@ -145,7 +147,7 @@ static NSString *indentify =  @"indentify";
     NSString *token = [userDefault objectForKey:user_token];
     NSDictionary *para = @{@"uid":uid,@"token":token,@"businid":businid};
     [DNNetworking postWithURLString:post_guanzhushangjiaquxiao parameters:para success:^(id obj) {
-        if ([[obj objectForKey:@"code"] intValue]==123) {
+        if ([[obj objectForKey:@"code"] intValue]==1000) {
             [self loadtata];
         }
     } failure:^(NSError *error) {

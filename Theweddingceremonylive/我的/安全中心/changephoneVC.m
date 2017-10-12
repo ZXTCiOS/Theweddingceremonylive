@@ -60,7 +60,7 @@ static NSString *changephpneidentfid1 = @"changephpneidentfid1";
         [_submitBtn setTitle:@"立即修改" forState:normal];
         _submitBtn.backgroundColor = [UIColor colorWithHexString:@"ed5e40"];
         [_submitBtn setTitleColor:[UIColor whiteColor] forState:normal];
-        _submitBtn.frame = CGRectMake(kScreenW/2-120*WIDTH_SCALE, 180*HEIGHT_SCALE, 240*WIDTH_SCALE, 45*HEIGHT_SCALE);
+        _submitBtn.frame = CGRectMake(kScreenW/2-120*WIDTH_SCALE, 220*HEIGHT_SCALE, 240*WIDTH_SCALE, 45*HEIGHT_SCALE);
         _submitBtn.layer.masksToBounds = YES;
         _submitBtn.layer.cornerRadius = 45/2*HEIGHT_SCALE;
         [_submitBtn addTarget:self action:@selector(sentbtn) forControlEvents:UIControlEventTouchUpInside];

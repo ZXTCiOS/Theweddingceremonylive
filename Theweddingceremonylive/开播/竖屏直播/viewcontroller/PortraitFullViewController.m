@@ -80,8 +80,8 @@
     //self.roomName = @"xixi";
     self.meeting = [[NIMNetCallMeeting alloc] init];
     self.meeting.name = self.zhubo_uid;
-    self.accid = [userDefault objectForKey:user_nickname];
-    self.nickName = [userDefault objectForKey:user_kname];
+    //self.accid = [userDefault objectForKey:user_nickname];
+    self.nickName = [userDefault objectForKey:user_nickname];
     
     
     NSLog(@"%@", self.url);
@@ -503,6 +503,7 @@
     request.retryCount = 5;
     [[NIMSDK sharedSDK].chatroomManager enterChatroom:request completion:^(NSError * _Nullable error, NIMChatroom * _Nullable chatroom, NIMChatroomMember * _Nullable me) {
         if (!error) {
+            self.accid = me.userId;
             NIMTipObject *tipObject = [[NIMTipObject alloc] init];
             NIMMessage *message = [[NIMMessage alloc] init];
             message.messageObject = tipObject;
