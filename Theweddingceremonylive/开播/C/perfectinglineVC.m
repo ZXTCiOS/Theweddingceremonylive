@@ -16,20 +16,18 @@
 #import "BDImagePicker.h"
 #import "weddingcardVC.h"
 #import "OYRAlertView.h"
+#import "BLAreaPickerView.h"
 
-@interface perfectinglineVC ()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,OYRAlertViewDelegate>
+@interface perfectinglineVC ()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,OYRAlertViewDelegate,BLPickerViewDelegate>
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic,strong) UIView *footView;
 @property (nonatomic,strong) UIButton *submitBtn;
-@property (strong, nonatomic) ZmjPickView *zmjPickView;
-
 @property (nonatomic,strong) OYRAlertView * oyrAlertView;
-
+@property (nonatomic, strong) BLAreaPickerView *pickView;
 @property (nonatomic,strong) NSString *room_yangshi;
 @property (nonatomic,strong) NSString *room_name;
 @property (nonatomic,strong) NSString *room_img;
 @property (nonatomic,strong) NSString *xitie_img;
-
 @property (nonatomic,strong) NSString *room_address;
 @property (nonatomic,strong) NSString *room_boy;
 @property (nonatomic,strong) NSString *room_girl;
@@ -74,6 +72,7 @@ static NSString *wanshanidentfid9 = @"wanshanidentfid9";
     [self.view addSubview:self.table];
     self.table.tableFooterView = self.footView;
     self.qinyouyaoqingma = @"";
+
 }
 
 -(void)yaoqingma
@@ -169,12 +168,6 @@ static NSString *wanshanidentfid9 = @"wanshanidentfid9";
     return _submitBtn;
 }
 
-- (ZmjPickView *)zmjPickView {
-    if (!_zmjPickView) {
-        _zmjPickView = [[ZmjPickView alloc]init];
-    }
-    return _zmjPickView;
-}
 #pragma mark - UITableViewDataSource&&UITableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -189,6 +182,7 @@ static NSString *wanshanidentfid9 = @"wanshanidentfid9";
         if (!cell) {
             cell = [[wanshanCell0 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:wanshanidentfid0];
             cell.wanshantext.tag = 201;
+            cell.wanshantext.text = @"";
         }
         cell.wanshantext.textAlignment = NSTextAlignmentRight;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -319,34 +313,22 @@ static NSString *wanshanidentfid9 = @"wanshanidentfid9";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.row==4) {
-        [self zmjPickView];
-        
-        [_zmjPickView show];
-        
-        __weak typeof(self) weakSelf = self;
-        _zmjPickView.determineBtnBlock = ^(NSInteger shengId, NSInteger shiId, NSInteger xianId, NSString *shengName, NSString *shiName, NSString *xianName){
-            __strong typeof(weakSelf)strongSelf = weakSelf;
-            [strongSelf ShengId:shengId ShiId:shiId XianId:xianId];
-            [strongSelf ShengName:shengName ShiName:shiName XianName:xianName];
-            
-            weakSelf.room_address = [NSString stringWithFormat:@"%@%@%@",shengName,shiName,xianName];
-            [weakSelf.table reloadData];
-        };
+    {
+        if (indexPath.row==4) {
+            // [self.pickerView show];
+            _pickView = [[BLAreaPickerView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 150)];
+            _pickView.pickViewDelegate = self;
+            [_pickView bl_show];
+        }
     }
-}
-- (void)ShengId:(NSInteger)shengId ShiId:(NSInteger)shiId XianId:(NSInteger)xianId{
     
-    NSLog(@"%ld,%ld,%ld",shengId,shiId,xianId);
+#pragma mark - - BLPickerViewDelegate
+- (void)bl_selectedAreaResultWithProvince:(NSString *)provinceTitle city:(NSString *)cityTitle area:(NSString *)areaTitle{
+    NSLog(@"%@,%@,%@",provinceTitle,cityTitle,areaTitle);
+    NSString *str = [NSString stringWithFormat:@"%@%@%@",provinceTitle,cityTitle,areaTitle];
+    self.room_address = str;
+    [self.table reloadData];
 }
-
-- (void)ShengName:(NSString *)shengName ShiName:(NSString *)shiName XianName:(NSString *)xianName{
-    
-    NSLog(@"%@,%@,%@",shengName,shiName,xianName);
-    
-}
-
 #pragma mark - 实现方法
 
 -(void)submitbtnclick
@@ -500,18 +482,15 @@ static NSString *wanshanidentfid9 = @"wanshanidentfid9";
 -(void)tabletap
 {
     UITextField *text0 = [self.table viewWithTag:201];
-    //UITextField *text1 = [self.table viewWithTag:202];
     UITextField *text2 = [self.table viewWithTag:203];
     UITextField *text3 = [self.table viewWithTag:204];
     UITextField *text4 = [self.table viewWithTag:205];
     UITextField *text5 = [self.table viewWithTag:206];
     [text0 resignFirstResponder];
-//    [text1 resignFirstResponder];
     [text2 resignFirstResponder];
     [text3 resignFirstResponder];
     [text4 resignFirstResponder];
     [text5 resignFirstResponder];
-    
 }
 
 #pragma mark - tabbar

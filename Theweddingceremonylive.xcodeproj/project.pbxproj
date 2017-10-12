@@ -185,6 +185,8 @@
 		5303E3E81F3EE3C000AB0AF2 /* logupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5303E3E71F3EE3C000AB0AF2 /* logupViewController.m */; };
 		5303E3EC1F3EF5A800AB0AF2 /* QCCountdownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5303E3EB1F3EF5A800AB0AF2 /* QCCountdownButton.m */; };
 		5303E3EF1F3EFBBE00AB0AF2 /* forgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5303E3EE1F3EFBBE00AB0AF2 /* forgetViewController.m */; };
+		5315B1DB1F8FC28F0084D275 /* BLAreaPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5315B1DA1F8FC27F0084D275 /* BLAreaPickerView.m */; };
+		5315B1DC1F8FC2CE0084D275 /* areaArray.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5315B1D81F8FC27F0084D275 /* areaArray.plist */; };
 		531C05581F5C240800C235FA /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 531C05571F5C240700C235FA /* UserNotifications.framework */; };
 		531C055C1F5D486200C235FA /* zhifuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 531C055B1F5D486200C235FA /* zhifuView.m */; };
 		531C055F1F5E63B200C235FA /* orderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 531C055E1F5E63B200C235FA /* orderModel.m */; };
@@ -720,6 +722,9 @@
 		5303E3EB1F3EF5A800AB0AF2 /* QCCountdownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCCountdownButton.m; sourceTree = "<group>"; };
 		5303E3ED1F3EFBBE00AB0AF2 /* forgetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = forgetViewController.h; sourceTree = "<group>"; };
 		5303E3EE1F3EFBBE00AB0AF2 /* forgetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = forgetViewController.m; sourceTree = "<group>"; };
+		5315B1D81F8FC27F0084D275 /* areaArray.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = areaArray.plist; sourceTree = "<group>"; };
+		5315B1D91F8FC27F0084D275 /* BLAreaPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLAreaPickerView.h; sourceTree = "<group>"; };
+		5315B1DA1F8FC27F0084D275 /* BLAreaPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLAreaPickerView.m; sourceTree = "<group>"; };
 		531C05571F5C240700C235FA /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		531C055A1F5D486200C235FA /* zhifuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = zhifuView.h; path = "Theweddingceremonylive/开播/C/zhifuView.h"; sourceTree = SOURCE_ROOT; };
 		531C055B1F5D486200C235FA /* zhifuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = zhifuView.m; path = "Theweddingceremonylive/开播/C/zhifuView.m"; sourceTree = SOURCE_ROOT; };
@@ -2263,6 +2268,16 @@
 			path = QCCountdownButton;
 			sourceTree = "<group>";
 		};
+		5315B1D71F8FC27F0084D275 /* BLAreaPickView */ = {
+			isa = PBXGroup;
+			children = (
+				5315B1D81F8FC27F0084D275 /* areaArray.plist */,
+				5315B1D91F8FC27F0084D275 /* BLAreaPickerView.h */,
+				5315B1DA1F8FC27F0084D275 /* BLAreaPickerView.m */,
+			);
+			path = BLAreaPickView;
+			sourceTree = "<group>";
+		};
 		53204BCD1F593BD100A211BD /* ZTVendorManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -2840,6 +2855,7 @@
 		53D02F771F3BF5F800CD504C /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				5315B1D71F8FC27F0084D275 /* BLAreaPickView */,
 				533D6D351F63DC0200655B83 /* MBManager */,
 				533D6CCA1F626FA100655B83 /* codeTools */,
 				533854541F5FEAC500538CE4 /* Tencent */,
@@ -3349,6 +3365,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5315B1DC1F8FC2CE0084D275 /* areaArray.plist in Resources */,
 				1849EDD71F79F385002B08CA /* 萤火虫之舞.mp3 in Resources */,
 				18FAA2B31F78E66100386D71 /* 交杯酒音效.mp3 in Resources */,
 				18FAA2B21F78E66100386D71 /* 交杯酒.gif in Resources */,
@@ -3546,7 +3563,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		60072A67C888A9DF08926AC9 /* [CP] Check Pods Manifest.lock */ = {
@@ -3564,7 +3581,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DFE887C666D2A9EFCBA0B53E /* [CP] Embed Pods Frameworks */ = {
@@ -3597,7 +3614,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD32DC05B49205C25C041CB9 /* [CP] Embed Pods Frameworks */ = {
@@ -3622,6 +3639,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5315B1DB1F8FC28F0084D275 /* BLAreaPickerView.m in Sources */,
 				53CC98E91F568D910077CCF6 /* rechargrCell0.m in Sources */,
 				533A8A401F4C262A0087E699 /* DemoTableViewController.m in Sources */,
 				184A788D1F54181800EACCE1 /* WMPlayerVC.m in Sources */,

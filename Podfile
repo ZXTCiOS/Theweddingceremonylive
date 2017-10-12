@@ -28,6 +28,7 @@ pod 'JPush'
 pod 'CLPlayer'
 pod 'HMQRCodeScanner'
 pod 'JHUD'
+
   # Pods for Theweddingceremonylive
 
   target 'TheweddingceremonyliveTests' do
