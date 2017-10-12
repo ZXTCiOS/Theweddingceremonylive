@@ -130,7 +130,7 @@ static NSInteger page = 1;
     WeddingLiveDataLiveDataModel *model = self.datalist[indexPath.row];
     
     if ([self.type isEqualToString:@"0"]) {
-        if ([model.pindao_diretion isEqualToString:@"0"]) {
+        if ([model.pindao_direction isEqualToString:@"0"]) {
             // 横屏
             hengpingWatchVC *vc = [[hengpingWatchVC alloc] initWithChatroomID:model.roomid Url:model.tuilaliu.ret.rtmpPullUrl meetingname:model.uid];
             vc.zhubo_name = model.username;
@@ -151,7 +151,7 @@ static NSInteger page = 1;
             UITextField *pwd = alert.textFields.firstObject;
             if ([pwd isEqual:model.order_password]) {
                 
-                if ([model.pindao_diretion isEqualToString:@"0"]) {
+                if ([model.pindao_direction isEqualToString:@"0"]) {
                     // 横屏
                     hengpingWatchVC *vc = [[hengpingWatchVC alloc] initWithChatroomID:model.roomid Url:model.tuilaliu.ret.rtmpPullUrl meetingname:model.uid];
                     vc.zhubo_name = model.username;

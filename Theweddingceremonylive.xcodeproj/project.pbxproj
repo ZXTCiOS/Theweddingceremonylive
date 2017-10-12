@@ -2233,11 +2233,11 @@
 				5303E3E61F3EE3C000AB0AF2 /* logupViewController.h */,
 				5303E3E71F3EE3C000AB0AF2 /* logupViewController.m */,
 				5303E3ED1F3EFBBE00AB0AF2 /* forgetViewController.h */,
+				53FCA4691F418D6D001780F7 /* perfectingViewController.m */,
 				5303E3EE1F3EFBBE00AB0AF2 /* forgetViewController.m */,
 				53AC97DB1F3F5495009EC343 /* bindingViewController.h */,
 				53AC97DC1F3F5495009EC343 /* bindingViewController.m */,
 				53FCA4681F418D6D001780F7 /* perfectingViewController.h */,
-				53FCA4691F418D6D001780F7 /* perfectingViewController.m */,
 			);
 			path = C;
 			sourceTree = "<group>";
