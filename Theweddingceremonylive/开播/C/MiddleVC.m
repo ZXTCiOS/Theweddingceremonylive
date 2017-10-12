@@ -129,10 +129,10 @@
     //[self isyuyue];
     
     //认证
-    [self isrenzheng];
+    //[self isrenzheng];
     
-//    midVC *vc = [[midVC alloc] init];
-//    [self.navigationController pushViewController:vc animated:NO];
+    midVC *vc = [[midVC alloc] init];
+    [self.navigationController pushViewController:vc animated:NO];
 
 }
 

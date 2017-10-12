@@ -193,7 +193,16 @@ static NSString *wanshanorderidentfid9 = @"wanshanorderidentfid9";
             cell = [[wanshanCell1 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:wanshanorderidentfid1];
             cell.leftImg.tag = 301;
         }
-        [cell.leftImg sd_setImageWithURL:[NSURL URLWithString:[self.orderdic objectForKey:@"room_img"]] placeholderImage:[UIImage imageNamed:@"16bi9"]];
+        
+        static dispatch_once_t onceToken;
+        
+        dispatch_once(&onceToken, ^{
+
+            [cell.leftImg sd_setImageWithURL:[NSURL URLWithString:[self.orderdic objectForKey:@"room_img"]] placeholderImage:[UIImage imageNamed:@"16bi9"]];
+ 
+        });
+        
+        
         cell.leftImg.userInteractionEnabled = YES;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(leftimg0click)];
         [cell.leftImg addGestureRecognizer:tap];
@@ -215,13 +224,18 @@ static NSString *wanshanorderidentfid9 = @"wanshanorderidentfid9";
             cell = [[wanshanCell2 alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:wanshanorderidentfid2];
             cell.leftImg.tag = 302;
         }
-        [cell.leftImg sd_setImageWithURL:[NSURL URLWithString:[self.orderdic objectForKey:@"room_info_img"]] placeholderImage:[UIImage imageNamed:@"16bi9"]];
+        
+        static dispatch_once_t onceToken2;
+        dispatch_once(&onceToken2, ^{
+            [cell.leftImg sd_setImageWithURL:[NSURL URLWithString:[self.orderdic objectForKey:@"room_info_img"]] placeholderImage:[UIImage imageNamed:@"16bi9"]];
+        });
+        
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.leftImg.userInteractionEnabled = YES;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(leftimg1click)];
         [cell.leftImg addGestureRecognizer:tap];
         
-
+        
         NSData *imageData = UIImageJPEGRepresentation(cell.leftImg.image, 1.0);
         self.xitie_img = [imageData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
         

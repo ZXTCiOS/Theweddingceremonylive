@@ -72,7 +72,7 @@
     [self.scroll addSubview:self.nameLab];
     
     [self.scroll addSubview:self.leftimg];
-    [self.scroll addSubview:self.rightimg];
+//    [self.scroll addSubview:self.rightimg];
     [self.scroll addSubview:self.leftLab];
     [self.scroll addSubview:self.rightLab];
     
@@ -126,7 +126,7 @@
             NSString *url2str = [datadic objectForKey:@"url1"];
             
             self.leftimg.image = [QRcodeTool QRcodeToolgeneratedDataString:url1str imageViewWidth:150];
-            self.rightimg.image = [QRcodeTool QRcodeToolgeneratedDataString:url2str imageViewWidth:150];
+            //self.rightimg.image = [QRcodeTool QRcodeToolgeneratedDataString:url2str imageViewWidth:150];
         }
     } failure:^(NSError *error) {
         [MBProgressHUD showSuccess:@"网络错误" toView:self.view];
@@ -205,29 +205,29 @@
     if(!_leftimg)
     {
         _leftimg = [[UIImageView alloc] init];
-        _leftimg.frame = CGRectMake(40*WIDTH_SCALE, 880*HEIGHT_SCALE, 100*WIDTH_SCALE, 100*WIDTH_SCALE);
+        _leftimg.frame = CGRectMake(kScreenW/2-50*WIDTH_SCALE, 880*HEIGHT_SCALE, 100*WIDTH_SCALE, 100*WIDTH_SCALE);
         //[_leftimg sd_setImageWithURL:[NSURL URLWithString:@"https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1910365638,1248188591&fm=26&gp=0.jpg"]];
     }
     return _leftimg;
 }
 
--(UIImageView *)rightimg
-{
-    if(!_rightimg)
-    {
-        _rightimg = [[UIImageView alloc] init];
-        _rightimg.frame = CGRectMake(kScreenW/2+40*WIDTH_SCALE, 880*HEIGHT_SCALE, 100*WIDTH_SCALE, 100*WIDTH_SCALE);
-       // [_rightimg sd_setImageWithURL:[NSURL URLWithString:@"https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1910365638,1248188591&fm=26&gp=0.jpg"]];
-    }
-    return _rightimg;
-}
+//-(UIImageView *)rightimg
+//{
+//    if(!_rightimg)
+//    {
+//        _rightimg = [[UIImageView alloc] init];
+//        _rightimg.frame = CGRectMake(kScreenW/2+40*WIDTH_SCALE, 880*HEIGHT_SCALE, 100*WIDTH_SCALE, 100*WIDTH_SCALE);
+//       // [_rightimg sd_setImageWithURL:[NSURL URLWithString:@"https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1910365638,1248188591&fm=26&gp=0.jpg"]];
+//    }
+//    return _rightimg;
+//}
 
 -(UILabel *)leftLab
 {
     if(!_leftLab)
     {
         _leftLab = [[UILabel alloc] init];
-        _leftLab.frame = CGRectMake(20*WIDTH_SCALE, 990*HEIGHT_SCALE, kScreenW/2-40*WIDTH_SCALE, 20*HEIGHT_SCALE);
+        _leftLab.frame = CGRectMake(kScreenW/2-(kScreenW/2-40*WIDTH_SCALE)/2, 990*HEIGHT_SCALE, kScreenW/2-40*WIDTH_SCALE, 20*HEIGHT_SCALE);
         _leftLab.textAlignment = NSTextAlignmentCenter;
         _leftLab.text = @"女娲云婚礼APP下载";
         _leftLab.font = [UIFont systemFontOfSize:13];
@@ -236,19 +236,19 @@
     return _leftLab;
 }
 
--(UILabel *)rightLab
-{
-    if(!_rightLab)
-    {
-        _rightLab = [[UILabel alloc] init];
-        _rightLab.frame = CGRectMake(kScreenW/2+20*WIDTH_SCALE, 990*HEIGHT_SCALE, kScreenW/2-40*WIDTH_SCALE, 20*HEIGHT_SCALE);
-        _rightLab.textAlignment = NSTextAlignmentCenter;
-        _rightLab.text = @"扫码进入婚礼直播";
-        _rightLab.font = [UIFont systemFontOfSize:13];
-        _rightLab.textColor = [UIColor whiteColor];
-    }
-    return _rightLab;
-}
+//-(UILabel *)rightLab
+//{
+//    if(!_rightLab)
+//    {
+//        _rightLab = [[UILabel alloc] init];
+//        _rightLab.frame = CGRectMake(kScreenW/2+20*WIDTH_SCALE, 990*HEIGHT_SCALE, kScreenW/2-40*WIDTH_SCALE, 20*HEIGHT_SCALE);
+//        _rightLab.textAlignment = NSTextAlignmentCenter;
+//        _rightLab.text = @"扫码进入婚礼直播";
+//        _rightLab.font = [UIFont systemFontOfSize:13];
+//        _rightLab.textColor = [UIColor whiteColor];
+//    }
+//    return _rightLab;
+//}
 
 -(UILabel *)lab0
 {
