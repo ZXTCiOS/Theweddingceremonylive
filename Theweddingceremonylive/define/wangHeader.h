@@ -129,4 +129,7 @@
 
 //关注商家
 #define post_guanzhushangjia @"/interface.php/Home/Index/guanzhu"
+
+//取消商家关注
+#define post_guanzhushangjiaquxiao @"/interface.php/Home/index/quxiaoguanzhu"
 #endif /* wangHeader_h */

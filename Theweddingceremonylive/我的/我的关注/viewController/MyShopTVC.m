@@ -44,6 +44,8 @@ static NSString *indentify =  @"indentify";
     [DNNetworking postWithURLString:post_guanzhu parameters:para success:^(id obj) {
         if ([[obj objectForKey:@"code"] intValue]==1000) {
             NSArray *data = [obj objectForKey:@"data"];
+            
+            
             for (int i = 0; i<data.count; i++) {
                 NSDictionary *dic = [data objectAtIndex:i];
                 myshopModel *model = [[myshopModel alloc] init];
@@ -137,6 +139,19 @@ static NSString *indentify =  @"indentify";
 {
     NSIndexPath *index = [self.myCollectionV indexPathForCell:cell];
     NSLog(@"index------%ld",(long)index.item);
+    myshopModel *model = self.dataSource[index.row];
+    NSString *businid = model.shopid;
+    NSString *uid = [userDefault objectForKey:user_uid];
+    NSString *token = [userDefault objectForKey:user_token];
+    NSDictionary *para = @{@"uid":uid,@"token":token,@"businid":businid};
+    [DNNetworking postWithURLString:post_guanzhushangjiaquxiao parameters:para success:^(id obj) {
+        if ([[obj objectForKey:@"code"] intValue]==123) {
+            [self loadtata];
+        }
+    } failure:^(NSError *error) {
+        
+    }];;
+    
 }
 
 -(void)keyboardHide

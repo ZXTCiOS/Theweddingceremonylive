@@ -41,13 +41,12 @@ static NSString *modifyidentfid5 = @"modifyidentfid5";
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
 }
 
 -(void)loaddata
 {
      [_userImg sd_setImageWithURL:[NSURL URLWithString:[self.infoDic objectForKey:@"picture"]] placeholderImage:[UIImage imageNamed:@"userpic"]];
-    
 }
 
 #pragma mark - getters

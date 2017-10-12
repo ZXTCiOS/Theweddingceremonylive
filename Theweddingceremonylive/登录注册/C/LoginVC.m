@@ -79,9 +79,11 @@
 {
     __weak typeof (self) weakSelf = self;
     [self.logoimg mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(weakSelf.view).with.offset(120*WIDTH_SCALE);
-        make.right.equalTo(weakSelf.view).with.offset(-120*WIDTH_SCALE);
+//        make.left.equalTo(weakSelf.view).with.offset(130*WIDTH_SCALE);
+//        make.right.equalTo(weakSelf.view).with.offset(-130*WIDTH_SCALE);
         make.top.equalTo(weakSelf.view).with.offset(60*HEIGHT_SCALE);
+        make.centerX.mas_equalTo(weakSelf.view);
+        make.width.mas_offset(110*HEIGHT_SCALE);
         make.height.mas_offset(110*HEIGHT_SCALE);
     }];
     [self.nicknametext mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -410,7 +412,6 @@
 
 -(void)qqbtnclick
 {
-    
     [ZTVendorManager loginWith:ZTVendorPlatformTypeQQ completionHandler:^(ZTVendorAccountModel *model, NSError *error) {
         NSLog(@"nickname:%@",model.nickname);
         NSString *openid = model.openid;

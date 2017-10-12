@@ -80,6 +80,10 @@
             vc.istesting = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }
+        else if ([[obj objectForKey:@"code"] intValue]==109)
+        {
+            [MBProgressHUD showSuccess:@"请去完善房间信息" toView:self.view];
+        }
     } failure:^(NSError *error) {
         [MBProgressHUD showSuccess:@"没有网络" toView:self.view];
     }];
