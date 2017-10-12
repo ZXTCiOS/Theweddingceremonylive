@@ -103,7 +103,7 @@
 }
 
 - (void)wmplayerReadyToPlay:(WMPlayer *)wmplayer WMPlayerStatus:(WMPlayerState)state{
-    [wmplayer play];
+    //[wmplayer play];
 }
 
 - (void)wmplayerFailedPlay:(WMPlayer *)wmplayer WMPlayerStatus:(WMPlayerState)state{

@@ -16,4 +16,7 @@
 
 @property (nonatomic, strong) LiveVideoModel *model;
 
+@property (weak, nonatomic) IBOutlet UIButton *shareBtn;
+
+
 @end

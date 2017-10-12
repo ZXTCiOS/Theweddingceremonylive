@@ -9,7 +9,7 @@
 #import "WMPlayerVC.h"
 #import "WMPlayer.h"
 
-@interface WMPlayerVC ()
+@interface WMPlayerVC ()<WMPlayerDelegate>
 
 @property (nonatomic, copy) NSString *url;
 
@@ -45,7 +45,19 @@
     self.player = [[WMPlayer alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH)];
     self.player.URLString = self.url;
     [self.view addSubview:self.player];
+    self.player.delegate = self;
     [self.player play];
+}
+
+-(void)wmplayer:(WMPlayer *)wmplayer clickedCloseButton:(UIButton *)closeBtn{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+-(void)wmplayer:(WMPlayer *)wmplayer clickedPlayOrPauseButton:(UIButton *)playOrPauseBtn{
+    if (wmplayer.state == WMPlayerStatePlaying) {
+        [wmplayer pause];
+    } else {
+        [wmplayer play];
+    }
 }
 
 #pragma mark - 改变 方向
