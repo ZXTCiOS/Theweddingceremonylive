@@ -60,7 +60,7 @@ static NSInteger page = 1;
             
         } else {
             //NSString *msg = [NSString stringWithFormat:@"%@", [obj objectForKey:@"mes"]];
-            [self.view showWarning:@"error"];
+            //[self.view showWarning:@"error"];
         }
         
         [self.tableView endHeaderRefresh];
@@ -149,7 +149,7 @@ static NSInteger page = 1;
         }];
         UIAlertAction *act = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             UITextField *pwd = alert.textFields.firstObject;
-            if ([pwd isEqual:model.order_password]) {
+            if ([pwd.text isEqual:model.order_password]) {
                 
                 if ([model.pindao_direction isEqualToString:@"0"]) {
                     // 横屏

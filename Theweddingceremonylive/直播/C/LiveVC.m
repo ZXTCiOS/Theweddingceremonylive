@@ -275,9 +275,9 @@ static BOOL isDragging;
 - (void)endPlayerAtIndexPath:(NSIndexPath *) indexpath{
     LiveVideoCell *cell = [self.tableView cellForRowAtIndexPath:indexpath];
     if (cell) {
-        
+        cell.player.state = WMPlayerStatePause;
         [cell.player pause];
-        
+        [cell.player.player pause];
     }
 }
 
