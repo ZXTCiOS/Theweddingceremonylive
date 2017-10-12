@@ -112,7 +112,7 @@
 
 - (void) viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
-    [self interfaceOrientation:UIInterfaceOrientationPortrait];
+    //[self interfaceOrientation:UIInterfaceOrientationPortrait];
     [[NIMAVChatSDK sharedSDK].netCallManager stopVideoCapture];
     [[NIMAVChatSDK sharedSDK].netCallManager leaveMeeting:self.meeting];
     [[NIMSDK sharedSDK].chatroomManager exitChatroom:self.roomid completion:^(NSError * _Nullable error) {

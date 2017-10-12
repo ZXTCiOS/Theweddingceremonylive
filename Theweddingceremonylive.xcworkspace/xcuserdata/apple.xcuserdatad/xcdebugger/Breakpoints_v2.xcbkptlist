@@ -27,6 +27,68 @@
             endingLineNumber = "431"
             landmarkName = "-sendcodebtnclock"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__39-[logupViewController sendcodebtnclock]_block_invoke"
+                  moduleName = "Theweddingceremonylive"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Desktop/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9/Theweddingceremonylive/Theweddingceremonylive/%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C/C/logupViewController.m"
+                  timestampString = "529491969.203711"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "431"
+                  endingLineNumber = "431"
+                  offsetFromSymbolStart = "496">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__copy_helper_block_.308"
+                  moduleName = "Theweddingceremonylive"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Desktop/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9/Theweddingceremonylive/Theweddingceremonylive/%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C/C/logupViewController.m"
+                  timestampString = "529491969.206382"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "431"
+                  endingLineNumber = "431"
+                  offsetFromSymbolStart = "64">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_.309"
+                  moduleName = "Theweddingceremonylive"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Desktop/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9/Theweddingceremonylive/Theweddingceremonylive/%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C/C/logupViewController.m"
+                  timestampString = "529491969.208709"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "431"
+                  endingLineNumber = "431"
+                  offsetFromSymbolStart = "36">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__39-[logupViewController sendcodebtnclock]_block_invoke.311"
+                  moduleName = "Theweddingceremonylive"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apple/Desktop/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9/Theweddingceremonylive/Theweddingceremonylive/%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C/C/logupViewController.m"
+                  timestampString = "529491969.211297"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "432"
+                  endingLineNumber = "432"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -59,38 +121,6 @@
             endingLineNumber = "387"
             landmarkName = "-loginbtnclick"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__24-[LoginVC loginbtnclick]_block_invoke"
-                  moduleName = "Theweddingceremonylive"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Desktop/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9/Theweddingceremonylive/Theweddingceremonylive/%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C/C/LoginVC.m"
-                  timestampString = "529469182.83104"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "387"
-                  endingLineNumber = "387"
-                  offsetFromSymbolStart = "843">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__24-[LoginVC loginbtnclick]_block_invoke"
-                  moduleName = "Theweddingceremonylive"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Desktop/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9/Theweddingceremonylive/Theweddingceremonylive/%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C/C/LoginVC.m"
-                  timestampString = "529469182.833256"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "387"
-                  endingLineNumber = "387"
-                  offsetFromSymbolStart = "977">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -123,38 +153,6 @@
             endingLineNumber = "364"
             landmarkName = "-loginbtnclick"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[LoginVC loginbtnclick]"
-                  moduleName = "Theweddingceremonylive"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Desktop/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9/Theweddingceremonylive/Theweddingceremonylive/%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C/C/LoginVC.m"
-                  timestampString = "529469182.843612"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "364"
-                  endingLineNumber = "364"
-                  offsetFromSymbolStart = "829">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__24-[LoginVC loginbtnclick]_block_invoke"
-                  moduleName = "Theweddingceremonylive"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Desktop/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9/Theweddingceremonylive/Theweddingceremonylive/%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C/C/LoginVC.m"
-                  timestampString = "529469182.845823"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "367"
-                  endingLineNumber = "367"
-                  offsetFromSymbolStart = "54">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -170,22 +168,6 @@
             startingLineNumber = "57"
             endingLineNumber = "57"
             landmarkName = "-loaddata"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Theweddingceremonylive/&#x9996;&#x9875;/C/MainVC.m"
-            timestampString = "529245875.112581"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
-            landmarkName = "-HeaderRefresh"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
