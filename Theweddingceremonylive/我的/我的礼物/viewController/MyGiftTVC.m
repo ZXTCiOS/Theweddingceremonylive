@@ -69,9 +69,7 @@
     NSString *page = [NSString stringWithFormat:@"%d",pn];
     NSDictionary *paradic = @{@"uid":uid,@"token":token,@"page":page};
     [DNNetworking postWithURLString:post_getgift parameters:paradic success:^(id obj) {
-        NSLog(@"obj---%@",obj);
-        //NSString *msg = [obj objectForKey:@"msg"];
-        //[MBProgressHUD showSuccess:msg toView:self.view];
+        
         if ([[obj objectForKey:@"code"] intValue]==1000) {
             NSArray *dataarr = [obj objectForKey:@"data"];
             for (int i = 0; i<dataarr.count; i++) {
@@ -103,9 +101,7 @@
     NSString *page = [NSString stringWithFormat:@"%d",pn];
     NSDictionary *paradic = @{@"uid":uid,@"token":token,@"page":page};
     [DNNetworking postWithURLString:post_getgift parameters:paradic success:^(id obj) {
-        NSLog(@"obj---%@",obj);
-        NSString *msg = [obj objectForKey:@"msg"];
-        [MBProgressHUD showSuccess:msg toView:self.view];
+
         if ([[obj objectForKey:@"code"] intValue]==1000) {
             NSArray *dataarr = [obj objectForKey:@"data"];
             for (int i = 0; i<dataarr.count; i++) {

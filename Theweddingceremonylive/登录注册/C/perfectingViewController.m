@@ -18,7 +18,6 @@
 @property (nonatomic,strong) UITableView *table;
 @property (nonatomic,strong) UIView *headView;
 @property (nonatomic,strong) UIImageView *userImg;
-
 @property (nonatomic,strong) NSString *xinbiestr;
 @end
 
