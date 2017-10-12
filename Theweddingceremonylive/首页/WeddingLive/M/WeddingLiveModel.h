@@ -44,7 +44,7 @@
 
 @interface WeddingLiveDataLiveDataModel : NSObject
 
-@property (nonatomic, copy) NSString *pindao_diretion;// 方向
+@property (nonatomic, copy) NSString *pindao_direction;// 方向
 @property (nonatomic, copy) NSString *room_img; //大图
 @property (nonatomic, copy) NSString *pindao_renshu;//
 @property (nonatomic, copy) NSString *room_name;//房间名

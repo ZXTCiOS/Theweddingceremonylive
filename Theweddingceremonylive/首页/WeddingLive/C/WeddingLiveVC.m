@@ -259,7 +259,7 @@
     
     if (indexPath.section == 0) {
         WeddingLiveDataLiveDataModel *model = self.publiclist.room_data[indexPath.row];
-        if ([model.pindao_diretion isEqualToString:@"0"]) {
+        if ([model.pindao_direction isEqualToString:@"0"]) {
             // 横屏
             hengpingWatchVC *vc = [[hengpingWatchVC alloc] initWithChatroomID:model.roomid Url:model.tuilaliu.ret.rtmpPullUrl meetingname:model.uid];
             vc.zhubo_name = model.username;
@@ -287,7 +287,7 @@
             UITextField *pwd = alert.textFields.firstObject;
             if (![pwd isEqual:model.order_password]) {
                 
-                if ([model.pindao_diretion isEqualToString:@"0"]) {
+                if ([model.pindao_direction isEqualToString:@"0"]) {
                     // 横屏
                     hengpingWatchVC *vc = [[hengpingWatchVC alloc] initWithChatroomID:model.roomid Url:model.tuilaliu.ret.rtmpPullUrl meetingname:model.uid];
                     vc.zhubo_name = model.username;
