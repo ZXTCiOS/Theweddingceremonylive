@@ -813,11 +813,12 @@
         if (!_liveplayer) {
             NSLog(@"播放器初始化失败");
         }
-        UIView * playerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH)];
+        UIView * playerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenH, kScreenW)];
         _liveplayer.view.frame = playerView.bounds;
         [_liveplayer prepareToPlay];
         _liveplayer.shouldAutoplay = YES;
         [self.view insertSubview:_liveplayer.view belowSubview:self.maskview];
+        
         [_liveplayer play];
     }
     return _liveplayer;
@@ -921,7 +922,7 @@
             NSString *giftid = [NSString stringWithFormat:@"%ld%ld", _giftV.currentIndex.section, _giftV.currentIndex.row];
             NSIndexPath *index = _giftV.currentIndex;
             GiftModel *model = _giftV.giftlist[index.section][index.row];
-            NSDictionary *para = @{@"uid": uid, @"token": token, @"giftinfo_giftid": model.towuid};
+            NSDictionary *para = @{@"uid": uid, @"token": token, @"giftinfo_giftid": model.towuid, @"zb_userid": self.zhubo_uid};
             
             [DNNetworking postWithURLString:post_sendgift parameters:para success:^(id obj) {
                 NSString *code = [obj objectForKey:@"code"];

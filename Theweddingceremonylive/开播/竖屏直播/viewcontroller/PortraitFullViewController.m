@@ -922,7 +922,7 @@
             NSString *giftid = [NSString stringWithFormat:@"%ld%ld", _giftV.currentIndex.section, _giftV.currentIndex.row];
             NSIndexPath *index = _giftV.currentIndex;
             GiftModel *model = _giftV.giftlist[index.section][index.row];
-            NSDictionary *para = @{@"uid": uid, @"token": token, @"giftinfo_giftid": model.towuid};
+            NSDictionary *para = @{@"uid": uid, @"token": token, @"giftinfo_giftid": model.towuid, @"zb_userid": self.zhubo_uid};
             
             [DNNetworking postWithURLString:post_sendgift parameters:para success:^(id obj) {
                 NSString *code = [obj objectForKey:@"code"];
