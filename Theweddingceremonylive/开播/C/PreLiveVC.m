@@ -128,7 +128,8 @@
         
         if (self.roomid && self.tuiliu) {
             
-            if (self.isPortrait) {
+            UIInterfaceOrientation ori = [[UIApplication sharedApplication] statusBarOrientation];
+            if (ori == UIInterfaceOrientationPortrait) {
                 HorizontalPushVCViewController *vc = [[HorizontalPushVCViewController alloc] initWithChatroomID:self.roomid pushurl:self.tuiliu yue:self.yue];
                 vc.type = self.type;
                 vc.pwd = self.pwd;
