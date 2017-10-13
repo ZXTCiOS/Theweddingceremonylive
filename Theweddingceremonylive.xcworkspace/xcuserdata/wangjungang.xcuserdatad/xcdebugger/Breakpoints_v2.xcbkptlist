@@ -19,13 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Theweddingceremonylive/&#x6211;&#x7684;/&#x6211;&#x7684;/viewController/MineTVC.m"
-            timestampString = "529579663.902231"
+            filePath = "Theweddingceremonylive/&#x5f00;&#x64ad;/&#x6a2a;&#x5c4f;&#x89c2;&#x770b;/ViewController/hengpingWatchVC.m"
+            timestampString = "529580792.491077"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "-loaddatainfo"
+            startingLineNumber = "1049"
+            endingLineNumber = "1049"
+            landmarkName = "-tanchuhongbao:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

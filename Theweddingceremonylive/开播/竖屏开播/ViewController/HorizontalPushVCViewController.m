@@ -905,6 +905,7 @@
             } else if ([code isEqualToString:@"990"]){
                 self.qiangRedbag.money.text = @"";
                 self.qiangRedbag.from.text = [NSString stringWithFormat:@"\"%@\"的红包", [data objectForKey:@"username"]];
+                self.redbaglistV.redbagID = [data objectForKey:@"bag_id"];
                 self.qiangRedbag.sucess.text = @"手慢了,红包已领完~~";
                 [self.qiangRedbag.detail removeAllTargets];
                 [self.qiangRedbag.detail bk_addEventHandler:^(id sender) {
