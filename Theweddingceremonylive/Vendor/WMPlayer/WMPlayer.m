@@ -555,7 +555,7 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
 }
 ///暂停
 -(void)pause{
-    if (self.state==WMPlayerStatePlaying) {
+    if (self.state==WMPlayerStatePlaying || self.state == WMPlayerStateBuffering) {
         self.state = WMPlayerStatePause;
     }
     self.state = WMPlayerStatePause;
