@@ -62,6 +62,7 @@
 -(void)headerRefreshEndAction
 {
     pn = 1;
+
     NSUserDefaults *userdefat = [NSUserDefaults standardUserDefaults];
     NSString *uid = [userdefat objectForKey:user_uid];
     NSString *token = [userdefat objectForKey:user_token];
@@ -69,16 +70,18 @@
     NSDictionary *paradic = @{@"uid":uid,@"token":token,@"page":page};
     [DNNetworking postWithURLString:post_getgift parameters:paradic success:^(id obj) {
         if ([[obj objectForKey:@"code"] intValue]==1000) {
+            [self.dataSource removeAllObjects];
             NSArray *dataarr = [obj objectForKey:@"data"];
             for (int i = 0; i<dataarr.count; i++) {
                 NSDictionary *dic = [dataarr objectAtIndex:i];
                 GiftModel *model = [[GiftModel alloc] init];
-                model.towuid = [NSString stringWithFormat:@"%@",[dic objectForKey:@"towuid"]];
+                model.towuid = [NSString stringWithFormat:@"%@",[dic objectForKey:@"giftinfo_userid"]];
                 model.picture = [NSString stringWithFormat:@"%@",[dic objectForKey:@"picture"]];
-                model.name = [NSString stringWithFormat:@"%@",[dic objectForKey:@"name"]];
+                model.name = [NSString stringWithFormat:@"%@",[dic objectForKey:@"kname"]];
                 model.gift_name = [NSString stringWithFormat:@"%@",[dic objectForKey:@"gift_name"]];
                 model.pigurl = [NSString stringWithFormat:@"%@",[dic objectForKey:@"pigurl"]];
-                model.count = [NSString stringWithFormat:@"%@",[dic objectForKey:@"count"]];
+                //model.count = [NSString stringWithFormat:@"%@",[dic objectForKey:@"count"]];
+                model.count = @"1";
                 [self.dataSource addObject:model];
             }
         }
@@ -105,12 +108,13 @@
             for (int i = 0; i<dataarr.count; i++) {
                 NSDictionary *dic = [dataarr objectAtIndex:i];
                 GiftModel *model = [[GiftModel alloc] init];
-                model.towuid = [NSString stringWithFormat:@"%@",[dic objectForKey:@"towuid"]];
+                model.towuid = [NSString stringWithFormat:@"%@",[dic objectForKey:@"giftinfo_userid"]];
                 model.picture = [NSString stringWithFormat:@"%@",[dic objectForKey:@"picture"]];
-                model.name = [NSString stringWithFormat:@"%@",[dic objectForKey:@"name"]];
+                model.name = [NSString stringWithFormat:@"%@",[dic objectForKey:@"kname"]];
                 model.gift_name = [NSString stringWithFormat:@"%@",[dic objectForKey:@"gift_name"]];
                 model.pigurl = [NSString stringWithFormat:@"%@",[dic objectForKey:@"pigurl"]];
-                model.count = [NSString stringWithFormat:@"%@",[dic objectForKey:@"count"]];
+                //model.count = [NSString stringWithFormat:@"%@",[dic objectForKey:@"count"]];
+                model.count = @"1";
                 [self.dataSource addObject:model];
             }
         }
