@@ -35,6 +35,7 @@
         [self title];
         [self isZhibo];
         [self whiteView];
+        [self control];
     }
     return self;
 }
@@ -151,7 +152,16 @@
     return _whiteView;
 }
 
-
+- (UIControl *)control{
+    if (!_control) {
+        _control = [[UIControl alloc] init];
+        [self addSubview:_control];
+        [_control mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.bottom.left.right.equalTo(0);
+        }];
+    }
+    return _control;
+}
 
 
 
