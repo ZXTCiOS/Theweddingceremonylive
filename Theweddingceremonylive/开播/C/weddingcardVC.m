@@ -112,7 +112,7 @@
             self.namestr = [NSString stringWithFormat:@"%@%@%@",room_boy,@"&",room_girl];
             self.imgstr = [datadic objectForKey:@"room_info_img"];
             self.timestr = [datadic objectForKey:@"create_time"];
-            NSString *password = [datadic objectForKey:@"password"];
+            NSString *password = [datadic objectForKey:@"order_password"];
             self.yaoqingmastr = [NSString stringWithFormat:@"%@%@",@"亲友邀请码:",password];
             [_headimg sd_setImageWithURL:[NSURL URLWithString:self.imgstr]];
             _nameLab.text = self.namestr;
@@ -123,7 +123,7 @@
             _lab2.text = [self timestampSwitchTime:inter andFormatter:@"YYYY-MM-dd hh:mm:ss"];
             
             NSString *url1str = [datadic objectForKey:@"url1"];
-            NSString *url2str = [datadic objectForKey:@"url1"];
+          //  NSString *url2str = [datadic objectForKey:@"url1"];
             
             self.leftimg.image = [QRcodeTool QRcodeToolgeneratedDataString:url1str imageViewWidth:150];
             //self.rightimg.image = [QRcodeTool QRcodeToolgeneratedDataString:url2str imageViewWidth:150];
@@ -374,7 +374,7 @@
 {
     NSLog(@"rightAction");
     
-//    [self screenShot:self.scroll];
+    //[self screenShot:self.scroll];
 }
 
 #pragma mark - 截屏
@@ -397,10 +397,11 @@
     UIGraphicsEndImageContext();
     if (image != nil) {
         NSLog(@"截图成功!");
-        UIImageWriteToSavedPhotosAlbum(image,self,@selector(image:didFinishSavingWithError:contextInfo:),NULL);
-        
+//    UIImageWriteToSavedPhotosAlbum(image,self,@selector(image:didFinishSavingWithError:contextInfo:),NULL);
+//
         NSArray *titlearr = @[@"微信朋友圈",@"微信好友",@"QQ"];
         NSArray *imageArr = @[@"wechatquan",@"wechat",@"tcentQQ"];
+        
         ActionSheetView *actionsheet = [[ActionSheetView alloc] initWithShareHeadOprationWith:titlearr andImageArry:imageArr andProTitle:@"分享" and:ShowTypeIsShareStyle];
         [actionsheet setBtnClick:^(NSInteger btnTag) {
             NSLog(@"\n点击第几个====%ld\n当前选中的按钮title====%@",btnTag,titlearr[btnTag]);
@@ -451,26 +452,6 @@
     [self screenShot:self.scroll];
 }
 
--(void)fenxiang
-{
-    NSArray *titlearr = @[@"微信朋友圈",@"微信好友",@"QQ"];
-    NSArray *imageArr = @[@"wechatquan",@"wechat",@"tcentQQ"];
-    ActionSheetView *actionsheet = [[ActionSheetView alloc] initWithShareHeadOprationWith:titlearr andImageArry:imageArr andProTitle:@"喜帖" and:ShowTypeIsShareStyle];
-    [actionsheet setBtnClick:^(NSInteger btnTag) {
-        NSLog(@"\n点击第几个====%ld\n当前选中的按钮title====%@",btnTag,titlearr[btnTag]);
-        if (btnTag==1) {
-            
-        }
-        if (btnTag==2) {
-            
-        }
-        if (btnTag==3) {
-            
-        }
-    }];
-    [[UIApplication sharedApplication].keyWindow addSubview:actionsheet];
-}
-
 -(void)rightbtn1click
 {
     PreLiveVC *vc = [[PreLiveVC alloc] init];
@@ -497,6 +478,7 @@
     [super viewWillDisappear:animated];
     [self.tabBarController.tabBar setHidden:NO];
 }
+
 #pragma mark - 将某个时间戳转化成 时间
 
 -(NSString *)timestampSwitchTime:(NSInteger)timestamp andFormatter:(NSString *)format{

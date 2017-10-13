@@ -102,12 +102,12 @@ static NSString *orderidentfid2 = @"orderidentfid2";
     return 100*HEIGHT_SCALE;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    orderdetalisVC *vc = [[orderdetalisVC alloc] init];
-    orderModel *model = self.dataSource[indexPath.row];
-    vc.ordersn = model.ordernb;
-    [self.navigationController pushViewController:vc animated:YES];
-}
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    orderdetalisVC *vc = [[orderdetalisVC alloc] init];
+//    orderModel *model = self.dataSource[indexPath.row];
+//    vc.ordersn = model.ordernb;
+//    [self.navigationController pushViewController:vc animated:YES];
+//}
 
 @end

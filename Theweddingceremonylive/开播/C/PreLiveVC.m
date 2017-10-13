@@ -66,8 +66,8 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self.tabBarController.tabBar setHidden:YES];
     [[NIMAVChatSDK sharedSDK].netCallManager addDelegate:self];
-    
     self.navigationController.navigationBar.hidden = YES;
 }
 - (void)viewWillDisappear:(BOOL)animated{
@@ -233,6 +233,7 @@
         [self.view addSubview:_maskview];
         [_maskview mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.right.left.bottom.equalTo(0);
+            
         }];
         
     }

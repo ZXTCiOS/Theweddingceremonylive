@@ -18,15 +18,11 @@
 #import "SaveCenterVC.h"
 #import "MyShopTVC.h"
 #import "mineOrderVC.h"
-
 #import "LoginVC.h"
-
 #import "CustomerserviceVC.h"
 #import "aboutVC.h"
-
 #import <NIMSDK/NIMSDK.h>
 #import <NIMAVChat/NIMAVChat.h>
-
 
 @interface MineTVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *table;
@@ -93,9 +89,11 @@ static NSString *mineidentfid2 = @"mineidentfid2";
             NSString *userimg = [self.dataDic objectForKey:@"picture"];
             NSString *name = [self.dataDic objectForKey:@"name"];
             NSString *kname = [self.dataDic objectForKey:@"kname"];
+            NSString *picture = [self.dataDic objectForKey:@"picture"];
             if (kname.length!=0) {
                 [userdefat setObject:kname forKey:user_kname];
             }
+            [userdefat setObject:picture forKey:user_picture];
             [userdefat setObject:userimg forKey:user_userimg];
             [userdefat setObject:name forKey:user_nickname];
             [userdefat synchronize];
@@ -337,7 +335,6 @@ static NSString *mineidentfid2 = @"mineidentfid2";
             default:
                 break;
         }
-
     }
     if (indexPath.section==1) {
         if (indexPath.row==0) {
@@ -366,6 +363,7 @@ static NSString *mineidentfid2 = @"mineidentfid2";
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:user_userimg];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:user_nickname];
             [[NSUserDefaults standardUserDefaults] removeObjectForKey:user_kname];
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:user_picture];
             [[NSUserDefaults standardUserDefaults] synchronize];
             //NIM logout
             [[NIMSDK sharedSDK].loginManager logout:^(NSError * _Nullable error) {

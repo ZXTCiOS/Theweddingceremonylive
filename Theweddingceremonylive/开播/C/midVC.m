@@ -32,7 +32,7 @@ static NSString *livecellidentfid = @"livecellidentfid";
     self.navigationItem.leftBarButtonItem.tintColor = [UIColor colorWithHexString:@"E95F46"];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithHexString:@"E95F46"]}];
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
-    
+    self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
     
     [self.view addSubview:self.table];
     self.table.tableFooterView = [UIView new];
