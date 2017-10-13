@@ -295,14 +295,14 @@
 
 - (NSArray<GiftModel *> *)gift_miyue{
     if (!_gift_miyue) {
-        GiftModel *model0 = [GiftModel giftWithGiftID:@"25" name:@"巴厘岛" picture:@"" price:28 animationType:giftAnimationTypeCircle duration:7 audioName:@"飞机音效"];
-        GiftModel *model1 = [GiftModel giftWithGiftID:@"26" name:@"马尔代夫" picture:@"" price:28 animationType:giftAnimationTypeCircle duration:7 audioName:@"飞机音效"];
-        GiftModel *model2 = [GiftModel giftWithGiftID:@"27" name:@"夏威夷" picture:@"" price:28 animationType:giftAnimationTypeCircle duration:7 audioName:@"飞机音效"];
-        GiftModel *model3 = [GiftModel giftWithGiftID:@"28" name:@"爱琴海" picture:@"" price:28 animationType:giftAnimationTypeCircle duration:7 audioName:@"飞机音效"];
-        GiftModel *model4 = [GiftModel giftWithGiftID:@"29" name:@"巴黎" picture:@"" price:28 animationType:giftAnimationTypeCircle duration:7 audioName:@"飞机音效"];
-        GiftModel *model5 = [GiftModel giftWithGiftID:@"30" name:@"瑞士" picture:@"" price:28 animationType:giftAnimationTypeCircle duration:7 audioName:@"飞机音效"];
-        GiftModel *model6 = [GiftModel giftWithGiftID:@"31" name:@"威尼斯" picture:@"" price:28 animationType:giftAnimationTypeCircle duration:7 audioName:@"飞机音效"];
-        GiftModel *model7 = [GiftModel giftWithGiftID:@"32" name:@"罗马" picture:@"" price:28 animationType:giftAnimationTypeCircle duration:7 audioName:@"飞机音效"];
+        GiftModel *model0 = [GiftModel giftWithGiftID:@"21" name:@"巴厘岛" picture:@"" price:28 animationType:giftAnimationTypeCircle duration:7 audioName:@"飞机音效"];
+        GiftModel *model1 = [GiftModel giftWithGiftID:@"22" name:@"马尔代夫" picture:@"" price:28 animationType:giftAnimationTypeCircle duration:7 audioName:@"飞机音效"];
+        GiftModel *model2 = [GiftModel giftWithGiftID:@"23" name:@"夏威夷" picture:@"" price:28 animationType:giftAnimationTypeCircle duration:7 audioName:@"飞机音效"];
+        GiftModel *model3 = [GiftModel giftWithGiftID:@"24" name:@"爱琴海" picture:@"" price:28 animationType:giftAnimationTypeCircle duration:7 audioName:@"飞机音效"];
+        GiftModel *model4 = [GiftModel giftWithGiftID:@"25" name:@"巴黎" picture:@"" price:28 animationType:giftAnimationTypeCircle duration:7 audioName:@"飞机音效"];
+        GiftModel *model5 = [GiftModel giftWithGiftID:@"26" name:@"瑞士" picture:@"" price:28 animationType:giftAnimationTypeCircle duration:7 audioName:@"飞机音效"];
+        GiftModel *model6 = [GiftModel giftWithGiftID:@"27" name:@"威尼斯" picture:@"" price:28 animationType:giftAnimationTypeCircle duration:7 audioName:@"飞机音效"];
+        GiftModel *model7 = [GiftModel giftWithGiftID:@"28" name:@"罗马" picture:@"" price:28 animationType:giftAnimationTypeCircle duration:7 audioName:@"飞机音效"];
         
         _gift_miyue = @[model0, model1, model2, model3, model4, model5, model6, model7];
     }
