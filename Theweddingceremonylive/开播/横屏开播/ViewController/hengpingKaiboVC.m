@@ -690,6 +690,7 @@
 // 用户离开房间通知
 - (void)onUserLeft:(NSString *)uid meeting:(NIMNetCallMeeting *)meeting{
     NSLog(@"uid: %@ 离开", uid);
+    self.maskview.duanKaiLianmai.hidden = YES;
     self.lianmaiV.hidden = YES;
     self.lianmaiV = nil;
 }
