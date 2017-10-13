@@ -135,6 +135,9 @@
         formatter.dateFormat = @"yyyy-MM-dd";
         NSDate *date = [NSDate dateWithTimeIntervalSince1970:[model.time doubleValue]];
         cell.dateL.text = [formatter stringFromDate:date];
+        if ([strisNull isNullToString:model.room_renshu]){
+            model.room_renshu = @"0";
+        }
         cell.countL.text = [NSString stringWithFormat:@"%@场", model.room_renshu];
         cell.collectionView.delegate = self;
         cell.collectionView.dataSource = self;

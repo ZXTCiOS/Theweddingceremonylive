@@ -28,7 +28,7 @@
     [self netWorking];
     [XDFactory addSearchItemForVC:self clickedHandler:^{
         SearchViewController *vc = [[SearchViewController alloc] init];
-        [vc.navigationController pushViewController:vc animated:YES];
+        [self.navigationController pushViewController:vc animated:YES];
     }];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([WeddingVideoCell class]) bundle:nil] forCellReuseIdentifier:@"cell"];
 }
@@ -39,7 +39,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    //[self.tabBarController.tabBar setHidden:YES];
+    [self.tabBarController.tabBar setHidden:YES];
     [self.navigationController setNavigationBarHidden:NO animated:NO];
 }
 

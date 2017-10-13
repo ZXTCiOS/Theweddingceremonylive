@@ -47,7 +47,7 @@
         [MBProgressHUD showSuccess:msg toView:self.view];
         if ([[obj objectForKey:@"code"] intValue]==1002) {
             midVC *vc = [[midVC alloc] init];
-            [self.navigationController pushViewController:vc animated:NO];
+            [self.navigationController pushViewController:vc animated:NO]; 
             
         }
         else if([[obj objectForKey:@"code"] intValue]==1001)

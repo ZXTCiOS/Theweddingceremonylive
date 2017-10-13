@@ -64,7 +64,7 @@ static NSInteger page = 1;
                 
                 case SearchTypeLive:{
                     // 直播列表 model
-#warning fix
+
                     NSArray<WeddingVideoModel *> *arr = [WeddingVideoModel parse:data];
                     [self.datalist addObjectsFromArray:arr];
                 }
