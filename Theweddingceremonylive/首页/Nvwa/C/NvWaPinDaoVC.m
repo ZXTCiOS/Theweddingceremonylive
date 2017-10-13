@@ -13,7 +13,8 @@
 #import "LiebiaoCell.h"
 #import "NvwaModel.h"
 #import "NvwaHeaderView.h"
-
+#import "hengpingWatchVC.h"
+#import "PortraitFullViewController.h"
 
 @interface NvWaPinDaoVC ()
 
@@ -68,6 +69,27 @@
         self.headerView.title.text = self.header.nvwa_title;
         NSString *zhibo = self.header.nvwa_is_zb ? @"直播中" : @"未直播";
         self.headerView.isZhibo.text = zhibo;
+        [self.headerView.control removeAllTargets];
+        [self.headerView.control bk_addEventHandler:^(id sender) {
+            // todo:  跳转
+            if (!self.header.nvwa_is_zb) return;
+            if ([self.header.direction isEqualToString:@"0"]) {
+                // 横屏
+                hengpingWatchVC *vc = [[hengpingWatchVC alloc] initWithChatroomID:self.header.roomid Url:self.header.url meetingname:self.header.zhubo_uid];
+                vc.zhubo_name = self.header.zhubo_name;
+                vc.zhubo_img = self.header.zhubo_img;
+                vc.weddingtype = [self.header.direction intValue];
+                vc.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:vc animated:NO];
+            } else {
+                PortraitFullViewController *vc = [[PortraitFullViewController alloc] initWithChatroomID:self.header.roomid Url:self.header.url meetingname:self.header.zhubo_uid];
+                vc.zhubo_name = self.header.zhubo_name;
+                vc.zhubo_img = self.header.zhubo_img;
+                vc.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:vc animated:NO];
+            }
+            
+        } forControlEvents:UIControlEventTouchUpInside];
     }
 }
 
@@ -246,7 +268,7 @@ static NSInteger page = 1;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     NSLog(@"section%ld, row%ld", indexPath.section, indexPath.row);
 }

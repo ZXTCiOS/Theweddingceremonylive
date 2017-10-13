@@ -11,11 +11,9 @@
 @interface NvwaHeaderView : UIView
 
 @property (nonatomic, strong) UIImageView *imgV;
-
 @property (nonatomic, strong) UILabel *title;
-
 @property (nonatomic, strong) UIView *mask;
-
 @property (nonatomic, strong) UILabel *isZhibo;
+@property (nonatomic, strong) UIControl *control;
 
 @end
