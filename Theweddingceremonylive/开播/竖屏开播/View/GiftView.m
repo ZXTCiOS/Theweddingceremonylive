@@ -284,11 +284,11 @@
         GiftModel *model1 = [GiftModel giftWithGiftID:@"18" name:@"金元宝" picture:@"" price:19 animationType:giftAnimationTypeStatic duration:5 audioName:@"金元宝音效"];
         GiftModel *model2 = [GiftModel giftWithGiftID:@"19" name:@"交杯酒" picture:@"" price:19 animationType:giftAnimationTypeCircle duration:2 audioName:@"交杯酒音效"];
         GiftModel *model3 = [GiftModel giftWithGiftID:@"20" name:@"奉旨闹洞房" picture:@"" price:28 animationType:giftAnimationTypeCircle duration:2 audioName:@"奉旨闹洞房音效"];
-        GiftModel *model4 = [GiftModel giftWithGiftID:@"21" name:@"摇钱树" picture:@"" price:28 animationType:giftAnimationTypeTop duration:2 audioName:@"none"];
-        GiftModel *model5 = [GiftModel giftWithGiftID:@"22" name:@"交杯酒" picture:@"" price:28 animationType:giftAnimationTypeTop duration:2 audioName:@"none"];
-        GiftModel *model6 = [GiftModel giftWithGiftID:@"23" name:@"麒麟送子" picture:@"" price:19 animationType:giftAnimationTypeTop duration:2 audioName:@"none"];
-        GiftModel *model7 = [GiftModel giftWithGiftID:@"24" name:@"龙凤呈祥" picture:@"" price:19 animationType:giftAnimationTypeTop duration:2 audioName:@"none"];
-        _gift_dongfang = @[model0, model1, model2, model3, model4, model5, model6, model7];
+//        GiftModel *model4 = [GiftModel giftWithGiftID:@"21" name:@"摇钱树" picture:@"" price:28 animationType:giftAnimationTypeTop duration:2 audioName:@"none"];
+//        GiftModel *model5 = [GiftModel giftWithGiftID:@"22" name:@"交杯酒" picture:@"" price:28 animationType:giftAnimationTypeTop duration:2 audioName:@"none"];
+//        GiftModel *model6 = [GiftModel giftWithGiftID:@"23" name:@"麒麟送子" picture:@"" price:19 animationType:giftAnimationTypeTop duration:2 audioName:@"none"];
+//        GiftModel *model7 = [GiftModel giftWithGiftID:@"24" name:@"龙凤呈祥" picture:@"" price:19 animationType:giftAnimationTypeTop duration:2 audioName:@"none"];
+        _gift_dongfang = @[model0, model1, model2, model3];//, model4, model5, model6, model7];
     }
     return _gift_dongfang;
 }
