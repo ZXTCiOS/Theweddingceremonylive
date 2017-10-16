@@ -25,11 +25,8 @@
 @property (nonatomic,strong) UILabel *lab3;
 @property (nonatomic,strong) UILabel *pricelab;
 @property (nonatomic,strong) UIButton *submitBtn;
-
 @property (nonatomic,strong) zhifuView *zhiView;
-
 @property (nonatomic,strong) NSString *oldpricestr;
-
 @property (nonatomic,strong) NSString *newpricestr;
 @end
 
