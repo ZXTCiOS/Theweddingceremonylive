@@ -10,6 +10,7 @@
 #import "perfectinglineVC.h"
 #import "zhifuView.h"
 #import "AppDelegate.h"
+#import <AlipaySDK/AlipaySDK.h>
 
 @interface orderPayVC ()
 @property (nonatomic,strong) UIView *bgview;
@@ -361,7 +362,7 @@
         self.zhiView.transform = CGAffineTransformIdentity;
         
     }];
-    [self zhifujiekou];
+    [MBProgressHUD showSuccess:@"微信支付暂未开通，敬请期待" toView:self.view];
 }
 
 -(void)zhifubaoclick
@@ -371,6 +372,7 @@
         self.zhiView.transform = CGAffineTransformIdentity;
         
     }];
+    [self zhifujiekou];
 }
 //支付接口
 
@@ -387,22 +389,52 @@
     NSDictionary *para = [NSDictionary dictionary];
     
     if ([strisNull isNullToString:self.tuijian]) {
-        para = @{@"uid":uid,@"token":token,@"order_pattern":self.order_pattern,@"order_goods":self.order_goods,@"order_goods_tuijian":self.order_goods_tuijian,@"order_price":self.newpricestr,@"create_time":self.create_time,@"room_count":self.room_count,@"ordersn":self.ordersn};
+        para = @{@"uid":uid,@"token":token,@"order_pattern":self.order_pattern,@"order_goods":self.order_goods,@"order_goods_tuijian":self.order_goods_tuijian,@"order_price":self.newpricestr,@"create_time":self.create_time,@"room_count":self.room_count,@"ordersn":self.ordersn,@"type":@"1"};
     }
     else
     {
-        para = @{@"uid":uid,@"token":token,@"order_pattern":self.order_pattern,@"order_goods":self.order_goods,@"order_goods_tuijian":self.order_goods_tuijian,@"order_price":self.newpricestr,@"tuijian":self.tuijian,@"create_time":self.create_time,@"room_count":self.room_count,@"ordersn":self.ordersn};
+        para = @{@"uid":uid,@"token":token,@"order_pattern":self.order_pattern,@"order_goods":self.order_goods,@"order_goods_tuijian":self.order_goods_tuijian,@"order_price":self.newpricestr,@"tuijian":self.tuijian,@"create_time":self.create_time,@"room_count":self.room_count,@"ordersn":self.ordersn,@"type":@"1"};
     }
     
     [DNNetworking postWithURLString:post_shenjiorderup parameters:para success:^(id obj) {
-        NSString *mes = [obj objectForKey:@"msg"];
-        [MBProgressHUD showSuccess:mes];
-//        if ([[obj objectForKey:@"code"] intValue]==1000) {
+        NSString *msg = [obj objectForKey:@"msg"];
+        [MBProgressHUD showSuccess:msg];
+        if ([[obj objectForKey:@"code"] intValue]==123) {
 //            perfectinglineVC *vc = [[perfectinglineVC alloc] init];
 //            vc.order_id = [obj objectForKey:@"data"];
 //            vc.typestr = self.order_pattern;
 //            [self.navigationController pushViewController:vc animated:YES];
-//        }
+            NSDictionary *dic = [obj objectForKey:@"data"];
+            NSString *zhifubao = [dic objectForKey:@"zhifubao"];
+            
+            NSString *appScheme = @"zhifubaozhifubaozhifubao";
+            NSString *orderString = zhifubao;
+            
+            // NOTE: 调用支付结果开始支付
+            [[AlipaySDK defaultService] payOrder:orderString fromScheme:appScheme callback:^(NSDictionary *resultDic) {
+                NSLog(@"reslut = %@",resultDic);
+                NSString * memo = resultDic[@"memo"];
+                NSLog(@"===memo:%@", memo);
+                
+                NSDictionary *para2 = [NSDictionary dictionary];
+                
+                if ([strisNull isNullToString:self.tuijian]) {
+                    para2 = @{@"uid":uid,@"token":token,@"order_pattern":self.order_pattern,@"order_goods":self.order_goods,@"order_goods_tuijian":self.order_goods_tuijian,@"order_price":self.newpricestr,@"create_time":self.create_time,@"room_count":self.room_count,@"ordersn":self.ordersn,@"type":@"2"};
+                }
+                else
+                {
+                    para2 = @{@"uid":uid,@"token":token,@"order_pattern":self.order_pattern,@"order_goods":self.order_goods,@"order_goods_tuijian":self.order_goods_tuijian,@"order_price":self.newpricestr,@"tuijian":self.tuijian,@"create_time":self.create_time,@"room_count":self.room_count,@"ordersn":self.ordersn,@"type":@"2"};
+                }
+                
+                if ([resultDic[@"resultStatus"] isEqualToString:@"9000"]) {
+                    [DNNetworking postWithURLString:post_shenjiorderup parameters:para2 success:^(id obj){
+                        
+                    } failure:^(NSError *error) {
+                        
+                    }];
+                }
+            }];
+        }
         
     } failure:^(NSError *error) {
         [MBProgressHUD showSuccess:@"没有网络"];

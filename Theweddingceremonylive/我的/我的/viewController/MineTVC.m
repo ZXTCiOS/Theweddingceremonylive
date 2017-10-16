@@ -200,7 +200,7 @@ static NSString *mineidentfid2 = @"mineidentfid2";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section==0) {
-        return 5;
+        return 4;
     }
     if (section==1) {
         return 2;
@@ -226,15 +226,15 @@ static NSString *mineidentfid2 = @"mineidentfid2";
             cell.leftImg.image = [UIImage imageNamed:@"my_gift"];
             cell.typeLab.text = @"我的礼物";
         }
+//        if (indexPath.row==2) {
+//            cell.leftImg.image = [UIImage imageNamed:@"my_xt"];
+//            cell.typeLab.text = @"我的喜帖";
+//        }
         if (indexPath.row==2) {
-            cell.leftImg.image = [UIImage imageNamed:@"my_xt"];
-            cell.typeLab.text = @"我的喜帖";
-        }
-        if (indexPath.row==3) {
             cell.leftImg.image = [UIImage imageNamed:@"my_business"];
             cell.typeLab.text = @"关注商家";
         }
-        if (indexPath.row==4) {
+        if (indexPath.row==3) {
             cell.leftImg.image = [UIImage imageNamed:@"my_oder"];
             cell.typeLab.text = @"我的订单";
         }
@@ -313,19 +313,19 @@ static NSString *mineidentfid2 = @"mineidentfid2";
                 [self.navigationController pushViewController:vc animated:YES];
             }
                 break;
-            case 2:// 喜帖
-            {
-                
-            }
+//            case 2:// 喜帖
+//            {
+//
+//            }
                 break;
-            case 3:// 商家
+            case 2:// 商家
             {
                 MyShopTVC *vc = [[MyShopTVC alloc] init];
                 self.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:vc animated:YES];
             }
                 break;
-            case 4:// 订单
+            case 3:// 订单
             {
                 mineOrderVC *vc = [[mineOrderVC alloc] init];
                 self.hidesBottomBarWhenPushed = YES;
