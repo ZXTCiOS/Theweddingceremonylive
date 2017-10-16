@@ -16,22 +16,5 @@
 
 @property (nonatomic, copy) NSString *nvwa_img;
 
-@property (nonatomic, copy) NSString *nvwa_zhibo_url;
-
-
-
-@property (nonatomic, copy) NSString *url;
-@property (nonatomic, copy) NSString *roomid;
-@property (nonatomic, copy) NSString *zhubo_name;
-@property (nonatomic, copy) NSString *zhubo_img;
-@property (nonatomic, copy) NSString *zhubo_uid;
-@property (nonatomic, assign) weddingType weddingtype;
-@property (nonatomic, copy) NSString *direction;
-
-
-
-
-
-
 
 @end

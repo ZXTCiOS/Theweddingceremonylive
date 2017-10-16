@@ -36,7 +36,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8xu-p6-Aoi">
-                    <rect key="frame" x="602" y="219" width="40" height="40"/>
+                    <rect key="frame" x="602" y="267" width="40" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="Wgg-m9-6qx"/>
                         <constraint firstAttribute="width" constant="40" id="XMa-17-dy5"/>
@@ -47,7 +47,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZRD-BI-usv">
-                    <rect key="frame" x="602" y="171" width="40" height="40"/>
+                    <rect key="frame" x="602" y="219" width="40" height="40"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="40" id="T9c-ZR-OQh"/>
                         <constraint firstAttribute="height" constant="40" id="wfC-90-lGp"/>
@@ -57,7 +57,7 @@
                         <action selector="third:" destination="caZ-6p-C4o" eventType="touchUpInside" id="yZe-En-s0a"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPK-AB-szD">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPK-AB-szD">
                     <rect key="frame" x="602" y="267" width="40" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="8aR-9M-2h0"/>
@@ -235,7 +235,7 @@
                     </constraints>
                 </view>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YEe-vf-pYg">
-                    <rect key="frame" x="590" y="135" width="65" height="28"/>
+                    <rect key="frame" x="590" y="183" width="65" height="28"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="28" id="dc7-aR-veP"/>
                         <constraint firstAttribute="width" constant="65" id="nKX-IK-t97"/>
@@ -270,12 +270,12 @@
                 <constraint firstItem="fa9-Ru-RAo" firstAttribute="leading" secondItem="caZ-6p-C4o" secondAttribute="leading" id="ihE-8b-S2s"/>
                 <constraint firstItem="6D7-UH-FXf" firstAttribute="leading" secondItem="caZ-6p-C4o" secondAttribute="leading" constant="100" id="j6B-Pe-y5H"/>
                 <constraint firstAttribute="trailing" secondItem="pRt-nc-e8v" secondAttribute="trailing" constant="12" id="jPm-qT-7tZ"/>
-                <constraint firstItem="WPK-AB-szD" firstAttribute="top" secondItem="8xu-p6-Aoi" secondAttribute="bottom" constant="8" id="jju-GM-efO"/>
                 <constraint firstItem="8xu-p6-Aoi" firstAttribute="top" secondItem="ZRD-BI-usv" secondAttribute="bottom" constant="8" id="kWY-yC-P7X"/>
                 <constraint firstItem="Dbe-rf-irD" firstAttribute="top" secondItem="EJk-40-2FX" secondAttribute="bottom" constant="20" id="p0L-XW-sJC"/>
                 <constraint firstAttribute="trailing" secondItem="wPP-4M-MbF" secondAttribute="trailing" id="pCf-ur-69p"/>
                 <constraint firstItem="Dbe-rf-irD" firstAttribute="leading" secondItem="caZ-6p-C4o" secondAttribute="leading" id="q3X-zV-64G"/>
                 <constraint firstItem="pRt-nc-e8v" firstAttribute="top" secondItem="caZ-6p-C4o" secondAttribute="top" constant="20" id="seQ-lb-BgC"/>
+                <constraint firstItem="Lgy-4S-Z5F" firstAttribute="top" secondItem="8xu-p6-Aoi" secondAttribute="bottom" constant="8" id="wKt-FI-k0Q"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <connections>

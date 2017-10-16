@@ -9,7 +9,7 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            scope = "0"
+            scope = "1"
             stopOnStyle = "1">
          </BreakpointContent>
       </BreakpointProxy>
@@ -36,7 +36,7 @@
                   moduleName = "Theweddingceremonylive"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Desktop/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9/Theweddingceremonylive/Theweddingceremonylive/%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C/C/logupViewController.m"
-                  timestampString = "529582322.490538"
+                  timestampString = "529824642.91786"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "431"
@@ -47,26 +47,11 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__copy_helper_block_.308"
-                  moduleName = "Theweddingceremonylive"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/apple/Desktop/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9/Theweddingceremonylive/Theweddingceremonylive/%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C/C/logupViewController.m"
-                  timestampString = "529582322.493166"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "431"
-                  endingLineNumber = "431"
-                  offsetFromSymbolStart = "51">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
                   symbolName = "__destroy_helper_block_.309"
                   moduleName = "Theweddingceremonylive"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Desktop/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9/Theweddingceremonylive/Theweddingceremonylive/%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C/C/logupViewController.m"
-                  timestampString = "529582322.49545"
+                  timestampString = "529824642.92457"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "431"
@@ -81,7 +66,7 @@
                   moduleName = "Theweddingceremonylive"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Desktop/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9/Theweddingceremonylive/Theweddingceremonylive/%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C/C/logupViewController.m"
-                  timestampString = "529582322.497698"
+                  timestampString = "529824642.92763"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "432"
@@ -214,6 +199,38 @@
             startingLineNumber = "80"
             endingLineNumber = "80"
             landmarkName = "-isyuyue"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Theweddingceremonylive/&#x9996;&#x9875;/WeddingLive/C/WeddingLiveVC.m"
+            timestampString = "529659809.219104"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "285"
+            endingLineNumber = "285"
+            landmarkName = "-tableView:didSelectRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Theweddingceremonylive/&#x9996;&#x9875;/Nvwa/C/NvWaPinDaoVC.m"
+            timestampString = "529824694.099821"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "-headerRefresh"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

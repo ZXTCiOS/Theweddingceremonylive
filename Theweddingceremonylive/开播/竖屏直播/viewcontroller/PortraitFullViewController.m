@@ -547,7 +547,7 @@
         } else if ([message.text isEqualToString:@"redbag..."]){
             // 红包消息
             NSDictionary *dic = message.remoteExt;
-            [self tanchuhongbao:dic];
+            [self tanchuhongbao:[dic objectForKey:@"data"]];
             message.text = [NSString stringWithFormat:@"%@送出了一个红包", message.from];
             [msgs addObject:message];
         } else if([message.text isEqualToString:@"lianmai..."]){
@@ -1009,7 +1009,7 @@
             NIMMessage *message = [[NIMMessage alloc] init];
             NIMSession *session = [NIMSession session:self.roomid type:NIMSessionTypeChatroom];
             message.text = @"redbag...";
-            message.remoteExt = data;
+            message.remoteExt = obj;
             [[NIMSDK sharedSDK].chatManager sendMessage:message toSession:session error:nil];
             
             [self tanchuhongbao:data];
