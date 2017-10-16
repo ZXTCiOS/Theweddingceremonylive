@@ -10,8 +10,7 @@
 #import "LieBiaoModel.h"
 #import "NvwaHeaderModel.h"
 #import "NvwaYugaoModel.h"
-
-
+#import "WeddingLiveModel.h"
 
 @interface NvwaModel : NSObject
 
@@ -23,9 +22,7 @@
 
 @property (nonatomic, strong) NSArray< LieBiaoModel *> *jmb;
 
-
-
-
+@property (nonatomic, strong) WeddingLiveDataLiveDataModel *info;
 
 
 @end

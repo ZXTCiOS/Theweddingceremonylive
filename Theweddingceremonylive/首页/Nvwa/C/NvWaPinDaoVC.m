@@ -22,6 +22,8 @@
 @property (nonatomic, strong) NSArray<LieBiaoModel *> *liebiao;
 @property (nonatomic, strong) NvwaHeaderModel *header;
 @property (nonatomic, strong) NvwaHeaderView *headerView;
+@property (nonatomic, strong) WeddingLiveDataLiveDataModel *info;
+
 @end
 
 @implementation NvWaPinDaoVC
@@ -67,24 +69,25 @@
     if (self.header) {
         [self.headerView.imgV sd_setImageWithURL:[NSURL URLWithString:self.header.nvwa_img] placeholderImage:[UIImage imageNamed:@"16bi9"]];
         self.headerView.title.text = self.header.nvwa_title;
-        NSString *zhibo = self.header.nvwa_is_zb ? @"直播中" : @"未直播";
+        NSString *zhibo = [self.header.nvwa_is_zb isEqualToString:@"!"] ? @"直播中" : @"未直播";
         self.headerView.isZhibo.text = zhibo;
         [self.headerView.control removeAllTargets];
         [self.headerView.control bk_addEventHandler:^(id sender) {
             // todo:  跳转
-            if (!self.header.nvwa_is_zb) return;
-            if ([self.header.direction isEqualToString:@"0"]) {
+            if (![self.header.nvwa_is_zb isEqualToString:@"!"]) return;
+            if ([self.info.pindao_direction isEqualToString:@"0"]) {
                 // 横屏
-                hengpingWatchVC *vc = [[hengpingWatchVC alloc] initWithChatroomID:self.header.roomid Url:self.header.url meetingname:self.header.zhubo_uid];
-                vc.zhubo_name = self.header.zhubo_name;
-                vc.zhubo_img = self.header.zhubo_img;
-                vc.weddingtype = [self.header.direction intValue];
+                hengpingWatchVC *vc = [[hengpingWatchVC alloc] initWithChatroomID:self.info.roomid Url:self.info.tuilaliu.ret.rtmpPullUrl meetingname:self.info.uid];
+                vc.zhubo_name = self.info.username;
+                vc.zhubo_img = self.info.picture;
+                vc.weddingtype = [self.info.room_yangshi intValue];
                 vc.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:vc animated:NO];
             } else {
-                PortraitFullViewController *vc = [[PortraitFullViewController alloc] initWithChatroomID:self.header.roomid Url:self.header.url meetingname:self.header.zhubo_uid];
-                vc.zhubo_name = self.header.zhubo_name;
-                vc.zhubo_img = self.header.zhubo_img;
+                PortraitFullViewController *vc = [[PortraitFullViewController alloc] initWithChatroomID:self.info.roomid Url:self.info.tuilaliu.ret.rtmpPullUrl meetingname:self.info.uid];
+                vc.zhubo_name = self.info.username;
+                vc.zhubo_img = self.info.picture;
+                vc.weddingtype = [self.info.room_yangshi intValue];
                 vc.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:vc animated:NO];
             }
@@ -122,6 +125,7 @@ static NSInteger page = 1;
             [self.datalist addObjectsFromArray:model.yugao];
             self.liebiao = model.jmb;
             self.header = model.nvwa;
+            self.info = model.info;
             page = 1;
             NvWaTuiJianCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
             [cell.tableV reloadData];
