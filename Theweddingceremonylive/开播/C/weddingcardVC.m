@@ -363,11 +363,6 @@
     return _lab7;
 }
 
-
-
-
-
-
 #pragma mark - 实现方法
 
 -(void)rightAction
